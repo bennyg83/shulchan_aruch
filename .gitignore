@@ -10,6 +10,9 @@ Thumbs.db
 *.log
 .cursor/
 
+# Root docx with quoted Hebrew names break Linux CI checkout
+/*.docx
+
 # Env / secrets
 .env
 .env.*

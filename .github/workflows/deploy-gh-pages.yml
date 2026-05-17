@@ -4,10 +4,6 @@ name: Deploy web reader to GitHub Pages
 on:
   push:
     branches: [main, master]
-    paths:
-      - ".github/workflows/deploy-gh-pages.yml"
-      - "newtry/OC_Mobile/oc-web-reader/**"
-      - "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/**"
   workflow_dispatch:
 
 permissions:
@@ -24,10 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Checkout (sparse — repo is large)
+      - name: Checkout (partial clone + sparse)
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          filter: blob:none
           sparse-checkout: |
             .github
             newtry/OC_Mobile/oc-web-reader
