@@ -1,0 +1,41 @@
+{
+  "name": "oc318-translation-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build DOCX files for Orach Chayyim Siman 318 bilingual translation project.",
+  "main": "scripts/build-oc318.js",
+  "scripts": {
+    "build": "node scripts/build-oc318.js --input data/oc318.full.json --output output",
+    "build:v3": "npm run fix:vocab && node scripts/build-oc318.js --input data/oc318.full.json --output output --suffix _V3 --complete-only",
+    "build:sample": "node scripts/build-oc318.js --input data/oc318.sample.json --output output",
+    "build:full:auto": "node scripts/build-oc318-from-source.js",
+    "build:anthropic": "node scripts/build-oc318-anthropic.js",
+    "fix:vocab": "node scripts/apply-vocab-corrections.js",
+    "normalize:yad-soledet": "node scripts/normalize-yad-soledet-english.js --input data/oc318.full.json",
+    "merge:oc318-corrections": "node scripts/merge-oc318-paragraph-corrections.js",
+    "apply:oc318-corrections": "node scripts/apply-oc318-line-corrections.js --input data/oc318.full.json --corrections data/oc318-paragraph-corrections.json --offset 2",
+    "build:release": "npm run fix:vocab && npm run build",
+    "review:flags": "node scripts/scan-oc318-failures.js --input data/oc318.full.json",
+    "scan:failures": "node scripts/scan-oc318-failures.js --input data/oc318.full.json",
+    "apply:manual-v2": "node scripts/apply-oc318-manual-v2.js",
+    "apply:manual-v3": "node scripts/apply-oc318-manual-v3.js",
+    "apply:soft-marker-v4": "node scripts/apply-oc318-soft-marker-v4.js",
+    "apply:final-human-cleanup": "node scripts/apply-oc318-final-human-cleanup.js",
+    "validate:oc318": "node scripts/scan-oc318-failures.js --input data/oc318.full.json --fail-on-retranslate",
+    "validate:oc318:strict": "node scripts/scan-oc318-failures.js --input data/oc318.full.json --fail-on-any-marker",
+    "validate:oc318:seif1": "node scripts/scan-oc318-failures.js --input data/oc318.full.json --seif 1 --fail-on-any-marker",
+    "retranslate:oc318": "node scripts/retranslate-oc318-flagged.js --input data/oc318.full.json",
+    "retranslate:oc318:corpus": "node scripts/retranslate-oc318-flagged.js --input data/oc318.full.json",
+    "retranslate:oc318:with-review": "node scripts/retranslate-oc318-flagged.js --input data/oc318.full.json --include-review",
+    "retranslate:oc318:seif1": "node scripts/retranslate-oc318-flagged.js --input data/oc318.full.json --seif 1",
+    "build:oc318:validate": "npm run fix:vocab && npm run build && npm run validate:oc318",
+    "build:v3:validate": "npm run fix:vocab && npm run build:v3 && npm run validate:oc318",
+    "build:v3:validate:strict": "npm run fix:vocab && npm run build:v3 && npm run validate:oc318:strict",
+    "oc318:gate-final": "npm run validate:oc318:strict",
+    "build:readable": "node scripts/build-oc318.js --input data/oc318.full.json --output output --complete-only && node scripts/build-oc318-txt.js --input data/oc318.full.json --output output/OC318_Readable.txt"
+  },
+  "dependencies": {
+    "docx": "^9.5.1",
+    "mammoth": "^1.12.0"
+  }
+}

@@ -1,0 +1,50 @@
+/** Mishnah Berurah OC 318 — seifim 5–10 */
+export default {
+  "5": {
+    מ: `If they then cooked it in liquid — meaning placed in the pot while cooking with gravy; if put in cold liquids, already there is bishul for the liquids.`,
+    מא: `Because of bishul: even though there is no bishul achar bishul for dry, there is bishul achar tzliyah/afiyah even still hot from roasting [acharonim]; likewise tzliyah achar bishul — therefore forbidden to put something cooked without gravy near fire [Magen Avraham]; not only at fire — anywhere roasting could occur from oven heat; beware returning baked meat without gravy into oven in yad soledet spot; even on intervening pot; but all agree no tzliyah achar tzliyah — roasted may go to fire even cooled, provided not too close lest stir coals; not on oven floor without intervening empty vessel [siman 253 sk 5]; same for baking.`,
+    מב: `Forbidden to put bread… another rule: some hold soft things cook even kli sheini — we are not expert; therefore added bread (soft) even kli sheini; likewise other items — strict kli sheini; see below sk 9 spices.`,
+    מג: `They permit kli sheini — hold kli sheini never cooks anything.`,
+    מד: `Even kli rishon — hold no bishul achar afiyah/tzliyah; vice versa.`,
+    מה: `People are careful: not to put bread in “tsholent” gravy in kli sheini bowl; all the more not to pour kli rishon; those who cut onions into soup in bowl — wait until soup not yad soledet; bread is lenient because baked; onions need care — we don’t know “soft”; all the more onions into thick stew — some hold solid gush in kli sheini is like kli rishon. Even if soup cooled — beware pouring more soup from pot if yad soledet — iruy Torah concern sk 10. “Hooves soup” — cutting bread and pouring kli rishon gravy not good; even pouring first to make kli sheini — Rema says beware; wait until not yad soledet or ladle so bowl is kli shlishi; onions/shallots into hot liquid — extreme care.`,
+    מו: `Lechatchila… bedieved even kli rishon do not forbid — rely on lenient opinions.`,
+    מז: `Even kli sheini — Pri Megadim sk 35 leans lenient kli shlishi.`,
+    מח: `Anything yad soledet: Chayei Adam — where hand is burnt, all agree [effective] cooking even kli sheini.`,
+  },
+  "6": {
+    מט: `Something hot yad soledet: Mechaber — if cooled somewhat until no yad soledet there is still bishul; per Rema Hagah sk 16 if custom permits until not fully cooled — then we don’t require yad soledet.`,
+    נ: `In it: even not fully cooked — we said there is bishul while “boiling” because here we don’t reach full bishul, only retaining heat [Taz]; many acharonim disagree — only if fully cooked; Maamar Mordekhai: once fully cooked even mitztamek ve-yafeh lo by this standing permitted.`,
+    נא: `To leave covered… insulation in cloths from erev — teaches permitted to put vessel under cloths that covered the pot; hatmana generally forbidden even non-heat — here primary hatmana was erev for the pot — permitted; if pot uncovered, may cover incidentally also vessel with hot food.`,
+    נב: `Mouth in dough: so steam not escape; not muktzeh dough e.g. for chickens. Magen Avraham: only dough not subject to miruah; wax/tar/clay — miruah issur (siman 314 sk 11); Taz says dough also “miruah” but here not miruah… Magen Avraham forbids wax/clay; per Taz permitted in our case.`,
+    נג: `But one may not leave… stew cooled — bishul achar bishul — forbidden even without hatmana; liquid; dry fully cooled — permitted [below sk 8].`,
+    נד: `Upper [vessel] could heat: even if not intending to leave long — fear he will forget [below sk 14].`,
+  },
+  "7": {
+    נה: `Even bottom vessel… because intervening pot gives recognition — doesn’t look like cooking; when vessel fully cooked.`,
+    נו: `On the fire… intervening pot like garuf kirah — forbidden lechatchila; halakhah like first opinion [above].`,
+  },
+  "8": {
+    נז: `Placing something cold: this sk and next one same topic — two versions; there liquid if cooled has bishul; here “vessel with hot food”; here dry even cooled no bishul [above].`,
+    נח: `Everything permitted to leave… per sk 4 no bishul — dry even cooled — permitted to soak kli rishon; likewise place opposite bonfire somewhat far — no chitzuy concern [sk 16].`,
+    נט: `Kettle on fire: even garuf kirah only “return” not initial placement [siman 253 sk 5 Hagah]; here kettle intervenes — some hold intervening kettle better than garuf — there pot on kirah looks cooking; here on pot not usual cooking — permitted even lechatchila.`,
+    ס: `First view seems primary: Arukh HaShulchan and Gra; applies to next sk too.`,
+    סא: `Gravy: since gravy, Mechaber held if cooled bishul achar bishul — forbidden on hot kettle even off fire [sk 6].`,
+    סב: `Mitztamek ve-yafeh lo: language from TY; his view mitztamek ve-yafeh lo has bishul achar bishul; halakhah we wrote — poskim don’t split; Mechaber may agree; uses TY wording.`,
+  },
+  "9": {
+    סג: `As long as… even if boiling stopped.`,
+    סד: `Yad soledet: if no yad soledet even kli rishon doesn’t “cook.” If not removed from fire — forbidden spices even salt; even intent to remove quickly lest forget [below sk 14].`,
+    סה: `Into it spices: kli sheini permitted spices even yad soledet — doesn’t cook there; solid gush yad soledet in kli sheini — beware: some hold like kli rishon.`,
+    סו: `Once removed: on fire even “ox meat” cooks.`,
+    סז: `Ox meat: even if softens kli sheini — not its “cooking” — same cold.`,
+    סח: `Salted meat: salted and rinsed properly.`,
+    סט: `Ox [meat]: meat doesn’t cook but moisture inside cooks [Tur].`,
+    ע: `Without salting… don’t think issur is salt softening — even unsalted forbidden because of moisture; Rema said salted because unsalted would raise blood issur in hot kli without Shabbat issur.`,
+    עא: `Some forbid: Gemara two versions — lenient: salt hard like ox meat — permitted kli rishon off fire; strict: salt cooks kli sheini; most like lenient; machmir blessed. Halakhic salt from mining; salt made by boiling water — no bishul achar bishul for all [sk 16; MA SA]. “Tsuklar” same leniency kli rishon off fire; some doubt; good lechatchila avoid kli rishon.`,
+    עב: `Even if… on fire — forbidden per Shulchan Aruch.`,
+    עג: `Salt batel: though usually flavor-agent not batel — here both contributed; salted erev and new salt not enough for taste alone — if new salt enough for taste forbidden until motza’ei if in pot on fire; mined salt vs boiled salt food — see above.`,
+  },
+  "10": {
+    עד: `From kli rishon: though spices don’t cook kli sheini, pouring from kli rishon is iruy — cooks kedei kelipa; bedieved forbidden if deliberately poured while stream continuous.`,
+  },
+};

@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+**/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.cursor/
+
+# Env / secrets
+.env
+.env.*
+libretranslate.env
+
+# Optional: keep local-only caches (do not ignore public/corpus — required for Pages build)
+newtry/OC_001/pipeline/work/
+newtry/OC_001/checklist-output/

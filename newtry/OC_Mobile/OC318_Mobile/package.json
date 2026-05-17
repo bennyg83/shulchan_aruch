@@ -1,0 +1,11 @@
+{
+  "name": "oc318-mobile-corpus",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Package OC 318 very-full TXT into reader corpus JSON (Torah Corpus Reader spec)",
+  "scripts": {
+    "package": "node pipeline/packager/package-oc318.mjs",
+    "package:dry": "node pipeline/packager/package-oc318.mjs --dry-run"
+  }
+}

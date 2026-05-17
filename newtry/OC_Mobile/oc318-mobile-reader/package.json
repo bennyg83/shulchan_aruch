@@ -1,0 +1,23 @@
+{
+  "name": "oc318-mobile-reader",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sync:oc1-siman1": "node \"../../../Sefaria Pulls/shulchan-arukh/Orach_Chayim/tools/sync-translated-siman-to-public.mjs\" --siman 1 --from 1 --to 9 --manifest-template \"../../../Sefaria Pulls/shulchan-arukh/Orach_Chayim/simanim/001/seif-001/translated-sources-manifest.json\" --out \"public/corpus/oc1/siman1\"",
+    "prepare:oc1-siman2-20": "node \"../../../Sefaria Pulls/shulchan-arukh/Orach_Chayim/tools/prepare-mobile-oc-simanim.mjs\" --from 2 --to 20",
+    "publish:oc1-siman": "node \"../../../Sefaria Pulls/shulchan-arukh/Orach_Chayim/tools/publish-oc-siman.mjs\"",
+    "validate:corpus-empty": "node scripts/validate-corpus-empty-rules.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

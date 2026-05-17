@@ -1,0 +1,20 @@
+{
+  "name": "newtryoutput",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:interleaved": "node build_oc318_interleaved_from_html.mjs",
+    "build:complete-flat": "node build_oc318_complete.mjs",
+    "build:full-complete": "node build_oc318_full_complete.mjs",
+    "export:translation-stubs": "node export_oc318_translation_stubs.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cheerio": "^1.2.0"
+  }
+}

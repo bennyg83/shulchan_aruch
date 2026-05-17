@@ -1,0 +1,65 @@
+/** Mishnah Berurah OC 318 — seifim 11–19 */
+export default {
+  "11": {
+    עה: `Full of hot water: even Teveria water forbidden to put cold into bath fed by spring — take with kli sheini then pour, even little cold into much hot [below sk 12].`,
+    עו: `Even kli sheini: bathing water usually very hot — cold mixed in “cooks” [Tur]; “heats a lot.”`,
+    עז: `Don’t give cold water: acharonim — little cold that could cook there forbidden; much cold until tepid — permitted [like end sk 12]. If bathtub kli rishon — Ran / Yerucham: even much cold may be problem.`,
+    עח: `But he may pour… even kli rishon may pour into much cold water — cold and hot mix and heat nullified; unlike sk 10 solid. Hot meat chunk into cold gravy — forbidden if not mixed — kedei kelipa [Magen Avraham].`,
+    עט: `Into another tub: chumra; all the more other cold vessel.`,
+  },
+  "12": {
+    פ: `Much cold water: little that could become yas — forbidden; much cold permitted even if could cause “weld” repair of metal vessel — not pesik reisha; if intends repair some say Torah, some derabanan.`,
+    פא: `Into cold or cold into… in both, even little cold after mix if still yas in kli sheini — permitted — kli sheini doesn’t cook [sk 9].`,
+    פב: `Not in kli rishon: if hot in kli rishon forbidden to pour cold in or out into little cold that will cook.`,
+    פג: `If [cold] much: cold into hot or hot into much cold — permitted. Chayei Adam: cold into hot — one big pour; little by little forbidden — immediate cooking.`,
+    פד: `Only to remove cold: even lukewarm ok if not yas.`,
+    פה: `Not on fire: same near fire where could cook — lest forget [sk 14].`,
+  },
+  "13": {
+    פו: `Pitcher of water: even water without vessel may mix kli sheini [sk 12]; brought via vessel for end — kli rishon even with interrupting vessel forbidden.`,
+    פז: `Kli sheini: all the more if poured from kli rishon into this cup; permitted even yas; if scoop with empty [vessel] from kli rishon some say like kli rishon; if holds empty in pot until hot — kli rishon [acharonim].`,
+  },
+  "14": {
+    פח: `In a way it cannot… even long time won’t get that hot.`,
+    פט: `Where infant belly… we can’t measure by hand — people differ sensitivity.`,
+    צ: `If it can… fear he will adjust/stir.`,
+    צא: `So fruit: forbidden in heat to remove cold lest cook; even eaten raw if improves — bishul; may place far from fire; even inedible raw — far is ok. May place alunith / earthenware near fire to warm food not yet cooled [davar she-eino mitkaven; will watch before melting].`,
+  },
+  "15": {
+    צב: `Already cooked: no bishul concern; on actual fire derabanan maris ayin; opposite bonfire people don’t usually cook — no derabanan [Rashba]; Rosh: need small distance; some acharonim: coals inside oven like siman 253 even not on flame; if on intervening vessel lenient [253 sk 3].`,
+    צג: `Fully and dry: if not fully cooked even dry hot still bishul; if liquid even “fully” if cooled can have bishul achar bishul per Mechaber sk 4.`,
+    צד: `Opposite bonfire: need distance from coals so no stir concern [Rosh]. Acharonim: free-standing bonfire vs coals in oven — stricter in oven; on intervening vessel lenient.`,
+    צה: `Even if already cooled: Mechaber’s words — only dry when cooled.`,
+    צו: `Boiling: i.e. yas.`,
+    צז: `Some lenient [positions] argue on the Mechaber: they hold the distinction is only when [food] is dry; but for liquid that cooled there is bishul achar bishul. Another opinion cited here holds there is never bishul achar bishul in any case, even fully cold.`,
+    צח: `On the fire… if one places it actually on the fire — even if there is no Torah prohibition per that view, still rabbinically forbidden because it looks like cooking and lest one stir the coals.`,
+    צט: `On fire… if not… per Mechaber once cooled from heat no yas no bishul; custom lenient if not fully cooled [rely on lenient].`,
+  },
+  "16": {
+    ק: `“Inpandah” (pasteida): double crust with fat — permitted to warm because dry; even if fat remelts still “dry” if not yet melted when placed [sk 16].`,
+    קא: `Near fire: with intervening vessel; else forbidden [253 sk 3,5].`,
+    קב: `Even if… unlike crushing ice/hail (siman 320 sk 9) nolad — here passive melting; like gemara may put in wine to cool; even if dissolves kidei bamakom.`,
+    קג: `All the more pot… fat mixes into gravy not visible — like “into cup” invisibly melting hail.`,
+    קד: `Permitted: for nolad not a problem; bishul — liquid dish worse: only where no yas [sk 16].`,
+    קה: `Some strict: nolad — fat visible when melted; even in sun. But if not so much fat that it flows out and shows; or far from heat; or removed surface fat — all permit; small oozing from meat — permitted. Hot water / drink crust on top: all permit off yas — dissolves into liquid below invisibly [acharonim].`,
+    קו: `To be strict: before oven stoked may place — some permit after; not in public [Magen Avraham, SA].`,
+    קז: `In need may rely: then even lechatchila; bedieved never forbid.`,
+  },
+  "17": {
+    קח: `Forbidden to put cold… per Rema Hagah sk 16 if cooked and not fully cooled — lenient.`,
+    קט: `A lot: fear he will forget and leave until cooked.`,
+    קי: `Like rule of leaving… above sk 14: even to remove cold forbidden if could reach bishul.`,
+    קיא: `If not… miḥam on fire see sk 8.`,
+    קיב: `Permitted: even cold never cooked before.`,
+  },
+  "18": {
+    קיג: `Removed boiling: chumra even off fire if not fully cooked; if fully cooked even on fire ladle out — Beit Yosef; Arukh HaShulchan stricter.`,
+    קיד: `If found stirring… actual stirring worse; chatat if Shulchan Aruch holds it helps cooking [sk 4].`,
+    קטו: `Fully cooked: may stir — no bishul achar bishul [sk 4].`,
+    קטז: `Forbidden to stir: dyeing — constant stir for even absorption [dyeing melacha].`,
+    קיז: `Even in pot… turn pot to plate; don’t ladle; acharonim not strict; bedieved primary: fully cooked may stir; only actual stirring “to be machmir”; ladle from pot not on fire for fully cooked — no need to be strict.`,
+  },
+  "19": {
+    קיח: `“Opposite the bonfire” — not only: also moving skewer with roast from fire, still yas, forbidden to smear fat on it; even then on plate kli sheini — some poskim hold solid yas gush may “cook” even kli sheini — bedieved rely kli sheini never cooks. Oil / “live” un-cooked fat different from congealed cooked fat — may smear at fire; like sk 16 dry cooked has no bishul; nolad not an issue if absorbed in meat; don’t crush by hand — place bit by bit melting on its own. Same goose fat on grains/legumes on hot bowl yas if added slowly. Tosefta: several supplied fire, wood, pot, water, meat, spices — last stirs, all liable: fire — mab’ir; wood — mab’ir; others bishul; stirrer too. Variants in girsa; Maggid Mishneh; Beit Yosef; Gra on Tosefta. “Not liable if no bishul chatat” — Kitzur; Beit Yosef in Kalbo: on fire stir even fully cooked. Our “samovar” set up erev: do not take water Shabbat if not garuf [Tosafot Yerushalim; fear adding water / repair]. Care if sat to drink before sunset and candle lit mid-meal — do not continue drinking from that pot [per that concern].`,
+  },
+};

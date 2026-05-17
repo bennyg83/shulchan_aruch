@@ -1,0 +1,23 @@
+export default [
+  `Shabbat 36.`,
+  `R. Hoshaya and Rabbah bar bar Chanah — per Rif; also the She’iltot, R. Yehudah bar Tzlatloni, and Rambam (Hil. Shabbat ch. 3).`,
+  `There (Shabbat), 14.`,
+  `There (Shabbat), 37.`,
+  `There (Shabbat).`,
+  `There (Shabbat), 38.`,
+  `From the plain implication of the Gemara there — according to all poskim.`,
+  `There (Shabbat).`,
+  `There — according to the Rif and Rambam’s interpretation.`,
+  `According to Rashi and R. Yona’s interpretation.`,
+  `Tur and Rosh there; Ran in the name of the Geonim; Maggid Mishneh on Rambam Hil. Shabbat ch. 3; Hagahot there; and Sefer HaMitzvot.`,
+  `There (Shabbat), 36.`,
+  `There (Shabbat), 38.`,
+  `Tur, and R. Yehudah in the Hagahah in the name of Rabbenu Yona.`,
+  `There — as the first version of Chizkiyah in the name of Abaye.`,
+  `There (Shabbat), 37.`,
+  `Tur, Rambam (Hil. Shabbat ch. 3), and the other poskim.`,
+  `Hagahot Mordechai there.`,
+  `Nimukei Yosef, beginning of ch. 2 of Bava Batra, in the name of R. Yona.`,
+  `Ran, ch. 3 of Shabbat, in the name of the Rashba.`,
+];
+

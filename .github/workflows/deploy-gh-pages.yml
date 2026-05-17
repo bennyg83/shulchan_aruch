@@ -1,0 +1,54 @@
+# Deploy Orach Chayim web reader → https://bennyg83.github.io/shulchan_aruch/
+name: Deploy web reader to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: newtry/OC_Mobile/oc-web-reader/package-lock.json
+
+      - name: Install dependencies
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        run: npm ci
+
+      - name: Build (GitHub Pages base path)
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        env:
+          VITE_BASE: /shulchan_aruch/
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: newtry/OC_Mobile/oc-web-reader/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
