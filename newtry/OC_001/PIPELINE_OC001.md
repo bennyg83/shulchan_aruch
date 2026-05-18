@@ -119,7 +119,7 @@ In **cmd.exe** (not PowerShell): `set LIBRE_URL=http://localhost:5000` — do no
 
 | Command | Purpose |
 |--------|---------|
-| `npm run translate:placeholders:libre` | MT via local Libre only (`--ms 800` between blocks) |
+| `npm run translate:placeholders:libre` | MT via local Libre (`--ms 100`, `--workers 3`, `--chunk-len 400`) |
 | `npm run translate:placeholders:auto` | Tries chain; includes `libre` when `LIBRE_URL` is set |
 | `npm run libre:down` | Stop container (models kept in Docker volume) |
 
@@ -127,7 +127,7 @@ Example (one siman, dry run first):
 
 ```bash
 node tools/translate-oc001-pending-mymemory.mjs --backend libre --root output/siman_308 --dry-run
-node tools/translate-oc001-pending-mymemory.mjs --backend libre --root output/siman_308 --ms 800
+node tools/translate-oc001-pending-mymemory.mjs --backend libre --root output/siman_308 --ms 100 --workers 3 --chunk-len 400
 ```
 
 Copy **`libretranslate.env.example`** → **`libretranslate.env`** for reference (not loaded automatically). See **`docker/libretranslate/docker-compose.yml`**.

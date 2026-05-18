@@ -23,9 +23,9 @@
     "libre:down": "docker compose -f docker/libretranslate/docker-compose.yml down",
     "libre:logs": "docker compose -f docker/libretranslate/docker-compose.yml logs -f",
     "libre:test": "node tools/test-libretranslate.mjs",
-    "translate:placeholders:google": "node tools/translate-oc001-pending-mymemory.mjs --backend google --root output --ms 2500",
-    "translate:placeholders:libre": "node tools/translate-oc001-pending-mymemory.mjs --backend libre --root output --ms 800",
-    "translate:placeholders:auto": "node tools/translate-oc001-pending-mymemory.mjs --backend auto --root output --ms 3000"
+    "translate:placeholders:google": "node tools/translate-oc001-pending-mymemory.mjs --backend google --root output --ms 2500 --workers 1",
+    "translate:placeholders:libre": "node tools/translate-oc001-pending-mymemory.mjs --backend libre --root output --ms 100 --workers 3 --chunk-len 400",
+    "translate:placeholders:auto": "node tools/translate-oc001-pending-mymemory.mjs --backend auto --root output --ms 3000 --workers 1"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

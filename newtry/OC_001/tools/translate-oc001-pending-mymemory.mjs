@@ -8,12 +8,13 @@
  *   libre      — LibreTranslate (set LIBRE_URL; LIBRE_API_KEY if required)
  *   auto       — try --chain order; switch backend after repeated failures
  *
- *   node tools/translate-oc001-pending-mymemory.mjs --root output/siman_308 --backend auto
+ *   node tools/translate-oc001-pending-mymemory.mjs --root output/siman_308 --backend libre --ms 100 --workers 3 --chunk-len 400
  *   node tools/translate-oc001-pending-mymemory.mjs --root output --backend google --ms 4000
  *   node tools/translate-oc001-pending-mymemory.mjs --backend auto --chain google,mymemory,lingva
  *
  * Env:
  *   OC001_MT_CHAIN=google,mymemory,lingva,libre
+ *   OC001_MT_MS=100  OC001_MT_WORKERS=3  OC001_MT_CHUNK_LEN=400  (libre defaults)
  *   LIBRE_URL=https://libretranslate.com
  *   LIBRE_API_KEY=...   (if your instance requires it)
  *
@@ -56,14 +57,44 @@ function defaultChain() {
   return chain;
 }
 
+function defaultMs(backend) {
+  const fromEnv = Number(process.env.OC001_MT_MS);
+  if (Number.isFinite(fromEnv) && fromEnv >= 0) return fromEnv;
+  if (backend === "libre") return 100;
+  if (backend === "lingva") return 320;
+  return 2500;
+}
+
+function defaultWorkers(backend) {
+  const fromEnv = Number(process.env.OC001_MT_WORKERS);
+  if (Number.isFinite(fromEnv) && fromEnv >= 1) return Math.min(12, Math.floor(fromEnv));
+  if (backend === "libre") return 3;
+  return 1;
+}
+
+function defaultChunkLen(backend) {
+  const fromEnv = Number(process.env.OC001_MT_CHUNK_LEN);
+  if (Number.isFinite(fromEnv) && fromEnv >= 80) return Math.min(2000, Math.floor(fromEnv));
+  if (backend === "libre") return 400;
+  return 120;
+}
+
+function minMs(backend) {
+  return backend === "libre" ? 0 : 80;
+}
+
 function parseArgs(argv) {
   let rootRel = "";
   let ms = null;
+  let workers = null;
+  let chunkLen = null;
   let backend = "auto";
   let chain = null;
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === "--root" && argv[i + 1]) rootRel = argv[++i];
-    else if (argv[i] === "--ms" && argv[i + 1]) ms = Math.max(80, Number(argv[++i]) || 320);
+    else if (argv[i] === "--ms" && argv[i + 1]) ms = Number(argv[++i]);
+    else if (argv[i] === "--workers" && argv[i + 1]) workers = Number(argv[++i]);
+    else if (argv[i] === "--chunk-len" && argv[i + 1]) chunkLen = Number(argv[++i]);
     else if (argv[i] === "--backend" && argv[i + 1]) {
       backend = argv[++i].toLowerCase();
     } else if (argv[i] === "--chain" && argv[i + 1]) {
@@ -82,8 +113,14 @@ function parseArgs(argv) {
   if (backend === "auto" && !resolvedChain.length) {
     throw new Error("auto backend needs a non-empty --chain or OC001_MT_CHAIN");
   }
-  if (ms == null) ms = backend === "lingva" ? 320 : 2500;
-  return { root, ms, backend, chain: resolvedChain };
+  const rateBackend = backend === "auto" ? resolvedChain[resolvedChain.length - 1] || "google" : backend;
+  if (ms == null) ms = defaultMs(rateBackend);
+  ms = Math.max(minMs(rateBackend), ms);
+  if (workers == null) workers = defaultWorkers(rateBackend);
+  workers = Math.max(1, Math.min(12, Math.floor(workers) || 1));
+  if (chunkLen == null) chunkLen = defaultChunkLen(rateBackend);
+  chunkLen = Math.max(80, Math.min(2000, Math.floor(chunkLen) || 120));
+  return { root, ms, workers, chunkLen, backend, chain: resolvedChain };
 }
 
 function walkTxt(dir, acc = []) {
@@ -180,6 +217,22 @@ function escapeHtml(s) {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** Process items with a fixed concurrency pool (order of completion varies). */
+async function runPool(items, concurrency, fn) {
+  if (!items.length) return;
+  let next = 0;
+  const n = Math.min(concurrency, items.length);
+  await Promise.all(
+    Array.from({ length: n }, async () => {
+      while (true) {
+        const i = next++;
+        if (i >= items.length) break;
+        await fn(items[i], i);
+      }
+    })
+  );
+}
 
 const backendStats = Object.fromEntries(ALL_BACKENDS.map((b) => [b, { ok: 0, fail: 0 }]));
 
@@ -318,26 +371,24 @@ async function translatePiece(piece, { mode, chain, maxAttemptsSingle, maxAttemp
   return null;
 }
 
-async function translatePlain(text, msBetween, opts) {
-  const pieces = splitForTranslation(text, 120);
-  const out = [];
-  for (const piece of pieces) {
-    if (piece === "") {
-      out.push("");
-      continue;
-    }
+async function translatePlain(text, msBetween, chunkLen, opts) {
+  const pieces = splitForTranslation(text, chunkLen);
+  const out = new Array(pieces.length).fill("");
+  for (let i = 0; i < pieces.length; i++) {
+    const piece = pieces[i];
+    if (piece === "") continue;
     const tr = await translatePiece(piece, opts);
     if (!tr) {
       console.warn("translate gave up on chunk:", piece.slice(0, 50));
       return null;
     }
-    out.push(tr.trim());
-    await sleep(msBetween);
+    out[i] = tr.trim();
+    if (msBetween > 0) await sleep(msBetween);
   }
   return halakhicCleanup(out.join("\n").trim());
 }
 
-async function processFile(fp, msBetween, opts) {
+async function processFile(fp, msBetween, chunkLen, opts) {
   const raw = fs.readFileSync(fp, "utf8");
   const blocks = parseBlocksInFile(raw);
   let changed = 0;
@@ -353,14 +404,14 @@ async function processFile(fp, msBetween, opts) {
       out.push(b);
       continue;
     }
-    const translated = await translatePlain(plain, msBetween, opts);
+    const translated = await translatePlain(plain, msBetween, chunkLen, opts);
     if (!translated) {
       out.push(b);
       continue;
     }
     out.push({ ...b, en: escapeHtml(translated) });
     changed++;
-    console.log(path.basename(path.dirname(fp)), `block +1 (${changed})`);
+    console.log(path.basename(fp), path.basename(path.dirname(fp)), `block +1 (${changed})`);
   }
   if (changed) {
     fs.writeFileSync(fp, out.map((b) => serializeBlock(b)).join("\n\n") + "\n", "utf8");
@@ -368,7 +419,7 @@ async function processFile(fp, msBetween, opts) {
   return changed;
 }
 
-const { root, ms, backend, chain } = parseArgs(process.argv.slice(2));
+const { root, ms, workers, chunkLen, backend, chain } = parseArgs(process.argv.slice(2));
 const translateOpts = {
   mode: backend,
   chain,
@@ -387,13 +438,16 @@ if (backend === "libre" || chain.includes("libre")) {
   }
 }
 console.log("ms between chunks:", ms);
+console.log("chunk length:", chunkLen);
+console.log("file workers:", workers);
 console.log("Scan root:", root);
 
 const files = walkTxt(root).sort();
-let total = 0;
-for (const fp of files) {
-  total += await processFile(fp, ms, translateOpts);
-}
+const totals = [];
+await runPool(files, workers, async (fp) => {
+  totals.push(await processFile(fp, ms, chunkLen, translateOpts));
+});
+const total = totals.reduce((a, b) => a + b, 0);
 
 console.log("Done. Blocks translated:", total);
 console.log("Backend usage (chunks):", JSON.stringify(backendStats));
