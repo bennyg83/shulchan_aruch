@@ -137,7 +137,7 @@ function mergeEnglishHtml(blocksForSeif) {
     .map((b) => String(b.en || "").trim())
     .filter((en) => en && en !== EN_PENDING_DEFAULT);
   if (!parts.length) return "";
-  return parts.join("<br>\n<br>\n") + "\n";
+  return parts.join("<br>\n") + "\n";
 }
 
 function importSlugForSeif({ oc001OutRoot, siman, seif, sefariaSlug, oc001Slug }) {

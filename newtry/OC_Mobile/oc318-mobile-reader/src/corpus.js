@@ -78,10 +78,14 @@ export function noteVisibleForLanguages(showHebrew, showEnglish, note) {
   return hasEn;
 }
 
+function normalizeBrRuns(html) {
+  return String(html ?? "").replace(/(?:<br\s*\/?>\s*){2,}/gi, "<br>");
+}
+
 /** Split exported commentary HTML into hook-sized chunks (segments joined with `<br>` in the bundle). */
 function splitHtmlByBrSegments(html) {
   if (!html || typeof html !== "string") return [];
-  const parts = html
+  const parts = normalizeBrRuns(html)
     .split(/(?:<br\s*\/?>)(?:\s*\n\s*)?/gi)
     .map((s) => s.trim())
     .filter((s) => s.length > 0);

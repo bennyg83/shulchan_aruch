@@ -103,7 +103,35 @@ function hebrewLetterCount(piece) {
 }
 
 function isSimanHeadingPiece(piece) {
-  return /<b>דין\s+/u.test(piece) && /סעיפים/u.test(piece);
+  return /<b>דינ[\u0590-\u05FF]*\s+/u.test(piece) && /סעיפים/u.test(piece);
+}
+
+/** OC001 mechaber titles use <b>...</b>; weave as English <b> without escapeHtml doubling. */
+function englishHeadingFromPiece(englishPlain, hebrewPiece) {
+  const s = String(englishPlain).trim().replace(/\{Rama:[\s\S]*/i, "").trim();
+  const m = s.match(/<b>([\s\S]*?)<\/b>/i);
+  const br = /<br\s*\/?>/i.test(hebrewPiece) ? "<br>" : "";
+  if (m) return `<b>${m[1].trim()}</b>${br}`;
+  const plain = s.replace(/<[^>]+>/g, "").trim();
+  const head = plain.split(/\s+(?=They |One |An )/)[0] || plain;
+  return head ? `<b>${escapeHtml(head)}</b>${br}` : hebrewPiece;
+}
+
+/** Body weave: plain text only (structural HTML in OC001 EN must not be double-escaped). */
+function englishPlainForWeave(english) {
+  return String(english).replace(/<[^>]+>/g, "").trim();
+}
+
+/** English after the siman <b>title</b> — title is woven separately. */
+function englishBodyForWeave(englishPlain) {
+  const s = String(englishPlain).trim().replace(/\{Rama:[\s\S]*/i, "").trim();
+  const m = s.match(/<b>[\s\S]*?<\/b>/i);
+  if (m) return s.slice(m.index + m[0].length).trim();
+  const plain = s.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const intro = plain.match(/^(.+?Containing\s+\d+\s+S'?ifim:)\s*/i);
+  if (intro) return plain.slice(intro[0].length).trim();
+  const head = plain.split(/\s+(?=They |One |An |It is )/)[0] || "";
+  return plain.slice(head.length).trim() || plain;
 }
 
 function splitMainAndRamaEnglish(en) {
@@ -177,12 +205,13 @@ function weaveProportional(hebrewHtml, englishPlain) {
   const pieces = hebrewHtml.split(HOOK_SPLIT);
   const weights = pieces.map(gapWeight);
   const engSlices = splitEnglishByWeights(
-    englishPlain,
+    englishBodyForWeave(englishPlain),
     weights.map((w) => (w < 0 ? 0 : w))
   );
   return pieces
     .map((p, idx) => {
       if (/^<i\b[^>]*><\/i>$/i.test(p)) return p;
+      if (isSimanHeadingPiece(p)) return englishHeadingFromPiece(englishPlain, p);
       const gw = weights[idx] < 0 ? 0 : weights[idx];
       if (gw === 0) return p;
       return replaceHebrewSpanWithEnglish(p, engSlices[idx] ?? "");
@@ -192,7 +221,7 @@ function weaveProportional(hebrewHtml, englishPlain) {
 
 /** Replace the contiguous span from first to last Hebrew character (outside HTML tags) with English. */
 function replaceHebrewSpanWithEnglish(piece, english) {
-  const esc = escapeHtml(english);
+  const esc = escapeHtml(englishPlainForWeave(english));
   let inTag = false;
   let first = -1;
   let last = -1;
@@ -223,13 +252,25 @@ function normalizeWovenHtml(s) {
     .replace(/  +/g, " ");
 }
 
+/** Remove Hebrew letters left in text gaps (attributes like data-label="א" are untouched). */
+function stripRemainingHebrewText(html) {
+  return String(html)
+    .split(/(<[^>]+>)/g)
+    .map((part) => (part.startsWith("<") ? part : part.replace(/\p{Script=Hebrew}/gu, "")))
+    .join("");
+}
+
 function wireMechaberLayerHtml(hebrewHtml, englishFull) {
   const { main: enMain, rama: enRama } = splitMainAndRamaEnglish(englishFull);
   const { before, inner, after } = extractSmallRegions(hebrewHtml);
-  if (inner == null) return normalizeWovenHtml(weaveProportional(hebrewHtml, englishFull));
-  const wovenBefore = weaveProportional(before, enMain);
-  const wovenSmall = weaveProportional(inner, enRama ?? "");
-  return normalizeWovenHtml(`${wovenBefore}<small>${wovenSmall}</small>${after}`);
+  let out;
+  if (inner == null) out = weaveProportional(hebrewHtml, englishFull);
+  else {
+    const wovenBefore = weaveProportional(before, enMain);
+    const wovenSmall = weaveProportional(inner, enRama ?? "");
+    out = `${wovenBefore}<small>${wovenSmall}</small>${after}`;
+  }
+  return stripRemainingHebrewText(normalizeWovenHtml(out));
 }
 
 function loadMechaberEnglishForSeif(oc001MechaberPath, seif) {
