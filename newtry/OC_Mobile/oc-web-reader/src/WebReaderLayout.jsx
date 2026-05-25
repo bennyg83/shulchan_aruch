@@ -1,5 +1,7 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
+import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
+import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
 
 function Toggle({ on, onClick, children }) {
   return (
@@ -11,13 +13,7 @@ function Toggle({ on, onClick, children }) {
 
 function HtmlCol({ html, dir, className }) {
   if (!html?.trim()) return null;
-  return (
-    <div
-      className={className}
-      dir={dir}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-  );
+  return <div className={className} dir={dir} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 function BilingualRow({ note, showHebrew, showEnglish }) {
@@ -32,7 +28,7 @@ function BilingualRow({ note, showHebrew, showEnglish }) {
   );
 }
 
-function CommentaryPanel({ seifNum, c, notes, showHebrew, showEnglish, open, onToggle }) {
+function CommentaryPanel({ c, notes, showHebrew, showEnglish, open, onToggle }) {
   const visible = (notes || []).filter((n) => noteVisibleForLanguages(showHebrew, showEnglish, n));
   if (!visible.length) return null;
   return (
@@ -55,7 +51,21 @@ function CommentaryPanel({ seifNum, c, notes, showHebrew, showEnglish, open, onT
   );
 }
 
+/** null = all commentaries visible; Set = only listed keys */
+function isCommentaryVisible(visibleKeys, key) {
+  if (visibleKeys === null) return true;
+  return visibleKeys.has(key);
+}
+
+function isChipActive(visibleKeys, key) {
+  if (visibleKeys === null) return true;
+  return visibleKeys.has(key);
+}
+
 export default function WebReaderLayout({
+  volumes,
+  volume,
+  onSelectVolume,
   catalog,
   activeEntry,
   onSelectSiman,
@@ -67,30 +77,53 @@ export default function WebReaderLayout({
   seifData,
   commentators,
   corpusErr,
+  commentaryVisibleKeys,
+  onCommentaryVisibleKeysChange,
 }) {
   const [simanQuery, setSimanQuery] = useState("");
-  const [showHebrew, setShowHebrew] = useState(true);
-  const [showEnglish, setShowEnglish] = useState(true);
+  const prefsInit = useMemo(() => loadReaderPrefs(), []);
+  const [showHebrew, setShowHebrew] = useState(prefsInit?.showHebrew !== false);
+  const [showEnglish, setShowEnglish] = useState(prefsInit?.showEnglish !== false);
   const [theme, setTheme] = useState(() => {
+    if (prefsInit?.theme === "dark") return "dark";
     try {
       return localStorage.getItem("oc_web_theme") === "dark" ? "dark" : "light";
     } catch {
       return "light";
     }
   });
-  const [hiddenKeys, setHiddenKeys] = useState(() => new Set());
   const [openPanels, setOpenPanels] = useState(() => new Set());
 
   const filteredCatalog = useMemo(() => {
     const q = simanQuery.trim().toLowerCase();
     if (!q) return catalog;
+    const qBare = q.replace(/\u05F4/g, "").replace(/"/g, "");
     return catalog.filter((e) => {
       const n = String(e.siman);
       const title = (e.title || "").toLowerCase();
       const sub = (e.subtitle || "").toLowerCase();
-      return n.includes(q) || title.includes(q) || sub.includes(q);
+      const gem = formatGematria(e.siman);
+      const gemBare = numberToGematriaLetters(e.siman);
+      return (
+        n.includes(q) ||
+        title.includes(q) ||
+        sub.includes(q) ||
+        gem.includes(q) ||
+        gemBare.includes(qBare)
+      );
     });
   }, [catalog, simanQuery]);
+
+  useEffect(() => {
+    saveReaderPrefs({
+      volumeId: volume.id,
+      showHebrew,
+      showEnglish,
+      commentaryKeys:
+        commentaryVisibleKeys === null ? null : commentaryVisibleKeys.size ? [...commentaryVisibleKeys] : [],
+      theme,
+    });
+  }, [volume.id, showHebrew, showEnglish, commentaryVisibleKeys, theme]);
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
@@ -102,14 +135,22 @@ export default function WebReaderLayout({
     }
   };
 
-  const toggleCommentary = (key) => {
-    setHiddenKeys((prev) => {
-      const n = new Set(prev);
-      if (n.has(key)) n.delete(key);
-      else n.add(key);
-      return n;
-    });
+  /** First click: only that commentary; further clicks: add; click active to remove (last → all). */
+  const onCommentaryChipClick = (key) => {
+    if (commentaryVisibleKeys === null) {
+      onCommentaryVisibleKeysChange(new Set([key]));
+      return;
+    }
+    if (commentaryVisibleKeys.has(key)) {
+      const next = new Set(commentaryVisibleKeys);
+      next.delete(key);
+      onCommentaryVisibleKeysChange(next.size === 0 ? null : next);
+      return;
+    }
+    onCommentaryVisibleKeysChange(new Set([...commentaryVisibleKeys, key]));
   };
+
+  const showAllCommentaries = () => onCommentaryVisibleKeysChange(null);
 
   const togglePanelOpen = (key) => {
     setOpenPanels((prev) => {
@@ -120,20 +161,39 @@ export default function WebReaderLayout({
     });
   };
 
-  const visibleCommentators = commentators.filter((c) => !hiddenKeys.has(c.key));
+  const visibleCommentators = commentators.filter((c) => isCommentaryVisible(commentaryVisibleKeys, c.key));
   const mr = seifData?.mechaber_rama;
+  const simanGem = formatGematria(activeEntry.siman);
+  const seifGem = formatGematria(currentSeif);
+  const selectionIsSubset = commentaryVisibleKeys !== null;
 
   return (
     <div className={`web-reader theme-${theme}`} data-theme={theme}>
       <aside className="sidebar sidebar--simanim">
         <div className="sidebar__brand">
-          <h1>Orach Chayim</h1>
+          <label className="volume-select">
+            <span className="volume-select__label">Section</span>
+            <select
+              className="volume-select__input"
+              value={volume.id}
+              onChange={(e) => onSelectVolume(e.target.value)}
+              aria-label="Shulchan Aruch section"
+            >
+              {volumes.map((v) => (
+                <option key={v.id} value={v.id} disabled={!v.enabled}>
+                  {v.short} — {v.label}
+                  {!v.enabled ? " (soon)" : ""}
+                </option>
+              ))}
+            </select>
+          </label>
+          <h1>{volume.label}</h1>
           <p className="sidebar__sub">Web reader</p>
         </div>
         <input
           type="search"
           className="sidebar__search"
-          placeholder="Search siman…"
+          placeholder="Search siman or גימטריה…"
           value={simanQuery}
           onChange={(e) => setSimanQuery(e.target.value)}
           aria-label="Search simanim"
@@ -146,7 +206,12 @@ export default function WebReaderLayout({
               className={`siman-list__item ${e.siman === activeEntry.siman ? "siman-list__item--active" : ""}`}
               onClick={() => onSelectSiman(e)}
             >
-              <span className="siman-list__num">{e.siman}</span>
+              <span className="siman-list__num">
+                <span className="siman-list__num-arabic">{e.siman}</span>
+                <span className="siman-list__num-gematria" dir="rtl" lang="he">
+                  {formatGematria(e.siman)}
+                </span>
+              </span>
               <span className="siman-list__meta">
                 <span className="siman-list__title">{e.title || `Siman ${e.siman}`}</span>
                 {e.subtitle ? <span className="siman-list__subtitle">{e.subtitle}</span> : null}
@@ -159,7 +224,16 @@ export default function WebReaderLayout({
       <aside className="sidebar sidebar--seifim">
         <h2 className="sidebar__heading">
           Seifim
-          <span className="sidebar__badge">Siman {activeEntry.siman}</span>
+          <span className="sidebar__badge" dir="rtl" lang="he">
+            {simanGem ? (
+              <>
+                סימן <span className="sidebar__badge-gematria">{simanGem}</span>
+                <span className="sidebar__badge-arabic"> ({activeEntry.siman})</span>
+              </>
+            ) : (
+              <>Siman {activeEntry.siman}</>
+            )}
+          </span>
         </h2>
         <nav className="seif-list" aria-label="Seifim">
           {seifim.map((n) => (
@@ -169,7 +243,10 @@ export default function WebReaderLayout({
               className={`seif-list__item ${n === currentSeif ? "seif-list__item--active" : ""}`}
               onClick={() => onSelectSeif(n)}
             >
-              Seif {n}
+              <span className="seif-list__arabic">Seif {n}</span>
+              <span className="seif-list__gematria" dir="rtl" lang="he">
+                {formatGematria(n)}
+              </span>
             </button>
           ))}
         </nav>
@@ -185,7 +262,15 @@ export default function WebReaderLayout({
             <button type="button" className="btn btn--ghost" disabled={!onPrevSeif} onClick={onPrevSeif}>
               ← Prev seif
             </button>
-            <span className="reader-toolbar__seif-label">Seif {currentSeif}</span>
+            <span className="reader-toolbar__seif-label">
+              Seif {currentSeif}
+              {seifGem ? (
+                <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
+                  {" "}
+                  ({seifGem})
+                </span>
+              ) : null}
+            </span>
             <button type="button" className="btn btn--ghost" disabled={!onNextSeif} onClick={onNextSeif}>
               Next seif →
             </button>
@@ -206,13 +291,25 @@ export default function WebReaderLayout({
         {commentators.length > 0 && (
           <div className="filter-bar">
             <span className="filter-bar__label">Commentaries</span>
+            {selectionIsSubset && (
+              <button type="button" className="filter-chip filter-chip--all" onClick={showAllCommentaries}>
+                Show all
+              </button>
+            )}
             {commentators.map((c) => (
               <button
                 key={c.key}
                 type="button"
-                className={`filter-chip ${hiddenKeys.has(c.key) ? "" : "filter-chip--on"}`}
+                className={`filter-chip ${isChipActive(commentaryVisibleKeys, c.key) ? "filter-chip--on" : ""}`}
                 style={{ "--chip-color": c.color }}
-                onClick={() => toggleCommentary(c.key)}
+                onClick={() => onCommentaryChipClick(c.key)}
+                title={
+                  commentaryVisibleKeys === null
+                    ? "Click to show only this commentary"
+                    : commentaryVisibleKeys.has(c.key)
+                      ? "Click to hide this commentary"
+                      : "Click to add this commentary"
+                }
               >
                 {c.label}
               </button>
@@ -244,7 +341,6 @@ export default function WebReaderLayout({
                   return (
                     <CommentaryPanel
                       key={c.key}
-                      seifNum={seifData.seif}
                       c={c}
                       notes={notes}
                       showHebrew={showHebrew}
@@ -259,7 +355,9 @@ export default function WebReaderLayout({
           )}
 
           {seifData && visibleCommentators.length === 0 && commentators.length > 0 && (
-            <p className="reader-hint">All commentaries hidden — use the chips above to show them.</p>
+            <p className="reader-hint">
+              No commentaries selected — click chips above to add one (first click shows only that commentary).
+            </p>
           )}
         </div>
       </main>

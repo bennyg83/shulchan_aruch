@@ -124,6 +124,16 @@ body {
   text-transform: none;
   letter-spacing: 0;
   color: var(--accent);
+  font-family: var(--hebrew-font);
+}
+
+.sidebar__badge-gematria {
+  font-weight: 700;
+}
+
+.sidebar__badge-arabic {
+  font-family: var(--english-font);
+  font-weight: 500;
 }
 
 .siman-list,
@@ -158,12 +168,53 @@ body {
   outline: 1px solid var(--accent);
 }
 
+.volume-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.volume-select__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.volume-select__input {
+  width: 100%;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+}
+
 .siman-list__num {
   flex-shrink: 0;
-  width: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 2.75rem;
+  gap: 0.1rem;
   font-weight: 700;
-  font-variant-numeric: tabular-nums;
   color: var(--accent);
+}
+
+.siman-list__num-arabic {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.siman-list__num-gematria {
+  font-family: var(--hebrew-font);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  font-weight: 600;
+  opacity: 0.92;
 }
 
 .siman-list__meta {
@@ -188,7 +239,10 @@ body {
 }
 
 .seif-list__item {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
   width: 100%;
   text-align: left;
   padding: 0.45rem 0.75rem;
@@ -200,6 +254,21 @@ body {
   cursor: pointer;
   font: inherit;
   font-size: 0.88rem;
+}
+
+.seif-list__gematria {
+  font-family: var(--hebrew-font);
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+
+.seif-list__item--active .seif-list__gematria {
+  opacity: 1;
+}
+
+.reader-toolbar__seif-gematria {
+  font-family: var(--hebrew-font);
+  font-weight: 600;
 }
 
 .seif-list__item:hover {
@@ -336,6 +405,11 @@ body {
   border-color: var(--chip-color, var(--accent));
   background: color-mix(in srgb, var(--chip-color, var(--accent)) 18%, transparent);
   color: var(--text);
+}
+
+.filter-chip--all {
+  border-style: dashed;
+  color: var(--accent);
 }
 
 .reader-scroll {
