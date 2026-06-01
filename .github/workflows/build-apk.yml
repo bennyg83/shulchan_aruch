@@ -240,14 +240,14 @@ jobs:
           </resources>
           XML_EOF
 
-      - name: Set up Gradle wrapper
-        working-directory: android
-        run: |
-          gradle wrapper --gradle-version=8.4 --distribution-type=bin
+      - name: Set up Gradle 8.4
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.4'
 
       - name: Build release APK
         working-directory: android
-        run: ./gradlew assembleRelease --no-daemon
+        run: gradle assembleRelease --no-daemon
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
