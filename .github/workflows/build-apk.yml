@@ -55,7 +55,7 @@ jobs:
           echo "{\"jdkPath\": \"${JAVA_HOME}\", \"androidSdkPath\": \"${ANDROID_SDK_ROOT}\"}" > ~/.bubblewrap/config.json
           cat ~/.bubblewrap/config.json
 
-      - name: Patch twa-manifest.json with actual SDK/JDK paths
+      - name: Patch twa-manifest.json with actual SDK/JDK paths and raw icon URL
         working-directory: newtry/OC_Mobile/apk
         run: |
           node -e "
@@ -63,9 +63,15 @@ jobs:
             const m = JSON.parse(fs.readFileSync('twa-manifest.json', 'utf8'));
             m.sdkPath = process.env.ANDROID_SDK_ROOT;
             m.jdkPath = process.env.JAVA_HOME;
+            // Use raw GitHub URL so icon is available without waiting for Pages deploy
+            const rawBase = 'https://raw.githubusercontent.com/bennyg83/shulchan_aruch/main/newtry/OC_Mobile/oc318-mobile-reader/public';
+            m.iconUrl = rawBase + '/icon-512.png';
+            m.maskableIconUrl = rawBase + '/icon-512.png';
+            m.monochromeIconUrl = rawBase + '/icon-512.png';
             fs.writeFileSync('twa-manifest.json', JSON.stringify(m, null, 2));
             console.log('Patched sdkPath:', m.sdkPath);
             console.log('Patched jdkPath:', m.jdkPath);
+            console.log('Patched iconUrl:', m.iconUrl);
           "
 
       - name: Generate signing keystore
