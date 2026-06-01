@@ -24,7 +24,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
+
+      - name: Install native dependencies for Bubblewrap
+        run: sudo apt-get install -y libsecret-1-dev
 
       - name: Install Bubblewrap CLI
         run: npm install -g @bubblewrap/cli@1.21.1
