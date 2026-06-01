@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /**
  * Install / offline-save UI.
@@ -152,33 +152,102 @@ export function InstallBanner({ platform, installed, deferredPrompt, bannerDismi
   );
 }
 
-/** Small chip for the toolbar — always visible on mobile until installed. */
+/** Small chip + inline instruction popover — always visible on mobile until installed. */
 export function InstallChip({ platform, installed, deferredPrompt, triggerInstall }) {
+  const [showGuide, setShowGuide] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!showGuide) return;
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setShowGuide(false);
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [showGuide]);
+
   if (!platform?.isMobile) return null;
   if (installed) return null;
 
-  // Always show on mobile — don't wait for beforeinstallprompt
-  const label = platform.isIos ? "Add to Home Screen" : "Install app";
-
   const handleClick = () => {
     if (deferredPrompt) {
-      // Chrome/Android: native install dialog available
       triggerInstall();
-    } else if (platform.isIos) {
-      alert("Tap the Share button at the bottom of Safari, then choose Add to Home Screen to save this app offline.");
     } else {
-      // Android Chrome before prompt fires, or other browser
-      alert("To install: tap your browser menu (⋮) and choose 'Add to Home Screen' or 'Install app'.");
+      setShowGuide((v) => !v);
     }
   };
 
+  const isIos = platform.isIos;
+
   return (
-    <button
-      onClick={handleClick}
-      className="install-chip"
-      title="Save app for offline use"
-    >
-      ⬇ {label}
-    </button>
+    <span ref={ref} style={{ position: "relative", display: "inline-flex" }}>
+      <button onClick={handleClick} className="install-chip" title="Save app for offline use">
+        ⬇ {isIos ? "Add to Home Screen" : "Install app"}
+      </button>
+
+      {showGuide && (
+        <div style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0, bottom: 0,
+          zIndex: 9200,
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "center",
+          paddingTop: 80,
+          background: "rgba(0,0,0,0.55)",
+        }}
+          onClick={() => setShowGuide(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#0e1120",
+              border: "1px solid #3a4a7a",
+              borderRadius: 14,
+              padding: "20px 22px",
+              maxWidth: 340,
+              margin: "0 16px",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.7)",
+              fontFamily: "system-ui, -apple-system, sans-serif",
+              color: "#e8eaf0",
+            }}
+          >
+            <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 14 }}>
+              📲 Install for offline use
+            </div>
+
+            {isIos ? (
+              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
+                <li>Tap the <strong style={{ color: "#e8eaf0" }}>Share</strong> button <strong style={{ color: "#e8eaf0" }}>⎋</strong> at the bottom of Safari</li>
+                <li>Scroll down and tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
+                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add</strong> — the app installs with all 697 simanim available offline</li>
+              </ol>
+            ) : (
+              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
+                <li>Tap the <strong style={{ color: "#e8eaf0" }}>⋮ menu</strong> in Chrome (top-right corner)</li>
+                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
+                <li>Tap <strong style={{ color: "#e8eaf0" }}>Install</strong> — this installs the full app with all 697 simanim available offline</li>
+              </ol>
+            )}
+
+            <div style={{ marginTop: 14, fontSize: 12, color: "#7a84a8", lineHeight: 1.5 }}>
+              "Add to Home Screen" in Chrome installs the full offline app — not just a bookmark.
+            </div>
+
+            <button
+              onClick={() => setShowGuide(false)}
+              style={{
+                marginTop: 16, width: "100%", padding: "10px",
+                borderRadius: 8, border: "none",
+                background: "#2a3a6a", color: "#e8eaf0",
+                fontWeight: 600, fontSize: 14, cursor: "pointer",
+              }}
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
+    </span>
   );
 }
