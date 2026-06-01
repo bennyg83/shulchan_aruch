@@ -83,7 +83,13 @@ jobs:
 
       - name: Generate Android project with Bubblewrap
         working-directory: newtry/OC_Mobile/apk
-        run: bubblewrap update --skipPwaValidation
+        run: |
+          echo "=== twa-manifest.json ==="
+          cat twa-manifest.json
+          echo "=== bubblewrap config ==="
+          cat ~/.bubblewrap/config.json
+          echo "=== running bubblewrap update ==="
+          bubblewrap update --skipPwaValidation
         env:
           BUBBLEWRAP_KEYSTORE_PASSWORD: android123
           BUBBLEWRAP_KEY_PASSWORD: android123
