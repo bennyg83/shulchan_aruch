@@ -2,6 +2,25 @@ import { useEffect, useMemo, useState } from "react";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
+import { useTTS, queueInterwoven, queueForSection, stripForSpeech } from "./lib/tts.js";
+
+const PlayIcon = ({ size = 15 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
+);
+const PauseIcon = ({ size = 15 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
+  </svg>
+);
+const StopIcon = ({ size = 15 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2" /></svg>
+);
+const SpeakerIcon = ({ size = 13 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+  </svg>
+);
 
 function Toggle({ on, onClick, children }) {
   return (
@@ -28,17 +47,22 @@ function BilingualRow({ note, showHebrew, showEnglish }) {
   );
 }
 
-function CommentaryPanel({ c, notes, showHebrew, showEnglish, open, onToggle }) {
+function CommentaryPanel({ c, notes, showHebrew, showEnglish, open, onToggle, onPlay, isActive }) {
   const visible = (notes || []).filter((n) => noteVisibleForLanguages(showHebrew, showEnglish, n));
   if (!visible.length) return null;
   return (
-    <article className="commentary-panel" style={{ "--accent": c.color }}>
+    <article className="commentary-panel" style={{ "--accent": c.color, outline: isActive ? `2px solid ${c.color || "var(--accent)"}` : undefined }}>
       <header className="commentary-panel__head">
         <button type="button" className="commentary-panel__title" onClick={onToggle}>
           <span className="commentary-panel__dot" />
           {c.label}
           <span className="commentary-panel__count">{visible.length}</span>
         </button>
+        {onPlay && (
+          <button type="button" className="tts-speak-btn" onClick={onPlay} title={`Read ${c.label} aloud`} aria-label={`Read ${c.label}`}>
+            <SpeakerIcon />
+          </button>
+        )}
       </header>
       {open && (
         <div className="commentary-panel__body">
@@ -93,6 +117,7 @@ export default function WebReaderLayout({
     }
   });
   const [openPanels, setOpenPanels] = useState(() => new Set());
+  const { speaking, paused, activeId, play, stop, togglePause } = useTTS();
 
   const filteredCatalog = useMemo(() => {
     const q = simanQuery.trim().toLowerCase();
@@ -323,7 +348,42 @@ export default function WebReaderLayout({
 
           {seifData && mr && (
             <section className="mechaber-section">
-              <h3 className="section-heading">Mechaber &amp; Rama</h3>
+              <h3 className="section-heading" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span>Mechaber &amp; Rama</span>
+                <button
+                  type="button"
+                  className="tts-speak-btn"
+                  title="Read Mechaber & Rama aloud"
+                  onClick={() => {
+                    const items = [
+                      ...(showHebrew && mr.hebrew ? [{ id: "mr-he", text: stripForSpeech(mr.hebrew), lang: "he-IL" }] : []),
+                      ...(showEnglish && mr.english ? [{ id: "mr-en", text: stripForSpeech(mr.english), lang: "en-US" }] : []),
+                    ];
+                    if (items.length) play(items);
+                  }}
+                >
+                  <SpeakerIcon />
+                </button>
+                <button
+                  type="button"
+                  className="tts-play-all-btn"
+                  title="Play all — Mechaber, Rama, and all visible commentaries"
+                  onClick={() => {
+                    if (!seifData || currentSeif == null) return;
+                    const items = queueInterwoven(
+                      currentSeif,
+                      seifData,
+                      visibleCommentators,
+                      commentators,
+                      showHebrew,
+                      showEnglish
+                    );
+                    if (items.length) play(items);
+                  }}
+                >
+                  <PlayIcon size={13} /> Play all
+                </button>
+              </h3>
               <div className={`mechaber-grid ${showHebrew && showEnglish ? "mechaber-grid--split" : ""}`}>
                 {showHebrew && <HtmlCol html={mr.hebrew} dir="rtl" className="col-hebrew mechaber-he" />}
                 {showEnglish && <HtmlCol html={mr.english} dir="ltr" className="col-english mechaber-en" />}
@@ -338,6 +398,8 @@ export default function WebReaderLayout({
                 {visibleCommentators.map((c) => {
                   const notes = seifData[c.key];
                   const isOpen = !openPanels.has(c.key);
+                  const panelId = `int-${currentSeif}-${c.key}`;
+                  const isActive = activeId && activeId.startsWith(panelId);
                   return (
                     <CommentaryPanel
                       key={c.key}
@@ -347,6 +409,16 @@ export default function WebReaderLayout({
                       showEnglish={showEnglish}
                       open={isOpen}
                       onToggle={() => togglePanelOpen(c.key)}
+                      isActive={!!isActive}
+                      onPlay={() => {
+                        const items = [];
+                        (notes || []).forEach((note, i) => {
+                          if (!noteVisibleForLanguages(showHebrew, showEnglish, note)) return;
+                          if (showHebrew && note.hebrew) items.push({ id: `${panelId}-h-${i}`, text: stripForSpeech(note.hebrew), lang: "he-IL" });
+                          if (showEnglish && note.english) items.push({ id: `${panelId}-e-${i}`, text: stripForSpeech(note.english), lang: "en-US" });
+                        });
+                        if (items.length) play(items);
+                      }}
                     />
                   );
                 })}
@@ -361,6 +433,20 @@ export default function WebReaderLayout({
           )}
         </div>
       </main>
+
+      {speaking && (
+        <div className="tts-playback-bar">
+          <span className="tts-playback-bar__label">
+            {paused ? "Paused" : "Playing…"}
+          </span>
+          <button type="button" className="tts-playback-btn" onClick={togglePause} title={paused ? "Resume" : "Pause"}>
+            {paused ? <PlayIcon size={16} /> : <PauseIcon size={16} />}
+          </button>
+          <button type="button" className="tts-playback-btn" onClick={stop} title="Stop">
+            <StopIcon size={16} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
