@@ -1,55 +1,103 @@
 import { useState, useEffect } from "react";
 
 /**
- * Shows a "Download for offline" banner on mobile when the browser fires
- * the beforeinstallprompt event (Chrome / Edge on Android).
- * On iOS Safari (which doesn't fire the event), shows a manual "Add to
- * Home Screen" tip instead.
+ * Install / offline-save UI.
+ *
+ * Renders two things:
+ *   1. A floating top banner the first time a mobile user visits
+ *      (auto-dismissed after they act or close it).
+ *   2. A small persistent "Install" chip in the toolbar (passed via
+ *      the `renderChip` render-prop) so users can always find it.
+ *
+ * Strategy:
+ *   - Chrome/Android: capture beforeinstallprompt → native install dialog.
+ *   - iOS Safari: no event — show Share → Add to Home Screen instructions.
+ *   - If already running in standalone (installed): hide everything.
  */
-export default function InstallPrompt() {
+
+function isStandalone() {
+  try {
+    return (
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true
+    );
+  } catch {
+    return false;
+  }
+}
+
+function detectPlatform() {
+  const ua = navigator.userAgent || "";
+  const isIos = /iphone|ipad|ipod/i.test(ua);
+  const isAndroid = /android/i.test(ua);
+  const isMobile = isIos || isAndroid;
+  return { isIos, isAndroid, isMobile };
+}
+
+export function useInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [showIosTip, setShowIosTip] = useState(false);
-  const [dismissed, setDismissed] = useState(() => {
-    try { return !!localStorage.getItem("oc_install_dismissed"); } catch { return false; }
+  const [platform, setPlatform] = useState(null); // null until mounted
+  const [installed, setInstalled] = useState(false);
+  const [bannerDismissed, setBannerDismissed] = useState(() => {
+    try {
+      // v2: reset any old dismiss so the banner re-appears after the PWA update
+      if (localStorage.getItem("oc_install_dismissed_v") !== "2") {
+        localStorage.removeItem("oc_install_dismissed");
+        localStorage.setItem("oc_install_dismissed_v", "2");
+      }
+      return !!localStorage.getItem("oc_install_dismissed");
+    } catch { return false; }
   });
 
   useEffect(() => {
-    // Already installed as PWA — hide everything
-    if (window.matchMedia("(display-mode: standalone)").matches) return;
-
-    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
-    const isMobile = isIos || /android/i.test(navigator.userAgent);
-    if (!isMobile) return;
-
-    if (isIos) {
-      setShowIosTip(true);
-      return;
-    }
+    if (isStandalone()) { setInstalled(true); return; }
+    setPlatform(detectPlatform());
 
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
     window.addEventListener("beforeinstallprompt", handler);
-    return () => window.removeEventListener("beforeinstallprompt", handler);
+    window.addEventListener("appinstalled", () => setInstalled(true));
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+    };
   }, []);
 
-  if (dismissed) return null;
-
-  const dismiss = () => {
-    setDismissed(true);
+  const dismissBanner = () => {
+    setBannerDismissed(true);
     try { localStorage.setItem("oc_install_dismissed", "1"); } catch { /* ignore */ }
   };
 
-  const install = async () => {
-    if (!deferredPrompt) return;
+  const triggerInstall = async () => {
+    if (!deferredPrompt) return false;
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") dismiss();
-    else setDeferredPrompt(null);
+    if (outcome === "accepted") {
+      setInstalled(true);
+      dismissBanner();
+    }
+    setDeferredPrompt(null);
+    return outcome === "accepted";
   };
 
-  if (!deferredPrompt && !showIosTip) return null;
+  return {
+    platform,
+    installed,
+    deferredPrompt,
+    bannerDismissed,
+    dismissBanner,
+    triggerInstall,
+  };
+}
+
+/** Floating banner — shown once until dismissed. */
+export function InstallBanner({ platform, installed, deferredPrompt, bannerDismissed, dismissBanner, triggerInstall }) {
+  if (!platform?.isMobile) return null;
+  if (installed) return null;
+  if (bannerDismissed) return null;
+  // On Android wait for the prompt event; on iOS show immediately
+  if (!platform.isIos && !deferredPrompt) return null;
 
   return (
     <div style={{
@@ -61,66 +109,75 @@ export default function InstallPrompt() {
       maxWidth: 480,
       margin: "0 auto",
       background: "#0e1120",
-      border: "1px solid #2e3648",
+      border: "1px solid #3a4a7a",
       borderRadius: 12,
       padding: "14px 16px",
-      boxShadow: "0 6px 32px rgba(0,0,0,0.6)",
+      boxShadow: "0 6px 32px rgba(0,0,0,0.65)",
       fontFamily: "system-ui, -apple-system, sans-serif",
       color: "#e8eaf0",
     }}>
       <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-        <div style={{ fontSize: 28, lineHeight: 1, flexShrink: 0 }}>📖</div>
+        <div style={{ fontSize: 26, lineHeight: 1, flexShrink: 0 }}>📖</div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4 }}>
             Save for offline reading
           </div>
-          {showIosTip ? (
-            <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.5 }}>
-              Tap <strong style={{ color: "#e8eaf0" }}>Share</strong> then{" "}
-              <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong> to install the full
-              Shulchan Aruch — all 697 simanim available offline.
+          {platform.isIos ? (
+            <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.55 }}>
+              Tap <strong style={{ color: "#e8eaf0" }}>Share ↑</strong> then{" "}
+              <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong> — all 697 simanim
+              available offline, no internet needed.
             </div>
           ) : (
-            <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.5 }}>
-              Install to read all 697 simanim of Orach Chayim offline — no internet needed.
-            </div>
-          )}
-          {!showIosTip && (
-            <button
-              onClick={install}
-              style={{
-                marginTop: 10,
-                padding: "8px 18px",
-                borderRadius: 8,
-                border: "none",
-                background: "#4a80c4",
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: 14,
-                cursor: "pointer",
-              }}
-            >
-              Download for offline
-            </button>
+            <>
+              <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.55 }}>
+                Install the app — all 697 simanim of Orach Chayim available offline.
+              </div>
+              <button onClick={triggerInstall} style={{
+                marginTop: 10, padding: "8px 18px", borderRadius: 8,
+                border: "none", background: "#4a80c4", color: "#fff",
+                fontWeight: 700, fontSize: 14, cursor: "pointer",
+              }}>
+                Download for offline
+              </button>
+            </>
           )}
         </div>
-        <button
-          onClick={dismiss}
-          aria-label="Dismiss"
-          style={{
-            background: "none",
-            border: "none",
-            color: "#9ba3c4",
-            fontSize: 20,
-            lineHeight: 1,
-            cursor: "pointer",
-            padding: 0,
-            flexShrink: 0,
-          }}
-        >
-          ×
-        </button>
+        <button onClick={dismissBanner} aria-label="Dismiss" style={{
+          background: "none", border: "none", color: "#9ba3c4",
+          fontSize: 22, lineHeight: 1, cursor: "pointer", padding: 0, flexShrink: 0,
+        }}>×</button>
       </div>
     </div>
+  );
+}
+
+/** Small chip for the toolbar — always visible on mobile until installed. */
+export function InstallChip({ platform, installed, deferredPrompt, triggerInstall }) {
+  if (!platform?.isMobile) return null;
+  if (installed) return null;
+
+  const canInstall = platform.isIos || !!deferredPrompt;
+  if (!canInstall) return null;
+
+  const label = platform.isIos ? "Add to Home Screen" : "Install app";
+
+  const handleClick = () => {
+    if (platform.isIos) {
+      // Show a quick tip alert since iOS has no programmatic install
+      alert("Tap the Share button (↑) at the bottom of Safari, then choose Add to Home Screen to save this app offline.");
+    } else {
+      triggerInstall();
+    }
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className="install-chip"
+      title={label}
+    >
+      ⬇ {label}
+    </button>
   );
 }

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import WebReaderLayout from "./WebReaderLayout.jsx";
 import OfflineStatus from "./OfflineStatus.jsx";
-import InstallPrompt from "./InstallPrompt.jsx";
+import { useInstallPrompt, InstallBanner } from "./InstallPrompt.jsx";
 import { loadSeifCorpus } from "./lib/corpus.js";
 import { resolveCorpusFetchUrl, fetchWithTimeout } from "./lib/corpusFetch.js";
 import {
@@ -51,6 +51,7 @@ export default function App() {
   const [corpusErr, setCorpusErr] = useState(null);
   const [commentaryVisibleKeys, setCommentaryVisibleKeys] = useState(initialCommentarySelection);
   const [pwaStatus, setPwaStatus] = useState("idle");
+  const installPrompt = useInstallPrompt();
 
   useEffect(() => {
     const onInstalling = () => setPwaStatus("installing");
@@ -291,8 +292,9 @@ export default function App() {
 
   return (
     <>
-    <InstallPrompt />
+    <InstallBanner {...installPrompt} />
     <WebReaderLayout
+      installPrompt={installPrompt}
       volumes={VOLUMES}
       volume={volume}
       onSelectVolume={onSelectVolume}
