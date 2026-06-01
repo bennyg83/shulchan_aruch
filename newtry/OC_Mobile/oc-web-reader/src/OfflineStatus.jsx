@@ -6,13 +6,22 @@ async function countCachedBundles() {
   if (!("caches" in window)) return null;
   try {
     const cacheNames = await caches.keys();
-    let count = 0;
+    let bundleCount = 0;
+    let totalCount = 0;
     for (const name of cacheNames) {
       const cache = await caches.open(name);
       const keys = await cache.keys();
-      count += keys.filter((r) => r.url.includes("/corpus/oc1/bundles/siman")).length;
+      totalCount += keys.length;
+      bundleCount += keys.filter((r) =>
+        r.url.includes("bundles/siman") || r.url.includes("bundles%2Fsiman")
+      ).length;
     }
-    return count;
+    // If we find total cached items but zero bundles, the URL pattern may differ —
+    // fall back to estimating bundles as (total - ~20 app-shell files)
+    if (bundleCount === 0 && totalCount > 20) {
+      bundleCount = Math.max(0, totalCount - 20);
+    }
+    return { bundles: bundleCount, total: totalCount };
   } catch {
     return null;
   }
@@ -45,15 +54,15 @@ export default function OfflineStatus() {
 
     const check = async () => {
       if (cancelled) return;
-      const n = await countCachedBundles();
+      const result = await countCachedBundles();
       if (cancelled) return;
 
-      if (n === null) {
-        // caches API unavailable — hide
+      if (result === null) {
         setPhase("hidden");
         return;
       }
 
+      const n = result.bundles;
       setCached(n);
 
       if (n >= TOTAL_BUNDLES) {
