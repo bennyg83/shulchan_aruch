@@ -161,3 +161,45 @@ export async function loadSeifCorpus(baseUrl, manifestDoc, fetchSignal) {
 
   return { seifData, commentators };
 }
+
+/**
+ * Load seif corpus data from a pre-fetched siman bundle (no network calls).
+ * Returns the same shape as loadSeifCorpus: { seifData, commentators }
+ * or null if the seif is not present in the bundle.
+ */
+export function loadSeifCorpusFromBundle(bundle, seifNum) {
+  if (!bundle?.data) return null;
+  const seifEntry = bundle.data[String(seifNum)];
+  if (!seifEntry) return null;
+
+  const PALETTE = ["#5b7fa6", "#7a5ba6", "#a65b5b", "#5ba676", "#a6935b", "#6b8cae", "#8b6b9e"];
+
+  const mechaberData = seifEntry.mechaber ?? {};
+  const seifData = {
+    seif: seifNum,
+    mechaber_rama: {
+      hebrew: mechaberData.he ?? "",
+      english: mechaberData.en ?? "",
+    },
+  };
+
+  const included = seifEntry._included ?? [];
+  const commentators = [];
+
+  for (let i = 0; i < included.length; i++) {
+    const dk = included[i];
+    const src = seifEntry[dk];
+    if (!src) continue;
+    const meta = bundle.sourceMeta?.find((m) => m.dataKey === dk);
+    const segs = zipHeEnSegments(src.he ?? "", src.en ?? "");
+    if (segs.length === 0) continue;
+    seifData[dk] = segs;
+    commentators.push({
+      key: dk,
+      label: meta?.title ?? dk,
+      color: PALETTE[i % PALETTE.length],
+    });
+  }
+
+  return { seifData, commentators };
+}

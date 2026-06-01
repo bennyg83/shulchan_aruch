@@ -69,6 +69,9 @@ function buildBundleManifestEntries(base) {
 const pagesBase =
   process.env.VITE_BASE || (process.env.GITHUB_ACTIONS === "true" ? "/shulchan_aruch/" : "/");
 
+/** Set VITE_STANDALONE=true to build a self-contained WebView APK (no PWA/SW). */
+const isStandalone = process.env.VITE_STANDALONE === "true";
+
 export default defineConfig(({ command }) => {
   const isBuild = command === "build";
 
@@ -79,7 +82,7 @@ export default defineConfig(({ command }) => {
       react(),
       serveCorpusPlugin(),
 
-      VitePWA({
+      ...(!isStandalone ? [VitePWA({
         registerType: "autoUpdate",
 
         includeAssets: ["favicon.ico", "favicon.svg", "apple-touch-icon.png"],
@@ -154,13 +157,14 @@ export default defineConfig(({ command }) => {
             },
           ],
         },
-      }),
+      })] : []),
 
-      ...(isBuild ? [ghPagesDistPlugin()] : []),
+      ...(isBuild && !isStandalone ? [ghPagesDistPlugin()] : []),
     ],
 
-    /** Build copies full corpus into dist/; dev serves /corpus via middleware only. */
-    publicDir: isBuild ? mobilePublic : false,
+    /** Build copies full corpus into dist/; dev serves /corpus via middleware only.
+     *  Standalone APK build skips this — corpus is assembled by the CI step directly. */
+    publicDir: isBuild && !isStandalone ? mobilePublic : false,
 
     server: {
       host: true,

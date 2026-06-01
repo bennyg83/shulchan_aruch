@@ -76,7 +76,7 @@ function OfflineBanner() {
     </div>
   );
 }
-import { loadSeifCorpus } from "./lib/corpus.js";
+import { loadSeifCorpus, loadSeifCorpusFromBundle } from "./lib/corpus.js";
 import { resolveCorpusFetchUrl, fetchWithTimeout } from "./lib/corpusFetch.js";
 import {
   loadReaderResume,
@@ -124,6 +124,7 @@ export default function App() {
   const [commentators, setCommentators] = useState([]);
   const [corpusErr, setCorpusErr] = useState(null);
   const [commentaryVisibleKeys, setCommentaryVisibleKeys] = useState(initialCommentarySelection);
+  const [simanBundle, setSimanBundle] = useState(null);
 
 const syncUrlAndStorage = useCallback(
     ({ siman, seif, corpusPath, keys, vol }) => {
@@ -174,11 +175,26 @@ const syncUrlAndStorage = useCallback(
             : null) ||
           entries[0];
 
-        const idxUrl = resolveCorpusFetchUrl(`${entry.corpusPath}/seif-index.json`);
-        const idxRes = await fetchWithTimeout(idxUrl, ac.signal, 90000);
-        if (!idxRes.ok) throw new Error(`seif-index ${idxRes.status}`);
-        const idxDoc = await idxRes.json();
-        const list = Array.isArray(idxDoc.seifim) ? idxDoc.seifim : [];
+        // Try siman bundle first — one fetch replaces seif-index + all per-seif files
+        let list;
+        try {
+          const bUrl = resolveCorpusFetchUrl(`corpus/oc1/bundles/siman${entry.siman}.json`);
+          const bRes = await fetchWithTimeout(bUrl, ac.signal, 90000);
+          if (bRes.ok) {
+            const b = await bRes.json();
+            if (Array.isArray(b.seifim) && b.seifim.length) {
+              list = b.seifim;
+              if (!cancelled) setSimanBundle(b);
+            }
+          }
+        } catch { /* fall back to seif-index below */ }
+        if (!list) {
+          const idxUrl = resolveCorpusFetchUrl(`${entry.corpusPath}/seif-index.json`);
+          const idxRes = await fetchWithTimeout(idxUrl, ac.signal, 90000);
+          if (!idxRes.ok) throw new Error(`seif-index ${idxRes.status}`);
+          const idxDoc = await idxRes.json();
+          list = Array.isArray(idxDoc.seifim) ? idxDoc.seifim : [];
+        }
         if (!list.length) throw new Error("seif-index has no seifim");
         if (cancelled) return;
 
@@ -212,6 +228,17 @@ const syncUrlAndStorage = useCallback(
     const ac = new AbortController();
     setCorpusErr(null);
     if (!activeEntry || currentSeif == null) return () => {};
+
+    // Fast path: serve directly from siman bundle (instant, works offline in APK)
+    if (simanBundle?.siman === activeEntry.siman) {
+      const result = loadSeifCorpusFromBundle(simanBundle, currentSeif);
+      if (result) {
+        setSeifData(result.seifData);
+        setCommentators(result.commentators);
+        return () => {};
+      }
+    }
+
     setSeifData(null);
     setCommentators([]);
     const simanRoot = resolveCorpusFetchUrl(activeEntry.corpusPath);
@@ -236,7 +263,7 @@ const syncUrlAndStorage = useCallback(
       cancelled = true;
       ac.abort();
     };
-  }, [activeEntry, currentSeif]);
+  }, [activeEntry, currentSeif, simanBundle]);
 
   const onCommentaryVisibleKeysChange = useCallback(
     (keys) => {
@@ -274,12 +301,28 @@ const syncUrlAndStorage = useCallback(
       if (!entry?.corpusPath || entry.corpusPath === activeEntry?.corpusPath) return;
       setSeifData(null);
       setCommentators([]);
+      setSimanBundle(null);
       try {
-        const idxUrl = resolveCorpusFetchUrl(`${entry.corpusPath}/seif-index.json`);
-        const idxRes = await fetchWithTimeout(idxUrl, undefined, 90000);
-        if (!idxRes.ok) throw new Error(`seif-index ${idxRes.status}`);
-        const idxDoc = await idxRes.json();
-        const list = Array.isArray(idxDoc.seifim) ? idxDoc.seifim : [];
+        // Try siman bundle first — one fetch instead of seif-index + many seif files
+        let list;
+        try {
+          const bUrl = resolveCorpusFetchUrl(`corpus/oc1/bundles/siman${entry.siman}.json`);
+          const bRes = await fetchWithTimeout(bUrl, undefined, 90000);
+          if (bRes.ok) {
+            const b = await bRes.json();
+            if (Array.isArray(b.seifim) && b.seifim.length) {
+              list = b.seifim;
+              setSimanBundle(b);
+            }
+          }
+        } catch { /* fall back */ }
+        if (!list) {
+          const idxUrl = resolveCorpusFetchUrl(`${entry.corpusPath}/seif-index.json`);
+          const idxRes = await fetchWithTimeout(idxUrl, undefined, 90000);
+          if (!idxRes.ok) throw new Error(`seif-index ${idxRes.status}`);
+          const idxDoc = await idxRes.json();
+          list = Array.isArray(idxDoc.seifim) ? idxDoc.seifim : [];
+        }
         if (!list.length) throw new Error("seif-index has no seifim");
         const resume = loadReaderResume();
         const prefer =
