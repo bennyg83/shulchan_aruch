@@ -77,14 +77,14 @@ export default function OfflineStatus() {
     window.addEventListener("pwa-installing", onInstalling);
     window.addEventListener("pwa-offline-ready", onReady);
 
-    // Start immediately — show banner if SW is already active
+    // Only show banner if SW is already controlling the page,
+    // or wait for it to signal via pwa-installing / pwa-offline-ready.
+    // Don't show if SW isn't active — nothing is actually being cached.
     if (hasServiceWorker()) {
       setPhase("waiting");
       scheduleCheck(800, check);
-    } else {
-      // SW not yet controlling — wait for registration
-      scheduleCheck(3000, check);
     }
+    // else: stay hidden until pwa-installing or pwa-offline-ready fires
 
     return () => {
       cancelled = true;

@@ -218,21 +218,26 @@ export function InstallChip({ platform, installed, deferredPrompt, triggerInstal
 
             {isIos ? (
               <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
-                <li>Tap the <strong style={{ color: "#e8eaf0" }}>Share</strong> button <strong style={{ color: "#e8eaf0" }}>⎋</strong> at the bottom of Safari</li>
+                <li>Tap the <strong style={{ color: "#e8eaf0" }}>Share ↑</strong> button at the bottom of Safari</li>
                 <li>Scroll down and tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
-                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add</strong> — the app installs with all 697 simanim available offline</li>
+                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add</strong></li>
               </ol>
             ) : (
-              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
-                <li>Tap the <strong style={{ color: "#e8eaf0" }}>⋮ menu</strong> in Chrome (top-right corner)</li>
-                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
-                <li>Tap <strong style={{ color: "#e8eaf0" }}>Install</strong> — this installs the full app with all 697 simanim available offline</li>
-              </ol>
+              <>
+                <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
+                  <li>First <strong style={{ color: "#e8eaf0" }}>delete any existing shortcut</strong> for this site from your home screen</li>
+                  <li>In Chrome, tap the <strong style={{ color: "#e8eaf0" }}>⋮ menu</strong> (top-right)</li>
+                  <li>Tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
+                  <li>If it says <strong style={{ color: "#e8eaf0" }}>&quot;Install&quot;</strong> with an app icon → tap Install ✓<br />
+                    If it says <strong style={{ color: "#f0a4a4" }}>&quot;Add shortcut&quot;</strong> → tap Cancel, close all Chrome tabs, reopen and try again</li>
+                </ol>
+                <div style={{ marginTop: 12, padding: "8px 10px", background: "#1a2340", borderRadius: 8, fontSize: 12, color: "#9ba3c4", lineHeight: 1.6 }}>
+                  The dialog must say <strong style={{ color: "#e8eaf0" }}>&quot;Install&quot;</strong> (not &quot;Add shortcut&quot;) for offline to work. Once installed, all 697 simanim download automatically.
+                </div>
+              </>
             )}
 
             <div style={{ marginTop: 14, fontSize: 12, color: "#7a84a8", lineHeight: 1.5 }}>
-              "Add to Home Screen" in Chrome installs the full offline app — not just a bookmark.
-            </div>
 
             <button
               onClick={() => setShowGuide(false)}
