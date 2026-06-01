@@ -263,3 +263,26 @@ jobs:
           path: ShulchanAruch.apk
           retention-days: 90
           if-no-files-found: error
+
+      - name: Publish GitHub Release with APK
+        run: |
+          # Delete old release/tag if it exists, then recreate
+          gh release delete android-apk --yes 2>/dev/null || true
+          git push --delete origin android-apk 2>/dev/null || true
+          gh release create android-apk \
+            --title "Android APK (Latest)" \
+            --notes "## Shulchan Aruch — Orach Chayim Android App
+
+          Download and install the APK to get the full offline experience on Android.
+
+          **Installation:**
+          1. Download \`ShulchanAruch.apk\` below
+          2. On your Android device: Settings → Security → allow \"Install from unknown sources\"
+          3. Open the downloaded APK and install
+          4. Open the app — all 697 simanim will be available offline
+
+          Built from commit \`${{ github.sha }}\` on \`${{ github.ref_name }}\`." \
+            --latest \
+            ShulchanAruch.apk
+        env:
+          GH_TOKEN: ${{ github.token }}
