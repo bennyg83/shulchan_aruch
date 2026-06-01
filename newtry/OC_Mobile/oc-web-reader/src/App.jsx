@@ -1,5 +1,81 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import WebReaderLayout from "./WebReaderLayout.jsx";
+
+/** Count cached siman bundles and total precache entries. */
+async function countCached() {
+  if (!("caches" in window)) return { bundles: 0, total: 0 };
+  try {
+    const keys = await caches.keys();
+    let bundles = 0, total = 0;
+    for (const k of keys) {
+      const c = await caches.open(k);
+      const reqs = await c.keys();
+      for (const r of reqs) {
+        total++;
+        if (/\/bundles\/siman_\d+\.json/.test(r.url)) bundles++;
+      }
+    }
+    return { bundles, total };
+  } catch {
+    return { bundles: 0, total: 0 };
+  }
+}
+
+function OfflineBanner() {
+  const [bundles, setBundles] = useState(0);
+  const [dismissed, setDismissed] = useState(false);
+  const [swReady, setSwReady] = useState(false);
+  const doneTimer = useRef(null);
+  const TOTAL = 697;
+
+  useEffect(() => {
+    if (!("serviceWorker" in navigator)) return;
+    // Check SW state
+    navigator.serviceWorker.ready.then(() => setSwReady(true));
+  }, []);
+
+  useEffect(() => {
+    if (!swReady || dismissed) return;
+    let alive = true;
+    const tick = async () => {
+      if (!alive) return;
+      const { bundles: b } = await countCached();
+      if (!alive) return;
+      setBundles(b);
+      if (b >= TOTAL) {
+        // Auto-dismiss after 4 s
+        doneTimer.current = setTimeout(() => setDismissed(true), 4000);
+      } else {
+        setTimeout(tick, 4000);
+      }
+    };
+    tick();
+    return () => {
+      alive = false;
+      clearTimeout(doneTimer.current);
+    };
+  }, [swReady, dismissed]);
+
+  if (dismissed || !swReady) return null;
+  const pct = Math.min(100, Math.round((bundles / TOTAL) * 100));
+  const done = bundles >= TOTAL;
+
+  return (
+    <div className={`offline-banner ${done ? "offline-banner--done" : ""}`}>
+      {done ? (
+        <span>✓ Ready for offline use</span>
+      ) : (
+        <>
+          <span>Saving for offline… {bundles}/{TOTAL}</span>
+          <div className="offline-banner__bar">
+            <div className="offline-banner__fill" style={{ width: `${pct}%` }} />
+          </div>
+        </>
+      )}
+      <button className="offline-banner__close" onClick={() => setDismissed(true)} aria-label="Dismiss">×</button>
+    </div>
+  );
+}
 import { loadSeifCorpus } from "./lib/corpus.js";
 import { resolveCorpusFetchUrl, fetchWithTimeout } from "./lib/corpusFetch.js";
 import {
@@ -274,6 +350,7 @@ const syncUrlAndStorage = useCallback(
 
   return (
     <>
+    <OfflineBanner />
     <WebReaderLayout
       volumes={VOLUMES}
       volume={volume}

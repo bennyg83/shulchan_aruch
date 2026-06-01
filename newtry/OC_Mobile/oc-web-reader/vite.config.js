@@ -104,6 +104,10 @@ export default defineConfig(({ command }) => {
         },
 
         workbox: {
+          // Take control of all clients immediately on install/activate.
+          skipWaiting: true,
+          clientsClaim: true,
+
           // Glob only the small app-shell files; corpus handled via additionalManifestEntries.
           globPatterns: ["**/*.{js,css,html,ico,png,svg,woff,woff2}"],
           globIgnores: ["**/node_modules/**", "corpus/**/*"],
@@ -111,6 +115,26 @@ export default defineConfig(({ command }) => {
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           cleanupOutdatedCaches: true,
           runtimeCaching: [
+            {
+              // Cache corpus bundles at runtime too: CacheFirst so offline works
+              // even for bundles the precache hasn't downloaded yet.
+              urlPattern: /\/corpus\/oc1\/bundles\/siman_\d+\.json$/,
+              handler: "CacheFirst",
+              options: {
+                cacheName: "corpus-bundles",
+                cacheableResponse: { statuses: [0, 200] },
+                expiration: { maxEntries: 800, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              },
+            },
+            {
+              // Catalog
+              urlPattern: /\/corpus\/oc1\/catalog\.json$/,
+              handler: "StaleWhileRevalidate",
+              options: {
+                cacheName: "corpus-catalog",
+                cacheableResponse: { statuses: [0, 200] },
+              },
+            },
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
               handler: "StaleWhileRevalidate",
