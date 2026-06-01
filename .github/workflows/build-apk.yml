@@ -30,7 +30,7 @@ jobs:
         run: sudo apt-get install -y libsecret-1-dev
 
       - name: Install Bubblewrap CLI
-        run: npm install -g @bubblewrap/cli@1.21.1
+        run: npm install -g @bubblewrap/cli@1.24.1
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
