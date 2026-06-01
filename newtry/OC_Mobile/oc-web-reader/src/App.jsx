@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import WebReaderLayout from "./WebReaderLayout.jsx";
-import OfflineStatus from "./OfflineStatus.jsx";
-import { useInstallPrompt, InstallBanner } from "./InstallPrompt.jsx";
 import { loadSeifCorpus } from "./lib/corpus.js";
 import { resolveCorpusFetchUrl, fetchWithTimeout } from "./lib/corpusFetch.js";
 import {
@@ -50,24 +48,8 @@ export default function App() {
   const [commentators, setCommentators] = useState([]);
   const [corpusErr, setCorpusErr] = useState(null);
   const [commentaryVisibleKeys, setCommentaryVisibleKeys] = useState(initialCommentarySelection);
-  const [pwaStatus, setPwaStatus] = useState("idle");
-  const installPrompt = useInstallPrompt();
 
-  useEffect(() => {
-    const onInstalling = () => setPwaStatus("installing");
-    const onReady = () => {
-      setPwaStatus("ready");
-      setTimeout(() => setPwaStatus("idle"), 4000);
-    };
-    window.addEventListener("pwa-installing", onInstalling);
-    window.addEventListener("pwa-offline-ready", onReady);
-    return () => {
-      window.removeEventListener("pwa-installing", onInstalling);
-      window.removeEventListener("pwa-offline-ready", onReady);
-    };
-  }, []);
-
-  const syncUrlAndStorage = useCallback(
+const syncUrlAndStorage = useCallback(
     ({ siman, seif, corpusPath, keys, vol }) => {
       const v = vol ?? volumeId;
       replaceReaderUrl({
@@ -292,9 +274,7 @@ export default function App() {
 
   return (
     <>
-    <InstallBanner {...installPrompt} />
     <WebReaderLayout
-      installPrompt={installPrompt}
       volumes={VOLUMES}
       volume={volume}
       onSelectVolume={onSelectVolume}
@@ -312,7 +292,6 @@ export default function App() {
       commentaryVisibleKeys={commentaryVisibleKeys}
       onCommentaryVisibleKeysChange={onCommentaryVisibleKeysChange}
     />
-    <OfflineStatus />
     </>
   );
 }

@@ -3,7 +3,6 @@ import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
 import { useTTS, queueInterwoven, stripForSpeech } from "./lib/tts.js";
-import { InstallChip } from "./InstallPrompt.jsx";
 
 const PlayIcon = ({ size = 15 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21" /></svg>
@@ -104,7 +103,6 @@ export default function WebReaderLayout({
   corpusErr,
   commentaryVisibleKeys,
   onCommentaryVisibleKeysChange,
-  installPrompt,
 }) {
   const [simanQuery, setSimanQuery] = useState("");
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
@@ -312,7 +310,6 @@ export default function WebReaderLayout({
             <button type="button" className="btn btn--ghost" onClick={toggleTheme} title="Toggle theme">
               {theme === "light" ? "Dark" : "Light"}
             </button>
-            {installPrompt && <InstallChip {...installPrompt} />}
           </div>
         </header>
 
