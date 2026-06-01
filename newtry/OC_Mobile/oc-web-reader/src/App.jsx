@@ -312,7 +312,7 @@ export default function App() {
       commentaryVisibleKeys={commentaryVisibleKeys}
       onCommentaryVisibleKeysChange={onCommentaryVisibleKeysChange}
     />
-    <OfflineStatus status={pwaStatus} />
+    <OfflineStatus />
     </>
   );
 }
