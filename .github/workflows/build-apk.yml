@@ -27,7 +27,7 @@ jobs:
           node-version: '20'
 
       - name: Install Bubblewrap CLI
-        run: npm install -g @bubblewrap/cli@latest
+        run: npm install -g @bubblewrap/cli@1.21.1
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
@@ -39,17 +39,17 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
+      - name: Print SDK/JDK paths for debugging
+        run: |
+          echo "JAVA_HOME=$JAVA_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          java -version
+
       - name: Configure Bubblewrap SDK paths
         run: |
           mkdir -p ~/.bubblewrap
-          cat > ~/.bubblewrap/config.json <<'EOF'
-          {
-            "jdkPath": "/usr/lib/jvm/temurin-17-amd64",
-            "androidSdkPath": "$ANDROID_SDK_ROOT"
-          }
-          EOF
-          # Resolve the actual ANDROID_SDK_ROOT value
-          sed -i "s|\$ANDROID_SDK_ROOT|${ANDROID_SDK_ROOT}|g" ~/.bubblewrap/config.json
+          echo "{\"jdkPath\": \"${JAVA_HOME}\", \"androidSdkPath\": \"${ANDROID_SDK_ROOT}\"}" > ~/.bubblewrap/config.json
           cat ~/.bubblewrap/config.json
 
       - name: Generate signing keystore
@@ -79,19 +79,20 @@ jobs:
           BUBBLEWRAP_KEYSTORE_PASSWORD: android123
           BUBBLEWRAP_KEY_PASSWORD: android123
 
-      - name: Find APK
+      - name: Find and rename APK
         id: find_apk
         working-directory: newtry/OC_Mobile/apk
         run: |
           APK=$(find . -name "*.apk" | head -1)
-          echo "apk_path=$APK" >> $GITHUB_OUTPUT
-          echo "Found APK: $APK"
-          ls -lh $APK
+          echo "Found: $APK"
+          ls -lh "$APK"
+          cp "$APK" ShulchanAruch.apk
+          echo "apk_path=newtry/OC_Mobile/apk/ShulchanAruch.apk" >> $GITHUB_OUTPUT
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ShulchanAruch-release-signed
-          path: newtry/OC_Mobile/apk/${{ steps.find_apk.outputs.apk_path }}
+          path: ${{ steps.find_apk.outputs.apk_path }}
           retention-days: 90
           if-no-files-found: error
