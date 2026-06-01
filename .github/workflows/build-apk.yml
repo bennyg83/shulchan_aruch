@@ -21,17 +21,6 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install native dependencies for Bubblewrap
-        run: sudo apt-get install -y libsecret-1-dev
-
-      - name: Install Bubblewrap CLI
-        run: npm install -g @bubblewrap/cli@1.24.1
-
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
@@ -42,40 +31,7 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
-      - name: Print SDK/JDK paths
-        run: |
-          echo "JAVA_HOME=$JAVA_HOME"
-          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          java -version
-
-      - name: Configure Bubblewrap user config
-        run: |
-          mkdir -p ~/.bubblewrap
-          echo "{\"jdkPath\": \"${JAVA_HOME}\", \"androidSdkPath\": \"${ANDROID_SDK_ROOT}\"}" > ~/.bubblewrap/config.json
-          cat ~/.bubblewrap/config.json
-
-      - name: Patch twa-manifest.json with actual SDK/JDK paths and raw icon URL
-        working-directory: newtry/OC_Mobile/apk
-        run: |
-          node -e "
-            const fs = require('fs');
-            const m = JSON.parse(fs.readFileSync('twa-manifest.json', 'utf8'));
-            m.sdkPath = process.env.ANDROID_SDK_ROOT;
-            m.jdkPath = process.env.JAVA_HOME;
-            // Use raw GitHub URL so icon is available without waiting for Pages deploy
-            const rawBase = 'https://raw.githubusercontent.com/bennyg83/shulchan_aruch/main/newtry/OC_Mobile/oc318-mobile-reader/public';
-            m.iconUrl = rawBase + '/icon-512.png';
-            m.maskableIconUrl = rawBase + '/icon-512.png';
-            m.monochromeIconUrl = rawBase + '/icon-512.png';
-            fs.writeFileSync('twa-manifest.json', JSON.stringify(m, null, 2));
-            console.log('Patched sdkPath:', m.sdkPath);
-            console.log('Patched jdkPath:', m.jdkPath);
-            console.log('Patched iconUrl:', m.iconUrl);
-          "
-
       - name: Generate signing keystore
-        working-directory: newtry/OC_Mobile/apk
         run: |
           keytool -genkey -v \
             -keystore android.keystore \
@@ -87,31 +43,215 @@ jobs:
             -keypass android123 \
             -dname "CN=Shulchan Aruch, OU=App, O=bennyg83, L=Unknown, ST=Unknown, C=US"
 
-      - name: Generate Android project with Bubblewrap
-        working-directory: newtry/OC_Mobile/apk
+      - name: Generate app icon (512x512 dark background)
         run: |
-          echo "=== twa-manifest.json ==="
-          cat twa-manifest.json
-          echo "=== bubblewrap config ==="
-          cat ~/.bubblewrap/config.json
-          echo "=== running bubblewrap update ==="
-          bubblewrap update --skipPwaValidation
-        env:
-          BUBBLEWRAP_KEYSTORE_PASSWORD: android123
-          BUBBLEWRAP_KEY_PASSWORD: android123
+          # Create a 512x512 solid #141820 PNG using Node.js
+          node -e "
+            const zlib = require('zlib');
+            const fs = require('fs');
+            const crcTable = new Uint32Array(256);
+            for (let i = 0; i < 256; i++) {
+              let c = i;
+              for (let j = 0; j < 8; j++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+              crcTable[i] = c;
+            }
+            function crc32(buf) {
+              let crc = 0xffffffff;
+              for (let i = 0; i < buf.length; i++) crc = (crc >>> 8) ^ crcTable[(crc ^ buf[i]) & 0xff];
+              return (crc ^ 0xffffffff) >>> 0;
+            }
+            function chunk(type, data) {
+              const len = Buffer.alloc(4); len.writeUInt32BE(data.length);
+              const tb = Buffer.from(type,'ascii');
+              const content = Buffer.concat([tb, data]);
+              const c = Buffer.alloc(4); c.writeUInt32BE(crc32(content) >>> 0);
+              return Buffer.concat([len, content, c]);
+            }
+            function makePng(size, r, g, b) {
+              const raw = Buffer.alloc(size * (1 + size * 4));
+              for (let y = 0; y < size; y++) {
+                raw[y * (1 + size * 4)] = 0;
+                for (let x = 0; x < size; x++) {
+                  const o = y * (1 + size * 4) + 1 + x * 4;
+                  raw[o] = r; raw[o+1] = g; raw[o+2] = b; raw[o+3] = 255;
+                }
+              }
+              const comp = zlib.deflateSync(raw);
+              const sig = Buffer.from([137,80,78,71,13,10,26,10]);
+              const ihdr = Buffer.alloc(13);
+              ihdr.writeUInt32BE(size,0); ihdr.writeUInt32BE(size,4);
+              ihdr[8]=8; ihdr[9]=6;
+              return Buffer.concat([sig,chunk('IHDR',ihdr),chunk('IDAT',comp),chunk('IEND',Buffer.alloc(0))]);
+            }
+            for (const s of [48,72,96,144,192,512]) {
+              fs.writeFileSync('icon_' + s + '.png', makePng(s, 20, 24, 32));
+              console.log('Created icon_' + s + '.png');
+            }
+          "
 
-      - name: Build APK
-        working-directory: newtry/OC_Mobile/apk
-        run: bubblewrap build --skipPwaValidation
+      - name: Create Android TWA project structure
+        run: |
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          mkdir -p android/app/src/main/res/values
+          mkdir -p android/app/src/main/res/drawable
+
+          cp icon_48.png   android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          cp icon_72.png   android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          cp icon_96.png   android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          cp icon_144.png  android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          cp icon_192.png  android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          cp icon_512.png  android/app/src/main/res/drawable/ic_splash.png
+
+      - name: Write root build.gradle
+        run: |
+          cat > android/build.gradle << 'GRADLE_EOF'
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath 'com.android.tools.build:gradle:8.1.4'
+              }
+          }
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          GRADLE_EOF
+
+      - name: Write settings.gradle
+        run: |
+          cat > android/settings.gradle << 'GRADLE_EOF'
+          rootProject.name = "ShulchanAruch"
+          include ':app'
+          GRADLE_EOF
+
+      - name: Write gradle.properties
+        run: |
+          cat > android/gradle.properties << 'GRADLE_EOF'
+          android.useAndroidX=true
+          GRADLE_EOF
+
+      - name: Write app/build.gradle
+        run: |
+          cat > android/app/build.gradle << 'GRADLE_EOF'
+          apply plugin: 'com.android.application'
+
+          android {
+              compileSdk 34
+              namespace 'com.bennyg83.shulchanaruch'
+              defaultConfig {
+                  applicationId 'com.bennyg83.shulchanaruch'
+                  minSdk 19
+                  targetSdk 34
+                  versionCode 1
+                  versionName '1.0'
+              }
+              signingConfigs {
+                  release {
+                      storeFile file('../../android.keystore')
+                      storePassword 'android123'
+                      keyAlias 'android'
+                      keyPassword 'android123'
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                      minifyEnabled false
+                      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+                  }
+              }
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_1_8
+                  targetCompatibility JavaVersion.VERSION_1_8
+              }
+          }
+
+          dependencies {
+              implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+          }
+          GRADLE_EOF
+
+      - name: Write AndroidManifest.xml
+        run: |
+          cat > android/app/src/main/AndroidManifest.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET"/>
+              <application
+                  android:label="Shulchan Aruch"
+                  android:icon="@mipmap/ic_launcher"
+                  android:supportsRtl="true"
+                  android:theme="@android:style/Theme.NoTitleBar">
+                  <activity
+                      android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
+                      android:exported="true">
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.DEFAULT_URL"
+                          android:value="https://bennyg83.github.io/shulchan_aruch/?utm_source=twa"/>
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+                          android:resource="@color/colorPrimary"/>
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
+                          android:value="customtabs"/>
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                      <intent-filter android:autoVerify="true">
+                          <action android:name="android.intent.action.VIEW"/>
+                          <category android:name="android.intent.category.DEFAULT"/>
+                          <category android:name="android.intent.category.BROWSABLE"/>
+                          <data android:scheme="https"
+                                android:host="bennyg83.github.io"
+                                android:pathPrefix="/shulchan_aruch/"/>
+                      </intent-filter>
+                  </activity>
+                  <service
+                      android:name="com.google.androidbrowserhelper.trusted.DelegationService"
+                      android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE"/>
+                          <category android:name="android.intent.category.DEFAULT"/>
+                      </intent-filter>
+                  </service>
+              </application>
+          </manifest>
+          XML_EOF
+
+      - name: Write colors.xml
+        run: |
+          mkdir -p android/app/src/main/res/values
+          cat > android/app/src/main/res/values/colors.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <color name="colorPrimary">#141820</color>
+          </resources>
+          XML_EOF
+
+      - name: Set up Gradle wrapper
+        working-directory: android
+        run: |
+          gradle wrapper --gradle-version=8.4 --distribution-type=bin
+
+      - name: Build release APK
+        working-directory: android
+        run: ./gradlew assembleRelease --no-daemon
         env:
-          BUBBLEWRAP_KEYSTORE_PASSWORD: android123
-          BUBBLEWRAP_KEY_PASSWORD: android123
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
       - name: Find and rename APK
-        id: find_apk
-        working-directory: newtry/OC_Mobile/apk
         run: |
-          APK=$(find . -name "*.apk" | head -1)
+          APK=$(find android -name "*.apk" | head -1)
           echo "Found: $APK"
           ls -lh "$APK"
           cp "$APK" ShulchanAruch.apk
@@ -120,6 +260,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ShulchanAruch-release-signed
-          path: newtry/OC_Mobile/apk/ShulchanAruch.apk
+          path: ShulchanAruch.apk
           retention-days: 90
           if-no-files-found: error
