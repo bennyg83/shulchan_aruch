@@ -157,17 +157,18 @@ export function InstallChip({ platform, installed, deferredPrompt, triggerInstal
   if (!platform?.isMobile) return null;
   if (installed) return null;
 
-  const canInstall = platform.isIos || !!deferredPrompt;
-  if (!canInstall) return null;
-
+  // Always show on mobile — don't wait for beforeinstallprompt
   const label = platform.isIos ? "Add to Home Screen" : "Install app";
 
   const handleClick = () => {
-    if (platform.isIos) {
-      // Show a quick tip alert since iOS has no programmatic install
-      alert("Tap the Share button (↑) at the bottom of Safari, then choose Add to Home Screen to save this app offline.");
-    } else {
+    if (deferredPrompt) {
+      // Chrome/Android: native install dialog available
       triggerInstall();
+    } else if (platform.isIos) {
+      alert("Tap the Share button at the bottom of Safari, then choose Add to Home Screen to save this app offline.");
+    } else {
+      // Android Chrome before prompt fires, or other browser
+      alert("To install: tap your browser menu (⋮) and choose 'Add to Home Screen' or 'Install app'.");
     }
   };
 
@@ -175,7 +176,7 @@ export function InstallChip({ platform, installed, deferredPrompt, triggerInstal
     <button
       onClick={handleClick}
       className="install-chip"
-      title={label}
+      title="Save app for offline use"
     >
       ⬇ {label}
     </button>
