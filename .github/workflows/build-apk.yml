@@ -39,18 +39,31 @@ jobs:
         run: |
           sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
-      - name: Print SDK/JDK paths for debugging
+      - name: Print SDK/JDK paths
         run: |
           echo "JAVA_HOME=$JAVA_HOME"
           echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
           echo "ANDROID_HOME=$ANDROID_HOME"
           java -version
 
-      - name: Configure Bubblewrap SDK paths
+      - name: Configure Bubblewrap user config
         run: |
           mkdir -p ~/.bubblewrap
           echo "{\"jdkPath\": \"${JAVA_HOME}\", \"androidSdkPath\": \"${ANDROID_SDK_ROOT}\"}" > ~/.bubblewrap/config.json
           cat ~/.bubblewrap/config.json
+
+      - name: Patch twa-manifest.json with actual SDK/JDK paths
+        working-directory: newtry/OC_Mobile/apk
+        run: |
+          node -e "
+            const fs = require('fs');
+            const m = JSON.parse(fs.readFileSync('twa-manifest.json', 'utf8'));
+            m.sdkPath = process.env.ANDROID_SDK_ROOT;
+            m.jdkPath = process.env.JAVA_HOME;
+            fs.writeFileSync('twa-manifest.json', JSON.stringify(m, null, 2));
+            console.log('Patched sdkPath:', m.sdkPath);
+            console.log('Patched jdkPath:', m.jdkPath);
+          "
 
       - name: Generate signing keystore
         working-directory: newtry/OC_Mobile/apk
@@ -87,12 +100,11 @@ jobs:
           echo "Found: $APK"
           ls -lh "$APK"
           cp "$APK" ShulchanAruch.apk
-          echo "apk_path=newtry/OC_Mobile/apk/ShulchanAruch.apk" >> $GITHUB_OUTPUT
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: ShulchanAruch-release-signed
-          path: ${{ steps.find_apk.outputs.apk_path }}
+          path: newtry/OC_Mobile/apk/ShulchanAruch.apk
           retention-days: 90
           if-no-files-found: error
