@@ -12,7 +12,7 @@ async function countCached() {
       const reqs = await c.keys();
       for (const r of reqs) {
         total++;
-        if (/\/bundles\/siman_\d+\.json/.test(r.url)) bundles++;
+        if (/\/bundles\/siman\d+\.json/.test(r.url)) bundles++;
       }
     }
     return { bundles, total };

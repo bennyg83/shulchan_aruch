@@ -28,7 +28,7 @@ jobs:
           sparse-checkout: |
             .github
             newtry/OC_Mobile/oc-web-reader
-            newtry/OC_Mobile/oc318-mobile-reader/public
+            newtry/OC_Mobile/oc318-mobile-reader
 
       - uses: actions/setup-node@v4
         with:
@@ -38,6 +38,20 @@ jobs:
 
       - name: Verify corpus is present
         run: test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/catalog.json
+
+      - name: Install bundler dependencies
+        working-directory: newtry/OC_Mobile/oc318-mobile-reader
+        run: npm ci
+
+      - name: Generate siman bundles for offline caching
+        working-directory: newtry/OC_Mobile/oc318-mobile-reader
+        run: npm run bundle:corpus
+
+      - name: Verify bundles were generated
+        run: |
+          COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/ | wc -l)
+          echo "Generated $COUNT bundle files"
+          test "$COUNT" -gt 600
 
       - name: Install dependencies
         working-directory: newtry/OC_Mobile/oc-web-reader

@@ -118,7 +118,7 @@ export default defineConfig(({ command }) => {
             {
               // Cache corpus bundles at runtime too: CacheFirst so offline works
               // even for bundles the precache hasn't downloaded yet.
-              urlPattern: /\/corpus\/oc1\/bundles\/siman_\d+\.json$/,
+              urlPattern: /\/corpus\/oc1\/bundles\/siman\d+\.json$/,
               handler: "CacheFirst",
               options: {
                 cacheName: "corpus-bundles",
