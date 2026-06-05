@@ -65,12 +65,36 @@ function buildBundleManifestEntries(base) {
   }
 }
 
-/** https://bennyg83.github.io/shulchan_aruch/ (CI sets GITHUB_ACTIONS; override with VITE_BASE) */
-const pagesBase =
-  process.env.VITE_BASE || (process.env.GITHUB_ACTIONS === "true" ? "/shulchan_aruch/" : "/");
-
-/** Set VITE_STANDALONE=true to build a self-contained WebView APK (no PWA/SW). */
+/**
+ * Set VITE_STANDALONE=true to build a self-contained native shell (Android WebView / iOS Capacitor).
+ * No PWA service worker — corpus is bundled in app assets.
+ */
 const isStandalone = process.env.VITE_STANDALONE === "true";
+
+/** Standalone native builds use relative URLs so bundled assets resolve offline. */
+const standaloneBase = "./";
+
+/** https://bennyg83.github.io/shulchan_aruch/ (CI sets GITHUB_ACTIONS; override with VITE_BASE) */
+const pagesBase = isStandalone
+  ? process.env.VITE_BASE || standaloneBase
+  : process.env.VITE_BASE || (process.env.GITHUB_ACTIONS === "true" ? "/shulchan_aruch/" : "/");
+
+/** Stub PWA registration for standalone native builds (no service worker). */
+function stubPwaRegisterPlugin() {
+  const virtualId = "virtual:pwa-register";
+  const resolvedId = "\0" + virtualId;
+  return {
+    name: "stub-pwa-register",
+    resolveId(id) {
+      if (id === virtualId) return resolvedId;
+    },
+    load(id) {
+      if (id === resolvedId) {
+        return "export function registerSW() { return () => {}; }";
+      }
+    },
+  };
+}
 
 export default defineConfig(({ command }) => {
   const isBuild = command === "build";
@@ -81,6 +105,7 @@ export default defineConfig(({ command }) => {
     plugins: [
       react(),
       serveCorpusPlugin(),
+      ...(isStandalone ? [stubPwaRegisterPlugin()] : []),
 
       ...(!isStandalone ? [VitePWA({
         registerType: "autoUpdate",

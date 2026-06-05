@@ -22,6 +22,7 @@ async function countCached() {
 }
 
 function OfflineBanner() {
+  if (import.meta.env.VITE_STANDALONE) return null;
   const [bundles, setBundles] = useState(0);
   const [dismissed, setDismissed] = useState(false);
   const [swReady, setSwReady] = useState(false);
