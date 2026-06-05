@@ -1,21 +1,14 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 /**
- * Install / offline-save UI.
+ * PWA install / offline-save UI.
  *
- * Renders two things:
- *   1. A floating top banner the first time a mobile user visits
- *      (auto-dismissed after they act or close it).
- *   2. A small persistent "Install" chip in the toolbar (passed via
- *      the `renderChip` render-prop) so users can always find it.
- *
- * Strategy:
- *   - Chrome/Android: capture beforeinstallprompt → native install dialog.
- *   - iOS Safari: no event — show Share → Add to Home Screen instructions.
- *   - If already running in standalone (installed): hide everything.
+ * - iOS: Safari → Share → Add to Home Screen (no install API).
+ * - Android: beforeinstallprompt when available, else manual Chrome steps.
+ * - Desktop: browser install icon in address bar.
  */
 
-function isStandalone() {
+export function isStandalone() {
   try {
     return (
       window.matchMedia("(display-mode: standalone)").matches ||
@@ -26,31 +19,43 @@ function isStandalone() {
   }
 }
 
-function detectPlatform() {
+export function detectPlatform() {
   const ua = navigator.userAgent || "";
   const isIos = /iphone|ipad|ipod/i.test(ua);
   const isAndroid = /android/i.test(ua);
   const isMobile = isIos || isAndroid;
-  return { isIos, isAndroid, isMobile };
+  const isIosSafari = isIos && /safari/i.test(ua) && !/crios|fxios|edgios/i.test(ua);
+  const isIosNonSafari = isIos && !isIosSafari;
+  const isDesktop = !isMobile;
+  let kind = "desktop";
+  if (isIosSafari) kind = "ios-safari";
+  else if (isIosNonSafari) kind = "ios-other";
+  else if (isAndroid) kind = "android";
+  return { isIos, isAndroid, isMobile, isIosSafari, isIosNonSafari, isDesktop, kind };
 }
 
 export function useInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [platform, setPlatform] = useState(null); // null until mounted
+  const [platform, setPlatform] = useState(null);
   const [installed, setInstalled] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
   const [bannerDismissed, setBannerDismissed] = useState(() => {
     try {
-      // v2: reset any old dismiss so the banner re-appears after the PWA update
-      if (localStorage.getItem("oc_install_dismissed_v") !== "2") {
+      if (localStorage.getItem("oc_install_dismissed_v") !== "3") {
         localStorage.removeItem("oc_install_dismissed");
-        localStorage.setItem("oc_install_dismissed_v", "2");
+        localStorage.setItem("oc_install_dismissed_v", "3");
       }
       return !!localStorage.getItem("oc_install_dismissed");
-    } catch { return false; }
+    } catch {
+      return false;
+    }
   });
 
   useEffect(() => {
-    if (isStandalone()) { setInstalled(true); return; }
+    if (isStandalone()) {
+      setInstalled(true);
+      return;
+    }
     setPlatform(detectPlatform());
 
     const handler = (e) => {
@@ -59,18 +64,26 @@ export function useInstallPrompt() {
     };
     window.addEventListener("beforeinstallprompt", handler);
     window.addEventListener("appinstalled", () => setInstalled(true));
-    return () => {
-      window.removeEventListener("beforeinstallprompt", handler);
-    };
+    return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
-  const dismissBanner = () => {
+  const dismissBanner = useCallback(() => {
     setBannerDismissed(true);
-    try { localStorage.setItem("oc_install_dismissed", "1"); } catch { /* ignore */ }
-  };
+    try {
+      localStorage.setItem("oc_install_dismissed", "1");
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
-  const triggerInstall = async () => {
-    if (!deferredPrompt) return false;
+  const openGuide = useCallback(() => setGuideOpen(true), []);
+  const closeGuide = useCallback(() => setGuideOpen(false), []);
+
+  const triggerInstall = useCallback(async () => {
+    if (!deferredPrompt) {
+      setGuideOpen(true);
+      return false;
+    }
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
     if (outcome === "accepted") {
@@ -79,180 +92,331 @@ export function useInstallPrompt() {
     }
     setDeferredPrompt(null);
     return outcome === "accepted";
-  };
+  }, [deferredPrompt, dismissBanner]);
 
   return {
     platform,
     installed,
     deferredPrompt,
     bannerDismissed,
+    guideOpen,
     dismissBanner,
+    openGuide,
+    closeGuide,
     triggerInstall,
   };
 }
 
-/** Floating banner — shown once until dismissed. */
-export function InstallBanner({ platform, installed, deferredPrompt, bannerDismissed, dismissBanner, triggerInstall }) {
-  if (!platform?.isMobile) return null;
-  if (installed) return null;
-  if (bannerDismissed) return null;
-  // On Android wait for the prompt event; on iOS show immediately
-  if (!platform.isIos && !deferredPrompt) return null;
+function GuideSteps({ platform, onInstall, canNativeInstall }) {
+  const kind = platform?.kind ?? "desktop";
+
+  if (kind === "ios-other") {
+    return (
+      <div className="install-guide__body">
+        <p className="install-guide__lead install-guide__lead--warn">
+          You are not in Safari. On iPhone and iPad, offline install only works in <strong>Safari</strong>.
+        </p>
+        <ol className="install-guide__steps">
+          <li>Copy this page address or open Safari manually.</li>
+          <li>
+            In <strong>Safari</strong>, go to{" "}
+            <strong className="install-guide__url">bennyg83.github.io/shulchan_aruch</strong>
+          </li>
+          <li>
+            Tap <strong>Share ↑</strong> at the bottom of Safari (not the address bar).
+          </li>
+          <li>
+            Scroll down and tap <strong>Add to Home Screen</strong>.
+          </li>
+          <li>
+            Tap <strong>Add</strong>, then open the app from your Home Screen.
+          </li>
+          <li>
+            Keep the app open until the top banner shows <strong>“Ready for offline use”</strong> (697 simanim saved).
+          </li>
+        </ol>
+      </div>
+    );
+  }
+
+  if (kind === "ios-safari") {
+    return (
+      <div className="install-guide__body">
+        <p className="install-guide__lead">
+          Install this reader to your Home Screen. All 697 simanim of Orach Chayim will save for offline use.
+        </p>
+        <ol className="install-guide__steps">
+          <li>
+            Tap <strong>Share ↑</strong> at the <em>bottom</em> of Safari (square with arrow pointing up).
+          </li>
+          <li>
+            Scroll the menu and tap <strong>Add to Home Screen</strong>.
+          </li>
+          <li>
+            Confirm the name <strong>Shulchan Aruch</strong> and tap <strong>Add</strong>.
+          </li>
+          <li>
+            Go to your Home Screen and open the new <strong>Shulchan Aruch</strong> icon — not a Safari bookmark.
+          </li>
+          <li>
+            On first launch, stay in the app while the banner counts up{" "}
+            <strong>Saving for offline… 697/697</strong>.
+          </li>
+          <li>When it says <strong>Ready for offline use</strong>, airplane mode works.</li>
+        </ol>
+        <p className="install-guide__note">
+          Tip: Use Wi‑Fi for the first download (~90 MB of text). After that, no internet is needed.
+        </p>
+      </div>
+    );
+  }
+
+  if (kind === "android") {
+    return (
+      <div className="install-guide__body">
+        <p className="install-guide__lead">
+          Install as an app so all 697 simanim download automatically for offline reading.
+        </p>
+        {canNativeInstall ? (
+          <>
+            <p className="install-guide__note install-guide__note--action">
+              Your browser supports one-tap install:
+            </p>
+            <button type="button" className="install-guide__install-btn" onClick={onInstall}>
+              Install app now
+            </button>
+            <p className="install-guide__note">Or follow the manual steps below.</p>
+          </>
+        ) : null}
+        <ol className="install-guide__steps">
+          <li>
+            Use <strong>Chrome</strong> (recommended). Delete any old home-screen shortcut for this site first.
+          </li>
+          <li>
+            Tap the <strong>⋮ menu</strong> (top-right) → <strong>Install app</strong> or{" "}
+            <strong>Add to Home screen</strong>.
+          </li>
+          <li>
+            The dialog must say <strong>Install</strong> with an app icon — not “Add shortcut”. If you only see
+            shortcut, close all Chrome tabs, reopen this site, and try again.
+          </li>
+          <li>Open the app from your home screen (not the browser tab).</li>
+          <li>
+            Wait for <strong>Saving for offline…</strong> to reach 697/697 before going offline.
+          </li>
+        </ol>
+        <p className="install-guide__note">
+          Prefer a file download? You can also install the{" "}
+          <a
+            className="install-guide__link"
+            href="https://github.com/bennyg83/shulchan_aruch/releases/download/android-standalone/ShulchanAruch-Standalone.apk"
+          >
+            standalone Android APK
+          </a>{" "}
+          (works offline immediately, no first-visit download).
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div style={{
-      position: "fixed",
-      top: 12,
-      left: 12,
-      right: 12,
-      zIndex: 9100,
-      maxWidth: 480,
-      margin: "0 auto",
-      background: "#0e1120",
-      border: "1px solid #3a4a7a",
-      borderRadius: 12,
-      padding: "14px 16px",
-      boxShadow: "0 6px 32px rgba(0,0,0,0.65)",
-      fontFamily: "system-ui, -apple-system, sans-serif",
-      color: "#e8eaf0",
-    }}>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-        <div style={{ fontSize: 26, lineHeight: 1, flexShrink: 0 }}>📖</div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 4 }}>
-            Save for offline reading
-          </div>
-          {platform.isIos ? (
-            <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.55 }}>
-              Tap <strong style={{ color: "#e8eaf0" }}>Share ↑</strong> then{" "}
-              <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong> — all 697 simanim
-              available offline, no internet needed.
-            </div>
-          ) : (
-            <>
-              <div style={{ fontSize: 13, color: "#9ba3c4", lineHeight: 1.55 }}>
-                Install the app — all 697 simanim of Orach Chayim available offline.
-              </div>
-              <button onClick={triggerInstall} style={{
-                marginTop: 10, padding: "8px 18px", borderRadius: 8,
-                border: "none", background: "#4a80c4", color: "#fff",
-                fontWeight: 700, fontSize: 14, cursor: "pointer",
-              }}>
-                Download for offline
-              </button>
-            </>
-          )}
-        </div>
-        <button onClick={dismissBanner} aria-label="Dismiss" style={{
-          background: "none", border: "none", color: "#9ba3c4",
-          fontSize: 22, lineHeight: 1, cursor: "pointer", padding: 0, flexShrink: 0,
-        }}>×</button>
+    <div className="install-guide__body">
+      <p className="install-guide__lead">
+        Install this site as a desktop app. All 697 simanim will cache for offline reading.
+      </p>
+      {canNativeInstall ? (
+        <>
+          <p className="install-guide__note install-guide__note--action">One-tap install:</p>
+          <button type="button" className="install-guide__install-btn" onClick={onInstall}>
+            Install app now
+          </button>
+          <p className="install-guide__note">Or use your browser’s install control:</p>
+        </>
+      ) : null}
+      <ol className="install-guide__steps">
+        <li>
+          In <strong>Chrome</strong> or <strong>Edge</strong>, look for the install icon in the address bar (⊕ or
+          monitor symbol).
+        </li>
+        <li>
+          Click <strong>Install</strong> and confirm.
+        </li>
+        <li>
+          Open the installed app from your applications menu or desktop shortcut.
+        </li>
+        <li>
+          On first run, wait until the banner shows <strong>Ready for offline use</strong> (697 simanim).
+        </li>
+      </ol>
+      <p className="install-guide__note">
+        Offline mode requires a network connection once to download the corpus. After that, the reader works without
+        internet.
+      </p>
+    </div>
+  );
+}
+
+/** Full-screen modal with platform-specific install instructions. */
+export function InstallGuide({
+  open,
+  onClose,
+  platform,
+  deferredPrompt,
+  triggerInstall,
+}) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  const title =
+    platform?.kind === "ios-safari" || platform?.kind === "ios-other"
+      ? "Install on iPhone / iPad"
+      : platform?.kind === "android"
+        ? "Install on Android"
+        : "Install for offline use";
+
+  return (
+    <div className="install-guide-overlay" onClick={onClose} role="presentation">
+      <div
+        className="install-guide"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="install-guide-title"
+      >
+        <header className="install-guide__header">
+          <h2 id="install-guide-title" className="install-guide__title">
+            {title}
+          </h2>
+          <button type="button" className="install-guide__close" onClick={onClose} aria-label="Close">
+            ×
+          </button>
+        </header>
+        <GuideSteps
+          platform={platform}
+          onInstall={triggerInstall}
+          canNativeInstall={!!deferredPrompt}
+        />
+        <footer className="install-guide__footer">
+          <button type="button" className="install-guide__done-btn" onClick={onClose}>
+            Got it
+          </button>
+        </footer>
       </div>
     </div>
   );
 }
 
-/** Small chip + inline instruction popover — always visible on mobile until installed. */
-export function InstallChip({ platform, installed, deferredPrompt, triggerInstall }) {
-  const [showGuide, setShowGuide] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    if (!showGuide) return;
-    const handler = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setShowGuide(false);
-    };
-    document.addEventListener("pointerdown", handler);
-    return () => document.removeEventListener("pointerdown", handler);
-  }, [showGuide]);
-
+/** Floating banner — first visit on mobile until dismissed. */
+export function InstallBanner({
+  platform,
+  installed,
+  deferredPrompt,
+  bannerDismissed,
+  dismissBanner,
+  triggerInstall,
+  openGuide,
+}) {
+  if (import.meta.env.VITE_STANDALONE) return null;
   if (!platform?.isMobile) return null;
   if (installed) return null;
-
-  const handleClick = () => {
-    if (deferredPrompt) {
-      triggerInstall();
-    } else {
-      setShowGuide((v) => !v);
-    }
-  };
+  if (bannerDismissed) return null;
 
   const isIos = platform.isIos;
 
   return (
-    <span ref={ref} style={{ position: "relative", display: "inline-flex" }}>
-      <button onClick={handleClick} className="install-chip" title="Save app for offline use">
-        ⬇ {isIos ? "Add to Home Screen" : "Install app"}
-      </button>
-
-      {showGuide && (
-        <div style={{
-          position: "fixed",
-          top: 0, left: 0, right: 0, bottom: 0,
-          zIndex: 9200,
-          display: "flex",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          paddingTop: 80,
-          background: "rgba(0,0,0,0.55)",
-        }}
-          onClick={() => setShowGuide(false)}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "#0e1120",
-              border: "1px solid #3a4a7a",
-              borderRadius: 14,
-              padding: "20px 22px",
-              maxWidth: 340,
-              margin: "0 16px",
-              boxShadow: "0 8px 40px rgba(0,0,0,0.7)",
-              fontFamily: "system-ui, -apple-system, sans-serif",
-              color: "#e8eaf0",
-            }}
-          >
-            <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 14 }}>
-              📲 Install for offline use
-            </div>
-
-            {isIos ? (
-              <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
-                <li>Tap the <strong style={{ color: "#e8eaf0" }}>Share ↑</strong> button at the bottom of Safari</li>
-                <li>Scroll down and tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
-                <li>Tap <strong style={{ color: "#e8eaf0" }}>Add</strong></li>
-              </ol>
-            ) : (
-              <>
-                <ol style={{ margin: 0, paddingLeft: 20, lineHeight: 2, fontSize: 14, color: "#c8ccde" }}>
-                  <li>First <strong style={{ color: "#e8eaf0" }}>delete any existing shortcut</strong> for this site from your home screen</li>
-                  <li>In Chrome, tap the <strong style={{ color: "#e8eaf0" }}>⋮ menu</strong> (top-right)</li>
-                  <li>Tap <strong style={{ color: "#e8eaf0" }}>Add to Home Screen</strong></li>
-                  <li>If it says <strong style={{ color: "#e8eaf0" }}>&quot;Install&quot;</strong> with an app icon → tap Install ✓<br />
-                    If it says <strong style={{ color: "#f0a4a4" }}>&quot;Add shortcut&quot;</strong> → tap Cancel, close all Chrome tabs, reopen and try again</li>
-                </ol>
-                <div style={{ marginTop: 12, padding: "8px 10px", background: "#1a2340", borderRadius: 8, fontSize: 12, color: "#9ba3c4", lineHeight: 1.6 }}>
-                  The dialog must say <strong style={{ color: "#e8eaf0" }}>&quot;Install&quot;</strong> (not &quot;Add shortcut&quot;) for offline to work. Once installed, all 697 simanim download automatically.
-                </div>
-              </>
-            )}
-
-            <div style={{ marginTop: 14, fontSize: 12, color: "#7a84a8", lineHeight: 1.5 }}>
-
-            <button
-              onClick={() => setShowGuide(false)}
-              style={{
-                marginTop: 16, width: "100%", padding: "10px",
-                borderRadius: 8, border: "none",
-                background: "#2a3a6a", color: "#e8eaf0",
-                fontWeight: 600, fontSize: 14, cursor: "pointer",
-              }}
-            >
-              Got it
+    <div className="install-banner">
+      <div className="install-banner__inner">
+        <div className="install-banner__icon" aria-hidden="true">
+          📖
+        </div>
+        <div className="install-banner__content">
+          <div className="install-banner__heading">Save for offline reading</div>
+          {isIos ? (
+            <p className="install-banner__text">
+              {platform.kind === "ios-other"
+                ? "Open in Safari to install — other browsers on iPhone cannot save offline."
+                : "Add to Home Screen — all 697 simanim available offline after first download."}
+            </p>
+          ) : (
+            <p className="install-banner__text">
+              Install the app — all 697 simanim of Orach Chayim available offline.
+            </p>
+          )}
+          <div className="install-banner__actions">
+            {deferredPrompt && !isIos ? (
+              <button type="button" className="install-banner__primary" onClick={triggerInstall}>
+                Install now
+              </button>
+            ) : null}
+            <button type="button" className="install-banner__secondary" onClick={openGuide}>
+              {isIos ? "Show steps" : "How to install"}
             </button>
           </div>
         </div>
-      )}
-    </span>
+        <button type="button" className="install-banner__dismiss" onClick={dismissBanner} aria-label="Dismiss">
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** Sidebar panel — always available until installed. */
+export function OfflineInstallPanel({
+  platform,
+  installed,
+  deferredPrompt,
+  openGuide,
+  triggerInstall,
+}) {
+  if (import.meta.env.VITE_STANDALONE) return null;
+
+  if (installed) {
+    return (
+      <div className="offline-install offline-install--done">
+        <span className="offline-install__status">✓ Installed — ready for offline</span>
+        <p className="offline-install__hint">
+          Open from your home screen or apps menu. If content is missing, reconnect once until the save banner
+          completes.
+        </p>
+      </div>
+    );
+  }
+
+  const label =
+    platform?.kind === "ios-safari" || platform?.kind === "ios-other"
+      ? "Install on iPhone / iPad"
+      : platform?.kind === "android"
+        ? "Install on Android"
+        : "Install for offline";
+
+  return (
+    <div className="offline-install">
+      <p className="offline-install__heading">Offline app</p>
+      <p className="offline-install__blurb">
+        Save all 697 simanim to your device. One online visit, then no internet needed.
+      </p>
+      <div className="offline-install__actions">
+        {deferredPrompt && !platform?.isIos ? (
+          <button type="button" className="offline-install__btn offline-install__btn--primary" onClick={triggerInstall}>
+            Install now
+          </button>
+        ) : null}
+        <button type="button" className="offline-install__btn" onClick={openGuide}>
+          {label} — step by step
+        </button>
+      </div>
+      {platform?.kind === "ios-other" ? (
+        <p className="offline-install__warn">Use Safari on this device — Chrome cannot install offline apps on iOS.</p>
+      ) : null}
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { OfflineInstallPanel } from "./InstallPrompt.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
@@ -103,6 +104,7 @@ export default function WebReaderLayout({
   corpusErr,
   commentaryVisibleKeys,
   onCommentaryVisibleKeysChange,
+  install,
 }) {
   const [simanQuery, setSimanQuery] = useState("");
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
@@ -214,32 +216,13 @@ export default function WebReaderLayout({
           </label>
           <h1>{volume.label}</h1>
           <p className="sidebar__sub">Web reader</p>
-          {!import.meta.env.VITE_STANDALONE && (
-            <div className="mobile-downloads">
-              <a
-                className="mobile-download-btn mobile-download-btn--android"
-                href="https://github.com/bennyg83/shulchan_aruch/releases/download/android-standalone/ShulchanAruch-Standalone.apk"
-                download="ShulchanAruch-Standalone.apk"
-                title="Download fully offline Android app"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M16.36 14c.08-.34.14-.7.14-1.06 0-.36-.06-.72-.14-1.06l2.26-1.74c.2-.16.26-.44.12-.68l-2.14-3.74c-.14-.24-.42-.32-.66-.24l-2.66 1.08c-.56-.42-1.16-.78-1.82-1.02L11.1 3.14C11.06 2.88 10.84 2.68 10.58 2.68H6.42c-.26 0-.48.2-.52.46l-.38 2.5c-.66.24-1.26.6-1.82 1.02L1.04 5.58c-.24-.1-.52 0-.66.24L.24 9.56c-.14.24-.08.52.12.68L2.62 11.96c-.08.34-.14.7-.14 1.06 0 .36.06.72.14 1.06L.36 15.82c-.2.16-.26.44-.12.68l2.14 3.74c.14.24.42.32.66.24l2.66-1.08c.56.42 1.16.78 1.82 1.02l.38 2.5c.04.26.26.46.52.46h4.16c.26 0 .48-.2.52-.46l.38-2.5c.66-.24 1.26-.6 1.82-1.02l2.66 1.08c.24.1.52 0 .66-.24l2.14-3.74c.14-.24.08-.52-.12-.68L16.36 14zM8.5 15.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
-                </svg>
-                Android (offline)
-              </a>
-              <a
-                className="mobile-download-btn mobile-download-btn--ios"
-                href="https://github.com/bennyg83/shulchan_aruch/releases/download/ios-standalone/ShulchanAruch.ipa"
-                download="ShulchanAruch.ipa"
-                title="Download fully offline iOS app"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                iOS (offline)
-              </a>
-            </div>
-          )}
+          <OfflineInstallPanel
+            platform={install.platform}
+            installed={install.installed}
+            deferredPrompt={install.deferredPrompt}
+            openGuide={install.openGuide}
+            triggerInstall={install.triggerInstall}
+          />
         </div>
         <input
           type="search"
