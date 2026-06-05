@@ -2,6 +2,11 @@ name: Build Standalone iOS App (fully offline)
 
 on:
   workflow_dispatch:
+    inputs:
+      sign_ipa:
+        description: Export signed IPA to GitHub Release (requires Apple signing secrets)
+        type: boolean
+        default: false
   push:
     branches: [main, master]
     paths:
@@ -57,14 +62,14 @@ jobs:
         run: pod install
 
       - name: Import code signing certificate
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.sign_ipa == 'true'
         uses: apple-actions/import-codesign-certs@v3
         with:
           p12-file-base64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           p12-password: ${{ secrets.P12_PASSWORD }}
 
       - name: Install provisioning profile
-        if: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 != '' }}
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.sign_ipa == 'true'
         env:
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
         run: |
@@ -73,7 +78,7 @@ jobs:
           echo "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode > "$PROFILE_PATH"
 
       - name: Build and export signed IPA
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' && secrets.BUILD_PROVISION_PROFILE_BASE64 != '' }}
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.sign_ipa == 'true'
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           PROVISIONING_PROFILE_NAME: ${{ secrets.PROVISIONING_PROFILE_NAME }}
@@ -108,8 +113,8 @@ jobs:
           cp "$EXPORT_PATH/App.ipa" "$GITHUB_WORKSPACE/ShulchanAruch.ipa"
           ls -lh "$GITHUB_WORKSPACE/ShulchanAruch.ipa"
 
-      - name: Build for iOS Simulator (unsigned — validates project when signing secrets missing)
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 == '' || secrets.BUILD_PROVISION_PROFILE_BASE64 == '' }}
+      - name: Build for iOS Simulator (validates project without signing)
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.sign_ipa != 'true'
         working-directory: newtry/OC_Mobile/oc-web-reader/ios/App
         run: |
           xcodebuild -workspace App.xcworkspace \
@@ -118,10 +123,10 @@ jobs:
             -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath "$RUNNER_TEMP/DerivedData" \
             build
-          echo "::warning::Signed IPA not produced — set BUILD_CERTIFICATE_BASE64, P12_PASSWORD, BUILD_PROVISION_PROFILE_BASE64, APPLE_TEAM_ID, PROVISIONING_PROFILE_NAME, and CODE_SIGN_IDENTITY repository secrets for device IPA export."
+          echo "::notice::Simulator build OK. To export a signed IPA, run this workflow manually with 'sign_ipa' enabled and Apple signing secrets configured."
 
       - name: Upload IPA artifact
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' && secrets.BUILD_PROVISION_PROFILE_BASE64 != '' }}
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.sign_ipa == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ShulchanAruch-iOS
@@ -130,7 +135,7 @@ jobs:
           if-no-files-found: error
 
       - name: Publish GitHub Release
-        if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' && secrets.BUILD_PROVISION_PROFILE_BASE64 != '' }}
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.sign_ipa == 'true'
         run: |
           gh release delete ios-standalone --yes 2>/dev/null || true
           git push --delete origin ios-standalone 2>/dev/null || true
