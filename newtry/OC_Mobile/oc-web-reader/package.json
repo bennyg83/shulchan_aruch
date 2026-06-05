@@ -8,10 +8,16 @@
     "dev:preview": "vite preview --port 4174 --strictPort",
     "build": "vite build",
     "build:pages": "vite build",
+    "build:standalone": "VITE_STANDALONE=true vite build",
+    "build:ios": "npm run build:standalone && npx cap sync ios",
     "preview": "vite preview --host",
-    "preview:pages": "vite preview --host --strictPort"
+    "preview:pages": "vite preview --host --strictPort",
+    "cap:sync": "npx cap sync ios"
   },
   "dependencies": {
+    "@capacitor/cli": "6.2.1",
+    "@capacitor/core": "6.2.1",
+    "@capacitor/ios": "6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

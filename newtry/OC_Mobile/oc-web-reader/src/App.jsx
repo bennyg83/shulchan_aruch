@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import WebReaderLayout from "./WebReaderLayout.jsx";
+import {
+  useInstallPrompt,
+  InstallBanner,
+  InstallGuide,
+} from "./InstallPrompt.jsx";
 
 /** Count cached siman bundles and total precache entries. */
 async function countCached() {
@@ -22,6 +27,7 @@ async function countCached() {
 }
 
 function OfflineBanner() {
+  if (import.meta.env.VITE_STANDALONE) return null;
   const [bundles, setBundles] = useState(0);
   const [dismissed, setDismissed] = useState(false);
   const [swReady, setSwReady] = useState(false);
@@ -107,6 +113,8 @@ function initialCommentarySelection() {
 }
 
 export default function App() {
+  const install = useInstallPrompt();
+
   const [volumeId, setVolumeId] = useState(() => {
     const url = parseReaderUrl();
     const prefs = loadReaderPrefs();
@@ -394,6 +402,22 @@ const syncUrlAndStorage = useCallback(
   return (
     <>
     <OfflineBanner />
+    <InstallBanner
+      platform={install.platform}
+      installed={install.installed}
+      deferredPrompt={install.deferredPrompt}
+      bannerDismissed={install.bannerDismissed}
+      dismissBanner={install.dismissBanner}
+      triggerInstall={install.triggerInstall}
+      openGuide={install.openGuide}
+    />
+    <InstallGuide
+      open={install.guideOpen}
+      onClose={install.closeGuide}
+      platform={install.platform}
+      deferredPrompt={install.deferredPrompt}
+      triggerInstall={install.triggerInstall}
+    />
     <WebReaderLayout
       volumes={VOLUMES}
       volume={volume}
@@ -411,6 +435,7 @@ const syncUrlAndStorage = useCallback(
       corpusErr={corpusErr}
       commentaryVisibleKeys={commentaryVisibleKeys}
       onCommentaryVisibleKeysChange={onCommentaryVisibleKeysChange}
+      install={install}
     />
     </>
   );

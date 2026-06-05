@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { OfflineInstallPanel } from "./InstallPrompt.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
@@ -103,6 +104,7 @@ export default function WebReaderLayout({
   corpusErr,
   commentaryVisibleKeys,
   onCommentaryVisibleKeysChange,
+  install,
 }) {
   const [simanQuery, setSimanQuery] = useState("");
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
@@ -214,17 +216,13 @@ export default function WebReaderLayout({
           </label>
           <h1>{volume.label}</h1>
           <p className="sidebar__sub">Web reader</p>
-          <a
-            className="android-download-btn"
-            href="https://github.com/bennyg83/shulchan_aruch/releases/download/android-apk/ShulchanAruch.apk"
-            download="ShulchanAruch.apk"
-            title="Download Android app for offline use"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M16.36 14c.08-.34.14-.7.14-1.06 0-.36-.06-.72-.14-1.06l2.26-1.74c.2-.16.26-.44.12-.68l-2.14-3.74c-.14-.24-.42-.32-.66-.24l-2.66 1.08c-.56-.42-1.16-.78-1.82-1.02L11.1 3.14C11.06 2.88 10.84 2.68 10.58 2.68H6.42c-.26 0-.48.2-.52.46l-.38 2.5c-.66.24-1.26.6-1.82 1.02L1.04 5.58c-.24-.1-.52 0-.66.24L.24 9.56c-.14.24-.08.52.12.68L2.62 11.96c-.08.34-.14.7-.14 1.06 0 .36.06.72.14 1.06L.36 15.82c-.2.16-.26.44-.12.68l2.14 3.74c.14.24.42.32.66.24l2.66-1.08c.56.42 1.16.78 1.82 1.02l.38 2.5c.04.26.26.46.52.46h4.16c.26 0 .48-.2.52-.46l.38-2.5c.66-.24 1.26-.6 1.82-1.02l2.66 1.08c.24.1.52 0 .66-.24l2.14-3.74c.14-.24.08-.52-.12-.68L16.36 14zM8.5 15.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
-            </svg>
-            Download for Android
-          </a>
+          <OfflineInstallPanel
+            platform={install.platform}
+            installed={install.installed}
+            deferredPrompt={install.deferredPrompt}
+            openGuide={install.openGuide}
+            triggerInstall={install.triggerInstall}
+          />
         </div>
         <input
           type="search"

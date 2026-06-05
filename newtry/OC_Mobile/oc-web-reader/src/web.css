@@ -713,44 +713,305 @@ body {
   color: #fff;
 }
 
-.android-download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background: #3ddc84;
-  color: #000;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.15s;
-  white-space: nowrap;
-}
-.android-download-btn:hover {
-  opacity: 0.85;
+/* ── PWA offline install ── */
+.offline-install {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-elevated, rgba(0, 0, 0, 0.03));
 }
 
-.install-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0.4rem 0.75rem;
+.offline-install--done {
+  border-color: #3a7a52;
+  background: rgba(61, 220, 132, 0.08);
+}
+
+.offline-install__heading {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.offline-install__blurb,
+.offline-install__hint {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.offline-install__status {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #2d8a52;
+}
+
+.offline-install__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.offline-install__btn {
+  display: block;
+  width: 100%;
+  padding: 7px 10px;
   border-radius: 8px;
   border: 1px solid var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
   font: inherit;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 600;
   cursor: pointer;
-  white-space: nowrap;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
 }
 
-.install-chip:hover {
+.offline-install__btn:hover {
   background: var(--accent);
   color: #fff;
+}
+
+.offline-install__btn--primary {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+}
+
+.offline-install__btn--primary:hover {
+  opacity: 0.9;
+}
+
+.offline-install__warn {
+  margin: 8px 0 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: #b85c3a;
+}
+
+.install-banner {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 9100;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #0e1120;
+  border: 1px solid #3a4a7a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.65);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #e8eaf0;
+}
+
+.install-banner__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.install-banner__icon {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.install-banner__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.install-banner__heading {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.install-banner__text {
+  margin: 0;
+  font-size: 13px;
+  color: #9ba3c4;
+  line-height: 1.55;
+}
+
+.install-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.install-banner__primary {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background: #4a80c4;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.install-banner__secondary {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #3a4a7a;
+  background: transparent;
+  color: #c8ccde;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.install-banner__dismiss {
+  background: none;
+  border: none;
+  color: #9ba3c4;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.install-guide-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 24px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.install-guide {
+  width: 100%;
+  max-width: 440px;
+  background: #0e1120;
+  border: 1px solid #3a4a7a;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #e8eaf0;
+}
+
+.install-guide__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 0;
+}
+
+.install-guide__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.install-guide__close {
+  background: none;
+  border: none;
+  color: #9ba3c4;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.install-guide__body {
+  padding: 14px 20px 8px;
+}
+
+.install-guide__lead {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #c8ccde;
+}
+
+.install-guide__lead--warn {
+  color: #f0c4a4;
+}
+
+.install-guide__steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #c8ccde;
+}
+
+.install-guide__steps li {
+  margin-bottom: 0.5rem;
+}
+
+.install-guide__steps strong {
+  color: #e8eaf0;
+}
+
+.install-guide__url {
+  word-break: break-all;
+}
+
+.install-guide__note {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1a2340;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #9ba3c4;
+}
+
+.install-guide__note--action {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.install-guide__install-btn {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4a80c4;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.install-guide__link {
+  color: #7eb0f0;
+}
+
+.install-guide__footer {
+  padding: 8px 20px 18px;
+}
+
+.install-guide__done-btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: #2a3a6a;
+  color: #e8eaf0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
 @media (max-width: 960px) {
