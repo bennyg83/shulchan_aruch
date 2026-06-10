@@ -1645,11 +1645,12 @@ body {
     text-align: center;
   }
 
-  .filter-bar__chips {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+  .filter-bar--expanded .filter-bar__chips {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    max-height: min(45dvh, 300px);
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
   }
 
   .mechaber-grid--split,
