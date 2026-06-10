@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { OfflineInstallPanel } from "./InstallPrompt.jsx";
 import SimanPicker from "./SimanPicker.jsx";
+import SeifPicker from "./SeifPicker.jsx";
+import MobileChrome from "./MobileChrome.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs, loadTtsPrefs, saveTtsPrefs } from "./readerStorage.js";
@@ -121,6 +123,8 @@ export default function WebReaderLayout({
 }) {
   const [simanQuery, setSimanQuery] = useState("");
   const [simanPickerOpen, setSimanPickerOpen] = useState(false);
+  const [seifPickerOpen, setSeifPickerOpen] = useState(false);
+  const [chromeExpanded, setChromeExpanded] = useState(false);
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
   const [showHebrew, setShowHebrew] = useState(prefsInit?.showHebrew !== false);
   const [showEnglish, setShowEnglish] = useState(prefsInit?.showEnglish !== false);
@@ -246,6 +250,18 @@ export default function WebReaderLayout({
   const prevSimanEntry = catalogIdx > 0 ? catalog[catalogIdx - 1] : null;
   const nextSimanEntry = catalogIdx >= 0 && catalogIdx < catalog.length - 1 ? catalog[catalogIdx + 1] : null;
 
+  const handleSelectSiman = (entry) => {
+    onSelectSiman(entry);
+    setSimanPickerOpen(false);
+    setChromeExpanded(false);
+  };
+
+  const handleSelectSeif = (n) => {
+    onSelectSeif(n);
+    setSeifPickerOpen(false);
+    setChromeExpanded(false);
+  };
+
   return (
     <div className={`web-reader theme-${theme}`} data-theme={theme}>
       <SimanPicker
@@ -253,7 +269,18 @@ export default function WebReaderLayout({
         onClose={() => setSimanPickerOpen(false)}
         catalog={catalog}
         activeEntry={activeEntry}
-        onSelectSiman={onSelectSiman}
+        onSelectSiman={handleSelectSiman}
+      />
+      <SeifPicker
+        open={seifPickerOpen}
+        onClose={() => setSeifPickerOpen(false)}
+        seifim={seifim}
+        currentSeif={currentSeif}
+        onSelectSeif={handleSelectSeif}
+        onPrevSeif={onPrevSeif}
+        onNextSeif={onNextSeif}
+        simanGem={simanGem}
+        simanNum={activeEntry.siman}
       />
       <TtsSettings
         open={settingsOpen}
@@ -352,41 +379,34 @@ export default function WebReaderLayout({
       </aside>
 
       <main className="reader-main">
-        <header className="reader-toolbar">
-          <div className="reader-toolbar__siman-nav">
-            <button
-              type="button"
-              className="btn btn--ghost"
-              disabled={!prevSimanEntry}
-              onClick={() => prevSimanEntry && onSelectSiman(prevSimanEntry)}
-            >
-              ← Prev siman
-            </button>
-            <button
-              type="button"
-              className="siman-picker-trigger"
-              onClick={() => setSimanPickerOpen(true)}
-              aria-haspopup="dialog"
-            >
-              <span className="siman-picker-trigger__label">Siman {activeEntry.siman}</span>
-              {simanGem ? (
-                <span className="siman-picker-trigger__gem" dir="rtl" lang="he">
-                  {simanGem}
-                </span>
-              ) : null}
-              <span className="siman-picker-trigger__chevron" aria-hidden="true">
-                ▼
-              </span>
-            </button>
-            <button
-              type="button"
-              className="btn btn--ghost"
-              disabled={!nextSimanEntry}
-              onClick={() => nextSimanEntry && onSelectSiman(nextSimanEntry)}
-            >
-              Next siman →
-            </button>
-          </div>
+        <MobileChrome
+          expanded={chromeExpanded}
+          onExpandedChange={setChromeExpanded}
+          activeEntry={activeEntry}
+          simanGem={simanGem}
+          seifGem={seifGem}
+          currentSeif={currentSeif}
+          onOpenSimanPicker={() => setSimanPickerOpen(true)}
+          onOpenSeifPicker={() => setSeifPickerOpen(true)}
+          onOpenSettings={() => setSettingsOpen(true)}
+          showHebrew={showHebrew}
+          showEnglish={showEnglish}
+          onToggleHebrew={() => setShowHebrew((v) => !v)}
+          onToggleEnglish={() => setShowEnglish((v) => !v)}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          commentators={commentators}
+          commentaryVisibleKeys={commentaryVisibleKeys}
+          commentarySummary={commentarySummary}
+          commentaryFilterExpanded={commentaryFilterExpanded}
+          setCommentaryFilterExpanded={setCommentaryFilterExpanded}
+          selectionIsSubset={selectionIsSubset}
+          onCommentaryChipClick={onCommentaryChipClick}
+          onShowAllCommentaries={showAllCommentaries}
+          isChipActive={isChipActive}
+        />
+
+        <header className="reader-toolbar reader-toolbar--desktop">
           <div className="reader-toolbar__title">
             <h2>{activeEntry.title || `Siman ${activeEntry.siman}`}</h2>
             {activeEntry.subtitle ? <p>{activeEntry.subtitle}</p> : null}
@@ -431,7 +451,7 @@ export default function WebReaderLayout({
         </header>
 
         {commentators.length > 0 && (
-          <div className={`filter-bar filter-bar--collapsible ${commentaryFilterExpanded ? "filter-bar--expanded" : ""}`}>
+          <div className={`filter-bar filter-bar--desktop filter-bar--collapsible ${commentaryFilterExpanded ? "filter-bar--expanded" : ""}`}>
             <button
               type="button"
               className="filter-bar__toggle"
