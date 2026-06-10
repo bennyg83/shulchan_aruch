@@ -43,11 +43,17 @@ const FEMALE_MARKERS =
 const MALE_MARKERS =
   /\b(male|man|boy|alex|fred|daniel|aaron|arthur|gordon|nigel|oliver|thomas|james|david|mark|paul|george|richard|lee|rishi|reed|liam|noah|ethan|mason|logan|jack|henry|william|benjamin|samuel|michael|andrew|brian|bruce|charles|chris|christopher|don|eric|frank|harry|ian|jason|john|jonathan|joseph|kevin|matthew|nathan|patrick|peter|philip|raymond|robert|roger|ronald|ryan|scott|sean|simon|stephen|steve|timothy|tony|victor|walter|will|yannick)\b/i;
 
+/** Regional / non-standard voices to reject when picking English accents. */
+const EXCLUDED_VOICE_MARKERS =
+  /\b(welsh|cymru|cymraeg|cy-gb|cy_gb|gwyneth|geraint|dylan|sioned|aned|rhys|ioan|gwyb|scottish|gaelic|ga-ie|ga_ie|irish gaelic)\b/i;
+
 const PRESET_MALE_HINTS = {
   "en-us": [
-    "male",
     "us english male",
-    "google us english",
+    "google us english male",
+    "en-us-x-sfg",
+    "en-us-x-iom",
+    "en-us-x-tpf",
     "aaron",
     "fred",
     "alex",
@@ -57,12 +63,16 @@ const PRESET_MALE_HINTS = {
     "paul",
     "michael",
     "john",
+    "male",
+    "google us english",
   ],
   "en-gb": [
-    "male",
     "uk english male",
     "british english male",
     "google uk english male",
+    "en-gb-x-gbd",
+    "en-gb-x-gbg",
+    "en-gb-x-rkd",
     "daniel",
     "arthur",
     "oliver",
@@ -70,16 +80,19 @@ const PRESET_MALE_HINTS = {
     "george",
     "nigel",
     "rishi",
+    "male",
   ],
   "en-au": [
-    "male",
     "australian english male",
-    "google australian english",
+    "google australian english male",
+    "en-au-x",
     "gordon",
     "lee",
     "james",
+    "male",
+    "google australian english",
   ],
-  "he-il": ["male", "hebrew male", "israeli male", "israel", "hebrew", "lior", "avraham", "david"],
+  "he-il": ["hebrew male", "israeli male", "he-il-x", "lior", "avraham", "david", "male", "israel", "hebrew"],
 };
 
 export function stripForSpeech(html) {
@@ -144,9 +157,22 @@ function voiceHaystack(voice) {
 }
 
 /** @param {SpeechSynthesisVoice} voice */
+export function isExcludedVoice(voice, presetId) {
+  const h = voiceHaystack(voice);
+  const lang = normalizeLang(voice.lang);
+  if (EXCLUDED_VOICE_MARKERS.test(h)) return true;
+  if (presetId === "en-gb" && (lang.startsWith("cy") || /\bcy[-_]gb\b/.test(h))) return true;
+  if ((presetId === "en-us" || presetId === "en-gb" || presetId === "en-au") && lang.startsWith("cy")) {
+    return true;
+  }
+  return false;
+}
+
+/** @param {SpeechSynthesisVoice} voice */
 export function isLikelyFemaleVoice(voice) {
   const h = voiceHaystack(voice);
   if (/#female\b/i.test(h) || /\bfemale\b/i.test(h)) return true;
+  if (/\bx-gbb\b|\bx-sfg-f\b|\bx-iob\b|\bx-tpc\b/.test(h)) return true;
   return FEMALE_MARKERS.test(h);
 }
 
@@ -155,11 +181,13 @@ export function isLikelyMaleVoice(voice) {
   if (isLikelyFemaleVoice(voice)) return false;
   const h = voiceHaystack(voice);
   if (/#male\b/i.test(h) || /\bmale\b/i.test(h)) return true;
+  if (/\bx-gbd\b|\bx-gbg\b|\bx-rkd\b|\bx-sfg-m\b|\bx-iom\b|\bx-tpf\b/.test(h)) return true;
   return MALE_MARKERS.test(h);
 }
 
 /** @param {SpeechSynthesisVoice} voice */
 export function matchesVoicePreset(voice, presetId) {
+  if (isExcludedVoice(voice, presetId)) return false;
   const lang = normalizeLang(voice.lang);
   const h = voiceHaystack(voice);
 
@@ -172,8 +200,8 @@ export function matchesVoicePreset(voice, presetId) {
       );
     case "en-gb":
       return (
-        lang === "en-gb" ||
-        lang.startsWith("en-gb-") ||
+        (lang === "en-gb" || lang.startsWith("en-gb-")) &&
+        !lang.startsWith("cy") &&
         /en-gb|en_gb|united kingdom|british|\buk english|lang-gb-x|lang_gb/.test(h)
       );
     case "en-au":
@@ -189,13 +217,38 @@ export function matchesVoicePreset(voice, presetId) {
   }
 }
 
-function pickBestMale(candidates, presetId) {
+function scoreVoice(voice, presetId) {
+  const h = voiceHaystack(voice);
+  let score = 0;
+  if (isLikelyFemaleVoice(voice)) return -1000;
+  if (isExcludedVoice(voice, presetId)) return -1000;
+  if (!matchesVoicePreset(voice, presetId)) return -1000;
+
+  if (isLikelyMaleVoice(voice)) score += 120;
+  if (voice.localService) score += 10;
+
   const hints = PRESET_MALE_HINTS[presetId] || [];
-  for (const hint of hints) {
-    const found = candidates.find((v) => voiceHaystack(v).includes(hint));
-    if (found) return found;
+  for (let i = 0; i < hints.length; i += 1) {
+    if (h.includes(hints[i])) {
+      score += 80 - i * 3;
+      break;
+    }
   }
-  return candidates[0] ?? null;
+
+  return score;
+}
+
+function pickBestMale(candidates, presetId) {
+  let best = null;
+  let bestScore = -Infinity;
+  for (const voice of candidates) {
+    const score = scoreVoice(voice, presetId);
+    if (score > bestScore) {
+      bestScore = score;
+      best = voice;
+    }
+  }
+  return bestScore > 0 ? best : null;
 }
 
 /**
@@ -207,18 +260,22 @@ function pickBestMale(candidates, presetId) {
 export function resolvePresetVoice(voices, presetId) {
   if (!voices?.length || !presetId) return null;
 
-  const accentMatches = voices.filter((v) => matchesVoicePreset(v, presetId) && !isLikelyFemaleVoice(v));
-  const explicitMales = accentMatches.filter(isLikelyMaleVoice);
-  if (explicitMales.length) return pickBestMale(explicitMales, presetId);
-  if (accentMatches.length) return pickBestMale(accentMatches, presetId);
+  const eligible = voices.filter(
+    (v) => matchesVoicePreset(v, presetId) && !isLikelyFemaleVoice(v) && !isExcludedVoice(v, presetId)
+  );
+  const explicitMales = eligible.filter(isLikelyMaleVoice);
+  const best = pickBestMale(explicitMales.length ? explicitMales : eligible, presetId);
+  if (best) return best;
 
   const family = presetId.startsWith("he") ? "he" : "en";
   const familyMales = voices.filter(
-    (v) => normalizeLang(v.lang).startsWith(family) && isLikelyMaleVoice(v) && !isLikelyFemaleVoice(v)
+    (v) =>
+      normalizeLang(v.lang).startsWith(family) &&
+      isLikelyMaleVoice(v) &&
+      !isLikelyFemaleVoice(v) &&
+      !isExcludedVoice(v, presetId)
   );
-  if (familyMales.length) return pickBestMale(familyMales, presetId);
-
-  return null;
+  return pickBestMale(familyMales, presetId);
 }
 
 export function getPresetOption(presetId) {
@@ -289,11 +346,25 @@ export function useTTS(ttsPrefs = {}) {
   const [activeId, setActiveId] = useState(null);
   const queueRef = useRef([]);
   const cursorRef = useRef(0);
+  const pendingPlayRef = useRef(false);
+  const voiceWaitRef = useRef(0);
   const synthRef = useRef(typeof window !== "undefined" ? window.speechSynthesis : null);
+  const voicesRef = useRef(
+    typeof window !== "undefined" && window.speechSynthesis ? window.speechSynthesis.getVoices() : []
+  );
   const prefsRef = useRef(ttsPrefs);
   prefsRef.current = ttsPrefs;
 
+  const refreshVoices = useCallback(() => {
+    const synth = synthRef.current;
+    if (!synth) return [];
+    const list = synth.getVoices();
+    if (list.length) voicesRef.current = list;
+    return voicesRef.current;
+  }, []);
+
   const stop = useCallback(() => {
+    pendingPlayRef.current = false;
     if (synthRef.current) synthRef.current.cancel();
     queueRef.current = [];
     cursorRef.current = 0;
@@ -306,11 +377,25 @@ export function useTTS(ttsPrefs = {}) {
     const synth = synthRef.current;
     if (!synth) return;
     if (cursorRef.current >= queueRef.current.length) {
+      pendingPlayRef.current = false;
       setSpeaking(false);
       setPaused(false);
       setActiveId(null);
       return;
     }
+
+    const voices = refreshVoices();
+    if (!voices.length) {
+      if (voiceWaitRef.current < 40) {
+        voiceWaitRef.current += 1;
+        pendingPlayRef.current = true;
+        window.setTimeout(() => speakNext(), 120);
+        return;
+      }
+    }
+    voiceWaitRef.current = 0;
+    pendingPlayRef.current = false;
+
     const { id, text, lang } = queueRef.current[cursorRef.current];
     setActiveId(id);
     const utt = new SpeechSynthesisUtterance(text);
@@ -321,13 +406,15 @@ export function useTTS(ttsPrefs = {}) {
     const isHebrew = normalizeLang(lang).startsWith("he");
     const presetId = isHebrew ? hebrewVoice : englishAccent;
     const preset = getPresetOption(presetId);
-    const voice = resolvePresetVoice(synth.getVoices(), presetId);
+    const voice = resolvePresetVoice(voices, presetId);
 
     if (voice) {
       utt.voice = voice;
       utt.lang = voice.lang || preset?.lang || lang;
+    } else if (preset?.lang) {
+      utt.lang = preset.lang;
     } else {
-      utt.lang = preset?.lang || lang;
+      utt.lang = lang;
     }
 
     utt.onend = () => {
@@ -339,20 +426,23 @@ export function useTTS(ttsPrefs = {}) {
       speakNext();
     };
     synth.speak(utt);
-  }, []);
+  }, [refreshVoices]);
 
   const play = useCallback(
     (items) => {
       const synth = synthRef.current;
       if (!synth) return;
       synth.cancel();
+      refreshVoices();
       queueRef.current = items;
       cursorRef.current = 0;
+      voiceWaitRef.current = 0;
+      pendingPlayRef.current = true;
       setSpeaking(true);
       setPaused(false);
       speakNext();
     },
-    [speakNext]
+    [refreshVoices, speakNext]
   );
 
   const togglePause = useCallback(() => {
@@ -367,7 +457,24 @@ export function useTTS(ttsPrefs = {}) {
     }
   }, []);
 
-  useEffect(() => () => { if (synthRef.current) synthRef.current.cancel(); }, []);
+  useEffect(() => {
+    const synth = synthRef.current;
+    if (!synth) return undefined;
+    const onVoicesChanged = () => {
+      refreshVoices();
+      if (pendingPlayRef.current && queueRef.current.length) speakNext();
+    };
+    refreshVoices();
+    synth.addEventListener("voiceschanged", onVoicesChanged);
+    const t = window.setTimeout(refreshVoices, 250);
+    const t2 = window.setTimeout(refreshVoices, 1000);
+    return () => {
+      synth.removeEventListener("voiceschanged", onVoicesChanged);
+      window.clearTimeout(t);
+      window.clearTimeout(t2);
+      synth.cancel();
+    };
+  }, [refreshVoices, speakNext]);
 
   return { speaking, paused, activeId, play, stop, togglePause };
 }
