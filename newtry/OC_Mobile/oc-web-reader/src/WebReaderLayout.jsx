@@ -253,13 +253,11 @@ export default function WebReaderLayout({
   const handleSelectSiman = (entry) => {
     onSelectSiman(entry);
     setSimanPickerOpen(false);
-    setChromeExpanded(false);
   };
 
   const handleSelectSeif = (n) => {
     onSelectSeif(n);
     setSeifPickerOpen(false);
-    setChromeExpanded(false);
   };
 
   return (
@@ -467,7 +465,14 @@ export default function WebReaderLayout({
             {commentaryFilterExpanded && (
               <div className="filter-bar__chips">
                 {selectionIsSubset && (
-                  <button type="button" className="filter-chip filter-chip--all" onClick={showAllCommentaries}>
+                  <button
+                    type="button"
+                    className="filter-chip filter-chip--all"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showAllCommentaries();
+                    }}
+                  >
                     Show all
                   </button>
                 )}
@@ -477,7 +482,10 @@ export default function WebReaderLayout({
                     type="button"
                     className={`filter-chip ${isChipActive(commentaryVisibleKeys, c.key) ? "filter-chip--on" : ""}`}
                     style={{ "--chip-color": c.color }}
-                    onClick={() => onCommentaryChipClick(c.key)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onCommentaryChipClick(c.key);
+                    }}
                     title={
                       commentaryVisibleKeys === null
                         ? "Click to show only this commentary"

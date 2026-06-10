@@ -38,7 +38,14 @@ function CommentaryFilter({
       {commentaryFilterExpanded && (
         <div className="filter-bar__chips">
           {selectionIsSubset && (
-            <button type="button" className="filter-chip filter-chip--all" onClick={onShowAll}>
+            <button
+              type="button"
+              className="filter-chip filter-chip--all"
+              onClick={(e) => {
+                e.stopPropagation();
+                onShowAll();
+              }}
+            >
               Show all
             </button>
           )}
@@ -48,7 +55,10 @@ function CommentaryFilter({
               type="button"
               className={`filter-chip ${isChipActive(commentaryVisibleKeys, c.key) ? "filter-chip--on" : ""}`}
               style={{ "--chip-color": c.color }}
-              onClick={() => onChipClick(c.key)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onChipClick(c.key);
+              }}
             >
               {c.label}
             </button>
