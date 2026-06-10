@@ -1,8 +1,10 @@
 /** Shared with oc318-mobile-reader — keep in sync when corpus loading changes. */
 export function resolveCorpusFetchUrl(path) {
   const raw = import.meta.env?.BASE_URL ?? "/";
+  const stripped = path.startsWith("/") ? path.slice(1) : path;
+  if (raw === "./") return `./${stripped}`;
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (raw === "/" || raw === "./") return normalized;
+  if (raw === "/") return normalized;
   const prefix = raw.endsWith("/") ? raw.slice(0, -1) : raw;
   return `${prefix}${normalized}`;
 }

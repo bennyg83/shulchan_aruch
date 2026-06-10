@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { OfflineInstallPanel } from "./InstallPrompt.jsx";
+import SimanPicker from "./SimanPicker.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
@@ -107,6 +108,7 @@ export default function WebReaderLayout({
   install,
 }) {
   const [simanQuery, setSimanQuery] = useState("");
+  const [simanPickerOpen, setSimanPickerOpen] = useState(false);
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
   const [showHebrew, setShowHebrew] = useState(prefsInit?.showHebrew !== false);
   const [showEnglish, setShowEnglish] = useState(prefsInit?.showEnglish !== false);
@@ -193,9 +195,19 @@ export default function WebReaderLayout({
   const simanGem = formatGematria(activeEntry.siman);
   const seifGem = formatGematria(currentSeif);
   const selectionIsSubset = commentaryVisibleKeys !== null;
+  const catalogIdx = catalog.findIndex((e) => e.siman === activeEntry.siman);
+  const prevSimanEntry = catalogIdx > 0 ? catalog[catalogIdx - 1] : null;
+  const nextSimanEntry = catalogIdx >= 0 && catalogIdx < catalog.length - 1 ? catalog[catalogIdx + 1] : null;
 
   return (
     <div className={`web-reader theme-${theme}`} data-theme={theme}>
+      <SimanPicker
+        open={simanPickerOpen}
+        onClose={() => setSimanPickerOpen(false)}
+        catalog={catalog}
+        activeEntry={activeEntry}
+        onSelectSiman={onSelectSiman}
+      />
       <aside className="sidebar sidebar--simanim">
         <div className="sidebar__brand">
           <label className="volume-select">
@@ -288,6 +300,40 @@ export default function WebReaderLayout({
 
       <main className="reader-main">
         <header className="reader-toolbar">
+          <div className="reader-toolbar__siman-nav">
+            <button
+              type="button"
+              className="btn btn--ghost"
+              disabled={!prevSimanEntry}
+              onClick={() => prevSimanEntry && onSelectSiman(prevSimanEntry)}
+            >
+              ← Prev siman
+            </button>
+            <button
+              type="button"
+              className="siman-picker-trigger"
+              onClick={() => setSimanPickerOpen(true)}
+              aria-haspopup="dialog"
+            >
+              <span className="siman-picker-trigger__label">Siman {activeEntry.siman}</span>
+              {simanGem ? (
+                <span className="siman-picker-trigger__gem" dir="rtl" lang="he">
+                  {simanGem}
+                </span>
+              ) : null}
+              <span className="siman-picker-trigger__chevron" aria-hidden="true">
+                ▼
+              </span>
+            </button>
+            <button
+              type="button"
+              className="btn btn--ghost"
+              disabled={!nextSimanEntry}
+              onClick={() => nextSimanEntry && onSelectSiman(nextSimanEntry)}
+            >
+              Next siman →
+            </button>
+          </div>
           <div className="reader-toolbar__title">
             <h2>{activeEntry.title || `Siman ${activeEntry.siman}`}</h2>
             {activeEntry.subtitle ? <p>{activeEntry.subtitle}</p> : null}

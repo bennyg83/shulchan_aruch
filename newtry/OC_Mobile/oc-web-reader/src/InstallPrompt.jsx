@@ -382,11 +382,7 @@ export function OfflineInstallPanel({
   if (installed) {
     return (
       <div className="offline-install offline-install--done">
-        <span className="offline-install__status">✓ Installed — ready for offline</span>
-        <p className="offline-install__hint">
-          Open from your home screen or apps menu. If content is missing, reconnect once until the save banner
-          completes.
-        </p>
+        <span className="offline-install__status">✓ Installed for offline</span>
       </div>
     );
   }
@@ -399,24 +395,26 @@ export function OfflineInstallPanel({
         : "Install for offline";
 
   return (
-    <div className="offline-install">
-      <p className="offline-install__heading">Offline app</p>
-      <p className="offline-install__blurb">
-        Save all 697 simanim to your device. One online visit, then no internet needed.
-      </p>
-      <div className="offline-install__actions">
-        {deferredPrompt && !platform?.isIos ? (
-          <button type="button" className="offline-install__btn offline-install__btn--primary" onClick={triggerInstall}>
-            Install now
+    <details className="offline-install-details">
+      <summary className="offline-install-details__summary">Offline install</summary>
+      <div className="offline-install">
+        <p className="offline-install__blurb">
+          Save all 697 simanim. One online visit, then no internet needed.
+        </p>
+        <div className="offline-install__actions">
+          {deferredPrompt && !platform?.isIos ? (
+            <button type="button" className="offline-install__btn offline-install__btn--primary" onClick={triggerInstall}>
+              Install now
+            </button>
+          ) : null}
+          <button type="button" className="offline-install__btn" onClick={openGuide}>
+            {label} — steps
           </button>
+        </div>
+        {platform?.kind === "ios-other" ? (
+          <p className="offline-install__warn">Use Safari — Chrome on iOS cannot install offline.</p>
         ) : null}
-        <button type="button" className="offline-install__btn" onClick={openGuide}>
-          {label} — step by step
-        </button>
       </div>
-      {platform?.kind === "ios-other" ? (
-        <p className="offline-install__warn">Use Safari on this device — Chrome cannot install offline apps on iOS.</p>
-      ) : null}
-    </div>
+    </details>
   );
 }

@@ -1014,21 +1014,209 @@ body {
   cursor: pointer;
 }
 
+/* Siman picker — primary navigation on mobile / installed PWA */
+.reader-toolbar__siman-nav {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.siman-picker-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.siman-picker-trigger__gem {
+  font-family: var(--hebrew-font);
+  font-weight: 600;
+}
+
+.siman-picker-trigger__chevron {
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.siman-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9300;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.siman-picker {
+  display: flex;
+  flex-direction: column;
+  max-height: min(85dvh, 640px);
+  background: var(--bg-elevated);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+  color: var(--text);
+}
+
+.siman-picker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.5rem;
+  flex-shrink: 0;
+}
+
+.siman-picker__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.siman-picker__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.siman-picker__search {
+  margin: 0 1rem 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  flex-shrink: 0;
+}
+
+.siman-picker__list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 0.5rem calc(1rem + env(safe-area-inset-bottom, 0));
+}
+
+.siman-picker__item {
+  display: flex;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.65rem;
+  margin-bottom: 2px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.siman-picker__item--active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.siman-picker__num {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.siman-picker__num-arabic {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.siman-picker__num-gematria {
+  font-family: var(--hebrew-font);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.siman-picker__meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.siman-picker__item-title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.siman-picker__item-sub {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.siman-picker__empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.offline-install-details {
+  margin-top: 8px;
+}
+
+.offline-install-details__summary {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.offline-install-details__summary::-webkit-details-marker {
+  display: none;
+}
+
 @media (max-width: 960px) {
   .web-reader {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    height: auto;
-    min-height: 100vh;
+    grid-template-rows: auto 1fr;
+    height: 100dvh;
+    overflow: hidden;
   }
 
+  /* Sidebar siman list is unusable on small screens — use toolbar picker instead */
   .sidebar--simanim {
-    max-height: 40vh;
+    display: none;
   }
 
   .sidebar--seifim {
     border-right: none;
     border-bottom: 1px solid var(--border);
+    max-height: min(30dvh, 200px);
+    min-height: 0;
+    overflow: hidden;
   }
 
   .seif-list {
@@ -1036,10 +1224,39 @@ body {
     flex-wrap: wrap;
     gap: 0.35rem;
     padding: 0 1rem 1rem;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .seif-list__item {
     width: auto;
+  }
+
+  .reader-toolbar__siman-nav {
+    display: flex;
+  }
+
+  .reader-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .reader-toolbar__title h2 {
+    font-size: 1.1rem;
+  }
+
+  .reader-toolbar__seif-nav {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .reader-toolbar__controls {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .mechaber-grid--split,
