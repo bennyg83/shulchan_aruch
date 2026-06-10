@@ -1,14 +1,21 @@
-import { useEffect, useMemo } from "react";
-import { filterVoicesForLang, formatVoiceLabel, previewVoice, useSpeechVoices } from "./lib/tts.js";
+import { useEffect } from "react";
+import {
+  DEFAULT_ENGLISH_ACCENT,
+  DEFAULT_HEBREW_VOICE,
+  ENGLISH_ACCENT_OPTIONS,
+  HEBREW_VOICE_OPTIONS,
+  describePresetMatch,
+  previewPresetVoice,
+  useSpeechVoices,
+} from "./lib/tts.js";
 
 /**
- * In-app TTS voice picker — uses voices exposed by the browser/OS (Web Speech API).
+ * Curated male TTS voices — American, British, Australian English; Israeli Hebrew.
  */
 export default function TtsSettings({ open, onClose, prefs, onChange }) {
   const voices = useSpeechVoices();
-
-  const englishVoices = useMemo(() => filterVoicesForLang(voices, "en"), [voices]);
-  const hebrewVoices = useMemo(() => filterVoicesForLang(voices, "he"), [voices]);
+  const englishAccent = prefs.englishAccent ?? DEFAULT_ENGLISH_ACCENT;
+  const hebrewVoice = prefs.hebrewVoice ?? DEFAULT_HEBREW_VOICE;
 
   useEffect(() => {
     if (!open) return;
@@ -21,8 +28,8 @@ export default function TtsSettings({ open, onClose, prefs, onChange }) {
 
   if (!open) return null;
 
-  const setVoiceEn = (voiceURI) => onChange({ ...prefs, voiceEn: voiceURI || null });
-  const setVoiceHe = (voiceURI) => onChange({ ...prefs, voiceHe: voiceURI || null });
+  const setEnglishAccent = (accent) => onChange({ ...prefs, englishAccent: accent });
+  const setHebrewVoice = (voice) => onChange({ ...prefs, hebrewVoice: voice });
 
   return (
     <div className="settings-overlay" onClick={onClose} role="presentation">
@@ -45,34 +52,35 @@ export default function TtsSettings({ open, onClose, prefs, onChange }) {
         <section className="settings-section">
           <h3 className="settings-section__heading">Text-to-speech voices</h3>
           <p className="settings-section__hint">
-            Choose English and Hebrew voices for read-aloud. Options come from your device — pick a male or female
-            voice here without opening system settings.
+            Male voices only. The app picks the best matching male voice on your device for each accent.
           </p>
 
           <label className="settings-field">
-            <span className="settings-field__label">English voice</span>
+            <span className="settings-field__label">English accent</span>
             <div className="settings-field__row">
               <select
                 className="settings-field__select"
-                value={prefs.voiceEn ?? ""}
-                onChange={(e) => setVoiceEn(e.target.value)}
+                value={englishAccent}
+                onChange={(e) => setEnglishAccent(e.target.value)}
               >
-                <option value="">System default</option>
-                {englishVoices.map((v) => (
-                  <option key={v.voiceURI} value={v.voiceURI}>
-                    {formatVoiceLabel(v)}
+                {ENGLISH_ACCENT_OPTIONS.map((o) => (
+                  <option key={o.id} value={o.id}>
+                    {o.label}
                   </option>
                 ))}
               </select>
               <button
                 type="button"
                 className="settings-field__preview"
-                onClick={() => previewVoice(prefs.voiceEn, "en-US", "This is the English reading voice.")}
-                disabled={!englishVoices.length}
+                onClick={() => {
+                  const opt = ENGLISH_ACCENT_OPTIONS.find((o) => o.id === englishAccent);
+                  previewPresetVoice(voices, englishAccent, opt?.sample);
+                }}
               >
                 Preview
               </button>
             </div>
+            <span className="settings-field__match">Device voice: {describePresetMatch(voices, englishAccent)}</span>
           </label>
 
           <label className="settings-field">
@@ -80,38 +88,32 @@ export default function TtsSettings({ open, onClose, prefs, onChange }) {
             <div className="settings-field__row">
               <select
                 className="settings-field__select"
-                value={prefs.voiceHe ?? ""}
-                onChange={(e) => setVoiceHe(e.target.value)}
+                value={hebrewVoice}
+                onChange={(e) => setHebrewVoice(e.target.value)}
               >
-                <option value="">System default</option>
-                {hebrewVoices.map((v) => (
-                  <option key={v.voiceURI} value={v.voiceURI}>
-                    {formatVoiceLabel(v)}
+                {HEBREW_VOICE_OPTIONS.map((o) => (
+                  <option key={o.id} value={o.id}>
+                    {o.label}
                   </option>
                 ))}
               </select>
               <button
                 type="button"
                 className="settings-field__preview"
-                onClick={() => previewVoice(prefs.voiceHe, "he-IL", "זהו קול הקריאה בעברית.")}
-                disabled={!hebrewVoices.length}
+                onClick={() => {
+                  const opt = HEBREW_VOICE_OPTIONS.find((o) => o.id === hebrewVoice);
+                  previewPresetVoice(voices, hebrewVoice, opt?.sample);
+                }}
               >
                 Preview
               </button>
             </div>
+            <span className="settings-field__match">Device voice: {describePresetMatch(voices, hebrewVoice)}</span>
           </label>
 
           {!voices.length ? (
             <p className="settings-section__note settings-section__note--warn">
-              Loading voices… If the lists stay empty, try closing and reopening this panel, or reload the app once
-              while online.
-            </p>
-          ) : null}
-
-          {voices.length > 0 && !englishVoices.length && !hebrewVoices.length ? (
-            <p className="settings-section__note settings-section__note--warn">
-              No English or Hebrew voices were reported by this browser. Install a TTS language pack on your device,
-              then reload the app and open Settings again.
+              Loading voices… If previews stay silent, reload the app once while online.
             </p>
           ) : null}
         </section>

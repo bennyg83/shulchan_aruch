@@ -129,9 +129,12 @@ export function commentaryKeysToArray(visibleKeys) {
   return [...visibleKeys];
 }
 
-/** @typedef {{ voiceEn?: string | null, voiceHe?: string | null }} TtsPrefs */
+/** @typedef {{ englishAccent?: string, hebrewVoice?: string }} TtsPrefs */
 
 export const TTS_PREFS_KEY = "oc_tts_prefs_v1";
+
+const VALID_ENGLISH_ACCENTS = new Set(["en-us", "en-gb", "en-au"]);
+const VALID_HEBREW_VOICES = new Set(["he-il"]);
 
 /** @returns {TtsPrefs} */
 export function loadTtsPrefs() {
@@ -139,13 +142,18 @@ export function loadTtsPrefs() {
     const raw = localStorage.getItem(TTS_PREFS_KEY);
     if (!raw) return {};
     const o = JSON.parse(raw);
-    if (!o || o.v !== 1) return {};
-    const out = {};
-    if (typeof o.voiceEn === "string") out.voiceEn = o.voiceEn;
-    else if (o.voiceEn === null) out.voiceEn = null;
-    if (typeof o.voiceHe === "string") out.voiceHe = o.voiceHe;
-    else if (o.voiceHe === null) out.voiceHe = null;
-    return out;
+    if (!o) return {};
+
+    // v2: curated male accent presets
+    if (o.v === 2) {
+      const out = {};
+      if (VALID_ENGLISH_ACCENTS.has(o.englishAccent)) out.englishAccent = o.englishAccent;
+      if (VALID_HEBREW_VOICES.has(o.hebrewVoice)) out.hebrewVoice = o.hebrewVoice;
+      return out;
+    }
+
+    // v1 stored raw voice URIs — reset to curated defaults
+    return {};
   } catch {
     return {};
   }
@@ -157,9 +165,9 @@ export function saveTtsPrefs(prefs) {
     localStorage.setItem(
       TTS_PREFS_KEY,
       JSON.stringify({
-        v: 1,
-        voiceEn: prefs.voiceEn ?? null,
-        voiceHe: prefs.voiceHe ?? null,
+        v: 2,
+        englishAccent: prefs.englishAccent ?? "en-us",
+        hebrewVoice: prefs.hebrewVoice ?? "he-il",
         at: Date.now(),
       })
     );
