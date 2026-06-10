@@ -214,11 +214,13 @@ const syncUrlAndStorage = useCallback(
         setActiveEntry(entry);
         setSeifim(list);
         setCurrentSeif(initialSeif);
+        const urlCommentaryKeys = parseReaderUrl().commentaryKeys;
         replaceReaderUrl({
           volumeId,
           siman: entry.siman,
           seif: initialSeif,
-          commentaryKeys: commentaryKeysToArray(commentaryVisibleKeys),
+          commentaryKeys:
+            urlCommentaryKeys !== undefined ? urlCommentaryKeys : commentaryKeysToArray(commentaryVisibleKeys),
         });
         saveReaderResume({ corpusPath: entry.corpusPath, siman: entry.siman, seif: initialSeif, volumeId });
       } catch (e) {
@@ -229,7 +231,8 @@ const syncUrlAndStorage = useCallback(
       cancelled = true;
       ac.abort();
     };
-  }, [catalogUrl, volumeId, commentaryVisibleKeys]);
+    // Commentary filter changes update the URL via onCommentaryVisibleKeysChange — do not reload catalog.
+  }, [catalogUrl, volumeId]);
 
   useEffect(() => {
     let cancelled = false;
