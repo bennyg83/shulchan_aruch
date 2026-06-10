@@ -3,7 +3,8 @@ import { OfflineInstallPanel } from "./InstallPrompt.jsx";
 import SimanPicker from "./SimanPicker.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
-import { loadReaderPrefs, saveReaderPrefs } from "./readerStorage.js";
+import { loadReaderPrefs, saveReaderPrefs, loadTtsPrefs, saveTtsPrefs } from "./readerStorage.js";
+import TtsSettings from "./TtsSettings.jsx";
 import { useTTS, queueInterwoven, stripForSpeech } from "./lib/tts.js";
 
 const PlayIcon = ({ size = 15 }) => (
@@ -136,7 +137,14 @@ export default function WebReaderLayout({
     if (typeof window === "undefined") return true;
     return !window.matchMedia("(max-width: 960px)").matches;
   });
-  const { speaking, paused, activeId, play, stop, togglePause } = useTTS();
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [ttsPrefs, setTtsPrefs] = useState(() => loadTtsPrefs());
+  const { speaking, paused, activeId, play, stop, togglePause } = useTTS(ttsPrefs);
+
+  const updateTtsPrefs = (next) => {
+    setTtsPrefs(next);
+    saveTtsPrefs(next);
+  };
 
   const seifNavKey = `${activeEntry?.siman ?? ""}-${currentSeif ?? ""}`;
 
@@ -246,6 +254,12 @@ export default function WebReaderLayout({
         catalog={catalog}
         activeEntry={activeEntry}
         onSelectSiman={onSelectSiman}
+      />
+      <TtsSettings
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        prefs={ttsPrefs}
+        onChange={updateTtsPrefs}
       />
       <aside className="sidebar sidebar--simanim">
         <div className="sidebar__brand">
@@ -403,6 +417,15 @@ export default function WebReaderLayout({
             </Toggle>
             <button type="button" className="btn btn--ghost" onClick={toggleTheme} title="Toggle theme">
               {theme === "light" ? "Dark" : "Light"}
+            </button>
+            <button
+              type="button"
+              className="btn btn--ghost"
+              onClick={() => setSettingsOpen(true)}
+              title="Reader settings"
+              aria-label="Reader settings"
+            >
+              ⚙ Settings
             </button>
           </div>
         </header>

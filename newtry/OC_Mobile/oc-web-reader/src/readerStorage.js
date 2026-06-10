@@ -128,3 +128,42 @@ export function commentaryKeysToArray(visibleKeys) {
   if (visibleKeys === null) return null;
   return [...visibleKeys];
 }
+
+/** @typedef {{ voiceEn?: string | null, voiceHe?: string | null }} TtsPrefs */
+
+export const TTS_PREFS_KEY = "oc_tts_prefs_v1";
+
+/** @returns {TtsPrefs} */
+export function loadTtsPrefs() {
+  try {
+    const raw = localStorage.getItem(TTS_PREFS_KEY);
+    if (!raw) return {};
+    const o = JSON.parse(raw);
+    if (!o || o.v !== 1) return {};
+    const out = {};
+    if (typeof o.voiceEn === "string") out.voiceEn = o.voiceEn;
+    else if (o.voiceEn === null) out.voiceEn = null;
+    if (typeof o.voiceHe === "string") out.voiceHe = o.voiceHe;
+    else if (o.voiceHe === null) out.voiceHe = null;
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+/** @param {TtsPrefs} prefs */
+export function saveTtsPrefs(prefs) {
+  try {
+    localStorage.setItem(
+      TTS_PREFS_KEY,
+      JSON.stringify({
+        v: 1,
+        voiceEn: prefs.voiceEn ?? null,
+        voiceHe: prefs.voiceHe ?? null,
+        at: Date.now(),
+      })
+    );
+  } catch {
+    /* quota */
+  }
+}

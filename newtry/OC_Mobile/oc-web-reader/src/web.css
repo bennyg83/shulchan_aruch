@@ -1068,6 +1068,144 @@ body {
   cursor: pointer;
 }
 
+/* —— Settings panel (TTS voices) —— */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9250;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 24px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.settings-panel {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  color: var(--text);
+}
+
+.settings-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px 0;
+}
+
+.settings-panel__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.settings-panel__close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.settings-section {
+  padding: 14px 20px 8px;
+}
+
+.settings-section__heading {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.settings-section__hint,
+.settings-section__note {
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.settings-section__note--warn {
+  color: #b85c3a;
+}
+
+.settings-field {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.settings-field__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.settings-field__row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.settings-field__select {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.settings-field__preview {
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.settings-field__preview:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.settings-panel__footer {
+  padding: 8px 20px 18px;
+}
+
+.settings-panel__done {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
 /* Siman picker — primary navigation on mobile / installed PWA */
 .reader-toolbar__siman-nav {
   display: none;

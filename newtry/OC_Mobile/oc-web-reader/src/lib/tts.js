@@ -54,13 +54,87 @@ export function queueInterwoven(
   return items;
 }
 
-export function useTTS() {
+function normalizeLang(lang) {
+  return (lang || "").toLowerCase().replace("_", "-");
+}
+
+/** Voices matching a language prefix (e.g. en, he). */
+export function filterVoicesForLang(voices, langPrefix) {
+  const prefix = normalizeLang(langPrefix);
+  return voices
+    .filter((v) => normalizeLang(v.lang).startsWith(prefix))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/** Human-readable label — name often includes Male/Female on mobile engines. */
+export function formatVoiceLabel(voice) {
+  const lang = voice.lang ? ` · ${voice.lang}` : "";
+  return `${voice.name}${lang}`;
+}
+
+export function findVoiceByUri(voices, voiceURI) {
+  if (!voiceURI) return null;
+  return voices.find((v) => v.voiceURI === voiceURI) ?? null;
+}
+
+export function resolveVoiceForLang(voices, lang, voiceEnUri, voiceHeUri) {
+  const isHebrew = normalizeLang(lang).startsWith("he");
+  const pref = isHebrew ? voiceHeUri : voiceEnUri;
+  const match = findVoiceByUri(voices, pref);
+  if (match) return match;
+  const pool = filterVoicesForLang(voices, isHebrew ? "he" : "en");
+  return pool[0] ?? null;
+}
+
+export function previewVoice(voiceURI, lang, sampleText) {
+  const synth = window.speechSynthesis;
+  if (!synth) return;
+  synth.cancel();
+  const utt = new SpeechSynthesisUtterance(sampleText);
+  utt.lang = lang;
+  utt.rate = 0.92;
+  const voice = findVoiceByUri(synth.getVoices(), voiceURI);
+  if (voice) utt.voice = voice;
+  synth.speak(utt);
+}
+
+/** Load browser TTS voices (may populate asynchronously on mobile). */
+export function useSpeechVoices() {
+  const [voices, setVoices] = useState(() =>
+    typeof window !== "undefined" && window.speechSynthesis ? window.speechSynthesis.getVoices() : []
+  );
+
+  useEffect(() => {
+    const synth = window.speechSynthesis;
+    if (!synth) return;
+    const refresh = () => {
+      const list = synth.getVoices();
+      if (list.length) setVoices(list);
+    };
+    refresh();
+    synth.addEventListener("voiceschanged", refresh);
+    const t = window.setTimeout(refresh, 250);
+    return () => {
+      synth.removeEventListener("voiceschanged", refresh);
+      window.clearTimeout(t);
+    };
+  }, []);
+
+  return voices;
+}
+
+/**
+ * @param {{ voiceEn?: string | null, voiceHe?: string | null }} ttsPrefs
+ */
+export function useTTS(ttsPrefs = {}) {
   const [speaking, setSpeaking] = useState(false);
   const [paused, setPaused] = useState(false);
   const [activeId, setActiveId] = useState(null);
   const queueRef = useRef([]);
   const cursorRef = useRef(0);
   const synthRef = useRef(typeof window !== "undefined" ? window.speechSynthesis : null);
+  const prefsRef = useRef(ttsPrefs);
+  prefsRef.current = ttsPrefs;
 
   const stop = useCallback(() => {
     if (synthRef.current) synthRef.current.cancel();
@@ -86,8 +160,19 @@ export function useTTS() {
     utt.rate = 0.92;
     utt.pitch = 1;
     if (lang) utt.lang = lang;
-    utt.onend = () => { cursorRef.current += 1; speakNext(); };
-    utt.onerror = () => { cursorRef.current += 1; speakNext(); };
+
+    const { voiceEn, voiceHe } = prefsRef.current;
+    const voice = resolveVoiceForLang(synth.getVoices(), lang, voiceEn, voiceHe);
+    if (voice) utt.voice = voice;
+
+    utt.onend = () => {
+      cursorRef.current += 1;
+      speakNext();
+    };
+    utt.onerror = () => {
+      cursorRef.current += 1;
+      speakNext();
+    };
     synth.speak(utt);
   }, []);
 
