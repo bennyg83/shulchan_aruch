@@ -88,6 +88,17 @@ function isChipActive(visibleKeys, key) {
   return visibleKeys.has(key);
 }
 
+function commentarySelectionSummary(visibleKeys, commentators) {
+  if (!commentators.length) return "";
+  if (visibleKeys === null) return "All";
+  if (visibleKeys.size === 0) return "None";
+  const labels = [...visibleKeys]
+    .map((k) => commentators.find((c) => c.key === k)?.label)
+    .filter(Boolean);
+  if (labels.length <= 2) return labels.join(", ");
+  return `${labels.length} selected`;
+}
+
 export default function WebReaderLayout({
   volumes,
   volume,
@@ -121,7 +132,20 @@ export default function WebReaderLayout({
     }
   });
   const [openPanels, setOpenPanels] = useState(() => new Set());
+  const [commentaryFilterExpanded, setCommentaryFilterExpanded] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return !window.matchMedia("(max-width: 960px)").matches;
+  });
   const { speaking, paused, activeId, play, stop, togglePause } = useTTS();
+
+  const seifNavKey = `${activeEntry?.siman ?? ""}-${currentSeif ?? ""}`;
+
+  /** Collapse commentary panels when changing seif (mobile: all; desktop: all open). */
+  useEffect(() => {
+    if (!commentators.length) return;
+    const mobile = window.matchMedia("(max-width: 960px)").matches;
+    setOpenPanels(mobile ? new Set(commentators.map((c) => c.key)) : new Set());
+  }, [seifNavKey, commentators]);
 
   const filteredCatalog = useMemo(() => {
     const q = simanQuery.trim().toLowerCase();
@@ -164,8 +188,19 @@ export default function WebReaderLayout({
     }
   };
 
+  const openCommentaryPanel = (key) => {
+    setOpenPanels((prev) => {
+      const n = new Set(prev);
+      n.delete(key);
+      return n;
+    });
+  };
+
   /** First click: only that commentary; further clicks: add; click active to remove (last → all). */
   const onCommentaryChipClick = (key) => {
+    setCommentaryFilterExpanded(true);
+    openCommentaryPanel(key);
+
     if (commentaryVisibleKeys === null) {
       onCommentaryVisibleKeysChange(new Set([key]));
       return;
@@ -179,7 +214,10 @@ export default function WebReaderLayout({
     onCommentaryVisibleKeysChange(new Set([...commentaryVisibleKeys, key]));
   };
 
-  const showAllCommentaries = () => onCommentaryVisibleKeysChange(null);
+  const showAllCommentaries = () => {
+    setCommentaryFilterExpanded(true);
+    onCommentaryVisibleKeysChange(null);
+  };
 
   const togglePanelOpen = (key) => {
     setOpenPanels((prev) => {
@@ -195,6 +233,7 @@ export default function WebReaderLayout({
   const simanGem = formatGematria(activeEntry.siman);
   const seifGem = formatGematria(currentSeif);
   const selectionIsSubset = commentaryVisibleKeys !== null;
+  const commentarySummary = commentarySelectionSummary(commentaryVisibleKeys, commentators);
   const catalogIdx = catalog.findIndex((e) => e.siman === activeEntry.siman);
   const prevSimanEntry = catalogIdx > 0 ? catalog[catalogIdx - 1] : null;
   const nextSimanEntry = catalogIdx >= 0 && catalogIdx < catalog.length - 1 ? catalog[catalogIdx + 1] : null;
@@ -369,31 +408,46 @@ export default function WebReaderLayout({
         </header>
 
         {commentators.length > 0 && (
-          <div className="filter-bar">
-            <span className="filter-bar__label">Commentaries</span>
-            {selectionIsSubset && (
-              <button type="button" className="filter-chip filter-chip--all" onClick={showAllCommentaries}>
-                Show all
-              </button>
+          <div className={`filter-bar filter-bar--collapsible ${commentaryFilterExpanded ? "filter-bar--expanded" : ""}`}>
+            <button
+              type="button"
+              className="filter-bar__toggle"
+              onClick={() => setCommentaryFilterExpanded((v) => !v)}
+              aria-expanded={commentaryFilterExpanded}
+            >
+              <span className="filter-bar__label">Commentaries</span>
+              <span className="filter-bar__summary">{commentarySummary}</span>
+              <span className="filter-bar__chevron" aria-hidden="true">
+                {commentaryFilterExpanded ? "▲" : "▼"}
+              </span>
+            </button>
+            {commentaryFilterExpanded && (
+              <div className="filter-bar__chips">
+                {selectionIsSubset && (
+                  <button type="button" className="filter-chip filter-chip--all" onClick={showAllCommentaries}>
+                    Show all
+                  </button>
+                )}
+                {commentators.map((c) => (
+                  <button
+                    key={c.key}
+                    type="button"
+                    className={`filter-chip ${isChipActive(commentaryVisibleKeys, c.key) ? "filter-chip--on" : ""}`}
+                    style={{ "--chip-color": c.color }}
+                    onClick={() => onCommentaryChipClick(c.key)}
+                    title={
+                      commentaryVisibleKeys === null
+                        ? "Click to show only this commentary"
+                        : commentaryVisibleKeys.has(c.key)
+                          ? "Click to hide this commentary"
+                          : "Click to add this commentary"
+                    }
+                  >
+                    {c.label}
+                  </button>
+                ))}
+              </div>
             )}
-            {commentators.map((c) => (
-              <button
-                key={c.key}
-                type="button"
-                className={`filter-chip ${isChipActive(commentaryVisibleKeys, c.key) ? "filter-chip--on" : ""}`}
-                style={{ "--chip-color": c.color }}
-                onClick={() => onCommentaryChipClick(c.key)}
-                title={
-                  commentaryVisibleKeys === null
-                    ? "Click to show only this commentary"
-                    : commentaryVisibleKeys.has(c.key)
-                      ? "Click to hide this commentary"
-                      : "Click to add this commentary"
-                }
-              >
-                {c.label}
-              </button>
-            ))}
           </div>
         )}
 
@@ -483,7 +537,8 @@ export default function WebReaderLayout({
 
           {seifData && visibleCommentators.length === 0 && commentators.length > 0 && (
             <p className="reader-hint">
-              No commentaries selected — click chips above to add one (first click shows only that commentary).
+              No commentaries selected — expand Commentaries above and tap a name to show one (first tap shows only
+              that commentary).
             </p>
           )}
         </div>

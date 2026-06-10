@@ -430,6 +430,32 @@ body {
   padding: 0.65rem 1.5rem;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
+  flex-shrink: 0;
+}
+
+.filter-bar--collapsible {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+}
+
+.filter-bar__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 1rem;
+  border: none;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.filter-bar__toggle:hover {
+  background: var(--accent-soft);
 }
 
 .filter-bar__label {
@@ -438,7 +464,35 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-muted);
-  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.filter-bar__summary {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.filter-bar__chevron {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.filter-bar__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem 0.65rem;
+  border-top: 1px solid var(--border);
 }
 
 .filter-chip {
@@ -1257,6 +1311,13 @@ body {
   .reader-toolbar__controls {
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .filter-bar__chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
 
   .mechaber-grid--split,
