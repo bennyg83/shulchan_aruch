@@ -1,0 +1,48 @@
+name: CM quality gate
+
+on:
+  pull_request:
+    branches: [cm-development, "cm/**"]
+    paths:
+      - "newtry/CM_001/**"
+      - "full_dictionary (1).md"
+      - ".github/workflows/sa-cm-quality-gate.yml"
+  push:
+    branches: [cm-development]
+    paths:
+      - "newtry/CM_001/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: newtry/CM_001
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Structure check
+        run: npm run pipeline:structure-check
+
+      - name: Quality validation
+        run: npm run pipeline:validate:quality
+        continue-on-error: true
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cm-quality-report
+          path: newtry/CM_001/checklist-output/
+          if-no-files-found: ignore

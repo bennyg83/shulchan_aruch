@@ -1,6 +1,8 @@
-# Shulchan Aruch — Orach Chayim (workspace)
+# Shulchan Aruch — multisection workspace
 
-Bilingual Orach Chayim translation pipeline (OC001 editorial, Sefaria corpus, mobile + web readers).
+Bilingual Shulchan Aruch translation (OC, YD, EH, CM), Sefaria corpus, mobile + web readers.
+
+**Multisection strategy (branches, CI, long-term web/mobile):** [`docs/SHULCHAN_ARUCH_MULTISECTION.md`](docs/SHULCHAN_ARUCH_MULTISECTION.md)
 
 ## Web reader (GitHub Pages)
 
