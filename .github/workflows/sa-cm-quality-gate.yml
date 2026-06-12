@@ -11,9 +11,13 @@ on:
     branches: [cm-development]
     paths:
       - "newtry/CM_001/**"
+      - ".github/workflows/sa-cm-quality-gate.yml"
 
 permissions:
   contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   validate:
@@ -27,16 +31,18 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: newtry/CM_001/package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Structure check
-        run: npm run pipeline:structure-check
+      - name: Block format validation
+        run: npm run pipeline:validate -- --root output
 
-      - name: Quality validation
-        run: npm run pipeline:validate:quality
+      - name: Quality validation (report)
+        run: npm run pipeline:validate:quality -- --write-reports
         continue-on-error: true
 
       - name: Upload quality report
