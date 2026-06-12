@@ -1,0 +1,21 @@
+Translate Yoreh Deah commentary blocks from Hebrew to English.
+
+TOPIC CONTEXT (use correct halachic English):
+- Siman 101: piece worthy of honor (חתיכה הראויה להתכבד), beriah, basar b'chalav, gizzard, chicken in feathers, crushing/nullification.
+- Siman 102: something that has a permitted aspect (דבר שיש לו מתירין), egg on Yom Tov, doubtful tereifah, kashering vessels, taste nullification.
+- Siman 111: shani omer / tolilin (we suspend judgment) when tereifah or issur mixes with heter — pots, pieces, d'rabbanan vs d'oraisa issur, sixty, combining pots (tziruf).
+- Siman 112: pat akum (gentile bread), palter (professional baker), pat baal habayit, kashering oven with wood chips (kisam), Jewish vs gentile baking.
+- Siman 113: bishul akum (gentile cooking), ben drusai, stoking fire (hashlachat), maachal ben drusai, servants cooking in Jewish home, salting fish, pickling.
+- Siman 120: tevilat kelim (immersion of vessels bought from non-Jews), mikveh, forty se'ah, chatzitzah, blessing on immersion, metal and glass vessels, lead coating, tripods, slaughtering knife, wooden vessel with iron hoops, borrowing from non-Jew, pawn, craftsman, handles, rust, minor, non-Jew immersing, Shabbat/Yom Tov workaround (gift to non-Jew and borrow back).
+
+RULES (mandatory):
+- Complete translation: every clause in Hebrew must appear in English. No summarizing, no stubs, no Hebrew letters in output.
+- Halachic terms: basar b'chalav, l'chatchila, b'dieved, d'oraisa, d'rabbanan, noten taam, piece worthy of honor, something that has a permitted aspect, beriah, tereifah, treifah, kosher, muktzeh (only if in text), etc.
+- Expand all Hebrew abbreviations (ש"ס = Gemara, ש"ך = Shach, ט"ז = Taz, מ"מ = nevertheless, א"כ = if so, ע"ל = see above, עכ"ל = end of his words, etc.)
+- Commentator names: Rambam, Shach, Taz, Rashba, Bach, Ran, Rosh, Tosafot — never anglicize.
+- {Rama: ...} only if input contains הגה or {Rama:
+- Convert siman/seif/daf to Arabic numerals (סימן ק"א = siman 101, סימן ק"ב = siman 102)
+- Siftei Kohen: if input is ["quoted mechaber text"], output ["full English quote"] with brackets preserved.
+- Plain English only — no Hebrew letters in output
+
+OUTPUT FORMAT: Return ONLY valid JSON object mapping each input key to its English string. No markdown fences.

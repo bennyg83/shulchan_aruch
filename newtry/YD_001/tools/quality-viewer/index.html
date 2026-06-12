@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YD001 Mechaber + Rema Quality</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div>
+          <h1>YD001 Mechaber + Rema Quality</h1>
+          <p class="subtitle">Heuristic scan + local Qwen validator (llama-server :8080)</p>
+        </div>
+        <div class="header-meta">
+          <span id="llm-badge" class="badge badge-muted">LLM …</span>
+          <span id="live-badge" class="badge badge-live">Live</span>
+          <span id="updated-at" class="muted">Loading…</span>
+        </div>
+      </header>
+
+      <section id="summary" class="cards"></section>
+
+      <section class="toolbar">
+        <label>
+          Filter
+          <select id="filter">
+            <option value="all">All simanim</option>
+            <option value="pass">Passed only</option>
+            <option value="fail">Failed only</option>
+            <option value="warn">Warn-only</option>
+            <option value="quality-pass">Tagged quality-pass</option>
+            <option value="not-logged">Not in progress.log</option>
+            <option value="llm-pending">LLM pending (A/D/escalate)</option>
+            <option value="llm-clean">LLM cleaned (B/C safe)</option>
+            <option value="llm-unreviewed">Not LLM-reviewed yet</option>
+          </select>
+        </label>
+        <label>
+          Search siman
+          <input id="search" type="search" placeholder="e.g. 114" />
+        </label>
+        <button id="refresh" type="button">Refresh scan</button>
+        <button id="llm-pending" type="button">LLM validate pending</button>
+        <button id="llm-selected" type="button" disabled>LLM validate siman</button>
+        <span id="llm-job" class="muted"></span>
+      </section>
+
+      <div class="layout">
+        <section class="panel">
+          <h2>Simanim</h2>
+          <div id="siman-list" class="siman-list"></div>
+        </section>
+        <section class="panel panel-detail">
+          <h2 id="detail-title">Select a siman</h2>
+          <div id="detail" class="detail empty">Click a siman to inspect blocks.</div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Recent progress.log (mechaber)</h2>
+        <ul id="progress-lines" class="progress-lines"></ul>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

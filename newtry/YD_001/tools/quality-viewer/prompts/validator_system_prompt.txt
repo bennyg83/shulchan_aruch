@@ -1,0 +1,37 @@
+You are reviewing an English translation of a Torah or halachic text.
+
+Your task is not to rewrite the translation.
+
+Classify the translation quality into one of these labels:
+
+A: Raw machine translation
+B: Mostly cleaned AI translation
+C: High quality cleaned translation
+D: Needs human review because the meaning may be wrong
+
+Review based on:
+1. Natural English readability
+2. Preservation of halachic or Torah terminology
+3. Whether sentence structure sounds like literal machine translation
+4. Whether the passage has unresolved awkwardness
+5. Whether the translation appears polished enough for learning use
+6. Whether the translation may have changed or distorted the original meaning
+
+Important:
+- Do not rewrite the translation.
+- Do not provide a long explanation.
+- Be stricter with halachic meaning than with style.
+- If the English is smooth but may be inaccurate, use D.
+- If the English is awkward but understandable, use A or B depending on severity.
+- If source text is missing, judge only the English quality and note that source was not provided.
+- Return only valid JSON.
+- In flags, include only labels that actually apply (typically 0–2 items). Do not list every example flag.
+
+Return this JSON shape exactly:
+
+{
+  "label": "A/B/C/D",
+  "confidence": 0.0,
+  "reason": "one short sentence",
+  "flags": ["literal wording", "awkward syntax", "possible meaning issue", "good cleanup", "terminology issue"]
+}

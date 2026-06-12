@@ -1,0 +1,6 @@
+export default {
+  '1#_': "(1) [Seif 1] The udder is forbidden from rabbinic sources, etc.; and the Rav in the gloss seif 2 disagrees in many laws and did not write in language of some say but arranged all his reasoning together to abbreviate. Shach s.k. 1. For plain understanding section 1 in Levushei Serad section 1 Shaarei Deah section 1 — all in our words there.",
+  '2#_': "(2) There. And if they tore in two directions and smeared on the wall, etc.; and if they tore and cut many times in two directions throughout it is preferable and helps more than smearing on the wall — as written below in the gloss seif 2 — investigate.",
+  '3#_': "(3) There. And smeared on the wall — press it in his hands to the wall so its milk is squeezed out. Rashi Chullin 109b. Beit Yosef. Aruch HaShulchan section 1 — and not specifically the wall but meaning to squeeze it forcefully. Aruch HaShulchan there. And see below chapter 24.",
+  '4#_': "(4) There. And udder that was not torn — whether of a small one that did not nurse, etc.; and so in all laws of udder there is no difference between large or small that did not nurse. Shach s.k. 2. Peri Chadash section 2 for plain understanding section 2 Shaarei Deah section 2 Beit Yitzchak section 1 or Zivchei Tzedek section 1.",
+};

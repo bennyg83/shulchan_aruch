@@ -1,0 +1,5 @@
+export default {
+  '1#_': `(siman 91 Shach s.k. 3) But in truth it appears to me that what Orach Chaim and Ba'al HaItur wrote, etc. — and it appears to me that Ba'al HaItaur deals with a non-Jewish vessel that we are concerned lest one use it hot and we decree to forbid; and Orach Chaim deals with a vessel that is not a non-Jewish vessel, for even in hot use it is permitted b'dieved as below siman 93, and they did not decree — investigate.`,
+  '2#_': `(there Taz s.k. 3) All that he wrote here is not so and he did not plumb the depth of the matter; everything was already explained properly in Shach s.k. 2 — see there.`,
+  '3#_': `(there Taz s.k. 7) He elaborated to disagree with the Mechaber; and according to Shach s.k. 8 in this siman and siman 69 s.k. 63 his words are rejected — see there.`,
+};

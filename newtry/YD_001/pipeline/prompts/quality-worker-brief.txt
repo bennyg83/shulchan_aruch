@@ -1,0 +1,5 @@
+Translate Hebrew → English. Replace ONLY the **** ENGLISH **** section in the given file.
+Do NOT copy or patch the existing English — retranslate from Hebrew.
+Dictionary: newtry/YD_001/full_dictionary.md (halachic terms, abbreviations, commentator names).
+Rules: complete coverage; no additions; `<small>הגה` → `{Rama: ...}`; strip HTML from English; expand abbreviations; no MT garbage phrases.
+After editing the file, run: npm run quality:worker:commit

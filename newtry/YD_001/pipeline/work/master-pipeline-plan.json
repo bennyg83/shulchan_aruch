@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "volume": "YD",
+  "phase": "quality_pass",
+  "mtFirstPassStatus": "complete",
+  "finishThrough": 403,
+  "sequence": [
+    "structure_bootstrap",
+    "prepare_sefaria_slices",
+    "mt_placeholders_1_403",
+    "editorial_pilot_1_5",
+    "editorial_stress_87_115",
+    "editorial_6_403",
+    "yd_complete"
+  ],
+  "structureBootstrap": {
+    "status": "complete",
+    "note": "YD_001 output 402 simanim; validate-yd001; Yoreh_Deah publish tools"
+  },
+  "prepareSefaria": {
+    "note": "Per siman: build-manifest-template + prepare-translated-siman-slice from Yoreh_Deah/tools"
+  },
+  "mtFirstPass": {
+    "backend": "libre",
+    "docker": "newtry/YD_001/docker/libretranslate",
+    "script": "npm run translate:placeholders:libre"
+  },
+  "editorialPilot": {
+    "simanim": [1, 2, 3, 4, 5],
+    "planFile": "sprint-plan-pilot-1-5.json"
+  },
+  "editorialStress": {
+    "simanim": [87, 115]
+  },
+  "editorialMain": {
+    "from": 6,
+    "to": 403,
+    "planFile": "sprint-plan-6-403.json",
+    "waveSize": 50
+  },
+  "poolWatch": {
+    "workers": 4,
+    "intervalSec": 90,
+    "note": "npm run pipeline:pool:watch:assign"
+  },
+  "qualityPass": {
+    "status": "queued",
+    "workers": 4,
+    "assignmentMode": "user_direct_prompt",
+    "masterQueue": "newtry/pipeline/work/sa-quality-master-queue.json",
+    "agentPrompts": "newtry/YD_001/translation/AGENT_QUALITY_PASS_SLOTS.md",
+    "queueScript": "node newtry/tools/queue-sa-quality-passes.mjs",
+    "primaryVolume": "YD",
+    "thenVolumes": ["EH", "CM"]
+  },
+  "publish": {
+    "noPublishFromSiman": 50,
+    "publicCorpus": "public/corpus/yd1",
+    "note": "User-triggered GH Pages for YD; pilot publish simanim 1–5 only by default"
+  }
+}

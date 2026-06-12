@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+/** Usage: node _mk-patch-runner.mjs 089 ./_patch-siman-089-translations.mjs */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const sim = process.argv[2];
+const transFile = process.argv[3];
+const WORK = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(WORK, '../..');
+const OUT = path.join(ROOT, 'output');
+const simDir = path.join(OUT, `siman_${sim}`);
+
+const hebPath = path.join(WORK, `_hebrew-${sim}.json`);
+const keysByRel = {};
+if (fs.existsSync(hebPath)) {
+  const heb = JSON.parse(fs.readFileSync(hebPath, 'utf8'));
+  for (const slug of Object.keys(heb)) {
+    for (const [key, entry] of Object.entries(heb[slug])) {
+      const rel = entry.rel || `siman_${sim}/${slug}/part-001.txt`;
+      if (!keysByRel[rel]) keysByRel[rel] = [];
+      keysByRel[rel].push(key);
+    }
+  }
+}
+
+const slugs = fs.readdirSync(simDir).filter((d) =>
+  fs.statSync(path.join(simDir, d)).isDirectory(),
+);
+
+const files = [];
+for (const slug of slugs.sort()) {
+  const dir = path.join(simDir, slug);
+  for (const f of fs.readdirSync(dir).filter((x) => /^part-.*\.txt$/.test(x)).sort()) {
+    files.push([`siman_${sim}/${slug}/${f}`, slug]);
+  }
+}
+
+const filesList = files.map(([rel, slug]) => `  ['${rel}', '${slug}'],`).join('\n');
+const keysByRelJson = JSON.stringify(keysByRel, null, 2);
+
+const content = `#!/usr/bin/env node
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { TRANSLATIONS } from './${path.basename(transFile)}';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const OUT = path.join(ROOT, 'output');
+const BLOCK = '**** YD001 SOURCE BLOCK ****';
+const ENG = '**** ENGLISH ****';
+const END = '**** END BLOCK ****';
+const KEYS_BY_REL = ${keysByRelJson};
+
+function patchFile(rel, slug, T) {
+  const fp = path.join(OUT, rel);
+  const s = fs.readFileSync(fp, 'utf8');
+  const applied = new Set();
+  const fileKeys = KEYS_BY_REL[rel];
+  const Tuse = fileKeys
+    ? Object.fromEntries(Object.entries(T).filter(([k]) => fileKeys.includes(k)))
+    : T;
+  const parts = s.split(BLOCK);
+  const out = parts.map((block, i) => {
+    if (i === 0) return block;
+    const slugM = block.match(/^\\s*slug: (.+)$/m);
+    const seifM = block.match(/^\\s*seif: (.+)$/m);
+    const markerM = block.match(/^\\s*marker: (.+)$/m);
+    if (!slugM || slugM[1].trim() !== slug) return BLOCK + block;
+    const seif = seifM[1].trim();
+    const marker = markerM ? markerM[1].trim() : 'main';
+    const key = \`\${seif}#\${marker}\`;
+    if (!(key in Tuse)) {
+      if (key in T) throw new Error(\`Key \${key} belongs to another part file, not \${rel}\`);
+      return BLOCK + block;
+    }
+    const enStart = block.indexOf(ENG);
+    const enEnd = block.indexOf(END);
+    if (enStart < 0 || enEnd < 0) throw new Error(\`ENGLISH/END missing: \${rel} \${key}\`);
+    const before = block.slice(0, enStart + ENG.length + 1);
+    const after = block.slice(enEnd);
+    const text = Tuse[key].endsWith('\\n') ? Tuse[key] : Tuse[key] + '\\n';
+    applied.add(key);
+    return BLOCK + before + text + after;
+  });
+  const missing = Object.keys(Tuse).filter((k) => !applied.has(k));
+  if (missing.length) throw new Error(\`Keys not found in \${rel}: \${missing.join(', ')}\`);
+  fs.writeFileSync(fp, out.join(''), 'utf8');
+  console.log(\`OK \${rel} (\${applied.size} blocks)\`);
+  return applied.size;
+}
+
+const FILES = [
+${filesList}
+];
+
+let total = 0;
+for (const [rel, slug] of FILES) {
+  const T = TRANSLATIONS[slug];
+  if (!T) throw new Error(\`No translations for slug: \${slug}\`);
+  total += patchFile(rel, slug, T);
+}
+
+const ts = new Date().toISOString().replace(/\\.\\d{3}Z$/, '');
+const slugDone = {};
+for (const [rel, slug] of FILES) {
+  const n = (KEYS_BY_REL[rel] || []).length;
+  slugDone[slug] = (slugDone[slug] || 0) + n;
+}
+const progress = Object.entries(slugDone)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([slug, n]) => \`\${ts} siman_${sim}/\${slug} \${n} blocks DONE\`);
+progress.push(\`\${ts} siman_${sim} COMPLETE\`);
+fs.appendFileSync(path.join(ROOT, 'progress.log'), progress.join('\\n') + '\\n');
+
+console.log(\`[COMPLETE] siman_${sim} — \${total} blocks across \${FILES.length} files\`);
+`;
+
+fs.writeFileSync(path.join(WORK, `_patch-siman-${sim}.mjs`), content);
+console.log(`wrote _patch-siman-${sim}.mjs (${files.length} files)`);

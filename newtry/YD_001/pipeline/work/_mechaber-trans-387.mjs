@@ -1,0 +1,5 @@
+/** YD001 mechaber quality-pass siman 387 */
+export const TRANSLATIONS = {
+  '1#main': `The law of overturning the bed. And it contains 2 seifim. A mourner is obligated in overturning the bed — at time of sleep and eating he sits on an overturned bed; but all day he does not sit even on an overturned bed, rather on the ground; and likewise comforters may not sit except on the ground.`,
+  '2#main': `Now they do not practice overturning the bed, lest gentiles say he is a sorcerer; and further, our beds are not made like their beds so overturning would be recognizable.`,
+};

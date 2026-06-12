@@ -1,0 +1,6 @@
+export default {
+  '1#_': `Six hours. See Shach — if one chews for a child a dish that has fat, at first glance for all explanations he need not wait, for drawing taste there is none since he did not eat and between the teeth there is none; nevertheless Peri Megadim wrote one should be stringent to wait six hours because of not distinguishing and not breaching the fence.`,
+  '2#_': `They are not scrupulous about this. Avodat HaGolah end s.k. 3 in the name of Taz; and see in Bechor Shor in his chiddushim on Chullin daf 105 who disagrees with him and raised that one should not protest the lenient, for Rama brought that they have support — see there.`,
+  '3#_': `Six hours. Avodat HaGolah of Maharit — whether they are seasonal hours. And see Knesset HaGedolah and Peri Megadim and Chokhmat Adam who agreed with Kenesset HaGedolah that they are not seasonal, see there — and so is the custom. [And see in responsum Chavot Yair siman 73 that a sick person who drinks milk-water for healing, even if he is only slightly ill, need not wait after eating meat more than an hour, and after he already recited Birkat HaMazon he may drink and it will rest for him, see there.]`,
+  '4#_': `That he examine. Avodat HaGolah in the name of Peri Chadash; and in Peri Megadim wrote it is proper to be stringent in a matter that involves no trouble, see there.`,
+};

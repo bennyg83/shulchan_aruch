@@ -1,0 +1,14 @@
+{
+  "updatedAt": "2026-05-27T00:00:00.000Z",
+  "phase": "quality_pass",
+  "primaryVolume": "YD",
+  "assignmentMode": "user_direct_prompt",
+  "note": "Orchestrator assigns blocks in chat. See translation/AGENT_QUALITY_PASS_SLOTS.md. Master queue: newtry/pipeline/work/sa-quality-master-queue.json",
+  "targetWorkers": 4,
+  "slots": [
+    { "slot": 1, "workerId": "sa-quality-slot-1", "volume": "YD", "blockIds": [], "batchPath": null },
+    { "slot": 2, "workerId": "sa-quality-slot-2", "volume": "YD", "blockIds": [], "batchPath": null },
+    { "slot": 3, "workerId": "sa-quality-slot-3", "volume": "YD", "blockIds": [], "batchPath": null },
+    { "slot": 4, "workerId": "sa-quality-slot-4", "volume": "YD", "blockIds": [], "batchPath": null }
+  ]
+}

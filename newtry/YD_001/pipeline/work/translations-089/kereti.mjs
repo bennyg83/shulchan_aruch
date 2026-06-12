@@ -1,0 +1,18 @@
+export default {
+  '1#א': `And even of wild animal — this is only custom, as Rosh wrote; but by law it is permitted, as Peleti wrote, proof from Tosafot.`,
+  '1#ב': `Six hours — and for Rambam the reason of taste within six hours is that most meat is still between the teeth; and see Peleti what he wrote that it is not difficult for him from the Gemara.`,
+  '1#ג': `And if he found afterward — and when he removes it he need not wait from then six hours.`,
+  '1#ד': `To rinse his mouth — and the same applies to wiping the mouth; and Rama abbreviated; so too the Acharonim.`,
+  '1#ה': `And recited Birkat HaMazon — the same applies to the final blessing where Birkat HaMazon is not required, for in any case there is clearing from what he ate and it is not like one who eats in a bundle.`,
+  '1#ו': `One hour — Peri Chadash wrote they have support from the words of the Zohar; and see Peleti that I wrote that from the Zohar it does not appear at all except one hour, and six hours depends on a dispute in Orach Chaim siman 184; and Peri Chadash's view in winter days is short — four hours from midday until evening suffice; and see Peleti that I wrote there is no such thing, and if they wish to be precise they should add more than six hours; therefore the essence is six hours and one should not add or subtract.`,
+  '1#ז': `And they are not scrupulous — Taz picked a quarrel about their not being scrupulous; and see Peleti what he wrote that they are correct and there is no reason to be scrupulous here.`,
+  '2#א': `If it is at night — and if he has a good lamp like a torch, night has the law of day — Maharshal and Acharonim.`,
+  '2#ב': `At night — and if he ate meat first and they practice without waiting six hours — nevertheless he must wash even by day, lest something stuck to the hands; and see Peleti that I proved this from the words of Tosafot, see there.`,
+  '2#ג': `To wash them — and Acharonim brought other liquids are not fit for him — so Raavad; and Maharshal permits; and see Peleti that I brought proof from Tosafot for Raavad's words.`,
+  '2#ד': `Wild animal — even though wild animal is d'rabbanan and is similar to fowl, nevertheless in its substance it is similar to domestic animal and also sticks to hands and mouth like domestic animal.`,
+  '2#ה': `Without wiping — Beit Yosef brought in the name of the Zohar to be stringent to eat cheese after fowl; and Peri Chadash permits; and the words of the Zohar are not comfortable; but nevertheless Beit Yosef's words are comfortable only that the Zohar deals with eating them together.`,
+  '3#א': `And fat of meat — even though it does not fit the reason of Rambam of meat between the teeth, it is forbidden because of not distinguishing; and the same applies to fat of fowl.`,
+  '3#ב': `Its law is like meat — and meat broth: if clear, its law is like a dish; if thick, it has the law of meat — Beit Yosef, Orach Chaim.`,
+  '3#ג': `Waiter, etc. — see Acharonim what they wrote on this; and see what Peleti wrote to reconcile.`,
+  '4#_': `Forbidden to cut — for noten taam bar noten taam is forbidden l'chatchila; and also because mostly it is dry and something visible sticks.`,
+};

@@ -1,0 +1,13 @@
+Translate Yoreh Deah siman 087 commentary blocks from Hebrew to English.
+
+RULES (mandatory):
+- Complete translation: every clause in Hebrew must appear in English. No summarizing, no "see there", no stubs.
+- Halachic terms: basar b'chalav, l'chatchila, b'dieved, d'oraisa, d'rabbanan, marit ayin, noten taam, kli rishon, etc. (transliterate, do not anglicize commentator names: Rambam, Shach, Taz, Rashba, etc.)
+- Expand all Hebrew abbreviations (ש"ס = Gemara, מ"מ = nevertheless, א"כ = if so, etc.)
+- {Rama: ...} for hagahah marked with הגה
+- Convert siman/seif/daf to Arabic numerals (סימן פ"ז = siman 87, דף קי"ג = daf 113)
+- Plain English only — no Hebrew letters in output
+- Preserve bold topic as plain text (strip HTML)
+
+OUTPUT FORMAT: Return ONLY valid JSON object mapping each input key to its English string. No markdown fences. Example:
+{"1#_": "English here...", "2#_": "..."}

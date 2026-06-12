@@ -1,0 +1,24 @@
+{
+  "activeProfile": "fast",
+  "releaseTag": "v2.3.0-nightly",
+  "zipName": "llama-cpp-ipex-llm-2.3.0b20250729-win.zip",
+  "downloadUrl": "https://github.com/ipex-llm/ipex-llm/releases/download/v2.3.0-nightly/llama-cpp-ipex-llm-2.3.0b20250729-win.zip",
+  "port": 8080,
+  "contextSize": 2048,
+  "batchSize": 512,
+  "ubatchSize": 256,
+  "gpuLayers": 99,
+  "threads": 8,
+  "parallel": 1,
+  "profiles": {
+    "fast": {
+      "label": "Qwen2.5-3B-Instruct Q4_K_M",
+      "modelPath": "C:/Users/binya/Documents/Shulchan aruch/newtry/YD_001/tools/quality-viewer/ipex/models/qwen2.5-3b-instruct-q4_k_m.gguf",
+      "downloadUrl": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf"
+    },
+    "accurate": {
+      "label": "Qwen3-4B Q4_K_M",
+      "modelPath": "C:/Users/binya/Documents/Codex/2026-06-07/files-mentioned-by-the-user-pasted/local-translation-validator/work/model-cache/models--Qwen--Qwen3-4B-GGUF/snapshots/bc640142c66e1fdd12af0bd68f40445458f3869b/Qwen3-4B-Q4_K_M.gguf"
+    }
+  }
+}

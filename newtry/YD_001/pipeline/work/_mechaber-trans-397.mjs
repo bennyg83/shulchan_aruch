@@ -1,0 +1,5 @@
+/** YD001 mechaber quality-pass siman 397 */
+export const TRANSLATIONS = {
+  '1#main': `The laws of testimony to observe mourning based on it. And it contains 2 seifim. They mourn based on one witness and testimony from witness's mouth, and a gentile speaking offhandedly.`,
+  '2#main': `Two say dead and two say not dead — he does not mourn.`,
+};

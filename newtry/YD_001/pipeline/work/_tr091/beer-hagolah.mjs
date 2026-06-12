@@ -1,0 +1,16 @@
+export default {
+  '1#_': `Mishnah Chullin daf 107 and as Abaye explains there — Rashba.`,
+  '2#_': `Rashba and Tur in the name of Ba'al HaItur — from that which we learned "provided they do not touch each other."`,
+  '3#_': `Tur, and there he wrote "raw meat"; and see siman 89 seif 4 and what I noted there.`,
+  '4#א': `The dispute of Rav and Shmuel Pesachim daf 76 and as Shmuel — the baraita there — the agreement of the poskim.`,
+  '4#ב': `Baraitot there and as they are resolved there in the Gemara.`,
+  '5#א': `Rava's statement according to Shmuel that salted meat is like hot — Chullin daf 112 and Pesachim daf 76.`,
+  '5#ב': `Tur in the name of Rabbenu Tam (and Ran), and so Tosafot, Rosh, and Mordechai in his name, and so is the view of all of them and other poskim.`,
+  '5#ג': `There in the name of Rashi's explanation of Rava's statement above, and Ran.`,
+  '5#ד': `Tosafot and Rosh there, and so Tur; and see siman 105.`,
+  '5#ה': `Tur — from that which impure salted and pure unsalted, etc. — there daf 113.`,
+  '5#ו': `There, and so Semak and Mordechai there and Hagahot Maimoniyot chapter 9.`,
+  '6#_': `There and siman 105 — since we say salted meat is like hot, roasted meat is compared to roasted meat for all its matters.`,
+  '7#_': `There daf 112 — in the incident of the young dove.`,
+  '8#_': `Hagahot Ashiri end of Avodah Zarah and Mordechai there chapter 2, and so Agur in his name.`,
+};

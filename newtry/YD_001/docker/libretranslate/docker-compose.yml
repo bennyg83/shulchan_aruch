@@ -1,0 +1,27 @@
+# Local LibreTranslate for YD001 machine translation (Hebrew → English).
+# From YD_001:  npm run libre:up
+# Tuned for burst MT (raise host Docker Desktop RAM if the container is capped).
+services:
+  libretranslate:
+    container_name: yd001-libretranslate
+    image: libretranslate/libretranslate:latest
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    mem_limit: 8g
+    cpus: 6
+    environment:
+      - LT_LOAD_ONLY=en,he
+      - LT_UPDATE_MODELS=true
+      - LT_THREADS=8
+    volumes:
+      - libretranslate_models:/home/libretranslate/.local
+    healthcheck:
+      test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 120s
+
+volumes:
+  libretranslate_models:

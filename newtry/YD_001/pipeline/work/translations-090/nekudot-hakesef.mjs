@@ -1,0 +1,4 @@
+export default {
+  '1#_': "(siman 90 Taz s.k. 2) And further their words are astonishing. I too in my books challenged the sage; but here I wrote one may say: blood when it separated before cooking is forbidden d'oraisa — therefore when they cooked they were stringent; unlike udder which even when separated is d'rabbanan — and in such a case Tosafot and Rosh wrote in chapter Kol HaBasar regarding chalav shechutah is d'rabbanan and blood is d'oraisa, see there.",
+  '2#_': "(there Taz s.k. 12) However I wondered, etc. And I am astonished at him — he compares rabbinic decrees to each other; behold we find in many places they decree a decree on a decree; and so Tosafot beginning of chapter Kol HaBasar — and this is their language: there are places they decree a decree on a decree and we are not concerned; and one may not compare rabbinic decrees to each other except where the Gemara compares, end of his words.",
+};

@@ -1,0 +1,42 @@
+Create file: newtry/YD_001/pipeline/work/_patch-siman-036.mjs
+
+Follow the EXACT pattern of newtry/YD_001/pipeline/work/_patch-siman-032.mjs:
+- ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+- OUT = path.join(ROOT, 'output');
+- BLOCK = '**** YD001 SOURCE BLOCK ****';
+- patchFile(rel, slug, T) function identical to siman 032
+- End with: console.log('siman_036 patch complete');
+
+Translate ALL blocks from Hebrew in output/siman_036/ — 373 blocks total, NO skipped keys.
+
+Files and block counts (must match exactly):
+- siman_036/mechaber/part-001.txt — mechaber — 17 (keys 1#main through 17#main)
+- siman_036/siftei-kohen/part-001.txt — siftei-kohen — 35
+- siman_036/turei-zahav/part-001.txt — turei-zahav — 21
+- siman_036/baer-heitev/part-001.txt — baer-heitev — 29
+- siman_036/beer-hagolah/part-001.txt — beer-hagolah — 17
+- siman_036/beur-hagra/part-001.txt — beur-hagra — 28
+- siman_036/kereti/part-001.txt — kereti — 29
+- siman_036/peleti/part-001.txt — peleti — 17
+- siman_036/pitchei-teshuva/part-001.txt — pitchei-teshuva — 17
+- siman_036/rabbi-akiva-eiger-yd/part-001.txt — rabbi-akiva-eiger-yd — 17
+- siman_036/nekudot-hakesef/part-001.txt — nekudot-hakesef — 10
+- siman_036/kaf-hachayim/part-001.txt — kaf-hachayim — 17
+- siman_036/mateh-yehonatan/part-001.txt — mateh-yehonatan — 6
+- siman_036/yad-avraham/part-001.txt — yad-avraham — 6
+- siman_036/yad-ephraim/part-001.txt — yad-ephraim — 6
+- siman_036/kol-yaakov/part-001.txt — kol-yaakov — 45
+- siman_036/kol-yaakov/part-002.txt — kol-yaakov — 56
+
+Read full_dictionary (1).md at repo root and translation/EDITORIAL_RETRANSLATE.md.
+
+Rules: completeness R1, no additions R2, dictionary halachic terms (reia/lung, kli, treifah, semponya, etc.), expand abbreviations, {Rama: ...} for הגה in small tags, strip HTML from Hebrew when translating, note markers (1) from data-label, convert Hebrew numbers to Arabic.
+
+Topic: YD siman 36 = lung (reia) treifot for mechaber/commentators. kol-yaakov blocks are misplaced STaM/sofrut letter-form material — translate the Hebrew as written anyway.
+
+For each file: read every block, extract seif#marker keys, write patchFile() with complete English for every key.
+
+After writing, run: node pipeline/work/_patch-siman-036.mjs
+It must print OK for each file with correct block counts and not throw missing keys.
+
+Do not create separate data files — one self-contained _patch-siman-036.mjs only.

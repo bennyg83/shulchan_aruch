@@ -1,0 +1,25 @@
+{
+  "server_url": "http://127.0.0.1:8080/v1/chat/completions",
+  "backend": "ipex-llm",
+  "active_profile": "fast",
+  "model": "local-validator",
+  "temperature": 0,
+  "max_tokens": 200,
+  "timeout_seconds": 120,
+  "cache_file": "cache/llm-reviewed-fast.jsonl",
+  "disable_thinking": false,
+  "profiles": {
+    "fast": {
+      "cache_file": "cache/llm-reviewed-fast.jsonl",
+      "disable_thinking": false,
+      "timeout_seconds": 120,
+      "max_tokens": 200
+    },
+    "accurate": {
+      "cache_file": "cache/llm-reviewed-accurate.jsonl",
+      "disable_thinking": true,
+      "timeout_seconds": 240,
+      "max_tokens": 200
+    }
+  }
+}

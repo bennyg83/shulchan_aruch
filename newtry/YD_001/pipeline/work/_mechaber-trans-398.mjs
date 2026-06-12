@@ -1,0 +1,4 @@
+/** YD001 mechaber quality-pass siman 398 */
+export const TRANSLATIONS = {
+  '1#main': `First-day mourning is d'oraisa. And it contains one seif. First-day mourning — if it is day of death and burial, it is d'oraisa, and other days are d'rabbanan; in what matters? For the seven dead explicitly in Torah that a kohen becomes impure for them; but those added to them, as stated in siman 374 — even on first day they are d'rabbanan; and some say even first-day mourning of death and burial is d'rabbanan for all the dead.`,
+};

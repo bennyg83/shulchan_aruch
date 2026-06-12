@@ -1,0 +1,24 @@
+{
+  "name": "yd001-quality-viewer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5188 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 5188 --strictPort",
+    "llm:pending": "node run-llm-batch.mjs --pending --limit 60",
+    "llm:quality-pass": "node run-llm-batch.mjs --quality-pass",
+    "llm:all": "node run-llm-batch.mjs --all",
+    "llm:recompute": "node recompute-llm-cache.mjs",
+    "llm:siman": "node run-llm-batch.mjs --siman",
+    "ipex:setup": "node ipex/setup-ipex.mjs",
+    "ipex:model:fast": "node ipex/setup-fast-model.mjs",
+    "ipex:profile": "node ipex/set-profile.mjs",
+    "ipex:server": "bash ipex/start-ipex-server.sh",
+    "ipex:server:ps1": "powershell -NoProfile -ExecutionPolicy Bypass -File ipex/start-ipex-server.ps1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}

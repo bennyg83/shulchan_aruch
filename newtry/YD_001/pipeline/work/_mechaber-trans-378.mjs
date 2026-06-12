@@ -1,0 +1,16 @@
+/** YD001 mechaber quality-pass siman 378 */
+export const TRANSLATIONS = {
+  '1#main': `The laws of the meal of recovery for a man and for a woman. And it contains 13 seifim. A mourner is forbidden to eat from his own at the first meal; but at the second he is permitted, even on the first day; and it is a mitzvah upon his neighbors and relatives to give him the first meal and to eat with him.`,
+  '2#main': `A woman who suffered a loss — men may not give her a meal of recovery; but women give her a meal of recovery. A married woman who suffered a loss cannot eat the first meal from her husband's property; and likewise one who has a scribe or hired worker — if he eats for his wages and a loss befell him, he may not eat the first meal from his wages.`,
+  '3#main': `If the mourner wished not to eat on the first day, he is permitted to eat from his own even the first meal: {Rama: And likewise if they did not give him a meal of recovery on the first day that extended until night, he is permitted to eat at night from his own (Pithei Teshuva).}`,
+  '4#main': `They used to fast on the day of death of sages.`,
+  '5#main': `One buried on erev Shabbat close to dark — before nightfall: some say they give him a meal of recovery then; but it appears to me that since it is not obligatory, it is better not to give him a meal then because of honor of Shabbat; and so is the custom.`,
+  '6#main': `They do not give a meal of recovery for a minor unless he is thirty full days old, or it is established for him that his months were completed.`,
+  '7#main': `They pour and honor in the house of mourning and rinse bowls, cups, dishes, and small vessels; and they do not bring spices or perfume there; but they bring them to the house where the deceased is, and they do not recite a blessing over them; and they do not say legends and aggadah in the house of mourning.`,
+  '8#main': `Once the deceased is buried, it is permitted to eat meat and drink a little wine within the meal in order to settle the food in his stomach, but not to become satiated.`,
+  '9#main': `In a place where they practiced to give a meal of recovery with meat, wine, and kinds of delicacies — they do so; and they give a meal of recovery first with eggs or a lentil dish as a remembrance of mourning, and afterward they eat all their needs.`,
+  '10#main': `One should not eat with the mourner so many people that they divide into two places.`,
+  '11#main': `Where they need to count seven after the festival, and likewise if he heard distant tidings on Shabbat — he needs the first meal of recovery during the days of mourning; {Rama: (And some say that since the first day was deferred they do not give him a meal of recovery, and so is the custom (in Mordechai Moed Katan in the name of some say and Nimmukei Yosef); and even where it counts for him toward the seven, such as places that count from the festival, they do not give a meal of recovery on the first day (Maharil).)}`,
+  '12#main': `They do not give a meal of recovery for distant tidings.`,
+  '13#main': `The great comforter breaks bread (meaning: he cuts bread to bless Who brings forth bread); on Shabbat he breaks bread as usual.`,
+};

@@ -1,0 +1,3 @@
+export default {
+  '1#_': `(siman 89 Taz s.k. 6) This refers. This is not so, and it is explained explicitly in Torat Chatat general rule 76 law 7, that even to cut bread with it to eat with cheese requires sticking; and what he wrote in note 7 is not so; and what he wrote "and for us one need not this," etc. — is not a matter, for we forbid thus not because of actual absorption, for it is cold in cold; rather because the knife's greasiness is smeared on its face and since its use is frequent, wiping alone does not suffice. And Maharshal is stringent here that even sticking does not help; and see Shach s.k. 20.`,
+};

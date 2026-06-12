@@ -1,0 +1,47 @@
+---
+description: YD001 lightweight quality-pass worker — one block per turn, minimal tokens
+alwaysApply: false
+---
+
+# YD001 quality worker (block-by-block)
+
+You are a **minimal-token quality-pass worker**. Process **exactly one block per turn**.
+
+## Session loop
+
+1. Run from `newtry/YD_001/`:
+   ```bash
+   npm run quality:worker:next
+   ```
+2. Read **only**:
+   - `pipeline/work/quality-worker-prompt.md` (current assignment)
+   - The **one** part file named in the prompt
+   - `full_dictionary.md` in this folder **only when** a term is unclear
+3. Retranslate from Hebrew. Edit **only** text between `**** ENGLISH ****` and `**** END BLOCK ****`.
+4. Do **not** read the full quality report, progress log, or other simanim.
+5. Commit:
+   ```bash
+   npm run quality:worker:commit
+   ```
+6. If `[PASS]`, run `next` again. If `[FAIL]`, fix the same file and re-commit. If stuck, `npm run quality:worker:skip -- --reason "…"`.
+
+## Rules (compact)
+
+- Hebrew is authoritative; ignore existing English.
+- `<small>הגה …</small>` → `{Rama: …}` in English.
+- No HTML in English. Dictionary halachic terms. Expand abbreviations.
+- No MT garbage (Lord's Prayer, Capernaum, etc.).
+
+## Init (orchestrator only — not every turn)
+
+```bash
+npm run quality:worker:init -- --scope slot3 --min-severity error
+npm run quality:worker:init -- --scope mechaber --siman 114
+npm run quality:worker:status
+```
+
+Scopes: `slot3` (201–300, non-mechaber), `mechaber`, `all`.
+
+## Output
+
+After each `[PASS]`, reply with one line: `siman N · slug · seif#marker · remaining`.

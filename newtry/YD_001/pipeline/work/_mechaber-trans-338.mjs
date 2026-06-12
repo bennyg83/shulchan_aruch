@@ -1,0 +1,6 @@
+export const TRANSLATIONS = {
+  '1#main':
+    'Confession of the sick person and how they speak to him. In it are 2 seifim. When he is close to death they tell him to confess; and they tell him many confessed and did not die, and many who did not confess died; and by the reward that you confess you will live; and whoever confesses has a share in the World to Come; and if he cannot confess with his mouth he confesses in his heart (and if he does not know how to confess they tell him to say "May my death be atonement for all my sins") (Tur); and all these things are not said to him in the presence of a gentile nor women nor children, lest they cry and break his heart.',
+  '2#main':
+    'The order of confession of a deathly ill person: I confess before You, Lord my God and God of my fathers, that my healing and death are in Your hand; may it be Your will before You that You heal me with complete healing, and if I die may my death be atonement for all my sins, iniquities, and rebellions that I sinned, perverted, and rebelled before You; and give my portion in the Garden of Eden and merit me for the World to Come stored for the righteous. (And if he wishes to lengthen like the Yom Kippur confession, permission is in his hand) (Kol Bo).',
+};
