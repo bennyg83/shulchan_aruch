@@ -6,8 +6,7 @@ Claim **one** row: set status `IN_PROGRESS`, your agent ID, open PR branch from 
 
 | Status | Agent | Siman / unit | Batch file | PR branch |
 |--------|-------|--------------|------------|-----------|
-| READY | | 110 part 1of2 | `batch-editorial-siman-110-part1of2.md` | `yd/cleanup-siman-110-part1of2` |
-| READY | | 110 part 2of2 | `batch-editorial-siman-110-part2of2.md` | `yd/cleanup-siman-110-part2of2` |
+| DONE | yd001-cloud-singleton-f6d2 | 110 | parts 1–7/7 | `yd/cleanup-siman-110-part1of7-f6d2` |
 | READY | | 84 part 1of2 | `batch-editorial-siman-084-part1of2.md` | `yd/cleanup-siman-084-part1of2` |
 | READY | | 84 part 2of2 | `batch-editorial-siman-084-part2of2.md` | `yd/cleanup-siman-084-part2of2` |
 | READY | | 98 part 1of2 | `batch-editorial-siman-098-part1of2.md` | `yd/cleanup-siman-098-part1of2` |
