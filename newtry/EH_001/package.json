@@ -1,0 +1,27 @@
+{
+  "name": "eh001-by-source",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract": "node extract_eh001_from_sefaria_bundle.mjs --siman 1 --from 1 --to 9 --out-subdir siman_001",
+    "apply:dictionary": "node apply_dictionary_eh001.mjs",
+    "apply:dictionary:dry": "node apply_dictionary_eh001.mjs --dry-run",
+    "bootstrap:eh001-simanim": "node tools/bootstrap-eh001-simanim-from-bundles.mjs --from 1 --to 178 --skip-existing",
+    "pipeline:refresh": "node sa-checklist.mjs --out output --section EH",
+    "pipeline:structure-check": "node tools/structure-check.mjs",
+    "pipeline:validate": "node pipeline/validate-eh001.mjs --root output",
+    "pipeline:validate:quality": "node pipeline/validate-quality-eh001.mjs --root output --write-reports",
+    "pipeline:validate:all": "npm run pipeline:validate && npm run pipeline:validate:quality",
+    "pipeline:pool:watch:assign": "node pipeline/pool-coordinator-watch.mjs --workers 4 --interval 90 --assign-only",
+    "libre:up": "node tools/run-docker-compose.mjs -f docker/libretranslate/docker-compose.yml up -d",
+    "libre:down": "node tools/run-docker-compose.mjs -f docker/libretranslate/docker-compose.yml down",
+    "libre:test": "node tools/test-libretranslate.mjs",
+    "translate:placeholders:libre": "node tools/translate-eh001-pending-mymemory.mjs --backend libre --ms 100 --workers 3 --chunk-len 400",
+    "queue:generate": "node tools/generate-translation-queue.mjs",
+    "publish:siman": "node \"../../Sefaria Pulls/shulchan-arukh/Even_HaEzer/tools/publish-eh-siman.mjs\""
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
