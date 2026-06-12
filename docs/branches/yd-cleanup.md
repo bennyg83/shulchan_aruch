@@ -6,36 +6,39 @@
 
 Active editorial and quality cleanup for YD. Does **not** deploy GitHub Pages.
 
-## Setup
+**Cloud-first:** editorial in Cursor Cloud Agents; GitHub Actions for scan + batch prep.
+
+## Setup (local — optional)
 
 ```bash
 git checkout yd-cleanup
 cd newtry/YD_001
 npm install
-npm run libre:up    # optional local MT repair
 ```
 
-## Daily workflow
+## Cloud workflow
+
+1. **GitHub Actions → YD cloud prep** (weekly Monday 06:00 UTC, or manual) — quality report + batch artifacts
+2. **Cursor Cloud Agent** on `yd-cleanup` — see `newtry/YD_001/pipeline/work/CLOUD_AGENTS.md`
+3. Agent PRs to `yd-cleanup`; you merge on GitHub
 
 ```bash
-npm run pipeline:validate:quality
-npm run quality:worker:init -- --scope all --min-severity error --rescan
-npm run quality:worker:next
-# edit block per pipeline/work/quality-worker-prompt.md
-npm run quality:worker:commit
+# Regenerate batches inside a cloud agent VM:
+npm run pipeline:cloud:prep -- --siman 110 --parts 2
 ```
 
-Libre repair wave (phase 1 stragglers):
+## CI
 
-```bash
-npm run quality:libre:wave -- --from N --to N --workers 4
-```
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `sa-yd-quality-gate.yml` | push/PR | Block format validation |
+| `sa-yd-cloud-prep.yml` | schedule + manual | Quality scan + agent batch files |
 
 ## PR rules
 
 - Target branch: `yd-cleanup`
-- CI: `.github/workflows/sa-yd-quality-gate.yml`
-- One siman or small batch per PR preferred
+- Branch name: `yd/cleanup-siman-NNN-partXofY`
+- One siman part per PR preferred
 
 ## Publish (later, to `main`)
 

@@ -1,0 +1,78 @@
+name: YD cloud prep
+
+on:
+  workflow_dispatch:
+    inputs:
+      top_simanim:
+        description: "Build batches for top N simanim by error count"
+        required: false
+        default: "10"
+      parts_per_siman:
+        description: "Split each siman into N batch parts"
+        required: false
+        default: "2"
+      min_severity:
+        description: "Minimum issue severity (error | warn)"
+        required: false
+        default: "error"
+  schedule:
+  - cron: "0 6 * * 1"
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  prep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: newtry/YD_001
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: yd-cleanup
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: newtry/YD_001/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Quality scan
+        run: npm run pipeline:validate:quality -- --write-reports
+        continue-on-error: true
+
+      - name: Build cloud agent batches
+        run: >-
+          npm run pipeline:cloud:prep --
+          --top ${{ github.event.inputs.top_simanim || '10' }}
+          --parts ${{ github.event.inputs.parts_per_siman || '2' }}
+          --min-severity ${{ github.event.inputs.min_severity || 'error' }}
+
+      - name: Upload cloud prep artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: yd-cloud-prep-${{ github.run_number }}
+          path: |
+            newtry/YD_001/checklist-output/
+            newtry/YD_001/pipeline/work/cloud-manifest.json
+            newtry/YD_001/pipeline/work/cloud-coordinator-status.md
+            newtry/YD_001/pipeline/work/batch-editorial-siman-*.md
+            newtry/YD_001/pipeline/work/editorial-queue-siman-*.json
+          if-no-files-found: ignore
+
+      - name: Summary
+        if: always()
+        run: |
+          if [ -f pipeline/work/cloud-coordinator-status.md ]; then
+            echo "## Cloud prep summary" >> "$GITHUB_STEP_SUMMARY"
+            cat pipeline/work/cloud-coordinator-status.md >> "$GITHUB_STEP_SUMMARY"
+          fi

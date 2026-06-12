@@ -22,6 +22,7 @@
     "pipeline:editorial:loop": "node pipeline/editorial-loop.mjs",
     "pipeline:editorial:advance": "node pipeline/editorial-advance.mjs",
     "pipeline:editorial:batch": "node pipeline/build-editorial-siman-batch.mjs",
+    "pipeline:cloud:prep": "node pipeline/prepare-cloud-batches.mjs",
     "pipeline:orchestrator": "node pipeline/orchestrator.mjs",
     "pipeline:orchestrator:sync": "node pipeline/orchestrator.mjs sync",
     "pipeline:orchestrator:status": "node pipeline/orchestrator.mjs status",
