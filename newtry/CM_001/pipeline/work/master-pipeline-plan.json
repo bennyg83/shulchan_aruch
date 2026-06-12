@@ -1,0 +1,13 @@
+{
+  "volume": "CM",
+  "label": "Choshen Mishpat",
+  "simanRange": [1, 427],
+  "phase": "quality_pass",
+  "mtFirstPassStatus": "complete",
+  "finishThrough": 427,
+  "qualityPass": {
+    "status": "queued",
+    "masterQueue": "newtry/pipeline/work/sa-quality-master-queue.json",
+    "queueScript": "node newtry/tools/queue-sa-quality-passes.mjs"
+  }
+}

@@ -1,0 +1,25 @@
+# Local LibreTranslate for CM001 machine translation (Hebrew → English).
+# From OC_001:  npm run libre:up
+# First start downloads language models (several minutes).
+services:
+  libretranslate:
+    container_name: cm001-libretranslate
+    image: libretranslate/libretranslate:latest
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    environment:
+      - LT_LOAD_ONLY=en,he
+      - LT_UPDATE_MODELS=true
+      - LT_THREADS=4
+    volumes:
+      - libretranslate_models:/home/libretranslate/.local
+    healthcheck:
+      test: ["CMD-SHELL", "./venv/bin/python scripts/healthcheck.py || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 120s
+
+volumes:
+  libretranslate_models:
