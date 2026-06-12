@@ -12,6 +12,7 @@
     "queue:generate": "node tools/generate-translation-queue.mjs",
     "pipeline:refresh": "node sa-checklist.mjs --out output --section YD",
     "pipeline:structure-check": "node tools/structure-parity-check.mjs",
+    "pipeline:structure-check:ci": "node tools/structure-parity-check.mjs --ci",
     "pipeline:queue": "node pipeline/queue-next.mjs --out output",
     "pipeline:batch": "node pipeline/build-agent-batch.mjs",
     "pipeline:validate": "node pipeline/validate-yd001.mjs --root output",

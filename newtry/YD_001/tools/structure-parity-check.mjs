@@ -54,8 +54,22 @@ function countOutputSimanim() {
 }
 
 function main() {
+  const ciOnly = process.argv.includes("--ci");
   const issues = [];
   const ok = [];
+
+  if (ciOnly) {
+    const v = spawnSync(process.execPath, ["pipeline/validate-yd001.mjs", "--root", "output"], {
+      cwd: YD001_ROOT,
+      encoding: "utf8",
+    });
+    if (v.status === 0) {
+      console.log("OK  ", (v.stdout || "").trim().split("\n").pop());
+      process.exit(0);
+    }
+    console.error(v.stderr || v.stdout);
+    process.exit(v.status ?? 1);
+  }
 
   const simanDirs = countOutputSimanim();
   if (simanDirs >= 400) ok.push(`YD001 output: ${simanDirs} siman_* folders`);
