@@ -23,6 +23,7 @@
     "pipeline:editorial:advance": "node pipeline/editorial-advance.mjs",
     "pipeline:editorial:batch": "node pipeline/build-editorial-siman-batch.mjs",
     "pipeline:cloud:prep": "node pipeline/prepare-cloud-batches.mjs",
+    "pipeline:cloud:launch": "node pipeline/launch-cloud-agents.mjs",
     "pipeline:orchestrator": "node pipeline/orchestrator.mjs",
     "pipeline:orchestrator:sync": "node pipeline/orchestrator.mjs sync",
     "pipeline:orchestrator:status": "node pipeline/orchestrator.mjs status",
@@ -68,5 +69,8 @@
   },
   "dependencies": {
     "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "@cursor/sdk": "^1.0.18"
   }
 }
