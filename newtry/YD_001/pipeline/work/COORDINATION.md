@@ -7,8 +7,11 @@ Claim **one** row: set status `IN_PROGRESS`, your agent ID, open PR branch from 
 | Status | Agent | Siman / unit | Batch file | PR branch |
 |--------|-------|--------------|------------|-----------|
 | DONE | yd001-cloud-singleton-f6d2 | 110 | parts 1–7/7 | `yd/cleanup-siman-110-part1of7-f6d2` |
-| READY | | 84 part 1of2 | `batch-editorial-siman-084-part1of2.md` | `yd/cleanup-siman-084-part1of2` |
-| READY | | 84 part 2of2 | `batch-editorial-siman-084-part2of2.md` | `yd/cleanup-siman-084-part2of2` |
+| DONE | yd001-cloud-singleton-f6d2 | 84 | parts 1–5/5 | `yd/cleanup-siman-084-f6d2` |
+| DONE | yd001-cloud-singleton-f6d2 | 228 | parts 1–5/5 | `yd/cleanup-siman-228-f6d2` |
+| DONE | yd001-cloud-singleton-f6d2 | 98 | parts 1–5/5 | `cursor/cleanup-siman-098-f6d2` |
+| DONE | yd001-cloud-singleton-f6d2 | 331 | parts 1–5/5 | `cursor/cleanup-siman-331-f6d2` |
+| DONE | yd001-cloud-singleton-f6d2 | 108 | seif-by-seif | `cursor/cleanup-siman-108-f6d2` |
 | READY | | 98 part 1of2 | `batch-editorial-siman-098-part1of2.md` | `yd/cleanup-siman-098-part1of2` |
 | READY | | 98 part 2of2 | `batch-editorial-siman-098-part2of2.md` | `yd/cleanup-siman-098-part2of2` |
 | READY | | 108 part 1of2 | `batch-editorial-siman-108-part1of2.md` | `yd/cleanup-siman-108-part1of2` |

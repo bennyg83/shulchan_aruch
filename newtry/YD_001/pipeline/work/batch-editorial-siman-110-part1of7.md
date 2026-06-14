@@ -1,0 +1,824 @@
+# Editorial retranslation — Siman 110 (part 1/7)
+
+Generated: 2026-06-12T09:47:35.938Z
+
+**Mandatory dictionary:** `/workspace/full_dictionary (1).md` — consult for every term.
+
+**Disregard existing English.** Translate fresh from Hebrew only. Edit **only** `**** ENGLISH ****`.
+
+---
+
+# YD001 editorial re-translation (Cursor / agent)
+
+**Authoritative dictionary:** `full_dictionary (1).md` at the **repository root**.  
+Consult it for every halachic term, abbreviation, and commentator name.
+
+**Source of truth:** `newtry/YD_001/output/siman_NNN/<commentary>/part-*.txt`.  
+**Commentary order:** `translation/COMMENTARIES.md`.
+
+**Core rule:** Hebrew is authoritative. Translate fresh from Hebrew; do not patch bad English in place.
+
+---
+
+## YD-specific terminology (examples)
+
+Use the dictionary; these recur in Yoreh De'ah:
+
+- **issur** / **heter** — forbidden / permitted (not generic "prohibited" if dictionary says issur)
+- **vadai** / **safek** — definite / doubtful
+- **ta'am** / **noten ta'am** — taste / imparting taste (basar b'chalav, ta'aruvos)
+- **nevelah**, **treifah**, **shechitah**, **melichah**, **nikkur**
+- **Shach** → Siftei Kohen; **Taz** → Turei Zahav (slug folders `siftei-kohen`, `turei-zahav`)
+
+---
+
+## Translation rules (every block)
+
+Same as OC: completeness, no additions, dictionary halachic terms, expand abbreviations, `{Rama: …}` for הגה, full Aramaic, logical connectives per dictionary Part 5.
+
+---
+
+## File format
+
+```
+**** YD001 SOURCE BLOCK ****
+slug: siftei-kohen
+seif: 2
+marker: א
+**** HEBREW ****
+[Hebrew — may contain HTML]
+**** ENGLISH ****
+[REPLACE THIS ONLY]
+**** END BLOCK ****
+```
+
+---
+
+## Per-file workflow
+
+1. Read `output/siman_NNN/<slug>/part-*.txt`.
+2. Translate each block from Hebrew.
+3. `npm run apply:dictionary -- --root output/siman_NNN`
+4. `npm run pipeline:validate -- --root output/siman_NNN`
+
+---
+
+## Pilot scope (Phase C)
+
+Simanim **1–5** first, then stress simanim **87** (melicha) and **115** (basar b'chalav) per `YD_YOREH_DEAH_PLAN.md`.
+
+
+---
+
+## Blocks in this batch (41 of 285 remaining in scope)
+
+### 1. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `א`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: א
+**** HEBREW ****
+<b>שהוא. </b> כתב הש"ך ואפילו בכמה אלפים אינו בטל ודע דאיתא בש"ס דדברים החשובים דאסורים בהנאה אם נתערבו אפילו באלף כולן אסורות בהנאה מיהו כתבו התוספות דמותר למכרן לעובד כוכבים חוץ מדמי איסור שבהן אם הוא בענין שאין לחוש שהעובד כוכבים ימכרנו אחר כך לישראל מיהו מ"ש הראב"ד דסגי ג"כ בתקנתא דהולכת הנאה לים המלח בכל האיסורים אין כן דעת הפוסקים אלא דדוקא בעבודת כוכבים שתופס' דמיה סגי ליה בפדיון הולכת הנאה לים המלח ולא בשאר איסורים דלא כלבוש בא"ח סימן תמ"ה שכתב גם גבי פת שנאפה בגחלי חמץ דסגי בהולכת הנאה וכו' דליתא ולא קי"ל הכי ועי' בא"ח ס' תמ"ז ולקמן סימן קמ"ב. וצ"ע על רמ"א שלא הגיה כאן דדבר חשוב אפי' שלא במינו אוסר בכ"ש כמ"ש בסי' ק"א סס"ו עכ"ל וע"ל סי' ק"ט ס"א:
+**** ENGLISH ****
+שהוא. wrote Shach ואפילו בכמה אלפים אינו בטל ודע דאיתא בGemara דדברים החשובים דforbiddenים in benefit אם were mixed אפילו באלף כולן forbiddenות in benefit מיהו כתבו התוספות דpermitted למכרן לnon-Jew חוץ מדמי איסור שבהן אם הוא בענין שאין לחוש שהnon-Jew ימכרנו אחר כך לישראל מיהו what he wrote הראב"ד דסגי ג"כ בתקנתא דהולכת הנאה לים הsalt בכל האיסורים אין כן דעת הposkim אלא דspecifically בעבודת כוכבים they drankפsixty דמיה סגי ליה בפדיון הולכת הנאה לים הsalt ולא in other איסורים דלא כלבוש Orach Chaim siman תמ"ה שwrote גם גבי פת שנאפה בגחלי חמץ דסגי בהולכת הנאה etc. דליתא ולא we establish הכי ועי' Orach Chaim sixty תמ"ז וbelow siman קמ"ב. וrequires study על רמ"א שלא הגיה כאן דדבר חשוב even שלא במינו אוסר בkli sheni כwhat he wrote בסי' ק"א סס"ו end of his words וע"ל סי' ק"ט ס"א:
+**** END BLOCK ****
+```
+
+### 2. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ב
+**** HEBREW ****
+<b>בדן. </b> כ' הש"ך דרש"י פי' פרך ובדן מקומות הן ואני שמעתי אגוזים שקליפתן רכה ונפרכים ביד עכ"ל. וחביות סתומות דוקא גדולות אבל קטנות אינן חשובים וחד בתרי בטל ואם הם פתוחות אפילו של יי"נ בטילי דלא חשיבי. ש"ך:
+**** ENGLISH ****
+בדן. wrote Shach דרש"י פי' פרך ובדן מקומות הן ואני שמעתי אגוזים שקליפתן רכה ונפרכים ביד end of his words. וחביות סתומות specifically גדולות אבל קטנות אינן חשובים וחד בתרי בטל ואם הם פתוחות אפילו של יי"נ nullifiedי דלא חשיבי. ש"ך:
+**** END BLOCK ****
+```
+
+### 3. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ג
+**** HEBREW ****
+<b>הבית. </b> לאפוקי של נחתום דלא חשיבי ודוקא בזמנם אבל במקומות שגם של נחתום חשובים פשיטא דאינן בטלים ובעלי חיים אע"ג דלא אסירי מתחלת ברייתן כגון שור הנסקל ודרוסה וכה"ג לא בטילי מחמת חשיבותן. ש"ך:
+**** ENGLISH ****
+הבית. to exclude של נחתום דלא חשיבי investigateא בtheir time אבל במקומות שגם של נחתום חשובים פשיטא דאינן are nullified ובעלי חיים even though דלא אסירי מתחלת ברייתן כגון שור הנסקל ודרוסה וsuch a case לא nullifiedי מחמת חשיבותן. ש"ך:
+**** END BLOCK ****
+```
+
+### 4. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ד
+**** HEBREW ****
+<b>לימנות. </b> כ' הש"ך אע"פ שדרכן למנותן לעולם ואינן נמכרין כלל באומד עולים בשיעורן כיון שאינם חשובים:
+**** ENGLISH ****
+לימנות. wrote Shach אon the surface of שדרכן למנותן לעולם ואינן נמכרין כלל באומד עולים בשיskinן כיון שאינם חשובים:
+**** END BLOCK ****
+```
+
+### 5. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ה`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%94`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ה
+**** HEBREW ****
+<b>תמיד. </b> [וחולק על המחבר בזה במה שדרכו למנותו תמיד] כתב הת"ח אבל דבר שמוכרים לפעמים ג"כ באומד כמו ביצים שלפעמים מוכרים סל מלא ביצים בטל ומהרש"ל פסק דדבר שנמכר לפעמים באומד ופעמים במנין לא בטיל וכ' האו"ה והב"ח דהכי נוהגין וסיים מהרש"ל וכ"ש האידנא שאין בנמצא כלל בגבולינו למכור סל מלא ביצים באומד בלי מנין פשיטא דביצה לא בטיל וע"ל סי' פ"ו:
+**** ENGLISH ****
+תמיד. [וdisagrees על Mechaber בזה במה שדרכו למנותו תמיד] wrote הת"ח אבל דבר שמוכרים לפעמים ג"כ באומד כמו ביצים שלפעמים מוכרים סל מלא ביצים בטל וMaharshal ruled דדבר שנמכר לפעמים באומד ופעמים במנין לא nullified וwrote הIssur VeHeter וBach דהכי נוהגין וסיים Maharshal וkli sheni now שאין בis found כלל בגבולינו למכור סל מלא ביצים באומד בלי מנין פשיטא דegg לא nullified וע"ל סי' chapter 6:
+**** END BLOCK ****
+```
+
+### 6. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ו`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%95`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ו
+**** HEBREW ****
+<b>בספיקו. </b> כלומר אם יש בו ספק אם הוא דבר חשוב או לא אבל שאר ספיקות אשכחן דאזלינן לחומרא כמו שיתבאר בסימן זה בכמה דוכתי ש"ך וכתב רש"ל דכרכשתא אע"פ שאין מוכרין אותה האידנא אלא במנין בטילה כיון דאין אוכלין אותה אלא ע"י מילוי עכ"ל:
+**** ENGLISH ****
+בספיקו. Meaning: אם יש בו doubt אם הוא דבר חשוב או לא אבל שאר ספיקות אשכחן דאזלינן לstringency כמו שיתבאר בsiman זה בכמה דוכתי ש"ך וwrote Rashal דכרכשתא אon the surface of שאין מוכרין אותה now אלא במנין is nullified כיון דאין אוכלין אותה אלא ע"י מילוי end of his words:
+**** END BLOCK ****
+```
+
+### 7. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 2 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 2
+marker: א
+**** HEBREW ****
+<b>בשוגג. </b> דוקא אם נשחטו אחר שנתערבו בעינן נשחטו בשוגג ואפילו אחר שנודע התערובת אבל נשחטו קודם שנתערבו אפילו במזיד בטלים. ש"ך:
+**** ENGLISH ****
+בשוגג. specifically אם was slaughteredו אחר שwere mixed בעינן was slaughteredו בשוגג ואפילו אחר שנודע התערובת אבל was slaughteredו קוblood שwere mixed אפילו במזיד are nullified. ש"ך:
+**** END BLOCK ****
+```
+
+### 8. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 2 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 2
+marker: ב
+**** HEBREW ****
+<b>להתכבד. </b> כתב הב"ח יש לתמוה דבסימן ק"א ס"ג פסק דאפילו תרנגולת בנוצתה וכ"ש כבש בעורו וצמרו דבטלים וכנראה דדבריו סותרים זא"ז עכ"ל וכ' הש"ך דלק"מ דהא דכבש בעורו וצמרו בטל היינו דוקא משום חה"ל כיון דצריך תקון גדול ומחוסר מעשה אבל מ"מ אינו בטל מטעם דבר שבמנין ונ"מ אם הוא במקום שאין מוכרין אותו במנין בטל ומ"מ לענין דינא ע"ל סי' ק"א שנתבאר שם דגם בדבר שבמנין בטלה ע"ש והט"ז כתב [לתרץ קושית הרמ"א] וז"ל ולי נראה דחשיבות של בעל חי הוא חשיבות בפ"ע דהיינו אם הוא דבר כחוש ואינו ראוי לאכילה ממילא אין לו חשיבות מצד חה"ל כשנשחט רק כל זמן שהוא חי יש לו חשיבות מצד בעל חי וע"ז אמר הטור כאן שהוא חשוב מצד בעל חי כשנשחט בטל חשיבותו אבל אם יש לו חשיבות מצד חה"ל זה כתבו כבר בסימן ק"א עכ"ל:
+**** ENGLISH ****
+to honor. wrote Bach יש לתמוה דבsiman ק"א seif 3 ruled דאפילו chicken in its feathers וkli sheni כבש בskinו וצמרו דare nullified וכit appears דדבריו contradictsים זOr Zarua end of his words וwrote Shach דלק"מ דהא דכבש בskinו וצמרו בטל that is specifically because piece worthy of honor כיון דצריך תקון גדול ומחוסר מעשה אבל nevertheless אינו בטל for the reason davar sheb'minyan ונ"מ אם הוא במקום שאין מוכרין אותו במנין בטל וnevertheless regarding the halachah ע"ל סי' ק"א שנתבאר שם דגם בdavar sheb'minyan is nullified see there וTaz wrote [לתרץ קושית הרמ"א] וand these are his words ולי it appears דחשיבות של בעל חי הוא חשיבות בפ"ע that is אם הוא דבר כחוש ואינו ראוי לאכילה automatically אין לו חשיבות מצד piece worthy of honor כשwas slaughtered רק כל time שהוא חי יש לו חשיבות מצד בעל חי וע"ז אמר Tur כאן שהוא חשוב מצד בעל חי כשwas slaughtered בטל חשיבותו אבל אם יש לו חשיבות מצד piece worthy of honor זה כתבו כבר בsiman ק"א end of his words:
+**** END BLOCK ****
+```
+
+### 9. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: א
+**** HEBREW ****
+<b>קבוע. </b> כ' הש"ך ודע דהא דקי"ל כל קבוע כמחצה וכו' הוא בין לקולא בין לחומרא כגון ט' חנויות מוכרות בשר נבלה וא' בשר שחוטה ולקח ואינו יודע מאיזה מהן הוי כמחצה על מחצה ולא אסור אלא משום ספיקא ולא אמרינן דהוי כרובא וכתב הרא"ה דה"ה אם היו בעיר עשר חנויות מוחזקות לנו כולן בבשר שחוטה ולקח מאחת מהן ואינו יודע מאיזה ואח"כ נתברר לנו שא' מחנויות אלו בשר נבלה דאסור ול"ד לפירש שאין תולדות הספק מצד עצמה אלא מצד ברירת החנויות וא"כ ספק זה אינו מחודש אלא גילוי מילתא בעלמא הוא וגם הרשב"א מודה לזה אלא שביאר דבריו שהעתיק המחבר בס"ה דדוקא כשנולד ספק טריפה במקולין ולא נודע עד אחר שלקח ויש ספק אם היתה הטרפה במקולין זה שלקח ומ"מ יודע הוא מאיזה מקולין לקח וא"כ כיון שלקח קודם שנמצאת הטריפה לא אזלינן בתר האי שעתא רק בתר השתא דהוי פירש ממילא ושרי אבל הר"ן לא כ"כ ע"ש שמאריך בזה:
+**** ENGLISH ****
+קבוע. wrote Shach ודע דהא דwe establish כל קבוע כמחצה etc. הוא בין לקולא בין לstringency כגון ט' חנויות מוכרות meat נבלה וא' meat שחוטה ולקח ואינו יודע מאיזה מהן הוי כמחצה על מחצה ולא forbidden אלא because ספיקא ולא אמרינן דהוי כרובא וwrote הרא"ה דה"ה אם היו בעיר עשר חנויות מוחזקות לנו כולן בmeat שחוטה ולקח מאחת מהן ואינו יודע מאיזה וafterward נתברר לנו שא' מחנויות אלו meat נבלה דforbidden וsome say לseparated שאין תולדות הdoubt מצד עצמה אלא מצד ברירת החנויות וif so doubt זה אינו מmonth אלא גילוי מילתא mere הוא וגם Rashba מודה לזה אלא שexplained דבריו שהעתיק Mechaber בseif 5 דspecifically כשנולד doubt tereifah במקולין ולא נודע עד אחר שלקח ויש doubt אם היתה הטרפה במקולין זה שלקח וnevertheless יודע הוא מאיזה מקולין לקח וif so כיון שלקח קוblood שis found הtereifah לא אזלינן בתר האי שעתא רק בתר now דהוי separated automatically ושרי אבל Ran לא כ"כ see there lestריך בזה:
+**** END BLOCK ****
+```
+
+### 10. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: ב
+**** HEBREW ****
+<b>מותר. </b> כ' רש"ל אפילו הוא חה"ל ודוקא כאן דחנות הא' ניכרת בפ"ע אבל היכא דיודע שיש טריפה א' בחנות ולא נודע באיזה חנות הוא אסור דכיון דאין האיסור נודע חיישינן שמא יקח מן הקבוע וכן משמע בב"ח <small>(ודע הא דקי"ל בשר הנמצא מותר מיירי אפילו נמצא קרוב לנבילה דהא קי"ל רוב וקרוב הלך אחר הרוב. פר"ח)</small> וכתב הרוקח דלקחו קטן דינו כלקחו עובד כוכבים וטעם דכל דפריש וכו' דכיון דניידי הלך אחר הרוב דהשתא לאו קבוע הוא ולא נולד הספק אלא כשפירש ועי' בתשו' מהרי"ל סי' קצ"ט [ואם נמצא ביד קטן חריף מקרי נולד הספק במקום קביעותו כנמצא ביד ישראל גדול ואסור. פר"ח]:
+**** ENGLISH ****
+Permitted. wrote Rashal אפילו הוא piece worthy of honor investigateא כאן דחנות הא' ניכרת בפ"ע אבל היכא דיודע שיש tereifah א' בחנות ולא נודע באיזה חנות הוא forbidden דכיון דאין האיסור נודע we are concerned lest יקח מן הקבוע וכן it appears בב"ח (ודע הא דwe establish meat הis found permitted deals with אפילו is found קרוב לnevelah דהא we establish רוב וקרוב הלך אחר הרוב. Peri Chadash) וwrote הרוקח דלקחו קטן דינו כלקחו non-Jew וטעם דכל דfruitש etc. דכיון דניידי הלך אחר הרוב דnow לאו קבוע הוא ולא נולד הdoubt אלא כשseparated ועי' בתשו' Maharai"ל סי' קצ"ט [ואם is found ביד קטן sharp מקרי נולד הdoubt במקום קביעותו כis found ביד ישראל גדול וforbidden. Peri Chadash]:
+**** END BLOCK ****
+```
+
+### 11. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: ג
+**** HEBREW ****
+<b>אסרוהו. </b> משום בשר שנתעלם מן העין:
+**** ENGLISH ****
+אסרוהו. because meat שנתעלם מן העין:
+**** END BLOCK ****
+```
+
+### 12. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: ד
+**** HEBREW ****
+<b>לפנינו. </b> משום דהספק נולד במקום הקביעות ופשוט הוא דבקבוע אפילו מין במינו ה"ל כמחצה על מחצה ובפירש אפילו שלא במינו מרובא פריש עכ"ל הש"ך:
+**** ENGLISH ****
+לפנינו. becauseהdoubt נולד במקום הקביעות וplain הוא דבקבוע אפילו species in its species ה"ל כמחצה על מחצה ובseparated אפילו שלא במינו מרובא fruitש end of his words Shach:
+**** END BLOCK ****
+```
+
+### 13. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 4 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 4
+marker: א
+**** HEBREW ****
+<b>בטלה. </b> כ' הש"ך מיהו אסורין לאכול בבת אחת דאז ליכא אלא חדא ספיקא ופשוט הוא אלא שצ"ע הא כתב המחבר בס"ח דלא שרי אלא בג' תערובות וצ"ל כיון דקבוע חידוש הוא אין לך בו אלא חידושו ושרי בנתערב אח"כ ודוחק עכ"ל והט"ז כ' דבאמת יש להחמיר בזה להצריך ג' תערובת אם לא באיסור דרבנן דהיינו כגון ט' חנויות ופירש א' שלא בפנינו שמותר מן התורה כיון שפירש שלא בפנינו אלא שחכמים אסרוהו משום בשר שנתעלם מן העין בזה דוקא מהני אם נתערב אח"כ ומותר אפי' היא חה"ל וא"ל דבזה ל"ל ב' ספיקות הא קי"ל ספיקא דרבנן לקולא י"ל כיון שיש כאן איסור דאורייתא אלא שהותר מכח ביטול ברוב וחכמים אסרוהו וחשבו להמיעוט כאלו הוא מחצה כיון שראוי להתכבד ע"כ צריך תרי ספיקות להתיר:
+**** ENGLISH ****
+is nullified. wrote Shach מיהו forbiddenין לאכול בבת אחת דאז there is not אלא חדא ספיקא וplain הוא אלא שrequires study הא wrote Mechaber in seif 8 דלא שרי אלא בג' תערובות וone must say כיון דקבוע חידוש הוא אין לך בו אלא חידושו ושרי בנתערב afterward וforced end of his words וTaz wrote דבאמת יש להחמיר בזה להצריך ג' תערובת אם לא באיסור d'rabbanan that is כגון ט' חנויות וseparated א' שלא בפנינו שpermitted מן התורה כיון שseparated שלא בפנינו אלא שחכמים אסרוהו because meat שנתעלם מן העין בזה specifically מהני אם נתערב afterward וpermitted even היא piece worthy of honor וand some say דבזה ל"ל ב' ספיקות הא we establish ספיקא d'rabbanan לקולא י"ל כיון שיש כאן איסור d'oraisa אלא שהותר מכח ביטול in the majority וחכמים אסרוהו וחשבו להמיעוט as if הוא מחצה כיון שראוי to honor until here צריך תרי ספיקות להתיר:
+**** END BLOCK ****
+```
+
+### 14. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 4 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 4
+marker: ב
+**** HEBREW ****
+<b>בכה"ג. </b> כ' הש"ך ואפילו פירש לפנינו או לקחו עובד כוכבים לפנינו מ"מ כיון דהאיסור במקומו הוי כמחצה על מחצה והואיל כו' מיהא בהא אפשר להתיר אם נתערב במקום הפסד מרובה וכה"ג כיון דיש פוסקים ס"ל דפירש לפנינו אינו אלא מדרבנן מיהו היינו דווקא כשאינו אוכלן כא' דאל"ה ליכא ס"ס ומ"ש הרמ"א הואיל וספק ראשון מן התורה לאו דוקא אלא אף אם היה אסור משום תערובות לא הוי שרי בנתערב אח"כ בתערובות כדלקמן ס"ח אלא אתי לאפוקי אילו הוי ספק אסור דאסור מדרבנן הוי שרי בתערובת א"נ קמ"ל דל"ת דגרע טפי מתערובות כיון דקבוע חידוש הוא קמ"ל כיון דספק הראשון אסור מן התורה לא אמרינן הכי וכל זה הוא לדעת הרמ"א אבל הש"ך חולק ע"ז כמ"ש בס"ח ע"ש:
+**** ENGLISH ****
+בsuch a case. wrote Shach ואפילו separated לפנינו או לקחו non-Jew לפנינו nevertheless כיון דהאיסור במקומו הוי כמחצה על מחצה והואיל etc. מיהא בהא אפשר להתיר אם נתערב במקום great loss וsuch a case כיון דיש poskim ס"ל דseparated לפנינו אינו אלא d'rabbanan מיהו that is דווקא כשאינו אוכלן כא' דאל"ה there is not end of seif וwhat he wrote הרמ"א הואיל וdoubt ראשון מן התורה לאו specifically אלא even אם היה forbidden because תערובות לא הוי שרי בנתערב afterward בתערובות כדbelow ס"ח אלא אתי to exclude אילו הוי doubt forbidden דforbidden d'rabbanan הוי שרי בתערובת א"נ it teaches us דל"ת דגרע טפי מתערובות כיון דקבוע חידוש הוא it teaches us כיון דdoubt הראשון forbidden מן התורה לא אמרינן הכי וכל זה הוא לדעת הרמ"א אבל Shach disagrees ע"ז כwhat he wrote in seif 8 see there:
+**** END BLOCK ****
+```
+
+### 15. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 5 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 5
+marker: א
+**** HEBREW ****
+<b>חתיכות. </b> היינו שנתערבו חתיכות דטרפה בין הכשרות במקולין א' ואינו יודע מאיזה חתיכה לקח אבל אם החתיכות עומדות בפני עצמם ואיכא ספיקא בחנות כבר נתבאר דינו לעיל ס"ג:
+**** ENGLISH ****
+חתיכות. that is שwere mixed חתיכות דטרפה בין הכשרות במקולין א' ואינו יודע מאיזה חתיכה לקח אבל אם החתיכות עומדות בפני עצמם וthere is ספיקא בחנות כבר נתבאר דינו above seif 3:
+**** END BLOCK ****
+```
+
+### 16. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 5 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 5
+marker: ב
+**** HEBREW ****
+<b>ואילך. </b> כ' הש"ך משמע אפילו אם לקחו אסור ובס"א איתא אבל ליקח מכאן ואילך אסור וא"כ לא משמע מידי עכ"ל:
+**** ENGLISH ****
+ואילך. wrote Shach it appears אפילו אם לקחו forbidden ובס"א איתא אבל ליקח מכאן ואילך forbidden וif so לא it appears מידי end of his words:
+**** END BLOCK ****
+```
+
+### 17. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 5 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 5
+marker: ג
+**** HEBREW ****
+<b>ויטעו. </b> כתב מהרש"ל וב"ח דהיינו טעמא כיון שהתערובות במקולין הוא שרבים קונים משם קרוב הדבר לטעות משא"כ נתערב כך ליחיד בביתו דאין להחמיר אע"פ שיש שם ג"כ חתיכות הראויות להתכבד שלא נתערבו והט"ז חולק ע"ז מטעם דמצינו בש"ס דברבים יש להקל טפי משום דמדכרי אהדדי וביחיד גזרו יותר [ובנה"כ השיג על זה דלא שייך לומר רבים מדכרי אהדדי אלא כשהם במעמד א' אבל הכא יש לחוש שיקחו זה אחר זה ע"ש]:
+**** ENGLISH ****
+ויטעו. wrote Maharshal וב"ח that is טעמא כיון שהתערובות במקולין הוא שרבים קונים משם קרוב הדבר לטעות משif so נתערב כך ליחיד in the houseו דאין להחמיר אon the surface of שיש שם ג"כ חתיכות הראויות to honor שלא were mixed וTaz disagrees ע"ז for the reason דמצינו בGemara דברבים יש to be lenient טפי becauseמדכרי אהדדי וביחיד גזרו יותר [וNachalat Binyamin challenged על זה דלא שייך לומר רבים מדכרי אהדדי אלא כשהם במעמד א' אבל הכא יש לחוש שיקחו one after the other see there]:
+**** END BLOCK ****
+```
+
+### 18. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 6 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=6#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 6
+marker: א
+**** HEBREW ****
+<b>ממילא. </b> כתב הש"ך אפילו למ"ד פירש ממילא אסור והטעם דהא דאסור פירש ממילא הוא משום שמא יקח בידים מן הקבוע והך גזרה לא אשכחן אלא היכא שכבר עומדים בחזקת איסור אבל קודם שנולד הספק לא שייך למיגזר מידי שכולן בחזקת היתר עומדים מאי אמרת שמא יקח אחר שנולד הספק הך גזרה לא אשכחן בש"ס ועוד בהא ליכא למיטעי דאם לקח בעוד שהיה בחזקת היתר בשביל זה לא אתי ליקח לאחר שנאסרו וכל זה כשפירש שלא בפנינו או שנתפזרו כולן אפילו בפנינו חשוב כפירשו שלא בפנינו ודוקא אם המיעוט פירשו דאז אמרינן כל דפריש וכו' ואיסורא בתוך רובא אישתאר אבל אם פירשו מחציתן בבת אחת אסורים מיהו רוב הפוסקים חולקים וס"ל דאפילו פירשו ממילא שלא בפנינו יש לאסור ומסקנת הט"ז וש"ך דיש להחמיר <small>(ול"ד לט' חנויות דהתם האיסור ניכר במקומו משא"כ הכא דהכל מעורב ביחד חיישינן)</small>. ואין חילוק בין בעלי חיים לשאר דברים דלא כהב"ח. וכתב הש"ך אם הפרישו אף על פי שחזרו ובאו יחד במקום א' כל שנתפזרו תחלה כולן ונעקרו מקביעות הראשון שוב לא חשיב קבוע דדין קבוע חידוש הוא ואין לך בו אלא חידושו דהיינו שנשאר במקומו הראשון ופר"ח חולק:
+**** ENGLISH ****
+automatically. wrote Shach אפילו למ"ד separated automatically forbidden וthe taste דהא דforbidden separated automatically הוא because lest יקח בידים מן הקבוע והך גזרה לא אשכחן אלא היכא שכבר עומדים בpresumption of איסור אבל קוblood שנולד הdoubt לא שייך למיגזר מידי שכולן בpresumption of היתר עומדים מאי אמרת lest יקח אחר שנולד הdoubt הך גזרה לא אשכחן בGemara ועוד בהא there is not למיטעי דאם לקח בעוד שהיה בpresumption of היתר בשביל זה לא אתי ליקח לאחר שנאסרו וכל זה כשseparated שלא בפנינו or thatנתפזרו כולן אפילו בפנינו חשוב כseparatedו שלא בפנינו investigateא אם המיעוט separatedו דאז אמרינן כל דfruitש etc. ואיסורא בתוך רובא אישתאר אבל אם separatedו מחציתן בבת אחת forbiddenים מיהו רוב הposkim disagreesים וס"ל דאפילו separatedו automatically שלא בפנינו יש לforbidden וconclusion of Taz וש"ך דיש להחמיר (וsome say לט' חנויות דהתם האיסור ניכר במקומו משif so הכא דהכל מskinב together we are concerned). ואין חילוק בין בעלי חיים לשאר דברים דלא כBach. וwrote Shach אם הfruitשו even על פי שreturned ובאו יחד במקום א' כל שנתפזרו תחלה כולן ונעקרו מקביעות הראשון שוב לא חשיב קבוע דדין קבוע חידוש הוא ואין לך בו אלא חידושו that is שנשאר במקומו הראשון וPeri Chadash disagrees:
+**** END BLOCK ****
+```
+
+### 19. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 6 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=6#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 6
+marker: ב
+**** HEBREW ****
+<b>ביצה. </b> דאמרינן כל דפריש מרובא פריש ואפילו למ"ד דביצה חשיב דבר שבמנין שרי דהא בט' חנויות שרי בפירש ממילא אפי' חה"ל מטעם זה ה"נ לא גזרינן לגבי ביצה שיקח התרנגולי' מן הקבוע עכ"ל הש"ך:
+**** ENGLISH ****
+Egg. דאמרינן כל דfruitש מרובא fruitש ואפילו למ"ד דegg חשיב davar sheb'minyan שרי דהא בט' חנויות שרי בseparated automatically even piece worthy of honor for the reason זה ה"נ לא גזרינן לגבי egg שיקח התרנגולי' מן הקבוע end of his words Shach:
+**** END BLOCK ****
+```
+
+### 20. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 7 — marker `א`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 7
+marker: א
+**** HEBREW ****
+<b>מעצמו. </b> אפילו לאחר שנודע התערובת או הפילה שוגג קודם שנודע התערובות שאנו תולין וכו' משום דמן התורה כבר בטל ברוב ודוקא אם הוא בענין שנאבד מן העולם אבל אם נפל למקום שאפשר להמצא לא הותרו השאר ואם נחתך או נתרסק נתבאר דינו בסי' ק"א ס"ז וע"ש ובמה שהתיר המחבר אם נאכל בשוגג חולקים הש"ך וט"ז וס"ל דקנסינן שוגג אטו מזיד ואין היתר אלא דוקא בנאכל מעצמו ע"י כלב וכ' עוד הש"ך ונראה דוקא אם נאכל או נפל א' מהם קודם שפירש מהם אבל אם פירש מהם לפנינו או פירש ממילא למאן דאוסר פירש ממילא כיון דנאסר הוא וגם התערובות אם נפל אח"כ לים התערובות נשאר באיסורו:
+**** ENGLISH ****
+מעצמו. אפילו לאחר שנודע התערובת או הפילה שוגג קוblood שנודע התערובות שאנו we rely etc. becauseמן התורה כבר בטל in the majority investigateא אם הוא בענין שנאבד מן העולם אבל אם fell למקום שאפשר להמצא לא הותרו השאר ואם נחתך או נתרסק נתבאר דינו בסי' ק"א s.k. 7 וsee there ובמה שהתיר Mechaber אם נאכל בשוגג disagreesים Shach וט"ז וס"ל דקנסינן שוגג אטו מזיד ואין היתר אלא specifically בנאכל מעצמו ע"י כלב וwrote עוד Shach וit appears specifically אם נאכל או fell one of them קוblood שseparated מהם אבל אם separated מהם לפנינו או separated automatically למאן דאוסר separated automatically כיון דנאסר הוא וגם התערובות אם fell afterward לים התערובות נשאר באיסורו:
+**** END BLOCK ****
+```
+
+### 21. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 7 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 7
+marker: ב
+**** HEBREW ****
+<b>חדא. </b> ואמרינן מדחבריה לאו דאיסורא איהו נמי לאו דאיסורא ומזה משמע דאם נתערבו שתים צריך לאכול ארבע וכן ג' צריך לאכול שש שש ודוק עכ"ל הש"ך:
+**** ENGLISH ****
+חדא. ואמרינן מדחberiah לאו דאיסורא איהו נמי לאו דאיסורא ומזה it appears דאם were mixed שתים צריך לאכול ארבע וכן ג' צריך לאכול שש שש investigate end of his words Shach:
+**** END BLOCK ****
+```
+
+### 22. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 7 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 7
+marker: ג
+**** HEBREW ****
+<b>אחד. </b> ואע"ג דבחתיכה שאינה ראויה להתכבד יש מתירים לאדם א' לאכלה לעיל ר"ס ק"ט שאני התם כיון דנתבטל מן התורה וגם מדרבנן ברוב בלא ס"ס משא"כ הכא דלא שרי אלא מטעם ס"ס דאמרינן דלמא דאיסורא נפל ואת"ל דלא נפל דאיסורא דלמא לא אכיל השתא האיסור ש"ך:
+**** ENGLISH ****
+אחד. וeven though דבחתיכה שאינה worthy of honor יש מתירים לאblood א' to eat it above ר"ס ק"ט this case is different התם כיון דנתבטל מן התורה וגם d'rabbanan in the majority without end of seif משif so הכא דלא שרי אלא for the reason end of seif דאמרינן דלמא דאיסורא fell וif you say דלא fell דאיסורא דלמא לא אכיל now האיסור ש"ך:
+**** END BLOCK ****
+```
+
+### 23. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 7 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 7
+marker: ד
+**** HEBREW ****
+<b>ב'. </b> וש"ך וט"ז סתרו דברי הרב בזה מכח כמה ראיות וסיים הט"ז וז"ל אלא ע"כ דכאן לא גזרו על ב' בני אדם כלל בשום גוונא כן נראה לע"ד להלכה אבל אין בידי להקל בזה מאחר שכבר פסקו לאיסור בעלי הש"ע עכ"ל:
+**** ENGLISH ****
+ב'. וש"ך וט"ז contradictedו דברי הרב בזה מכח כמה ראיות וסיים Taz וand these are his words אלא until here דכאן לא גזרו על ב' בני אblood כלל בשום גוונא כן it appears לע"ד לthe halachah אבל אין בידי to be lenient בזה מאחר שכבר ruledו לאיסור בעלי הש"ע end of his words:
+**** END BLOCK ****
+```
+
+### 24. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 8 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 8
+marker: א
+**** HEBREW ****
+<b>מהתערובות. </b> היינו שפירש לפנינו או שפירשו מחציתן דאי פירש ממילא אפילו בלא תערובות שרי לדעת המחבר בס"ו וכ' הש"ך ונראה דבהפסד מרובה וכה"ג ודאי שרי התערובות הב' כשאינו אוכלו כולו כאחד. <small>(גם הט"ז חוכך בזה והעלה לבסוף דלכתחלה יש להחמיר עד שיהיה ג' תערובות)</small>:
+**** ENGLISH ****
+מהתערובות. that is שseparated לפנינו or thatseparatedו מחציתן דאי separated automatically אפילו without תערובות שרי לדעת Mechaber בס"ו וwrote Shach וit appears דבgreat loss וsuch a case certainly שרי התערובות הב' כשאינו אוכלו כולו כאחד. (גם Taz חוכך בזה והcame up לat the end דלat first יש להחמיר עד שיהיה ג' תערובות):
+**** END BLOCK ****
+```
+
+### 25. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 8 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 8
+marker: ב
+**** HEBREW ****
+<b>ודאי איסור. </b> דאורייתא אבל ודאי איסור דרבנן הרי הוא כספק איסור דאורייתא והט"ז וש"ך פוסקים דהתערובות הב' מותר כשאינו אוכלו כולו כא' אפילו בודאי איסור תורה ותערובות הג' מותר אפילו בודאי איסור לאוכלו כולו כא' וכן ספק איסור שנתערב מותר התערובות הב' אפילו לאוכלו כא' דספק איסור וב' תערובות הוי כג' תערובות בודאי איסור:
+**** ENGLISH ****
+certainly איסור. d'oraisa אבל certainly איסור d'rabbanan הרי הוא כdoubt איסור d'oraisa וTaz וש"ך poskim דהתערובות הב' permitted כשאינו אוכלו כולו כא' אפילו certainly איסור תורה ותערובות הג' permitted אפילו certainly איסור לאוכלו כולו כא' וכן doubt איסור שנתערב permitted התערובות הב' אפילו לאוכלו כא' דdoubt איסור וב' תערובות הוי כג' תערובות certainly איסור:
+**** END BLOCK ****
+```
+
+### 26. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 8 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 8
+marker: ג
+**** HEBREW ****
+<b>מתירין. </b> כ' הש"ך דאפילו בג' תערובות יש לאסור בדבר שיל"מ <small>(וכ"ש שאין להתיר בדשיל"מ שנפל א' מהם לים)</small> מיהו קשה דבא"ח סי' תצ"ז ס"ד סתם הרב דספק מוכן ביו"ט שני מותר משום דהוי ס"ס אע"ג דהוא דשיל"מ ואפשר לומר דשאני התם כיון דאנן לא עבדינן יו"ט שני אלא משום מנהג אבותינו לא מחמרינן טפי מינייהו א"נ והוא העיקר דהא דס"ס אסור בדשיל"מ היינו דוקא בתערובות דמאי נ"מ להתיר בביטול בלא"ה יש לו היתר אבל ס"ס דאתי מעלמא אפילו בדבר שיל"מ מותר והשתא ניחא הא דכ' הר"ב בסימן רצ"ג דסתם תבואה מותר מטעם ס"ס מיהו בלא"ה י"ל דהתם ודאי לצורך הוא:
+**** ENGLISH ****
+מתירין. wrote Shach דאפילו בג' תערובות יש לforbidden בדבר something that has a permitted aspect (וkli sheni שאין להתיר בsomething that has a permitted aspect שfell one of them לים) מיהו קשה דOrach Chaim סי' תצ"ז ס"ד stam הרב דdoubt מוכן on Yom Tov שני permitted becauseהוי end of seif even though דהוא something that has a permitted aspect ואפשר לומר דthis case is different התם כיון דאנן לא עבדינן יו"ט שני אלא because custom אבותינו לא מחמרינן טפי מינייהו א"נ והוא העיקר דהא דend of seif forbidden בsomething that has a permitted aspect that is specifically בתערובות דמאי נ"מ להתיר בביטול without"ה יש לו היתר אבל end of seif דאתי מעלמא אפילו בדבר something that has a permitted aspect permitted וnow ניחא הא דwrote Rama בsiman רצ"ג דstam תבואה permitted for the reason end of seif מיהו without"ה י"ל דהתם certainly לצורך הוא:
+**** END BLOCK ****
+```
+
+### 27. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 9 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 9
+marker: א
+**** HEBREW ****
+<b>בגופו. </b> פי' הש"ך דל"ד לב' תערובות דתערובות הב' מותר מכח ס"ס דהתם הספק הא' לא היה בגופו רק בתערובות משא"כ כאן דהספק הא' היה בגופו <small>(ר"ל בגוף האיסור שמא לאו טריפה וספק הב' הוא שמא לא זהו שאכל)</small> אבל קשה דהטור והרשב"א והפוסקים לא הוצרכו לזה אלא לשיטתם דס"ל דתערובות הב' מותר אבל המחבר דס"ל בס"ח דתערובות הב' אסור א"כ אפילו לא היה ספק הראשון בגופו אסור ס"ס שנתערב דלא יהא אלא ב' תערובות וצ"ע <small>(ולי נראה דל"ק מידי דלעיל בס"ח מיירי מדבר חשוב שאינו בטל לכך פסק המחבר דבעינן ג' תערובות דבתערובות הראשון לא שייך לומר חד בתרי בטל וכאן מיירי מדברים שאינם חשובים ובטלים לכך א"צ אלא ב' תערובות ודוק)</small> והט"ז כ' דבאמת צריך שיהא ס"ס בגוף א' מענין א' כמו ב' תערובות או ס"ס אם יש כאן איסור או לא כמו באשה שזינתה ספק תחתיו ספק אינה תחתיו ואת"ל תחתיו ספק באונס ספק ברצון ולמ"ש המחבר כאן דאין מתירין מכח ס"ס מיירי אפי' לא נודע בנתיים עכ"ל:
+**** ENGLISH ****
+בגופו. Explanation: Shach דsome say לב' תערובות דתערובות הב' permitted מכח end of seif דהתם הdoubt הא' לא היה בגופו רק בתערובות משif so כאן דהdoubt הא' היה בגופו (ר"ל in the substance האיסור lest לאו tereifah וdoubt הב' הוא lest לא זהו שאכל) אבל קשה דTur וRashba והposkim לא הוצרכו לזה אלא לשיטתם דס"ל דתערובות הב' permitted אבל Mechaber דס"ל in seif 8 דתערובות הב' forbidden if so אפילו לא היה doubt הראשון בגופו forbidden end of seif שנתערב דלא יהא אלא ב' תערובות וrequires study (ולי it appears דל"ק מידי דabove in seif 8 deals with מדבר חשוב שאינו בטל לכך ruled Mechaber דבעינן ג' תערובות דבתערובות הראשון לא שייך לומר חד בתרי בטל וכאן deals with מדברים שאינם חשובים וare nullified לכך א"צ אלא ב' תערובות investigate) וTaz wrote דבאמת צריך שיהא end of seif in the substance א' מענין א' כמו ב' תערובות או end of seif אם יש כאן איסור או לא כמו באשה שזינתה doubt תחתיו doubt אינה תחתיו וif you say תחתיו doubt באונס doubt ברצון ולwhat he wrote Mechaber כאן דאין מתירין מכח end of seif deals with even לא נודע בנתיים end of his words:
+**** END BLOCK ****
+```
+
+### 28. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 9 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 9
+marker: ב
+**** HEBREW ****
+<b>ס"ס. </b> כתבו הט"ז וש"ך אפילו לא נודע הספק הראשון רק עד אחר שנתערב כגון שנתערבו כמה ביצים ביחד ואח"כ נודע ספק טריפה בתרנגולת וא"כ ב' הספיקות באין כא' מ"מ כיון שהספק הראשון מן התורה לא הוי ס"ס ואם נתחלפה גבינה שאינה ידוע אם היא גבינת ישראל או גבינת עובד כוכבים דבכה"ג הוי ספק דרבנן ולחומרא כדלקמן להמחבר אינה בטלה בתערובות אף שהספק הראשון הוא מדרבנן כיון שהוא בגופו ולהר"ב בהג"ה בטל כיון שהספק הראשון אינו מן התורה א"כ הוי ס"ס מיהו אפשר דמר אמר חדא ומר אמר חדא ולא פליגי ולא בא הר"ב אלא להוסיף דבס"ס אם יש כאן איסור כלל מותר אפילו בגופו של איסור ועי' בתשובת ן' לב ח"ג סי' ק' עכ"ל:
+**** ENGLISH ****
+end of seif. כתבו Taz וש"ך אפילו לא נודע הdoubt הראשון רק עד אחר שנתערב כגון שwere mixed כמה ביצים together וafterward נודע doubt tereifah בpoultry וif so ב' הספיקות באין כא' nevertheless כיון שהdoubt הראשון מן התורה לא הוי end of seif ואם נתחלפה cheese שאינה ידוע אם היא גבינת ישראל או גבינת non-Jew דבsuch a case הוי doubt d'rabbanan ולstringency כדbelow לMechaber אינה is nullified בתערובות even שהdoubt הראשון הוא d'rabbanan כיון שהוא בגופו ולRama בהג"ה בטל כיון שהdoubt הראשון אינו מן התורה if so הוי end of seif מיהו אפשר דמר אמר חדא ומר אמר חדא ולא פליגי ולא בא Rama אלא להוסיף דבend of seif אם יש כאן איסור כלל permitted אפילו בגופו של איסור ועי' בתשובת ן' לב ח"ג סי' ק' end of his words:
+**** END BLOCK ****
+```
+
+### 29. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 9 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 9
+marker: ג
+**** HEBREW ****
+<b>ביחד. </b> כתב הט"ז דדברים אלו תמוהין דמשמע שאפשר דלפעמים לא יבואו הספיקות בפעם א' וזה א"א למצוא שיהא נודע בין ספק א' לספק ב' בס"ס שהם בגוף א' וענין אחד כגון בספק זינתה תחתיו וספק אונס דאין שייך לומר דנודע הספק הא' קודם שנודע הב' ובדברי רמ"א יש קצת לדחוק ולפרש דה"ק כל שנודע ב' הספיקות דוקא ביחד זהו סימן לס"ס שהוא כראוי דאלו בס"ס בשני גופים אפשר להיות נודע בנתיים וכן ראיתי בתשובה למהר"ר בנימין ז"ל שכ' שאין להשגיח בהג"ה זאת כי פשוט הוא שבס"ס שע"י שני תערובות מותר אפילו נודע בנתיים ממילא ה"ה בס"ס אם יש כאן איסור. כלל העולה בס"ס הוא כן. דכל שהספק הא' הוא אסור מצד שהוא חשוב ואינו בטל ברוב שאע"פ שעיקר האיסור הוא מדרבנן כמו ספק ביצה שנולדה ביו"ט ושוב נתערבה לא מהני בה ס"ס כיון שאין הספיקות בענין א' אלא בעינן שיהיו ב' הספיקות ע"י תערובות ונודע בנתיים לא מעלה ולא מוריד בשום דבר מהס"ס וכן אם יש ב' ספיקות אם יש כאן איסור לגמרי אז מהני בכל גווני רק שיש חילוק בס"ס שע"י תערובות שאם הוא איסור ודאי והוא חשוב בעינן ג' תערובות וכמ"ש בס"ח אבל אם הספק איסור נתערב לא בעינן רק ב' תערובות והוא ס"ס ולהקל עכ"ל:
+**** ENGLISH ****
+Together. wrote Taz דדברים אלו תמוהין דit appears שאפשר דלפעמים לא יבואו הספיקות בפעם א' וזה א"א למצוא שיהא נודע בין doubt א' לdoubt ב' בend of seif שהם in the substance א' וענין אחד כגון בdoubt זינתה תחתיו וdoubt אונס דאין שייך לומר דנודע הdoubt הא' קוblood שנודע הב' ובדברי רמ"א יש קצת לדחוק ולפרש דה"ק כל שנודע ב' הספיקות specifically together זהו siman לend of seif שהוא כראוי דאלו בend of seif בשני גופים אפשר להיות נודע בנתיים וכן ראיתי בתשובה למהר"ר בנימין and these are his words שwrote שאין להשגיח בהג"ה זאת כי plain הוא שבend of seif שע"י שני תערובות permitted אפילו נודע בנתיים automatically ה"ה בend of seif אם יש כאן איסור. כלל העולה בend of seif הוא כן. דכל שהdoubt הא' הוא forbidden מצד שהוא חשוב ואינו בטל in the majority שאon the surface of שעיקר האיסור הוא d'rabbanan כמו doubt egg שנולדה on Yom Tov ושוב was mixed לא מהני בה end of seif כיון שאין הספיקות בענין א' אלא בעינן שיהיו ב' הספיקות ע"י תערובות ונודע בנתיים לא מcame up ולא מוריד בשום דבר מהend of seif וכן אם יש ב' ספיקות אם יש כאן איסור לגמרי אז מהני בכל גווני רק שיש חילוק בend of seif שע"י תערובות שאם הוא איסור certainly והוא חשוב בעינן ג' תערובות וכwhat he wrote in seif 8 אבל אם הdoubt איסור נתערב לא בעינן רק ב' תערובות והוא end of seif וto be lenient end of his words:
+**** END BLOCK ****
+```
+
+### 30. `siman_110/baer-heitev/part-001.txt` — baer-heitev — seif 9 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 9
+marker: ד
+**** HEBREW ****
+<b>וע"ל. </b> ושם מחמיר בנשמט וכ' הט"ז מדברי הרב משמע אפי' אם שחט בסכין בדוק ולאחר שחיטה נמצא פגום ונתערבה אח"כ בין בהמות אחרות דיש להתיר מכח ס"ס שמא אינה זאת ואת"ל שהיא זאת שמא נשחטה כדינה ואע"ג שהיתה קודם שחיט' בחזקת איסור כן משמעות הרמ"א והוא חולק ע"ז ופסק דבספק שחיטה יש לאסור כיון שהספק הוא אח"כ בשחיטה עצמה אם נעשית כראוי ולהוציאה מחזקת שלא נשחטה אין מועיל ס"ס כיון דבאותו איסור עצמו שהיה קודם לא יצאה ממנו בודאי אבל אם החזקה של איסור מחמת ד"א דהיינו שהיה לו חזקת אמ"ה ונשחט כראוי רק שיש ספק מחמת דבר אחר כגון שנתערב תחלה ואח"כ נתערב בתערובת אחר ודאי מהני ס"ס וכן כל שאר איסור כגון חתיכת חלב שנתערבה בשני תערובות מותר מכח ס"ס. כלל העולה מדברינו להלכה דאפילו בכל איסור ודאי מהני ס"ס להתיר אם אינו סותר את החזקה עצמה כההיא דספק בשחיטה דאם מועיל בה הס"ס תסתור החזקה שהיתה בחזקת שאינה שחוטה אלא אמ"ה בזה אמרינן דלא מועיל ודומה לזה האשה שהיא בחזקת אשת איש ונולדו אח"כ ספיקות במיתת הבעל או בגירושין אפילו הוי כמה ספיקות לא יועילו כיון שאתה בא להוציאה מחזקת א"א שהיתה תחלה ואתה בא לסותרה ממש אבל בשאר חזקת איסור שנולדו ספיקות להתיר מצד אחר כגון מצד התערובות ודאי מועילים ס"ס להוציאו מן האיסור דמתחלה דאין כאן דבר הסותר זא"ז וע"כ בספק דרוסה אם היה ס"ס גמור שפיר מועיל לבטל חזקת האיסור דאמ"ה דמעיקרא כנ"ל ברור ונכון בזה עכ"ל:
+**** ENGLISH ****
+וע"ל. ושם is stringent בנשמט וwrote Taz מדברי הרב it appears even אם שחט בסכין בדוק ולאחר shechitah is found spoiled וwas mixed afterward בין בהמות אחרות דthere is room to permit מכח end of seif lest אינה זאת וif you say שהיא זאת lest was slaughteredה the measure ofנה וeven though שהיתה קוblood שחיט' בpresumption of איסור כן it appearsות הרמ"א והוא disagrees ע"ז וruled דבdoubt shechitah יש לforbidden כיון שהdoubt הוא afterward בshechitah עצמה אם נעשית כראוי ולהוציאה מpresumption of שלא was slaughteredה אין מועיל end of seif כיון דבאותו איסור עצמו שהיה קוblood לא יצאה ממנו certainly אבל אם החזקה של איסור מחמת ד"א that is שהיה לו presumption of אמ"ה וwas slaughtered כראוי רק שיש doubt מחמת דבר אחר כגון שנתערב תחלה וafterward נתערב בתערובת אחר certainly מהני end of seif וכן כל שאר איסור כגון חתיכת חלב שwas mixed בשני תערובות permitted מכח end of seif. כלל העולה מדברינו לthe halachah דאפילו בכל איסור certainly מהני end of seif להתיר אם אינו contradicts את החזקה עצמה כההיא דdoubt בshechitah דאם מועיל בה הend of seif תסתור החזקה שהיתה בpresumption of שאינה שחוטה אלא אמ"ה בזה אמרינן דלא מועיל ודומה לזה האשה שהיא בpresumption of אשת איש ונולדו afterward ספיקות במיתת הבעל או בגירושין אפילו הוי כמה ספיקות לא יועילו כיון שאתה בא להוציאה מpresumption of א"א שהיתה תחלה ואתה בא לcontradictsה ממש אבל in other presumption of איסור שנולדו ספיקות להתיר מצד אחר כגון מצד התערובות certainly מועילים end of seif לthey removed מן האיסור דמתחלה דאין כאן דבר הcontradicts זOr Zarua וuntil here בdoubt דרוסה אם היה end of seif גמור well מועיל לבטל presumption of האיסור דאמ"ה דinnardsקרא כit appears to me ברור ונכון בזה end of his words:
+**** END BLOCK ****
+```
+
+### 31. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 1 — marker `_`
+
+- Quality: **error** — hebrew_in_english, untranslated_copy
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=1#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 1
+marker: _
+**** HEBREW ****
+ממשנ' דערלה פרק ג' משנ' ז' וכר"ע שם:
+**** ENGLISH ****
+ממשנ' דערלה פרק ג' משנ' ז' וכר"ע שם:
+**** END BLOCK ****
+```
+
+### 32. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 10 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=10#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 10
+marker: _
+**** HEBREW ****
+הרא"ש בתשוב' והרשב"א בת"ה והר"ן בפ"ז דחולין ממימרא דרבה בר אבהו א"ר נחמן טבעת של עובד כוכבים ומימרא דריש לקיש חבית של תרומה וכו' שם:
+**** ENGLISH ****
+Rosh בתשוב' וRashba בת"ה וRan בפ"ז דחולין ממימרא דרבה בר אבהו א"ר נחמן טבעת של non-Jew ומימרא דריש לקיש חבית של תרומה etc. שם:
+**** END BLOCK ****
+```
+
+### 33. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 2 — marker `_`
+
+- Quality: **error** — hebrew_in_english
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=2#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 2
+marker: _
+**** HEBREW ****
+כשינויא דרב אשי בזבחים דף ע"ג:
+**** ENGLISH ****
+כשינויא דרב אשי בזבחים daf ע"ג:
+**** END BLOCK ****
+```
+
+### 34. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 3 — marker `_`
+
+- Quality: **warn** — suspicious_short
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=3#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 3
+marker: _
+**** HEBREW ****
+הרמב"ם בפט"ו מהמ"א ודלא כר"ם שם במשנה אע"ג דפליגי ר' יוחנן ור"ל בפירוש ר"מ בזבחים דף ע"ב ביצה דף ג' יבמות דף פ' אינו הכרח לומר דס"ל דהלכתא כוותיה וא"כ ביצה נמי בטילה אע"פ שדרכה למנות וכ"כ הרשב"א בת"ה ובשם הרמב"ן וכתוב בא"ח שדעת רוב הפוסקים כהרמב"ן כ"כ בכ"מ שם ובב"י בסי' זה ותמהו על המחבר שלעיל בש"ע בסי' פ"ו סעיף ג' פסק דביצה אפילו באלף אינה בטילה ומיהו נלפענ"ד דדא אחרונה היא עיקר לדעת המחבר שהרי בסי' פ"ו בב"י לא נחית לפרש דעת החולקים בזה רק כתב בסי' ק"י בס"ד יתבאר שיש חולקים עליו עכ"ל וכן עשה בסי' זה ירד למנין דעת החולקים ונלענ"ד ליישב דבריו דמ"ש לעיל דביצה אינה בטיל' לא משו' שדרכה לימנות אלא משום דהרמב"ם ס"ל כן בביצת ריקום אפרוח משום בריה ואפילו באלף לא בטיל והראב"ד כ"כ בכל ביצה משום בריה לכן חילק המחבר שם בין ביצת אפרוח לשאר ביצים:
+**** ENGLISH ****
+Rambam and Rashba in Torat HaBayit.
+**** END BLOCK ****
+```
+
+### 35. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 4 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=4#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 4
+marker: _
+**** HEBREW ****
+שם ברמב"ם:
+**** ENGLISH ****
+There.
+**** END BLOCK ****
+```
+
+### 36. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 5 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=5#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 5
+marker: _
+**** HEBREW ****
+טור וכ"כ הרשב"א בת"ה מהא דנתפרדו הרמונים וכו' משנה ח' פ"ג דערלה לטעמיה אזיל דכבש שלם בטל כמו שציינתי לעיל בסי' ק"א סעיף ג' ולדעת היש חולקים מיירי כמ"ש רמ"א בהגה"ה:
+**** ENGLISH ****
+טור and so too Rashba בת"ה מהא דנתפרדו הרמונים etc. משנה ח' פ"ג דערלה לטעמיה אזיל דwhole sheep בטל כמו שציינתי above בסי' ק"א seif ג' ולדעת היש disagreesים deals with כwhat he wrote רמ"א בhagahah:
+**** END BLOCK ****
+```
+
+### 37. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 6 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=6#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 6
+marker: _
+**** HEBREW ****
+ברייתא פסחים דף ט' נדה י"ח כתובות דף ז':
+**** ENGLISH ****
+Baraita Pesachim daf 30; and Rif and Rosh brought it in chapter 8 of Chullin.
+**** END BLOCK ****
+```
+
+### 38. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 7 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=7#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 7
+marker: _
+**** HEBREW ****
+טור בשם הרשב"א בת"ה לפי פי' ר"י שדוקא כשאיסור והיתר מעורבים חיישינן שמא יקח מן הקבוע וכו' בזבחים דף ע"ג:
+**** ENGLISH ****
+Tur in the name of Rashba in Teshuvot HaRosh in the name of the Geonim and in the name of Rabbeinu Tam as Rav.
+**** END BLOCK ****
+```
+
+### 39. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 8 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=8#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 8
+marker: _
+**** HEBREW ****
+שם בשם הרשב"א. <br>(°) פי' והוי כדין תערובת יבש ביבש דחד בתרי בטיל וכמו שנתבאר בסי' דלעיל:
+**** ENGLISH ****
+שם in name of Rashba. (°) פי' והוי the measure ofן תערובת יבש ביבש דחד בתרי nullified וכמו שנתבאר בסי' דabove:
+**** END BLOCK ****
+```
+
+### 40. `siman_110/beer-hagolah/part-001.txt` — beer-hagolah — seif 9 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=9#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beer-hagolah
+seif: 9
+marker: _
+**** HEBREW ****
+שם בשם הרשב"א מהא דזבחי' דף ע"ג וכתירוצא בתרא דרבא וכדעת ר"ת שם והשאלתות:
+**** ENGLISH ****
+שם in name of Rashba מהא דזבחי' daf ע"ג וכתירוצא בתרא דרבא וכדעת ר"ת שם והשאלתות:
+**** END BLOCK ****
+```
+
+### 41. `siman_110/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_110/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: א
+**** HEBREW ****
+<b>דבר חשוב כו'. </b>כ"ז הוא לשון הרמב"ם ומשמע דוקא במינו דלא כמ"ש לעיל סי' ק"א ס"ו בהג"ה ואף שיש לדחוק משום דלא משכחת לתערובת יבש מין בשא"מ דלא מינכר מ"מ שפת יתר הוא אלא ע"כ דוקא קאמר. והנה לכאורה יש ראיה לדברי ההג"ה הנ"ל ממ"ש בריש י"ט <small>(נ"ד) </small>ובפ"ח דזבחים תנא דליטרא קציעות כו' והא לר' יהודה בלא"ה מין במינו לא בטל וכן דקאמר שם בסיפא דרסה בעיגול כו' ד"ה יעלו וכן בפ' הנזקין <small>(נ"ד ב') </small>נפלו ונתפצעו כו' דברי ר' יהורה אלא ע"כ שלא במינו איירי אבל כבר תי' תוס' בזבחים ע"ג ד"ה ד' יהודה דר"י ל"ק דמין במינו לא בטל אלא בלח בלח ובהא ניחא ג"כ דפ' נוטל <small>(קמ"א ב') </small>רי"א אף מעלין כו' והא ע"כ במין במינו הוא דשלא במינו בטל בס' כמ"ש בפ"ב דערלה להקל ולהחמיר מין בשא"מ כו' וכן בירושלמי פ"ו דנדרים וכל שאין לו מתירין כגון תרומה כו' ושלא במינו בנ"ט וההיא דפ"ה די"ט <small>(ל"ח ב') </small>דקאמר חטין וחטין דלא בטלי לר"י וכן הא דקאמר במנחות כ"ג דמתני' שתי מנחות כו' הוא כר"י בקמח דהוי לח בלח וכ"כ התוס' שם כ"ב ד"ה ור"י כו' ע"ש ושם וביבמות פ"ב א' ד"ה ר' יהודה כו'. ומ"מ דברי התוס' אינן מוכרחין שס"ל כדברי הרמב"ם אלא משום דלא משכחת תערובת שלא במינו ביבש כנ"ל: <br><b>(ליקוט) דבר כו' וכן בע"ח כו'. </b>ערמב"ם פט"ז מהמ"א שכתב דבר חשוב כו' ז' דברים כו' וכן חתיכה של נבילה כו' שהרי מתכבד כו' וה"ה בחתיכה של בב"ח או של חולין שנשחטו בעזרה כו' וכן גיד הנשה כו' וכן כל בע"ח לפיכך שור הנסקל ועגלה ערופה וצפורי מצורע ופטר חמור כו' אבל שאר הדברים אע"פ שדרכן למנות הרי אלו עולין בשיעורן והיינו מתני' דפ"ה דע"ז <small>(ע"ד א'): </small><br>[ומ"ש נבלה וג"ה בפ' ג"ה ודלא כסוגיא דע"ז דאמר שם למעוטי נבילה וכמש"ש תוס'] והא דלא חשיב במתני' דערלה אלא הנך ז' דברים כתב כ"מ דלא חשיב שמה אלא גידולי קרקע דומיא דחבילי תלתן דפליגי שמה והרמב"ם בסוף ע"ז כתב דלא חשיב שם אלא הנך דערלה וכלאי הכרם כמש"ש הראוי לערלה ערלה הראוי כו' ואף שבפי' כ' דמתני' דשם ר"מ ועדיפא מיניה דדוקא ג"כ איסורי הנאה אבל באמת ל"ד דגם לרבנן אתיא מדפריך בע"ז שם וליתני אגוזי פרך כו' <br>[וכתי' דרב אשי בפ' התערובת <small>(ע"ג א') </small>דבע"ח חשיבי כו' וכרבנן] והא דלא חשיב הרמב"ם ג' ראשונות יי"נ וע"ז ועורות לבובין ס"ל כמ"ש בירושלמי משום לא ידבק בידך כו' ולא משום חשיבותא אבל צ"ע מ"מ והשמיט שער נזיר דג"כ הטעם משום דבר שבמנין וכ"פ הרמב"ם בסוף ה' פסולי המקודשין וכן שער בכור ושער פטר חמור כמ"ש הרמב"ם שם וכמ"ש בפ"ג דערלה וכמ"ד בירושלמי דאתיא אף לרבנן ועשרה דברים דר"מ עם ככרות וער"ש שם ותוס' דיבמות פ"א ב' ד"ה ר' יוחנן כו' ובזבחים ע"ב א' בד"ה אלא כו' (ע"כ):
+**** ENGLISH ****
+דבר חשוב etc.. כ"ז הוא language of Rambam וit appears specifically במינו דלא כwhat he wrote above סי' ק"א ס"ו בהג"ה וeven שיש לדחוק becauseלא משכחת לתערובת יבש מין not in its kind דלא מינכר nevertheless lip of יתר הוא אלא until here specifically קאמר. והנה it appears יש proof לדברי ההג"ה הit appears to me מwhat he wrote בריש י"ט (נ"ד) ובפ"ח דזבחים תנא דליטרא קציעות etc. והא לר' יהודה without"ה species in its species לא בטל וכן דקאמר שם בסיפא דרסה בעיגול etc. s.v. יcame up וכן בפ' הנזקין (נ"ד ב') fell ונתפצעו etc. דברי ר' יהורה אלא until here שלא במינו איירי אבל כבר תי' Tosafot בזבחים ע"ג s.v. ד' יהודה דר"י ל"ק דspecies in its species לא בטל אלא בלח בלח ובהא ניחא ג"כ דפ' נוטל (קמ"א ב') רי"א even מעלין etc. והא until here בspecies in its species הוא דשלא במינו בטל בsixty כwhat he wrote בchapter 2 דערלה to be lenient ולהחמיר מין not in its kind etc. וכן בירושלמי chapter 6 דנדרים וכל שאין לו מתירין כגון תרומה etc. ושלא במינו בנ"ט וההיא דפ"ה די"ט (ל"ח ב') דקאמר חטין וחטין דלא בטלי לר"י וכן הא דקאמר במנחות כ"ג דמתני' שתי מנחות etc. הוא כר"י בflour דהוי לח בלח and so too הTosafot שם כ"ב s.v. ור"י etc. see there ושם וביבמות chapter 2 א' s.v. ר' יהודה etc.. וnevertheless דברי הTosafot אינן מוכרחין שס"ל כדברי Rambam אלא becauseלא משכחת תערובת שלא במינו ביבש כit appears to me: (ליקוט) דבר etc. וכן בע"ח etc.. ערמב"ם פט"ז מהמ"א שwrote דבר חשוב etc. ז' דברים etc. וכן חתיכה של nevelah etc. שהרי מתliver etc. and the same applies בחתיכה של בב"ח or thatל חולין שwas slaughteredו בעזרה etc. וכן גיד הנשה etc. וכן כל בע"ח and therefore שור הנסקל ועגלה ערופה וצפורי מצורע ופטר חמור etc. אבל שאר הדברים אon the surface of שדרכן למנות הרי אלו עולין בשיskinן וthat is מתני' דפ"ה דע"ז (ע"ד א'): [וwhat he wrote נבלה וג"ה בפ' ג"ה ודלא כסוגיא דע"ז דאמר שם למעוטי nevelah וכמש"ש Tosafot] והא דלא חשיב במתני' דערלה אלא הנך ז' דברים wrote כ"מ דלא חשיב שמה אלא גידולי קרקע דומיא דחבילי תלתן דפליגי שמה וRambam at the end ע"ז wrote דלא חשיב שם אלא הנך דערלה וכלאי הכרם כמש"ש הראוי לערלה ערלה הראוי etc. וeven שבפי' wrote דמתני' דשם ר"מ ועדיפא מיניה דspecifically ג"כ prohibitions of benefit אבל באמת some say דגם according to Ravנן אתיא מדfruitך בע"ז שם וליתני אגוזי פרך etc. [וכתי' דרב אשי בפ' התערובת (ע"ג א') דבע"ח חשיבי etc. וכרבנן] והא דלא חשיב Rambam ג' ראשונות יי"נ וע"ז וskinות לבובין ס"ל כwhat he wrote בירושלמי because לא ידבק בידך etc. ולא because חשיבותא אבל requires study nevertheless והשמיט שער נזיר דג"כ the taste because davar sheb'minyan וכ"פ Rambam at the end ה' פסולי המקודשין וכן שער בכור ושער פטר חמור כwhat he wrote Rambam שם וכwhat he wrote בפ"ג דערלה וכמ"ד בירושלמי דאתיא even according to Ravנן ועשרה דברים דר"מ עם ככרות וער"ש שם וTosafot דיבמות one time ב' s.v. ר' יוחנן etc. ובזבחים side 2 א' בs.v. אלא etc. (until here):
+**** END BLOCK ****
+```
+
+---
+
+## After completing this batch
+
+```bash
+cd newtry/YD_001
+npm run apply:dictionary -- --root output/siman_110
+npm run pipeline:editorial:advance -- --siman 110
+```
+
+## Checkpoint ids
+
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%93
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%94
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%95
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%93
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=6#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=6#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=7#marker=%D7%93
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=8#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%90
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%91
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%92
+siman_110/baer-heitev/part-001.txt#slug=baer-heitev#seif=9#marker=%D7%93
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=1#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=10#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=2#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=3#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=4#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=5#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=6#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=7#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=8#marker=_
+siman_110/beer-hagolah/part-001.txt#slug=beer-hagolah#seif=9#marker=_
+siman_110/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%90
