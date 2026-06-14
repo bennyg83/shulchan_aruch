@@ -1,3 +1,83 @@
+# Editorial retranslation — Siman 189 (part 1/4)
+
+Generated: 2026-06-14T11:47:39.017Z
+
+**Mandatory dictionary:** `/workspace/full_dictionary (1).md` — consult for every term.
+
+**Disregard existing English.** Translate fresh from Hebrew only. Edit **only** `**** ENGLISH ****`.
+
+---
+
+# YD001 editorial re-translation (Cursor / agent)
+
+**Authoritative dictionary:** `full_dictionary (1).md` at the **repository root**.  
+Consult it for every halachic term, abbreviation, and commentator name.
+
+**Source of truth:** `newtry/YD_001/output/siman_NNN/<commentary>/part-*.txt`.  
+**Commentary order:** `translation/COMMENTARIES.md`.
+
+**Core rule:** Hebrew is authoritative. Translate fresh from Hebrew; do not patch bad English in place.
+
+---
+
+## YD-specific terminology (examples)
+
+Use the dictionary; these recur in Yoreh De'ah:
+
+- **issur** / **heter** — forbidden / permitted (not generic "prohibited" if dictionary says issur)
+- **vadai** / **safek** — definite / doubtful
+- **ta'am** / **noten ta'am** — taste / imparting taste (basar b'chalav, ta'aruvos)
+- **nevelah**, **treifah**, **shechitah**, **melichah**, **nikkur**
+- **Shach** → Siftei Kohen; **Taz** → Turei Zahav (slug folders `siftei-kohen`, `turei-zahav`)
+
+---
+
+## Translation rules (every block)
+
+Same as OC: completeness, no additions, dictionary halachic terms, expand abbreviations, `{Rama: …}` for הגה, full Aramaic, logical connectives per dictionary Part 5.
+
+---
+
+## File format
+
+```
+**** YD001 SOURCE BLOCK ****
+slug: siftei-kohen
+seif: 2
+marker: א
+**** HEBREW ****
+[Hebrew — may contain HTML]
+**** ENGLISH ****
+[REPLACE THIS ONLY]
+**** END BLOCK ****
+```
+
+---
+
+## Per-file workflow
+
+1. Read `output/siman_NNN/<slug>/part-*.txt`.
+2. Translate each block from Hebrew.
+3. `npm run apply:dictionary -- --root output/siman_NNN`
+4. `npm run pipeline:validate -- --root output/siman_NNN`
+
+---
+
+## Pilot scope (Phase C)
+
+Simanim **1–5** first, then stress simanim **87** (melicha) and **115** (basar b'chalav) per `YD_YOREH_DEAH_PLAN.md`.
+
+
+---
+
+## Blocks in this batch (45 of 454 remaining in scope)
+
+### 1. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 1
@@ -7,7 +87,14 @@ marker: א
 **** ENGLISH ****
 day. We were in the same new day. “Third:
 **** END BLOCK ****
+```
 
+### 2. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 1
@@ -17,107 +104,14 @@ marker: ב
 **** ENGLISH ****
 known. And I will feel only a season that is for a day, but a time known as the tyrant that has a permanent menstruation. TJ:
 **** END BLOCK ****
+```
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 2
-marker: _
-**** HEBREW ****
-<b>שראתה. </b> פעם שנית לסוף כ' לראיה א' חוששת מכאן ואילך כשיגיע יום כ' שלישי. ש"ך:
-**** ENGLISH ****
-She saw. Once again, to the end of Raa A, he fears from here and later when he comes to Tuesday. “Third:
-**** END BLOCK ****
+### 3. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 10 — marker `_`
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 3
-marker: _
-**** HEBREW ****
-<b>לשעות. </b> פי' אחר טבילתה או שאר דברים כיוצא בהן שרגילה לראות מחמת אותו זמן. ט"ז:
-**** ENGLISH ****
-hours. A different pyre has been baptized or other things, and the same way it is used to see the time. TJ:
-**** END BLOCK ****
+- Quality: **info** — divine_name_style
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=10#marker=_`
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 4
-marker: _
-**** HEBREW ****
-<b>שעברה. </b> כתב הט"ז אע"ג דבסימן קפ"ו פסק באין לה וסת צריכה בדיקה לפני תשמיש כאן מיירי שיש לה כבר וסת אלא ששינתה עכשיו בוסת חדשה ולא קבעתו ג"פ <small>(ובנה"כ כ' דז"א דמשמע דמיירי אפילו בתחלת קביעותא אלא י"ל דהתם מיירי שאין לה וסת כלל וכל פעם היא מוחזקת ברואה אבל כאן יש לה וסת אלא שאינו קבוע)</small>:
-**** ENGLISH ****
-That its onah passed. Taz wrote: although in siman 186 he ruled that a woman without a veset needs checking before tashmish, here it deals with one who already has a veset but changed now to a new veset and has not established it three times (and Nekudot HaKesef writes that this is the implication — that it applies even at the beginning of establishment; but one can say that there it deals with one who has no veset at all and each time she is presumed to see, whereas here she has a veset but it is not established).
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 5
-marker: _
-**** HEBREW ****
-<b>קבעה. </b> כ' הט"ז דלדעה ראשונה בס"ז בעינן כאן עוד ראתה בל"ג וכ"פ הש"ך וכ' עוד וה"ה דילגה למפרע כגון ראתה שנית לסוף כ"ט ושלישית לסוף כ"ח בכל ענין שמשוה דילוגה קבעה וסת לדילוג וזה פשוט:
-**** ENGLISH ****
-determined. The High Court of Justice, in this case, saw in Tel Aviv and as a whole, and the “Deal of the Cave” as “for the end of a third and a third end to the end of each matter of which a dilogy has determined and is simple:
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 6
-marker: _
-**** HEBREW ****
-<b>החדש. </b> כ' הרא"ה לא לקידוש החדש ולתקיעת שופר שלנו אלא למולד הלבנה אבל הש"ך הביא כמה פוסקים דעיקר תלוי בקביעות ב"ד שכל מה שב"ד שלמטה עושים מסכימים עמהם למעלה ע"ש שתופס דעה זו עיקר:
-**** ENGLISH ****
-The month. Ra'ah wrote: not for kiddush hachodesh and our shofar blowing, but for the molad halevanah; but Shach brought several poskim that the main thing depends on beit din's establishment — for whatever beit din below does, they agree with them above; Shach adopts this view as primary.
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 7
-marker: א
-**** HEBREW ****
-<b>בתמוז. </b> ואז תקבע וסת בחדשים לדילוג וצריכה אח"כ לחוש לי"ט באב ולכ' באלול וכן לעולם. ש"ך:
-**** ENGLISH ****
-In Tammuz. And then she establishes a veset in months by skipping, and needs afterward to be concerned for the 19th of Av and the 20th of Elul, and so forever. Shach.
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 7
-marker: ב
-**** HEBREW ****
-<b>הראשונה. </b> והיינו שגם דילוג הראשון היה בשוה עם שאר הדילוגים כגון שהיתה רגילה לראות ביום עשרים ושינתה לראות ביום כ"א וכ"ב וכ"ג דאף ראיית כ"א מן המנין כיון שגם הוא היה בדילוג שוה כמו האחרים ודלא כהדרישה שכ' שהדילוג הראשון א"צ להיות שוה עם שאר הדילוגים ואינו נכון כלל. כ"כ הט"ז וש"ך:
-**** ENGLISH ****
-The first. And we were also the first dice with the rest of the pedagogicals such as it was used to see on the 20th day and changed to see on the day as “a” and “a” from the melanin that he was also in a pedagogical as the others and not so demanding that the first tycoon was to be married to the rest of the divisions. The Bible and the Bible:
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 7
-marker: ג
-**** HEBREW ****
-<b>ולהחמיר. </b> כ' הט"ז יש לתמוה דהא גם לדעה הראשונה יש חומרא א' דהיינו אם יש לה חשש ב' וסתות דאינו נעקר א' מהם אלא אם יהיה השני נקבע כמ"ש סי"ג בתחלת ההג"ה וא"כ לדעה האחרונה כאן דנקבע בג"פ וסת הדילוג ממילא נעקר חשש וסת הב' שיש לה ואינה חוששת לו עוד ולדעה הראשונה לא נקבע עדיין והיא חוששת גם לשני ע"כ כתב הב"ח דלענין זה קי"ל כסברא הראשונה דהיינו בשניהם להחמיר ונכון הוא ויש לי מקום עיון על הטור בזה שכ' שהרא"ש פסק כשמואל שהיא סברא קמייתא כאן ובפרק שור שנגח ד' וה' כ' הרא"ש בדף ח' דקי"ל כרב בהא וצ"ע עכ"ל:
-**** ENGLISH ****
-And to be stringent. Taz wrote: it is surprising, for even according to the first opinion there is one stringency — if she has concern for two vesetot, neither uprooted except if the second becomes established, as in seif 13 at the start of the hagahah; and thus per the latter opinion here, since she established a skipping veset in three times, the concern for the second veset is automatically uprooted; but per the first opinion it is not yet established and she still concerns for both. Bach therefore wrote we rule like the first reasoning — in both cases to be stringent. I have room to examine the Tur, who wrote Rosh ruled like Shmuel here, yet in Shor SheNagach Rosh ruled like Rav — unresolved.
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 8
-marker: _
-**** HEBREW ****
-<b>וחוששת. </b> כ' הב"ח דה"ה בג"פ וב' חדשים חוזר חלילה נמי הוי וסת קבוע כגון שראתה ט"ו בניסן וט"ז באייר וט"ו בסיון וט"ז בתמוז וט"ו באב וט"ז באלול קבעה לה וסתה בדילוג חלילה וחוששת אח"כ לט"ו בתשרי וט"ז בחשון וט"ו בכסלו וט"ז לטבת וכן לעולם וכ' הש"ך דכאן בין לרב בין לשמואל סגי בג"פ דכיון דראתה ג"פ בט"ו וג"פ בט"ז וג"פ בי"ז ה"ל כראתה ג"פ בימי החדש בשוה ודלא כדרישה דכתב דלשמואל בעינן שתראה ג"כ בי"ח בתמוז ואח"כ בג' חדשים שלאחריה ט"ז וי"ז וי"ח עכ"ל:
-**** ENGLISH ****
-And she is concerned. Bach wrote: likewise in three times and two months, returning chalilah also becomes an established veset — e.g. she saw 15 Nisan, 16 Iyar, 15 Sivan, 16 Tammuz, 15 Av, 16 Elul — she established by skipping chalilah, and afterward concerns for 15 Tishrei, 16 Cheshvan, 15 Kislev, 16 Tevet, forever. Shach: here whether for Rav or Shmuel three times suffice, since she saw three times on the 15th, 16th, and 17th — as if three equal days of the month — unlike Derishah who requires also the 18th of Tammuz and afterward 16, 17, 18 in the following three months.
-**** END BLOCK ****
-
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 9
-marker: _
-**** HEBREW ****
-<b>קבעה. </b> כתב הט"ז זהו לי"א דסעיף ז' אבל לדעה הראשונה צריכה שתראה עוד באחד באלול אבל הש"ך ס"ל כיון דהכא ראיותיה שוות לעולם בר"ח סגי בג"פ לכ"ע <small>(כדלעיל סעיף ו' בראתה מר"ח לר"ח ומה לי מר"ח א' לב' או מא' לג' וכ"כ ב"ח)</small>:
-**** ENGLISH ****
-determined. It is written to me, but the first opinion must be seen in one of the gods, but the Bible has given its evidence that it is equal to the world of the IDF and that it is called the IDF and what is it that it is called to the Almighty and to the world that it is equal to the Almighty and to the G-d
-**** END BLOCK ****
-
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 10
@@ -128,7 +122,14 @@ marker: _
 by boating. He said, “The Lord has not yet seen him in the day of the day, and he has not given him any evidence of Hashem’s promise to him, and that he will not be given to him, and that he will not be given to him.”
 And when you see the High Court in the U.S., we will see the “Day of the Day” in the Mission, it has set an equal sample of drones at the same time:
 **** END BLOCK ****
+```
 
+### 4. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 11 — marker `_`
+
+- Quality: **error** — mt_garbage
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=11#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 11
@@ -136,9 +137,16 @@ marker: _
 **** HEBREW ****
 <b>פעם. </b> כ' הש"ך דמדברי הדרישה משמע דאף ביש לה וסת קבוע בט"ו לחדש וראתה אח"כ בט"ז ובי"ז ס"ל לרב דקבעה וסת לדילוגים ודוקא ביש לה וסת מכ' לכ' ושינתה בדילוג ס"ל לרב דלא קבעה וסת לדילוגים וליתא דבהדיא משמע בש"ס דאפילו ביש לה וסת ליום ט"ז לחדש שדינן ליום ט"ז לוסת שלפניו וכן פירש"י שם להדיא עכ"ל:
 **** ENGLISH ****
-Once. Shach wrote: from Derishah's words it appears that even with an established veset on the 15th who then saw on the 16th and 17th, Rav holds she established a skipping veset; only if she had a veset from the 20th to the 20th and changed by skipping does Rav hold she did not establish skipping — but this is not so, for the Gemara is explicit that even with an established veset on the 16th we rule the 16th like the preceding veset; Rashi explained this explicitly.
+Once. In the words of Hashem’s Word, Hashem’s promise is to be made to Hashem’s people, and to be able to do so, and he will be able to do so with Hashem’s Word, and he will be able to do so with Hashem’s Word
 **** END BLOCK ****
+```
 
+### 5. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 12 — marker `א`
+
+- Quality: **error** — divine_name_style, mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=12#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 12
@@ -146,9 +154,17 @@ marker: א
 **** HEBREW ****
 <b>המנין. </b> פי' הש"ך כגון שראתה בתחלה בר"ח אדר ואח"כ בר"ח ניסן דאע"ג דהשתא ראתה מחדש לחדש אם שוב ראתה בר"ח סיון ואב קבעה לה וסת לסירוגים דהשתא חזינן שסירגה מב' חדשים לב' חדשים והט"ז פי' דהיינו שראתה בר"ח ניסן ובר"ח סיון ובר"ח אב קבעה לה בר"ח לסירוג שאח"כ אינה חוששת אלא לר"ח תשרי ולא לר"ח אלול וכן לעולם וכאן הוי ר"ח ניסן מן המנין לכ"ע כי בו יש ג"כ שייכות הוסת מצד שהוא ר"ח וניכר הוא כו' ע"ש ומיהו בהיה לה וסת קודם לכן כגון שראתה בר"ח שבט ובר"ח אדר ובר"ח ניסן ושוב סירגה לראות בר"ח סיון ובר"ח אב אז ראיית ניסן אינה מן המנין דכיון דקבעה וסת מר"ח לר"ח א"כ בר"ח ניסן לא שם סירוג עלה אלא וסת השוה הוא:
 **** ENGLISH ****
-From the count. Shach explained: e.g. she saw first on Rosh Chodesh Adar then Nisan — although now month to month, if she again saw Rosh Chodesh Sivan and Av she established alternating months. Taz: she saw Rosh Chodesh Nisan, Sivan, Av — established alternating Rosh Chodesh, afterward concerned only for Tishrei not Elul. Here Rosh Chodesh Nisan counts for everyone. But if she had a prior veset — Shevat, Adar, Nisan, then alternated Sivan and Av — Nisan's seeing is not from the count, for she established Rosh Chodesh to Rosh Chodesh and on Nisan placed an equal veset not alternation.
+The Mandarin. He said, “The Lord’s promise is that he will be able to see the Lord’s promise, and he will be able to do so, and he will not be able to do so.”
+This is the case of Hashem’s promise to Abraham and Isaac, and his father’s prayer, and his father’s prayer, is not in the presence of the Lord’s presence, but rather from the presence of the Lord’s Prayer:
 **** END BLOCK ****
+```
 
+### 6. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 12 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=12#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 12
@@ -158,7 +174,14 @@ marker: ב
 **** ENGLISH ****
 Air. On behalf of women and giving each to Hashem and we were all new and the G-d has been whispered to two days of the first IR Air Day, which is the day to the mirror, and it responds medium to those who do not have a permanent menstruation and see the report:
 **** END BLOCK ****
+```
 
+### 7. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -169,7 +192,14 @@ marker: א
 One. According to the book, Dainna wrote here, "I did not know why he would hide his own words," he said in a statement, "that we were told to the IDF that we had been to the IDF." And that the middle-seasoned Bible was re-examined on that day of a new one that showed it should feel the next renewal between full or missing and what was said in the mid-season finale and a “show day for another vision to apply we were in just a new, complete and complete” if the new is missing as “a day of evidence to the ovation of evidence
 Otherwise, it is not possible to feel here on the day of Air Air, because of a moderate season, the KGB question is divided into the Bible and agreeing with the fact that it is a day when it comes to Hashem:
 **** END BLOCK ****
+```
 
+### 8. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ב`
+
+- Quality: **error** — divine_name_style, mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -177,9 +207,16 @@ marker: ב
 **** HEBREW ****
 <b>חוששת. </b> הב"ח חולק על הרב וס"ל דאם ראתה בר"ח אייר שוב אינה חוששת לט' בו וכ"כ הש"ך באריכות ומחזיק דבריו בנה"כ ע"ש אבל הט"ז הסכים לדעת הרב דאף אם ראתה בר"ח צריכה לחוש לכל החששות וסיים הדבר ברור שמשה אמת ותורתו אמת ודבריו כאן הלכה רווחת בישראל ע"ש:
 **** ENGLISH ****
-She is concerned. Bach disagrees with Rav: if she saw Rosh Chodesh Iyar she no longer concerns for its 9th; Shach at length upholds this in Nekudot HaKesef. Taz agreed with Rav that even on Rosh Chodesh she must concern for all concerns, concluding — Moshe is true and his Torah is true, and his words here are widespread halachah in Israel.
+Afraid. The Bible says that the Lord of Israel is not afraid of Hashem’s presence, and that Hashem’s Word is in His presence, and that the Lord’s Word is in His presence, and that He is the Lord’s name, and that His Word is in Israel
 **** END BLOCK ****
+```
 
+### 9. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ג`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -189,7 +226,14 @@ marker: ג
 **** ENGLISH ****
 Not. The Bible says, “This is the day of the Bible, and it is the voice of the new report that we were a medium season:
 **** END BLOCK ****
+```
 
+### 10. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ד`
+
+- Quality: **error** — mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%93`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -197,9 +241,16 @@ marker: ד
 **** HEBREW ****
 <b>לי"ז. </b> דמשום וסת הדילוג א"צ לחוש כדלעיל וגם וסת הפלגה ליכא שהרי ניסן מלא ואייר חסר נמצא ט"ז דאייר הוא הפלגת ל"ב מט"ו דניסן וי"ז דסיון הוא הפלגת ל"א מט"ז דאייר ומש"ה אינה חוששת ג"כ לי"ח בתמוז שאינו הפלגת ל"א אלא ל"ב מי"ז בסיון וצריכה לחוש להפלגת האחרון שהוא ל"א:
 **** ENGLISH ****
-The 17th. For skipping veset she need not concern as above; no interval veset either, for Nisan is full and Iyar deficient — 16 Iyar is interval 32 from 15 Nisan, 17 Sivan is 31 from 16 Iyar; therefore not concerned for 18 Tammuz (32 not 31 from 17 Sivan), but must concern for the last interval of 31.
+Li's. It is a sign of Hashem’s promise to Abraham and Isaac, that he will not be able to see Hashem’s promise, and that he will not be able to worship Hashem’s covenant with Hashem’s Word, and that he is not afraid of Hashem’s promise of Hashem’s promise
 **** END BLOCK ****
+```
 
+### 11. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ה`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%94`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -209,7 +260,14 @@ marker: ה
 **** ENGLISH ****
 to the report. We had been to the first S.C., but to be named there, the DNA of evidence and a sense of here for me in the limousine, and as it was done, it was the end of a new monument that was first seen by the Mannins and the ISA, and that it was not a permanent end to the New Testament
 **** END BLOCK ****
+```
 
+### 12. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ו`
+
+- Quality: **warn** — divine_name_style, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%95`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -221,7 +279,14 @@ in the boat. That is to say that a celebration such as B. Bensen saw and at the 
 At the same time, we were as a “secretary” and did not see a permit to be used on the day as a “secretary” and we would have been to Samuel A.N. to the rabbi and had to do so before, but when she did not have a sequencing to the D.D. of evidence of the faction to determine and skip the division. It took her evidence of the day as a “Judge” that she had set up a tyrant from here onward and was not afraid of me, but rather a logo as “the Ramban” and I added in the Light of the Bible and the above I am in the form of evidence, and here in the name of the Lord’s curse according to the New Testament
 "There is a day of first-hand evidence here I am beginning with you on the 20th day, and you don't know when the twenty-first is required for the first evidence that before the 20th and 20th day is considered to be a day because there is no known A without a buffer found to be a second term in the section of G-d, evidence:
 **** END BLOCK ****
+```
 
+### 13. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ז`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%96`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -231,7 +296,14 @@ marker: ז
 **** ENGLISH ****
 The Mandarin. A new evidence from the mechanics is also incorporated into the first de faction of the melanin, but there is no known cruise, but in two evidence and less than a meter of evidence, even in equal and shadow cruise:
 **** END BLOCK ****
+```
 
+### 14. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ח`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%97`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -241,7 +313,14 @@ marker: ח
 **** ENGLISH ****
 To the logo. It is hard to say, “This is the words of the Ramban, and it ceases to be seen in the dice, and in this case, Samuel admits that he has already had a normal fire that would have been seen by Hashem’s people, and that he has been shown to him as a result of his death.”
 **** END BLOCK ****
+```
 
+### 15. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 13 — marker `ט`
+
+- Quality: **warn** — divine_name_style, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%98`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 13
@@ -251,7 +330,14 @@ marker: ט
 **** ENGLISH ****
 The main. He wrote in the words of the King of Tama, who is a son of Hashem, or after the time of the Lord, that his wife should leave her in Genesis 1 or 12 days before, and that the Bible says, “This is not a curse that must be removed from all the days of the Lord.”
 **** END BLOCK ****
+```
 
+### 16. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 14 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 14
@@ -261,7 +347,14 @@ marker: א
 **** ENGLISH ****
 Permanent. D.C. John Daesh and did not see on the day that he was afraid of the day as 'a priest who was not yet determined that six times:
 **** END BLOCK ****
+```
 
+### 17. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 14 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 14
@@ -271,7 +364,14 @@ marker: ב
 **** ENGLISH ****
 bye. But there is no monine as an hour that would have been worthy of seeing for a day as a ‘son who has never seen before and waited until a day.’ TJ:
 **** END BLOCK ****
+```
 
+### 18. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 14 — marker `ג`
+
+- Quality: **error** — divine_name_style, mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 14
@@ -279,9 +379,17 @@ marker: ג
 **** HEBREW ****
 <b>למקומו. </b> כתב הרא"ש אע"פ שג"פ לא ראתה ביום כ' <small>(ר"ל שב' פעמים ראתה ביום ל' ובפעם הג' ראתה אחר ל' ושוב חזרה לראות ביום כ' כן פי' בנה"כ)</small> לא נעקר יום כ' כיון שלא ראתה יום ל' שאם אשה מדלגת וסת א' פעמים ושלש ואינה רואה בנתיים לזמן אחר וחוזרת לראות לזמן הוסת לא נעקר הוסת ובמ"מ כתב דהטור סובר דלאו דוקא בשלא ראתה בשלשים השלישית אלא שעדיין לא הגיע אפ"ה כל שחזרה וראתה לך' חזרה לקביעות הראשון ואינה חוששת לל' ואע"פ שלא נעקר עדיין ע"י שלא ראתה בו אפ"ה זה שראתה בכ' שהוא יום קביעות הראשון מחשיב לה לעקירה של ב' ראיות דל' ודין זה צ"ע דלא משמע כן בש"ס עכ"ד הש"ך והט"ז כתב לתרץ דיש חילוק בין ימי החודש דמזה מיירי בש"ס אבל המחבר מיירי מהפלגת ימים מיום ל' ליום כ' לכך כתב לאחר ששינתה פעם או פעמיים וכו' ע"ש באריכות:
 **** ENGLISH ****
-To its place. Rosh wrote: even though three times she did not see on the 20th (twice on the 30th, third after 30 then again on the 20th — per Nekudot HaKesef), the 20th is not uprooted since she did not see on the 30th — one who skips a veset and returns to its time does not uproot it. Nevertheless the Tur holds: whenever she returned and saw on the 20th she returns to the first establishment and is not concerned for the 30th; seeing on the 20th counts as uprooting two 30th seeings — unresolved per Shach. Taz: difference between days of month (Gemara) vs interval from 30th to 20th (Mechaber).
+From his place. Hashem’s Word tells us that Hashem has never seen Hashem’s Word on the day of the day, and Hashem has seen Hashem’s Word, and yet again He has seen Hashem’s Word, and He has never seen Hashem’s glory, nor does he see it in the first time
+It is not yet reported by the fact that he did not see it as the first day he considered it to be the displacement of B. D. D. D.D., and that it is not the case of this year, that it does not mean that it does not mean that it is in the name of the Lord, and that it is written twice, or so that it is the author of the day
 **** END BLOCK ****
+```
 
+### 19. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 15 — marker `א`
+
+- Quality: **warn** — divine_name_style, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 15
@@ -291,7 +399,14 @@ marker: א
 **** ENGLISH ****
 changed. According to the book, Dr. Deza Kai, in a fire that she had a day and a prison in the previous section, but a defendant called for equal evidence of the day, “And there is a day for the Lord, and here Myri Daesh has changed to an equal, completely forbidden and seen afterwards:
 **** END BLOCK ****
+```
 
+### 20. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 15 — marker `ב`
+
+- Quality: **warn** — divine_name_style, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 15
@@ -301,7 +416,14 @@ marker: ב
 **** ENGLISH ****
 at all. The Bible and May of May, according to the High Court of Justice, “The Lord must feel the Lady of the Dictator as a man who is suspected of a day in the P and feels for the day of the Lord, and even the Lord is afraid of who is the last feast for the day. He also wrote in the Bible for a moderate season, i.e., for a month's days, such as if she had a day for her 'D.' in this month, I was later afraid of the day of the month, and I felt so much like a day for the week:
 **** END BLOCK ****
+```
 
+### 21. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 15 — marker `ג`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 15
@@ -311,7 +433,14 @@ marker: ג
 **** ENGLISH ****
 The first. The letter of the High School of Firefighters is not in the days of the month, the High Day is that Rath in the first class of the day of L.D. who has recently shown that he will be recognized that he is still in the first menstruation:
 **** END BLOCK ****
+```
 
+### 22. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 15 — marker `ד`
+
+- Quality: **error** — divine_name_style, mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%93`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 15
@@ -319,9 +448,16 @@ marker: ד
 **** HEBREW ****
 <b>הוסת. </b> כתב הט"ז וקשה לי כיון דמיירי כאן בהפלגת ימים וכמ"ש לעיל היאך תמצא כאן שחזרה לראות ביום הוסת הא וסת שלה בהפלגת סך ימים חד ראיה מחברתה וכאן לא ראתה זמן רב ואין לך ראיה לחשוב ממנה הפלגה וכו' ומסקנתו דבאמת מ"ש הש"ע ביום הוסת הוא שלא בדקדוק עכ"ל ובנה"כ פירש דר"ל שתראה ראיה א' ואח"כ ראיה ב' ליום כ' דאז חוזר וסת הראשון למקומו לכל דבר וא"צ לחוש לוסת החדש ויש לו שאר דיני וסת קבוע וכל זה ברור עכ"ל:
 **** ENGLISH ****
-The veset. Taz: difficult — here dealing with day intervals, how find she returned on the veset day when her veset is by total day interval? She did not see long and has no interval basis. Conclusion: Shulchan Aruch's "on the veset day" is imprecise. Nekudot HaKesef: one seeing then second on the 20th — first veset returns to its place, no concern for month veset, with other laws of established veset — all clear.
+Closed. It is hard for me to see the day of the Lord’s Prayer here in the day of the day of the day of the day of the day of the Lord’s Prayer, and here you have not seen a long time, and you have no evidence to think of it as a whole and so forth, that it is not in the gram that it is clear to the first day
 **** END BLOCK ****
+```
 
+### 23. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 16 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=16#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 16
@@ -331,7 +467,14 @@ marker: א
 **** ENGLISH ****
 to the emergency. The new boss, however, was jealous of the most, but the boss of the cruises such as it was used to see the day of the U.S. and then passed, and did not see the day of the IDF to be a party to the U.S. who was worthy to see that day as the PA and the United States
 **** END BLOCK ****
+```
 
+### 24. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 16 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=16#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 16
@@ -341,7 +484,14 @@ marker: ב
 **** ENGLISH ****
 From his place. And the “NH has changed its evidence of evidence that is not equal and repeated, and has shown a reincarnation to its place and requires a G-d to report. B and the others:
 **** END BLOCK ****
+```
 
+### 25. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 17 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 17
@@ -351,7 +501,14 @@ marker: א
 **** ENGLISH ****
 later. It is known such as Bar or B on Saturday as a report. “Third:
 **** END BLOCK ****
+```
 
+### 26. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 17 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 17
@@ -361,7 +518,14 @@ marker: ב
 **** ENGLISH ****
 The rape. This book, however, was not the opinion of the column that had stopped even jumping into the walls of the Old Testament, and in section as "a paragraph of yesterday's gram and we were as the columnist's opinion, and that the words of the Almighty contradict this seemingly, and according to which it is not a rape incident, and the taste of the woman's nature to be so at the time of the possibility of a jump in which there is not only rape
 **** END BLOCK ****
+```
 
+### 27. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 17 — marker `ג`
+
+- Quality: **error** — divine_name_style, mt_garbage, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 17
@@ -369,9 +533,17 @@ marker: ג
 **** HEBREW ****
 <b>חוששת. </b> כיון שאירע כן בג"פ כ"כ בהג"מ ונ"ל דלא אתא אלא לאפוקי שא"צ לחוש לכל פעם שתקפוץ כשלא אירע כן ג"פ אבל לוסת החדש ולהפלגה צריכה לחוש אפילו בפעם א' כגון שקפצה וראתה ואחר כ' יום חזרה וקפצה וראתה צריכה לחוש לוסת ההפלגה ואם אח"כ תקפוץ לסוף כ' צריכה לחוש לו כל העונה דלא יהא ראתה מכ' לכ' בלא קפיצה וכי בשביל שקפצה מתחלה יגרע <small>(הא השתא נמי קפצה)</small> ועוד כיון דע"י קפיצה ליום ידוע בג"פ קבעה וסת כדלקמן סי"ח א"כ בחדא זימנא נמי מיחש חיישה וראיה לזה מסי' קפ"ז סי"א גבי ראתה מחמת תשמיש כו' ע"ש ואע"ג דגבי פיהוק אמרינן לקמן דחוששת לוסת החדש אף בלא פיהוק שאני התם כיון דמתחלה ראתה שלא ע"י אונס עכ"ל הש"ך:
 **** ENGLISH ****
-She is concerned. Since it happened three times (Hagahot Maimoniyot) — only excludes needing concern every jump when not three times; but for month veset and interval she must concern even once — jumped and saw, after 20 days jumped and saw — concerned for interval veset; if afterward jumps at end of 20, concerned entire onah lest she see 20-to-20 without jumping. Since jumping to known day three times establishes veset (seif 18), even once concerned — proof from siman 187 seif 11 re tashmish. Regarding yawning below — different, since first seeing was not from coercion — Shach.
+Afraid. It is because it has happened in the Bible, and it is only for the time that you will jump when you don’t happen, but the new Los Angeles and the party must feel even for a time, such as jumping and seeing, and then seeing that it should not be seen as the end of the season
+On the one hand, the psalmist saw that he would be slain and see that from the end of the year, and he said, “I am not afraid of the Lord’s presence, and that I am not afraid of Hashem’s wrath, and that I have not been raped by him.”
 **** END BLOCK ****
+```
 
+### 28. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 17 — marker `ד`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%93`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 17
@@ -382,7 +554,14 @@ marker: ד
 determined. (Even without a leap) but the PA ruled on Saturday mornings in a spring of yesterday and set an end to the day of A. and jump, but not to the day of his day (and so on, he said, “It’s not enough for him to be able to see him in the day of his life.”
 John Dalai Dalai Dalai did not see because of his unrecognizedness, but if he jumped to the same day, he was afraid, and as an extortioner:
 **** END BLOCK ****
+```
 
+### 29. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 19 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 19
@@ -392,7 +571,14 @@ marker: א
 **** ENGLISH ****
 The throat. From the food eaten and clothed, the Rambam's words in the sublime are seen from above, and it seems to be the case for both. “Third:
 **** END BLOCK ****
+```
 
+### 30. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 19 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 19
@@ -402,7 +588,14 @@ marker: ב
 **** ENGLISH ****
 Chris. Against Tebora and poly from her intestine in the womb and all of this should be many times the DISA does not have been established because it is through the whole world and there is no change here:
 **** END BLOCK ****
+```
 
+### 31. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 19 — marker `ג`
+
+- Quality: **warn** — chunk_seam_duplicate, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 19
@@ -412,7 +605,14 @@ marker: ג
 **** ENGLISH ****
 and jaw. And even Mandover above the D.C. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D.C. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D.C. D. D. D. D. D. D. D. D. D. D. D. D.C.C. D. D. D. D. D. D. D. D. D. D. D. D. D.C. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D. D.C.C.C.C. D. D. D. D. D. D. D. D. D. D. D Hashem:
 **** END BLOCK ****
+```
 
+### 32. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 19 — marker `ד`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%93`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 19
@@ -422,7 +622,31 @@ marker: ד
 **** ENGLISH ****
 Not afraid. Even a non-permanent menstruation is not the end of the case and not the end of the day. “Third:
 **** END BLOCK ****
+```
 
+### 33. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 2 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 2
+marker: _
+**** HEBREW ****
+<b>שראתה. </b> פעם שנית לסוף כ' לראיה א' חוששת מכאן ואילך כשיגיע יום כ' שלישי. ש"ך:
+**** ENGLISH ****
+She saw. Once again, to the end of Raa A, he fears from here and later when he comes to Tuesday. “Third:
+**** END BLOCK ****
+```
+
+### 34. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 20 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=20#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 20
@@ -432,7 +656,14 @@ marker: א
 **** ENGLISH ****
 The panic. And he said, “And he turned to him alone, and the opposite set him alone.”
 **** END BLOCK ****
+```
 
+### 35. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 20 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=20#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 20
@@ -442,7 +673,14 @@ marker: ב
 **** ENGLISH ****
 Yesterday. And for the above jump, the Dr. Demerin dema causes a grassy jump and rape is coming. The demand:
 **** END BLOCK ****
+```
 
+### 36. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 21 — marker `_`
+
+- Quality: **warn** — chunk_seam_duplicate, divine_name_style
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=21#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 21
@@ -453,7 +691,14 @@ marker: _
 Set up. It is hard for the Lord to write in the Bible if he did not set up a burgeon and did not see that he had a proper season, and that he would not be able to do so, and that he would not be able to do so, and that he would not be able to do so, and that he would not be able to do so
 Some time later, she did not feel allowed, but above that he depended on the time of an epic next to all the time that she did not feel the possibility of depotting a factor and has already passed:
 **** END BLOCK ****
+```
 
+### 37. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 24 — marker `_`
+
+- Quality: **info** — divine_name_style
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=24#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 24
@@ -463,7 +708,14 @@ marker: _
 **** ENGLISH ****
 Season. A day or night as Dr. K. K. K.D. D. A.D., said: "The first season of the Lord has come to pass, but the first season is prohibited from answering a season, and it is also possible that the evidence is implanted before the entire season, and it is forbidden to leave it before the season
 **** END BLOCK ****
+```
 
+### 38. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 25 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=25#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 25
@@ -474,7 +726,14 @@ marker: _
 All. The book of the High Court, which depends on the change of the body, is not afraid only in the time of its end and here it is forbidden for every season of destruction such as in the rest of the days and in the end of the body, but in the case of the rest of the body, it is not possible for the first time of the body to be exposed to the present day, but it is not possible to the extent of the body
 And the same season is a day, but the body’s boss without a regular day is permitted to another breeze and the body’s jaw (and he’s running there)
 **** END BLOCK ****
+```
 
+### 39. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 27 — marker `א`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%90`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 27
@@ -484,7 +743,14 @@ marker: א
 **** ENGLISH ****
 The youth. That is to say that she is less than one person and one day and wrote the above all that she has not yet seen a jeep is not afraid of any non-permanent episode, and that women are afraid of him until he is interrogated once on this back is not so, but said a case with which he is:
 **** END BLOCK ****
+```
 
+### 40. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 27 — marker `ב`
+
+- Quality: **warn** — marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%91`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 27
@@ -495,7 +761,14 @@ marker: ב
 Mediums. If it didn't stop unless G-d ruled unless he had been accustomed to seeing them again and seeing those little seasons once a. was afraid of them and A. did not see the same seasons, but that he had once seen A. was afraid to see her interview or a moderate season when she had stopped middle-aged women and we didn't see that nature had stopped her, so that women said, "This is not so great."
 For a small number of years of displacement, but rather a mid-season, which breaks back to the beginning and forgets the new boss in the sway that saw a new boy in a new boy’s heart that he set up and ends with a new G-d and does not see a single one in the morning
 **** END BLOCK ****
+```
 
+### 41. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 27 — marker `ג`
+
+- Quality: **warn** — divine_name_style, marker_label_mismatch
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%92`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 27
@@ -506,7 +779,14 @@ marker: ג
 intentions. The Bible says, “The Lord has no evidence that it will be held in the blood from the same hour, and it is sufficient for a woman who does not have a menstruation and that the author does not mean that it does not mean that Daina is afraid of this rule, but rather is afraid of the same constant menstruation that she has had, but will be a woman who does not have an exception, and that they are not held at all
 And that is to say, the last evidence from the first G-d that she had seen before beginning to the paragraph:
 **** END BLOCK ****
+```
 
+### 42. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 28 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=28#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 28
@@ -516,7 +796,31 @@ marker: _
 **** ENGLISH ****
 The first. We were not back to the first box as a basket. “Third:
 **** END BLOCK ****
+```
 
+### 43. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: _
+**** HEBREW ****
+<b>לשעות. </b> פי' אחר טבילתה או שאר דברים כיוצא בהן שרגילה לראות מחמת אותו זמן. ט"ז:
+**** ENGLISH ****
+hours. A different pyre has been baptized or other things, and the same way it is used to see the time. TJ:
+**** END BLOCK ****
+```
+
+### 44. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 32 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=32#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 32
@@ -526,7 +830,14 @@ marker: _
 **** ENGLISH ****
 inside. In this month, there is another matter that it determines and ends in such a menstruation as it has shown in this month, and in this month, in this new month, and in this new, and in this new one, when it is completed in each A and A. has set it to “all new and new.”
 **** END BLOCK ****
+```
 
+### 45. `siman_189/baer-heitev/part-001.txt` — baer-heitev — seif 33 — marker `_`
+
+- Quality: **ok**
+- Checkpoint id: `siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=33#marker=_`
+
+```text
 **** YD001 SOURCE BLOCK ****
 slug: baer-heitev
 seif: 33
@@ -536,33 +847,62 @@ marker: _
 **** ENGLISH ****
 and mm. In this case, an elderly lawyer who is suffering from an old age who, at the time, wrote: "The taste that she has no blood in nature is passed away from a fetus that has only a debilitating blood and as soon as the days of the bees have passed back to the place of the High School:
 **** END BLOCK ****
+```
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 34
-marker: א
-**** HEBREW ****
-<b>במקרה. </b> פי' ואחר כך אינה חוששת לוסת זו:
-**** ENGLISH ****
-In case. But then, I don't worry about this:
-**** END BLOCK ****
+---
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 34
-marker: ב
-**** HEBREW ****
-<b>פוגעת. </b> ואף אם לא ראתה בו חוששת לר"ח שני וכן לג' שאינו נעקר בפחות מג"פ והרמב"ן כתב שאינה חוזרת עד שתראה פעם אחת ומשתראה פ"א חוזרת לוסתה אפילו אינה רואה בזמן וסתה וכן דעת הראב"ד ולא ידעתי למה השמיט המחבר דעתם דהא רבים נינהו ועוד דבוסתות דרבנן שומעין להקל עכ"ל הש"ך:
-**** ENGLISH ****
-hurting. And even if she didn’t see him fear the second verse and the G-d who didn’t lie in less than G-d and the Ramban wrote that she would never return until she saw a single time and saw that she would not see her time and sleep, nor did I know what the author of many of her thoughts, Nina, and more of her dog’s defeats listen to his relief
-**** END BLOCK ****
+## After completing this batch
 
-**** YD001 SOURCE BLOCK ****
-slug: baer-heitev
-seif: 34
-marker: ג
-**** HEBREW ****
-<b>שתחזור. </b> שהרי אין כאן שום ראיה שנשער בהפלגה ממנה. ש"ך:
-**** ENGLISH ****
-return. There is no evidence that we will draw from it. “Third:
-**** END BLOCK ****
+```bash
+cd newtry/YD_001
+npm run apply:dictionary -- --root output/siman_189
+npm run pipeline:editorial:advance -- --siman 189
+```
+
+## Checkpoint ids
+
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=10#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=11#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=12#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=12#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%93
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%94
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%95
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%96
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%97
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=13#marker=%D7%98
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=14#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=15#marker=%D7%93
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=16#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=16#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=17#marker=%D7%93
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=19#marker=%D7%93
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=20#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=20#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=21#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=24#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=25#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%90
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%91
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=27#marker=%D7%92
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=28#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=32#marker=_
+siman_189/baer-heitev/part-001.txt#slug=baer-heitev#seif=33#marker=_
