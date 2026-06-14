@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { TRANSLATIONS } from './_patch-siman-126-translations.mjs';
+import { MANUAL as TRANSLATIONS } from './_manual-126.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(ROOT, 'output');
@@ -141,7 +141,6 @@ const FILES = [
   ['siman_126/baer-heitev/part-001.txt', 'baer-heitev'],
   ['siman_126/beer-hagolah/part-001.txt', 'beer-hagolah'],
   ['siman_126/beur-hagra/part-001.txt', 'beur-hagra'],
-  ['siman_126/mechaber/part-001.txt', 'mechaber'],
   ['siman_126/nekudot-hakesef/part-001.txt', 'nekudot-hakesef'],
   ['siman_126/pitchei-teshuva/part-001.txt', 'pitchei-teshuva'],
   ['siman_126/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
