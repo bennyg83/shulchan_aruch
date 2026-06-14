@@ -202,7 +202,6 @@ const FILES = [
   ['siman_125/beer-hagolah/part-001.txt', 'beer-hagolah'],
   ['siman_125/beur-hagra/part-001.txt', 'beur-hagra'],
   ['siman_125/mateh-yehonatan/part-001.txt', 'mateh-yehonatan'],
-  ['siman_125/mechaber/part-001.txt', 'mechaber'],
   ['siman_125/nekudot-hakesef/part-001.txt', 'nekudot-hakesef'],
   ['siman_125/pitchei-teshuva/part-001.txt', 'pitchei-teshuva'],
   ['siman_125/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
