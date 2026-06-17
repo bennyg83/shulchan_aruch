@@ -1005,9 +1005,11 @@
     },
     {
       "siman": 168,
-      "title": "Siman 168",
+      "title": "Simanim 168–169",
       "subtitle": "Yoreh De'ah",
-      "corpusPath": "/corpus/yd1/siman168"
+      "corpusPath": "/corpus/yd1/siman168",
+      "searchAliases": [169],
+      "comment": "Standard Shulchan Aruch numbering: siman 169 (קסט) is merged into siman 168 (קסח–קסט, ribbis via a non-Jew). No separate siman 169 folder."
     },
     {
       "siman": 170,
@@ -2407,5 +2409,17 @@
       "subtitle": "Yoreh De'ah",
       "corpusPath": "/corpus/yd1/siman402"
     }
-  ]
+  ],
+  "searchIndex": {
+    "redirects": {
+      "169": 168
+    },
+    "merged": [
+      {
+        "canonical": 168,
+        "includes": [169],
+        "comment": "Standard Shulchan Aruch numbering: siman 169 (קסט) is merged into siman 168 (קסח–קסט, ribbis via a non-Jew). Content lives at siman 168 only."
+      }
+    ]
+  }
 }

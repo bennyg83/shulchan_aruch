@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
+import { catalogEntryMatchesQuery } from "./lib/catalogSearch.js";
 
 /**
  * Full-screen siman picker for mobile / narrow viewports.
@@ -23,18 +24,10 @@ export default function SimanPicker({ open, onClose, catalog, activeEntry, onSel
     if (!q) return catalog;
     const qBare = q.replace(/\u05F4/g, "").replace(/"/g, "");
     return catalog.filter((e) => {
-      const n = String(e.siman);
-      const title = (e.title || "").toLowerCase();
-      const sub = (e.subtitle || "").toLowerCase();
+      if (catalogEntryMatchesQuery(e, q)) return true;
       const gem = formatGematria(e.siman);
       const gemBare = numberToGematriaLetters(e.siman);
-      return (
-        n.includes(q) ||
-        title.includes(q) ||
-        sub.includes(q) ||
-        gem.includes(q) ||
-        gemBare.includes(qBare)
-      );
+      return gem.includes(q) || gemBare.includes(qBare);
     });
   }, [catalog, query]);
 
@@ -88,6 +81,7 @@ export default function SimanPicker({ open, onClose, catalog, activeEntry, onSel
               <span className="picker-sheet__meta">
                 <span className="picker-sheet__item-title">{e.title || `Siman ${e.siman}`}</span>
                 {e.subtitle ? <span className="picker-sheet__item-sub">{e.subtitle}</span> : null}
+                {e.comment ? <span className="picker-sheet__item-sub">{e.comment}</span> : null}
               </span>
             </button>
           ))}

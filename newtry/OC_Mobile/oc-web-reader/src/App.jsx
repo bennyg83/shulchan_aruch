@@ -95,6 +95,7 @@ import {
   commentaryKeysToArray,
 } from "./readerStorage.js";
 import { VOLUMES, resolveVolumeId, getVolume, bundlePathForVolume } from "./lib/volumes.js";
+import { findCatalogEntry } from "./lib/catalogSearch.js";
 
 const pad3 = (n) => String(n).padStart(3, "0");
 
@@ -170,6 +171,7 @@ const syncUrlAndStorage = useCallback(
         if (!cr.ok) throw new Error(`catalog ${cr.status}`);
         const doc = await cr.json();
         const entries = Array.isArray(doc.simanim) ? doc.simanim : [];
+        const searchIndex = doc.searchIndex ?? null;
         if (!entries.length) throw new Error("catalog has no simanim");
         if (cancelled) return;
         setCatalog(entries);
@@ -177,7 +179,7 @@ const syncUrlAndStorage = useCallback(
         const url = parseReaderUrl();
         const resume = loadReaderResume();
         const entry =
-          entries.find((e) => Number(e.siman) === url.siman) ||
+          (Number.isFinite(url.siman) ? findCatalogEntry(url.siman, entries, searchIndex) : null) ||
           (resume?.corpusPath && resume.volumeId === volumeId
             ? entries.find((e) => e.corpusPath === resume.corpusPath)
             : null) ||

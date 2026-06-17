@@ -14,6 +14,24 @@ import { fileURLToPath } from "url";
 import { COMMENTARY_ORDER, PUBLIC_CORPUS_YD1, YD001_OUTPUT } from "../../../lib/yd001-volume.mjs";
 import { parseBlocksInFile, EN_PENDING_DEFAULT } from "../../../YD_001/yd001_block_lib.mjs";
 
+const YD_MERGED_SIMANIM = {
+  168: {
+    includes: [169],
+    title: "Simanim 168–169",
+    comment:
+      "Standard Shulchan Aruch numbering: siman 169 (קסט) is merged into siman 168 (קסח–קסט, ribbis via a non-Jew). No separate siman 169 folder.",
+  },
+};
+
+const YD_SEARCH_INDEX = {
+  redirects: { 169: 168 },
+  merged: Object.entries(YD_MERGED_SIMANIM).map(([canonical, meta]) => ({
+    canonical: Number(canonical),
+    includes: meta.includes,
+    comment: meta.comment,
+  })),
+};
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const READER_ROOT = path.resolve(__dirname, "..");
 
@@ -198,19 +216,39 @@ function writeCatalog(publicRoot, through) {
   for (let n = 1; n <= through; n++) {
     const simanDir = path.join(publicRoot, `siman${n}`);
     if (!fs.existsSync(path.join(simanDir, "seif-index.json"))) continue;
-    if (!bySiman.has(n)) {
+    const merged = YD_MERGED_SIMANIM[n];
+    const existing = bySiman.get(n);
+    if (!existing) {
       bySiman.set(n, {
         siman: n,
-        title: `Siman ${n}`,
+        title: merged?.title ?? `Siman ${n}`,
         subtitle: "Yoreh De'ah",
         corpusPath: `/corpus/yd1/siman${n}`,
+        ...(merged
+          ? { searchAliases: merged.includes, comment: merged.comment }
+          : {}),
+      });
+    } else if (merged) {
+      bySiman.set(n, {
+        ...existing,
+        title: merged.title,
+        searchAliases: merged.includes,
+        comment: merged.comment,
       });
     }
   }
   const simanim = [...bySiman.keys()]
     .sort((a, b) => a - b)
     .map((k) => bySiman.get(k));
-  fs.writeFileSync(catalogPath, JSON.stringify({ schemaVersion: 1, simanim }, null, 2) + "\n", "utf8");
+  const redirects = {};
+  for (const m of YD_SEARCH_INDEX.merged) {
+    for (const alias of m.includes) redirects[String(alias)] = m.canonical;
+  }
+  fs.writeFileSync(
+    catalogPath,
+    JSON.stringify({ schemaVersion: 1, simanim, searchIndex: { redirects, merged: YD_SEARCH_INDEX.merged } }, null, 2) + "\n",
+    "utf8"
+  );
   console.log(`Wrote catalog.json (${simanim.length} simanim) → ${catalogPath}`);
 }
 
