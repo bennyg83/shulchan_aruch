@@ -8,6 +8,7 @@ export const VOLUMES = [
     label: "Orach Chayim",
     short: "OC",
     catalogPath: "/corpus/oc1/catalog.json",
+    simanCount: 697,
     enabled: true,
   },
   {
@@ -15,13 +16,15 @@ export const VOLUMES = [
     label: "Yoreh De'ah",
     short: "YD",
     catalogPath: "/corpus/yd1/catalog.json",
-    enabled: false,
+    simanCount: 403,
+    enabled: true,
   },
   {
     id: "eh1",
     label: "Even HaEzer",
     short: "EH",
     catalogPath: "/corpus/eh1/catalog.json",
+    simanCount: 178,
     enabled: false,
   },
   {
@@ -29,9 +32,14 @@ export const VOLUMES = [
     label: "Choshen Mishpat",
     short: "CM",
     catalogPath: "/corpus/cm1/catalog.json",
+    simanCount: 427,
     enabled: false,
   },
 ];
+
+export function bundlePathForVolume(volumeId, siman) {
+  return `/corpus/${volumeId}/bundles/siman${siman}.json`;
+}
 
 export const DEFAULT_VOLUME_ID = "oc1";
 

@@ -1,4 +1,4 @@
-# Deploy Orach Chayim web reader → https://bennyg83.github.io/shulchan_aruch/
+# Deploy OC + YD web reader → https://bennyg83.github.io/shulchan_aruch/
 name: Deploy web reader to GitHub Pages
 
 on:
@@ -39,9 +39,13 @@ jobs:
       - name: Verify corpus is present
         run: |
           test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/catalog.json
-          COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/ | wc -l)
-          echo "Bundles: $COUNT"
-          test "$COUNT" -gt 600
+          OC_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/ | wc -l)
+          echo "OC bundles: $OC_COUNT"
+          test "$OC_COUNT" -gt 600
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1/catalog.json
+          YD_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1/bundles/ | wc -l)
+          echo "YD bundles: $YD_COUNT"
+          test "$YD_COUNT" -gt 350
 
       - name: Install dependencies
         working-directory: newtry/OC_Mobile/oc-web-reader

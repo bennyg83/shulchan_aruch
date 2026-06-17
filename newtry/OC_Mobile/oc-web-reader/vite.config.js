@@ -47,22 +47,26 @@ function ghPagesDistPlugin() {
 }
 
 /**
- * Precache entries for Workbox: the 697 siman bundles + catalog.
- * We register these explicitly rather than via globPattern to avoid
- * enumerating the 200 K+ individual he/en HTML files in dist/.
+ * Precache entries for Workbox: siman bundles + catalog per published volume.
  */
 function buildBundleManifestEntries(base) {
-  const bundlesDir = path.join(mobilePublic, "corpus", "oc1", "bundles");
-  try {
-    const files = fs.readdirSync(bundlesDir).filter((f) => f.endsWith(".json"));
-    return [
-      { url: `${base}corpus/oc1/catalog.json`, revision: null },
-      ...files.map((f) => ({ url: `${base}corpus/oc1/bundles/${f}`, revision: null })),
-    ];
-  } catch {
-    console.warn("[vite-config] corpus bundles not found — run node scripts/bundle-corpus.mjs in oc318-mobile-reader first.");
-    return [];
+  const volumes = ["oc1", "yd1"];
+  const entries = [];
+  for (const vol of volumes) {
+    const bundlesDir = path.join(mobilePublic, "corpus", vol, "bundles");
+    const catalogPath = path.join(mobilePublic, "corpus", vol, "catalog.json");
+    try {
+      if (fs.existsSync(catalogPath)) {
+        entries.push({ url: `${base}corpus/${vol}/catalog.json`, revision: null });
+      }
+      if (!fs.existsSync(bundlesDir)) continue;
+      const files = fs.readdirSync(bundlesDir).filter((f) => f.endsWith(".json"));
+      entries.push(...files.map((f) => ({ url: `${base}corpus/${vol}/bundles/${f}`, revision: null })));
+    } catch {
+      console.warn(`[vite-config] corpus/${vol} bundles not found — publish + bundle first.`);
+    }
   }
+  return entries;
 }
 
 /**
@@ -113,10 +117,10 @@ export default defineConfig(({ command }) => {
         includeAssets: ["favicon.ico", "favicon.svg", "apple-touch-icon.png"],
 
         manifest: {
-          name: "Shulchan Aruch — Orach Chayim",
+          name: "Shulchan Aruch — OC & YD",
           short_name: "Shulchan Aruch",
           description:
-            "Complete Shulchan Aruch Orach Chayim with all commentaries, translated. Fully offline after install.",
+            "Shulchan Aruch Orach Chayim and Yoreh De'ah with commentaries, translated. Fully offline after install.",
           theme_color: "#141820",
           background_color: "#141820",
           display: "standalone",
@@ -146,17 +150,17 @@ export default defineConfig(({ command }) => {
             {
               // Cache corpus bundles at runtime too: CacheFirst so offline works
               // even for bundles the precache hasn't downloaded yet.
-              urlPattern: /\/corpus\/oc1\/bundles\/siman\d+\.json$/,
+              urlPattern: /\/corpus\/(oc1|yd1)\/bundles\/siman\d+\.json$/,
               handler: "CacheFirst",
               options: {
                 cacheName: "corpus-bundles",
                 cacheableResponse: { statuses: [0, 200] },
-                expiration: { maxEntries: 800, maxAgeSeconds: 60 * 60 * 24 * 365 },
+                expiration: { maxEntries: 1200, maxAgeSeconds: 60 * 60 * 24 * 365 },
               },
             },
             {
-              // Catalog
-              urlPattern: /\/corpus\/oc1\/catalog\.json$/,
+              // Catalog (per volume)
+              urlPattern: /\/corpus\/(oc1|yd1)\/catalog\.json$/,
               handler: "StaleWhileRevalidate",
               options: {
                 cacheName: "corpus-catalog",

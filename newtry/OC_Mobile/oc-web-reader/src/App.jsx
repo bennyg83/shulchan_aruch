@@ -26,13 +26,13 @@ async function countCached() {
   }
 }
 
-function OfflineBanner() {
+function OfflineBanner({ totalSimanim }) {
   if (import.meta.env.VITE_STANDALONE) return null;
   const [bundles, setBundles] = useState(0);
   const [dismissed, setDismissed] = useState(false);
   const [swReady, setSwReady] = useState(false);
   const doneTimer = useRef(null);
-  const TOTAL = 697;
+  const TOTAL = totalSimanim;
 
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
@@ -60,7 +60,7 @@ function OfflineBanner() {
       alive = false;
       clearTimeout(doneTimer.current);
     };
-  }, [swReady, dismissed]);
+  }, [swReady, dismissed, TOTAL]);
 
   if (dismissed || !swReady) return null;
   const pct = Math.min(100, Math.round((bundles / TOTAL) * 100));
@@ -94,7 +94,7 @@ import {
   commentaryKeysFromInput,
   commentaryKeysToArray,
 } from "./readerStorage.js";
-import { VOLUMES, resolveVolumeId, getVolume } from "./lib/volumes.js";
+import { VOLUMES, resolveVolumeId, getVolume, bundlePathForVolume } from "./lib/volumes.js";
 
 const pad3 = (n) => String(n).padStart(3, "0");
 
@@ -186,7 +186,7 @@ const syncUrlAndStorage = useCallback(
         // Try siman bundle first — one fetch replaces seif-index + all per-seif files
         let list;
         try {
-          const bUrl = resolveCorpusFetchUrl(`corpus/oc1/bundles/siman${entry.siman}.json`);
+          const bUrl = resolveCorpusFetchUrl(bundlePathForVolume(volumeId, entry.siman));
           const bRes = await fetchWithTimeout(bUrl, ac.signal, 90000);
           if (bRes.ok) {
             const b = await bRes.json();
@@ -317,7 +317,7 @@ const syncUrlAndStorage = useCallback(
         // Try siman bundle first — one fetch instead of seif-index + many seif files
         let list;
         try {
-          const bUrl = resolveCorpusFetchUrl(`corpus/oc1/bundles/siman${entry.siman}.json`);
+          const bUrl = resolveCorpusFetchUrl(bundlePathForVolume(volumeId, entry.siman));
           const bRes = await fetchWithTimeout(bUrl, undefined, 90000);
           if (bRes.ok) {
             const b = await bRes.json();
@@ -404,7 +404,7 @@ const syncUrlAndStorage = useCallback(
 
   return (
     <>
-    <OfflineBanner />
+    <OfflineBanner totalSimanim={VOLUMES.filter((v) => v.enabled).reduce((n, v) => n + (v.simanCount || 0), 0)} />
     <InstallBanner
       platform={install.platform}
       installed={install.installed}
