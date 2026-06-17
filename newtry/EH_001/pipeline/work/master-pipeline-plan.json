@@ -1,0 +1,13 @@
+{
+  "volume": "EH",
+  "label": "Even HaEzer",
+  "simanRange": [1, 178],
+  "phase": "quality_pass",
+  "mtFirstPassStatus": "complete",
+  "finishThrough": 178,
+  "qualityPass": {
+    "status": "queued",
+    "masterQueue": "newtry/pipeline/work/sa-quality-master-queue.json",
+    "queueScript": "node newtry/tools/queue-sa-quality-passes.mjs"
+  }
+}
