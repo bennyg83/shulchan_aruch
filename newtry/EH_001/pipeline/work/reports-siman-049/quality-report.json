@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-17T20:05:00.452Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_049",
+  "filesScanned": 9,
+  "blocksScanned": 25,
+  "flaggedBlocks": 2,
+  "summary": {
+    "byCode": {
+      "mt_garbage": 2
+    },
+    "bySeverity": {
+      "error": 2,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 2
+  },
+  "blocks": [
+    {
+      "id": "beer-hagolah/part-001.txt#slug=beer-hagolah#seif=1#marker=%D7%92",
+      "relPath": "beer-hagolah/part-001.txt",
+      "slug": "beer-hagolah",
+      "seif": "1",
+      "marker": "ג",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "כר\"ע שם במשנה דקי\"ל הלכה כר\"ע מחבריו ור' טרפון חבירו",
+      "enPreview": "The Lord's Prayer, and the Lord's Prayer, was a blessing from his friend"
+    },
+    {
+      "id": "beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=_",
+      "relPath": "beur-hagra/part-001.txt",
+      "slug": "beur-hagra",
+      "seif": "1",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "ואם קידש כו'. גמ' שם וכרשב\"א דאוקמוה למתני' אליביה וכר\"ע דר\"ט חבירו והלכ",
+      "enPreview": "And if you have called him. “And thou, Capernaum, which art exalted to h"
+    }
+  ]
+}

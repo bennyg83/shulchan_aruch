@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+/** EH001 siman 001 — Beit Shmuel seif 1 retranslate (MT garbage / cut off). */
+import { patchFile } from "./_patch-siman-utils.mjs";
+
+patchFile("siman_001/beit-shmuel/part-001.txt", "beit-shmuel", {
+  "1#_": `**Every man is obligated to marry a woman.** And he is obligated to have relations every onah even if she permitted her husband that he withhold her onah — he is obligated to have relations every onah until he has sons — so wrote Rambam Hilchot Ishut chapter 15 halakhah 5; and so it is stated below siman 76. And it appears that after he has sons her permission helps even if he can still bear children. And I am astonished — from where does Rambam know this distinction, that her waiver helps after fulfillment of peru u-revu and not before he fulfilled peru u-revu? For even if he fulfilled peru u-revu he is nevertheless obligated to fulfill "lest you withdraw your hand" in the evening — even though I wrote nearby the evening mitzvah is only rabbinic, nevertheless from where do we know that her waiver helps? And I saw in Maggid Mishnah that he wrote there Rambam learned from the sugya in chapter Eiy Even though — for they asked in the Gemara on the mishnah where the Tanna taught "disciples leave without permission for thirty days, with permission for how many?" and he answered "with permission — for how many, that we learn from there permission helps." However it is difficult: if so, why does her permission not help even if he did not fulfill peru u-revu? Rather certainly the sugya does not speak of nullifying the mitzvah of peru u-revu. If so, from where do we know it helps to nullify the mitzvah of "lest you withdraw your hand"? Perhaps it speaks that he fulfills "lest you withdraw your hand" in every place he goes; rather it speaks that she can waive her onah.`,
+});
+
+console.log("siman_001 beit-shmuel seif 1 patch applied");

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EH001 Editorial Agent</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: monospace; background: #1a1a2e; color: #e0e0e0; height: 100vh; display: flex; flex-direction: column; }
+  #header { padding: 10px 16px; background: #16213e; border-bottom: 1px solid #0f3460; display: flex; align-items: center; gap: 12px; }
+  #header h1 { font-size: 14px; color: #e94560; flex: 1; }
+  #status { font-size: 12px; color: #888; }
+  #status.ok { color: #4caf50; }
+  #status.err { color: #e94560; }
+  #chat { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .msg { max-width: 90%; padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+  .msg.user { background: #0f3460; align-self: flex-end; color: #e0e0e0; }
+  .msg.assistant { background: #16213e; align-self: flex-start; color: #c8e6c9; border-left: 3px solid #4caf50; }
+  .msg.system-msg { background: #1a1a2e; align-self: center; color: #666; font-size: 11px; font-style: italic; }
+  #input-area { padding: 12px 16px; background: #16213e; border-top: 1px solid #0f3460; display: flex; flex-direction: column; gap: 8px; }
+  #input-row { display: flex; gap: 8px; }
+  #user-input { flex: 1; background: #0f3460; border: 1px solid #e94560; color: #e0e0e0; padding: 8px 12px; border-radius: 6px; font-family: monospace; font-size: 13px; resize: vertical; min-height: 60px; max-height: 200px; }
+  #user-input:focus { outline: none; border-color: #4caf50; }
+  button { background: #e94560; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-family: monospace; font-size: 13px; white-space: nowrap; }
+  button:hover { background: #c73652; }
+  button:disabled { background: #444; cursor: not-allowed; }
+  #btn-stop { background: #555; }
+  #btn-stop:hover { background: #333; }
+  #toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  #siman-input { background: #0f3460; border: 1px solid #444; color: #e0e0e0; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 12px; width: 80px; }
+  label { font-size: 12px; color: #888; }
+  #ctx-info { font-size: 11px; color: #555; margin-left: auto; }
+  #sys-toggle { font-size: 11px; color: #888; cursor: pointer; text-decoration: underline; }
+  #sys-panel { display: none; padding: 8px; }
+  #sys-prompt { width: 100%; background: #0a0a1a; border: 1px solid #333; color: #aaa; padding: 8px; font-family: monospace; font-size: 11px; height: 120px; resize: vertical; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>EH001 Editorial Agent — Qwen 7B Local</h1>
+  <span id="status">checking...</span>
+</div>
+
+<div id="chat"></div>
+
+<div id="input-area">
+  <div id="sys-panel">
+    <textarea id="sys-prompt"></textarea>
+  </div>
+  <div id="toolbar">
+    <span id="sys-toggle" onclick="toggleSys()">▶ system prompt</span>
+    <label>Siman:</label>
+    <input id="siman-input" type="number" min="1" max="178" placeholder="e.g. 2" title="Auto-fills assignment message">
+    <button onclick="assignSiman()">Assign Siman</button>
+    <button onclick="clearChat()">Clear</button>
+    <span id="ctx-info"></span>
+  </div>
+  <div id="input-row">
+    <textarea id="user-input" placeholder="Type message… Shift+Enter for newline, Enter to send" rows="3"></textarea>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <button id="btn-send" onclick="sendMessage()">Send</button>
+      <button id="btn-stop" onclick="stopStream()" disabled>Stop</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const API = 'http://127.0.0.1:8080';
+const MODEL = 'gpt-4o-mini';
+let history = [];
+let abortCtrl = null;
+
+const SYS_PROMPT = `You are the EH001 editorial sprint worker for Even HaEzer.
+Work in: newtry/EH_001/output/siman_NNN/<commentary>/part-*.txt
+
+BLOCK FORMAT — edit ONLY between **** ENGLISH **** and **** END BLOCK ****. Never touch Hebrew or headers.
+
+COMMENTARY ORDER: mechaber → beit-shmuel → turei-zahav → baer-hetev → beer-hagolah → beur-hagra → pitchei-teshuva → rabbi-akiva-eiger → ezer-mikodesh → beit-meir → chokhmat-shlomo
+
+RULES:
+- Translate from Hebrew only. No external MT.
+- Hebrew is authority. Match completely, no additions.
+- Terms: Hashem, Shabbat, onah, erusin, kiddushin, get, ketubah, yibbum, chalitzah, mamzer. {Rama:…} for הגה.
+- Replace mt_garbage entirely — never patch over it.
+- Commentator names: Shach, Taz, Beit Shmuel, Baer Heitev, Beer HaGolah, Beur HaGra, Pitchei Teshuva, Ezer MiKodesh, Beit Meir, Chokhmat Shlomo, RAE.
+
+GARBAGE — always replace: "Lord's Prayer", "Hashem's Word/promise/mercy", "Bible says/wrote", "United States", "America", "Saturday" for Shabbat, "DNA DNA", "R&amp;D", "MYMEMORY WARNING", sentences ending "The:", Hebrew mixed into English like "ו and" or "דwrote", JSON-wrapped English ["text"].
+
+PER SIMAN:
+1. Validate: node pipeline/validate-quality-eh001.mjs --root output/siman_NNN --min-severity error
+2. Grep: grep -r "Lord.s Prayer\\|Hashem.s Word\\|Bible says\\|United States\\|Saturday" output/siman_NNN/
+3. Fix each commentary in order. For mechaber: retranslate ALL seifim if any block is garbage.
+4. Re-validate until 0 errors AND grep clean.
+5. Publish: cd newtry/OC_Mobile/oc-web-reader && npm run corpus:publish:eh -- --siman N && npm run corpus:bundle:eh
+6. Log: append "siman_NNN editorial CLEAN (quality-gate)" to newtry/EH_001/progress.log
+
+Do NOT git commit unless user asks. End session with: [COMPLETE] Session done — siman: NNN`;
+
+document.getElementById('sys-prompt').value = SYS_PROMPT;
+
+async function checkServer() {
+  const el = document.getElementById('status');
+  try {
+    const r = await fetch(`${API}/v1/models`, { signal: AbortSignal.timeout(3000) });
+    if (r.ok) { el.textContent = '● server online'; el.className = 'ok'; }
+    else throw new Error(r.status);
+  } catch(e) {
+    el.textContent = '● server offline'; el.className = 'err';
+  }
+}
+checkServer();
+setInterval(checkServer, 15000);
+
+function toggleSys() {
+  const p = document.getElementById('sys-panel');
+  const t = document.getElementById('sys-toggle');
+  if (p.style.display === 'block') { p.style.display = 'none'; t.textContent = '▶ system prompt'; }
+  else { p.style.display = 'block'; t.textContent = '▼ system prompt'; }
+}
+
+function assignSiman() {
+  const n = document.getElementById('siman-input').value;
+  if (!n) return;
+  document.getElementById('user-input').value = `EDITORIAL SIMAN ${String(n).padStart(3,'0')}`;
+  document.getElementById('user-input').focus();
+}
+
+function addMsg(role, text) {
+  const chat = document.getElementById('chat');
+  const div = document.createElement('div');
+  div.className = `msg ${role === 'user' ? 'user' : role === 'assistant' ? 'assistant' : 'system-msg'}`;
+  div.textContent = text;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+  return div;
+}
+
+function clearChat() {
+  history = [];
+  document.getElementById('chat').innerHTML = '';
+  addMsg('system-msg', 'Chat cleared.');
+}
+
+function stopStream() {
+  if (abortCtrl) { abortCtrl.abort(); abortCtrl = null; }
+}
+
+document.getElementById('user-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+
+async function sendMessage() {
+  const input = document.getElementById('user-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+
+  addMsg('user', text);
+  history.push({ role: 'user', content: text });
+
+  const sys = document.getElementById('sys-prompt').value.trim();
+  const messages = sys
+    ? [{ role: 'system', content: sys }, ...history]
+    : [...history];
+
+  document.getElementById('btn-send').disabled = true;
+  document.getElementById('btn-stop').disabled = false;
+
+  const div = addMsg('assistant', '▌');
+  abortCtrl = new AbortController();
+  let full = '';
+
+  try {
+    const res = await fetch(`${API}/v1/chat/completions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer local' },
+      body: JSON.stringify({ model: MODEL, messages, stream: true, temperature: 0.2, max_tokens: 2048 }),
+      signal: abortCtrl.signal
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      div.textContent = `[Error ${res.status}] ${err}`;
+      div.style.color = '#e94560';
+    } else {
+      const reader = res.body.getReader();
+      const dec = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = dec.decode(value);
+        for (const line of chunk.split('\n')) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6).trim();
+          if (data === '[DONE]') break;
+          try {
+            const j = JSON.parse(data);
+            const delta = j.choices?.[0]?.delta?.content || '';
+            full += delta;
+            div.textContent = full + '▌';
+            document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
+          } catch {}
+        }
+      }
+      div.textContent = full;
+    }
+  } catch(e) {
+    if (e.name !== 'AbortError') {
+      div.textContent = `[Network error] ${e.message}`;
+      div.style.color = '#e94560';
+    } else {
+      div.textContent = full + ' [stopped]';
+    }
+  }
+
+  if (full) history.push({ role: 'assistant', content: full });
+  document.getElementById('btn-send').disabled = false;
+  document.getElementById('btn-stop').disabled = true;
+  abortCtrl = null;
+
+  const tokens = messages.reduce((a, m) => a + m.content.length, 0);
+  document.getElementById('ctx-info').textContent = `~${Math.round(tokens/4)} tokens in context`;
+}
+</script>
+</body>
+</html>

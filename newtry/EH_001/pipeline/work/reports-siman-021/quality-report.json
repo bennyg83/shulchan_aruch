@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-17T19:59:14.984Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_021",
+  "filesScanned": 11,
+  "blocksScanned": 110,
+  "flaggedBlocks": 2,
+  "summary": {
+    "byCode": {
+      "mt_garbage": 2
+    },
+    "bySeverity": {
+      "error": 2,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 2
+  },
+  "blocks": [
+    {
+      "id": "beit-shmuel/part-001.txt#slug=beit-shmuel#seif=7#marker=%D7%90",
+      "relPath": "beit-shmuel/part-001.txt",
+      "slug": "beit-shmuel",
+      "seif": "7",
+      "marker": "א",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "חוץ מהאב לבתו . כתב ב\"ח וח\"מ ה\"ה בת בתו מותר דהא רב אחא אותביה בכנפיה בת",
+      "enPreview": "Except his father. He said, “The Lord’s daughter is blessed with his son"
+    },
+    {
+      "id": "pitchei-teshuva/part-001.txt#slug=pitchei-teshuva#seif=1#marker=_",
+      "relPath": "pitchei-teshuva/part-001.txt",
+      "slug": "pitchei-teshuva",
+      "seif": "1",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "להלך אחריה. עבה\"ט ומ\"ש בשם הרדב\"ז הוא בח\"ב סי' תש\"ע. (ושם מסיים אלא ימהר",
+      "enPreview": "Go after her. He is in the name of the Lord, and he is in the name of th"
+    }
+  ]
+}

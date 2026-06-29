@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-06-17T20:01:47.439Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_078",
+  "filesScanned": 10,
+  "blocksScanned": 64,
+  "flaggedBlocks": 1,
+  "summary": {
+    "byCode": {
+      "hebrew_in_english": 1,
+      "mt_garbage": 1
+    },
+    "bySeverity": {
+      "error": 1,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 1
+  },
+  "blocks": [
+    {
+      "id": "pitchei-teshuva/part-001.txt#slug=pitchei-teshuva#seif=1#marker=_",
+      "relPath": "pitchei-teshuva/part-001.txt",
+      "slug": "pitchei-teshuva",
+      "seif": "1",
+      "marker": "_",
+      "score": 30,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "hebrew_in_english",
+          "severity": "error",
+          "message": "Hebrew characters in English (279)"
+        },
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "נשבית חייב לפדותה. עיין בס' בית מאיר שכ' שראה אגרת חתום מב\"ד גאוני ק\"ק פ",
+      "enPreview": "A house must break it. See in the morning of Meir Beitar, who saw a sign"
+    }
+  ]
+}

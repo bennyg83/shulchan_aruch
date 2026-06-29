@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+import { patchFile } from "./_patch-siman-utils.mjs";
+
+patchFile("siman_012/pitchei-teshuva/part-001.txt", "pitchei-teshuva", {
+  "2#_": `Who testified for a woman. Beit Meir wrote: from this language implies specifically the witness who testifies incidentally without intent to testify — permitted to marry her; however from Rashba Yevamot 25 s.v. robber implies even from Torah prohibition forbidden — requires slight examination — for if applicable to suspect intentional testimony why is robber who is Torah-prohibited fit, end quote. (In Shulchan Aruch margin of Rabbi Akiva Eiger zt"l NB if testified incidentally without intent — can say permitted to marry her — see Ezeret Nashim siman 17 s.k. 132 end quote.)`,
+});
+
+console.log("siman 012 error patches applied");

@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+/** EH001 siman 001 — rabbi-akiva-eiger full retranslation (8 blocks). */
+import { patchFile } from "./_patch-siman-utils.mjs";
+
+const n = patchFile("siman_001/rabbi-akiva-eiger/part-001.txt", "rabbi-akiva-eiger", {
+  "1#_": `**There in Beit Shmuel letter 2; and see in responsum Radakh who wrote the woman is commanded regarding Shabbat.** Note: From Ran's words in responsum siman 32 he deduced that a woman is obligated to marry from the category of periah u'rviah in Kiddushin, and it is called a matter of mitzvah for annulling her vow — see there; and it does not come from the law of Shabbat. It appears Ran holds a woman is not commanded regarding Shabbat:`,
+
+  "2#_": `**There letter 3 — "when there is a mitzvah."** Note: See Torat Yekutiel in responsum siman 9:`,
+
+  "3#_": `**There letter 5 — "and Rosh wrote a limit for that study."** Note: In responsum Maharam Mintz siman 42 he wrote one can distinguish that this is specifically in their days when there was a limit to their study and they need not spend all their days studying with their teacher; therefore he should study first and afterward marry a woman; but now I, and one like you who wishes to be all your days in the house of the rabbi — if so he should not marry all his days, etc.; and at the end he concludes: nevertheless if you can study alone in this — even if you have a wife and cannot come to the house of the rabbi — tzarich iyun if we say "sword on the asses":`,
+
+  "4#_": `**Choshen Mishpat letter 3 — the language of Tur and Rambam does not imply thus.** Note: In responsum Rashba siman 483 and siman 1081 it plainly appears that whoever they did not enact marriage for is like prostitution, and it is forbidden to marry a woman to his minor son; and per this view the difficulty of Tosafot Yevamot 113 s.v. "perhaps he feeds" — that a minor with an adult woman is not common — is resolved: forbidden to marry them until they are eighteen years old:`,
+
+  "5#_": `**There Choshen Mishpat letter 10 — "in a manner that he not divide on this."** Note: We merited the light of life of Ritva in Yevamot, and there it is for him that one should not sell a Sefer Torah to marry a woman who is not fit to bear children. And in my humble opinion Ritva explains what we say "no choice" to sell a Sefer Torah — meaning still "no choice" to sell a Sefer Torah, as Tosafot wrote in their first answer; and this is the view of one opinion that what the mishnah teaches "he shall not nullify from his mouth" — even though also when he has children he must marry a woman because of "not good," etc.; nevertheless "no choice" that because of peru u-revu he must sell a Sefer Torah; but because of "not good" — not; and this is for the mishnah; and as we say on it, the mishnah is not like R' Yossi. But for us who establish like R' Yossi — even if he already fulfilled peru u-revu he must marry a woman because of "lest you withdraw your hand." However this is specifically regarding one fit to bear; but regarding one not fit to bear — where the mitzvah is only because of "not good" — in this the law applies that he shall not sell a Sefer Torah; for just as this law for the Tanna of the mishnah, so too for us regarding one not fit to bear. This is Ritva's intent in my humble opinion:`,
+
+  "6#_": `**Siman 10, #3 — the cherem.** Note: If he says "I betrothed you with witnesses" and she denies — she is permitted forever; he may marry another since there is no impediment from him — responsum Rashba siman 21:`,
+
+  "7#_": `**There Beit Shmuel letter 20 — her acquiescence does not help.** Note: In responsum Maharival siman 21 he cited Ran's words who wrote: cherem of Rabbenu Gershom not to take an idolatress — if the woman can annul it and give permission to one husband; if we say the Gaon was concerned that since women are submissive to their husbands, if her permission suffices her husband will anger her until she agrees. And the sages of France know the law of redemption — they know how this enactment was practiced in their places, etc.; see Machaneh Efraim laws of oaths siman 10:`,
+
+  "8#_": `**Siman 13 in the gloss — "because of suspicion."** Note: Rambam positive commandment 16; and Radakh house 6 room 10 wondered on these words of Rambam — per what is written chapter 26, nine negative commandments, laws of marriage — and authority of a woman never to marry. And in such a case in his hagahot on Tur letter 19 he wrote to resolve: chapter 12 speaks when there is no suspicion, e.g. a city where all are women or eunuchs:`,
+});
+
+console.log(`siman_001 rabbi-akiva-eiger full patch applied (${n} blocks)`);

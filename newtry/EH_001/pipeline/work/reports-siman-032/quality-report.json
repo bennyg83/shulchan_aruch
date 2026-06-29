@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-17T20:04:59.904Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_032",
+  "filesScanned": 8,
+  "blocksScanned": 45,
+  "flaggedBlocks": 2,
+  "summary": {
+    "byCode": {
+      "mt_garbage": 2
+    },
+    "bySeverity": {
+      "error": 2,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 2
+  },
+  "blocks": [
+    {
+      "id": "beer-hagolah/part-001.txt#slug=beer-hagolah#seif=4#marker=_",
+      "relPath": "beer-hagolah/part-001.txt",
+      "slug": "beer-hagolah",
+      "seif": "4",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "הרשב\"א בתשובה סי' ת\"כ",
+      "enPreview": "The Lord's Prayer"
+    },
+    {
+      "id": "beur-hagra/part-001.txt#slug=beur-hagra#seif=4#marker=%D7%90",
+      "relPath": "beur-hagra/part-001.txt",
+      "slug": "beur-hagra",
+      "seif": "4",
+      "marker": "א",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "יש מי כו'. וכ\"כ הרשב\"א בחידושיו דמ\"ש בתך כו' לישנא קייטא נקט דהא מקשינן ",
+      "enPreview": "There's who's called. And thou, Capernaum, shalt be thrust down to hell,"
+    }
+  ]
+}

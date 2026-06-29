@@ -12,6 +12,19 @@
 4. Re-run validator until 0 errors
 5. Log `progress.log`
 
+## Refresh local reader after patches
+
+From `newtry/OC_Mobile/oc-web-reader`:
+
+```bash
+npm run corpus:publish:eh -- --siman N
+npm run corpus:bundle:eh
+```
+
+Then reload the browser (dev server at `http://localhost:5174/?vol=eh1&siman=N`).
+
+Full republish: `npm run corpus:eh:local` · Launch: `npm run dev:eh`
+
 ## Commentary order
 
 mechaber → beit-shmuel → turei-zahav → baer-heitev → beer-hagolah → beur-hagra → pitchei-teshuva → rabbi-akiva-eiger-eh → ezer-mikodesh → beit-meir → chokhmat-shlomo

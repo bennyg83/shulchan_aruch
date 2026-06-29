@@ -1,0 +1,15 @@
+export default {
+  "1#_": `Siman 38 seif 2 — the condition precedes the act. nb: R' Z said "Your get if I do not come within twelve months shall be a get" — one may say that since he concluded "shall be a get" it is called condition preceding the act (responsum of Ra'anach vol. 2 siman 18).`,
+  "2#_": `Beit Shmuel note 2 — even if the condition did not take effect. nb: And if the agent said to her as the husband told him without doubling — one may say agency is void, for per the agent's words the condition is void and the act stands while the sender wanted specifically a condition (Maharik shoresh 87 branch 1). See responsum of Maharchash siman 27 and responsum Orim Gedolim Limmud 154.`,
+  "3#_": `There note 3 — it also appears from Ran. nb: See responsum Maharival part 1 siman 25 and Orim Gedolim Limmud 146, 147, 150.`,
+  "4#_": `There note 20 — she performs chalitzah. nb: See Maggid Mishneh Laws of Divorce; one may say per Rashba brought in Beit Shmuel siman 40 s.k. 8 it does not help here for chalitzah.`,
+  "5#_": `Seif 18 — that he has from a business venture. nb: Rambam's language — he took the money as a loan and showed her — she is not betrothed; see Maharik and responsum Kol Eliyahu Chatam Sofer siman 1.`,
+  "6#_": `Seif 27 — that I am a student. nb: See Sefer Teshuvah Me'ahavah part 1 siman 256.`,
+  "7#_": `Siman 30 — because of his wealth. nb: In responsum Magen Giborim siman 14 he wrote one may say that on condition I am not poor does not require so great a measure.`,
+  "8#_": `Siman 31 — on condition I am righteous. nb: And if he said on condition I am completely righteous — see responsum Kol Eliyahu siman 2.`,
+  "9#_": `There — lest he contemplated. nb: See responsum of Maharam Padua siman 37.`,
+  "10#_": `There — repentance in his heart. nb: See responsum of R' Yisrael Mintz who wrote it is only a general stringency to be concerned for kiddushin — see there siman 12.`,
+  "11#_": `Beit Shmuel note 57 — his waiver helps. nb: See Ketzot HaChoshen siman 243 s.k. 7.`,
+  "12#_": `Seif 39 — that she be permitted to so-and-so. nb: See Beit Meir in responsum siman 6.`,
+  "13#_": `Beit Shmuel note 70 and likewise in Choshen Mishpat siman 241. nb: See responsum Shevut Yaakov vol. 3 siman 171.`,
+};

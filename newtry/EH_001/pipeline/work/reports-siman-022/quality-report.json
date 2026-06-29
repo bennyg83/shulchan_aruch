@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-17T19:59:15.316Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_022",
+  "filesScanned": 11,
+  "blocksScanned": 155,
+  "flaggedBlocks": 2,
+  "summary": {
+    "byCode": {
+      "mt_garbage": 2
+    },
+    "bySeverity": {
+      "error": 2,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 2
+  },
+  "blocks": [
+    {
+      "id": "pitchei-teshuva/part-001.txt#slug=pitchei-teshuva#seif=1#marker=_",
+      "relPath": "pitchei-teshuva/part-001.txt",
+      "slug": "pitchei-teshuva",
+      "seif": "1",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "עם ערוה. עבה\"ט ועיין בתשו' חות יאיר ס\"ג שכ' דאף לתוס' דוקא איש א' עם הער",
+      "enPreview": "With the nakedness. Hashem’s promise to Abraham is not to be seen in Has"
+    },
+    {
+      "id": "turei-zahav/part-001.txt#slug=turei-zahav#seif=20#marker=_",
+      "relPath": "turei-zahav/part-001.txt",
+      "slug": "turei-zahav",
+      "seif": "20",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "לא ילמד תינוקת כו' מה ששייך לזה כתבתי בי\"ד סי' רמ\"ה ע\"ש ובשינוי ל' שכתב ",
+      "enPreview": "I will not teach a baby as a child of what I have written about in the B"
+    }
+  ]
+}

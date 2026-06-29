@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-17T20:05:00.368Z",
+  "outRoot": "C:\\Users\\binya\\Documents\\Shulchan aruch\\newtry\\EH_001\\output\\siman_047",
+  "filesScanned": 10,
+  "blocksScanned": 51,
+  "flaggedBlocks": 2,
+  "summary": {
+    "byCode": {
+      "mt_garbage": 2
+    },
+    "bySeverity": {
+      "error": 2,
+      "warn": 0,
+      "info": 0
+    },
+    "flaggedBlocks": 2
+  },
+  "blocks": [
+    {
+      "id": "beit-meir/part-001.txt#slug=beit-meir#seif=1#marker=_",
+      "relPath": "beit-meir/part-001.txt",
+      "slug": "beit-meir",
+      "seif": "1",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "ה\"ז מקודשת כ' הב\"ש אבל אם כולם כו' כמ\"ש בסמוך ר\"ל שאז אם נשאת לא' מהעדים",
+      "enPreview": "The Lord’s Prayer, “If all of them are holy, then they will not come out"
+    },
+    {
+      "id": "pitchei-teshuva/part-001.txt#slug=pitchei-teshuva#seif=1#marker=_",
+      "relPath": "pitchei-teshuva/part-001.txt",
+      "slug": "pitchei-teshuva",
+      "seif": "1",
+      "marker": "_",
+      "score": 65,
+      "severity": "error",
+      "issues": [
+        {
+          "code": "mt_garbage",
+          "severity": "error",
+          "message": "Nonsense or biblical stray phrase (failed MT chunk)"
+        }
+      ],
+      "hePreview": "דרים עמה בחצר. עבה\"ט מ\"ש אבל אם כולם היו במעמד אחד כו' ובגליון ש\"ע דהגאו",
+      "enPreview": "Drive with her in the garden. But if everyone was in one class, he said,"
+    }
+  ]
+}
