@@ -1,0 +1,54 @@
+/** worker-slot-9 — siman 372 editorial batch 5 fixes (45 blocks) */
+export const FIXES = {
+  "machatzit-hashekel/part-001.txt": {
+    "5:א": "(א) (c) On Dr. K. K. K. K. K. K. K. A.D. is the words of the S.A. and the “T.D.” in which there is a square window on D.T. And Dr. D.C.'s diagnosing, and Hashem's wrath is revealed in Hashem, and Hashem is revealed to Hashem and Hashem, and Hashem is revealed, \"The Hashem is a blessing, and Hashem is a blessing that is revealed to him.\" I mean, it’s called the Hashem’s Prayer:",
+    "5:ב": "(ב) And there will be Dr. Kush and something like Dea, which is more circumcised than the square, when he comes to what the estate rises from the square. The diagonal dea of the square stands in the circle and touches the sides and foundations in the circle. If so comes to the circle above the square d'T and down from the square d't and the circle is not useful because there is no escape from the D'T so that there is a sign that there is a d't and something within 'if you do the same thing in the knee d':",
+    "6:_": "(c) In 'Houses of Choo' can be twisted through the courtyard of R. A.D., the houses do not mean the way of the courtyard, but not through the window and from 'A.C.'",
+    "7:א": "(א) (C.C.) To her husband, and he has no way to go under the bottom, he has to mix with the bottom, and how he is, if he wants to go to the west, he says, \"Let me go out of the city and eat it.\" And if there is no wall, and it is a high scale, and something like Hashem allows us to use it between the evening and the intent of whether the ladder is not disrupted. So, let’s say that the ladder is on the ground, and it is in the sky They give it to them that they will be saved in the land and that they will say between using it. R. For the fact that the scale of the ladder is entitled to use the Wall Epi’s tools that his daughter is at home and his friend is not allowed to use the tools that his daughter in the courtyard as a lock of section and. But they can’t mix together because they’ve not put a ladder. Each of them placed in his garden a ladder was made open for both of them and are allowed to involve together. And if they don’t sit together, they are not allowed to shake by the Western Wall tools that have been at home. You will also know how to interpret this:",
+    "7:ב": "(ב) In the midst of Hashem’s presence, Hashem’s promise is not to be seen in Hashem’s presence, and to be seen as Hashem’s promise, “The Hashem’s Prayer is not in the house of the earth, but in the midst of Hashem’s presence in the house.” The average of all the courts is permitted and does not mean the language of the Hashem. My poor opinion tends:",
+    "9:_": "(C.T.) can be called a fisherman and a court called R. D. D. D.D.D., the High Court has:"
+  },
+  "magen-avraham/part-001.txt": {
+    "1:א": "(א) for tools and so on. And all that his daughter in the house should not be shaken from the garden to the carp that was not attached to the apartment of A., and he was given to him, and that he had been given to him, and that he had not done so, and that he had not done so",
+    "1:ב": "(ב) And not drowning. These damooons will not be smoked frequently, and the fish were on the roof:",
+    "10:א": "(א) against the minority. And in the Tur — source. of the Tur — source., it is clear to use an epic that is not against the minority as a \"Steve\" and a mockery to the pronunciation of the books, and it is possible to detain and that the report of Dr. Dahl does not remove me from the fall of them from me to the whole of the Wall as a \"Chu\":",
+    "10:ב": "(ב) We're going to connect with Betty. Hashem’s promise to Abraham, that he will not be able to worship him, but if he does not say that he does not mean that the cup is used for the tyrant as “a sign” in the final",
+    "12:א": "(א) Allow him to wear. But not to involve together, A. comes to the top of the Wall:",
+    "12:ב": "(ב) by the sweat. Py, the head of the ladder, in the sweat of the ladder, and the sweat of a single minority:",
+    "12:ג": "(ג) But trust. Hashem’s promise is not to say that Hashem’s Word is not the same",
+    "13:_": "Between the evening together. We were when we arrived at the top of the Western Wall as the “Sache”:",
+    "14:_": "at high. Dea can rise to the top of the Western Wall on the Al-Aqsa scale that is not wide enough:",
+    "15:א": "(א) There was Ilan. \"What should not be raised in Ilan is only a prisoner, and he has not been given to him in the words of the Hashem, and he has not been cursed by the Hashem,\" he said",
+    "15:ב": "(ב) Dalan is not useful. A Saturday ban caused him:",
+    "15:ג": "(ג) Dry. The Bible says, “The Hashem’s Word is not allowed to be used on earth.”",
+    "16:א": "(א) Samma. It is a sign of Hashem’s promise that Hashem’s people will not be able to worship Hashem’s people, and they will not be able to do so on earth, and that they will not be able to do so on earth, and they will not be able to do so on the earth A.D.:",
+    "16:ב": "(ב) Treasure. And it is forbidden to begin with them on the Shabbat as the S.C., and it is difficult for the Hashem to sit with the fruit of the Hashem, and to thee, it is not possible that the Hashem of hosts are not allowed to be eaten, nor is it possible for the Hashem’s name to be given to him",
+    "17:_": "From the Rich Language. And if the width of the latitudes in the table is the length of which Hashem will die, there is no Westerner",
+    "19:א": "(א) My nose in the sand. It is a little bit of my life that I will not know, and I will be in the garden, and that it is due to the fact that it is forbidden for the Hashem to dwell on the Shabbat, but that it is not the case of Hashem’s name",
+    "19:ב": "(ב) B houses. Even there is no crystal coming to the ceiling from a ceiling depression and it is expected that a man who is synchronized by a word and the fires of an open door to this courtyard and the other is open to another courtyard, and does not sit in the ‘crossings together:",
+    "3:_": "The rookies. It is said that if there is no window in it, we must not circumvent through a hole, and even in our haysages and houses, it is also forbidden to blow through a hole",
+    "4:א": "(א) or window. Then his death to shake his mouth through a small window",
+    "4:ב": "(ב) D. on D. And Affi is long, Rav has to be Hashem in his heart D. and if the round window is required to be in his lap, and there will be Dr. Kushin and something in the . . . . . . .",
+    "5:א": "(א) B houses. And the fires of his heart in the courtyard which the daughter is open to him are able to sway through the courtyard (see the Bible):",
+    "5:ב": "(ב) for the night. And he has no way on the lower house and eats a cheque there:",
+    "6:א": "(א) And he did something about him. “And the Hashem, when he is tall, is ten, and he has not been wiped out.”",
+    "6:ב": "(ב) You can download it. Degas and the court of the IA is as follows:",
+    "6:ג": "(ג) If not so, it is permissible. “Damn” is exempt from Hashem’s command",
+    "6:ד": "(ד) No tools and so on. And when she wakes herself:",
+    "6:ה": "(ה) It is forbidden to use. It is not the case that he is low in his heart, and if he is used, the Hashem will not raise the household, and therefore he is forbidden to throw him into the land",
+    "6:ו": "(ו) They are allowed to use both. Place of Exemptive Place (M.):",
+    "7:_": "in Milo. As left of any side or paragraph D alongside A:",
+    "8:א": "(א) The Wall is wide. You can move from the hall to the hall:",
+    "8:ב": "(ב) Duration D. In Hashem’s Word, Hashem’s Word is the same as Hashem’s Word: “I am not like the Hashem.”"
+  },
+  "mechaber/part-001.txt": {
+    "1:main": "The laws of apartment partners regarding an Eruv. Containing 19 aragraphs: Roofs, courtyards, and enclosed yards are all considered one domain with respect to utensils that were in them when Shabbat began. It is therefore permitted to carry such items from one to another—even if they belong to different owners who did not join in an eruv. One may carry from one courtyard to another, to a roof, to the top of a wall between them, and from one roof to another adjacent roof—even if the other is much higher. One may also carry from a roof to a karpaf not larger than two se’ah, or one that was enclosed for dwelling even if larger, or to an alleyway (mavoy) that has been properly prepared with a side-post (lechi) or beam (korah), even if no eruv was made there. Even though the residents of a courtyard made an eruv among themselves—since household items are commonly found in the courtyard—it is nevertheless permitted to carry utensils that were in this courtyard at the onset of Shabbat to another courtyard, and we are not concerned lest one carry items that were in the house to another courtyard, roof, or karpaf.",
+    "10:main": "If one inverted a vessel four by four and any height to reduce the wall below ten, it permits use opposite the reduction—provided it is affixed with mortar.",
+    "11:main": "If one built platform upon platform: if the lower is four by four, or even if not but the upper is four by four and within three handbreadths, it permits use but not joint eruv.",
+    "12:main": "A projection from the wall four by four with any ladder placed on it permits use—provided the lowest rung is within three of the ground and no gap of three between rungs, and the ladder rests atop the projection. If leaned beside it, no. If the wall is under twenty high, one projection in the middle suffices; if twenty high, two are needed—one within the lower ten and one within the upper ten—unless directly opposite each other enabling a ladder.",
+    "13:main": "Two ladders placed side by side without four width, separated to total four, and the space filled with straw—this does not help, since one steps in the middle and cannot climb straw. If the ladder is central and straw on the side, it helps both for use and joint eruv.",
+    "14:main": "If a ladder is not four wide and one carved the wall beside it to complete four, it suffices to carve ten high. If no ladder but one carved rungs into the wall, one must carve the entire height; this helps for both use and joint eruv.",
+    "15:main": "If there is a tree beside the wall used as a ladder, they may join. But if an Asherah tree was used, they may not join, since it is forbidden to climb (as it is prohibited for benefit). The Rosh writes the opposite: a regular tree does not help, but an Asherah does if dry.",
+    "16:main": "A trench between two courtyards ten deep and four wide—they cannot join even if filled with straw unless annulled. If filled with dirt or pebbles—even without explicit annulment—they must join {Rama: (see Siman 358:2). Rema: Some say that if filled with produce, it is presumed annulled, as people commonly store produce there (Hagahot Ashiri).}"
+  }
+};

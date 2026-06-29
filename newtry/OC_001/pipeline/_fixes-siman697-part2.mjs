@@ -1,0 +1,12 @@
+/** siman 697 part 2 — Pesach */
+export const fixes = {
+  "output/siman_697/beur-hagra/part-001.txt": {
+    "1:א": "(א) One does not say Tachanun on the 14th and 15th of Adar I. Yerushalmi first chapter of Shekalim end of halacha 1: three terumot are stated in the parashah etc., and see there chapter 2 halacha 4, \"and we established upon us\" etc., from here that a person is obligated to separate his shekel etc., see there; and in Peri Chadash on Berakhot; and see Tosafot Megillah 21a note 1 s.v. korei.",
+    "1:ב": "(ב) But the rest. As Heaven’s Word says, “Arise, shine forth to Heaven’s glory and glory, and that Heaven’s Word is not a gift of joy and joy.”",
+    "1:ג": "(ג) Some hold eulogy and fasting are permitted on these days as well.",
+    "1:ד": "(ד) A. that must. For the sake of Heaven’s Word, we would be happy and happy with Heaven’s Word, and that Heaven’s promise is to be fulfilled"
+  },
+  "output/siman_697/peri-megadim/part-001.txt": {
+    "1:_": "And then, I will see Heaven’s presence here. But I will take care of the first ad, and see Heaven’s Word, and Heaven’s Word, there is no blessing in Heaven’s Word, and Heaven’s Word is not in the world. If vowed to answer small bulbs, it should be said to Dr. Henderson Devi only a practice of thirst but only in the ' and' of the whole year his mind was alone for small Purim and should be examined a bit of the denek I have no N. Fourteen B. B. A. B. G. L. G. L. Roni, and the additions of the Y.K. to the majority of the world and the Fed and the matter are not allowed in both cases. Here:"
+  }
+};

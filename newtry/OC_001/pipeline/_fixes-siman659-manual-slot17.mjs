@@ -1,0 +1,5 @@
+export const FIXES = {
+  "kaf-hachayyim/part-001.txt": {
+    "1:_": "(1) [Seif 1] They take out two Torah scrolls etc. — that they take out two scrolls on every Yom Tov and read the day's mussaf sacrifices is not found written in Mishnah or Gemara; rather the Savoraim instituted this and relied on what we say at the end of Megillah 41b: Abraham said before the Holy One blessed be He, Master of the universe, perhaps my children will sin before You and You will do to them as to the generation of the Flood etc. He said to him, I have already instituted for them the order of sacrifices — whenever they read them it is as though they offer sacrifices before Me. See Shiltei Giborim note 1. And see above siman 688 note 29."
+  }
+};

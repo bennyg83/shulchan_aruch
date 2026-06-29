@@ -1,0 +1,6 @@
+/** siman 678 part 2 — Pesach */
+export const fixes = {
+  "output/siman_678/peri-megadim/part-001.txt": {
+    "1:_": "From the beginning of 17 it is possible to allude to the Mash MA in the letter 2 in 17 20 and the clothing changed and wrote that it is forbidden to use a light even in 17 means and for a man damer it is permissible to use a mitzvah as a basi 33 in 18 2 and Bar here in the name of everything in it in the name of the Rabbi 21 and Afar 13 DL 13 surely it is not allowed to be used as a light of Dalihoy Hikra. And there is another Danh khs in their eyes oil that is not beautiful is sold for a penny and Nsh for a penny beautiful oil for a school lesson ekf ak nks it is better Danh Ashur kahg to be used for a light lest ita and ea BMA will come forth more:"
+  }
+};

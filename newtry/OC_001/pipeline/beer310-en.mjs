@@ -1,0 +1,17 @@
+export const t = {
+  "1:_": `Shabbos 140`,
+  "2:א": `There 45`,
+  "2:ב": `A question was raised and resolved`,
+  "2:ג": `There — a question was raised and resolved`,
+  "2:ד": `As Rashi explains there, and likewise Rif and Rosh and Rambam in chapter 26`,
+  "3:_": `Beitza 27 — a question was raised and resolved to permit according to the latter wording, and so too Rosh and Ran and Rashba`,
+  "4:_": `There in the gemara`,
+  "5:_": `There in the gemara`,
+  "6:א": `Shabbos 42`,
+  "6:ב": `Tur (even though it is permitted to touch muktzeh — here it refers to an egg, and so it is in Yerushalmi, provided he does not touch the egg; and Ra'avad brought it in his hasagot in chapter 25 and Rosh in chapter 1 of Beitza — see Beit Yosef what he wrote on this, and Terumat HaDeshen siman 306):`,
+  "7:_": `Shabbos 43, and not like Rav — Rif and Rambam, and likewise wrote Rabbeinu Yeruham in Netiv 3 that this is the essential ruling`,
+  "8:א": `There 47`,
+  "8:ב": `Tur from that of Abaye there and according to Tosafos' explanation there in the name of R' Chananel`,
+  "8:ג": `Rosh in a responsum`,
+  "9:_": `Hagahot chapter 26 in the name of R' Meir from that of Shabbos 46 (if it is permitted to cover fruits or to place them because of a leak or to put a utensil under the leak — see siman 331 and 355):`,
+};

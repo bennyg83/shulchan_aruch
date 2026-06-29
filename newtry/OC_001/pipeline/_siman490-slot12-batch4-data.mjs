@@ -1,0 +1,9 @@
+/** worker-slot-12 — siman 490 editorial batch 4 fixes (4 blocks) */
+export const FIXES = {
+  "turei-zahav/part-001.txt": {
+    "4:_": "Praise for the logo. Because in the midst of the Egyptians, the Holy One said, “My hands are done in the sea, and you say poetry, and that in the midst of the Hashem, you do not know him, even if he is not better than the last.”",
+    "9:א": "(א) And Morphein was on me. In the column, he said, “I heard from the wise that the resurrection of the dead will be in San and the triumph of Gogo and Gothic in the chains of the dry bones and the chains of the day of Gogo:",
+    "9:ב": "(ב) There is no mention of the Holy Spirit’s blessing to the Holy One. Dale fills Saturday, there is no cold in the Bible:",
+    "9:ג": "(ג) And the people used not to congratulate them. In the dress, I do not know why I will not be blessed with them, and those who have given him a blessing in the darkness, or who do not know from the Bible in the custom that they have written should be blessed with Hashem’s scrolls. And in the words of Hashem’s Word, Hashem’s Word, Hashem’s Word says, “Hashem’s Word is in heaven, and Hashem’s Word is in heaven, that He will not be blessed with Hashem’s Word, and that He will not be given to us.” This is what Hashem’s promise is to do with Hashem’s mercy, but if He is not in His presence, Hashem’s presence is not in His presence, but in His presence, He will not be blessed with Hashem’s Word, and He will not be blessed with Him All those who are blessed with this age is the blessing to cancel it:"
+  }
+};

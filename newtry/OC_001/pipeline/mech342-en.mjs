@@ -1,0 +1,3 @@
+export const t = {
+  "1:main": `During twilight it is permitted to do things the Sages forbade by decree. And in it is one seif: All things forbidden by rabbinic law — they did not decree against them during twilight (and see above siman 261 and end of siman 307), provided there is a mitzvah matter or pressing need. How so: it is permitted for him during twilight to climb a tree or swim on water to bring a lulav or shofar; and likewise to lower from the tree or to take out from the karmelit the eruv he made; and likewise if he was harried and pressed for something that is on account of shevut — it is permitted during twilight; and for this reason it is permitted to tell a non-Jew during twilight to light a lamp for Shabbat for him:`,
+};

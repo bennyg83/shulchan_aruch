@@ -1,0 +1,4 @@
+export const t = {
+  "1:_": `(1) [Levush] In order to hurry to leave, etc. — so wrote Magen Avraham in the name of Tosafos and Rosh; and he wrote regarding them: it implies other rabbinic prohibitions are forbidden for him even though we hold rabbinic doubt is lenient, since Shabbat prohibition has come upon him entirely, like second day Yom Tov — until here. And it requires study, for Tosafos chapter Kol Gadol did not write thus; also Rosh who wrote the reason: even for the view that techum is d'oraisa we are lenient on account of danger; but for the view that techum is rabbinic — without this reason it is permitted, for rabbinic doubt is lenient; and Ran and Taz wrote in truth the reason since it is rabbinic:`,
+  "2:_": `(2) [Levush] For his livelihood and pikuach nefesh, etc. — therefore if he has what to eat, such as bread, it is forbidden to cook a dish for him (Taz):`,
+};

@@ -1,0 +1,33 @@
+/** siman 489 batch B — short-slug translations */
+export const T = {
+  "beer-hagolah:1:א": "(א) Baraita, Menachot 15",
+  "beer-hagolah:1:ב": "(ב) Plain from Mishnah Megillah 21",
+  "beer-hagolah:1:ג": "(ג) Baraita, Menachot 15",
+  "beer-hagolah:1:ה": "(ה) Statement of Abaye there 15; Rif and Rosh wrote at the end of Pesachim",
+  "beer-hagolah:1:ו": "(ו) Rosh in responsum, and Tur likewise",
+  "beer-hagolah:4:_": "There: Rambam's wording that if one counted without blessing he fulfilled",
+  "beer-hagolah:6:_": "Beit Yosef per what Ran wrote: most commentators agree counting the omer nowadays is d'rabbanan, unlike Tur in the name of Abba ha-Ezri",
+  "beer-hagolah:8:א": "In the name of Halakhot Gedolot, and Tosafot likewise in his name; Menachot 66 as well",
+
+  "netiv-chayim:1:_": "(Magen Avraham s.k. 1) Kesef Mishnah challenged — see: Ran wrote at the end of Pesachim and at the end of Sukkah",
+
+  "chokhmat-shlomo:1:_": "Seif 8: But if he is uncertain whether he skipped one day and did not count, he counts on the remaining days with a blessing. Marginal note: see the source of this law in Terumat HaDeshen and its reason and rationale there; and see in Chiddushei Halachot Berachot siman 295, and it is in my works on Orach Chayim from the year 5637 in responsum to the community of Michanovka near Barditchev on whether one blesses on s'chach — examine well",
+
+  "chatam-sofer:2:_": "(there in Magen Avraham s.k. 90) that the last day is always deferred — marginal note: and regarding temimot see Mishnah 4 chapter 4 of Sanhedrin and see in HaRa'avad and Tosefot Yom Tov there",
+  "chatam-sofer:3:_": "(there s.k. 1) One must count the day; therefore one does not bless — as it should read",
+  "chatam-sofer:4:_": "(there in Magen Avraham s.k. 2) He counts by himself — marginal note: and it is not similar to taking the lulav, for a mitzvah performed by one's body such as donning tefillin and taking the lulav — one cannot fulfill for another; unlike a mitzvah through speech, one who hears is as one who speaks — see Kapos Temarim Sukkah daf 41b; and that which we say \"and you shall count\" — the counting shall be for each one — is to exclude counting the Jubilee, which is only for the great court in Jerusalem, as Tosafot wrote Menachot daf 65b s.v. ve-sefaratem etc., see there; and see Chiddushei Sofer Orach Chayim siman 210",
+  "chatam-sofer:5:_": "(there in Taz s.k. 10) with havdalah and counted before kiddush — marginal note: Taz's reasoning is not so strong, for in kiddush he does not interrupt the sanctity of seven and it is not comparable to havdalah that separates between the sanctity of Shabbat and the sanctity of Yom Tov. And examine. It appears to me by reasoning that one should precede counting the omer, per what Magen Avraham s.k. 1 wrote that the counting is not a contradiction; and further since we are expert in fixing the month, counting is primary — therefore one blesses; and for this reason there is indeed a contradiction, only that perforce one must bless; and one may say that in any case one should precede counting, which is by law, and not precede kiddush, for he has already taken hold of Yom Tov — and then counting is said in contradiction; unlike if he precedes counting, then kiddush, which is custom, is said in contradiction and we are not so concerned, as above — examine. But Chayei Adam already wrote the custom is to sanctify first; see in Peri Megadim",
+  "chatam-sofer:6:_": "In two orders as well — marginal note: see Tosafot Avodah Zarah beginning of chapter Ein Ma'amidin, Rosh beginning of chapter Kol HaBasar",
+  "chatam-sofer:7:_": "(there s.k. 17) and Mishna Berurah holds — marginal note: for R' Baruch, so it should read",
+
+  "rabbi-akiva-eiger:1:_": "Seif 1: One begins to count. If counting in writing — is it counting? See Teshuvot Magen Shmuel siman 20. If he counted by way of twenty minus one he fulfilled — responsum Pri HaEretz to Maharam Mizrachi siman 10. That which one does not bless shehecheyanu on counting the omer — see responsum Radbaz siman 54",
+  "rabbi-akiva-eiger:2:_": "Magen Avraham s.k. 2: And if he wishes, one who hears the blessing. It is good that one bless and fulfill others to fulfill \"in the multitude of the people is the glory of the king\" — see above siman 288 seif 18. See responsum Mahari Weil siman 280",
+  "rabbi-akiva-eiger:3:_": "Seif 7: If he forgot and did not bless all night — if a deceased fell to him at night and the burial ground is distant such that he is an onen all night and the next day he counts the entire day without blessing, and on the days after he counts with blessing — responsum Noda B'Yehuda siman 27",
+
+  "eshel-avraham:1:_": "He counts and continues. If he said \"today forty minus one of the omer\" he fulfilled — see Turei Zahav end of siman 10",
+  "eshel-avraham:8:_": "Blessing. And if he wrote on that day the days of counting that he wrote \"today such-and-such days and weeks of the omer\" he does not fulfill — for it is not like speech — see Turei Zahav what is written siman 20; and if he was an onen at night he counts after burial without blessing, and the night after — it is obvious he blesses — see Devar Moshe siman 33 and Yoreh De'ah siman 228 and Yad Efraim siman 3731",
+
+  "shaarei-teshuvah:3:_": "On — Ba'er Heitev; and see in She'elat Ya'avetz siman 139 who disagrees that even if he does not understand in the holy tongue he fulfilled — see there",
+  "shaarei-teshuvah:8:_": "In the omer. Ba'er Heitev; and see in responsum Beit Yaakov that his father-in-law the gaon would say \"to the omer\" and he upheld the nusach \"to the omer\" and brought proof from Chayei Adam siman 253 — see there; but in truth there is no proof from there to here; and we find in the language of Scripture \"in the second year of their going out\" and similar; it is better \"to the omer\" with the lamed, and so is practiced in our country per the Ari; and see in Even HaEzer siman 126 regarding writing a get for the month — see there",
+  "shaarei-teshuvah:10:_": "49. Ba'er Heitev; and see in Chayei Adam who wrote in the name of Maharil that when he reaches day 49 he says they are seven weeks and the next day is erev Shavuot — this is astonishing, for it implies he says so at the time of counting, and this is not so; this wording \"and the next day\" etc. is the language of Lekutei Maharil who wrote this as the manner of customs that day 49 is erev Shavuot, but not that one says so at the time of counting; and in responsum Shevut Yaakov part 3 they challenged him and he strained to prove from what is written \"and the next day\" etc., and it is not so; and likewise the practice of the people is that they do not say this at all",
+};

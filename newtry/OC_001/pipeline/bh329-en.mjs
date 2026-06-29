@@ -1,0 +1,8 @@
+export const t = {
+  "1:_": `To danger. Such as if there are sick people or minors there whom one cannot evacuate. And it appears to me that even if it is possible to save them via reshus harabim — better to extinguish, for that is melacha she-einah tzerichah legufah, but this is d'oraisa. Magen Avraham — see there. And see what Yad Ephraim wrote on him:`,
+  "2:_": `They uprooted. And an infant found in a city whose majority is gentiles — one does not desecrate Shabbat for him, since every day they all separate from their place of establishment, we follow the majority; see in Even HaEzer siman 4 seif 34. And this "they uprooted" (meaning) all of them [meaning] one after another; for if at once — they too are established. Orchot Chayim, Magen Avraham:`,
+  "3:_": `They dig out. One who comes to tunnel in a case where it is permitted to kill him — if a collapse fell upon him, they do not dig him out, for he is a dead man. Rambam Laws of Theft; see Choshen Mishpat siman 425:`,
+  "7:_": `That if etc. And requires study: let them take the money and not desecrate Shabbat; and it is possible that since a person does not stand up for his money, we are concerned lest one stand against them and they kill — therefore they desecrate; but with a single person — let him allow them to take his money and not desecrate Shabbat. Magen Avraham — see what I wrote siman 248:`,
+  "8:א": `Gentiles. Not specifically because of gentiles; rather the same applies because of a Jew — Yad Eliyahu siman 11:`,
+  "8:ב": `To save them. Nevertheless if there is danger to him, he should not endanger his body since he is outside the danger, even though he saw his fellow die. Orchot Chayim:`,
+};

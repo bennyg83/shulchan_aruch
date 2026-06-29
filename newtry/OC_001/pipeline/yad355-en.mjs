@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `Siman 356 in Magen Avraham s.k. 1 — from karmelit to karmelit, as is written in siman 326, so it should read.`,
+};

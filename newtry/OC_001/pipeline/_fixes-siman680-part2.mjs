@@ -1,0 +1,11 @@
+/** siman 680 part 2 — Pesach */
+export const fixes = {
+  "output/siman_680/beur-hagra/part-001.txt": {
+    "1:_": "A. in the night. Thereafter, B:",
+    "2:א": "(1) Shabbat evening Shabbat. Kafi' Thos' there:",
+    "2:ב": "(2) and there is Damari' Shem Ner Sha'G Tabla 20 and Kshesh Ha'Rash according to P. Aruch and E.S. Thos. D. H. Fatah:"
+  },
+  "output/siman_680/peri-megadim/part-001.txt": {
+    "1:_": "What the Mechaber wrote regarding the door itself — forbidden means with oil that brings closer and distances and is extinguishing and kindling, not with wax; see siman 677 and Levush here that the door's base is not a base since the door serves the house and is as attached. Some are lenient even with oil — see Tur, Rabbi Meir of Rothenburg z\"l in the name of his teacher R' Shmuel; one may say why did the Mechaber not bring in siman 677? Some permit; one may say with strain that for Hanukkah one may say psik reisha he does not want to kindle the oil quickly; for all Hanukkah lights one must kindle half an hour and puts oil sparingly — in the case of wicks and oils, etc., Hanukkah speaks for the view permitted after burning; like oil burning terumah one must burn and it was mentioned in Mishnah — even so they kindle Hanukkah giving sparse measure; also distancing and extinguishing he does not want on Hanukkah — therefore here some permit; see Levush here."
+  }
+};

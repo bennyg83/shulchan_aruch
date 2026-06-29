@@ -1,0 +1,22 @@
+/** siman 692 part 2 — Pesach */
+export const fixes = {
+  "output/siman_692/beur-hagra/part-001.txt": {
+    "1:א": "(א) The reader is called “Wo.” Heaven is the same as Heaven:",
+    "1:ב": "(ב) “Siring a qua.” Name:",
+    "1:ג": "(ג) And on the day etc. — even though its primary time is by day as written — nevertheless since he blessed at night he fulfilled, for it is no worse than if he blessed on sukkah and lulav at time of performance; and so l'chatchila one should bless at night; and once he blessed at night he does not bless by day as on sukkah as written there 46a.",
+    "1:ד": "(ד) And some say — that primary reading is by day as written Elohai Ekra yomam etc.; and there he wrote: all day etc.; whence do we know — as written vehayamim etc.; and for Delilah no question; and so there 1: one does not read etc. — even though gemara said when it teaches adyom — nevertheless since it taught only by day; and village children read only by day; and in Tosefta chapter 2: if he read at night he did not fulfill — R' Yosi; incident of Rabbenu Nechemiah who read in Tzipori at night — they told him there is no danger — proof.",
+    "1:ה": "(ה) And one etc. — Yerushalmi chapter 4: incident of R' Meir who read etc. and gave it to another and blessed on it etc. — this reads and this blesses; from here listener is like reader; as written asher karu lifnei hamelech etc.",
+    "1:ו": "(ו) And then she is driving. Me and Heaven:",
+    "1:ז": "(ז) If not. Added P:",
+    "1:ח": "(ח) and behave. A:",
+    "1:ט": "(ט) And one does not etc. — Kol Bo in name of Yerushalmi; and it is in chapter 4 halachah 1; and in our corrupted version; and also implies there it refers only to Torah; R' Shimon ben Elazar taught the blessing etc.",
+    "4:א": "(א) Seif 4 — one who is etc. — because Minchah's division is night — also for Shema as Rabbenu Tam wrote Berachot 2a; and likewise for Kiddush and Havdalah as written chapter 4 there; and specifically for one who always practices like R' Yehuda there; and see Peri Chadash who divided and rejected his words.",
+    "4:ב": "(ב) But. In the name of Heaven:"
+  },
+  "output/siman_692/peri-megadim/part-001.txt": {
+    "1:א": "(א) Custom — Taz: Shulchan Aruch implies so since already said \"our God\" siman 189; Taz proof from here see there. In some siddurim Eretz Yisrael blessing text \"the great God\" etc. \"who completes\" etc. \"who redeems\" etc. \"in Eretz Yisrael the God who redeems His people Israel from all their troubles, the God who saves\" — per Bach's nusach; Avodat Yisrael letter 4 wondered — say only \"in Eretz Yisrael who redeems His people Israel from all troubles, the God who saves and redeems\" near closing like a closing — see there. Explanation of blessing: Rav Abudraham and Avodat Yisrael — six fine explanations.",
+    "1:ב": "(ב) What he wrote in gloss one does not bless afterward individually — Eliyah Rabbah ch. 8 brought several poskim even individual blesses afterward; fit to bless without Name and Malchut — see Even HaEzer 55 Birkat Kidushin in Choshen Mishpat. And see in 5 Berachot VeAsher He'enia one says even individually without Name and Malchut.",
+    "2:_": "While Taz etc. his intent: what Tur brings one should not talk during reading — not to interrupt between megillah and closing blessing or mid-blessing; wants to explain Shulchan Aruch one should not talk while reading — means the blessing; and truth of Tur's language since he blesses afterward — interruption refers to blessing; but interrupting megillah certainly forbidden like Hallel and haftarah here. In gloss Terumat HaDeshen 65 understood here literally — one should not talk while reading megillah; reader who interrupts — they rebuke if not as pausing in Shema — see there.",
+    "3:_": "Forbidden — see Taz and Magen Avraham letter 6 regarding tasting for study; Magen Avraham and siman 687. Peri Chadash wrote in Shulchan Aruch that one should not divide the meal thus, and even at Motzei Shabbat one should not read — siman 689 in Magen Avraham 7 and 687; and b'dieved if he read at Motzei Shabbat one may say it is a rabbinic doubt for leniency; and it is possible that"
+  }
+};

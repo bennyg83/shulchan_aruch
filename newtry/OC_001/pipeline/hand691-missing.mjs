@@ -1,0 +1,15 @@
+/** worker-slot-3 — siman 691 missing hand keys (6) */
+export const HAND = {
+  "beur-hagra/1:ג":
+    "(ג) And it requires ruled lines. On every line — unlike Levush and Magen Avraham; they erred, for regarding tefillin that do not require ruled lines we say thus as in Tosafot Gittin 6b on the matter beginning R' Yitzchak said etc.; and if you say etc.; and Rabbenu Tam says etc.; and likewise in Agudah; but mezuzah and anything that requires ruled lines perforce we require on every line; and see there and in Rosh.",
+  "beur-hagra/6:א":
+    "(א) Seif 6 — and because it has various explanations. Rashi and Tosafot explained one [stitch] in its middle and two in its fourth parts; proof from what is written in Makkot 9 that three must be plaited etc.; and Rif explained two at the corners, proof from what is written in Eruvin 57 three villages that are triangular etc.; and likewise in Bechorot 38 regarding blemishes; and see chapter HaAreil, chapter there; and likewise Rambam explained, except he explained three threads in every stitch like a triangular heifer and triangular goat etc.; and see there in Targum; and see in Rosh there and in Tosafot and in Tosafot Bechorot 39a s.v. sheyehu etc.",
+  "chatam-sofer/1:_":
+    "In Mechaber seif 1 NB see Sanhedrin daf 100a that megillah does not require a cloth. However Mahariatz vol. 2 s.k. 173 raised that per our understanding megillah was said in ruach hakodesh to read and to write — forbidden to touch it naked and it requires a cloth — see there. And I saw my teacher ztz\"l that at time of reading he was careful not to touch it naked; and still requires study in Magen Avraham siman 147 s.k. 1 and requires study in Radbaz vol. 2 siman 391.",
+  "mechaber/4:main":
+    "One must extend the vav of Vaizata [in writing; some say in reading] [Ran in the name of the Rosh and Maharil and Beit Yosef in the name of Orach Chayyim], and one must write ish at the head of the column and et at its end.",
+  "mechaber/6:main":
+    "If one sewed it with three sinew threads it is valid, provided they are plaited; and because it has various explanations one must fulfill all of them — make three stitches at its head and three at its end and three in its middle, and one stitch in the fourth part on this side and one stitch in the fourth part on the other side. {Rama: If he has no sinews it is better to sew the remainder with flax threads than leave it without stitching [Hagahot Maimoniot chapter 2 and Kol Bo]; but if he has sinews he should sew it all with sinews and the stitching should be on the outside not inside [Rabbenu Yerucham part 4 and Beit Yosef in the name of Orach Chayyim].}",
+  "mechaber/8:main":
+    "One does not read in congregation from a megillah written among the Writings; and if one read he did not fulfill unless it was larger than the other sheets or smaller so that it has a recognizable distinction. But an individual reads from it — even if it is not smaller or larger — and fulfills his obligation with it; and specifically when it is written on a gilyon like a Torah scroll.",
+};

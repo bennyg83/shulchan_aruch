@@ -1,0 +1,9 @@
+/** worker-slot-15 — siman 579 complete manual fixes */
+export const FIXES = {
+  "kaf-hachayyim/part-001.txt": {
+    "1:_": ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+  },
+  "shaarei-teshuvah/part-001.txt": {
+    "1:_": "(In Shulchan Aruch seif 1) and Beit Yosef wrote in name of Maharam Zacut responsa: some places say selichot at arvit — suppress; improper to mention thirteen attributes except time of favor; one present when said should sit silent or say psalms; confession may say; motzaei Shabbat forbidden until after chatzot for Shabbat sanctity; see his name one who rises while congregation says selichot needing chatzot tikun should say chatzot per Ari z\"l greater than selichot; Maharash Sha'ar Ari selichot slowly with intent; forbidden thirteen attributes without intent; Tur Barkeit better these days increase selichot supplications with congregation than study; Beit Yosef saw some rabbis always studied law compositions in Elul left some order to study only supplications; places from Rosh Chodesh Elul after prayer caller 'Return rebellious children' — fine custom; Mahari Berakh on Torah Matot some annul vows in Elul hint lo yachel devaro all Elul — see below end s.k. 7."
+  }
+};

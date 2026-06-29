@@ -1,0 +1,6 @@
+export const t = {
+  "1:main": `The laws of anointing on Shabbat. And in it 4 seifim: One whose loins pain him should not anoint with oil and vinegar, but he may anoint with oil alone, but not with rose oil because it is evident that he does it for healing; and if it is a place where rose oil is common and the way of people is to anoint with it even without healing — permitted. {Rama: And in a place where they do not practice anointing with oil except for healing — in all oil it is forbidden (Beit Yosef).}`,
+  "2:main": `One may anoint and rub for his pleasure through a change — that he anoints and rubs together, and he should not rub with force but with lightness of hands.`,
+  "3:main": `One may not scrape with an implement designed for this unless his hands or feet were soiled with mud and excrement.`,
+  "4:main": `One should not anoint his foot with oil while it is inside the shoe or sandal (new ones) (Rambam chapter 23) because the skin softens and it is comparable to tanning; but he may anoint his foot and place it in the shoe, and he may anoint his entire body and roll upon the skin, provided there is not on him from the oil wiped from his body an amount sufficient to tan it — even if there is in it enough to polish it, permitted — provided he does not intend even to polish it.`,
+};

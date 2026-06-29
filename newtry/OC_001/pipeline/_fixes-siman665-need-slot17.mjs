@@ -1,0 +1,7 @@
+/** worker-slot-17 — siman 665 need-block fixes */
+export const FIXES = {
+  "machatzit-hashekel/part-001.txt": {
+    "1:א":
+      "(א) Forbidden etc., for the etrog itself was set aside for all seven days. The reason we say that since it was set aside for beit ha'asur it is set aside for the whole day is because it was set aside at the start of the day and therefore for the entire day; not so here, where it was not set aside for beit ha'asur but because of safek yom shenavar — perhaps it is still the seventh; but if we knew beit ha'asur night had already begun and it is the eighth, it would not be forbidden on beit ha'asur. Thus at the start of the eighth it was not set aside; its prohibition on beit ha'asur was only lest it was still the seventh. Regarding sukkah being forbidden also on Shemini Atzeret because of migo that it was set aside for beit ha'asur: even though beit ha'asur itself is forbidden only lest it is still the seventh, we say migo etc. because of safek yom shenavar. Tosafot and Rosh, brought in Magen Avraham siman 667: sukkah is different — if a meal happened on beit ha'asur of Shemini Atzeret one must eat in the sukkah, even though the obligation to eat in the sukkah on beit ha'asur is also because of safek yom shenavar; in any case one must eat in the sukkah for whatever reason, so it is set aside for the whole day. Not so the etrog: if they did not take it until beit ha'asur they need not take it, as Rosh wrote siman 652, and it is not muktzeh except for safek yom shenavar, not muktzeh for the whole day.",
+  },
+};

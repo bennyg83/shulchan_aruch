@@ -1,0 +1,17 @@
+export const t = {
+  "1:_": `Seif 1, making sound, etc. Like Rabba, as R' Eliezer bar Yaakov explained according to him, and Ameimar there holds according to him, unlike the Yerushalmi. Rif: but the essence appears like the Yerushalmi and it is permitted only if he does not intend for sound at all, like the pit of the wheel and the like in tractate Eruvin there`,
+  "2:א": `Seif 2, some permit. For shvut di-shvut in a place of mitzva is permitted, as was stated above siman 307 seif 5`,
+  "2:ב": `And even to say. Per the view of those who permit in siman 276 seif 2 in the gloss`,
+  "2:ג": `Pair. Chapter 23 seif 5`,
+  "4:_": `Seif 4, he should not clap, etc. Language of Tur and Rashi there; but Rashi in chapter 5 day 19 explained patting as hand on hand, clapping on thigh; and so Shulchan Aruch in siman 339 and siman 320 and siman 324 and siman 347 and Yoreh De'ah siman 401; see Tosafos chapter 3 of Moed Katan 27b s.v. "but," etc.; see Rosh chapter 5 day 19 who wrote in the name of the Yerushalmi that both are hand on hand, only patting is willingly, clapping comes from his anger as is written "and he was angry, etc., and clapped"; with this the difficulty of Tosafos there is resolved; therefore clapping was not mentioned regarding a mourner; and so is the essence`,
+  "5:א": `Seif 5, and specifically. As is written Shabbos 124b; see Rashi there`,
+  "5:ב": `And permitted to play. We learn from nuts that they said there: what is the reason — not, etc.`,
+  "5:ג": `But when, etc. See Yoma 37a`,
+  "5:ד": `Nevertheless one should not. There 37a and Shabbos 148b`,
+  "6:_": `Seif 6, and some say. Tosafos there`,
+  "7:א": `Seif 7, through roof hatch. Meaning even in a case where it is permitted on Yom Tov as is written in siman 324`,
+  "7:ב": `But permitted. Per Rosh's explanation in the name of R' Yehuda that on Shabbat the conclusion deals also with "and one covers," for it interrupted on Yom Tov, etc., between the sections`,
+  "8:א": `Seif 8, and provided, etc. Shabbos 43a`,
+  "8:ב": `On account that one does not. Magen Avraham; they strained Rambam's language because there the Gemara established afterward the law of graf, see there`,
+  "8:ג": `And if. Chapter 308 seif 136`,
+};

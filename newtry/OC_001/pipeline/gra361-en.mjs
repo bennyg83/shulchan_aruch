@@ -1,0 +1,17 @@
+export const t = {
+  "1:א": `Seif 1 within ten. Gemara there and like Rabbeinu Tam and Rambam explained; and above ten relative to the courtyard — for otherwise it is karmelit and a ladder does not help, as written Shabbos 7:2, a house whose interior is not, etc.; but now since on one side it is ten it is a private domain like a pit and its embankment Shabbos 99, Eruvin 99:`,
+  "1:ב": `Since the public. There in the Gemara, and perhaps like the public. And so Rambam; nevertheless see there:`,
+  "1:ג": `This is like a public domain. From here is proof for the words of Rosh in siman 345 seif 10, and it is the language of Peri Megadim in the name of Rashba for the entire siman until its end:`,
+  "2:א": `Seif 2 a courtyard that was breached, etc., if, etc. Mishnah 94:1 and Rashi s.v. a courtyard fully or, etc.:`,
+  "2:ב": `Place. There in the Gemara on place, etc.:`,
+  "2:ג": `Like the sides of reshut ha-rabbim. There and Abaye, etc.:`,
+  "2:ד": `Which is karmelit. Mishnah there:`,
+  "2:ה": `As the Mechaber wrote the courtyard. Gemara there and the Rabbis said to him Rabbi Eliezer the sides, etc.:`,
+  "2:ו": `And if breached. There Rabbi said forever, etc.:`,
+  "2:ז": `And similarly a house. There the Mishnah and Gemara and like Tosafos explained s.v. and its roofing:`,
+  "2:ח": `Even. In the first version, for in matters of scribes we follow the lenient view:`,
+  "2:ט": `And it. There like Rashi explained s.v. they say, etc., and as written there 25:2 and like Rashi explained there — for on this must be that the dispute of Rabba and Rabbi Zeira is not except in a karpef of forty, for in other places they agree we do not apply the edge of the roof descends and seals; and so for Tosafos' explanation there s.v. the homeowner, etc., in every place they agree we do not apply on four sides the edge of the roof descends and seals, as Tosafos wrote there and in chapter Kol Gagot there:`,
+  "2:י": `And some say we also require. There chapter 7 and like Tosafos explained there s.v. a beam, etc., and Shabbos 9:1 such as roofing, etc., and see there Rashi and Tosafos:`,
+  "2:כ": `And we apply the edge, etc. 94:2 and similarly a house, etc., what difference from one side, etc., and therefore it mentions a portico in a field, for in a courtyard ordinarily a portico has three partitions but in a field it has only two partitions; and Tosafos there s.v. on two sides and there 25:1 s.v. portico and in chapter 1 of Sukkah 18:2 s.v. portico, etc.:`,
+  "2:ל": `But this facing that, no. There Mishnah one who builds, etc., and Gemara there and Sukkah there "I concede to you," etc., and Shulchan Aruch omitted all this — for in the first law chapter like Rashi there chapter 7:1 s.v. beam, and so Rambam did not mention the width of the beam; and Beit Yosef wrote that thus we rule; and in the second law like Rif and Rambam who explain portico in a field that has three partitions — their dispute is in this; and like the version of Rabeinu Chananel, for he does not hold three, etc., and as Magen Avraham wrote Tosafos there and there that a portico has three sides as written Bava Batra 25:2, the world is like a portico, etc.; and therefore it mentions in a field because in a courtyard there are four sides and therefore Shulchan Aruch ruled plainly that here it deals when breached from one side and even fully, for since it says and even more than ten it implies that it deals with ten amot; Tosafos there s.v. in ten, etc.:`,
+};

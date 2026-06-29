@@ -1,0 +1,95 @@
+/** worker-slot-6 — siman 282 hand translations batch 3 (45 blocks) */
+export const FIXES = {
+  "machatzit-hashekel/part-001.txt": {
+    "6:ה":
+      "And it implies from here that a woman is obligated — for otherwise the congregation is obligated in a minyan of seven readers d'rabbanan, and it cannot be that a woman is exempt — how can the congregation fulfill through her aliyah, for we rule that a woman may not read for the congregation:",
+    "6:ו":
+      "And so too Tosafos end of Rosh Hashanah 33 s.v. \"ha R' Yehuda,\" etc. — and this is what they wrote: however, one may say that a woman can discharge one obligated d'rabbanan, like a minor who blesses his father in chapter Mi sheMeto:",
+    "7:_":
+      "(s.k. 7) His mother, etc. — he is a proper Israelite, for we rule a gentile and a slave who had relations with a daughter of Israel — the offspring is valid:",
+  },
+  "magen-avraham/part-001.txt": {
+    "1:א":
+      "On Shabbat morning at the opening of the ark one should say Barich shemeih, as is written in the Zohar Vayakhel [manuscripts]. The Zohar wrote in parashat Vayakhel folio 206: it is forbidden for one who reads in the Torah to begin until the congregation finishes \"Barich shemeih,\" etc.:",
+    "1:ב":
+      "On Yom Tov one may not add. But when it falls on Shabbat, according to all it is permitted to add [Levush]. And I heard that some great authorities ruled not to add in the synagogue even when it falls on Shabbat, because of honor of Shabbat:",
+    "1:ג":
+      "There is nothing wrong with this. Nevertheless he does not count for a minyan of seven, as is written end of siman 137; and Be'er Sheva was not precise:",
+    "2:_":
+      "Except on Simchat Torah. And even at a wedding or when there are many obligations they did not practice leniently; and it is written in Mishna Berurah: I saw lenient practice also at a wedding:",
+    "3:א": "For a minyan of seven. But not for a minyan of three [Be'er Sheva]:",
+    "3:ב":
+      "And a minor. But to be a reader he cannot until he brings two hairs (R' Meir of Lublin in responsum of Beit Yosef siman 43). If there is no kohen except a minor, they call him:",
+    "3:ג": "His mother is from Israel. For then he is a proper Israelite:",
+    "3:ד":
+      "With uncovered head. This refers to a minor; and so too in Darkei Moshe — but an adult, without this, is forbidden, as is written siman 2 and siman 151 seif 6; however, one may say that specifically going is forbidden, but standing is permitted:",
+    "4:א":
+      "The custom is. That which they practice to sell the sixth aliyah separately — there is some support from the Zohar Shelach Lecha page 312:",
+    "4:ב": "And similarly on Yom Tov. Because some say it is permitted to add:",
+    "4:ג": "The maftir reads last. And some say the seventh reads for the maftir instead:",
+    "4:ד":
+      "In four parashiyot. And so too Bach, not like Maharshal; and I saw the custom that a minor does not read maftir in Merkavah on the first day of Shavuot nor on the seventh of Pesach; and Mateh Moshe wrote that one should not read maftir on Shabbat Shuvah:",
+    "4:ה":
+      "And they say Kaddish before. That is on Shabbat; but on weekday when the maftir is from the minyan, they say Kaddish after the maftir, for one may not say Kaddish until the minyan is complete; and there are other customs in this:",
+    "5:א":
+      "If one is not found, etc. And the same applies on Shabbat of Chazon — even if one is found who knows to read maftir from the Prophets, only he does not know to recite kinot as is customary — the law is so, Maggid Mishneh there; and Maharik — even if there are others who know kinot, the rabbi may read since the rabbi's way is always to read it:",
+    "5:ב":
+      "He must return and read. For the unspecified wording implies that even the seventh who wishes to read maftir must return and read, since they interrupted with Kaddish — those entering would not know that this one already read in the Torah:",
+    "5:ג":
+      "The one who went up to seventh should read maftir. And he should not say Kaddish after him, so too in Darkei Moshe; nevertheless it appears to me he should say Kaddish after the haftarah, for Kaddish refers to Torah reading and the haftarah is not included:",
+    "6:_": "If the shliach tzibur erred, etc. See siman 137; and Be'er Sheva did not explain; and see siman 684:",
+    "7:_":
+      "And he skipped one verse. It appears to me the same applies to one word — they spoke in the present tense; see siman 64: customs of obligations — Sefer Levush with a small addition from me: in Pozna the baal tekiah and the prayer leader, etc.:",
+  },
+  "mechaber/part-001.txt": {
+    "1:main":
+      "Keriat HaTorah and the maftir on Shabbat. And in it seven seifim: They take out a Torah scroll and read seven in it; and if he wishes to add, he adds: {Rama: And the same applies on Yom Tov — it is permitted to add beyond seven, except on Yom Kippur when it falls on Shabbat one may not add, because the section breaks are directed to end with matters of atonement; therefore it is good not to change them. And on other Shabbatot of the year one may add. And on Simchat Torah the custom is to add many aliyot. And the maftir on Yom Tov reads a parashah by itself for the obligation of the day, and therefore on Yom Tov one may not add beyond the seven for honor of Yom Tov.}",
+    "2:main":
+      "It is permitted to read many who go up even though this one read what that one read and he returns and blesses — there is nothing wrong with this: {Rama: And there are those who forbid (Mordechai end of Megillah), and so they practiced in our countries except on Simchat Torah when there is need, and so is the custom.}",
+    "3:main":
+      "All count for a minyan of seven — even a woman and a minor who knows to whom they bless; but the Sages said a woman may not read in public because of honor of the congregation: {Rama: And these specifically join to complete the minyan of seven; but for a minyan of three for reading they do not count. And a minor counts for seven only when he reached chinuch and knows to whom they bless and to cut the letters well; and if there is no kohen except a minor, they call him. And a woman is obligated to hear Keriat HaTorah. A slave whose mother is from Israel counts. And it is forbidden to read one whose knees are visible or his clothes are torn, or one whose head is uncovered; and a mamzer is permitted to go up, but in place of a Levi he may not go up because the sanctity of Levitehood is impaired.}",
+    "4:main":
+      "The custom is to read seven to complete the parashah with them and he says Kaddish and returns and reads with the maftir what the seventh read. {Rama: And similarly on Yom Tov when the maftir is not from the minyan of five. And on Rosh Chodesh and Chol HaMoed and the like when they take out two or three Torah scrolls, in every case they say Kaddish before the maftir. And even though there are disputants, we practice to read a minor in four parashiyot on Shabbat when they take out two or three scrolls, since he counts even for a minyan of seven; and they say Kaddish before the maftir goes up, and there is no distinction whether they add or take out two or three scrolls — in every case Kaddish is before the maftir.}",
+    "5:main":
+      "If one who knows to read maftir is not found except one of those who went up to read in the Torah, and the shliach tzibur already said Kaddish after reading the parashah — this one who wishes to read maftir must return and read in the Torah and bless, for perhaps those entering will not know that he already read; and afterward he reads maftir. {Rama: And the same applies on Shabbat of Chazon. And if the seventh knows to read maftir, he reads maftir and need not return to read in the Torah except what he read at the end of the parashah; and he should not read maftir before the third on Shabbat Chazon where the custom is that the rabbi reads maftir. And if they already called him to the Torah in another synagogue and that parashah happened to him, he must return and bless.}",
+    "6:main":
+      "If the shliach tzibur erred and ended the parashah with the sixth and said Kaddish, one need not read another after him; rather he reads with the maftir what he read with the sixth, for we rule the maftir counts in the minyan of seven:",
+    "7:main":
+      "If he read the parashah in Shacharit prayer on Shabbat and skipped one verse, he returns and reads — he and two with him — even if he read haftarah and prayed Mussaf, he returns and reads:",
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א":
+      "(1) They take out, etc. — one should say Barich shemeih at the opening of the ark both on Shabbat and weekday. And one who gives the Torah scroll and one who receives it must be with the right hand, even if he is left-handed:",
+    "1:ב":
+      "(2) And they read in it, etc. — and it is a mitzvah d'rabbanan and an ancient enactment from Moshe Rabbeinu, may peace be upon him, as is written in siman 135, see there in Mishna Berurah:",
+    "1:ג":
+      "(3) Seven — behold, in the time of the Mishnah the custom was that the first of the readers would bless the blessing before and the last would bless the blessing after, and all the middle ones would read without a blessing; and the essence of the seven is that seven read, each a portion of the parashah:",
+    "1:ד":
+      "(4) And if he wished — and some say that today when each of the readers blesses before and after, as above, it is not worthwhile to add to multiply blessings; but where there is need, such as a wedding or milah or Simchat Torah, they add:",
+    "1:ה":
+      "(5) He adds — and it is proper not to add greatly because of burden on the congregation; and where there is concern for complaints of some people when they are not called to the Torah, one need not be strict about this:",
+    "1:ו":
+      "(6) One may not add — and when Yom Tov falls on Shabbat, according to all it is permitted to add beyond seven as on other Shabbatot of the year, for although Yom Tov sanctity was added to it, nevertheless its power is not diminished without adding:",
+    "1:ז":
+      "(7) Except on Simchat Torah — so that each one may merit to read in the Torah at the time of completing the Torah; we establish the law like most poskim who permit adding on Yom Tov:",
+    "1:ח":
+      "(8) The maftir reads, etc. — meaning, the maftir reads a parashah by itself for the obligation of the day; and from this automatically is also proof that we record as law like one opinion that on Yom Tov it is permitted to add beyond seven for honor of Yom Tov:",
+    "2:א":
+      "(9) There is nothing wrong with this — nevertheless he does not count from the minyan unless he added at least two verses beyond what the first read — then b'dieved he counts in the minyan, as is written end of siman 137:",
+    "2:ב":
+      "(10) Except on Simchat Torah — some say the same applies at a wedding; but our custom is not to read for one what another already read, even at a wedding; only on Simchat Torah they practice like Rama [Peri Megadim]:",
+    "3:א":
+      "(11) For a minyan of seven — but not for a minyan of three [Magen Avraham]. And in Olat Shabbat he wrote further that the same applies for a minyan of six on Rosh Chodesh, and on Yom Tov and Yom Kippur also he does not count:",
+    "3:ב":
+      "(12) And a minor — and even if there is no kohen except a minor, they call him [R' Yehuda Terani and Radbaz]. And the view of Magen Avraham is that we are not obligated to call him, for \"vekidashto\" was not said except regarding a grown person:",
+    "3:ג":
+      "(13) Who knows to whom they bless — nevertheless he cannot be the reader of those going up — meaning, that he reads aloud in the Torah scroll and those going up say after him quietly; and all who are called must know to whom they bless:",
+    "3:ד": "(14) All of them — or most of them:",
+    "3:ה":
+      "(15) His mother is from Israel — for then he is a proper Israelite and obligated in all the mitzvot:",
+    "3:ו":
+      "(16) With uncovered head — meaning even if he is a minor. And similarly a minor who is a boor — meaning his clothes are torn and his arms and shoulders are uncovered — it is forbidden to call him to the Torah:",
+    "3:ז":
+      "(17) Permitted to go up — for behold he is obligated in all the mitzvot in the Torah like any Jewish man:",
+  },
+};

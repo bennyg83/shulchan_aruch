@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `In Magen Avraham s.k. 6 — and one need not be concerned lest the sea rise — this applies above to where we say that if he has embankments it is permitted to draw, etc.`,
+};

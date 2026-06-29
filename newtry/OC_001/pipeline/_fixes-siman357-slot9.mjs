@@ -1,0 +1,7 @@
+/** worker-slot-9 — siman 357 manual fixes (machatzit-hashekel) */
+export const FIXES = {
+  "machatzit-hashekel/part-001.txt": {
+    "1:א": "(1) Makom patur, etc. — And it should not be ten deep — meaning, it is not required that it be made in the shape the Rama wrote in the hagahah, namely half an amah by half an amah and three-fifths amah high, for even without mud and mire it is immediately not ten deep and would not be karmelit, one may say. Rather, even if ten deep, we are concerned that through mud and mire its depth will be reduced below three.",
+    "1:ב": "(2) It becomes holes of reshut hayachid — and what the Shulchan Aruch wrote that it should be makom patur is not precise; rather it means that one may carry there l'chatchila."
+  }
+};

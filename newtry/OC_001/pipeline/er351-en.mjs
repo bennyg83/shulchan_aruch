@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `(1) [Levush] as if drawing etc. And for Rambam a different approach in this siman, and he agreed with him in Sefer Torat Chaim daf 59; and Nachalat Tzvi contradicts his words and agreed to the approach of Shulchan Aruch and Levush — see there:`,
+};

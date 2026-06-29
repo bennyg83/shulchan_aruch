@@ -1,0 +1,7 @@
+export const t = {
+  "1:main": `The law of four amot in reshut ha-rabbim. And in it are 5 seifim: Every person has four amot in reshut ha-rabbim within which he may move objects, and we measure for him with his amah; and if his amah is small we give him four average amot of every person, each of which is six tefachim [and see below siman 396]:`,
+  "2:main": `The four amot that they spoke of — they and their diagonal, and it is found that they are five amot and three-fifths; and there are those who say that from four amot until five and three-fifths he is exempt but forbidden:`,
+  "3:main": `It is permitted for a person to uproot an object from reshut ha-rabbim and give it to his fellow who is near him within his four amot, and his fellow to his fellow who is near him — even though the object goes many milin in reshut ha-rabbim — provided he not take it outside his boundary; and some forbid [and see above siman 301 seif 42]:`,
+  "4:main": `If two people — part of one's amot are within the other's amot, such as six amot between them — they may bring and eat in the middle, provided each not take from his into his fellow's; if three and the middle one is swallowed between them, such as eight amot between the two outer ones — the middle one is permitted with each of the outer ones in what his four amot are swallowed within his; and the two outer ones are forbidden with each other:`,
+  "5:main": `It is forbidden to carry an object less than less than four amot — even at bein hashmashos, even in karmelit:`,
+};

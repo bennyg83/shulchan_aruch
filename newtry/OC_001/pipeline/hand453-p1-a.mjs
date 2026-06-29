@@ -1,0 +1,37 @@
+/** siman 453 part 1 — baer-heitev, beer-hagolah */
+export const HAND = {
+  "baer-heitev/1:ג":
+    "To light. Maharil forbids in a place where there is concern they may fall into a cooked dish; see end siman 447; and from Maharil it implies permitted to eat olive oil; Magen Avraham — see there.",
+  "baer-heitev/1:ד":
+    "And permitted. Nevertheless they require examination that there not be one of the five species. Beit Yosef wrote: good to be stringent not to eat anise and caraway until the last day of Pesach, for it is impossible to separate them well; Taz wrote: I heard they distinguish what is called krems kimmel brought from other countries — forbidden, seeds resemble grain; but what is called peled kimmel is permitted on Pesach; Kaf HaChayyim wrote: in my opinion one should not be more stringent, for kitniyot itself is only a general stringency — do not add to it.",
+  "baer-heitev/3:א":
+    "Mouse. A little saliva in a mouse's mouth does not make hard wheat chametz; therefore even without sixty it is permitted b'dieved — Rashba and Ramban; Peri Chadash challenged: is it not nullified 1000-to-1 and all is permitted? He concludes: since he mixes intending to eat on Pesach, it is like nullifying prohibition — see there; Kaf HaChayyim wrote on Ramban: mouse-biting is like fruit juice; perhaps specifically wheat, but barley quickly becomes chametz — Magen Avraham; and above siman 466 seif 4.",
+  "baer-heitev/3:ב":
+    "To see. This refers to sprouted grain; and one need not bake it 1000-to-1, for flour in flour is called dough in dough and does not return and awaken — Terumat HaDeshen and Bach; Kaf HaChayyim wrote: a person of spirit should be stringent for himself to bake everything 1000-to-1; nevertheless certainly permitted to cook from those matzot during Pesach — see Magen Avraham siman 458; and if flour became moist and crumbled, nullification does not help even to bake 1000-to-1, as explained below siman 467 — Kaf HaChayyim.",
+  "baer-heitev/4:ב":
+    "Water. If a non-Jew took wheat from him and said he washed them — if he is not believed to him, it is forbidden — Magen Avraham siman 467 note 3; see there Kaf HaChayyim.",
+  "baer-heitev/4:ג":
+    "The marketplace. We do not establish prohibition lest he touched water; and it appears even where they practice moistening wheat, one should not moisten in a way that becomes chametz — Taz. However in Tzitz Eliezer siman 32 he was stringent in this matter and wrote: when it is known clearly that some always launder wheat — which is worse than moistening — even though most sellers do not launder, it is forbidden on account of kevu'a like half-and-half — see there; and so Magen Avraham in the name of a great one: in our country where they regularly wash wheat and soak in water, forbidden to take flour from the marketplace, literally like grain that sank, as siman 467 seif 2; and so all sages of Prague — see there; Kaf HaChayyim wrote: it appears to distinguish — only from those millers in the city or regular flour sellers one should not buy, especially bakers; but permitted to buy from village people who bring flour daily from villages — see reason; and I heard also in days of Mochachaz the Gaon Maharash zikhrono le-verachah was once pressed for Pesach flour and permitted buying from marketplace; perhaps also in the way I wrote; and one should not be stringent especially for matzah that is not for the mitzvah — see note 8; Taz wrote: where they grind wheat in millstones in which they grind malt, even in duress forbidden, for it is full chametz; Kaf HaChayyim wrote on him: in duress even so one may permit, for even if something of malt remains and mixes, certainly it mixed and was nullified 1000-to-1; nevertheless correct in duress to bake everything 1000-to-1; Kaf HaChayyim brings proof when crumbs of bread fell into flour that shaking helps — see there.",
+  "baer-heitev/5:א":
+    "To moisten. Meaning moistening: Rambam wrote they soak wheat in water; Aruch explained language of soaking; and since we are not expert in moistening, the Geonim forbade; nevertheless it appears permitted to keep wheat in their homes, since by Gemara law wheat in moistening is permitted as long as it is not near splitting, as below siman 467 seif 9 — namely slight soaking or little rinsing; but much soaking is full chametz like grain that sank in a river — Kaf HaChayyim; Taz wrote: forbidden to buy wheat from the mill-owner, for they regularly rinse wheat first.",
+  "baer-heitev/6:א":
+    "All year. Likewise if he placed flour in them once, even Pesach flour — if he wishes to launder them he must untie stitching as stated siman 451 note 31.",
+  "baer-heitev/8:א":
+    "To pick [the millstones]. He wrote in Teshuvot Nachalat Shiva siman 12: thirty days before Pesach permitted to grind even without picking millstones — see there where he elaborated this leniency; in question 13 he wrote: if they cannot easily pick millstones because it is close to Pesach or other need — for them too it is time of duress and permitted to grind without picking — see there; nevertheless he baked everything before Pesach, as above note 13; in any case he ground everything before Pesach.",
+  "baer-heitev/8:ב":
+    "They guard it. Agur wrote: now they cover millstones in flax; therefore possible to permit even first flour — see there; Magen Avraham in the name of Machatzit HaShekel: when grinding in millstones grain for moistening, do not grind in that house at that time even in another millstone, for dust flies and mixes; Kaf HaChayyim wrote: I have not seen carefulness in this — see there; above siman 447 note 20 from Sha'ar HaShamayim: a child should not guard millstones — Machatzit HaShekel.",
+  "baer-heitev/9:א":
+    "Days. Meaning l'chatchila he should grind two days before kneading; if impossible, at least one day before kneading; it appears not twenty-four hours, only overnight — Magen Avraham; Kaf HaChayyim wrote: from words of poskim it implies twenty-four hours; Mahariwe wrote three days; if he transgressed and kneaded, it appears not forbidden b'dieved — Kaf HaChayyim.",
+  "baer-heitev/9:ב":
+    "Hot. Kenesset HaGedolah wrote: he heard from one sage one need not be concerned, since when they shake flour it cools; I do not rely on this report — see there; wheat ground in hand-millstones has no heat at all and need not wait a day or two; but good to be stringent — Eliyah Rabbah siman 11; see Kenesset HaGedolah what he wrote in the name of Radbaz.",
+  "beer-hagolah/1:ב":
+    "In the Gemara there",
+  "beer-hagolah/2:_":
+    "Mishnah chapter 3 of Challah; and Rambam wrote in chapter 5",
+  "beer-hagolah/4:ב":
+    "As the Rosh wrote from the statement of Rav Huna there",
+  "beer-hagolah/5:_":
+    "Rif and Rosh in chapter 2 of Pesachim; Rambam chapter 5",
+  "beer-hagolah/8:א":
+    "Agur in the name of Mahari of Lunil; and responsa of Ashkenazim",
+};

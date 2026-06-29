@@ -1,0 +1,6 @@
+/** worker-slot-7 — siman 318 editorial batch 13 fixes (1 blocks) */
+export const FIXES = {
+  "yad-ephraim/part-001.txt": {
+    "5:_": "Magen Avraham s.k. 5 \"and see what he wrote in siman 543 seif 5\" — it should read thus; and he means there in Magen Avraham s.k. 7 and what he wrote here; and see siman 543 seif 11 — its place is not here, rather below after s.k. 7 after what he wrote \"he need not wait b'chedi she'ya'asu\" — it should read \"and see siman 543 seif 11,\" meaning in Magen Avraham there s.k. 118:"
+  }
+};

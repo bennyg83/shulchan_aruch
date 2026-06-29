@@ -1,0 +1,16 @@
+export const t = {
+  "1:א": `Chapter 1 of these, etc. — there 120a:`,
+  "1:ב": `And one may say. Mishnah there:`,
+  "1:ג": `That is. Rashi:`,
+  "1:ד": `That he should not. Gemara there:`,
+  "1:ה": `To insert. Rashi:`,
+  "1:ו": `We are concerned lest he repair it. Like Tosafos chapter 15 there — lest he take out to public domain; and so in the Gemara there:`,
+  "2:_": `Seif 2. And if he saves. 120a:1 as above:`,
+  "3:_": `Seif 3. However if. Rambam's wording: and if he employed stratagem in this matter it is permitted; and Maggid Mishneh wrote; and he explained like Rabbenu Yehuda; and Beit Yosef explained that stratagem in such a case — Rambam follows his view that we say in Moed Katan 12b: our Rabbis taught, they grind, etc.; and they challenged it, etc.; it was taught, etc.; and he explained there also like R' Yehuda bar R' Yehuda; and Tur disagrees with him there; and so Beit Yosef wrote there that Rambam is alone and we do not rule like him, that he explained like the lone view; therefore Mechaber omitted here Rambam's view and explained like Tur's words and like Rashi's explanation; and the reason he explained like R' Yehuda is because we say in Shabbos 139b: a person employs stratagem, etc., from this, etc., there, etc., forty — for we rule like that braita of R' Yehuda only the distinction between evident or not; and this is Rambam's wording there in chapter 7 of the five [melachot] of Yom Tov law 8: this stratagem is not evident to the viewer; and so for all similar; and so here he wrote: and if he employed stratagem in this matter it is permitted — that is, in such a case specifically, where it is not evident, as above; and the Rosh holds like Rash's view there that he distinguishes between stratagem and stratagem; and the Gemara's question there: since this stratagem is permitted — why need proof; and there according to the view that they employ stratagems — proof is not needed; and in siman 533 plainly like Tur's view:`,
+  "4:א": `Seif 4. That have not yet been trodden. For otherwise they would be permitted, as is written 145b:2:`,
+  "4:ב": `For behold, etc. There 143b:2:`,
+  "4:ג": `And he is not permitted. There 143a:1:`,
+  "4:ד": `How should he act, etc. Yom Tov 36b:2; and as is written in siman 308 seif 37:`,
+  "5:א": `Seif 5. One here and one there, etc. unless, etc. — for they challenged from that which we say 142a:1: and let him throw them, etc., and we gather them, etc.; and Rabbeinu Yonah explained: fruits scattered — one here and one there; and this is what it says "scattered"; and Ramban explained: scattered into pebbles and dust; and so in Tosefta chapter 17: fruits that scattered — he gathers one by one and eats, etc.; or that he gathered from pebbles and dust — he is liable; therefore it says "in the courtyard"; and do not challenge in a house, for a house is stam made for honor. Ran:`,
+  "5:ב": `And eats, etc. — so the Gemara's wording and Rif and Rambam and Ran; but not like Tosafos and Rosh — see there:`,
+};

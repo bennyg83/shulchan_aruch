@@ -1,0 +1,48 @@
+/** worker-slot-14 — siman 541 editorial batch 2 fixes (35 blocks) */
+export const FIXES = {
+  "magen-avraham/part-001.txt": {
+    "2:ב": "(ב) There is no split. Joseph's house is the same:",
+    "3:א": "(א) It is possible for you. For the purpose of the time, see the sign of the ISA:",
+    "3:ב": "(ב) Creasing. This means creasing called krontzlin in foreign language (agudah). So Rashi and Rivan explained: if they do not spread out when worn, it is forbidden to make them; if so, creasing the collar is also forbidden.",
+    "4:א": "(א) It is forbidden to repair. Although they would be more broken if they were not repaired, nothing would be lost, but when the main thing was lost, but for a few extra calculus",
+    "4:ב": "(ב) by change. But this is a change as a result",
+    "5:א": "(א) He needs clothes. A baby born on a Yom Tov should not make new clothes at the time of his father’s arrest because of his father’s honor, he must be cut off in a poem",
+    "5:ב": "(ב) artist. Everyone who knows how to be a needle at once, or who knows that the Hashem is in the language of an Oman"
+  },
+  "mechaber/part-001.txt": {
+    "1:main": "1. Laws of Weaving on Chol Hamoed, and in it is 5 paragraphs. It is permitted to make a fish trap from willow branches that is an amateur act but not weaving from threads (or sinews) as it is a professional act. Note (Rema): it is permitted to fix wicks for candles on Chol Hamoed because it is an amateur act (Nimukei Yosef Chapter Elu Meglachin (3rd ch.), Reb Yeruchom 54 Chelek 5, and Bais Yosef).",
+    "2:main": "2. We may interweave [explanation: it is similar to weaving but that in the weave there is space between each cord] the beds but we may not braid the ropes to begin with (on Chol HaMoed).",
+    "3:main": "3. It is permitted to press linen clothing with your hand after laundering in order to whiten and to soften but not to tie sleeves (to make a pleat) because it is a professional act. Parentheses (Rema): And it is permitted to smooth clothing with glass as normal since it is for the needs of the Festival (Smag and Reb Yeruchom).",
+    "4:main": "4. It is forbidden to fix torn clothing and shoes and similarly forbidden to ask a Gentile to fix them. Parentheses (Rema): However by using a modified (abnormal) act it is allowed to fix a little for the needs of the Festival (Reb Yeruchom).",
+    "5:main": "5. Regarding one who needs a garment on the Festival. If he is a nonprofessional and is not quick in that work, he can make (the garment) as usual. If he is a professional who is quick, there is to make with an amateur act that is make wide stitches, or one low, one high like the teeth of a dog. Note (Rema): All people should be strict on themselves to sew with this modification. And it doesn't help to a professional to sew by changing how he grasps the needle in his hand, rather a recognizable modification (Terumas HaDeshen Siman 87)."
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א": "(א) (a) It is possible to do so and so on - and for the purpose of the time:",
+    "1:ב": "(ב) (b) The act of diagnosing - and not in any mental food appliances such as a stove and a knife there is even an act of training, but rather a thing that is used to eat (since the oven by the baking and is prepared by the extortion)",
+    "1:ג": "(ג) (c) To correct the abominations – for the sake of time and for the sake of which it is made possible to grow from the mouth and to the knees of Joseph’s mouth, and to the extent of the book, the Bible says, “It is not possible to make it possible for the sake of the Hashem’s Prayer, and to make it impossible for the Hashem’s sake of the Hashem’s glory.”",
+    "2:א": "(א) (d) Smogyn – Fij who makes her two and one-night ropes at the time and as a “sooner” when they’re already at the bottom, but who’s made a flock to the heater and duke for the time of D’A’a is forbidden and even for the sake of the date, which is not due to the date:",
+    "2:ב": "(ב) (a) But there is no schillin, etc. – R. that is not the size of the rope because it is and some of the stripes that are worsens not to be placed at the headquarters at a time even they have long grown and what have been made wise to translate at the headquarters were when they continued to the headquarters",
+    "3:א": "(א) (b) It is permissible for you to wear flax clothes and so on – see a sign that “in the morning, it is forbidden to do so with flaw clothes and even if you wait for our hearts, it is forbidden and the right is permitted even in preparation for our hearts and ink when it is required at a time:",
+    "3:ב": "(ב) (c) In the hands and so on, according to what he wrote to Kama in the Island in hand, he is decorated with the wheels of his craft:",
+    "3:ג": "(ג) (ח) Creasing — this means creasing called krontzlin in foreign language, and specifically when the creases do not spread when worn, for since the creases are strong it is considered skilled work and forbidden.",
+    "3:ד": "(ד) (T) With the glass - we were with a round stone of glass and heard from this denomination as \"the act of the diagnostic and the ancient junction that is familiar with the rectanglement of the vessel as such means the glass to the \"D. De\" the other usual tools to slide in them and to the P.S. can also be replaced by some iron vessels that are used for the purpose of the delicacy",
+    "4:א": "(א) (i) It is forbidden to correct - a PLO that will be more broken if nothing is repaired, but the main thing is lost, but for a few additions, it will be completely broken, and if it is not repaired, it is permissible for Israel to correct and “change the thing that is lost.” And the United States, when it is necessary for them to go abroad, does not need them to be used until after the date. And the knowledge of all this is not a disconnect between whether it is broken at a time or broken before the date:",
+    "4:ב": "(ב) (a) And it is forbidden to say to the negligent, that the author of Duff Dovza has a little loss if they don't repair a nose, and that \"in other things and as a result,\" he said:",
+    "4:ג": "(ג) (b) Who by change was if Oman had to change and the change is coming into the clichés, but if he is the diabolical as his way and as anemia. As such, it is not only permitted to date:",
+    "5:א": "(א) (g) Those who need a garment - a baby born on a Yom Tov should not make him new clothes at a time when he comes to him and does not lie for the time in honor of his father to marry him for a diploma in a piece of heroin. In Hashem’s Word, Hashem’s promise is that He will not be able to pray for Hashem’s mercy",
+    "5:ב": "(ב) It is not fast; it is one sign of fasting. Anyone who knows how to remove a needle at once, or who knows that the Kohen is not at all the diagnostics, but rather an artist and her ears as anemia:",
+    "5:ג": "(ג) (to) and every person will be worsened by a person, and so on, because most people can get full of needles at once and they are at all trained:",
+    "5:ד": "(ד) The change of the alien was that it would be apparent in the sphere itself, not in any other matter. And he knew how he was doing it as his way and the artist who does the act of the tyre is not permitted to be “a” when he does it for himself or for others in his own life, but when he does it for others in the wage, he is not allowed for the time if he does not have anything to be eaten and fueled in the sign of the PLO:"
+  },
+  "peri-megadim/part-001.txt": {
+    "1:_": "It is not possible that we should walk there, in the Bible, and we will be lost without the slightest change by changing the A.D., which is not allowed to be lost, and that they have not been plucked by the time:",
+    "2:_": "Hashem’s promise to the people of Hashem’s people, that Hashem’s people will not be forgiven, nor will they be cursed, and that they will not be cursed",
+    "3:א": "(א) It is not a place in the rooms, nor is it possible in the rooms, and it is written in the Bible, that it is written in the rooms, and that it is written in the Bible, that it is written, that it will be possible to send to others, and that it will not be changed in any way, nor shall we be able to take any change in the world, and so that we will not be able to take place in any form any form any form any form of any form of any way",
+    "3:ב": "(ב) And in the name of everything in which the Almighty Hashem has made it impossible for others to do with their own sins, and Hashem’s plan for them to do so is not for them, and for the sake of Hashem’s mercy, and for the sake of Hashem’s mercy, and for the purpose of Hashem’s mercy, and for the purpose of Hashem’s forgiveness. “And I will be there.”"
+  },
+  "turei-zahav/part-001.txt": {
+    "4:א": "(א) It is forbidden to repair his broken clothes. In the Tur — source. is written and said nothing is lost, for it will be broken if it is not repaired, but when the main thing is lost as its olives have become. But for a bit of an accidental calculus, nothing has been lost. This means that if there were a lot of flaws and a lot of sticks to the lost demise and this is a great loss like the doorway in the USSR:",
+    "4:ב": "(ב) It is also forbidden to say to the people in their minds. “In all that Hashem forbids Israel from doing so, as the IDF, everything that cannot be done should not be said to the UN:",
+    "5:_": "An amateur does not help to sew with a change, etc. In Beit Hillel siman 87 he wrote regarding this, and although one of the great ones in Darkei Moshe cited Maharal that Bach wrote for him in Beit Hillel, when Shach found in books of great ones of Dvorka that they deleted engagement feast, etc."
+  }
+};

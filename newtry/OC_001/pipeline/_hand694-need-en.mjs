@@ -1,0 +1,7 @@
+/** worker-slot-18 — siman 694 need blocks */
+export const FIXES = {
+  "beur-hagra/part-001.txt": {
+    "2:א":
+      "(א) Seif 2: One may not change etc., and they are not exacting etc. In the Gemara there it says: Purim collection for Purim; city collection for that city. They are not exacting about the matter; rather they buy calves and slaughter and eat them, and the remainder falls into the charity fund. R' Eliezer says: Purim collection for Purim, and a poor person is not permitted to take from them a strap for his sandal unless he stipulated at the time of collection. In the name of R' Yaakov who said in the name of R' Meir, and Rabbeinu Shimon ben Gamliel is lenient. Rashi explained: they are not exacting to say \"enough\" with less; rather they buy etc. So too in Hagahot Maimoniot on the first chapter of Megillah. But Rambam explained \"they are not exacting about the matter\" — meaning whoever stretches out his hand they give to him. He omitted \"rather they buy\" etc., and it is as the version of Rif and Rosh there: Purim collection for Purim, they are not exacting about the matter, and a poor person is not permitted to take etc.",
+  },
+};

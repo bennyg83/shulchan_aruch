@@ -1,0 +1,54 @@
+/** worker-slot-9 — siman 355 editorial batch 1 fixes (45 blocks) */
+export const FIXES = {
+  "baer-heitev/part-001.txt": {
+    "1:א": "(א) gezuztra. Meaning a panel extending from the wall above the water with a hole in its middle and a window open to it; and when one draws water through the hole he carries from the water which is karmelit to reshus hayachid — therefore one must make a partition all around, for now everything opposite it until below is reshus hayachid, for we say extend the partition downward.",
+    "1:ב": "(ב) open. For if not it is karmelit and permitted to carry from karmelit to karmelit, as written in siman 346 seif 2 — Magen Avraham, see there.",
+    "1:ג": "(ג) partition. Ten high — see siman 357.",
+    "1:ד": "(ד) to pour. And even though it is adjacent to a ditch that is reshus harabbim, nevertheless since his intent is not to take it out to reshus harabbim it is permitted — Magen Avraham, see there.",
+    "1:ה": "(ה) on a ship. Because the water is karmelit and the ship is reshus hayachid.",
+    "1:ו": "(ו) they were lenient. Meaning that in the gezuztra mentioned at the beginning one specifically needs partitions and the leniency is that we say extend the partition downward; but on a ship there is further leniency that one does not need even partitions, but we say bend the sides as if there were partitions and afterward we say extend the partition downward.",
+    "1:ז": "(ז) within ten. Meaning above the water; but the partitions of the ship are ten high; and if the partitions of the ship are not ten high it is karmelit and permitted to carry from it to the sea and from the sea to it — Rashi: since it stands in karmelit — Magen Avraham, see there.",
+    "1:ח": "(ח) hole. See Taz who raised that one should make a hole in the ledge; and this matter written here \"and makes a hole in it,\" etc., is imprecise — rather one draws directly from the water to the ship; and so Rambam wrote: but if it is above ten he puts out a ledge of any size and draws, for behold he draws through a makom patur, etc. — behold they did not mention here making a hole in the ledge as at the beginning when within ten — rather certainly the intent is that he draws directly through the air of a makom patur — see there; and so Bach.",
+    "1:ט": "(ט) to pour. And the same to throw bones and peels — Raavan. And Taz wrote: it appears to me that this refers when the sides of the ship are not ten high, for one needs a four-wide place; but to pour one does not need a ledge at all but pours directly on the side of the ship since there is only its force; unlike if he pours somewhat far from the side, which is throwing from reshus hayachid to karmelit literally. And if it is ten high and he does not want to pour on the side, e.g. they are foul and the smell would enter the ship and he wants to pour far to the wall — he also needs recognition of a ledge of any size — end of his words.",
+    "1:י": "(י) tied. And they must not be four tefachim apart — Yerushalmi.",
+    "1:כ": "(כ) the water. For he carries from reshus hayachid to reshus hayachid through a makom patur — and see Magen Avraham.",
+    "2:א": "(א) to permit. Such as that he makes it below around.",
+    "2:ב": "(ב) less than three. Meaning adjacent, for then it is lavud and holes of reshus hayachid — Mordechai; and see seif 3 in the gloss.",
+    "3:_": "patuR. For it is not four wide; and it deals when he relieves himself directly onto the excrement, and even though it afterward falls to karmelit it is permitted.",
+    "4:_": "deep. And Bach brought Tosafos that it is permitted with a suspended partition even if not ten deep — so Magen Avraham, see there.",
+    "5:_": "distant. For automatically both are comfortable using both and forbid each other; therefore if they made a partition for the upper one in partnership both forbid each other, and all the more if both made for the lower one, for the upper one forbids the lower since it is comfortable for her to use the lower by lowering; but if each made alone and has no share in her fellow's partition she does not forbid them; and similarly if they made for both in partnership and each uses her own and revealed her intent that she removed herself from her fellow she no longer forbids her; and all this when they are not four apart; but four apart the lower cannot use the upper except by air-use which is not use — therefore she cannot forbid the upper; and regarding height more than ten between them we are not strict, for one uses by throwing even though it is difficult use."
+  },
+  "beer-hagolah/part-001.txt": {
+    "1:א": "(א) Mishnah in Eruvin chapter 10, as Rashi explains there",
+    "1:ב": "(ב) Rashi chapter 6 and Tosafos there in that chapter",
+    "1:ג": "(ג) There 28 — there are two versions; and Rif and Rosh ruled like the latter version that it is permitted",
+    "1:ד": "(ד) Shabbos 100, and like R' Chisda and Rabba bar Rav Huna",
+    "1:ה": "(ה) Rambam in chapter 6; and so wrote Hagahot there, in the name of Rav Hai; and Ran in chapter 11 of Shabbos",
+    "1:ו": "(ו) Rambam there",
+    "1:ז": "(ז) Shabbos 100",
+    "2:א": "(א) So Tosafos and Rosh on that which we learned: a pit between two courtyards, etc., in Eruvin 66",
+    "2:ב": "(ב) Mordechai in chapter 11 of Shabbos and Hagahot in chapter 15 of the laws of Shabbos",
+    "2:ג": "(ג) There in Mordechai",
+    "2:ד": "(ד) There — source.",
+    "2:ה": "(ה) Hagahot Mordechai chapter 10",
+    "3:_": "Tur, and not like R' Dimi",
+    "4:_": "Beit Yosef",
+    "5:א": "(א) Mishnah in Eruvin chapter 7, as Rav explains and as Rashi explains there, in the first explanation",
+    "5:ב": "(ב) As Rav Sheshet explains there",
+    "5:ג": "(ג) Explanation that the upper one uses through the lower one by descent — therefore they forbid her",
+    "5:ד": "(ד) Tur from the implication of the Gemara there",
+    "5:ה": "(ה) There, and also from the implication of the Gemara"
+  },
+  "beur-hagra/part-001.txt": {
+    "1:א": "(א) seif 1 — and a window. The house. As above siman 345 seif 16 and siman 353 seif 2; and so Rosh in chapter 9 of Eruvin on the law of gezuztra — see there.",
+    "1:ב": "(ב) unless. Rashi there.",
+    "1:ג": "(ג) and it. Rashi there; and see Tosafos there s.v. makes, etc.",
+    "1:ד": "(ד) and there is no difference. Mishnah there and as Rashi explains there; and Tosafos there s.v. whether, etc.",
+    "1:ה": "(ה) and makes a hole in it, etc., and he need not, etc. Maggid Mishneh in the name of R' Hai.",
+    "1:ו": "(ו) bend. So Maggid Mishneh; and the language requires further study — what is \"bend,\" for there is only four — it should say we say extend, etc.",
+    "1:ז": "(ז) and this matter when it is. There 101a seif 1; and see Rashi s.v. but, etc.",
+    "1:ח": "(ח) puts out a ledge. Like Rav Huna — above ten from the ground.",
+    "1:ט": "(ט) and makes a hole in it. As Maggid Mishneh; and Maggid Mishneh's words require further study there and are unclear; and for halachah requires further study; and see Taz.",
+    "1:י": "(י) for behold through. Like those who permit siman 346 seif 1. Maggid Mishneh; and Tosafos there s.v. R' Yehuda, not like Magen Avraham."
+  }
+};

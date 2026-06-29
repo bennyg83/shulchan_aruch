@@ -1,0 +1,7 @@
+/** hand chunk siman 651 part 3 */
+export const HAND = {
+  "eliyah-rabbah/6:_":
+    "[6] In the lulav, three, etc. — it implies that without binding the hadas and aravah to the lulav, one binds three [species] above on the lulav; and so it is reasonable, for below the leaves need not be folded so much; unlike Taz who wrote this is his wording in Mordechai: \"fold\" is missing a vav — six days it is bound and similar to one fold, and on the seventh day they untie it — end quote. I wonder at this, for one must rustle the leaves and this binding hinders rustling; therefore one must do it in a manner in which he can rustle well. In any case it seems that a binding that binds the three species together is considered one, and one makes above it another two — until here are the words of Taz. I also do not know what he wondered at Mordechai — one may say that it is reasonable to him that one need not rustle at all, as he wrote in seif 9. Also it escaped me what Maharil wrote, that it should be open above only a handbreadth, and on Hoshana Rabbah one adds up to half. Mahariv wrote: three bindings corresponding to three Patriarchs, and lulav in gematria is 68 corresponding to the Great Sanhedrin; and b'dieved one suffices. [7] He takes, etc.",
+  "rabbi-akiva-eiger/5:_":
+    "Seif 5 — he recites a berachah on taking the lulav and Shehecheyanu. That we do not recite a berachah on taking date-palms is per the language of the verse — see responsa Rashba siman 157.",
+};

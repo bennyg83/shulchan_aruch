@@ -1,0 +1,53 @@
+/** Hand EN — siman 575 beer-hagolah source citations (R1–R10) */
+export const FIXES = {
+  "beer-hagolah/part-001.txt": {
+    "1:א": "(1) Mishnah Taanis",
+    "1:ב": "(2) braita there, and like R' Yosi",
+    "2:_": "Mishnah there",
+    "3:א": "(1) Mishnah there 12",
+    "3:ב": "(2) braita there 13",
+    "3:ג":
+      "(3) statement of Rav Chisda and braita there from that which we learned \"they lock the bathhouses\"",
+    "3:ד": "(4) there in Mishnah",
+    "3:ה": "(5) Rambam chapter 3",
+    "4:א": "(1) there in Mishnah",
+    "4:ב": "(2) Mishnah there 67",
+    "4:ג": "(3) Mishnah there 12",
+    "4:ד": "(4) braita there 14",
+    "4:ה": "(5) Beit Yosef from the implication of Rashi's explanation",
+    "4:ו": "(6) there in braita",
+    "4:ז": "(7) as Rambam explains in chapter 3",
+    "5:א": "(1) braita 14, and as Rav Ashi established there",
+    "5:ב": "(2) Rambam and Semag from Yerushalmi",
+    "6:_": "there in Gemara in the incident of R' Yehuda Nesiah and braita",
+    "7:א": "(1) Mishnah and Gemara there 12",
+    "7:ב": "(2) Rambam there",
+    "7:ג": "(3) braita there 14",
+    "7:ד": "(4) there in Mishnah",
+    "7:ה": "(5) Yerushalmi",
+    "7:ו": "(6) Rambam there",
+    "7:ז": "(7) there in Mishnah",
+    "7:ח": "(8) and this means a day after the tekufah of Nisan",
+    "7:ט": "(9) Rambam there",
+    "7:י": "(10) there in Mishnah",
+    "7:כ":
+      "(11) Yerushalmi, and Rif and Rosh and Rambam brought it there",
+    "8:א": "(1) Mishnah there 18",
+    "8:ב":
+      "(2) Rav Nachman's establishment there, and as the first [commentator] explained in Rashi, and so all the poskim",
+    "8:ג": "(3) braita there",
+    "8:ד": "(4) Mishnah and Gemara and braita there",
+    "8:ה": "(5) there in Mishnah",
+    "9:א":
+      "(1) Rambam in chapter 3 of Halachos — it is explained in Yerushalmi and also apparent from our Gemara",
+    "9:ב": "(2) so emended Beit Yosef",
+    "10:_":
+      "Rambam there from that which Shmuel [said]: there are no terumah and tithes in Babylonia — see",
+    "11:א": "(1) braita there 21, and like the sages",
+    "11:ב": "(2) Mishnah there 19, like R' Eliezer",
+    "11:ג": "(3) there in Mishnah maaseh 19",
+    "12:א": "(1) Rashba in responsum",
+    "12:ב": "(2) see above siman 480",
+    "13:_": "there in responsum",
+  },
+};

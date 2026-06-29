@@ -1,0 +1,3 @@
+export const t = {
+  "1:main": `The law of one who extends from one domain to another. And in it is one seif: If one was standing in reshut ha-yachid and extended his hand full of fruit into reshut ha-rabbim within 10 tefachim — if unintentionally, he may return it to that same courtyard, but it is forbidden to extend it to another courtyard; and if intentionally, it is forbidden even to return it to that same courtyard. And some say this applies only when he extended it while it was still day, but if he extended it from twilight onward he may return it, lest he cast it from his hand and come to liability for a chatat. In what case does this apply? When he extended it into reshut ha-rabbim; but if he extended it into karmelis, in any case he may return it:`,
+};

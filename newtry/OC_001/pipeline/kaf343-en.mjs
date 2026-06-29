@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `(1) [Seif 1] A minor who eats nevelot, etc. — and likewise if he does other prohibitions, as Beit Yosef wrote and so agree Acharonim; and likewise for Shabbat prohibitions if he does so intentionally; but if he does so for an adult one rebukes him, as above siman 334 seif 25 — see there. And likewise R' Zalman Orach Chayim part 1 chapter 1 general siman 6 note 4:`,
+};

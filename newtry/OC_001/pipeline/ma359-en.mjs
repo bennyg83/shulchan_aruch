@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": "More than beit se'ah. But beit se'ah has no karpef law and permitted to move from it to house (Beit Yosef siman 358 Ritva):",
+};

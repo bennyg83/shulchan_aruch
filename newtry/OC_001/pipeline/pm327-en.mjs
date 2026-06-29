@@ -1,0 +1,4 @@
+export const t = {
+  "1:_": `For healing — Taz; and even through a gentile it is forbidden whenever he is improving and progressing like a healthy person, as in siman 328 seif 1:`,
+  "2:_": `And in a place — Taz. See Levush; what he wrote "one may not scrape," that an observer says it is for healing and this is weekday activity — from where did he learn this explanation now? Also what he wrote regarding tanning and polishing — Eliyah Rabbah:`,
+};

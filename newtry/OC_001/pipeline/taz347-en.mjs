@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `And his fellow exempt but forbidden. Not because of a Shabbat prohibition but because he causes his fellow to stumble and causes him to carry out an object:`,
+};

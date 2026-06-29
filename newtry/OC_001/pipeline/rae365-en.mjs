@@ -1,0 +1,5 @@
+export const t = {
+  "1:_": `Seif 2 — breached on its side. Meaning: it was not breached adjacent to its head but inward from it. And if so, this is the law of seif 1 that a post of four remained. And I saw in the Levush that he wrote: in truth, what we wrote that its measure is ten, etc.`,
+  "2:_": `Seif 3 — with the alleyway it restricts them. And in a breach from the outset, or on Shabbos. And some say: since it was permitted, it was permitted — except regarding a wall between two courtyards that have one usage. But an alleyway and courtyard — no. Gloss: And see Magen Avraham in this siman, seif kaf-gimel.`,
+  "3:_": `Seif 4 — opposite the lechi. The view of Tosafos in the sugya: if the lechi is four wide, even when open to a public domain it is forbidden to use opposite it. And the Ramban in Milchamot wrote to permit, and Taz agreed with this. He wrapped thin lechis less than three, and when open to a karmelit one may use up to the inner edge of the innermost one. And see Magen Avraham above, siman 363, seif 112.`,
+};

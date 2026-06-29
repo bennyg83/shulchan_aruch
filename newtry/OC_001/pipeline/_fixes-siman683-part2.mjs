@@ -1,0 +1,6 @@
+/** siman 683 part 2 — Pesach */
+export const fixes = {
+  "output/siman_683/peri-megadim/part-001.txt": {
+    "1:_": "Gomerin 17 Esi' 134 and 2 Shem 3 Tirutz and in the Gemara Shabbat 22 Nes every day with it we were to be renewed every day. And there is another taste of a chalk in the candles and in the reading of a president for the day and a silent prayer for the sacrifices of Gomerin every 8th and 9th and the addition of the candles only strictly and the main taste is a denar every 20th day. Look at AR and from there you should learn a psalm to Assaf, they say in the 13th of Omer and 10 Shebat and 10 Av only on the day when they say Hallel, they don't say a psalm to Asaf and on Purim they say a psalm that includes the fall of Amalek See Siman 1333 in AR and BKK Prague they say GK on Hanukkah and remember each other Yas. And everything in it that Hanukkah wrote, they don't say Dish Hillel A.C. Purim A.A. Hillel V.I.L. But at dawn one does not pray Dish Hillel, Ha Arabic, one prays in the Arabic language, refer to the laws of the Rabbinic language and Hanukkah, it is not better than the Arabic language, AJG, D3, and Kabbaum 19. Aa Al Arach Apim Bb and H in Hanukkah and Yhar after Sat MA see Siman KLA and wear here:"
+  }
+};

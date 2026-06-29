@@ -1,0 +1,8 @@
+export const FIXES = {
+  "beer-hagolah/part-001.txt": {
+    "1:ד": "Semak — source."
+  },
+  "kaf-hachayyim/part-001.txt": {
+    "1:_": "(1) [Seif 1] Blood of a mitzvah — it is forbidden to smell it etc., because its essence is only to smell it; from this they limited all seven days as with sukkah wood. But an etrog whose essence is eating — from this alone it was limited, and not for smelling; rather they disagreed about the blessing: some say that since one does not act for fragrance, the blessing \"Who creates pleasant fragrance in fruits\" does not apply to it; therefore one should not smell an etrog all seven days. Taz s.k. 1. And this is the Tur's and Levush's view."
+  }
+};

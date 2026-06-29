@@ -1,0 +1,18 @@
+/** siman 683 part 1 — Pesach */
+export const fixes = {
+  "output/siman_683/mechaber/part-001.txt": {
+    "1:main": "All eight days of Hanukkah, the Hallel is read. {Rama: And all eight days of Hanukkah, Tachanun [the supplication prayer], Tzidkatcha [the abridged supplication prayer said on the Shabbat], Lamenatzei'ach, and Tziduk hadin [the funeral prayer] are not said: [Mahril and Minahgim].}"
+  },
+  "output/siman_683/mishnah-berurah/part-001.txt": {
+    "1:_": "(a) Finish the Hallel - per the fact that every day a new miracle is added and there are other reasons, refer to the Gemara. After the Hallel, say half a Kaddish. One who is but at dawn does not pray before the pillar, Dish Hillel Ha Arabi, he prays that he prays in the Reh Gach Arabic. One does not say Al Arach Apim in the 2nd and the the Master in Hanukkah and Yahar after Sat. And regarding the Hallel if it is permissible to say it in the house of mourning, look at Sha'at, but the mourner himself Surely he will not say:"
+  },
+  "output/siman_683/turei-zahav/part-001.txt": {
+    "1:_": "They finish the praise. Every day a new miracle. There are other flavors in B:"
+  },
+  "output/siman_683/beer-hagolah/part-001.txt": {
+    "1:_": "Maimara Dr. Dr. Dar will be justified in their values and the taste because the miracle is renewed every day and so that every president is divided from his creditor and that he should complete the glory of his victims in the Halcat."
+  },
+  "output/siman_683/baer-heitev/part-001.txt": {
+    "1:_": "There is no. The dog’s writing does not say a psalm song to the threshold, as they are a good day eye, as they say in it:"
+  }
+};

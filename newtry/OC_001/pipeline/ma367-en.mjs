@@ -1,0 +1,7 @@
+export const t = {
+  "1:א": `She may not grant ownership. And it appears to me that from her sustenance she is permitted to grant ownership; see Even HaEzer siman 70:`,
+  "1:ב": `Members of the household to make an eruv. Bach wrote that even if he does not want to make an eruv they may make an eruv if he did not protest to them explicitly — see there; and see what is written siman 371 seif 4 that specifically regarding a non-Jew we say thus, but regarding a Jew they may not make an eruv if he does not want; and so appears in Beit Yosef here and siman 382 in Beit Yosef in the dispute between Rashi and Rashba:`,
+  "1:ג": `To one courtyard. For it is a benefit to him:`,
+  "1:ד": `Members of the courtyard enter. And it appears to me the same applies to his wife; and thereby the passage of the Gemara "accustomed, yes; not accustomed, no" is well resolved, and there is no need to emend as Bach wrote:`,
+  "1:ה": `It is an eruv against his will. It appears to me that this is specifically according to the view of some who say members of the courtyard take against his will; but according to the first view they can never make an eruv without his wife's knowledge; and requires study, for in chapter Halon the Rosh wrote that always we require his wife's knowledge, and if so a Jew and a non-Jew are equal; and in the Rosh chapter HaDar he wrote as Rama wrote here that members of the courtyard take against his will — and if so they contradict one another:`,
+};

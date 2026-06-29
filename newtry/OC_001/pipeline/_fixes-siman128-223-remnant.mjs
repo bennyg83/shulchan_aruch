@@ -1,0 +1,19 @@
+/** Hand EN — simanim 128, 223 remnant bad_mt (R1–R10) */
+export const FIXES_BY_SIMAN = {
+  128: {
+    "magen-avraham/part-001.txt": {
+      "42:_":
+        "Chalal. Meaning: one born from a divorcee. And it appears to me that even a chalal d'rabbanan is not comparable for avodah — see Orach Chayim siman 7 seif 20:",
+    },
+    "turei-zahav/part-001.txt": {
+      "38:_":
+        "Even on the Shabbatot of the year, etc. In a few places it is customary that even on Yom Tov that falls on Shabbat they do not go up to the bimah — and I do not know any reason why the sanctity of the day should be diminished because it has additional sanctity, and it is appropriate to abolish this practice; and so I saw a great one who commanded to go up to the bimah even on Shabbat when Yom Tov falls on Shabbat.",
+    },
+  },
+  223: {
+    "machatzit-hashekel/part-001.txt": {
+      "6:_":
+        "(seif katan 6) At the time of purchase — for we hold that an artisan does not acquire through improvement of the vessel, and so is explicit in siman 484; meaning in siman 484 it says that since the two days of Rosh Hashana are considered like one long day, therefore on Kiddush of the second night when he blesses shehecheyanu it is l'chatchila that he wear a new garment and in any case he must in any case bless shehecheyanu because of the garment; and therefore he did not acquire it on Yom Tov, and thus it is in your hand to bless shehecheyanu on the garment at the time of purchase. Nevertheless it must be said that in siman 484 it discusses when he bought a garment and gave it to a tailor to make a garment from it — for in such a case he blesses at the time of wearing. Nevertheless, what he wrote that we hold an artisan does not acquire through improvement of the vessel — there is a difficulty: one, how does \"artisan does not acquire\" cause blessing at the time of wearing; and furthermore, in truth this is not a clear ruling, and we are uncertain whether he acquires through improvement of the vessel or not. As written in Yoreh Deah siman 322 — if he gave money to a gentile artisan to repair: per the view that an artisan acquires through improvement of the vessel, it is as if he bought a vessel from a gentile and needs tevilah and a berachah; per the view that an artisan does not acquire, he does not need tevilah, and Rama ruled to immerse without a berachah. And so in Choshen Mishpat siman 306 — see there in Semag and Shach. And so in Even HaEzer siman 25 regarding kiddushin; and in all these places it is explained that there is a dispute among the poskim. And perhaps it must be said that here there is a minority view that an artisan does not acquire through improvement of the vessel, and the meaning is: if it were established that he acquires through improvement of the vessel, even if he blessed at the time of purchase, nevertheless when the artisan finished the vessel and brought it to him he must again bless shehecheyanu, for now he acquired from the artisan the improvement of the vessel and it is as if he bought another vessel; and per that view he needs tevilah and a berachah. But since there is a view that an artisan does not acquire, etc., and thus per that view if it is in your hand at the time of purchase he need not bless again after the vessel is finished; therefore what is it for him to enter himself into a doubt — and it is preferable that he not bless at the time of purchase, and then he will certainly bless after the vessel is finished.",
+    },
+  },
+};

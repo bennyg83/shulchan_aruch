@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `And provided he not pass them four amot — meaning even though he stands in reshut ha-yachid, only that in his hand he moves an object four amot from this place where it rests until the end of four amot in reshut ha-rabbim:`,
+};

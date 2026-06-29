@@ -1,0 +1,17 @@
+export const t = {
+  "1:א": `Seif 1 davar she'eino. Shabbos 22a Abaye said etc.; and Yoma 23a R' Nachman said etc.:`,
+  "1:ב": `And that is. Shabbos 75a and many other places:`,
+  "1:ג": `Therefore drags. Shabbos 22 and Yoma 23b:`,
+  "1:ד": `Whether. Shabbos 29b:`,
+  "2:א": `Seif 2 forbidden. I hold like Tosafos there that specifically regarding sprinkling they said it is permitted, as is written in chapter 25 regarding brooms etc., and at the end of the chapter Yoma 23d R' Gamliel etc., and another proof from what is written 141b and Abaye etc., and Tosafos there strained themselves on this and strained themselves for the view of Halakhot Gedolot:`,
+  "2:ב": `Unless. We learn from sprinkling to sweeping in their view there that Amemar permits etc.:`,
+  "2:ג": `And some permit. Like regarding sprinkling:`,
+  "2:ד": `And some are stringent. As is written in seif 3, and proof from what we say 124b "if he heated for shade" etc. — implies that even for R' Shimon it is forbidden, for there is no one who says it is permitted; and if so, for R' Shimon it would be his melacha for a permitted purpose; and even per Rambam's view, since paved is permitted, as is written in siman 308 s.k. 69 — see there; and what is written that they decreed unpaved on account of paved — as is written 29b 151b; and that Amemar permits — as explained above, because the whole city was paved and there is nothing to decree. Sefer HaTerumah and Avodat Yosef:`,
+  "2:ה": `However. For Rashi 124b wrote that the prohibition of sweeping is on account of leveling bumps and it is psik reisha, and proof that even for R' Shimon it is forbidden from what is written 127a "lest he come to level" etc. — this is per R' Shimon, etc.; and those who permit wrote there "perhaps he levels intentionally" as we said; and via a gentile permitted as is written at the end of siman 253. And Tosafos 95a wrote on account of moving dust, and likewise Rambam, Raavad, Ran, and Rosh and all who follow them; and also per their words permitted via a gentile as is written in siman 276 s.k. 63:`,
+  "2:ו": `And likewise via etc. We learn from "brooms of wool" that even to sweep the ground it is permitted; and from Rashi's words it appears forbidden:`,
+  "2:ז": `And he does not. Per Rashi's view:`,
+  "2:ח": `And forbidden to sweep. We learn that the prohibition of sweeping is for this reason, and Rif inferred from "brooms of wool" such as a fox tail etc. that do not break — see there:`,
+  "3:_": `Seif 3 even. 151b:`,
+  "4:א": `Seif 4 since etc. Tur:`,
+  "4:ב": `And certainly and it is. The Mechaber's language; but Tosafos there wrote that perhaps he will forget and level bumps intentionally:`,
+};

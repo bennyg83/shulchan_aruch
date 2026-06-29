@@ -1,0 +1,6 @@
+/** worker-slot-12 — siman 489 editorial batch 7 fixes (1 blocks) */
+export const FIXES = {
+  "yad-ephraim/part-001.txt": {
+    "1:_": "(Taz sk 7) and on this Rosh there is uncertain, for Rosh there relies on what Rif wrote and those who bless in Birkat HaMazon — namely when he first does so in his house — see above siman 484; and one may say it also refers if he first does so in another's house, for Rif wrote afterward; nevertheless it is clear there that he did not taste with them — how can one say he fulfilled Birkat HaMazon; also what he brought proof from lulav for a minor — uncertain, for there with lulav in the minor's hand one cannot say he fulfilled with it; I found in Eliyah Rabbah he challenged the proof from lulav for a minor — see there."
+  }
+};

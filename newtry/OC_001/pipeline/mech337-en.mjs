@@ -1,0 +1,6 @@
+export const t = {
+  "1:main": `The law of honoring the house and davar she'eino mitkaven. And in it are 4 seifim: Davar she'eino mitkaven is permitted, and that is when it is not psik reisha; therefore a person drags a bed, chair, and bench, whether large or small, provided he does not intend to make a groove; permitted to sprinkle the house since he does not intend to level bumps but only so dust should not rise.`,
+  "2:main": `Forbidden to sweep the house unless the ground is paved, and some permit even when it is not paved: {Rama: And some are stringent even on paved (Tur in the name of R"i, Mordechai at the beginning of the chapter Kol HaKelim, Rabbeinu Yerucham part 13, Semag, and Sefer HaTerumah), and such is the practice and one should not deviate; however, via a non-Jew it is permitted (Rabbeinu Yerucham part 13), and likewise via clothing or a cloth or a soft goose wing, and he does not level bumps (Agur); and forbidden to sweep garments with brooms made of palm fibers lest their fibers break (Hagahot Alfasi chapter Hazorek, and see Hagahot Maimoniyot daf 124).}`,
+  "3:main": `One does not oil the ground, nor may one wash it, even if it is paved.`,
+  "4:main": `Forbidden to set a barrel upright on the ground, for since it is heavy he will certainly come to level bumps, and it is psik reisha.`,
+};

@@ -1,0 +1,5 @@
+export const t = {
+  "1:_": `(1) [Seif 1] They permit vows on Shabbat, etc. — and specifically when they are for Shabbat need, such as if he vowed not to eat and not to drink; but what is not for Shabbat need they do not annul, for why should a matter not needed that day be done — he can do it tomorrow (Levush). And in Yoreh De'ah siman 228 seif 3 he wrote the reason on account of "mimtzo cheftzekha":`,
+  "2:_": `(2) There. They permit vows on Shabbat, etc. — and when they annul vows for Shabbat need they say only "it is permitted for you alone and not more," since that suffices according to the law, as written in Yoreh De'ah siman 228 seif 3 — see there; but other things they add in the annulment formula on a weekday — they do not say those on Shabbat since they have no Shabbat need:`,
+  "3:_": `(3) There. If they are for Shabbat need. And likewise for any mitzvah matter even if not for Shabbat need it is permitted, for it is "the matters of Heaven" — see Tosafos Orach Chayim part 1 general siman 1 note 16:`,
+};

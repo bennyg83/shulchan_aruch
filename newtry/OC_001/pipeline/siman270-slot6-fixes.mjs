@@ -1,0 +1,91 @@
+/** worker-slot-6 — siman 270 editorial fixes (33 blocks) */
+export const FIXES = {
+  "baer-heitev/part-001.txt": {
+    "1:_":
+      "With what may one kindle. So that if one was late to come to the synagogue he will finish his prayer while they are still saying it; therefore one does not say it on Shabbat of chol ha-moed, for they do not delay so much, since they do not do much melacha — custom of Maharik. And Bach wrote that they should say it after kiddush, for we advance the entry of the day; and so too in Tur. Magen Avraham:",
+    "2:_":
+      "On Shabbat. And likewise on Yom Kippur that falls on Shabbat one does not say it. Minhagim:",
+  },
+  "beer-hagolah/part-001.txt": {
+    "1:א": "(א) Tur — source.",
+    "1:ב": "(ב) Beit Yosef",
+    "2:א": "(א) Tur — source.",
+    "2:ב":
+      "(ב) Mahari Abuhav in Sefer HaEshkol in siman 311:",
+  },
+  "beur-hagra/part-001.txt": {
+    "1:_":
+      "Siman 61 — they are accustomed. In it are the laws of kindling and the three things one must mention, etc.; and this is what the Sefardim say, etc.; and this is correct for afterward — from here we learn:",
+    "2:א": "Siman 62 — there are those who do not. For it does not say aseretam. Tur:",
+    "2:ב": "And there are. Because of disqualification of oils that are permitted on Chanukah:",
+    "2:ג": "And there are none. For nevertheless for Shabbat it is forbidden for the need of the day:",
+    "2:ד":
+      "And on Shabbat, etc., and likewise, etc. For the main enactment was on account of those who delay, and it is not so applicable:",
+  },
+  "eliyah-rabbah/part-001.txt": {
+    "1:_":
+      "(א) [Levush] mishnayot of the chapter Bameh Madlikin, etc. The explanation of this chapter — see in Kolbo and Avudraham; and from the order of Tur and Shulchan Aruch and Levush it is clear that they say Bameh Madlikin after kiddush; and Bach likewise wrote that we advance the entry of the day; and he concluded: yet the world is accustomed to say Bameh Madlikin first, and this is an error and one should protest against them — until here. And so I found in Kolbo and Avudraham and Rokeach siman 50 explicitly; and I saw that in responsum of Rashal siman 85 he wrote thus: it is fitting to say it before kiddush, for Bameh Madlikin is opposite the candle and the candle precedes kiddush of wine — until here. And one may wonder at the great ones mentioned above; and furthermore behold there is no reason at all for saying Bameh Madlikin on account of the mitzvah of the candle, but only to inform one to separate from disqualified oils and wicks; and furthermore in responsum of Rashal siman 64 it also implies that one says it after kiddush. And it appears to me that he did not write except \"and it is fitting to say,\" etc., but in truth the custom is not so; and in this vein I wrote in siman 267 s.k. 8. And behold in Olah Tamid he wrote in the name of Rashal and similarly that Olah Tamid was switched with Rashal in Bach that I brought from the reverse. (In Gan Neta he brought in the name of Sefer Eliyahu Zuta Rashal who brought Olah Tamid and closed his eyes from seeing my words — not only did he not bring what I disagree on this, but he brings in my name; and many stumbling-blocks befell him in this without his knowledge):",
+    "2:_":
+      "(ב) [Levush] that there is more, etc. And Raavan siman 42 wrote thus: that they should know to separate for the coming Shabbat; and if you say let them say it before minchah so they hear and fix immediately — the majority of the people are not in the synagogue — until here. And Kolbo wrote: in order to wait for one who does not pray on account of danger of harmful spirits. Rambam bar Yosef said: after Bameh Madlikin it is taught: Rabbi Chananya said a person must examine his garments erev Shabbat with darkening lest he forget and go out; Rabbi Yosef said a great halacha for Shabbat, and afterward one says \"Rabbi Elazar said,\" etc. (Kolbo and Shelah). And Rashal siman 64 that he is accustomed not to say \"Rabbi Elazar said,\" etc. — the rule is that the reason for saying it is because it is aggadic words so they will say kaddish after it; and we are accustomed to say Aleinu before kaddish; if so we need not say it, and it is better to skip it so one not be late to hear kaddish, especially since the congregation hurries to finish quickly:",
+  },
+  "kaf-hachayyim/part-001.txt": {
+    "1:_":
+      "(א) [Seif 1] They are accustomed to say the chapter Bameh Madlikin. Because it contains the law of kindling and three things a person must say in his house on erev Shabbat with darkening. So too Tur; and Beit Yosef wrote: it appears from his words that they were accustomed to say it after maariv prayer; and so Ashkenazim and Musta'aravim practice; and it is more correct to say it before, as the custom of the children of Sefarad, that through reading this chapter he will remember the three things he must say in his house and warn about them; but after maariv what benefit is there in remembering — behold he cannot fix from now on — end of his words. However Bach wrote that the reason for saying Bameh Madlikin is not to remind him of the three things and warn his household, but because they advance to pray maariv from plag ha-minchah, and after leaving the synagogue it is still day and he does not sit to eat and say kiddush until darkening; therefore they were accustomed to learn when he is free, and they did not see fit to learn chapter Yetziat HaShabbat or another chapter but chapter Bameh Madlikin that speaks of the law of kindling and three things relevant to Shabbat night, to remind him incidentally through his study — that if he kindled with oils and wicks forbidden to kindle with, it is forbidden to use their light; and likewise if they did not separate tithes that they not eat those fruits; and if they did not make eruv chatzerot that it is forbidden to carry in the courtyard; and likewise eruv techumin that one not go outside the techum — end of his words. And Bach further wrote that one must say it after kiddush in the synagogue, for we advance the entry of the day to it; and Magen Avraham brought it s.k. 1. But Rashal in responsum siman 85 wrote that it is fitting to say it before kiddush — see there. And they brought Kenesset HaGedolah in Hagah Beit Yosef. However the Acharonim in siman 1 agreed with Bach; and also wrote that the custom is not like Rashal — see there. And nevertheless it appears that since it is only a general custom and has no reason in sod Nehora Nehora and its simple meaning:",
+    "2:_":
+      "(ב) There. Bameh Madlikin, etc. The Geonim said they enacted to say it in order to wait for one who does not pray on account of danger from synagogue attendants among whom harmful spirits are common. Orach Chayim daf 62a. Birkei Yosef siman 1:",
+  },
+  "levushei-serad/part-001.txt": {
+    "1:_":
+      "Magen Avraham s.k. 1. And so too in Tur and Shulchan Aruch. That they advanced kiddush in siman 269 and afterward Bameh Madlikin in this siman:",
+  },
+  "machatzit-hashekel/part-001.txt": {
+    "1:א":
+      "(s.k. 1) Before, etc. — that they were not accustomed, etc., with oils; and likewise wicks — meaning even on weekdays their way is not to kindle with oils and wicks disqualified that the Sages enumerated to forbid by Torah law; one may kindle with them on Shabbat and one need not warn:",
+    "1:ב":
+      "Therefore one does not say it on Shabbat chol ha-moed and on Yom Tov that falls on erev Shabbat — see the reason in Taz; and on Yom Tov that falls on Shabbat one must say it because we do not distinguish, on account of Yom Tov that falls on erev Shabbat — as Levush wrote, so is the reason of Shulchan Aruch:",
+    "1:ג":
+      "And so too in Tur and Shulchan Aruch that they ordered first in siman 269 the law of kiddush and afterward in this siman the law of Bameh Madlikin; and in Sefer Tashbetz it says that Magen Avraham wrote above siman 181 that there is no order to the mishnah of Tur and Shulchan Aruch; and one must say specifically in a place where there is need to say there is no order, but in a place where there is no need from Torah law we may say there is order:",
+  },
+  "magen-avraham/part-001.txt": {
+    "1:_":
+      "Before maariv prayer. So that they know with what to kindle; and one must say that since they were not accustomed in these countries to kindle with these oils and wicks, they are not concerned for this; and what they say — Maharik wrote in his customs: so that if one was late to come to the synagogue he will finish his prayer while they are still saying it; therefore one does not say it on Shabbat chol ha-moed, for they do not delay so much since they do not do much melacha — end of his words. And Bach wrote that they should say it after kiddush, for we advance the entry of the day; and so too in Tur and Shulchan Aruch — end:",
+  },
+  "mechaber/part-001.txt": {
+    "1:main":
+      "To say the mishnah of Bameh Madlikin. And in it 2 seifim: They are accustomed to say the chapter Bameh Madlikin; and the Sefardim say it before maariv prayer, and this is correct:",
+    "2:main":
+      "There are those who do not say it on Yom Tov that falls to be on erev Shabbat; and there are those who do not say it on Shabbat of Chanukah: {Rama: And we are not accustomed thus on Chanukah; and on Shabbat of chol ha-moed we do not say it (customs); and likewise on Yom Tov that falls on Shabbat we do not say it (Maharil, Laws of Sukkah)}",
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א":
+      "(א) Chapter Bameh Madlikin — because it contains the law of kindling and three things a person must say in his house on erev Shabbat with darkening:",
+    "1:ב":
+      "(ב) Before maariv prayer — for in their places they advance to pray maariv, and through reading this chapter that will be read beforehand he will know with what to kindle and remember the three things and warn about them; therefore Shulchan Aruch wrote that this is correct, for after maariv prayer what difference does it make. And in places where they are accustomed to say it after maariv, Maharik wrote in his customs the reason: so that if a person is late from praying he will have time to pray while they are saying Bameh Madlikin; therefore they do not say it on Shabbat chol ha-moed, for they do not delay so much to come to the synagogue since they do not do melacha in them. Bach wrote that one should say Bameh Madlikin after kiddush, for advancing the entry of the day is preferable and we advance it; and in our places the custom is to say Bameh Madlikin before; and Perishah wrote the reason: the candle of one's house and kiddush of the day — the candle of one's house is preferable, as above in siman 263:",
+    "2:א":
+      "(ג) That falls to be on erev Shabbat — because one cannot say aseretam, for one does not tithe on Yom Tov; and likewise on Yom Tov that falls on Shabbat, on account of not distinguishing:",
+    "2:ב":
+      "(ד) Of Chanukah — because it mentions therein disqualification of oils that are forbidden on Shabbat but not on Chanukah:",
+    "2:ג":
+      "(ה) On Shabbat — and likewise on Yom Kippur that falls on Shabbat one does not say it [Acharonim]:",
+  },
+  "peri-megadim/part-001.txt": {
+    "1:_":
+      "Chapter Bameh Madlikin. Eshel Avraham — according to Tur's reason that they cannot say aseretam, he should have said Bameh Madlikin before Barchu on erev Yom Tov, on erev Yom Kippur, and on erev Shabbat. See Levush: not distinguishing; and similar to this Taz wrote. And what Mishnah Berurah wrote, and likewise Yom Tov on Shabbat — meaning Sunday; see note (ב):",
+    "2:_":
+      "On Shabbat of Chanukah. Eshel Avraham — and they are accustomed to say it on account of three things; and it is possible also for Chanukah that are fit for Shabbat candle but disqualified for Chanukah candle. Mechaber holds Yom Tov on erev Shabbat can occur on Sukkot and Pesach too, and on Shabbat chol ha-moed they say; and Mishnah Berurah holds on Shabbat chol ha-moed they do not say, all the more on Shabbat of Yom Tov that one does not say; and likewise Shabbat — day one of Yom Tov — on account of not distinguishing, etc.; and it can occur also on Sukkot and Pesach:",
+  },
+  "rabbi-akiva-eiger/part-001.txt": {
+    "1:_":
+      "Magen Avraham s.k. 1. And so too in Tur and Shulchan Aruch. From that they ordered first the law of kiddush and afterward the law of Bameh Madlikin. And see above Magen Avraham siman 181. And in Orach Mishpat he brought in the name of Perishah that the custom is to say everywhere before — see there:",
+  },
+  "shaarei-teshuvah/part-001.txt": {
+    "2:_":
+      "On Shabbat — see Baer Heitev; and see in Shalmei Chagigah in the name of Beit David that I heard in two traditions that they do not say Lekha Dodi on Yom Tov that falls on Shabbat, because it appears like shaming Yom Tov, for they say \"the face of Shabbat we received,\" which implies and not the face of Yom Tov; and it appears one need not be strict, for Shabbat does not require kiddush of bet din and it comes by itself; therefore one must go out to greet it to receive it since it comes to us by itself. But Yom Tov that comes to us through kiddush of bet din — behold we bring it; if so why must one go out to greet it to receive it — if so there is no shaming in this, etc. — see there. And it appears that nevertheless on the night of Yom Kippur one does not say it; and so too above siman 262 that they do not accept Shabbat on the night of Yom Kippur, for there is no extra soul there; and it implies that on Yom Tov they properly accept Shabbat, as the words of Bach:",
+  },
+  "turei-zahav/part-001.txt": {
+    "1:_":
+      "Chapter Bameh Madlikin. Because it contains the law of kindling and three things that must be in his house with darkening; and on Yom Tov that falls on erev Shabbat one does not say it, because they cannot say aseretam — so Tur; and Beit Yosef wrote that this reason is not worthwhile; and in my humble opinion it is quite worthwhile: the intention is that not everyone knows it is forbidden to tithe on Yom Tov; and through not saying the chapter Bameh Madlikin they will sense and ask what changed this erev Shabbat, and the learners will answer them on account of aseretam, and through this they will know the law. And from this reason one does not say it also on chol ha-moed, as Rama wrote: on account of Yom Tov we do so also on chol ha-moed, which is somewhat Yom Tov; and all is to remind the law of prohibition of tithing on Yom Tov; also Yom Tov that falls on Shabbat is included in this, since in any case there is Yom Tov on that day — in the evening they will be reminded of the law of Yom Tov on erev Shabbat, as above:",
+    "2:_":
+      "On Shabbat of Chanukah. Because it mentions there disqualification of oils forbidden on Shabbat, which is not so on Chanukah:",
+  },
+};

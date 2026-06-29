@@ -1,0 +1,6 @@
+/** worker-slot-14 — siman 540 editorial batch 4 fixes (1 blocks) */
+export const FIXES = {
+  "yad-ephraim/part-001.txt": {
+    "1:_": "I am afraid of Hashem’s promise that Hashem’s people will not be afraid of Hashem’s people, and that they will be saved, and that they will not be saved from Hashem’s presence, and that they will not be saved from them Not hidden. And, apparently, from May, Dalma hid her from the danger, and then, my son-in-law was a thief of thieves, but rather, that she had made an act of hiding and built not that Sarai was afraid of thieves, and that she had been hidden in her, because of the danger, he had not been prevented from being killed by Hashem’s people"
+  }
+};

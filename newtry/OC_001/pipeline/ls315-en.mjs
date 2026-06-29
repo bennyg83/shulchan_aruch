@@ -1,0 +1,15 @@
+export const t = {
+  "1:_": `Shulchan Aruch seif 1 — forbidden to make a tent. A decree because of building:`,
+  "2:_": `There — even if temporary. That is when one makes it initially on Shabbat; but a temporary tent made from erev Shabbat — permitted to add to it on Shabbat as explained in seif 2:`,
+  "3:_": `There — unless made. For a partition without a roof is not called a tent except when made to permit:`,
+  "4:_": `There — gloss — even though fixed there; and when hung before the door it is called an addition to a permanent tent and this is forbidden — nevertheless permitted for the reason Magen Avraham wrote:`,
+  "5:_": `Magen Avraham seif 2 — there is in any case a door. Meaning even without the reason of moving in the wind — for specifically a curtain hung before the door is called an addition to a tent because it is like a door; unlike here where there is another door — there is no tent at all on the curtain — and therefore permitted even if not moving, such as fixed also below:`,
+  "6:_": `There — even though fixed there. His intent is they hang sheets near the house wall for ornament — its law is like a curtain and permitted even if fixed below and not moving; and the reason is that an addition to a tent is called only when opposite the door — examine it:`,
+  "7:_": `Magen Avraham seif 3 — to separate for doing. Between books and a person doing his needs:`,
+  "8:_": `There — before the light of the lamp. In our books the version is thus: before the light of the lamp — except as Maharam did. Meaning that from erev Shabbat there was a handbreadth as Rama wrote; and so it appears to me there is no distinction between making a partition before a lamp or before books — end of his words:`,
+  "9:_": `There — thus Rambam. Meaning all these poskim wrote to permit a partition before a lamp — unlike Rama in the name of Mordechai:`,
+  "10:_": `There — and behold it appears to me. Now he comes to say that Mordechai and these poskim do not disagree with each other:`,
+  "11:_": `There — it is implied even though ten handbreadths were required:`,
+  "12:_": `There — one must tie. For every partition that comes to make an independent domain — it must stand in an ordinary wind:`,
+  "13:_": `There — and if there was a partition one would say that this law is explained in Rama here in what he wrote "unless from erev Shabbat there was a handbreadth" etc.; and it appears because Rama's and Mordechai's case is where the handbreadth is on the face of the entire width as brought in Beit Yosef. And this is by way of parable: if the partition height is four amot and width one amah and he wrapped the partition on erev Shabbat above on the pole and left handbreadth height width one amah — permitted to spread it on Shabbat night below; and Magen Avraham teaches that the same applies if there was a handbreadth from the side — that is, height four amot and width a handbreadth — permitted to hang a sheet to add until width is one amah — examine it:`,
+};

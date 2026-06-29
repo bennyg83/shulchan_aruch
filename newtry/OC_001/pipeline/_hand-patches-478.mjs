@@ -1,0 +1,13 @@
+/** worker-slot-12 — siman 478 audit fixes */
+export const T = {
+  "beur-hagra/part-001.txt|1:ג":
+    "(ג) That it is not preferable — meaning not like Tosafot there who wrote that Rava's case does not apply to matzah in our time, and the baraita that it exists is in Pesach specifically; and the incident of Rava in Taanit who learned from Pesach — but for us who hold all this applies also to matzah, as stated in seif 2; and all this is because of stringency lest they uproot — see Rashbam there, all the more here where it also applies to matzah.",
+  "beur-hagra/part-001.txt|2:א":
+    "(א) Seif 2 — one who sleeps, etc. — Rashbam explains it refers to the beginning because we hold the incident of Rava; but Rambam explains Rava was alone, and therefore 'one who sleeps.' And this requires further study, for Abaye was raised there in his house, as stated: when we were at Rava's house we would sing, etc.",
+  "biur-halacha/part-001.txt|2:_":
+    "(2) If all dozed — they may eat. See Chayei Adam who wrote many poskim disagree on this: specifically when some dozed it is forbidden, but when all dozed it is permitted; and he wrote that is the essence, and we did not quote his words in Mishna Berurah because many poskim are lenient in the essence of the law of sleep; per them this stringency was stated only for Pesach and not matzah — see Tosafot in that sugya; and so Beit HaMaor and Ra'ah, as Rambam wrote in his name; and so Maharam Chalavah — if so it suffices to be stringent when all dozed, as the Mechaber ruled.",
+  "chok-yaakov/part-001.txt|2:א":
+    "(א) That some of them slept — in Tur and Rokeach siman 488 and in Rashbam's explanation and Ra'avad and Rosh and Agudah chapter Afikoman it is explained: all who slept — some of them may not eat unless when some dozed; and they explained thus — R' Yehuda's words refer to the beginning, and so the simple meaning of the Gemara there; but Rambam and Ra'avad explained R' Yehuda refers to the end — if some slept they may eat; and the Mechaber ruled like them; see Levush who ruled like the first view, which is Rosh and his supporters; and so appears to be the essence.",
+  "kaf-hachayyim/part-001.txt|1:_":
+    "(א) [Seif 1] After afikoman one may not eat, etc. — for we learned one does not conclude after the Paschal offering — afikoman; meaning: since they concluded eating the Pesach offering, they should not uproot from their place to eat elsewhere; and even in that place they should not eat anything afterward; and afikoman is for us in place of the Pesach offering; therefore once they began eating it they should not uproot from place to place nor eat anything afterward, even in that place. Tur. Taz seif kaf alef.",
+};

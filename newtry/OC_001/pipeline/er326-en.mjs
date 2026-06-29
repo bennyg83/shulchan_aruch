@@ -1,0 +1,10 @@
+export const t = {
+  "1:_": `[1] His entire body, etc. And the same law for most of his body (Acharonim); a woman is permitted to wear white and to wash private parts with her hands, but not in a garment on account of wringing (Mateh Binyamin):`,
+  "2:_": `[2] And some say, etc. From Beit Yosef it appears this is the essential view:`,
+  "3:_": `[3] He must dry, etc. And they practice not to wash at all, whether in a river or in a mikveh (Terumat HaDeshen 255); however, his hands and feet are permitted when he dries before walking four amot; and see beginning of siman 339:`,
+  "4:_": `[4] [Dress] Since they are few, etc. And Taz wrote the reason: since it is impossible to avoid rain, the Rabbis did not decree:`,
+  "5:_": `[5] [Dress] It appears as cooling oneself, etc. And nowadays that we are careful in washing, as above — if so, one who immerses appears as fixing (Terumat HaDeshen there); it appears permitted to immerse for keri since it is d'rabbanan, as written in siman 323 seif 7:`,
+  "6:_": `[6] Permitted. Because they do not dissolve quickly and it is not psik reisha; but the rest of the body, and all the more his head — forbidden (Bach); requires study:`,
+  "7:_": `[7] As an unusual manner, etc. Mordekhai's language: kneading through change is permitted; it implies that for those who forbid in siman 324 seif 3 — here too forbidden; and it is possible that here all agree it is permitted since he does not put water on them but takes them in wet hands (Magen Avraham); and this is against Levush who wrote "and he pours water on them," etc.; and it is possible that since it is not in a vessel where water remains, it is as if he does not put on them; nevertheless it appears to me that in any case all agree, as explained in siman 321 seif 16:`,
+  "8:_": `[8] His hands in salt, etc. Taz challenged from natron that as an unusual manner is permitted and strained to answer; and there is no difficulty, for kneading through change is not kneading, which is not so in nolad:`,
+};

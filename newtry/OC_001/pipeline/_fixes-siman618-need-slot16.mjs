@@ -1,0 +1,9 @@
+/** worker-slot-16 need fixes siman 618 */
+export const FIXES = {
+  "mechaber/part-001.txt": {
+    "1:main": "“The law concerning one who is sick on Yom Kippur” - Containing ten paragraphs. A sick person who needs to eat, if there is an expert doctor there, even if he is a non-Jew, 125a The following is a comment given by Magen Avraham ,",
+    "10:main": "A sick person who ate on Yom Kippur and recovers to such a degree so that he is able to bless (the food he ate, to say the Grace after the meal",
+    "4:main": "If two (doctors) say that he (the sick person) needs (food) and even if one hundred (doctors) say that he does not need (food) even if the sick person agrees with them (who say) he does not need (the food) we feed him since two say that he does need (the food). 126 According to Judaism, two witnesses in any situation are legally just as weighty as one-hundred witnesses, and therefore two witnesses decide the issue as is the case in this instance. In this situation when two say yes, feed him and one hundred say no, do not feed him, the one hundred are legally considered the same as the two. Two against two in this case decides the issue for leniency in that the man should be fed so as not to endanger the health of the sick man. (See B . Yoma 83a.). {Rama: The same holds true (if the sick person and one doctor with him say he needs (the food) even though one hundred doctors say he does not need (the food) we feed him. 127",
+    "6:main": "If the doctor says that he is not familiar with the disease, behold he is considered the same as a layman (a non-professional) and his stated opinion does not raise or lower (does not mean anything). {Rama: However if he (the sick person) becomes very weak so that he appears to the majority of people with him that he is in danger, if he will not eat, we feed him, ( Or Zarua"
+  }
+};

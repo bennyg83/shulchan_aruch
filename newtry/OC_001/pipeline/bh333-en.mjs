@@ -1,0 +1,6 @@
+export const t = {
+  "1:א": `To begin. And if he began to empty from erev Shabbat — it implies that it is permitted to empty it on Shabbat even for a matter of reshus (Magen Avraham). And see Taz who appears to forbid on erev Shabbat, and for a matter of mitzvah he empties even from roof to roof and through windows and ladders (Beit Yosef).`,
+  "1:ב": `When he invited. And Taz wrote plainly that this does not include one who invites his friend to come to him to honor the guest who came to him — for his friend too is included as a guest for this matter on erev Shabbat; and Magen Avraham wrote that when he dines with guests it is a seudat reshus, only that the one who invites them performs a mitzvah on erev Shabbat.`,
+  "3:א": `That were brought. Even from erev Shabbat; and if he needs to drink from them on Shabbat — likewise forbidden to empty them, rather he draws there from them; and if impossible in another manner — permitted to unload them (Magen Avraham). And see siman 336 seif 3.`,
+  "3:ב": `For guest honor. And if it is more than fifteen se'ah — forbidden, as is written in seif 1 (Darkei Moshe). Fifteen se'ah is a cubit by a cubit in height a cubit and three fingerbreadths according to the calculation of the mikveh.`,
+};

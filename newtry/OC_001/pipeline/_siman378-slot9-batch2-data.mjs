@@ -1,0 +1,30 @@
+/** worker-slot-9 — siman 378 editorial batch 2 fixes (17 blocks) */
+export const FIXES = {
+  "mishnah-berurah/part-001.txt": {
+    "3:א": "(א) (d) Both of them are forbidden – if proven to be one of the internals, certainly forbids the tyrann that was removed in its place and even if it was proven from the diaspora, it must be forbidden and the inside is forbidden, even though it is not necessary for the footholding of the city to be closed, it is like it was rejected in its lap and not from that it had been removed from its construction",
+    "3:ב": "(ב) (to) until his permission is revoked, R.L. to the two arrows and is described in the Qur'an:",
+    "3:ג": "(ג) Both of them are forbidden—for it is considered as one if he did not renounce his domain to both courtyards; but if he renounces only to the inner ones it does not help, even if they wish to withdraw from the outer one and close its opening (achronim):",
+    "3:ד": "(ד) (e) Inward is permitted - diploma is to get away from the snail to the grass and use the dea snail in it and to the exodus of the diaspora, which is shared together can return to it and tell it to the cognant of your lips, and not to my distort that there was no single Shit of your yards, and not part of the city:",
+    "4:א": "(א) (h) or years in wisdom and snoring - we were the same years alone, but not with the inner and exhilarating in it, because it is believed that there are years to be a lie like a horn, and we will come to allow it, and they are certainly not permitted by a da Vinci leg",
+    "4:ב": "(ב) (T) There is not the only one in the interior and so on, even though he does not sit together with a rank that is permitted in the place, does not forbid it:",
+    "4:ג": "(ג) Many of them were like a single one; we were the father's wife with his sons who receive a reward and all the other"
+  },
+  "peri-megadim/part-001.txt": {
+    "1:_": "An eruv — Taz, and what the Mechaber wrote, and they open to reshus harabbim, the same applies to an alleyway — Tur, Beit Yosef, Bach, and Eliyah Rabbah. It appears: three courtyards, and one outer one alone opens to reshus harabbim or to an alleyway, and the middle one has foot-traffic together with the outer one—the second also is one domain. And what the Mechaber wrote that they placed their eruv in the middle one in two houses implies even though it was impossible to place everything in one house; and what he wrote in one house is the law in one vessel, or one full and they placed it in another vessel — Tosafot Yom Tov.",
+    "2:_": "And if there is a way out there on the ground, and it also has an opening for R&D, and for the rest of the day, it is called \"to go out of the corner\" and \"their\" section, and \"There will be no exception:",
+    "3:_": "They are both penned by all that has a foothold prohibits and that the author of the U.S. has been deemed \"a luxury for itself in a high-level Tur — source. permitted in the place does not forbid it from its place and the IDF:",
+    "4:_": "Innately, if a city is built in its lap, both of them are forbidden to unite a dazzling and thickened grass. The foot permitted in the place does not prohibit any misplaced by a sign that the D.J. in the D.C. is not in the place, and that the High Court is not in place, and that the High Court is inscribed in the Bible:"
+  },
+  "rabbi-akiva-eiger/part-001.txt": {
+    "1:_": "Seif 3 — both are forbidden until he renounces his domain. See teshuvah Chinuch Beit Yehudah siman 10:"
+  },
+  "shaarei-teshuvah/part-001.txt": {
+    "1:_": "In the name of the High Court, they are forbidden, and the taste of the Torah in the place prohibits that they are not in place, and in the midst of an education in the S.J.C., that they are not allowed to come to the place permitted by a wall, or by the IDF, that they are not allowed to leave a place in the inner courtyard In addition to the city of Dhamper as guests (and at the end of his words means that he wants to shake in the city he has a part in the town of Dewey as if he swayed his mind from the city’s vows to see the city and to see that it is not possible for him to find himself in the midst of Hashem’s words, and that he does not appear in the city And the field comes to the High Court and some of them have places in the Bible, and they do not care about the prohibition, because they have a place to go out and come, and even if they do not want to be removed from the road, they do not care about the fact that the IDF is not lost as a result of the fire of the fire And so there is no way to lay their doors in one of the houses on the street, and to shake them away from that house to the heart, and therefore I have invented a separate permit if they were able to involve them, but if they were not able to bring them together, they would not be able to hide their hands, and they would not be able to do any of them Those outside do not prohibit them from being able to involve them from the prisons that prohibit them, and that they may not be able to find a gift that can be purchased by the Hashem’s permission to provide or lease the permission of the Holy One, and to see the G-d and to the end of the book"
+  },
+  "turei-zahav/part-001.txt": {
+    "1:_": "I am drowning in this and that. At the time, such a medium has been used in them, and there are no external dwellings in the middle of Memera Dinoo, but if he is in the hands of then, such fees have been included in the same house and the court of Dau Hoin:",
+    "2:א": "(א) And internally open to wisdom. In other words, it is not for the dead and so on that she has a foothold on her throat that she has no place for a quaint from a pre-dominal maze, but through her own:",
+    "2:ב": "(ב) Both are prohibited. Prolonged to a leg that prohibits a place prohibits not in place:",
+    "3:_": "Internally allowed. A diploma is to get away from one’s lap to the grass in a past and uses a daa snail in it, and to the exodus is given to My people,’ said Li’s to your boulevards and not to my people:"
+  }
+};

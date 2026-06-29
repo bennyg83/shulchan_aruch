@@ -1,0 +1,5 @@
+export const t = {
+  "1:_": `When hung on his neck — if breaks off no concern lest carry — not afraid of master saying he wants show he is free man therefore removed; therefore d'oraisa won't carry in hands — not sign of slavery except on garment or neck; not on garment lest breaks, fears master will say removed to show free man and folds tallit so seal place not seen — similar to folded tallit liable chatat — end Tur's words.`,
+  "2:_": `And of metal — since important concern lest fall and carry; see siman 301 s.k. 23.`,
+  "3:_": `He is hired etc. — Beit Yosef in name Mahari Abuhav wrote needs study on Ishmaelite slaves if place where not like uncircumcised slave but like hired gentile year-worker not called slave for this; these Ishmaelites since permission convert religion and thereby release from master's hand not like uncircumcised slave — end; therefore every ba'al nefesh beware; all the more place without permission per their law to annul by conversion — certainly absolute prohibition melacha Shabbat for Israel.`,
+};

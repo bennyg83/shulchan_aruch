@@ -1,0 +1,30 @@
+/** worker-slot-15 — siman 579 editorial batch 2 fixes (19 blocks) */
+export const FIXES = {
+  "magen-avraham/part-001.txt": {
+    "3:_": "and so on. It means that even though there is no reason for us to walk on the graves of Hashem’s people, it is also possible to walk on the graves of Israel, but there is more reason for Hashem’s people to ask for us, and to speak to us, and to Hashem’s mercy, and to us"
+  },
+  "mechaber/part-001.txt": {
+    "1:main": "The order of prayer on these fasts, consisting of three sections: Every day from the seventh day of withholding rain, following the established order of these fasts, the people gather and go out with the ark to the city square. The entire community assembles, covering themselves with sackcloth and placing ash from burnt material (meaning ash from something that has been burned, distinct from regular dust, which is also called ash) on the ark and on the Torah scroll. This is done to intensify the weeping and to humble their hearts. One of the people takes the ash and places it on the head of the leader and the head of the court, in the place where they put on tefillin, so they may be ashamed and repent. Each person then takes and places it on his own head. Afterwards, they arrange a wise elder among them, and if there is no wise elder, they appoint a sage. If neither is present, they appoint someone of stature and say before them words of rebuke, meaning words that provoke and stir the heart towards repentance. They emphasize that neither sackcloth nor fasting alone cause repentance, but rather true repentance and good deeds. We find in the case of the people of Nineveh, it is not said, 'Hashem saw their sackcloth and their fasting,' but rather, 'Hashem saw their deeds.' In accordance with his ability, the person addressing them continues with these matters until he softens their hearts, and they fully repent. After concluding these words of rebuke, they stand in prayer and appoint a prayer leader suitable for these fasts. If the one who spoke the words of rebuke is fit to pray, he prays. If not, someone else is chosen to lead the prayer. Who is fit to lead the prayer on these fasts? A person who is accustomed to praying regularly, is familiar with reading from the Torah, Prophets, and Writings, is morally upright, has toiled in the field, has not had a child or relative who transgressed, has an empty house of transgressors, has not acquired a bad reputation in his youth, is humble, pleasant to people, and has a pleasant voice. If he is elderly, with all these qualities, he is honored. If not, as long as he possesses all these qualities, he should lead the prayer.",
+    "2:main": "2. The order of the prayer, the Sixteen Blessings (Shemoneh Esrei), which is an addition, and the blowing of the shofar, is explained well in Tur, Chapter 7.",
+    "3:main": "3. After completing these seven fasts, following the prayer, the entire community goes to the cemetery, weeping and pleading there. This means they address the deceased, saying, 'Behold, you are dead as if you do not repent from your ways.' (According to this, if there are no Jewish graves, they go to the graves of non-Jews.) (Talmud)."
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א": "(א) (a) the ark:",
+    "1:ב": "(ב) (b) To the streets of the city, to be baptized in the outskirts of the city, because of the exiles we have made from the High School and exiles from the end of the city, and to this point if they cannot pray on the street from the headings, they will pray in another house",
+    "1:ג": "(ג) (c) In the bag, to say, we are important to you as a flame and the Bible writes that the way to cover the stage in the bag and therefore we look to cover up the clothes:",
+    "1:ד": "(ד) (b) On the back of the ark, I am with him in the midst of his eyes",
+    "1:ה": "(ה) (b) The people, and the Dasnas, take on themselves, and we will be ashamed of others who are so ashamed:",
+    "1:ו": "(ו) And each and every one in the head, before the dawn of the book",
+    "1:ז": "(ז) (a) of the form, and the additions of the psalms were made to be heard and received from your heart, and the Holy One was all that was appointed by the Hashem of Israel:",
+    "1:ח": "(ח) (h) And the Hashem said, “And the Hashem is in the place where the words of the Hashem are said before, so that they pray in the heart that is broken.”",
+    "1:ט": "(ט) (c) Ordinary - so that it is not wrong:",
+    "1:י": "(י) (i) and patient - in small boys:",
+    "1:כ": "(כ) And he does not have to pray in a whole heart:",
+    "1:ל": "(ל) (b) and wishes to the people, who will agree to the fall of it, and who will be blessed with the heart:",
+    "3:א": "(א) They pray and pray, but they don’t take the box and go to the graveyard and pray there and pray for them",
+    "3:ב": "(ב) The psalmist said, “I am not afraid of Hashem’s people, and I will be blessed with Hashem’s mercy, and I will not be able to worship Hashem’s people, nor do we pray for them.”"
+  },
+  "shaarei-teshuvah/part-001.txt": {
+    "1:_": "(In Shulchan Aruch seif 1) and Beit Yosef wrote in name of Maharam Zacut responsa: some places say selichot at arvit — suppress; improper to mention thirteen attributes except time of favor; one present when said should sit silent or say psalms; confession may say; motzaei Shabbat forbidden until after chatzot for Shabbat sanctity; see his name one who rises while congregation says selichot needing chatzot tikun should say chatzot per Ari z\"l greater than selichot; Maharash Sha'ar Ari selichot slowly with intent; forbidden thirteen attributes without intent; Tur Barkeit better these days increase selichot supplications with congregation than study; Beit Yosef saw some rabbis always studied law compositions in Elul left some order to study only supplications; places from Rosh Chodesh Elul after prayer caller 'Return rebellious children' — fine custom; Mahari Berakh on Torah Matot some annul vows in Elul hint lo yachel devaro all Elul — see below end s.k. 7."
+  }
+};

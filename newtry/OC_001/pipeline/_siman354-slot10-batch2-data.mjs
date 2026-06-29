@@ -1,0 +1,6 @@
+/** worker-slot-10 — siman 354 editorial batch 2 fixes (1 blocks) */
+export const FIXES = {
+  "yad-ephraim/part-001.txt": {
+    "1:_": "As Magen Avraham s.k. 3 wrote — and when coming in reshus harabbim air. It appears he means even in the first case when the rim is not ten high — then it comes to reshus harabbim air; even though there is prohibition as written seif 2 — nevertheless no liability; therefore they did not decree rim ten high lest not high because also when not high there is no liability since bound in his hand:"
+  }
+};

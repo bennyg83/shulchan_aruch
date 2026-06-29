@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `(1) [Levush] Some say "not," etc. — and Acharonim agreed; and what Beit Yosef and Taz challenged — see there Nachalat Yaakov already answered in Parashat Emor; and see Tomer Yesharim siman 95:`,
+};

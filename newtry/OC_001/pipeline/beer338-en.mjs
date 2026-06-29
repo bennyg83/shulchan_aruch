@@ -1,0 +1,18 @@
+export const t = {
+  "1:_": `Eruvin 104`,
+  "2:_": `Tur in the name of Avi HaEzri`,
+  "3:_": `Agur in the name of his father's responsum`,
+  "4:_": `Eruvin 104 braita and Gemara there`,
+  "5:א": `Tur in the name of R' Chaim and Rif`,
+  "5:ב": `Per Rif's explanation and per what Beit Yosef wrote, and also per R' Eliezer's view`,
+  "6:א": `Eruvin 104`,
+  "6:ב": `Tur in the name of Rambam in chapter 21, and the Rav Maggid wrote there that it is from Ameimar's words there`,
+  "6:ג": `Rosh there in the name of R' Chaim`,
+  "7:א": `Mishnah in Beitzah 35`,
+  "7:ב": `Per R' Yehuda's explanation — Tur and Rosh brought there`,
+  "7:ג": `There in the Gemara`,
+  "8:א": `Mishnah there`,
+  "8:ב": `Braita there`,
+  "8:ג": `Rambam in chapter 25`,
+  "8:ד": `Some laws of making sound will be explained in the siman after this)`,
+};

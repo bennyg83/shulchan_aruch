@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+import fs from "fs";
+import { parseBlocksInFile, serializeBlock } from "../oc001_block_lib.mjs";
+
+const fixes = {
+  "eliyah-rabbah/part-001.txt": {
+    "1:_": `(1) Even alone, etc.—Levush Yom Tov wrote not explicit in Ran; also from those who infer not so—end quote; but Maharshal responsa siman 23 and Bach agreed need cup; Bach and Shakh agreed even alone take cup in hand unlike inferrers; so Maharam of Rothenburg responsa 507 and Tashbetz 303; Mahari Weil siman 193; Kenesset HaGedolah possible refers when takes then puts down as Magen Avraham; Mahari Weil and Tashbetz conclude—Tashbetz explicit do not put down for birkat hamazon requires cup even alone; explained there all laws siman 183 careful even alone; Bach wrote even inferrers only regarding wine specifically.`,
+  },
+  "kaf-hachayyim/part-001.txt": {
+    "1:_": `(1) (Seif 1) Some say birkat hamazon requires cup even alone; some only in three; some no cup at all—since Mechaber placed third book last implies rules for law as siman 13 note 7; also third book is Rif and Rambam as Beit Yosef; Mechaber follows majority of three pillars Rif Rambam Rosh; but Zohar and Ari ch. 2 only in three requires cup not alone—reason in secret Zohar Terumah 154b cup of blessing only in three for three fathers blessed; Pinchas 246a three need cup—Binah third of ten sefirot; therefore less than three no cup; Shem HaMeforash Parashat Ekev individual does not bless birkat hamazon on cup; if three and wine bless on wine; Ramak Or Tzaddikim siman 23 note 33 three bless with cup if not three no cup; Ramak Derekh Seudah when bless birkat hamazon without zimmun three forbidden take cup per Kabbalah; Zohar and Ari only three bless on cup individual cannot; siman 25 note 75 matter not in Gemara disputed—Kabbalah decides; from Zohar no Shabbat vs weekday distinction unlike Zecher Yehosef note 20 Shabbat individual on cup; Hakham Tzvi did not write Shabbat seudah bless on cup; seems relies Shem HaMeforash only three; if three ate together no wine still zimmun though no wine Shem HaMeforash there.`,
+    "2:_": `(2) There requires cup—because way of honor and praise proper to bless God on cup as cup of salvation I lift; great secret Kabbalah tenth sefirah cup of salvation receives from all bestows blessing and sustenance to world—understand Levush; tenth attribute means Malchut; Zohar Ekev 273b cup birkat hamazon is Malchut; from Zohar Terumah previous and Pinchas Binah means Malchut Binah or receives from Binah both exist; siman 177 note 24; per Zohar reasons women do not bless on cup even when invite themselves as known.`,
+    "6:_": `(6) (Seif 2) If no wine—Tur siman 272 some explain chamar medinah only if no wine grows day's walk around city; Bach brought and therefore city with much wine at shop from distant places—if not grown day's walk around city like no wine—bless birkat hamazon on beer if no wine at home; Shakh note 4 wrote not that some say so but if wine within day's walk though none in place beer not chamar medinah; if city has much wine though brought from farther than day—obviously do not bless on beer since wine available; so Acharonim note 4 and Biur Halacha note 3.`,
+    "7:_": `(7) There if no wine—Bach some ruled bless birkat hamazon on barley beer chamar medinah and seven species; not clear though halacha like R' Yehudah seven species preferable siman 211 when wants both equal blessings—here not wanting seven species obviously bless what wants now; Taz siman 32 since fixed to drink honey water not wanting beer—obviously bless on honey water also chamar medinah like beer; Shakh note 2 and Shelah; Taz s.k.1 Magen Avraham s.k.2 Biur Halacha note 6—only countries accustomed to honey water as chamar medinah; where drink only occasionally not chamar medinah like other beverages apple pomegranate wine; Acharonim note 5 and Shulchan Zekenim note 1 Biur Halacha note 7.`,
+  },
+  "machatzit-hashekel/part-001.txt": {
+    "1:א": `(s.k. 1) And shall not eat, etc.—as Amemar Pesachim 107a.`,
+    "1:ב": `(s.k. 1) Requires study—for birkat hamazon fine; Acharonim wrote we hold Pesachim 105 permitted eat before havdalah to bless on cup as Rashba responsa 342 and Tosafot 102b; Tosafot Pesachim 102b s.v. leaves it; Rosh siman 17 explains Amemar fasted not eat before havdalah; yet above 102b one entering Motzaei Shabbat one cup leaves until after meal blesses birkat hamazon then havdalah—implies permitted eat before havdalah; R' Yehudah answers if no cup expects tomorrow—wait; if has cup not expecting better wine tomorrow—eat before havdalah bless birkat hamazon and havdalah on one cup better than havdalah on cup and birkat hamazon without cup—Rosh; Tosafot and Rosh Berakhot; so siman 296 seif 3—also havdalah only one meal time if expects tomorrow forbidden eat night; if not expecting two meals Rabbanan not stringent; here one cup not expecting other cup tomorrow—if must havdalah before eating forbidden eat before havdalah; after havdalah may eat though no cup for birkat hamazon per Tur one meal time if expects cup later; if not expecting cup in other meal may eat immediately without cup two meals Rabbanan not stringent like havdalah; here not expecting cup tomorrow may eat after havdalah bless without cup—better eat before havdalah bless both on one cup—stricter eat without cup for birkat hamazon than eat before havdalah; havdalah needs pass one meal all the more birkat hamazon if no cup expects—well spoken.`,
+    "1:ד": `(s.k. 1) And question—nevertheless requires cup; Samuel and Rav both only say zimmun on three pilgrim festivals not Rosh Hashanah and Yom Kippur—support give portion to seven and eight; R' Yehoshua seven are seven days Pesach eight festival days; when says also include Shavuot Rosh Hashanah Yom Kippur what zimmun—answer not for blessing meaning middle blessing fixed for festivals; if thought zimmun time all seven who is there; reject perhaps zimmun and if not bless one day has compensation seven or eight; still challenges requires cup for zimmun—supports Ran zimmun need not cup.`,
+  },
+  "magen-avraham/part-001.txt": {
+    "1:_": `And shall not eat—this not found in poskim only Tur—as Amemar slept fast no cup for havdalah since birkat hamazon requires cup no difference from havdalah—end quote; requires study—for there forbidden taste before havdalah death from asakhta; but birkat hamazon when begins obligation not yet charged even if charged no prohibition taste before—why forbid eat; question Pesachim 105 if only one cup says kiddush day—implies eats without cup; answer when not expecting tomorrow; still difficult kiddush bread and bless on cup; question Eruvin 40b nevertheless requires cup Rashi stam people first day have cup second day all lack—implies eat without cup; answer honor Shabbat and Yom Tov permitted eat without cup for havdalah compared and havdalah even Motzaei Shabbat to Yom Tov forbidden eat as Rif ch. 1—seems lenient not lose for even havdalah some lenient siman 296; see s.k. 3; a fortiori birkat hamazon some say no cup at all.`,
+    "2:א": `Wine available—Tur siman 272 if no wine grows day's walk around city called no wine available though much at shop; Bach; implies little wine near city suffices; Bach in large meals drink beer during meal after meal set to drink honey water bless on honey water chamar medinah and preferable; even per R' Yehudah seven species preferable when wants both siman 211 s.5; seems beer not among seven species—bless shehakol siman 211; Shelah; siman 483; only countries accustomed honey water as chamar medinah; where drink only occasionally not like other beverages apple pomegranate wine; Maharshal birkat hamazon requires cup even alone; time of pressure no beer chamar medinah may bless any beverage kvass beer if masses mostly drink; forbidden teach before multitude lest lighten not pressure; specifically Russia countries accustomed these drinks; beverages accustomed Pesach apple water etc. not chamar medinah not drunk all year; siman 483.`,
+  },
+};
+
+const base = "output/siman_182";
+let total = 0;
+for (const [rel, blockFixes] of Object.entries(fixes)) {
+  const fp = `${base}/${rel}`;
+  const blocks = parseBlocksInFile(fs.readFileSync(fp, "utf8"));
+  const out = blocks
+    .map((b) => {
+      const key = `${b.seif}:${b.marker || "_"}`;
+      if (blockFixes[key]) return { ...b, en: blockFixes[key] };
+      return b;
+    })
+    .map(serializeBlock)
+    .join("\n\n");
+  fs.writeFileSync(fp, out);
+  total += Object.keys(blockFixes).length;
+}
+console.log("fixed", total);

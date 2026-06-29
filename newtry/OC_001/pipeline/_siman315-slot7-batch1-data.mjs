@@ -1,0 +1,54 @@
+/** worker-slot-7 — siman 315 editorial batch 1 fixes (45 blocks) */
+export const FIXES = {
+  "baer-heitev/part-001.txt": {
+    "1:א": "(א) Curtain. It is obvious that it is permitted, since there is in any case a door to the ark and the curtain is only suspended for modesty — see Beit Yosef; and see in responsa Panim Me'iros siman 30 who wrote that even if there are no doors to the Holy Ark it is permitted on Shabbat; and it appears simple that it is permitted to hang on Shabbat decorated sheets for ornament even though they are fixed there, since they are not made there as a partition. Magen Avraham:",
+    "1:ב": "(ב) His bed. Since he comes to permit the prohibition — for it is forbidden to have relations before the light of the lamp or books. And in Hilchot Ketanot part 2 siman 206, and Taz siman 514 seif 2 — they permit on Shabbat. And at any rate this is obvious that he may cover the books with garments — two coverings — for this is not called a partition; and likewise he may cover a utensil over the lamp as written siman 310 seif 6 — Taz. And Magen Avraham wrote: and it appears to me to infer from the Mordechai's language who wrote that Maharam did each night a partition 19 high before the books etc. — it is implied even though the books stood uncovered above the partition it is permitted, for it is as if he is in another domain as written siman 79 seif 2; therefore it is forbidden to make it on Shabbat, for thereby one makes a domain independently; and also one must tie it so the wind not move it as written siman 627 seif 1; but when one hangs the partition against all the books so none are uncovered at all — it is obvious that even if it is not 10 high it is permitted — from the case of mere covering; therefore it is permitted to make it on Shabbat, for it is not made as a partition but for mere covering and modesty. And the same law with a lamp — if one makes a partition 10 high and it is visible above the partition — forbidden to make it on Shabbat — see siman 240 seif 11; but if one hangs it so the lamp not be seen — permitted, for it is like mere covering. And it is obvious that if there was a partition protruding from the side before the books a handbreadth wide — permitted to hang a sheet before it, for it is an addition to a tent — end of his words; and see in Even HaEzer siman 25 from his words:",
+    "10:א": "(א) Doubled. For there is not a handbreadth in its roof and not within three adjacent to the roof a handbreadth — Beit Yosef; and nevertheless, and see seif 8; but if there is a handbreadth in it, cords do not help. Magen Avraham:",
+    "10:ב": "(ב) Suspended on them. Meaning one suspends it on the pole folded:",
+    "10:ג": "(ג) To tilt it. Meaning that through the cords one pulls it and it is as adding to a temporary tent:",
+    "10:ד": "(ד) The curtain. Meaning even the curtain is permitted even though there were no cords on it — because a tent is only what is made like the form of a roof — Magen Avraham. And it is implied that if made to permit — cords do not help — see his words. Magen Avraham:",
+    "11:א": "(א) Prepared. Meaning that one prepared it for that — similar to a window plug in siman 313; but if not prepared for that — forbidden as written seif 8. Magen Avraham:",
+    "11:ב": "(ב) Hanging down. Since the canopy is spread for shade — the lower part made like the form of a roof in the middle of the canopy; but our lower part on which there is no canopy — even though sheets hang from the canopy a handbreadth — we have nothing in it. Nevertheless, Ran, Rashba, and see Taz seif 8:",
+    "12:א": "(א) Large. See in Ginat Veradim general rule 3 siman 26:",
+    "12:ב": "(ב) Two. For they can hang it as one so it not fold — and it appears to me from this reason some are accustomed to be careful not to hang the curtain on Shabbat. Magen Avraham:",
+    "12:ג": "(ג) Roof. It must be sewed like the form of a rim around it:",
+    "13:_": "Tent. And even though permitted to return the pot on the stove on Shabbat and we are not concerned for tent matter since the partitions were already made — one may say that since the cover is very wide it becomes like a tent — Ran and Tosafos. And Taz wrote: therefore on a utensil tent matter applies when covering — and if so one must be careful with small boxes called escutcheons that have a cover not tied there — only when needed one pulls the whole cover and then returns it — one must be careful not to extend all the cover when opening — for it is demolishing a tent; and likewise when returning it one makes a tent. And according to what Tosafos wrote — only on a cover forbidden because it is very wide — one need not forbid this; but according to what I wrote that all that need to cover it is forbidden — there is prohibition also in escutcheons if there is a hollow of a handbreadth — and I did not see people careful in this; but according to my humble opinion the essence is that the Sages did not forbid in covering due to tent except if not designated for that — like that cover where one takes a garment from elsewhere and covers the barrel — unlike a cover designated for them and its manner is always thus — it does not appear as making a tent; therefore in returning a pot on the stove it is permitted since its manner is always thus; and likewise all utensil cover — so it should be read here — that one does not make partitions on Shabbat, only the cover alone — end of his words see there; and see in Gan HaMelech siman 34 and Yad Aharon. And Ran wrote that every tent like a canopy that has a handbreadth in the roof, or within three adjacent to the roof a handbreadth — is a permanent tent and one is liable for a chatas:",
+    "2:א": "(א) The ship etc. What people place wooden hoops on a baby's crib and place a sheet on it — forbidden to make unless made as stated here. Magen Avraham:",
+    "2:ב": "(ב) The wrapping. Meaning the wrapping around the circle is not counted in the handbreadth but only what is outside the circle — and see Taz:",
+    "3:א": "(א) To place. And a wide box that has a lid on it — if it is not fixed on hinges, forbidden to place on it on Shabbat even though it is not fixed at all and is only made for a mere opening — forbidden as written siman 313. Magen Avraham:",
+    "3:ב": "(ב) In every manner. For there is no tent without partitions — even though a mat is forbidden without partitions as written in seif 2 there — his main intent is to make a tent for shade; but such temporary construction is not even called a tent without partitions — Rosh chapter 4 of Beitza. And according to this, possibly forbidden to cover our bedsteads with a thick sheet that they place on the pole, for it is important building since his intent is to seal the opening and it is not an addition — permitted at the beginning of siman 313 that here there are partitions independently and it is a tent independently — and see at the end of the siman and siman 626 seif 4 in the gloss — and see siman 310 seif 40. Magen Avraham:",
+    "5:_": "To support it. For one only does it to support merely — Rashi. And why is it permitted to erect the canopy and remove it. And the same is the panel fixed in the wall of the synagogue on which they place books — Magen Avraham, and so wrote Tal Oros:",
+    "6:_": "The lower ones. For one makes a tent — and Taz wrote: and it appears to me that likewise one needs the air between them — see there:",
+    "7:_": "Air. From this reason likewise permitted to spread a cloth on the table and the cloth edges hang below the table on every side — for there is no tent matter since one need not the air beneath the table; and further since what is placed on the table has no tent — permitted also what extends from it as written nearby regarding the sheet extending below — and I heard one who is stringent in this — he exaggerates in his measures. Taz — and see siman 562:",
+    "8:_": "Exempt. But forbidden — and see seif 11:",
+    "9:_": "To tilt it. For it is a tent over the hollow of the utensil — and see Magen Avraham and see seif 8 and in Knesset HaGedolah and in Yad Aharon:"
+  },
+  "beer-hagolah/part-001.txt": {
+    "1:א": "(א) Shabbos 125, a statement of R' Yochanan",
+    "1:ב": "(ב) In Rashi's explanation there",
+    "1:ג": "(ג) There Tosafos in the name of Rabbeinu Tam, the Rosh, and the Ran, and Shulchan Aruch",
+    "10:_": "There 138, and Rambam there regarding the roof, and as the Rif explained",
+    "11:א": "(א) There and in Eruvin 102, and Rambam there",
+    "11:ב": "(ב) Rambam there, and see in Maggid Mishneh Halachot Gedolot there, in the name of Rashba, and Beit Yosef brought it",
+    "12:_": "According to Rambam there per his explanation of what is stated regarding enlarging on Shabbos there",
+    "13:א": "(א) There 139, and Rambam there",
+    "13:ב": "(ב) Ran there and Halachot Gedolot in the name of Rashba:",
+    "2:א": "(א) Eruvin 102, in the name of Rav Assi, and the Rif wrote in chapter 16 of Shabbos",
+    "2:ב": "(ב) There also in the name of Rav",
+    "2:ג": "(ג) Ritva in the name of Tosafos who were precise from Rashi's language",
+    "3:א": "(א) Shabbos 138, braisos that Abaye cites from what is stated regarding a storehouse",
+    "3:ב": "(ב) Tur in the name of Tosafos there",
+    "4:_": "Ran and Halachot Gedolot in the name of Rashba",
+    "5:_": "There in Shabbos from what is stated regarding the folding chair",
+    "6:_": "Beitza 33",
+    "7:_": "Tur in the name of Tosafos and the Ran in their name there in Beitza",
+    "8:_": "Shabbos 138, Rambam in chapter 22",
+    "9:_": "There 137 in the Mishnah, even according to R' Eliezer"
+  },
+  "beur-hagra/part-001.txt": {
+    "1:א": "(א) Seif 1 \"and specifically.\" From what is stated in Eruvin 94a, and see Rashi beginning of Sukkah 16b, and there 44a, 102a, and Shabbos 138a regarding a curtain etc.:",
+    "1:ב": "(ב) \"Unless.\" Eruvin 44a:",
+    "1:ג": "(ג) \"Or.\" There 94a, and as Tosafos explained that Rav was particular because of ohel according to his view, and there 45b, and Sukkah 16b according to Tosafos' version:",
+    "1:ד": "(ד) \"But.\" Eruvin 94a:"
+  }
+};

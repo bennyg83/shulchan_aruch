@@ -1,0 +1,6 @@
+export const t = {
+  "1:_": `And some say they did not forbid, etc. — In Bach he wrote that we rule stringently according to the first view; but in Eliyah Rabbah he wrote that one may rely on this view because of danger of illness, and also Ramban is the latter view and Ran brought him:`,
+  "4:א": `He can lift it as it is, etc. — And if it is permitted to carry it with the stone to the place where he wants to clear it or only to remove it from among the barrels — see Chiddushei R' Akiva Eiger:`,
+  "4:ב": `And if he placed them, etc. — Know that it is found in the Rishonim and many Acharonim agreed that even if there is wine inside the barrel we do not say the barrel became a base for prohibition and permission; and they wrote the reason — because the mouth of the barrel from above does not become a base except for the stone placed on it:`,
+  "4:ג": `In order to take them on Shabbat — See Chiddushei R' Akiva Eiger who brings from the words of Tosafos that nevertheless it is not like complete forgetting, for there in the need of the place of the barrel and pillow it is permitted even to lift directly with the muktzeh object, as is found in seif 4; unlike here, it is not permitted in every manner — only shaking alone; and see there where he expands on this:`,
+};

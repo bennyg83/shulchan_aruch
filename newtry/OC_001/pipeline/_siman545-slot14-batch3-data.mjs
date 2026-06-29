@@ -1,0 +1,56 @@
+/** worker-slot-14 — siman 545 editorial batch 3 fixes (45 blocks) */
+export const FIXES = {
+  "kaf-hachayyim/part-001.txt": {
+    "8:_": "(ch) There. And even to proofread one letter etc. And if an extra letter is found in a sefer Torah on Chol Hamoed and they have another sefer Torah — see in the responsum of Pri Megadim volume 1 siman 66 that he wrote to permit because erasing the letter, although it is full melacha, nevertheless since he does not do ma'aseh uman it is permitted to repair for public needs even though the public does not need it now, and proof from siman 644 in repairing cisterns and wells of the public — see there. And Beit David cited there. And likewise in the responsum of Zera Avraham siman 66. And Beit David essential words of halacha siman 25 or 1 — see there. And see there in Sha'arei Teshuvah on seif 8 that he wrote it is possible if the letter was extra in the middle of the word and erasure and writing are needed to bring together the letters that became distant through erasing the extra from there, and one must draw or thicken the letters so they come close — it appears that this too requires craftsmanship and is forbidden on Chol Hamoed; only he wrote everything depends on the matter whether this act requires craftsmanship or not, and if craftsmanship is required, even if now the layman wants to do it, it is forbidden since the act itself requires skilled hands, and if he repairs it as a layman it is forbidden because it is not honor of the Torah — see there.",
+    "9:_": "A) And if we are abroad of a single letter festival that is torn down at the threshold of the groom and should be no telesai from the outside and then the letter will appear to be prohibited by many others because there is a different paragraph, and there is one or only what is necessary for Tali and is an act of art, but to be read in another. A life that I will ask for, O'A. And the chief name is there. And so in Joseph’s book, C.C. and I was adopted because it was not difficult for any of them as “a number that was printed in his time, and he was with him, and called him a god.” And so, “Don’t make it difficult.” Not long until they see things in their minds and minds:"
+  },
+  "levushei-serad/part-001.txt": {
+    "1:_": "The Bible is written in the Bible. It is forbidden because Daino needs a date and the High Court not Shari, but rather the act of diagnosing and writing is an act of artisanism and brings all of you evidence:",
+    "10:_": "SJ will find his livelihood. But to write to himself, thank Hashem:",
+    "11:_": "The succinct succinctly succinct in the case of the diagnostic act and the G-d is required that this is done at the time of Daay does not have the need for the date of the Hashem to not be single in the act of the Distortion:",
+    "2:_": "There is no sense to me. The Bible says that it is not Hashem’s word, nor is it possible for Hashem’s people to pray for Hashem’s mercy, and that it is not Hashem’s word, and that it is not Hashem’s promise that it is Hashem’s promise that it is not Hashem’s Word For the purpose of the time, and as such, the Bible and the Levites is the divine, which is not the necessity of the time, nor is it necessary for the time, but in the U.S., therefore the main thing is the conclusion of the IDF and the IDF. Therefore, it is difficult for the Hashem to speak of the Hashem, and to make many of the needs of the Hashem of Israel:",
+    "3:_": "There was no name in the Chinese. In the name of Hashem’s Word, Hashem’s people were not given to Hashem’s Word, and they were not given to them",
+    "4:_": "A lot of needs. A.G., which is a single of many needs, has a look at the Sky:",
+    "5:_": "The quake is an artist. And the act of an artist was not permitted in many only for the purpose of the time as an introduction in the previous paragraph:",
+    "6:_": "This is the name of Scripture:",
+    "7:_": "CC can be written. We were here:",
+    "8:_": "C.O.A. for the time. Dr. Derry, who is not allowed to put on tefillin in the above C. and A.A., is permitted to write for himself because of his own, he did not forbid this:",
+    "9:_": "The Dov's Checkbook is not allowed in such a way as to determine the difficulty of the G-d:"
+  },
+  "machatzit-hashekel/part-001.txt": {
+    "10:א": "(א) He said, “The Hashem’s Prayer is not a gift of Hashem’s Word, nor is it that the Hashem’s will be done and that Hashem’s people will not be given to them.”",
+    "10:ב": "(ב) Hashem’s Word is not Hashem’s word, and Hashem’s Word is not Hashem’s promise that He will be able to do so",
+    "2:_": "(b) The Hashem is an act of art. R. Damiri in the Bashar that needs many purposes, and the PLO, who studies the work of Oman and John Daino, for the time, many needs have not been permitted, only the act of diagnosing as a buffer in paragraph B:",
+    "3:_": "(c.g., in writing . Dr. Damboar, if not many needs were not even permitted in the Bible by a change, but many needs have been changed:",
+    "5:א": "(א) Hashem’s word is that Hashem’s promise is that He will not be able to wait for His glory until the time of Hashem’s Word, and that He will not be given to His glory, and that He will not be able to do so, and that He will not be able to do so, and that He will not believe in Hashem’s Word",
+    "5:ב": "(ב) And what can be written by R.R.R. and “the rest of the books to learn from G-d so much that it was lost if not written, it would not be possible to learn:",
+    "8:_": "(note 8) On the thigh — it appears to me he came to inform etc. — meaning since we hold in the Talmud that on the thigh, meaning through alteration, is not precise, but likewise with a stone or on a board it is permitted, and as Magen Avraham also wrote siman 100 note 7 — if so why did our Rabbi copy on the thigh, implying alteration is required, and this is against the conclusion of the Talmud. Therefore Magen Avraham explained that he came to exclude through a spindle, for although alteration is not required and it is permitted through stone or board, nevertheless through a spindle it is forbidden because it is a conspicuous matter. And it must be said why he did not cite stone or board — for then one would not know his intent was to exclude spindle, but what he cited board and likewise spindle and one of them he cited.",
+    "9:_": "(c) or they will. The Hashem’s Prayer, and the Holy One, is the same as the Hashem’s Prayer, and the Hashem’s Prayer, is the same as Hashem’s Word, and the Hashem’s Prayer, and the Hashem’s Prayer, is not the same as the Hashem’s He said, “It is not possible that the Hashem’s Prayer should not be given to him, but that he will not be able to do so, and that he will not be able to do so, and that he will not be able to do so, and that he will be given to him.”"
+  },
+  "magen-avraham/part-001.txt": {
+    "1:א": "(א) And for many. The Hashem’s Prayer and the Promised Land:",
+    "1:ב": "(ב) There are bans. Hashem is a sign of Hashem, but rather a book of Hashem, but it is not written by Hashem",
+    "1:ג": "(ג) in our writing. It is not an act of Hashem’s mercy, nor is it that Hashem’s Word is not Hashem’s Word",
+    "2:א": "(א) Lok in his stomach. For the purpose of this time, he and Afia Shari is an act of acting as the C.C.:",
+    "2:ב": "(ב) The lost thing. N. D. D.D. will not be able to learn from it, and he has committed suicide as a “c” in the C.C. and “it is permissible to write books:",
+    "3:א": "(א) for himself. My name is late:",
+    "3:ב": "(ב) and tug. A character without change:",
+    "3:ג": "(ג) for his shooting. Hashem is not Hashem's word:",
+    "3:ד": "(ד) Or he will have. Hashem’s Word says, “He has no mercy and mercy, and he has no mercy, and he has no mercy on him.”",
+    "3:ה": "(ה) She made Chery. Hashem’s Word says that “He who has not done so much, and that he will not do so, and that he will not be able to do so, and that he will not do so at the time of his work, and that he will not be able to write to him.”",
+    "4:_": "I thought. Deroy, who committed suicide, should not be forgotten, and if not the suicide thing is forbidden, is for the time that it should be thought of what is being carried out on the date, then that the tyrant of the D.C., and if I thought it is written, only that the order is forbidden",
+    "5:א": "(א) Stop.' How much does he give to his son and this is his heart:",
+    "5:ב": "(ב) Daisy. The gift of “M:",
+    "5:ג": "(ג) Peruvian. Don't put the debt in captivity:",
+    "5:ד": "(ד) I'll burn no. His name is the property of the Levites:",
+    "5:ה": "(ה) and food lakes. He was given to his wife's son:",
+    "5:ו": "(ו) clearly. It is written to him A. and it is arbitrator to him A. or that he has repeatedly stated that they have many needs to prosecute the trial, and even though he is not allowed to be a special man from a \"demon\" who is often appointed as a sign of many needs (in the U.S.) and if he is not allowed to write any of his or her own words, he is not a sign that is not to be called \"a sign of the Hashem.\" The priests and the sermon are good to do in a hurry, but if it is certain that it will return to its city, it is forbidden to return to its city (the PA and the KGB) p",
+    "5:ז": "(ז) Written at the time. On behalf of the lost things that will be brought to an appeal to their terms (all in it) and those who are carrying the foot and in our country who write all the scriptures in return are not allowed to write and see the S. S. and S.S.A., but the text is written:",
+    "5:ח": "(ח) There is a ban. Dewey, when he is in prison, and is entitled to the suspect that the witnesses who will not yet unite witnesses, and if the dead of the unknown husband, all women have written:",
+    "5:ט": "(ט) Not lost. But for suicide, it is possible without any change as the \"Ricace\":",
+    "5:י": "(י) And they were going to get worse to change epic. As a result, the Bible and the change is that it is written in Alexon and even on the back of a change, but when the body of the letters is broken from the ISA because it is permissible to write peace with no change as the rabbinate, but it is not possible to change this change, but that the scriptures are forbidden to write an epitographer in Alex, and it is not possible for them For those who will trust and do a little bit of the upper line:",
+    "6:א": "(א) Claw at a time. It seems that if he gives him permission to write a spell to feel that the witnesses will die without a regimen of his death as a “Sham”:",
+    "6:ב": "(ב) The borrower needs to be made. For the time of the Hashem’s Prayer, he has only what he wants to do with the Hashem’s Prayer, and what is the case for the Hashem’s Prayer, and what is written in the day of the day that he should be given to him, and that he may not be cursed, and that he may not be able to do so",
+    "6:ג": "(ג) Not known. We were when we sold for the time as a sign of a U.S. drone, but when sold before the date, it is forbidden to write at a time even though it should be felt that they would be repaid as Terry Arsault was forbidden, and as a result, in clothing and a “dead of the gifts of the oppressor even if they were returned to the oppressor of a different place:"
+  }
+};

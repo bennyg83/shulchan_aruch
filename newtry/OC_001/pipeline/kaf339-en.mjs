@@ -1,0 +1,9 @@
+export const t = {
+  "1:_": `(1) [Seif 1] One does not ride on an animal — and the reason is a decree lest one cut a branch to lead it as is written above in siman 305 in s.k. 2. And see in our words there on seif 8 in s.k. 2:`,
+  "2:_": `(2) There. One does not ride on an animal — there is room to permit one who goes in the desert to use a ruse on Shabbat and sleep inside the caravan a little before it travels and say to them in Arabic "I want" and the gentiles will carry him and place the caravan on the camel as is the custom; and even though he is not a Torah scholar — better for him to do this ruse than walk on foot and transgress techum. Radbaz in responsum newly printed in Ashkenaz siman 565; and Maharik hinted and there he elaborated that it is better he walk on foot than ride on the camel, for there are two or three prohibitions and walking on foot is one prohibition; and therefore if there is no danger in walking on foot it is preferable to go on foot — see there. Machberet — this was one or three; and in siman 404 s.k. 2; and see in our words there s.k. 9; and we already wrote from this above in siman 266 on the gloss of seif 2 — see there:`,
+  "3:_": `(3) [Seif 2] One does not swim etc. — a decree lest one make a float. Beitzah 36b; and it is a reed vessel that they weave and make like a long barrel and learn swimming in it. Rashi there:`,
+  "4:_": `(4) There. Even in a pool in a courtyard — there is no room to decree lest he splash water with his feet outside four amot. Rashi Shabbos 40b:`,
+  "5:_": `(5) There. It is considered like a river — and it is included in the decree lest one make a float:`,
+  "6:_": `(6) There. And if it has a rim around etc. — meaning like walls high on every side:`,
+  "7:_": `(7) There and if it has a rim it is permitted — for since it has a rim it is like a vessel and in a vessel they did not forbid to swim, for there is no room to decree in a vessel lest one make a float. Bach. Taz s.k. 1:`,
+};

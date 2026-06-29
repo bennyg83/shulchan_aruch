@@ -1,0 +1,6 @@
+export const t = {
+  "1:א": `That he not pass them. And if he passed — he is liable (nonetheless Raavad).`,
+  "1:ב": `To the place where he drinks. And it is questioned: when drinking it is hanachah, like urinating and spitting; and we only said in seif 2; and when water is in his mouth it is makom patur, since he is in another place and his mouth in another place — unlike urinating and spitting; and that we did not decree lest he take out explicitly, as written in siman 346 s.k. 1, that here it is impossible to drink without placing his mouth; and it is asked regarding his hand too we should say thus if he extends outward — it becomes makom patur, and when he places the object in reshut ha-rabbim — exempt; and one can say that there he did not place the vessel on his hand from another place after he took it out to reshut ha-rabbim, and the same regarding spit — unlike drinking that he gave the water into his mouth; see in the Rosh.`,
+  "2:א": `Or spit. And if he urinated or spat — he is liable, for his intent makes it a place; and the same for throwing into a furnace mouth or a dog's mouth.`,
+  "2:ב": `He took out his mouth, etc. — this is a doubt in the Gemara whether we follow uprooting or export.`,
+};

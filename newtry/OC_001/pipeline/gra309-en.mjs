@@ -1,0 +1,15 @@
+export const t = {
+  "1:א": `Some texts: and even to hold. Rashi from the reason he explained:`,
+  "1:ב": `We are concerned. Gemara:`,
+  "1:ג": `And some say. According to the plain meaning of the gemara — for otherwise even when he sees the child it would be forbidden; rather this is what it means: since they permit him moving the dinar, he will come to move it also when the child falls; but if he does not take the child in hand it must be:`,
+  "2:_": `Seif 2 tied well, etc. Gemara there:`,
+  "3:_": `Seif 3 if they are. Rambam's version that does not read "and shake them out" — he said "and handle" — see siman 311 seif 8 in Hagahot:`,
+  "4:א": `Seif 4 and if. Gemara there:`,
+  "4:ב": `With intent that they remain. Rashi there s.v. only in forgetting, etc., and he means that if his intent was not that they remain, etc., even though he placed on a weekday — permitted:`,
+  "4:ג": `At entry. According to Rashi one version s.v. but he hid, etc.:`,
+  "4:ד": `And some say. Tosafos there s.v. further from the Mishnah there — he shakes the cover; and further that even if partly uncovered — forbidden; and from what is there 123 one — he pushes it, etc.; and Tosafos there; and see siman 311 seif 8 in Hagahot:`,
+  "4:ה": `And then even. Maggid Mishneh chapter 1 Mishnah chapter 2:`,
+  "4:ו": `And likewise with all. Chapter 3 of Yom Tov 26:2:`,
+  "4:ז": `If a person. And Tosafos Shabbat 44:2 s.v. there is; and end of chapter 2 of Chullin:`,
+  "5:_": `Seif 5 and it did not suffice. Tur and so too Ran — but for the need of its place, etc., that if he tilts the pillow and the coins fall there it would not help at all, for he needs the place, etc.:`,
+};

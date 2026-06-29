@@ -1,0 +1,5 @@
+export const FIXES = {
+  "machatzit-hashekel/part-001.txt": {
+    "1:א": "(1) He will take it afterward. Beit Yosef siman 665 in the name of Ran writes on what we rule that an etrog on Shemini Atzeret is permitted because its mitzvah has already passed. Ran challenged: nevertheless it should be forbidden because of miggo that it was set aside for Beit Hillel, for there was doubt whether it was still the seventh day and it was set aside for the entire day. (And see Magen Avraham below siman 663 in the name of Rosh on this.) Ran answered: because for Beit Hillel itself it was not set aside — for Beit Hillel is not fit for the mitzvah of etrog. For even if one did not take it all day one does not take it on Beit Hillel since the lulav in our time is rabbinic except for one day. And Beit Hillel is a doubt, and a rabbinic doubt is judged leniently — end of his words. See he did not write one does not take it on Beit Hillel except because it is a rabbinic doubt. And if so, on Beit Hillel of the first day which is a Torah doubt he holds one must take it."
+  }
+};

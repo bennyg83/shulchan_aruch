@@ -1,0 +1,7 @@
+/** Hand EN — siman 520 bad_mt fixes (R1–R10) */
+export const FIXES = {
+  "kaf-hachayyim/part-001.txt": {
+    "1:_":
+      "(1) [Seif 1] To honor the house as on Shabbat, etc. — and it seems that people are lenient and sweep the house; and it is possible that since some permit even on Shabbat, all the more so in our houses which are paved with stones or planks and leveling uneven ground does not apply — on this they rely to permit; but Shulchan Aruch wrote it is forbidden. Chayei Adam kelal 93 or 3. However, what he wrote \"but Shulchan Aruch wrote forbidden\" — meaning Morurom z\"l in the gloss who cited siman 337, and there wrote some are stringent even when paved and so is the practice and one should not change; but according to Shulchan Aruch without gloss if the ground is paved it is permitted to sweep even on Shabbat — see there. And regarding our matter, for this purpose with Heaven's help:",
+  },
+};

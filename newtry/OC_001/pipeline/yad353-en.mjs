@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": "In Taz s.k. 1 — and even though in seif 3 it is written as must be:",
+};

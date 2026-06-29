@@ -1,0 +1,18 @@
+export const t = {
+  "ateret-zekenim:22:_": `Not place on it etc. — saddle no concern if gentile places even Semag forbids Israel (Maharshal).`,
+  "ateret-zekenim:23:_": `Techum etc. — even if sees not obligated protest; beyond three parasangs Levush forbid some poskim d'oraisa.`,
+  "dagul-merevavah:1:_": `Shulchan Aruch seif 1 see siman 301 seif 45 and Magen Avraham there s.k. 56.`,
+  "eshel-avraham:19:_": `Cooling — Beit Yosef responsum 3 forbids pour cold water on animal though not washing belly — mere pleasure.`,
+  "netiv-chayim:1:_": `(Magen Avraham s.k. 10) to lead — Tosafot perhaps one house.`,
+  "netiv-chayim:2:_": `(s.k. 12) implies if no gentile didn't see Maharshal — only doubt even without harvesters; Rama retracted permit via Israel; Hagahot siman 327 seif 9 chickens geese like calves don't distinguish geese eat weekdays by heating.`,
+  "shaarei-teshuvah:8:_": `Like milking — Bach and Maharam of Padua 142 Israel animal half milk to gentile tenant must declare or gentile accept liability each Shabbat; see Magen Avraham 246 Avnei Nezer here She'elat Ya'avetz 2:17 wondered; permit simply; Machatzit HaShas 246 end lenient if not benefit or buy small amount here.`,
+  "rabbi-akiva-eiger:1:_": `Seif 1 extra guarding — only much extra; slightly more not burden can't minimize (Beit Yosef Beit HaTefutzah).`,
+  "rabbi-akiva-eiger:2:_": `Seif 10 traskal donkey — Beit Yehudah 20 custom all animals — reason there.`,
+  "rabbi-akiva-eiger:3:_": `Magen Avraham s.k. 10 Tosafot one decree — animal use main; vine additional; Rama both; ship vs wagon issue.`,
+  "rabbi-akiva-eiger:4:_": `Magen Avraham s.k. 12 Israel tza'ar — lift animal water muktzeh question; geese food in place.`,
+  "rabbi-akiva-eiger:5:_": `Magen Avraham s.k. 15 twelve mil — Ben Beteira horse; no animal rest without chatat; techum concern.`,
+  "yad-ephraim:1:_": `Magen Avraham s.k. 1 like Tosafot forbid even for ornament — so girsa.`,
+  "yad-ephraim:2:_": `There Taz s.k. 6 stam all saddle by tying forbidden lest etc. — so girsa.`,
+  "yad-ephraim:3:_": `Siman 305 Magen Avraham s.k. 8 Tosafot agree burden when tied apsar if not appearance etc. permitted even though etc. — so girsa.`,
+  "yad-ephraim:4:_": `s.k. 8 beside it uses — girsa: beside etc.`,
+};

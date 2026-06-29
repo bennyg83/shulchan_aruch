@@ -1,0 +1,36 @@
+/** worker-slot-15 — siman 597 editorial batch 2 fixes (21 blocks) */
+export const FIXES = {
+  "mechaber/part-001.txt": {
+    "2:main": "There are places that have an accepted tradition that all whose routine is to fast on Rosh HaShana, and change their routine, and do not fast. They do not complete their year. {Rama: One who does not fear for his soul, it is not necessary to fast all his days [Kol Bo and Minhagim] only he needs to get a Halachic cancellation like with other vows [Kol Bo].}",
+    "3:main": "One who fasts once on Rosh HaShana a Fast of Dreams (Taanis Cholom, a fast due to a certain type of dream the night before). If it is the first day (of R'H) he needs to fast the two days his whole life. If it is on the 2nd day, he fast his whole life the 2nd day alone. {Rama: It is not necessary to duplicate his fast for his fast because there are those that say it is mitzvah to fast on Rosh HaShana (Terumas HaDeshen Siman 245). And he does not say the Aneinu prayer (said on other fast days) on Rosh HaShana just like we do not say on Yom Kippur (despite fasting) (Haagos Minhagim).}"
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א": "(א) (a) Eat and drink, and rejoice, even though it is the day of the Hashem’s Prayer, and it is also a blessing for him that he is also a feast for his masters, and that he will not be saddened in the month of his day, and he will be told to eat oils and drink sweets, because he is holy today to our masters, and that he will not be saddened by Hashem",
+    "1:ב": "(ב) (b) And there is no interest in the head of the year - if not in any dream matter that the rest of the world is interested in. It is possible to pray until midnight, and the rest of the world is forbidden, and the above is the sign:",
+    "2:א": "(א) (c) There are places, and so on, that the Bible is worthy of being robbed all day, or is subject to gifts and requests, so that it will be all for the Hashem, and that it is described above in the letter of the High Court, that it is forbidden to cook for him and that he is not allowed to cook for him",
+    "2:ב": "(ב) (d) For everyone who is accustomed and so on, we have been G-d times:",
+    "2:ג": "(ג) (b) And so on, we were on a daily basis, but at the night of R. B.C., we must not be satisfied with the IDF as in the rest of the High Court",
+    "2:ד": "(ד) (b) Just need to be warned, and so on, see Dr. R. D. D. A.D. in the name of a mitzvah that is done as a vow is only when it is poisoned or even a P.A., and consider the time of the act of practice as a whole, but without it, it is not done as a vow by Hashem:",
+    "3:א": "(א) (b) A dream, and if it is doubtful whether it is from the dreams that are being played on the Shabbat, it is not to be answered:",
+    "3:ב": "(ב) The two days, and so on, are now one and only one",
+    "3:ג": "(ג) All his life, and he who is not afraid of his soul",
+    "3:ד": "(ד) (e) Only Monday, but Sunday will not be answered at all, per the first day, Debra and does not fly after Monday, and must be done even as a sage of dawn:",
+    "3:ה": "(ה) And then I will be able to do it and so on",
+    "3:ו": "(ו) (b) Dea has been said to be answered at the top of the year – and no such thing has been done, and no such thing is to be done in the sand. Those who have been given to him are not the same as those who have been given to him on the Shabbat, and that he has not received any of the things that he has received from, since he has not been given to him",
+    "3:ז": "(ז) (c) As they do not say on the Yom Kippur Day, since they are the days of judgment and do not belong so to seek to answer the day of their order:"
+  },
+  "peri-megadim/part-001.txt": {
+    "1:_": "There is no connection to the Hashem’s Prayer, and he will not eat any bread, and he will not eat any bread, nor shall he eat, nor shall he eat the word of the Hashem, and he shall be the same as the Hashem’s Prayer, and he shall be the same as the Hashem’s Prayer. A sign of Hashem’s Word:"
+  },
+  "shaarei-teshuvah/part-001.txt": {
+    "2:_": "In Shulchan Aruch there are places, etc.; and he wrote in Shevut Yaakov vol. 1 s.k. 55: per view that a covenant partner accustomed to fast every Rosh Hashanah — it is forbidden for him to eat, for this fast of Rosh Hashanah certainly requires acceptance and vow as implied Shulchan Aruch siman 597; and also implication of poskim \"accustomed to fast all his days\" implies even if there is a seudat mitzva, and as one nullifies Yom Tov joy; and also per what is written that danger exists in a matter that does not complete his sleep and is more severe than prohibition — therefore he should not change his custom so he and his children may live long days. And he wrote in Kenesset Yechezkel siman 23 part 1: one imprisoned in iron chains in mortal danger due to libel and vowed like the public that when Hashem saves him he will fast all his days — two days Rosh Hashanah — and he did not want to annul his vow because Rosh Hashanah proved to him from gemara that one fulfills — in three of Tishrei nullified remembrance, etc. — per conclusion mitzva to fast on Rosh Hashanah; and he rejected Taz's proofs siman 597 — see there; and he wrote three other scholars permitted him; I said since it was permitted it is permitted, since there are views that b'dieved annulment helps per the public — see there; and see in Sha'agas Aryeh siman 21 he brought proof from gemara Rosh Hashanah above that forbidden to fast on Rosh Hashanah — see there siman 102: no view forbids fasting on it except that its joy is obligatory like other Yom Tov — to require kiddush like other Yom Tov, and forbidden to taste anything before kiddush, and kiddush only where there is a meal, and every Yom Tov meal is upon him.",
+    "3:_": "Dream. In this case, the psalmist said, “This is the same as the Hashem’s Prayer, and it is the same as the Hashem’s Prayer.”"
+  },
+  "turei-zahav/part-001.txt": {
+    "1:_": "There is no interest in the Bible. Hashem’s Word tells us that Hashem’s people will be able to pray for Hashem’s Word and Hashem’s people, and that they will be able to do so with Hashem’s Word, and that Hashem’s Word will be given to them"
+  },
+  "yad-ephraim/part-001.txt": {
+    "1:_": "In an old column called from the PA until the end of the page, I heard that it was glittered by the p. Pinchas, today's musician, and that Elijah would go to his name:",
+    "2:_": "In the words of the psalmist, it is not a day of judgment, and it is not the case of the Hashem’s Prayer, but rather a day when it comes to justice and how it is said to us, “I am the Hashem’s Prayer, I have seen that it is the Hashem’s Prayer, and that we are told that it is the day of the Hashem’s Prayer, but that it is the same as it is written, that it is the Hashem’s written, that it is written, that it is written, that it is the Hashem’s the Hashem’s the Hashem’s. It is said that the Hashem’s Prayer will be given to us, and that it is not the case for us He said, “What is it that you do not care for, and that you do not believe in the Hashem’s judgment, and that you will not be able to do so for the sake of the Hashem’s judgment, and that you will not be able to do so with them, and that you will not forgive them.”"
+  }
+};

@@ -1,0 +1,66 @@
+/** worker-slot-13 — siman 516 editorial batch 1 fixes (45 blocks) */
+export const FIXES = {
+  "baer-heitev/part-001.txt": {
+    "1:א": "(א) Life. per the report, it is recommended to be released:",
+    "1:ב": "(ב) safe. It is also possible to make them a dish of “the essence of the grain is for the safety and even for those who see the food is forbidden, and so is it possible.” And he said, “We have no mercy on this, and we have no mercy on the Hashem, and we have no mercy on the Hashem, and we have no mercy.”",
+    "2:א": "(א) in line. It’s as if you want to sell the market. N.D. in the garden is prohibited. M:",
+    "2:ב": "(ב) That's another one. There is no doubt in the Quran, and in the midst of Hashem’s people, it is forbidden to do so, and it is forbidden to do so"
+  },
+  "beer-hagolah/part-001.txt": {
+    "1:א": "(א) It's an egg and a lie.\"",
+    "1:ב": "(ב) A Tur — source. called Rambam and his father Rashi",
+    "2:א": "(א) there, in the final",
+    "2:ב": "(ב) There is no mercy and no mercy in Hashem’s Word and mercy in Hashem’s Word",
+    "3:א": "(א) Change there",
+    "3:ב": "(ב) There is a name in G-d, and see Dr. C",
+    "3:ג": "(ג) There is a name in the works of the six"
+  },
+  "beur-hagra/part-001.txt": {
+    "1:_": "Seif 1: \"not grain.\" [This follows] the Tanna Kamma. And even per the Yerushalmi, which establishes R' Shimon's view as following R' Akiva, we rule like Rabban Yochanan ben Gamliel. The Rosh wrote, and it appears to me that the Gemara [states] etc. and also etc. See the Yam Shel Shlomo's explanation there. And it appears to me that there is a scribal error in the Rosh there, and the correct reading should be: that the reason of R' Shimon regarding wheat, the Gemara explains, is because it is fit etc. as human food — therefore the Rabbis forbid [it] etc. See there.",
+    "3:א": "(א) They are seen as “. There is a name for your name:",
+    "3:ב": "(ב) \"And all etc.\" And so it is implied in the Yerushalmi there: it is taught — one may send wheat, which is food for asisiyot; beans, which are food for kites; barley, which is animal food. Is this not what is taught in the name of R' Shimon: \"for every soul — even animal souls are included\"? R' Shimon's view follows the approach of R' Akiva his teacher, just as R' Akiva said: \"for every soul — even animal souls are included,\" and so R' Shimon says: \"for every soul — even animal souls are included.\" And at the beginning of the chapter HaMevi: what is the rule regarding taking out straw from a reshut hayachid to a reshut harabbim? Is this not [taught in] a Mishnah: \"one who carries straw may not sling the basket on his back\"? The Mishnah [follows] the view of the one who says \"for every soul — even animal souls are included.\" What does it [need to] teach us? Like the one who says etc."
+  },
+  "eliyah-rabbah/part-001.txt": {
+    "1:_": "(a) Life and so on. According to a good day, and if we are to grow and die, it is forbidden to do so in the midst of Hashem’s wrath, and it is forbidden to do good in every day that there is no exalted wheat in others that is not an act of action, but it is forbidden to do so, and so does not come to us, and so does not give us the permission of all the many missions that do not belong to us The garden should not be taken out of everything that does not sink:",
+    "2:_": "(b) That is a lack of protection and so on. Although it is possible to make a dish from all places of grain, it is the five species, and it is evidence of what Rashiel wrote, “This is a model that should not be eaten in the wilderness, but rather than that of Abraham, in his name, that it is forbidden to send to him as much as he has written in the end of a sign of his father’s name, and that he allows him to send a single authority to sit here For security, and for a person such as tailors to make food forbidden but detaches wrote in fiery raids when he or when he needed a stage and a tongue that is circulated by the Azleyn in his cellar and should be examined:",
+    "3:_": "This is another one and so on. It seems to me that this is the case in Iowa, and this is another one, including a honeystorm, one subject of one species is permitted in one another, and it means in the Rambam and the cm, and that it means in the heart and measurement to the way and without the mouth of Solomon and as a protector of Avraham:"
+  },
+  "kaf-hachayyim/part-001.txt": {
+    "1:_": "A. It is possible to send to the people of Israel, and so on, we shall be called the Hashem’s Prayer. And so the Tur — source.. And so dressed. And it is the end of the Hashem’s Prayer, and so on, it is the Hashem’s Prayer. And so the last ones. Check out the checkman.",
+    "2:_": "(b) there. Epic is alive. Because they are allowed to circumcision. Hashem’s Word and His Word. Dr. O'A. A. O'A. and A.A. who knows that his vision will not be taken away from the High Court because if he wanted to be a devil and eats him. RJ there. From “B” or “A”:",
+    "3:_": "(c) there. Affi of life. P. is about to eat, but if you are about to grow and die, it is forbidden that you are not worthy of a bioteger and the IDF like a grain that is insecure. O Hashem O’A and the Hashem of hosts said to him, “No matter what is Caesar’s, no matter what is wrong with Hashem’s mercy, and that Hashem’s mercy is against them, and that Hashem’s mercy is not against them, nor is it possible for them to do so.” \"The Hashem,\" he said. And then, to Man Dalai Lae, the \"Azzar that stands for her milk or chicken that is about to grow eggs should not be sent to his biographer, because they are labeled as \"the above-presidential\" and \"Yo\" will not be sent to \"B\" or \"B\":"
+  },
+  "machatzit-hashekel/part-001.txt": {
+    "1:א": "(א) And I will beg you, and I will beg you, and I will give you a little bit of shit. In the words of the Hashem, there is no way for them to be given to the Hashem’s Word:",
+    "1:ב": "(ב) Dea Blaine is worthy of making them clichés and raps, and is not allowed to send a regular dynamite to make them clichés and radars from A. B.C. But in the wake of Hashem’s Word, Hashem’s Word is a food. It is not to say that Hashem’s word is to be done, and that it is not the same as the Hashem’s Prayer, and that He is the same as the Hashem’s Prayer. As the S. S.C., the cyclical quake is plucked on you and not dogs and should not be done for a stage. He's allowed to sit under the toilet Vere is allowed to send. We were in the streets. But there is no reason for the Hashem’s judgment on the land without the prohibition of the order",
+    "2:_": "(subclause 2) \"In a row, etc.,\" and it appears to me that even in a courtyard it is forbidden. And at first glance, the reason is that anything that the Sages forbade on account of appearances is forbidden even in the innermost chambers. And the work Tosafos Shabbos raised a difficulty regarding siman 305, seif 11, which states: one may plug the bell on an animal's neck and walk with it in a courtyard, but not in the reshut harabbim, because it appears as if he is taking it to sell in the marketplace. And as for the fact that [walking with it in] a courtyard is permitted — even though anything [forbidden] due to appearances, etc., is forbidden even in the innermost chambers — the Magen Avraham already resolved this in siman 301, subclause 56; see there. If so, it is difficult: what does he mean here by forbidding it even in a courtyard? For here and in siman 305 the reason is the same for both. And in my humble opinion, one can say: Rashi wrote regarding [the ruling that] one should not arrange them in a row — and this is his language: \"so that he should not send the gift by means of many people, for the matter becomes conspicuous and it appears as if he is bringing them to sell in the marketplace\" — end of his words. Therefore the Magen Avraham holds that since [sending them] in a row makes the matter conspicuous, it is appropriate to forbid it even in a courtyard. And this is somewhat similar to what the Magen Avraham wrote in siman 305: that the requirement is specifically for [the bell] to be plugged — but if one did not plug it, it is forbidden even in a courtyard. Rashi wrote that the reason [for the prohibition when unplugged] is because it produces a sound, and the Magen Avraham raised a difficulty: but we require specifically a musical sound! He resolved it and wrote: \"when it rattles and makes a sound, it appears as one who is going to the market (that is, to sell it).\" Thus even in a courtyard, if it makes a sound that is heard outside, one must be concerned that they will suspect him of bringing it to sell. The same law applies here, where the matter becomes conspicuous — one can say that it is forbidden even in a courtyard.",
+    "3:_": "(c.g. . . . And he said, “The Hashem and His people have written in this book, that the Hashem and His people have written, and that they are not allowed to do so.” It is said that there is no line less than G-d in B.A. and it is not a sign that goes on to Alma D.M. even in Ivya, who is not in the DNA of Dalai al-Aphata and Pesco, who is taken to the cable caravan. But when you walk in this row, it turns out to get worse even from a few species:"
+  },
+  "magen-avraham/part-001.txt": {
+    "1:_": "A lack of safety. Despite the back of the lava, it is not possible to send it to the ground as the \"Sissim\" and to the P.C., it is permitted to send where it is another permission to sit:",
+    "2:א": "(א) in line. Demention as someone who is willing to sell on the market and N.D. in the courtyard is forbidden",
+    "2:ב": "(ב) That's the afternoon. There is no doubt in the Quran, and in the midst of Hashem’s people, it is forbidden to do so, and it is forbidden to do so",
+    "3:א": "(א) Difficult. It is a way to use them as a “Psalm”:",
+    "3:ב": "(ב) Because they saw. Although there are no visibles to enjoy them from “joying joy” he has a gift:",
+    "3:ג": "(ג) In the sand. Even in the sand is not worthy of safety:"
+  },
+  "mechaber/part-001.txt": {
+    "1:main": "Dean what things can be sent to the court. It is permissible to send to the High Court in an animal and chicken even a life and wine of oils and smalls, but it is not possible that it is insecure that it is a work that is prohibited in the High Court:",
+    "2:main": "Everything that is permitted to send the High Court will not be sent in a row that means that in “a or more zod” are all subject to type A, but if “a different species is permitted:",
+    "3:main": "The delegations of non-profile tools that they deserve to be worn on, and they have cells if they are hard and send tefillin as they should be placed in the sand: Goth and all like this even through the many permission to be removed:"
+  },
+  "mishnah-berurah/part-001.txt": {
+    "1:א": "(א) \"[a] to send to his father in High Court, and so on, we were to Dorn and even through R.C., because he could enjoy them such as sending him some kind of food and clothing that should be used and used, and even if he was sent to him, he would be able to send him food and baked if he knew that he would not be able to send him",
+    "1:ב": "(ב) (b) In what is alive and chicken – per the opinion that the author is assigned to the mark of the Dassar on a good day the occupier of the perfume that is not about to grow and die, and in the chicken of the Daohim in the stage which is about to grow and die, as well as in the chicken that is about to grow eggs is assigned and forbidden to the biot:",
+    "1:ג": "(ג) And legumes — because it is customary to cook them whole without grinding, and they are therefore fit for consumption even on that same day.",
+    "1:ד": "(ד) But you will not come from them – between bats or other kinds of grains, and we will not be allowed to make some kind of clichés or some kind of food from the High Court for sand and is forbidden, and it is forbidden to send even a city:",
+    "1:ה": "(ה) It is because of the lack of security, and the exaltedness of Hashem’s mercy is not a gift of Hashem. Indeed, if he does not need to be given to his daughter, he is allowed to send him in a place where he is not, because he is not allowed to receive an exception to what he is not allowed to receive as a result of the sign of the High Court, and he is also worse:",
+    "2:א": "(א) In a row, Doosha Worda and looks like they’ll sell the market. And even a mixed way is not to send:",
+    "2:ב": "(ב) It's after that -- to my folly when she's in the evening, and there's a fire from the phosphate of the D.D. in every form:",
+    "2:ג": "(ג) It is permissible for all species to be “one man:",
+    "3:א": "(א) \"Garments, even though they are not sewn\" — that is, [this refers to] clothing, but not to a shoe that is not sewn, since one does not benefit from it on a weekday as it is, without sewing.",
+    "3:ב": "(ב) If they are hard, they will be given to him as a sign",
+    "3:ג": "(ג) (a) and send tefillin, when they are purified and sweetened, they are worthy to be appropriate in the sand:",
+    "3:ד": "(ד) It is the same as Hashem’s people, and Hashem’s people, who do not need to do anything, and do not need to do so, but rather for the sake of sand as it is written in the letter of Hashem’s Word:"
+  }
+};

@@ -1,0 +1,18 @@
+export const t = {
+  "1:א": `Shabbos 116 in the mishnah and in the gemara 112`,
+  "1:ב": `The Rif there, and likewise wrote Rambam in chapter 10`,
+  "1:ג": `There in the gemara`,
+  "1:ד": `The wording of Rambam there`,
+  "1:ה": `Shabbos 157 in the mishnah`,
+  "1:ו": `There in Rashi's explanation`,
+  "2:_": `Rambam in chapter 10, and the Rav HaMaggid wrote that it is from Tosafos`,
+  "3:_": `Shabbos 48`,
+  "4:א": `There 103 in the mishnah`,
+  "4:ב": `The latter wording of Tosafos, and likewise wrote Rambam in chapter 10`,
+  "4:ג": `The same law there in the name of Rashba in the name of Tosafos`,
+  "5:_": `There in the braisa like the Sages, Tosafos in their comment at 97, and Rambam in chapter 10 and Shulchan Aruch`,
+  "6:א": `There 118 in the mishnah`,
+  "6:ב": `There in the gemara 152`,
+  "7:א": `The statement of R' Yochanan there 113 and per Rambam's explanation there in chapter 10`,
+  "7:ב": `There in the gemara`,
+};

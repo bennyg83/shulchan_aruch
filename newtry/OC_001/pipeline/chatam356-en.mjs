@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `In the Mechaber at the beginning of seif 1 — water channel. And see responsa Chasam Sofer Orach Chayim siman 87.`,
+};

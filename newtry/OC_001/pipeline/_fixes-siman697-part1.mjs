@@ -1,0 +1,31 @@
+/** siman 697 part 1 — Pesach */
+export const fixes = {
+  "output/siman_697/mechaber/part-001.txt": {
+    "1:main": "One does not say Tachanun on the 14th and 15th of first Adar, and the law of fasting and eulogy on them. And it contains one seif: On the 14th and 15th of first Adar we do not fall on our faces and we do not say the psalm \"May He answer you on the day of distress\" and eulogy and fasting are forbidden on them, but other matters are not practiced on them; and some say even eulogy and fasting are permitted. {Rama: The custom is like the first view. Some say one must increase in feast and joy on the 14th of first Adar (Tur in the name of the Rif} and we do not practice so; nevertheless one should increase somewhat in the meal to satisfy those who are stringent (Hagahot Maimoniot in the name of Semak} — \"A good-hearted person has a continual feast.\"}"
+  },
+  "output/siman_697/mishnah-berurah/part-001.txt": {
+    "1:א": "(א) (a) First, and the Gemara does not say about the miracles of the Megillah, and if they say they do not return it:",
+    "1:ב": "(ב) Ya'ancha — and we do not say Ana Bekoach on Purim Katan both days, for Lamnatzeiach ya'ancha and Ana Bekoach are equivalent. And the psalm of Asaf on Purim Katan — in some places in Lvov they do not say it every day they omit Tachanun, and some places say only on the day of Hallel they omit the psalm of Asaf, and so practiced in Pappenheim. If Purim Katan falls on Shabbat they omit Tzidkatcha. One for whom a miracle occurred in Adar and accepted upon himself to always make a day of feast and joy — if it occurred in a regular year he does it in the first; if in a leap year he does it in the second. And that feast they make for the miracle is a seudat mitzvah, for any feast made to remember the Almighty's wonders is a seudat mitzvah.",
+    "1:ג": "(ג) And fasting — but mourning for everyone applies in first Adar. If he vowed explicitly to fast on Purim Katan — one can say the vow takes effect since it is only a mere custom; but if he vowed generically on the 2nd and 5th of the whole year — one can say his intent was only Purim Katan.",
+    "1:ד": "(ד) (d) B.D. – But not even in the thigh of the wall:",
+    "1:ה": "(ה) And some say one is obligated to increase in feasting — the custom is not to increase as on Purim of Adar II, but one should increase somewhat in the meal to satisfy the stringent (Kaf HaChayyim)."
+  },
+  "output/siman_697/magen-avraham/part-001.txt": {
+    "1:א": "(א) B.B. in the first chair. And all of them do not say about the miracles of the Qur’an, which is not the glory of Heaven, nor do they say to them, nor do they not say it, nor do they not say anything from Heaven’s mercy, nor do they say it:",
+    "1:ב": "(ב) Good heart always goes. In the joys of Alkio to put in place, the law of our mouth will soon be filled with an artist:"
+  },
+  "output/siman_697/turei-zahav/part-001.txt": {
+    "1:א": "(א) And forbidden in eulogy and fasting — we taught there is no difference between first Adar and second Adar except regarding Megillah reading and matanot laevyonim — and they inferred therefore regarding eulogy and fasting both are equal. And the second view holds this refers to what was said at the beginning there they read the Megillah — the year became pregnant etc. — only then are they equal regarding eulogy and fasting; but in other leap years when they did not read Megillah on the 14th of first Adar they differ also in eulogy and fasting — for on the first they are permitted.",
+    "1:ב": "(ב) A little bit will be done at the end of the day. In Heaven’s Word, Heaven’s promise to Abraham and his children will be given to Heaven’s people, and that Heaven’s people will be blessed with Heaven’s Word, and that Heaven’s Word is always good:"
+  },
+  "output/siman_697/beer-hagolah/part-001.txt": {
+    "1:א": "(א) by the custom",
+    "1:ב": "(ב) Tur in the name of Semag and Rambam ch. 2 Laws of Megillah and so Ran from the Mishnah that there is no difference between first Adar etc. Megillah 6 — as the final answer in the gemara the Mishnah is deficient etc.; and so Rif there.",
+    "1:ג": "(ג) In that place in the name of his father the Rosh and Hagahot Maimoniot and Mordechai in the name of Maharam: Tur Orach Chayyim is completed and Laws of Megillah. Praise and thanks to the Awesome One. May He merit me to finish all of it and save me from every obstacle and mishap. Blessed is the Almighty forever amen amen."
+  },
+  "output/siman_697/baer-heitev/part-001.txt": {
+    "1:א": "(א) and interested. And Heaven’s word is the same:",
+    "1:ב": "(ב) B.D. But not in his stomach. B:",
+    "1:ג": "(ג) Always. Our house will soon stand. We will show him to work. It is true that the Temple Mount will be at the top of the mountains until:"
+  }
+};

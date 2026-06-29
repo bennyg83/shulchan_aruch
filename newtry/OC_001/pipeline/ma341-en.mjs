@@ -1,0 +1,3 @@
+export const t = {
+  "1:_": `That he not eat. And likewise if he vowed not to drink wine (Tosafos Eruvin daf 40), and it appears to me that likewise if he vowed not to eat meat; and Mahari in Biurei Semag wrote that even clothing — if he needs it that day — is permitted:`,
+};

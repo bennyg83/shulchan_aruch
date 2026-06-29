@@ -1,0 +1,4 @@
+export const t = {
+  "1:_": `ten deep. And see in note 4 there will be explained. And from Rashi's language and passing over it — it appears that if the partitions of the courtyard enter within the water it is also permitted; and see Olat Shabbat left this requires further study; and from Rashi one can say he ruled like Rav Huna, unlike us like Rav Yehuda; and it appears a four-wide beam does not help here — and see in siman 376 it will be explained.`,
+  "2:_": `and one tefach shall be. Like Rav Yehuda Eruvin chapter 6 seif 1; and it does not help within basins alone even though they are very deep; and it appears even if sometimes the water is sparse and there is not a tefach of partition within the water — as long as usually there is a tefach in the water it is fine as recognition and always permitted to draw — Peri Megadim note 5.`,
+};

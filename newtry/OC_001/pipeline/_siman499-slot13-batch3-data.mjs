@@ -1,0 +1,20 @@
+/** worker-slot-13 — siman 499 editorial batch 3 fixes (11 blocks) */
+export const FIXES = {
+  "peri-megadim/part-001.txt": {
+    "3:_": "It is possible that the ridge is dangerous not as a quaint. \"And I was a little distressed here, for I was told that I had written a little bit of a snail in the garden, and that it was because of the beginning of it that I had written in the Bible, and that it was the case of the Hashem, and that it was the case of the Hashem Dementing with a terminal should be eaten in the Talmud and drinking chicken rods from a storm to the slumber and to the shore and to the mountain of the Hashem and to understand. And Hashem’s people come to this:",
+    "4:_": "He said, “There is no reason for the Hashem’s prayer, and he will not be able to do so in the midst of the Hashem’s Prayer, and he will not be able to do so, and he will be cursed, and he will not be able to do so.”",
+    "5:_": "It is written, and there is more of it in the face of Hashem’s Word. And milk is permitted in the tablets and in the hands of clothing and in the face of the letter:"
+  },
+  "rabbi-akiva-eiger/part-001.txt": {
+    "1:_": "Article J. B. B. The psalmist is divided into the furnace of Hashem’s people, and this is to be “in feathers.” Hashem’s Word tells us that Hashem’s Word is in the presence of Hashem’s covenant with Hashem’s Word, and that Hashem’s promise is to be given to them. Dea permits an allotted talc because it is called the \"Shuss\" that is permitted to remove the ashes from a fire to the Facide. And the Dasari was excavated as the C.C \"And Deaf to cover the edged Derek talol slumber allows because of the drone. But not put up. Hashem’s Word is not a gift from Hashem. Their demise permits from the end of the M.C. and will be the abolition of the High Court due to the fact that it is not. This is because of Hashem’s presence. Dement as a processing. And then, from the other hand, Hashem forbids us, and Hashem’s promise is that they will not be saved and they will be saved. And because the yoke can be shaken. And Doc:",
+    "2:_": "G. S.C. to beat him because he was happy. No controlled use is prohibited for mental food. A. S. S. S. S. S.C. D.C. is a lighter tool:"
+  },
+  "turei-zahav/part-001.txt": {
+    "1:_": "All meat is spy A. This is the Rambam's opinion and columnist just wrote that the skin is complete to make from it Naad and the taste of it is an irritating tyrant and a thirst for RM that did not bring the opinion of the column:",
+    "2:_": "But I’m going to eat the skin. In the name of the Hashem’s Prayer, he wrote in the book, “I am not allowed to eat the skin because it is easier to circumvent and write a verse that is written on the column of a slight demise from the abstraction, nor did I mention that it is forbidden to eat it, and that it is forbidden to eat it.”",
+    "3:_": "It is possible to take care of her as well. Deathiro Suden because of his weakness, Dae will not be spared because of a loss of skin and prevents the joy of the High Court.",
+    "4:א": "(א) There is no need for milk as well. Dr. Dahl predicted a proven malnutrition of the milk repair is an island that permits me to swim so that they do not smell me from my chains either from barking and barking because of processing, but on the back of the skin of the I will give them instead of a dormant, Mr. Mamer said:",
+    "4:ב": "(ב) They are in the air. D. A. Put meat on milk and the flavor of the prohibition on milk because of a little dormant to it and fija in a call to the veins of Hoha as a processing. A paragraph in the G-d becomes clear to the milk shock of Delo is a compression for inflammation and more of my opinion that he will not lose and see if the end is forbidden to the toilet:",
+    "5:_": "He has the mountains. P. Khateen and his work was to be prohibited on Saturday and Affith for his body and his place was not assigned to a pocket depletion, but the fragments of Jeremy, which is a tree whose flesh is permitted to be exalted:"
+  }
+};

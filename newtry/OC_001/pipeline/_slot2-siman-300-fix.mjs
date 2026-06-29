@@ -1,0 +1,100 @@
+#!/usr/bin/env node
+import fs from "fs";
+import { parseBlocksInFile, serializeBlock } from "../oc001_block_lib.mjs";
+
+const fixes = new Map([
+  [
+    `mechaber:1:main`,
+    `A person must always arrange his table on Motza'ei Shabbat in order to escort the Shabbat [out], even if he needs only a k'zayit.`,
+  ],
+  [
+    `baer-heitev:1:_`,
+    `His table — meaning spreading a cloth on the table and other things customary for him in arranging the table, for the honor of Shabbat; and songs are sung after havdalah — see Taz. And he should be careful to eat a type of food that he desires more, even if it is expensive; and in our time, when they are so late with the third meal that they cannot eat at Motza'ei Shabbat, they can fulfill it with fruit — Magen Avraham. And in Abudraham he wrote: I heard that if one continues the third meal until after nightfall, he need not eat another fourth meal at Motza'ei Shabbat.`,
+  ],
+  [`beer-hagolah:1:_`, `Shabbat 119.`],
+  [
+    `eliyah-rabbah:1:_`,
+    `(1) Order, etc. — Taz explained that it refers to preparation — that he spread a cloth — but regarding the meal he acts as is his custom. This is the language of Piskei Tosafos: he should be careful to eat a type of food that he desires more, even if it is expensive; if he desires to eat many types, he should be careful with them according to his ability, but he should not take from every type — only according to what he estimates he can eat; and he should not estimate tightly but generously; and likewise on this path for all three Shabbat meals — unlike Bach — end quote. And Magen Avraham wrote that the Gemara implies it is proper to cook meat or something else on Motza'ei Shabbat; and in our time, when they are so late with the third meal that they cannot eat at Motza'ei Shabbat, they can fulfill it with fruit — end quote. And I heard that if the third meal extends until after dark, one need not eat another fourth meal at Motza'ei Shabbat. Shelah wrote regarding one who fasts on Motza'ei Shabbat — such as one who stops intentionally during the day — that he should exert himself to prepare this meal for others and teach the homilies and laws mentioned regarding the meal.`,
+  ],
+  [
+    `turei-zahav:1:_`,
+    `A person must always arrange, etc. — They did not intend regarding making dishes when he does not need them but only a k'zayit; if so, the meaning of "even if he does not need" would be from satiety, and it should say "even if he is satiated" — not the language of "does not need," which is obvious, that he is not hungry to eat a k'zayit; also one cannot say so before eating. Rather, the meaning is that he arranges his table with spreading a cloth on the table and other things customary for arranging the table; on this it says that even one who is not accustomed except to a k'zayit — whether from poverty or from satiety — nevertheless for that k'zayit he makes preparation and spreads the cloth for the honor of Shabbat. And likewise in siman 262 he wrote "he arranges his table and spreads the beds" — it implies on the preparation, not on the meal, like spreading beds; but regarding the meal he acts according to his custom — in my humble opinion. Beit Yosef wrote in the name of Shelah: they are accustomed to say poems and songs to escort the Shabbat, like escorting the king at his entry and at his exit; therefore, even though the custom is to say songs before havdalah, it is proper to say them after havdalah, for in this escorting applies — that is, after the king has left; and furthermore, it is like at entry. He also wrote in his name from the Sederim: there is a limb in a person called luz, and it does not benefit from eating except at the Motza'ei Shabbat meal.`,
+  ],
+  [
+    `mishnah-berurah:1:א`,
+    `(1) A person should arrange his table, etc. — meaning to spread a cloth on his table as an honor, and likewise other things customary for arranging the table; but he is not obligated to cook dishes and prepare more than what he needs to eat. It is implied in the Gemara that one should ideally fix this meal on bread l'chatchila, like the other Shabbat meals; and it is also implied that it is good l'chatchila to honor it with meat or other dishes if he has them; and if he does not have, or he fears heavy eating — such as in summer, when in our time they are late to eat the third meal close to evening — he should fulfill it with food, or at least with fruit.`,
+  ],
+  [
+    `mishnah-berurah:1:ב`,
+    `(2) In order to escort, etc. — for just as one must honor the Shabbat at its entry, so one must honor it at its exit, like a person who escorts the king when he leaves the city; and for this reason it appears good to precede it so that it be close to the exit of Shabbat; and if he is not yet hungry to eat, it is in any case proper that he not engage in melacha with permanence until he fulfills this meal. And see in Shaarei Teshuvah — it is implied that it is not worthwhile in every case to delay it much past midnight. The early authorities said that a person has one limb and its name is luz; this limb remains in the grave until the time of resurrection, even after all the bones have decomposed; and this limb does not benefit from any eating except the meal of escorting the king. And know that in any case this meal is not an obligation upon him like the three Shabbat meals, for which there is a verse; this is only a mitzvah in itself; and the difference is when he cannot fulfill them all.`,
+  ],
+  [
+    `mishnah-berurah:1:ג`,
+    `(3) The Shabbat — and for this reason some are accustomed to kindle many candles on Motza'ei Shabbat more than on weekdays; and they are also accustomed to say poems and songs after havdalah [later authorities].`,
+  ],
+  [
+    `magen-avraham:1:_`,
+    `It is implied in the Gemara that it is proper to cook meat on Motza'ei Shabbat, or something else — and see siman 291; and in our time, when they are so late with the third meal that they cannot eat on Motza'ei Shabbat, they can fulfill it with fruit. Maharil had a Shabbat tallit, and he would fold it every Motza'ei Shabbat in order to engage in a mitzvah immediately — end quote; and so did the people of Tzipori.`,
+  ],
+  [
+    `shaarei-teshuvah:1:_`,
+    `His table — Bach, and in Mishna Berurah in the name of Maharsha on Shabbat 119: it is good to do something new for Motza'ei Shabbat, for the meal requires appetite and they do not leave over; and likewise Mahari Mintz in Alfasi Zuta: R' Avahu [acted] to urge his children — he acted on her name. And it is written in the name of the disciples of the Ari: the extra soul does not fully leave until after the Motza'ei Shabbat meals; therefore it is not proper to engage in melacha that does not nourish the soul until after the Motza'ei Shabbat meal on her name. And it is also written that one who cannot eat bread should at least eat pastry bread and intend to escort the Shabbat and leave a blessing for the weekday meal, and they will illuminate the sanctity of Shabbat. It is written in the name of Maharam Zacuta in a responsum, siman 30, that he received in the name of the Ari, may his memory be for a blessing, that it is forbidden to say viduy on Motza'ei Shabbat until midnight has passed, because until then the sanctity of Shabbat extends on her name. And see in Eliyah Rabbah in the name of Shelah: one who stops intentionally should exert himself to prepare this meal for others; he should also teach the laws and homilies pertaining to this meal on her name.`,
+  ],
+  [
+    `peri-megadim:1:_`,
+    `Always — Taz wrote that this is to exclude Bach, who wrote that one arranges his table at the meal according to what he is always accustomed to, even if he now needs only a k'zayit because he is satiated; if so, it is not applicable that he "needs" a k'zayit, for one who is satiated is not desiring a k'zayit — and who can estimate this? Therefore Taz explained that "does not need" refers only to preparing what he wishes to eat now; he need only spread a cloth for honor. And Bach challenged from siman 262, where he wrote "he arranges his table and spreads the beds" — it should have said there the meal that is fitting and customary; and Taz disagreed; and see Magen Avraham and Eliyah Rabbah — there it will be explained further. And what he wrote — one limb, its name is luz — some say luz — and it does not benefit except from the Motza'ei Shabbat meal — meaning in food for escorting the king; see Levush. Therefore this limb is not lost, and from it one will be recreated in the future, for Adam ate from the tree of knowledge and all limbs were decreed to dust except this limb, which has no pleasure except from the Motza'ei Shabbat meal; and at Motza'ei Shabbat it is nourished — therefore it endures on her name. Poteh shar — forgetfulness; and in Tosafos Sanhedrin 99 — Poteh is spelled with kuf; Michael — 101; shar of memory — one hundred times; and one — Eliyah Rabbah, siman 291, note 3.`,
+  ],
+  [
+    `beur-hagra:1:א`,
+    `(1) In order to escort — Rashi there; and according to the straightforward meaning in Pesachim 103a — the parable of Rava, etc.`,
+  ],
+  [
+    `beur-hagra:1:ב`,
+    `(2) For a k'zayit — the language of the Gemara; and specifically bread, as in the matter of escorting on her name, that R' Eliezer and R' Yochanan argued there, Shabbat 119b, on her name.`,
+  ],
+  [
+    `machatzit-hashekel:1:א`,
+    `(1) It is implied in the Gemara — page 119a: they say warm food on Motza'ei Shabbat is healing; warm bread on Motza'ei Shabbat is healing. R' Avahu would make for him every Motza'ei Shabbat a third calf, even though he ate from it only the kidneys. And see in Taz, who wrote: a person must always arrange, etc. — meaning in the manner of fixing a meal with spreading a cloth and arranging the table and kindling lights, like on Friday night; and he explained in siman 291 in Bach.`,
+  ],
+  [
+    `machatzit-hashekel:1:ב`,
+    `(2) And in siman 291, where Mishna Berurah wrote there in the name of Magen Avraham that all matters of Shabbat — women are obligated like men; if so, the same applies to this meal. One may also say that it refers to Motza'ei Shabbat — Magen Avraham afterward — that one can fulfill it with fruit; therefore he precedes bringing proof that some say even the third meal can be fulfilled with fruit.`,
+  ],
+  [
+    `levushei-serad:1:_`,
+    `Magen Avraham, note 1 — to cook meat on Shabbat 119: R' Avahu would make for him on Motza'ei Shabbat a third calf.`,
+  ],
+  [
+    `kaf-hachayyim:1:_`,
+    `(1) [Seif 1] A person must always arrange his table on Motza'ei Shabbat, etc. — a parable: they escort the king at his departure as they escort him at his entry; and in the Sederim it explains: there is a limb in a person and its name is luz, and it does not benefit from eating except on Motza'ei Shabbat. Beit Yosef in the name of Shelah — and it appears the reason is known: that bone called luz is his strength and essence and root, and from it man was formed from the drop; and when a person dies that bone does not decay and does not crumble; and if they put it in fire it is not burned, in a mill it is not ground, with a hammer it is not shattered — and it is the bone in which there is eternal existence, and from it man will live at the time of resurrection; and it receives punishment and pleasure after a person's death. And this bone — its root and essence are from a heavenly bone — therefore siman 513, and see there what he wrote further; and Eliyah Rabbah brought it, note 2; and what he wrote that it does not benefit from eating except on Motza'ei Shabbat — if so, it did not benefit from the tree of knowledge, and therefore it is not lost — Eliyah Rabbah, note 3; and see in Zohar Parashat Pinchas 222a and Midrash HaNe'elam Parashat Toldot 137a, who wrote that they called that bone of the spine of Esau a liar, etc., and it does not accept the taste of food of human beings like other bones, etc. — see there. And what he wrote "it does not accept the taste of food," etc. — one may say it does not benefit from food at any time like other bones, but specifically on Motza'ei Shabbat, as Shelah wrote — understand carefully.`,
+  ],
+]);
+
+const file = "output/siman_300/mechaber/part-001.txt";
+const dir = "output/siman_300";
+const files = fs
+  .readdirSync(dir, { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .flatMap((d) => {
+    const p = `${dir}/${d.name}/part-001.txt`;
+    return fs.existsSync(p) ? [p] : [];
+  });
+
+let total = 0;
+for (const f of files) {
+  const blocks = parseBlocksInFile(fs.readFileSync(f, "utf8"));
+  const out = blocks
+    .map((b) => {
+      const key = `${b.slug}:${b.seif}:${b.marker}`;
+      const en = fixes.get(key);
+      if (en) {
+        total++;
+        return { ...b, en };
+      }
+      return b;
+    })
+    .map(serializeBlock)
+    .join("\n\n");
+  fs.writeFileSync(f, out);
+}
+console.log("Patched", total, "blocks across", files.length, "files");

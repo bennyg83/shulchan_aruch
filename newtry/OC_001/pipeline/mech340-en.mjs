@@ -1,0 +1,16 @@
+export const t = {
+  "1:main": `Several laws of matters forbidden on Shabbat as like derivatives of the primary melachos. And in it are 14 seifim: It is forbidden to remove one's hair or one's nails whether by hand whether by instrument whether for oneself whether for others, and he is liable for two hairs; and one who picks white hairs from among black ones is liable even with one, and this thing is forbidden even on weekdays because of "a man shall not wear a woman's garment": {Rama: And see above end of siman 303 law of combing and parting:}`,
+  "2:main": `It is forbidden to cut a wart from one's body whether by hand whether by instrument whether for himself whether for another:`,
+  "3:main": `One who erases ink that is on parchment or wax that is on a ledger if in its place there is room to write two letters — liable: {Rama: It is forbidden to break a cake on which are written like letters even though he intends only to eat, for it is erasing (Mordechai chapter Klal Gadol):}`,
+  "4:main": `One should be careful not to write with his finger in liquids on the table or in ashes; however permitted to trace in the air like letters (Terumat HaDeshen siman 63):`,
+  "5:main": `Permitted to mark with a fingernail on the book as they mark for a sign that this is not a lasting thing:`,
+  "6:main": `A thread of stitching that opened — forbidden to stretch it because of tofeir:`,
+  "7:main": `Those who tighten garments around their arms by means of the thread they stretch and it tightens — forbidden to stretch it unless the holes are somewhat wide and fixed with stitching in a circle:`,
+  "8:main": `Feathers that fell from the pillow — permitted to return them but forbidden to put them in initially in the pillow:`,
+  "9:main": `Forbidden to gather salt from salt evaporation pools that resembles me'amer, and likewise forbidden to gather any thing in its place of growth:`,
+  "10:main": `One who gathers a fig cake and made from it a circle or pierced figs and inserted a rope in them until they gathered as one body — behold this is a toldah of me'amer and he is liable, and likewise all similar to this:`,
+  "11:main": `Even though they put sesame and nuts into honey — he should not knead them with his hand:`,
+  "12:main": `One who puts flax seed or sesame and similar in water is liable because of losh since they mix and cling one to another:`,
+  "13:main": `One does not break pottery and one does not tear paper because it is like fixing a vessel:`,
+  "14:main": `One who glues papers or hides with the glue of scribes and similar — behold this is a toldah of tofeir and he is liable; and likewise one who separates glued papers or glued hides and did not intend only to ruin — behold this is a toldah of korei and he is liable:`,
+};
