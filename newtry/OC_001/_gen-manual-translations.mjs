@@ -1,0 +1,88 @@
+import fs from "fs";
+
+const dump = JSON.parse(fs.readFileSync("_stragglers-105-199-dump.json", "utf8"));
+const missing = JSON.parse(fs.readFileSync("_stragglers-105-199-missing.json", "utf8"));
+
+function fixDivine(en) {
+  return en
+    .replace(/\*\*\*\* END BLOCK \*\*\*\*/g, "")
+    .replace(/with God's help/gi, "with Hashem's help")
+    .replace(/God's help/gi, "Hashem's help")
+    .replace(/God, faithful King/g, "Hashem, faithful King")
+    .replace(/"God, faithful/g, '"Hashem, faithful')
+    .replace(/the Holy One, blessed be He/g, "Hashem")
+    .replace(/Holy One, blessed be He/g, "Hashem")
+    .trim();
+}
+
+const MANUAL = {
+  "110|rabbi-akiva-eiger|6|_":
+    "Seif 6 — in order to attach it. See Tur siman 6 and Bach there.",
+  "128|rabbi-akiva-eiger|20|_":
+    "Seif 20 — it is preferable that he finish. And if he did not intend the prayer of the chazzan — he is confused. Nevertheless he begins 'Place peace.' See in Beit Yosef.",
+  "128|rabbi-akiva-eiger|42|_":
+    "Seif 42 — to read from the Torah. See in Mishbetzot Zahav siman 235.",
+  "137|rabbi-akiva-eiger|3|_":
+    "Seif 3 — even if he skipped one verse, and even one word — Gan HaMelekh, Ba'al HaGvulim siman 10.",
+  "139|rabbi-akiva-eiger|11|_":
+    "{Rama: gloss seif 11} And from this they practiced. And so it is in Tractate Soferim chapter 17 halacha 8.",
+  "141|rabbi-akiva-eiger|4|_":
+    "Seif 4 — through an agent. And even if in any case one stands to show the place of the reading — see Levush and in Gan HaMelekh siman 51.",
+  "150|chokhmat-shlomo|4|_":
+    "Seif 4. NB: see in Magen Avraham seif katan 4 what he wrote — namely only when it was a partnership, etc.; but see in my composition on Choshen Mishpat siman 194, in Shulchan Aruch Choshen Mishpat siman 254, what is astounding on this and from where is this derived — see there and examine well.",
+  "153|chokhmat-shlomo|14|_":
+    "(Seif 14) NB: see in Magen Avraham seif katan 36 what he challenged from here to Yoreh De'ah; and see in my composition on Yoreh De'ah, fourth edition, in the responsum to the community of Kazlav, what I wrote to settle this correctly, with Hashem's help, and several distinctions in law that emerge from it; and what the Mechaber wrote — Reuven who said 'this land I give,' etc. — see what is relevant to this in my composition on Choshen Mishpat, fourth edition, siman 221, in the responsum on the laws of damage from neighbors, siman 103, for the community of Tarnopol — see there.",
+  "153|chokhmat-shlomo|20|seif10":
+    "Seif 10 — and there are those who forbid except to learn Torah or to marry a woman. NB: see in Yoreh De'ah siman 270 what I settled there regarding what Magen Avraham challenged here from siman 248 and on Beit Yosef in the law of other books — see there — that I clarified support for this from the explanation of Rashbam that even tefillin are forbidden to sell unless to learn Torah or to marry a woman — see there and examine well.",
+  "153|chokhmat-shlomo|20|seif20":
+    "(Seif 20) There are those who say that a Torah scroll that was established as having belonged to Reuven's ancestors — the congregation cannot retain it. See in my composition on Avodah Zarah, Yoreh De'ah edition, siman 4, that it found its place; in Avodah Zarah siman 125 there I wrote, with Hashem's help, in passing, regarding the community of Senatin: regarding one who had a Torah scroll in this synagogue and went to another synagogue and took the Torah scroll with him and died — whether the son-in-law of his daughter may take the Torah scroll to return it to the first synagogue where he had prayed initially — see there, in passing, with Hashem's help, and examine well.",
+  "153|chokhmat-shlomo|21|_":
+    "(Seif 21) In the gloss — it is forbidden to make from the payment of a harlot or the price of a dog a matter of mitzvah. NB: behold, if one had relations with those liable to court-imposed death penalties — whether the payment is permitted; and see in my composition on Bava Kamma in the chapter 'Marveh' in the topic of 'Akutz Te'enah,' etc., what I wrote to prove from the language of Rambam that for relations with court-imposed death the payment is permitted — see there; its reason is correct, with Hashem's help, and examine well.",
+  "158|rabbi-akiva-eiger|4|_":
+    "{Rama: gloss seif 4} Wine, oil — olive oil — so in Beit Yosef. And see responsum Gevurat Anashim part 1 siman 29.",
+  "158|rabbi-akiva-eiger|11|_":
+    "{Rama: gloss seif 11} He blesses afterward — if he blessed 'on all that exists' after Birkat HaMotzi before eating, it appears it is not an interruption — see below siman 167 seif 7 and in Magen Avraham.",
+  "170|rabbi-akiva-eiger|19|_":
+    "Seif 19 — and to give to his son, and all the more to give to another — forbidden; responsum Maharit part 1 siman 130.",
+  "193|rabbi-akiva-eiger|6|_":
+    "Seif 6 — zimun departed from them; and with this specifically if they did not eat afterward together; but if they ate afterward together they combine.",
+};
+
+// Divine-fix from dump EN
+for (const k of [
+  "108|chokhmat-shlomo|12|_",
+  "110|chokhmat-shlomo|7|_",
+  "113|chokhmat-shlomo|9|_",
+  "114|chokhmat-shlomo|9|_",
+  "117|chokhmat-shlomo|4|_",
+  "124|chokhmat-shlomo|4|_",
+]) {
+  const row = dump.find((x) => x.k === k);
+  if (row?.en) MANUAL[k] = fixDivine(row.en);
+}
+
+// Long hand translations
+MANUAL["128|chokhmat-shlomo|40|_"] = `<b>Seif 40.</b> A priest who married a divorcee shall not lift his hands. NB: see in Magen Avraham what he challenged on Rambam, and see what he wrote in his answer in the omissions to my composition Nidrei Zeruzin on Yoreh De'ah siman 228 — there I settled his words according to the method of Magen Avraham in additional explanation — see there in my second composition for the omissions on Nedarim — see there and examine well; and it is in my composition in manuscript page 173. And behold regarding this law of a priest who married a divorcee, see what is written in Sifrei, Sefer HaChayim, to settle Rambam's view from the force that they will take for themselves light-minded people and will not heed prohibition vows — see there; and see what I wrote on this in my composition on Yoreh De'ah, laws of bekhor, siman 314 — proof for this from the Gemara in Bekhorot 36b regarding R' Eliezer who brought before him a firstborn and did not know if he was a priest — see there. Until for the honor of a sage he is concerned about prohibition he acts — from there it is proven that we must be concerned for such a case, that he will take for himself light-minded people who will not heed the honor of a sage and will permit for him; for otherwise there is no explanation for the topic there — perhaps he was not concerned except that the three would not permit him since there is a sage, or he is scheming that the three will not permit him since there is no priest with him; and necessarily the concern is that it is possible he will take for himself three light-minded people and they will permit him; and necessarily that he himself is concerned for the honor of a sage — see there and examine well on this.`;
+
+MANUAL["128|chokhmat-shlomo|41|_"] = `(Seif 41) In the gloss — there are those who say that one who has a daughter who converted to idolatry or committed adultery, etc. NB: see in Magen Avraham what he challenged on this, and see in my composition on the Torah, parashat Balak, year 5599, on the verse "and the people began to commit harlotry," what I rejected of Magen Avraham's proofs, seif katan 62, and I brought that one must distinguish between whether she did so twice or in public versus once and in private — for then she does not profane her father; and in adultery too she profanes. And afterward I brought proof from the Torah there that even many times and in public she does not profane her father, from Yalkut there — see there and examine well. And what he challenged on the gloss of Rama mentioned above from the end of tractate Sukkah — see in my composition on Shulchan Aruch, Yoreh De'ah siman 219, page 120, in passing what I wrote to settle there, with Hashem's help, and examine well. (Seif 41) In the gloss — there are those who say that one who has a daughter who converted to idolatry or committed adultery — they no longer obligate him to sanctify her, for her father is profaned. NB: see in Magen Avraham who explained the words of Mordekhai — his intent is that conversion stam implies adultery; and he wrote afterward that he was negligent in not teaching her this in her childhood, etc. — see there. And his words are astounding: for granted if it is known she committed adultery she profanes her father, for stam she did not guard herself in childhood — for if she had guarded herself in childhood she would not have come to harlotry; therefore it is as the twenty-four who say that even in marriage she is burned. But in conversion, when we do not know she committed adultery, only that we say stam she committed adultery — if so, if that guarding in childhood helps that even after conversion she will not commit harlotry, it is difficult why she profanes her father — perhaps in truth she guarded herself from harlotry in childhood and in truth did not commit adultery from the force that she guarded in childhood from gentiles. And if guarding does not help what she guarded in childhood and in truth she did not commit harlotry — then he was not negligent at all, for even if she guarded it would not help since after apostasy there is no guarding; and again afterward his guarding from the outset does not help. And one cannot say Magen Avraham's intent is that we say from the pleasure of harlotry so that it be common to her — for if he had guarded her in childhood it is obvious she would not desire harlotry and would not convert to their religion; this is not so, for there is no proof from Avodah Zarah — from there it does not imply that from pleasure of harlotry she converts to their religion, only that stam she also committed harlotry, and not that the essence of her conversion is from desire for harlotry. And further, what proof does he bring from a married woman — there one may say we see she committed harlotry and did not convert; on this it depends whether he guarded her in childhood or not. But if she converted first, one may say in this that even if he guarded her in childhood she is accustomed to go out since she already converted — and it requires study; examine well.`;
+
+const out = {};
+for (const k of missing) {
+  if (k === "153|chokhmat-shlomo|20|_") continue;
+  if (!MANUAL[k]) console.error("MISSING MANUAL", k);
+  else out[k] = MANUAL[k];
+}
+out["153|chokhmat-shlomo|20|_"] = MANUAL["153|chokhmat-shlomo|20|seif10"];
+out["153|chokhmat-shlomo|20|b"] = MANUAL["153|chokhmat-shlomo|20|seif20"];
+
+let body = "export const MANUAL_TRANSLATIONS = {\n";
+for (const [k, v] of Object.entries({ ...out, ...Object.fromEntries(Object.entries(MANUAL).filter(([k]) => k.includes("seif"))) })) {
+  if (!k.includes("seif10") && !k.includes("seif20") || k.endsWith("|_"))
+    body += `  ${JSON.stringify(k)}: ${JSON.stringify(v)},\n`;
+}
+for (const [k, v] of Object.entries(out)) {
+  if (k === "153|chokhmat-shlomo|20|_") continue;
+}
+body += "};\n";
+fs.writeFileSync("_siman105-199-stragglers-translations-manual.mjs", body);
+console.log("keys", Object.keys(out).length);

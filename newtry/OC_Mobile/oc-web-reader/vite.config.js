@@ -50,7 +50,7 @@ function ghPagesDistPlugin() {
  * Precache entries for Workbox: siman bundles + catalog per published volume.
  */
 function buildBundleManifestEntries(base) {
-  const volumes = ["oc1", "yd1"];
+  const volumes = ["oc1", "yd1", "eh1"];
   const entries = [];
   for (const vol of volumes) {
     const bundlesDir = path.join(mobilePublic, "corpus", vol, "bundles");
@@ -150,7 +150,7 @@ export default defineConfig(({ command }) => {
             {
               // Cache corpus bundles at runtime too: CacheFirst so offline works
               // even for bundles the precache hasn't downloaded yet.
-              urlPattern: /\/corpus\/(oc1|yd1)\/bundles\/siman\d+\.json$/,
+              urlPattern: /\/corpus\/(oc1|yd1|eh1)\/bundles\/siman\d+\.json$/,
               handler: "CacheFirst",
               options: {
                 cacheName: "corpus-bundles",
@@ -160,7 +160,7 @@ export default defineConfig(({ command }) => {
             },
             {
               // Catalog (per volume)
-              urlPattern: /\/corpus\/(oc1|yd1)\/catalog\.json$/,
+              urlPattern: /\/corpus\/(oc1|yd1|eh1)\/catalog\.json$/,
               handler: "StaleWhileRevalidate",
               options: {
                 cacheName: "corpus-catalog",

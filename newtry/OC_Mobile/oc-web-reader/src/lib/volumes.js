@@ -25,7 +25,7 @@ export const VOLUMES = [
     short: "EH",
     catalogPath: "/corpus/eh1/catalog.json",
     simanCount: 178,
-    enabled: false,
+    enabled: true,
   },
   {
     id: "cm1",
