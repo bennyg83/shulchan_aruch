@@ -1,0 +1,14 @@
+{
+  "name": "sa-sandbox",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Sandbox: build fresh bundles from production corpus and scan for remaining garbage",
+  "scripts": {
+    "build:oc1": "node scripts/bundle.mjs --volume oc1",
+    "build:yd1": "node scripts/bundle.mjs --volume yd1",
+    "build:all": "node scripts/bundle.mjs --volume oc1 && node scripts/bundle.mjs --volume yd1",
+    "scan": "node scripts/scan.mjs",
+    "serve": "node scripts/serve.mjs",
+    "test": "npm run build:all && npm run scan"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "updatedAt": "2026-05-27T10:28:51.060Z",
+  "phase": "quality_pass",
+  "volumes": [
+    {
+      "volume": "YD",
+      "label": "Yoreh De'ah",
+      "projectDir": "YD_001",
+      "status": "queued",
+      "flaggedBlocks": 21897,
+      "mtComplete": true,
+      "qualityScanComplete": true,
+      "editorialComplete": false
+    },
+    {
+      "volume": "EH",
+      "label": "Even HaEzer",
+      "projectDir": "EH_001",
+      "status": "queued",
+      "flaggedBlocks": 12019,
+      "mtComplete": true,
+      "qualityScanComplete": true,
+      "editorialComplete": false
+    },
+    {
+      "volume": "CM",
+      "label": "Choshen Mishpat",
+      "projectDir": "CM_001",
+      "status": "queued",
+      "flaggedBlocks": 44471,
+      "mtComplete": true,
+      "qualityScanComplete": true,
+      "editorialComplete": false
+    }
+  ],
+  "slots": [
+    {
+      "slot": 1,
+      "workerId": "sa-quality-slot-1",
+      "currentVolume": "YD",
+      "assignmentSource": "user_direct_prompt",
+      "assignedBlockIds": []
+    },
+    {
+      "slot": 2,
+      "workerId": "sa-quality-slot-2",
+      "currentVolume": "YD",
+      "assignmentSource": "user_direct_prompt",
+      "assignedBlockIds": []
+    },
+    {
+      "slot": 3,
+      "workerId": "sa-quality-slot-3",
+      "currentVolume": "YD",
+      "assignmentSource": "user_direct_prompt",
+      "assignedBlockIds": []
+    },
+    {
+      "slot": 4,
+      "workerId": "sa-quality-slot-4",
+      "currentVolume": "YD",
+      "assignmentSource": "user_direct_prompt",
+      "assignedBlockIds": []
+    }
+  ],
+  "masterQueuePath": "C:/Users/binya/Downloads/Shulchan Aruch/newtry/pipeline/work/sa-quality-master-queue.json"
+}
