@@ -12,7 +12,7 @@
  * works fully offline after the first install.
  */
 
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir, rename } from "node:fs/promises";
 import { join, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -63,8 +63,11 @@ async function bundleSiman(simanDir) {
   const seifims = Array.isArray(seifIndex.seifim) ? seifIndex.seifim : [];
   if (!seifims.length) return null;
 
-  // ── Canonical source meta (from first available manifest) ─────────
-  let canonicalSources = [];
+  // ── Canonical source meta (merged across ALL seif manifests) ────────
+  // Some seifim introduce commentators not present in seif-001, so we
+  // collect the union to ensure every source has a title in the bundle.
+  const canonicalSources = [];
+  const seenSlugs = new Set();
   for (const sn of seifims) {
     try {
       const m = JSON.parse(
@@ -73,11 +76,15 @@ async function bundleSiman(simanDir) {
         )
       );
       if (m.sources?.length) {
-        canonicalSources = m.sources;
-        break;
+        for (const s of m.sources) {
+          if (!seenSlugs.has(s.slug)) {
+            seenSlugs.add(s.slug);
+            canonicalSources.push(s);
+          }
+        }
       }
     } catch {
-      /* try next seif */
+      /* skip missing manifests */
     }
   }
   if (!canonicalSources.length) return null;
@@ -159,11 +166,10 @@ async function main() {
 
     for (const bundle of bundles) {
       if (!bundle) continue;
-      await writeFile(
-        join(BUNDLES_DIR, `siman${bundle.siman}.json`),
-        JSON.stringify(bundle),
-        "utf8"
-      );
+      const dest = join(BUNDLES_DIR, `siman${bundle.siman}.json`);
+      const tmp = dest + ".tmp";
+      await writeFile(tmp, JSON.stringify(bundle), "utf8");
+      await rename(tmp, dest);
       done++;
     }
 
