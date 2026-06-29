@@ -1,0 +1,8 @@
+/** Editorial translations — siman 262 / turei-zahav (1 blocks) */
+export const TRANSLATIONS = {
+  '1#ב': `Must return and draw, etc. This gloss is puzzling for two reasons — first it implies an obligation, and if so even on Shabbat one should return and draw, etc., and this is not so, for we do not find anyone who holds one should return and draw, except Hagahot Maimoniyot; and other poskim do not hold thus, as Beit Yosef wrote; and therefore it is plain there is only a stringency here and on Shabbat one should not do so. Further, in what he wrote here at the end "circumcised within eight and by day he fulfilled" — it implies one need not return and draw, etc. — what differs from the beginning, for certainly within eight is no better than at night; and so is proven in siman 264 that within eight is not circumcision at all.`,
+};
+
+export const FILES = [
+  ['siman_262/turei-zahav/part-001.txt', 'turei-zahav'],
+];

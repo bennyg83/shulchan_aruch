@@ -1,0 +1,7 @@
+/** Editorial translations — siman 208 / turei-zahav (2 blocks) */
+export const TRANSLATIONS = {
+  '2#א': `And he need not open a door for him. The matter of petach and charatah will be explained in siman 228.`,
+  '2#ב': `And we do not penalize him to observe, etc. Thus Tur wrote in all rabbinic matters; and Beit Yosef brought in Rivash's name — in niduy which is rabbinic one need not observe prohibition like days he treated lightly the prohibition in niduy; likewise in Shulchan Aruch here seif 4. It is astonishing on Shulchan Aruch in siman 334 seif 28 who ruled even if he treated lightly niduy he must observe prohibition like days he observed permissibility — his rulings contradict each other; and Magen Avraham in siman 334 also sensed this and wrote — here it deals when he transgressed in a matter he cannot fulfill his vow, e.g. he vowed from grain and cannot live without grain and the like — considered somewhat ones; but below it deals when he can fulfill but treats lightly — perforce. His words are astonishing — if he is ones, even in a biblical vow he need not observe prohibition, as written here explicitly that he comes to an obstacle.`,
+};
+
+export const FILES = [['siman_208/turei-zahav/part-001.txt', 'turei-zahav']];

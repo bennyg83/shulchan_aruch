@@ -1,0 +1,9 @@
+/** Editorial translations — siman 293 / baer-heitev (2 blocks) */
+export const TRANSLATIONS = {
+  '4#_': `Doubt. And although new grain is a thing that has permitting factors, and a thing that has permitting factors is forbidden even in doubt — one may say as written in siman 110 seif 8 in Hagahah in name of responsum of Rosh — that specifically in mixtures we say doubt does not help; but in this case, where perhaps there is no new grain at all, in such a case they did not forbid doubt per Shulchan Aruch HaRav; and see there in Shach siman 110 s.k. 56.`,
+  '5#_': `Better. And Taz wrote that it is not worthwhile to save from new-grain prohibition; but it appears to me the essence of the reason is that in these countries it is a time of distress — a person's life depends on drinking barley beer and oats — it is worthwhile to rely on the Tanna of the mishnah who holds new grain does not apply outside the Land, to rely on it in time of distress, since the halachah was not decided explicitly like R. Eliezer — end quote. And Shach wrote that if most of the country's drinking is wine and they do not need barley and oats except sometimes for food — it is not a community distress where there is only one doubt — perhaps from last year, perhaps from this year — it is a mitzvah to protest to the multitude and teach them prohibition. And in Lechem Mishneh he elaborated to find permission for barley beer made from new grain — because the liquid that emerges from them is permitted; and the matter needs settlement, for from responsum of Rosh and Tur HaShalem and other poskim it implies it is forbidden; and in Nekudot HaKesef he also elaborated to prove with clear proofs from Gemara that new grain outside the Land is Torah law, unlike Taz — see there.`,
+};
+
+export const FILES = [
+  ['siman_293/baer-heitev/part-001.txt', 'baer-heitev'],
+];

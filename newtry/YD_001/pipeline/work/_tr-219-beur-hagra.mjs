@@ -1,0 +1,6 @@
+/** Editorial translations — siman 219 / beur-hagra (1 block) */
+export const TRANSLATIONS = {
+  '3#_': `Who, etc. Shevuot 29a — one who says "let them be forbidden," etc. And Rosh wrote there, and as he explained 25a here "unlike," etc. — meaning he said explicitly one day. And see siman 236 se'if dalet in the gloss in Nedarim 15a "and if unlike," and there 24b "one who says," etc., and there 25a "one who says let them be forbidden," etc. "since," etc. And see Rabbeinu Gershom there in the matter of "how," etc.:`,
+};
+
+export const FILES = [['siman_219/beur-hagra/part-001.txt', 'beur-hagra']];

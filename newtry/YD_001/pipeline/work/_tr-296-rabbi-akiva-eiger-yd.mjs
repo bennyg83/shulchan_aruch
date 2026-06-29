@@ -1,0 +1,8 @@
+/** Editorial translations — siman 296 / rabbi-akiva-eiger-yd (1 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `(Seif 46) Opposite the breach — forbidden. Implies opposite the standing permitted; and Rosh wrote: if it is four wide; but less than four — even opposite the standing forbidden, as in Eruvin first chapter regarding three measures in partitions. And I wonder — on the contrary from the sugya there it is proven the opposite: per Rava who said from the end Rabbah, etc. — if so for us who rule like the rabbis that also above lavud applies — also three handbreadths is considered lavud to permit the standing. Afterward I found in Ritva Eruvin who wrote thus plainly in the name of R' Yitzchak and Raavad: for us also in three handbreadths permitted opposite the standing — see there; and Rosh's words require study.`,
+};
+
+export const FILES = [
+  ['siman_296/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
+];

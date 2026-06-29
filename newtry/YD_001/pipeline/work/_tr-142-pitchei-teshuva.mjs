@@ -1,0 +1,7 @@
+/** Editorial translations — siman 142 / pitchei-teshuva (2 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `While burning. Beur HaTur in the name of Turei Zahav; and see in Sefer Sha'ar HaMelech chapter 6 Laws of Avodah Zarah who wrote it is thus explained in the Rosh last chapter of Beitzah; and wonder on Turei Zahav who did not bring it — see there.`,
+  '2#_': `That cooked on coals. Magen Avraham s.k. 2 and s.k. 8; and in Shach s.k. 10 what they wondered on the mechaber; and see in Sha'ar HaMelech chapter 6 Laws of Avodah Zarah who added further wonder on the mechaber who holds coals of idolatry are forbidden only rabbinically and only ab initio — for if so what does the Gemara challenge there "what is different regarding flame of idolatry that permitted" and "what is different regarding hekdesh that forbidden" — what is the difficulty? He answered that regarding idolatry coals are only rabbinically forbidden — we do not decree flame because of coals, for it is a decree on a decree; and regarding hekdesh etc. Therefore he concluded even the mechaber said only regarding coals that come from idolatry wood or asherah wood, as he was precise in Shulchan Aruch here; and so Beit Yosef deals similarly. But if they were forbidden while still coals — such as he made them an idolatry offering — in this he certainly admits forbidden from the Torah; and now it challenges well etc. — see there.`,
+};
+
+export const FILES = [['siman_142/pitchei-teshuva/part-001.txt', 'pitchei-teshuva']];

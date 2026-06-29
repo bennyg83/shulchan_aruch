@@ -1,0 +1,8 @@
+/** Editorial translations — siman 293 / rabbi-akiva-eiger-yd (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 293, Shach s.k. 2) Meaning three days. It is astonishing to me — for there we say so for R. Yehuda; but we hold like R. Yosi and R. Shimon that the measure of absorption is two weeks, as we hold below (siman 294 seif 4); and requires study. After much time I found that Noda BiYehudah wondered similarly in responsum (siman 87).`,
+};
+
+export const FILES = [
+  ['siman_293/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
+];

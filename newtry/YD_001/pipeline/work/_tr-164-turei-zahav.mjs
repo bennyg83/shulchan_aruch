@@ -1,0 +1,6 @@
+/** Editorial translations — siman 164 / turei-zahav (2 blocks) */
+export const TRANSLATIONS = {
+  '1#ב': `To field owner. Beit Yosef in name of Rashba's students: if another comes to rent from lender — field owner can rent from him since another fixed — permitted; but in Rashba's responsum Beit Yosef brings afterward implies even another in middle forbidden — and so below siman 172 in name of Rosh.`,
+  '2#_': `If another came, etc. It is astounding — he ruled seif 1 some permit mashkonah of Sura — even to borrower himself; and Levush wrote here deals without lender taking possession of field; and it does not seem to me: whoever did not take possession at all did not acquire and it is plain loan as Gemara states when did he acquire — return and rent; certainly what another fixes between lender and borrower does not help here; and further Shulchan Aruch should have explained plainly deals without possession since he did not mention initially distinction; rather Rama who followed him mentioned; therefore seems certainly refers to initial premise beginning seif: one who had field mortgaged, etc. — implies even mashkonah of Sura; and so Beit Yosef explicitly on this said nevertheless if another fixed — permitted for everyone — i.e. after lender took possession.`,
+};
+export const FILES = [['siman_164/turei-zahav/part-001.txt', 'turei-zahav']];

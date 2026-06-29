@@ -1,0 +1,9 @@
+/** Editorial translations — siman 208 / pitchei-teshuva (4 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `Unspecified. Avodat HaTodah of Rabbi Maharit z"l wrote in the name of Maharival — one who swore not to marry another woman, etc.; and see teshuvah of Radbaz, new responsa siman 226, one who swore to his wife not to marry upon her — but if she waits ten years without bearing children he is exempt from his oath; she bore within the time a viable child who died, and she waited ten years after the child's death without bearing — whether he is exempt from his oath or not — see there.`,
+  '2#_': `He is not believed. Perishah's gloss wrote — specifically an am ha'aretz; but a Torah scholar is believed by kal vachomer from below seif 2. Shach disagrees; and see teshuvah of Chavot Yair siman 15 — it appears primary like Perishah's gloss and not like Shach — see there.`,
+  '3#_': `That they not treat vows lightly. See teshuvah of Chavot Yair siman 15 — he wrote that in Rosh's commentary and most poskim the reason appears to be because an am ha'aretz is not believed; according to their words one may say that if his heart knows the truth is with him, there is no prohibition if he transgresses in secret — see there in the omissions.`,
+  '4#_': `Because of excommunication. See Baer Heitev what he wrote — niduy and cherem themselves are biblical; and see teshuvah of Noda BiYehudah, Even HaEzer part, end of siman 77 — he also proved from Ran's words that cherem is biblical; and see in Noda BiYehudah, second edition, Yoreh De'ah siman 146 — he wrote again that cherem, though not merely rabbinic and is more severe, is not literally biblical but from words of Kabbalah; regarding a safek it appears to me its safek is lenient; and he again proved thus from Ramban's words — see there; and likewise in Even HaEzer part siman 8 — see there.`,
+};
+
+export const FILES = [['siman_208/pitchei-teshuva/part-001.txt', 'pitchei-teshuva']];

@@ -1,0 +1,6 @@
+/** Editorial translations — siman 178 / beer-hagolah (1 blocks) */
+export const TRANSLATIONS = {
+  '3#_': `In Rambam ch. 11 he wrote "the matter is from afterward" from baraita Bava Kamma daf 83 side 1 and Sotah daf 49 — one who lets hair hang is from ways of the Amorites. And he further wrote that whoever does one of these and the like receives lashes; Tur brought it and it is not a general negative commandment, for all of them come from one name and are forbidden. Beit Yosef wrote: even though in commentary on the mishnah he did not write thus on his words in the composition — there is more to rely on from his words in mishnah commentary.`,
+};
+
+export const FILES = [['siman_178/beer-hagolah/part-001.txt', 'beer-hagolah']];

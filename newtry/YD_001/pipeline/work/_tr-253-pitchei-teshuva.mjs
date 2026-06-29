@@ -1,0 +1,7 @@
+/** Editorial translations — siman 253 / pitchei-teshuva (2 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `Called peah. See in responsum Radbaz part 2 siman 514 who further wrote there is another reason we do not say one who has two hundred zuz should not take from charity — except from the charity fund or from individuals as charity; for the householder who gives this poor person will not give another poor person and it turns out he robs the poor; but in our case where all know he has more than two hundred zuz and he goes about for sustenance of his wife and sons — they give him as a gift and not as charity; and therefore one must warn charity collectors not to give them from the charity fund lest they rob other poor; and if he does not have two hundred zuz and the collectors wish to give him even a large gift — permitted; and nevertheless must be precise in the matter not to push aside other poor in the city — end quote — see there.`,
+  '3#_': `Died. See in Sefer Bnei Ahuvah chapter 22 Laws of Marriage halachah 2 s.v. vehineh kashya who wrote if she died after he married her off — all concede the heirs acquired them; and so Masat Binyamin explicitly; and it is difficult — for this is like bridal gifts per Rabbenu Tam who can say I did not stipulate except on condition my daughter enjoy it (and as written in Even HaEzer siman 52 seif 4 in Hagahah); and one must say specifically when the father gives, etc. — see there.`,
+};
+
+export const FILES = [['siman_253/pitchei-teshuva/part-001.txt', 'pitchei-teshuva']];

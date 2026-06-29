@@ -1,0 +1,9 @@
+/** Editorial translations — siman 269 / pitchei-teshuva (2 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `They need to separate. See Dagul Merevavah who wrote that if she is elderly there is no need for separation; and even though Choshen Mishpat in EH siman 13 s.k. 4 was uncertain about this — that is when she converted and married another afterward; but if both converted and remained together — no separation is needed — see there. He also wrote that after three months when he takes her back he does not need seven clean days if she did not establish niddah in the interim; and even though it is written above at the end of siman 192 that one who takes back his divorcee needs seven clean days — there is different, for there he divorced her completely, unlike here — see there.`,
+  '3#_': `He does not want to maintain her. See Dagul Merevavah who wrote — behold certainly if he wants to maintain her he needs chuppah and kiddushin according to Jewish law; and regarding her ketubah see EH at the end of siman 67.`,
+};
+
+export const FILES = [
+  ['siman_269/pitchei-teshuva/part-001.txt', 'pitchei-teshuva'],
+];

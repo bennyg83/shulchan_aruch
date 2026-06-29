@@ -1,0 +1,9 @@
+/** Editorial translations — siman 216 / rabbi-akiva-eiger-yd (4 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 216 se'if 1) Growths of his growths are permitted. Thus the Ran derived from the sugya of partners. In my poverty I did not merit to understand the proof of the Ran, for there it deals with one who forbids upon his fellow, where one cannot impose upon his fellow except by rabbinic law; and the question is whether substitutes and grown items are forbidden to the one who substitutes — that is, the doubt is like any doubt whether the Sages forbade substitutes to the substituter. If so, why were growths of growths not forbidden — for to this extent the Sages did not be stringent upon him. But when he says konam these fruits are upon me, even if others substitute they are forbidden, for by Torah law they are forbidden, for he treats them like hekdesh, as Ran wrote there. One could say that growths of growths are also forbidden like hekdesh — and it requires investigation. And see what is written in the responsum (siman 219):`,
+  '2#_': `(There Shach se'if kaf gimmel) And Beit Yosef in the name of the Rambam chapter 5. This refers to growths of growths when its seed is not consumed:`,
+  '5#_': `(There Shach se'if yud alef) Permitted — his intention was not. In Maggid Mishneh (chapter 5 of Hilchot Gerushin) he wrote that from the words of the responsum of the Rivash (siman 356) and from the responsum of the Ranach (part 2 se'if 72) it appears that even in such a case it is forbidden:`,
+  '7#_': `(Shach se'if kaf gimmel) And if so, the words of the Rav require investigation. See in the responsum of Maharit (part 1 siman 318) and in the responsum of Maharshadam (Yoreh De'ah siman 191):`,
+};
+
+export const FILES = [['siman_216/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd']];

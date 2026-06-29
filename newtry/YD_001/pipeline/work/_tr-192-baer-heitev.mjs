@@ -1,0 +1,8 @@
+/** Editorial translations — siman 192 / baer-heitev (1 blocks) */
+export const TRANSLATIONS = {
+  '3#ב': `That she checked. Mas'at Binyamin wrote in his responsum regarding a bride who wore whites and counted 7 clean days with intent for marriage that were set for Rosh Chodesh Nisan; when Rosh Chodesh Nisan arrived the groom did not come, and the next day a messenger came from the groom that an ones befell him on the road and he would come immediately in a day or two; they made the chuppah 2 or 3 days after Rosh Chodesh Nisan — in this certainly she does not need another 7 clean days, even if she did not check herself in the days between, if 7 days did not pass without bedikah; for since the marriage was not postponed except due to some ones that delayed the matter, she did not despair of the first 7 clean days and relied that the groom would come after a day or two, and she relied on herself and gave her mind that she would be clean so as not to come to concern of desire — end quote. And Taz disagrees and wrote the bride is certainly in doubt in her mind, for all ways are presumed dangerous and perhaps there is danger he will not come at all; and after she knew he is certainly coming, behold there is new desire — perforce. And Shach wrote — and in truth one need not be stringent in these laws, for the entire essence of this law is from their words (and Mahari"t Tzahalon siman 67 ruled according to law even if marriage was postponed 2 or 3 days from the set time — no concern at all to count 7 clean days anew — see there; and see responsum Sha"ah siman 75).`,
+};
+
+export const FILES = [
+  ['siman_192/baer-heitev/part-001.txt', 'baer-heitev'],
+];

@@ -1,0 +1,8 @@
+/** Editorial translations — siman 274 / siftei-kohen (1 block) */
+export const TRANSLATIONS = {
+  '5#_': `And he may take ink, etc. And this is not because of degradation of mitzvah, for there is a view that we do not learn lighting a weekday lamp from a mitzvah lamp — for there the second draws from the first and degrades it; but here since the word is written it is not degraded by taking part of the ink so it dries quickly — end quote, Rosh's responsum; and it implies that even from the Divine Name one may take ink, and even to write mundane matter with it is permitted, for there is no degradation of mitzvah here; however, although there is no degradation of mitzvah, nevertheless there is degradation of mitzvah in taking from the Name to write another word, or taking from the Sefer Torah to write mundane matter; and according to the view that one does not light from a mitzvah lamp to a weekday lamp because of degradation of mitzvah, as explained in Orach Chaim siman 674 — likewise here it is forbidden unless he takes the ink so it dries quickly and not to use it for something else; and so it appears to me.`,
+};
+
+export const FILES = [
+  ['siman_274/siftei-kohen/part-001.txt', 'siftei-kohen'],
+];

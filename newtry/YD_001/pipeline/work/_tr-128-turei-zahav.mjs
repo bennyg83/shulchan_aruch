@@ -1,0 +1,6 @@
+/** Editorial translations — siman 128 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '4#ב': `Regarding entry it is permitted for drinking. This is the view of R. Yitzchak that the Tur brings, and in the name of Rashi he brings that the matter depends on touch; and Beit Yosef already wrote that Rashi did not say so; and perforce Rashal emended Rashi: if he is seized as a thief regarding entry it is permitted even if he is not seized as a thief regarding touch; and if he is not seized as a thief regarding entry it is forbidden even if he is seized as a thief regarding touch; and it is explained in Rashi — the reason is that since he entered without permission he certainly entered to libate; I, however, am not settled regarding what he wrote: even if he is not seized as a thief regarding touch — how will you find this, that he has permission to touch? But he cannot touch unless he enters; and it appears this is what he means: even if he is not seized regarding touch, if it was placed in an exposed place such as the marketplace, and since he also is not afraid and enters there — it is as placed in an exposed place; nevertheless now it is in a concealed place and he is preoccupied with panic in his entry and did not touch:`,
+};
+
+export const FILES = [['siman_128/turei-zahav/part-001.txt', 'turei-zahav']];

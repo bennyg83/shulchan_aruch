@@ -1,0 +1,347 @@
+{
+  "generatedAt": "2026-06-16T15:23:02.149Z",
+  "method": "claude-aligned",
+  "validatorCodes": [
+    "mt_garbage",
+    "hebrew_in_english",
+    "untranslated_copy",
+    "mt_api_artifact",
+    "pending_placeholder",
+    "literal_bow_swim"
+  ],
+  "grepPatterns": [
+    "grep_meshkonah",
+    "grep_meluh",
+    "grep_katzuzot",
+    "grep_saturday",
+    "grep_lords_prayer",
+    "grep_her_age",
+    "grep_the_craft",
+    "grep_mymemory",
+    "grep_haar_loop",
+    "grep_kulya",
+    "grep_charitz",
+    "grep_laketah"
+  ],
+  "passCount": 89,
+  "failCount": 10,
+  "globalValidator": {
+    "hebrew_in_english": 423,
+    "mt_api_artifact": 95,
+    "mt_garbage": 60,
+    "literal_bow_swim": 2,
+    "untranslated_copy": 14
+  },
+  "globalGrep": {
+    "grep_the_craft": 1,
+    "grep_kulya": 72,
+    "grep_charitz": 50,
+    "grep_laketah": 42,
+    "grep_mymemory": 95,
+    "grep_lords_prayer": 27
+  },
+  "failingSimanim": [
+    {
+      "siman": 84,
+      "failBlocks": 98,
+      "totalBlocks": 270,
+      "validator": {
+        "mt_garbage": 25,
+        "hebrew_in_english": 40,
+        "literal_bow_swim": 2,
+        "mt_api_artifact": 91
+      },
+      "grep": {
+        "grep_lords_prayer": 11,
+        "grep_mymemory": 91
+      },
+      "files": [
+        "siman_084/beer-hagolah/part-001.txt",
+        "siman_084/beur-hagra/part-001.txt",
+        "siman_084/kaf-hachayim/part-001.txt",
+        "siman_084/kereti/part-001.txt",
+        "siman_084/nekudot-hakesef/part-001.txt",
+        "siman_084/peleti/part-001.txt",
+        "siman_084/pitchei-teshuva/part-001.txt",
+        "siman_084/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_084/siftei-kohen/part-001.txt",
+        "siman_084/turei-zahav/part-001.txt",
+        "siman_084/yad-avraham/part-001.txt",
+        "siman_084/yad-ephraim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 98,
+      "failBlocks": 98,
+      "totalBlocks": 218,
+      "validator": {
+        "hebrew_in_english": 174,
+        "mt_garbage": 7,
+        "untranslated_copy": 10
+      },
+      "grep": {
+        "grep_lords_prayer": 3
+      },
+      "files": [
+        "siman_098/baer-heitev/part-001.txt",
+        "siman_098/beer-hagolah/part-001.txt",
+        "siman_098/beur-hagra/part-001.txt",
+        "siman_098/kaf-hachayim/part-001.txt",
+        "siman_098/kereti/part-001.txt",
+        "siman_098/mateh-yehonatan/part-001.txt",
+        "siman_098/nekudot-hakesef/part-001.txt",
+        "siman_098/peleti/part-001.txt",
+        "siman_098/peleti/part-002.txt",
+        "siman_098/pitchei-teshuva/part-001.txt",
+        "siman_098/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_098/siftei-kohen/part-001.txt",
+        "siman_098/turei-zahav/part-001.txt",
+        "siman_098/yad-avraham/part-001.txt",
+        "siman_098/yad-ephraim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 44,
+      "failBlocks": 70,
+      "totalBlocks": 148,
+      "validator": {},
+      "grep": {
+        "grep_charitz": 49,
+        "grep_laketah": 42,
+        "grep_kulya": 70
+      },
+      "files": [
+        "siman_044/baer-heitev/part-001.txt",
+        "siman_044/beur-hagra/part-001.txt",
+        "siman_044/kaf-hachayim/part-001.txt",
+        "siman_044/kereti/part-001.txt",
+        "siman_044/mateh-yehonatan/part-001.txt",
+        "siman_044/mechaber/part-001.txt",
+        "siman_044/peleti/part-001.txt",
+        "siman_044/pitchei-teshuva/part-001.txt",
+        "siman_044/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_044/siftei-kohen/part-001.txt",
+        "siman_044/turei-zahav/part-001.txt",
+        "siman_044/yad-avraham/part-001.txt",
+        "siman_044/yad-ephraim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 99,
+      "failBlocks": 69,
+      "totalBlocks": 168,
+      "validator": {
+        "mt_garbage": 28,
+        "hebrew_in_english": 91,
+        "untranslated_copy": 3
+      },
+      "grep": {
+        "grep_lords_prayer": 13
+      },
+      "files": [
+        "siman_099/baer-heitev/part-001.txt",
+        "siman_099/beer-hagolah/part-001.txt",
+        "siman_099/beur-hagra/part-001.txt",
+        "siman_099/kaf-hachayim/part-001.txt",
+        "siman_099/kereti/part-001.txt",
+        "siman_099/mateh-yehonatan/part-001.txt",
+        "siman_099/nekudot-hakesef/part-001.txt",
+        "siman_099/peleti/part-001.txt",
+        "siman_099/pitchei-teshuva/part-001.txt",
+        "siman_099/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_099/siftei-kohen/part-001.txt",
+        "siman_099/turei-zahav/part-001.txt",
+        "siman_099/yad-avraham/part-001.txt",
+        "siman_099/yad-ephraim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 96,
+      "failBlocks": 48,
+      "totalBlocks": 119,
+      "validator": {
+        "hebrew_in_english": 109,
+        "untranslated_copy": 1
+      },
+      "grep": {},
+      "files": [
+        "siman_096/baer-heitev/part-001.txt",
+        "siman_096/beur-hagra/part-001.txt",
+        "siman_096/kaf-hachayim/part-001.txt",
+        "siman_096/kereti/part-001.txt",
+        "siman_096/mateh-yehonatan/part-001.txt",
+        "siman_096/nekudot-hakesef/part-001.txt",
+        "siman_096/peleti/part-001.txt",
+        "siman_096/pitchei-teshuva/part-001.txt",
+        "siman_096/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_096/siftei-kohen/part-001.txt",
+        "siman_096/turei-zahav/part-001.txt",
+        "siman_096/yad-avraham/part-001.txt",
+        "siman_096/yad-ephraim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 29,
+      "failBlocks": 5,
+      "totalBlocks": 35,
+      "validator": {
+        "hebrew_in_english": 6
+      },
+      "grep": {
+        "grep_kulya": 1,
+        "grep_charitz": 1
+      },
+      "files": [
+        "siman_029/kereti/part-001.txt",
+        "siman_029/mateh-yehonatan/part-001.txt",
+        "siman_029/mechaber/part-001.txt",
+        "siman_029/peleti/part-001.txt",
+        "siman_029/yad-avraham/part-001.txt"
+      ]
+    },
+    {
+      "siman": 83,
+      "failBlocks": 4,
+      "totalBlocks": 174,
+      "validator": {
+        "mt_api_artifact": 4,
+        "hebrew_in_english": 1
+      },
+      "grep": {
+        "grep_mymemory": 4
+      },
+      "files": [
+        "siman_083/beur-hagra/part-001.txt",
+        "siman_083/kereti/part-001.txt"
+      ]
+    },
+    {
+      "siman": 30,
+      "failBlocks": 2,
+      "totalBlocks": 69,
+      "validator": {
+        "hebrew_in_english": 2
+      },
+      "grep": {},
+      "files": [
+        "siman_030/baer-heitev/part-001.txt",
+        "siman_030/kereti/part-001.txt"
+      ]
+    },
+    {
+      "siman": 24,
+      "failBlocks": 1,
+      "totalBlocks": 234,
+      "validator": {},
+      "grep": {
+        "grep_the_craft": 1
+      },
+      "files": [
+        "siman_024/kaf-hachayim/part-001.txt"
+      ]
+    },
+    {
+      "siman": 45,
+      "failBlocks": 1,
+      "totalBlocks": 33,
+      "validator": {},
+      "grep": {
+        "grep_kulya": 1
+      },
+      "files": [
+        "siman_045/peleti/part-001.txt"
+      ]
+    }
+  ],
+  "passingSimanim": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    25,
+    26,
+    27,
+    28,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    97
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "generatedAt": "2026-06-17T05:52:07.958Z",
+  "method": "claude-aligned",
+  "validatorCodes": [
+    "mt_garbage",
+    "hebrew_in_english",
+    "untranslated_copy",
+    "mt_api_artifact",
+    "pending_placeholder",
+    "literal_bow_swim",
+    "html_in_english",
+    "json_wrapped_english",
+    "hybrid_mt_garbage"
+  ],
+  "grepPatterns": [
+    "grep_meshkonah",
+    "grep_meluh",
+    "grep_katzuzot",
+    "grep_saturday",
+    "grep_lords_prayer",
+    "grep_her_age",
+    "grep_the_craft",
+    "grep_mymemory",
+    "grep_haar_loop",
+    "grep_kulya",
+    "grep_charitz",
+    "grep_laketah",
+    "grep_hand_recoils"
+  ],
+  "passCount": 0,
+  "failCount": 1,
+  "simanim": [
+    {
+      "siman": 198,
+      "pass": false,
+      "failBlocks": 99,
+      "totalBlocks": 345,
+      "validator": {
+        "mt_garbage": 95
+      },
+      "grep": {
+        "grep_lords_prayer": 53,
+        "grep_saturday": 5
+      },
+      "files": [
+        "siman_198/baer-heitev/part-001.txt",
+        "siman_198/beer-hagolah/part-001.txt",
+        "siman_198/beur-hagra/part-001.txt",
+        "siman_198/nekudot-hakesef/part-001.txt",
+        "siman_198/pitchei-teshuva/part-001.txt",
+        "siman_198/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_198/siftei-kohen/part-001.txt",
+        "siman_198/turei-zahav/part-001.txt"
+      ]
+    }
+  ],
+  "failingSimanim": [
+    {
+      "siman": 198,
+      "pass": false,
+      "failBlocks": 99,
+      "totalBlocks": 345,
+      "validator": {
+        "mt_garbage": 95
+      },
+      "grep": {
+        "grep_lords_prayer": 53,
+        "grep_saturday": 5
+      },
+      "files": [
+        "siman_198/baer-heitev/part-001.txt",
+        "siman_198/beer-hagolah/part-001.txt",
+        "siman_198/beur-hagra/part-001.txt",
+        "siman_198/nekudot-hakesef/part-001.txt",
+        "siman_198/pitchei-teshuva/part-001.txt",
+        "siman_198/rabbi-akiva-eiger-yd/part-001.txt",
+        "siman_198/siftei-kohen/part-001.txt",
+        "siman_198/turei-zahav/part-001.txt"
+      ]
+    }
+  ]
+}

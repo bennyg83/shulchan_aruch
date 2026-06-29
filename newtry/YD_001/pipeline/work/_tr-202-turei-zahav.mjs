@@ -1,0 +1,6 @@
+/** Editorial translations — siman 202 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '3#_': `The rag stuck to the pot from outside, etc. This Beit Yosef wrote in siman 120 in the name of the Rosh, and it implies that inside it would be an interposition; nevertheless specifically if it is in a manner that they are particular about it, as is written in Shulchan Aruch siman 120 seif 13 regarding rust.`,
+};
+
+export const FILES = [['siman_202/turei-zahav/part-001.txt', 'turei-zahav']];

@@ -1,0 +1,6 @@
+/** Editorial translations — siman 178 / siftei-kohen (1 blocks) */
+export const TRANSLATIONS = {
+  '1#ד': `But regarding a matter, etc. See there in Maharik who expanded on this and brings several proofs; one proof he brought from Rashi ch. Kol HaBasar (Chullin daf 107) regarding first waters that fed pig meat — Rashi explained there was an Israelite shopkeeper selling slaughtered meat to Israelites and nevelah to gentiles, and one Jew came to eat and did not wash hands and they fed him pig — evidently an Israelite need not be distinguished in his garments at least — end quote. And the gaon A.A. z"l said it is astounding: this incident Rashi wrote is in Midrash Rabbah Parshat Balak (daf 279 end side 3) and it states there it was at time of persecution, etc., until he said to him secretly "I am a Jew" — see there; and it is explained they worshipped Hashem secretly and netilat yadayim was a sign for shopkeepers and not another sign; and at time of persecution certainly permitted to change garments so they not recognize him as Jew — as Maharik himself wrote there; and explained above siman 157 seif 2 — requires study.`,
+};
+
+export const FILES = [['siman_178/siftei-kohen/part-001.txt', 'siftei-kohen']];

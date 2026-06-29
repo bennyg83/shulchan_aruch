@@ -1,0 +1,16 @@
+/** Editorial translations — siman 188 / beur-hagra (7 blocks) */
+export const TRANSLATIONS = {
+  '1#ו': `And likewise appearance, etc. As stated above; and as Magen Avraham wrote — two, five bloods, etc.`,
+  '4#א': `Within the cervical canal. There is an unresolved question there that was not resolved — and to be stringent.`,
+  '4#ג': `And the measure, etc. From what is stated in Chullin 55b — in summer, etc., in winter, etc. — evidently they are equal.`,
+  '5#_': `Alternatively, etc. As stated at the beginning of siman 185 — and they impart impurity through feeling even, etc.`,
+  '6#א': `Alternatively, etc. From what is stated Niddah 54b in the mishnah — "but the zov," etc., and "if they can," etc. — it implies the first clause is according to all; and we say there in the Gemara — even dry from its outset; and further since we say there — only one, R. Yehuda impurifies except, etc., and if so let her examine, etc.; and further since we teach in the mishnah "she shall place in water" at the end — it implies in the first clause R. Yehuda impurified her. Tosafot HaRosh; and further it seems to me from what is stated "if not dissolved" — also not dissolved — since he says "if not" — it implies when dry the law is so (and so Shach; and so in Sefer HaEshkol).`,
+  '6#ב': `And some say, etc. From what is stated Niddah 54b — "and let us say likewise," etc., and further, etc., "it shall be," etc. — evidently one law applies to both; and Ra'ash.`,
+  '6#ג': `If it is, etc. Ra'ash there — and for opening the grave we are not concerned with such small matters; and likewise in Tosafot HaRosh; and they brought proof from that the Gemara challenges there — "let R. Yehuda also disagree," etc., and does not challenge on the first clause "like a shell," etc.; and Tosafot there s.v. let dispute, etc.; and Beit Yosef wrote we do not know measure of small piece; nevertheless since in straw-tube we see pure — likewise with pieces like straw-tube; and so Tur; and Beit Yosef wrote we do not know straw-tube itself — therefore we estimate a thin reed, etc.
+
+(Likut) If it is a piece, etc. — it is not explicit the measure of piece for opening the grave; but in chapter 7 of Ohalot we say — fallen ones have no, etc. (end quote).`,
+};
+
+export const FILES = [
+  ['siman_188/beur-hagra/part-001.txt', 'beur-hagra'],
+];

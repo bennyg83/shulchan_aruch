@@ -1,0 +1,6 @@
+/** Editorial translations — siman 127 / yad-ephraim (1 block) */
+export const TRANSLATIONS = {
+  '1#_': `If it is in his hand, he is believed. Avodat HaTaharah and responsum part 2 siman 79 — to settle Shach's words in siman 127, who wrote that Beit Yosef holds that a worker's credibility is because of migo; and there is a practical difference regarding one who deposits cooked wine with his fellow and says it was libated before it came into his hand — for if the reason is migo, he is not believed, for with cooked wine he never had migo — see there; and see in Beit Efrayim on treifot in Kuntras HaRe'ayot, where I elaborated on the words of Peri Megadim and part 2 on this:`,
+};
+
+export const FILES = [['siman_127/yad-ephraim/part-001.txt', 'yad-ephraim']];

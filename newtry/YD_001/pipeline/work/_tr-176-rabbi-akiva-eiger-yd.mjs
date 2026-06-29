@@ -1,0 +1,8 @@
+/** Editorial translations — siman 176 / rabbi-akiva-eiger-yd (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 176 seif 1 in Hagah) Some permit even from renting. Darkei Moshe wrote on this: however, in Rivash (siman 308) he wrote it appears clear it is forbidden to lend on responsibility of the ship and that he give twenty-four upon return, because this is a loan and he cuts off a fixed amount in ribbit, even though the lender accepts responsibility for all the money — nevertheless the loan has not left the category of loan, etc. Accordingly it is difficult: above (siman 173 seif 8) Mechaber ruled without qualification like Rivash and the Rav did not emend anything; and here he ruled like this view. And it is an apparent contradiction of rulings. And see in Tiferet LeMoshe who wrote to distinguish between this case here and that case in siman 173. And Shach below (s.k. 97 s.k. 22).`,
+};
+
+export const FILES = [
+  ['siman_176/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
+];

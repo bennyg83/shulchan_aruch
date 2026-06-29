@@ -1,0 +1,6 @@
+/** Editorial translations — siman 139 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '1#א': `That of a non-Jew is forbidden immediately. For it is written "their carved images of their gods you shall burn with fire" — once carved it becomes a god for them. But regarding that of an Israelite it is written "and a name in secret" — he is not liable until he places hidden matters. And it seems obvious to me that even an apostate Israelite to idolatry is called Israel, and his law is until he worships it — for although he sinned, he is an Israelite, as appears in many places. And likewise regarding nullification — he cannot nullify an elil like an Israelite, as Rashi explicitly wrote — Beit Yosef brought it siman 145 in the passage "whitewashed, etc."; and not like what the Derishah wrote in the hagahah of siman 145 that an apostate Israelite to idolatry's law is like a non-Jew — for we derive here from verses that a distinction was made between a non-Jew and an Israelite; and one should not expound the reasons of the verses, for they are the king's decrees — an Israelite does not forbid until he worships.`,
+};
+
+export const FILES = [['siman_139/turei-zahav/part-001.txt', 'turei-zahav']];

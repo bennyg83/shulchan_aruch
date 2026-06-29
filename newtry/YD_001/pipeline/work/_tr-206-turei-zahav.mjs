@@ -1,0 +1,6 @@
+/** Editorial translations — siman 206 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '5#ב': `And some say, etc. Tur wrote in Rambam's name: "One who says fruits of so-and-so upon me are forbidden in any language he forbids — even though there is no oath and no mention of Name or substitute — to forbid a prohibition upon his soul, to forbid himself permitted things. And if he says behold this upon me as issur, they are forbidden," end quote. "In any language" — not specifically Hebrew as Beit Yosef wrote; Tur also explained thus. Nevertheless, from "even though there is no oath" he learns he spoke vow language in oath language, not an actual oath — even so forbidden. One must understand what he concluded "and if he says behold this upon me as issur," etc. — this is entirely superfluous. It appears Rambam wrote this as commentary on the verse "to forbid a prohibition upon his soul" — apparently to forbid himself with a forbidden matter; meaning he attaches to the forbidden object as one vows a neder — therefore he says the verse's meaning is twofold: to forbid, meaning forbid himself permitted things in vow language, in any language; and issur the verse mentions — if he says this loaf upon me as issur.`,
+};
+
+export const FILES = [['siman_206/turei-zahav/part-001.txt', 'turei-zahav']];

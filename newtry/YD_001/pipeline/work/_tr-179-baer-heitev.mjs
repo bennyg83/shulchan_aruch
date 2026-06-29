@@ -1,0 +1,9 @@
+/** Editorial translations — siman 179 / baer-heitev (4 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `Regarding diviners. Shach wrote in the name of Maharshal that it is forbidden for a sick person to inquire of diviners and sorcerers where there is no life danger, even if there is danger to a limb; and if his illness came through sorcery or chance and an evil spirit — it is permitted; and similarly Bach wrote in this section, and likewise Beit Yosef in the name of the Zohar, that it is a great prohibition to inquire of sorcerers even for a sick person — end of his words (and in responsum Nishmat Chayim siman 15 he inclined to permit the multitude who inquire and seek nowadays of sorcerers regarding theft or whether the sick person will live or die, since the Torah forbade only ancient sorcery; however nowadays there is no sorcery in the world and it is all vanity — see there).`,
+  '4#_': `Your verses. Shach wrote that it implies the opinion of the Rav and the poskim, that even to do an act and rely on it for the future through the verse is permitted, for it is considered a small prophecy.`,
+  '8#א': `And spitting. Because one does not mention the Divine Name over spitting — Gemara; and Turei Zahav wrote: and he said to him — from what they practice spitting first and we bow, for everyone knows the spitting is to disgrace the idols of idolaters, and it is honor of Heaven that he mentions afterward; and Rashi explained that specifically he whispers after spitting, but the Tur wrote it is not specifically so, rather even spitting after he mentioned.`,
+  '8#ב': `Foreign language. And Bach forbids also a foreign language like the holy language; and Shach disagrees with him and wrote that certainly ab initio one should be careful in everything possible, as the Rav also wrote; and where it is not possible — it is not possible — see there.`,
+};
+
+export const FILES = [['siman_179/baer-heitev/part-001.txt', 'baer-heitev']];

@@ -1,0 +1,8 @@
+/** Editorial translations — siman 185 / pitchei-teshuva (1 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `They passed. Avodat HaGershuni and Taz wrote even if accustomed to wear whites on 6th day for her seeing and now cannot — only if she immersed she needed wear whites on 5th day and she says she immersed — believed since possible thus; see there. Woman suspected of niddah prohibition if committed adultery during niddah not called suspected to husband — believed even at her veset time; and if she caused husband stumble in niddah prohibition — again not believed to say at veset time "I am pure" until she repents; but not at veset time likewise to say she immersed — believed. In winter days immersion is trouble. Chokhmat Adam. Possibly where they give payment for immersion — not believed as Shach wrote above siman 2 s.k. 14; see Noda Biyhudah second EH siman 26.`,
+};
+
+export const FILES = [
+  ['siman_185/pitchei-teshuva/part-001.txt', 'pitchei-teshuva'],
+];

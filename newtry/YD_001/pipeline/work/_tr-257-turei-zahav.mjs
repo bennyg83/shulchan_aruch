@@ -1,0 +1,8 @@
+/** Editorial translations — siman 257 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '6#_': `But not after they removed him. Maharach wrote that in the corrected Mordekhai of the Gaon it is written "even after they removed him", and so I saw in Mahari Weil siman 124 who copied thus the words of Mordekhai; and it seems from his words that he built on this a foundation for practical halakhah. Nevertheless one must reconcile the versions, for certainly completely after removal they are not believed since they did not say it at the time of removal — and this comes to limit according to the version of Shulchan Arukh; and the version of Mahari Weil refers when they said so immediately after removal — and so it seems to rule from reasoning.`,
+};
+
+export const FILES = [
+  ['siman_257/turei-zahav/part-001.txt', 'turei-zahav'],
+];

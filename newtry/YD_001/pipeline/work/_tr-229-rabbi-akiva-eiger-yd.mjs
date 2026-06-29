@@ -1,0 +1,8 @@
+/** Editorial translations — siman 229 / rabbi-akiva-eiger-yd (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 229 seif 3) And released — all are released with one hundred (chapter 2 halachah 4 of Laws of Nazir) he wrote that the other one who attached his vow to the first cannot release alone the first vow; and see above (siman 228 in Shach s.k. 10); however to join with two others — there is room to doubt if he is worse than interested, since through this his vow becomes void — he is included, he does not invalidate — see there.`,
+};
+
+export const FILES = [
+  ['siman_229/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd'],
+];

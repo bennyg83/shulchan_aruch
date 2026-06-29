@@ -1,0 +1,6 @@
+/** Editorial translations — siman 152 / siftei-kohen (1 block) */
+export const TRANSLATIONS = {
+  '2#_': `Unless he is an important person. The Rif and Rambam omitted the prohibition of an important person; Beit Chadash wrote that they hold even an important person is permitted, and he strained to reconcile the Gemara to their view. It appears to me they did not need to write it because it is an obvious matter that an important person distances himself in whatever he can. So too must be said according to the Rambam and Tur in siman 113, who did not write what is in the Gemara that an important person is forbidden on Shabbat even in something eaten as it is alive. So too must be said the view of the Rambam and mechaber above siman 142 s.k., and likewise below siman 195 regarding permission to mix the cup with his niddah wife through a change — Beit Yosef wrote that the Rambam holds it is only for a great man, and therefore he did not write it; see there. Similarly regarding good people.`,
+};
+
+export const FILES = [['siman_152/siftei-kohen/part-001.txt', 'siftei-kohen']];

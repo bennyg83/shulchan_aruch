@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+/** Apply editorial translation modules for siman 125 */
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const OUT = path.join(ROOT, 'output');
+const BLOCK = '**** YD001 SOURCE BLOCK ****';
+const ENG = '**** ENGLISH ****';
+const END = '**** END BLOCK ****';
+
+const modules = process.argv.slice(2);
+if (!modules.length) {
+  console.error('Usage: node _patch-siman-125-editorial.mjs _tr-125-baer-heitev.mjs ...');
+  process.exit(1);
+}
+
+function patchFile(rel, slug, T) {
+  const fp = path.join(OUT, rel);
+  const s = fs.readFileSync(fp, 'utf8');
+  const applied = new Set();
+  const parts = s.split(BLOCK);
+  const out = parts.map((part, i) => {
+    if (i === 0) return part;
+    const slugM = part.match(/^\s*slug: (.+)$/m);
+    const seifM = part.match(/^\s*seif: (.+)$/m);
+    const markerM = part.match(/^\s*marker: (.+)$/m);
+    if (!slugM || slugM[1].trim() !== slug) return BLOCK + part;
+    const seif = seifM[1].trim();
+    const marker = markerM ? markerM[1].trim() : 'main';
+    const key = `${seif}#${marker}`;
+    if (!(key in T)) return BLOCK + part;
+    const enStart = part.indexOf(ENG);
+    const enEnd = part.indexOf(END);
+    if (enStart < 0 || enEnd < 0) throw new Error(`ENGLISH/END missing: ${rel} ${key}`);
+    applied.add(key);
+    return BLOCK + part.slice(0, enStart + ENG.length + 1) + T[key] + '\n' + END + part.slice(enEnd + END.length);
+  });
+  fs.writeFileSync(fp, out.join(''), 'utf8');
+  console.log(`OK ${rel} (${applied.size} blocks)`);
+  return applied.size;
+}
+
+let total = 0;
+for (const modName of modules) {
+  const modPath = path.join(path.dirname(fileURLToPath(import.meta.url)), modName);
+  const mod = await import(pathToFileURL(modPath).href);
+  for (const [rel, slug] of mod.FILES) {
+    total += patchFile(rel, slug, mod.TRANSLATIONS);
+  }
+}
+console.log(`[DONE] ${total} blocks`);

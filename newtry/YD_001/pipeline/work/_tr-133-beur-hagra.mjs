@@ -1,0 +1,8 @@
+/** Editorial translations — siman 133 / beur-hagra (3 blocks) */
+export const TRANSLATIONS = {
+  '1#ה': `He gave him fruits, etc., or, etc. Gemara there; and Tosafot there s.v. ati lezavulei, and you might ask, etc.; and Ran answered that Rabbenu Yitzchak permits coins only be-di'eved — as written siman 146 seif 2 — and one does not plant, etc.; and that which it says "he grinds," etc., is because it goes to waste and there is doubt whether they fertilize or do not fertilize; and if you say they fertilize, it is coins and permitted; but here they certainly fertilize and it is forbidden le-chatchilah; and this is the girsa of Tosafot there "ati lezavulei"; and therefore the Rabbis apply only to scattering to the wind, but casting into the sea they do not apply; and this is what it means "he takes them," etc., and with money he grinds, etc.`,
+  '3#א': `(Likut) That if it were less, etc. Avodat HaGolah — there too, were it not for the final blow, there would be no wage at all; rather because the law of wages does not apply in less than a perutah. Rashba and Ran (end).`,
+  '3#ב': `And le-chatchilah, etc. — he wants its existence — as written seif 3; and even for free — as in Tosefta "one who hires a worker"; and at evening he said to him: take the jugs to such-and-such place — even though the Jew is not permitted to do so, his hire is permitted; and at evening it is mere benefit in the world; and Rashi siman 65 seif 1 s.v. ve-le'etotei, etc.; and in Yerushalmi cited there he would do with him, etc.; and this is what is written in Sedei Chemed: it was, etc., not, etc., even, etc.`,
+};
+
+export const FILES = [['siman_133/beur-hagra/part-001.txt', 'beur-hagra']];

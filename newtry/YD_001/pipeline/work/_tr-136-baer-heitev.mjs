@@ -1,0 +1,6 @@
+/** Editorial translations — siman 136 / baer-heitev (1 block) */
+export const TRANSLATIONS = {
+  '1#ב': `And he sent them. Even if it did not even stay in the hands of the gentile but only briefly — Bach wrote that a Jew can leave them overnight and afterward they are permitted even lechatchilah, for nevertheless it is for spoilage — end of his words; and this is astonishing, for specifically regarding pots and bowls that stood in the house of the gentile we say that one leaves them overnight, but regarding wine vessels nosen ta'am lefegam does not apply even if one leaves them many days, as below siman 137 — end of Shach's words. And Taz wrote that earthenware vessels are not included in this — if its initial use is in the hands of a gentile, pouring is required even though one does not put it for permanent use; whereas regarding this one that was initially Israel's, one does not need anything except as explained siman 135 seif 4. He also ruled that even be'di'eved one must forbid in all vessels — not like Rama — and see above siman 122 seif 9.`,
+};
+
+export const FILES = [['siman_136/baer-heitev/part-001.txt', 'baer-heitev']];

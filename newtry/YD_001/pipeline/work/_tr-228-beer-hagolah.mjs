@@ -1,0 +1,36 @@
+/** Editorial translations — siman 228 / beer-hagolah (29 blocks) */
+export const TRANSLATIONS = {
+  '1#א': `Sugya of Rava — Rabbi Nachman: halachah — open with regret, etc. Nedarim page 22 side 2; likewise ruled Rosh there and Rambam chapter 6.`,
+  '1#ה': `There — and Rosh in his rulings — from what we say in Bekhorot page 37 side 1: e.g. who said? Rabbi Nachman said e.g. I — and who in these generations is learned and wise like Rabbi Nachman?`,
+  '10#ב': `Mishnah there page 64 side 2 — and per Abaye's reason there in Gemara: general rule halachah follows Rava — stated only when they dispute regarding law, not where they dispute reason of matter and his reason is reasonable.`,
+  '10#ג': `Beit Yosef from Sifrei: if for one mitzvah not so severe for people — as Rosh and Ran wrote.`,
+  '11#ב': `Yerushalmi — they wrote it there; Rosh and Ran.`,
+  '11#ג': `There in Mishnah and explained there in Gemara side 2: since he was brazen before him to vow them — also at time of regret if no complete regret he will be brazen.`,
+  '15#א': `Ribash part 1 siman 36 from mentioned Yerushalmi.`,
+  '16#_': `Tur in name of Rambam chapter 6 Laws of Oaths from incident of Ravina who had vow to his wife, etc. Nedarim page 8 side 2 — thus proven in Yerushalmi since they ask chapter 10 of Nedarim what about release via interpreter, etc. and conclude permitted via interpreter because master of matter is also there; likewise Rashba in responsum and incident of Jephthah's daughter proves; likewise Ribash in name of Raah and Hagahot Maimoniyot on Rambam and Hagahot Mordekhai on Kiddushin.`,
+  '18#_': `Responsum Ramban siman 201 and responsum Rashba.`,
+  '2#א': `Gemara conclusion from incident of Ravina there page 8 side 2.`,
+  '20#א': `Baraita Nedarim page 65 side 1 and in Mishnah commentary I wrote with law conclusion and some other laws attached that I compiled here in exile and called it Kli Golah — may God merit me to complete it. I proved one word was omitted in copy of this law — should read: for that one who vowed per his intent and knowledge — meaning and will, etc. since he vowed for him for favor he received from him; as Rambam wrote in Laws of Oaths chapter 7 and Beit Yosef in this siman per Rambam and per Rosh and in name of Raam and Raavad; likewise Tosafot there in name of Rabbeinu Tam, Rashba, Mordekhai, Tur, Ran, Semag, Maharik in responsum and many poskim except Ramban; and for one answer in Tosafot Gittin as cited below; likewise proven from Mechaber's words who wrote but if of himself, etc. without his knowledge — implies need not his intent and will but must inform him as Yerushalmi says due to suspicion as Rambam and other poskim wrote; I now saw in composition of Rav Taz who wrote what Shulchan Aruch says unless he informed him, etc. means his will in this — in my view Mechaber did not come to be terse but to explain; even though Rema wrote both laws in name of some say — nevertheless matter is necessary as I wrote in my view and as Rav Taz also wrote.`,
+  '20#ד': `Raavad and Rashba in responsum and Maharik siman 52.`,
+  '20#ה': `Ran in responsum from words of Tosafot Gittin page 35 side 2; likewise Rashba in responsum.`,
+  '20#ו': `There in Tosafot for latter answer; likewise in responsa to Rambam simanim 248, 249, Ran; per Rashba who said in Yerushalmi due to suspicion.`,
+  '23#_': `There from Tosafot, Rosh, Ran, Mordekhai on sugya of Amemar — I cited above beginning seif 21; Semag in name of Geonim; Rashba in responsum; likewise appears from Rambam's words.`,
+  '25#ד': `Ran in responsum; likewise Rashba in responsum.`,
+  '25#ה': `There in Rashba's responsum in name of Raah.`,
+  '26#_': `Rashba responsum — concludes there community release cuts for her like husband's annulment as below siman 234; Maharik wrote in root 51 (and below 229 seif 2).`,
+  '3#ג': `Sugya of Abaye there page 76 side 1.`,
+  '31#_': `Rosh general 5 siman 4 and general 7 siman 5; Ribash part 1 siman 73.`,
+  '32#_': `Ran in responsum; likewise Rashba in responsum.`,
+  '33#_': `Semag siman 238 in name of ruling of Gaon and responsum of Geonim; likewise seen in responsa Rabbi Yosef Tuv Elem and Mordekhai in name of responsum Rashi and responsum Ramban siman 280 and many.`,
+  '35#_': `Rosh in responsum general 5 siman 4 from Midrash Yelamdenu — thus was oath of Joshua and oath of concubine in Gibeah and oath of Saul — decree and excommunication.`,
+  '41#א': `Rashba responsum (and Ribash per Rosh and Ramban siman 259 and end of Sefer Kol Bo).`,
+  '41#ב': `Per Ribash part 1 siman 99 and part 2 siman 158; Rav Beit Yosef brought them in this siman.`,
+  '42#א': `Rashba in responsum; likewise written in responsa to Ramban siman 275.`,
+  '48#_': `Rashba responsum (and duplicated Choshen Mishpat siman 73 seif 9): because in vows we follow people's language and it is biblical doubt — we rule stringently.`,
+  '50#_': `Ribash part 2 siman 145.`,
+  '7#ד': `From incident of one who came before Rabbah bar Rav Huna, etc. there page 21 side 2; Rosh wrote there this opening is not nolad because it is common that relatives and friends of a person are upset over what he vowed.`,
+};
+
+export const FILES = [
+  ['siman_228/beer-hagolah/part-001.txt', 'beer-hagolah'],
+];

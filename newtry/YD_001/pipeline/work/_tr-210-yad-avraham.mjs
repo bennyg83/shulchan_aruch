@@ -1,0 +1,6 @@
+/** Editorial translations — siman 210 / yad-avraham (1 block) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 211 seif 3.) One who vows and retracts, etc., within kedei dibbur of his vow. See Shach s.k. 7 — within twenty-four of his vow but not within twenty-four of their protest; and see teshuvah of Rashba brought in Choshen Mishpat siman 80 — not regarding twenty-four of his fellow.`,
+};
+
+export const FILES = [['siman_210/yad-avraham/part-001.txt', 'yad-avraham']];

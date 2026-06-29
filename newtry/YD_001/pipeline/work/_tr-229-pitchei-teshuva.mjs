@@ -1,0 +1,8 @@
+/** Editorial translations — siman 229 / pitchei-teshuva (1 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `That we do not say, etc. Chavat Yair wrote in his responsum siman 15: one who vowed to fast Mondays and Thursdays continuously for a year, and because of coercion or simchat mitzvah or distress that occurred on one day — he refrained from releasing his vow; although the whole was released, nevertheless he did not lose his reward retroactively; and also for the future he can fast as his custom on his original acceptance — see there in omissions who wrote that thus the custom spread; and the reason appears he holds like one opinion in siman 229 that we do not say a vow that was released, etc., except when released through an opening; but through regret — no; and likewise in responsum Divrei Rivavot; and releasing fast vows has no matter of error, only if he had known it would happen he would have stipulated at time of vow except in such a case — only he regrets he did not release. See there further; and at end of siman 129 practically one should be stringent to return and accept for the future.`,
+};
+
+export const FILES = [
+  ['siman_229/pitchei-teshuva/part-001.txt', 'pitchei-teshuva'],
+];

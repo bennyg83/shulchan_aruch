@@ -1,0 +1,6 @@
+/** Editorial translations — siman 134 / rabbi-akiva-eiger-yd (1 block) */
+export const TRANSLATIONS = {
+  '3#_': `(There in Hagah) "And they put in it wine or blood to whiten it" — it implies that blood is nat-laf; and it is difficult for me, for this is concealed from Tosafot Chullin (daf 96b) s.v. "afilu b'sahad," in what they wrote "and nevertheless we do not say that salt that was forbidden due to blood," etc.; and likewise Ran in the sugya of a drop of milk also labored to resolve this difficulty of Tosafot — behold they all adopted that it is fit to say the salt became neveilah and forbids the meat; and likewise it is explained in Hagah (above siman 105) and in Pri Megadim there — and it requires study.`,
+};
+
+export const FILES = [['siman_134/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd']];

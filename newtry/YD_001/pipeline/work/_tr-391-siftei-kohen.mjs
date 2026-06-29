@@ -1,0 +1,11 @@
+/** siman 391 siftei-kohen — 8 blocks */
+export const T = {
+  '2#א': `Companionship joy, etc. — friends make with each other: they eat and drink together today and return and eat with each other tomorrow.`,
+  '2#ב': `Twelve months — and even if the year is leap, twelve months suffice; so poskim wrote.`,
+  '2#ג': `But within thirty it is forbidden — implies even for other relatives; so Atzei Chayyim; so explicitly Ra'avad brought in Sefer Torat HaAdam, source of this law; see there; and so Ra'avad's language in Rosh; and likewise regarding greeting, above siman 385; and regarding marriage below siman 392 — no distinction in thirty between father and mother and other relatives; Bach did not explain thus; and in my humble opinion as written.`,
+  '3#א': `And he may wear some Shabbat garments, etc. — Atzei Chayyim omitted the word "some"; and perhaps the Rav also speaks for a doctor: he may wear all Shabbat garments; so is the custom.`,
+  '3#ב': `Provided it is after thirty, etc. — here too Bach explained one may permit a mourner for other relatives within thirty, like entry of orphan and orphaness above; the Rav's language does not imply so; rather it seems as in s.k. 3.`,
+  '3#ג': `Provided he is not in a place of joy — such as in another house; so Atzei Chayyim.`,
+  '3#ד': `To eat at that fish meal, etc. — Bach wrote: however on the second night, even though in Krakow community they are accustomed not to bless "shehasimchah beme'ono," the mourner may not eat at that meal — I speak for day two, since he already had obligatory relations on the second night per their custom; therefore they make a fish meal on day two because of fish blessing, as in ch. 1 of Ketubot; therefore it is not called a joy meal and they do not say "asher bara" nor "shehasimchah beme'ono"; but on the second night before obligatory relations, when they bless "asher bara," the marriage is not finished; and that they are not accustomed to say "shehasimchah beme'ono" is because men and women gather there, etc.; see there.`,
+  '3#ה': `Some say forbidden to eat, etc. — Atzei Zahav wrote; and I have not seen practiced thus; and I say: an uncommon matter has no applicable custom, as written above siman 197; "we have not seen" is not proof; and I have seen practiced to forbid; also below siman 402 the Rav wrote anonymously to forbid.`,
+};

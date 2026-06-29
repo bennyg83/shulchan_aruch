@@ -1,0 +1,10 @@
+/** Editorial translations — siman 156 / beur-hagra (3 blocks) */
+export const TRANSLATIONS = {
+  '2#ד': `(Extract) And some say, etc. So too Ran — that which appears in chapter 2 of Avodah Zarah and in chapter 23 of Shabbat that it is permitted with a mirror means in a place where men are accustomed to look in a mirror, for there is no issue of lo yilbash; and Yerushalmi and Tosefta deal with a place where only women are accustomed — lo yilbash applies properly; and similarly they explain that Nazir passage regarding shaving the pubic area and in bathhouse, as stated siman 182 — see there. Nevertheless he wrote that companions refrain in every place, and in such a case they needed to permit R. Gamliel there in Yerushalmi and Tosefta; and similarly shaving in bathhouse as we say in Nazir there and siman 182 seif 1 in Hagah only, etc. And his words require study — why did he not establish it in a place where only women are accustomed, when we say there explicitly that a man is forbidden even on a weekday — evidently from the law it is forbidden; and on account of this Beit Rabbi permitted, etc.; and they brought Tosafot of Avodah Zarah there; and also his words do not seem [right] in what he distinguished regarding a place of custom that we say in Shabbat 50b a person drags, etc., and if for the sake of, etc.; and even one who disagrees there — only because of kavod Kono; but in such a case certainly not; and we say (Shabbat 94b, Makot 20b) to collect for daughters, etc.`,
+  '2#ה': `And even, etc. SeMaG and Hagahot Maimoniyot and Hagahot Ashri and likewise in Tosafot of Avodah Zarah cited — or because of eye ailment it is permitted, etc.; and likewise in SeMaG there.`,
+  '2#ו': `Or that he does so, etc. Darkei Moshe in the name of R. Zelkel from that which is in Shabbat 50b and Tosafot there s.v. bishvil, etc.`,
+};
+
+export const FILES = [
+  ['siman_156/beur-hagra/part-001.txt', 'beur-hagra'],
+];

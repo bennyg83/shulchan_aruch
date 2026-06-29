@@ -1,0 +1,9 @@
+/** Editorial translations — siman 166 / turei-zahav (2 blocks) */
+export const TRANSLATIONS = {
+  '1#ב': `And he shall not rent from him for less. Rashi explained: this law is specifically house and courtyard, for there is no loss; unlike vineyard siman 173 where sometimes there is loss and nevertheless he deducts fixed amount per year; Tosafot disagree and hold this law applies to all matters; essence of dispute: loan on house was like purchase and permitted to deduct; but here loan not on his house — explained siman 172 for law.`,
+  '1#ג': `And in courtyard standing for rent is avak ribbit for all. Yes, it should be so — seems to plain understanding. And it seems there is still omission and should read: and nevertheless he must give him rent for all he did not say dwell in my courtyard free; however if after he lent him he said dwell in my courtyard free, even though it stands for rent — only avak ribbit — so it seems to me the copyist erred from first avak ribbit box to second and skipped what Rama wrote between — such error is common in Darkei Moshe; and it is explained in Beit Yosef in name of students of Rashba: all he did not exempt explicitly must give rent, for because he did transgression his power is not weakened. Hence wonder what Rama wrote CM siman 363: one who says to his fellow dwell in my courtyard — meaning as saying free; and here we say must be explicit, as Beit Yosef wrote dwelling unspecified implies as people dwell for rent; and I already wrote there siman 246 seif 17 we do not hold like this ruling in siman 363.`,
+};
+
+export const FILES = [
+  ['siman_166/turei-zahav/part-001.txt', 'turei-zahav'],
+];

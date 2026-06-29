@@ -1,0 +1,9 @@
+/** Editorial translations — siman 259 / turei-zahav (2 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `But not from Torah study to the synagogue. For we raise in holiness and do not lower; and even though the Rosh holds like Rabbenu Tam that the townspeople can change even for optional matters as stated in siman 256 — nevertheless he wrote there that specifically regarding a fixed matter we say thus, as I copied in siman 256 seif 4 in the name of the Tur; and see what is written in seif 3.`,
+  '3#ב': `They cannot change it for optional matters. And it should read: also regarding charities that were donated to the house of eternity mentioned in seif 2 — it should be that the owners were not lost from them; for otherwise what is different from here regarding "were lost" that they can change for optional matters? And one can answer from what the Tur wrote in siman 256 seif 4 that I copied there — to distinguish between a fixed matter and a chance occurrence, etc. And why is it permitted to change here if it was lost — behold this is not a fixed matter? One can answer: specifically regarding money belonging to the poor he distinguished thus — when it is by chance we say those poor acquired it in addition to what they have anyway, and "we are the hand of the poor" — therefore we do not cause them loss; unlike one who consecrates a vessel where there is no one who will acquire that thing — therefore everything depends on whether it was lost or not lost, and even by chance as stated. And I saw in Mahari"k shoresh 5 that he noticed this difficulty; and his answer there does not settle for me at all; and what I wrote is clear in my humble opinion and accords with the words of Mahari"v that I brought siman 256 seif 4.`,
+};
+
+export const FILES = [
+  ['siman_259/turei-zahav/part-001.txt', 'turei-zahav'],
+];

@@ -1,0 +1,8 @@
+/** Editorial translations — siman 277 / nekudot-hakesef (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 277, Taz s.k. 1) And Magen Avraham z"l wrote from here, etc. He understood that what Mechaber wrote "one may learn" also refers to our Gemara in Eruvin that he cited above; and accordingly one need not ask why Shach wrote what he wrote and that there was no need to learn this from the Yerushalmi, etc.`,
+};
+
+export const FILES = [
+  ['siman_277/nekudot-hakesef/part-001.txt', 'nekudot-hakesef'],
+];

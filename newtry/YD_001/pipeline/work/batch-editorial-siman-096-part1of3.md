@@ -1,0 +1,734 @@
+# Editorial retranslation — Siman 96 (part 1/3)
+
+Generated: 2026-06-16T15:56:45.717Z
+
+**Mandatory dictionary:** `C:/Users/binya/Documents/Shulchan aruch/full_dictionary (1).md` — consult for every term.
+
+**Disregard existing English.** Translate fresh from Hebrew only. Edit **only** `**** ENGLISH ****`.
+
+---
+
+# YD001 editorial re-translation (Cursor / agent)
+
+**Authoritative dictionary:** `full_dictionary (1).md` at the **repository root**.  
+Consult it for every halachic term, abbreviation, and commentator name.
+
+**Source of truth:** `newtry/YD_001/output/siman_NNN/<commentary>/part-*.txt`.  
+**Commentary order:** `translation/COMMENTARIES.md`.
+
+**Core rule:** Hebrew is authoritative. Translate fresh from Hebrew; do not patch bad English in place.
+
+---
+
+## YD-specific terminology (examples)
+
+Use the dictionary; these recur in Yoreh De'ah:
+
+- **issur** / **heter** — forbidden / permitted (not generic "prohibited" if dictionary says issur)
+- **vadai** / **safek** — definite / doubtful
+- **ta'am** / **noten ta'am** — taste / imparting taste (basar b'chalav, ta'aruvos)
+- **nevelah**, **treifah**, **shechitah**, **melichah**, **nikkur**
+- **Shach** → Siftei Kohen; **Taz** → Turei Zahav (slug folders `siftei-kohen`, `turei-zahav`)
+
+---
+
+## Translation rules (every block)
+
+Same as OC: completeness, no additions, dictionary halachic terms, expand abbreviations, `{Rama: …}` for הגה, full Aramaic, logical connectives per dictionary Part 5.
+
+---
+
+## File format
+
+```
+**** YD001 SOURCE BLOCK ****
+slug: siftei-kohen
+seif: 2
+marker: א
+**** HEBREW ****
+[Hebrew — may contain HTML]
+**** ENGLISH ****
+[REPLACE THIS ONLY]
+**** END BLOCK ****
+```
+
+---
+
+## Per-file workflow
+
+1. Read `output/siman_NNN/<slug>/part-*.txt`.
+2. Translate each block from Hebrew.
+3. `npm run apply:dictionary -- --root output/siman_NNN`
+4. `npm run pipeline:validate -- --root output/siman_NNN`
+
+---
+
+## Pilot scope (Phase C)
+
+Simanim **1–5** first, then stress simanim **87** (melicha) and **115** (basar b'chalav) per `YD_YOREH_DEAH_PLAN.md`.
+
+
+---
+
+## Blocks in this batch (36 of 106 remaining in scope)
+
+### 1. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `א`
+
+- Quality: **error** — hebrew_in_english
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: א
+**** HEBREW ****
+<b>סילקא. </b> פי' תרדין ואז אע"פ שהוא מקונח ונקי מ"מ אגב חורפיה דצנון וסילקא ודוחקא דסכינא פלט סכין גוף הטעם שבו והוי כמו איסור בעין ול"ד לשאר נ"ט בר נ"ט ואם אינו מקונח אף שאינו ב"י מ"מ מסתמא השמנונית קרוש על פניו. ש"ך. וכתב הט"ז זהו כסברת מהר"ם בטור דלא מקרי דבר חריף ליתן טעם לשבח אפי' אינו ב"י אלא קורט של חלתית אבל שאר דברים חריפים אין דינם כן ע"כ כתב כאן שאינו אוסר אלא ב"י או שאינו מקונח וא"ל מ"ש כאן דצריך נטילת מקום ובסימן צ"ד ס"ז בבשר רותח שחתך בסכין חולבת שאינו ב"י דדי בקליפה משום שומן שבסכין דהתם גבי קליפה עכ"פ יש ס' נגדו והוא רותח ומוליך הטעם בכולו משא"כ כאן דאין מתפשט כלל יותר מכדי נטילה ומו"ח ז"ל הקשה מבשר רותח דאמאי א"צ שם ס' כלל אלא קליפה ואני כבר כתבתי שם לפע"ד דגם שם צריך ס' והוא פשוט עכ"ל ועי' בסימן צ"ד מ"ש בשם הש"ך:
+**** ENGLISH ****
+סילקא.  פי' תרדין ואז אon the surface of שהוא well scraped וclean nevertheless אגב its sharpness דradish וסילקא וforcedא דסכינא פלט סכין גוף the taste שבו והוי כמו איסור visible וsome say לשאר noten taam bar noten taam ואם אינו well scraped even שאינו ben yomo nevertheless מסתמא הgrease קרוש על פניו. ש"ך. וwrote Taz זהו כסברת מהר"ם בטור דלא מקרי דבר sharp ליתן טעם for improvement even אינו ben yomo אלא קורט של חלתית אבל שאר דברים חריפים אין דינם כן until here wrote כאן שאינו אוסר אלא ben yomo or thatאינו well scraped וand some say what he wrote כאן דצריך נטילת מקום ובsiman צ"ד s.k. 7 בmeat רותח שחתך בסכין חולבת שאינו ben yomo דדי בshell because שומן שבסכין דהתם גבי shell עכ"פ יש sixty נגדו והוא רותח ומוליך the taste בכולו משif so כאן דאין מתפשט כלל יותר מthe measure of נטילה וMaharach and these are his words challenged מmeat רותח דאמאי א"צ שם sixty כלל אלא shell ואני כבר I wrote שם לפע"ד דגם שם צריך sixty והוא plain end of his words ועי' בsiman צ"ד what he wrote in name of Shach:
+**** END BLOCK ****
+```
+
+### 2. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ב
+**** HEBREW ****
+<b>שיטעמנו. </b> וכתב בת"ח דאין אנו בקיאין עכשיו בטעימה זו והש"ך כתב דהיינו לכתחילה אבל בדיעבד אם טעם ישראל ולא היה בו טעם בשר ונתבשל בחלב מותר דדוקא אטעימת עובד כוכבים לא נהגינן לסמוך אפילו בדיעבד משא"כ אטעימת ישראל <small>(ופר"ח כתב אפילו לכתחילה)</small>:
+**** ENGLISH ****
+שיטעמנו.  וwrote Turei Chayim דאין אנו בקיאין now בטעימה זו וShach wrote that is l'chatchila אבל b'dieved אם טעם ישראל ולא היה בו טעם meat וwas cooked בחלב permitted דspecifically אטעימת non-Jew לא נהגינן לסמוך אפילו b'dieved משif so אטעימת ישראל (וPeri Chadash wrote אפילו l'chatchila)}:
+**** END BLOCK ****
+```
+
+### 3. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ג
+**** HEBREW ****
+<b>מקונח. </b> הטעם דס"ל דצנון וכל דבר חריף דמי לקורט של חלתית ואוסר אפי' אינו ב"י ולא דמי לדגים שעלו בקערה דמותר מכח נותן טעם בר נ"ט דשאני הכא בסכין דפעמים שהשמנונית נקרש עליו ואינו ניכר והוי נ"ט מהממש ועוד משום חורפיה דצונן ואגב דוחקא דסכינא פלט טפי מדגים הרותחין ומזה נ"ל בתמכא שקורין קרי"ן שנמלל תוך קערה חולבת נקיה שמותר לאכלו עם בשר כי אין כאן דוחקא דסכינא ולא שמנונית עכ"ל הט"ז וכתב הש"ך דהמנהג כדעת היש אומרים ואין חילוק בין ב"י לשאינו ב"י מיהו ודאי בשאר דברים שאינם חריפים דין סכין כשאר כלים שאם אינו ב"י והוא נקי מותר:
+**** ENGLISH ****
+well scraped.  the taste דס"ל דradish וכל דבר sharp דמי לקורט של חלתית ואוסר even אינו ben yomo ולא דמי לfish שcame up בbowl דpermitted מכח noten taam בר נ"ט דthis case is different הכא בסכין דפעמים שהgrease נקרש עליו ואינו ניכר והוי נ"ט מהממש ועוד because its sharpness דcold ואגב forcedא דסכינא פלט טפי מfish הboiling ומזה it appears to me בתמכא שקורין קרי"ן שנמלל תוך bowl חולבת cleanה שpermitted to eat them עם meat כי אין כאן forcedא דסכינא ולא grease end of his words Taz וwrote Shach דהcustom כדעת היש אומרים ואין חילוק בין ben yomo לשאינו ben yomo מיהו certainly in other דברים שאינם חריפים דין סכין כשאר כלים שאם אינו ben yomo והוא clean permitted:
+**** END BLOCK ****
+```
+
+### 4. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ד
+**** HEBREW ****
+<b>שנגע. </b> כתב הש"ך היינו כשידוע בבירור עד כמה נגע אבל מן הסתם דרך לחתוך בכל הסכין וע"ל סימן צ"ד והט"ז כתב מאחר שהוא מילתא דלא רמיא עליה דאינש לא מידכר ואינו יודע בבירור באיזה מקום נגע ע"כ צריך ס' נגד כל הלהב חוץ מהקתא <small>(ואם יש ס' אין צריך להסיר הבצלים כיון שלא היה שם איסור עליהם ממילא כשהבצלים הם בתוך הקדרה נעשו כשאר מילי שבקדרה. אבל אם נחתכו הבצלים בסכין של איסור אף אם יש ס' צריך להסיר הבצלים. ומצאתי בת' נ"ש סימן ס"א הא דבצל הוי דבר חריף היינו אם נתנוהו חי לתוך התבשיל אבל אם בשלוהו תחלה לבדו ואח"כ נתנוהו לתוך התבשיל בטיל חריפותייהו ומביא ראיה מהמשנה דפ"י דתרומות ע"ש)</small> <small>(ומאחר דתולה הטעם משום דהוי מילתא דלא רמיא וכו' משמע אפי' אומר ברי לי לא מהני וע"ל סי' א' ס"ג)</small> וכ' הש"ך והא דלא סגי בס' נגד הנטילה משום דאינו יודע כמה היה לו ליטול א"נ מיירי כשהמקום שנגע בסכין הוא פחות מכדי נטילה:
+**** ENGLISH ****
+שנגע.  wrote Shach that is כthat it is known clearly עד כמה נגע אבל מן הstam by way of לחתוך בכל הסכין וע"ל siman צ"ד וTaz wrote מאחר שהוא מילתא דלא רמיא עליה דאינש לא מידכר ואינו יודע clearly באיזה מקום נגע until here צריך sixty נגד כל הלהב חוץ מהקתא (ואם יש sixty אין צריך להסיר הבצלים כיון שלא היה שם איסור עליהם automatically כשהבצלים הם בתוך הpot נעשו כשאר מילי שבpot. אבל אם נחתכו הבצלים בסכין של איסור even אם יש sixty צריך להסיר הבצלים. וI found בת' נ"ש siman ס"א הא דבצל הוי דבר sharp that is אם they placedהו חי לתוך the dish אבל אם בשלוהו תחלה לבדו וafterward they placedהו לתוך the dish nullified חריפותייהו וbrings proof מהמשנה דפ"י דתרומות see there)} (ומאחר דתולה the taste becauseהוי מילתא דלא רמיא etc. it appears even אומר it is clear to me לא מהני וע"ל סי' א' seif 3)} וwrote Shach והא דלא סגי בsixty נגד הנטילה becauseאינו יודע כמה היה לו ליטול א"נ deals with כשהמקום שנגע בסכין הוא פחות מthe measure of נטילה:
+**** END BLOCK ****
+```
+
+### 5. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ה`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%94`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ה
+**** HEBREW ****
+<b>הצנון. </b> הטעם איתא בש"ך דכל חתיכה וחתיכה נאסרה כדי נטילה מיהו היינו דווקא כשהצנון קטן מהסכין או שאין הסכין לפנינו לשער בו אבל כשהסכין קטן מהצנון והוא לפנינו פשיטא דא"צ ס' אלא כנגד הסכין מיהו בסכין של איסור לדידן דקי"ל חנ"נ בכל איסורים א"כ כל חתיכה וחתיכה נ"נ כדי נטילה וכשחותכו דק דק צריך לשער נגד כל הצנון מיהו ודאי היכא שבשלו צנון שלם שנחתך בסכין של איסור אם יש בתבשיל ס' נגד הנטילה שרי ודלא כמהר"ם מלובלין שכתב דאע"ג דמתחילה לא נ"נ רק הנטילה מ"מ מיד כשנותנו בתבשיל נעשה כל הנצון נבלה דאותה הנטילה הוי איסור דבוק אם אין בצנון עצמו ס' נגד הנטילה עכ"ל אבל זה אינו דכיון דאין הנטילה אסורה מצד עצמה וגם אין האיסור ניכר ומובדל וגם אינו נאסר רק כדי נטילה לא שייך למימר ביה איסור דבוק וכ"פ הב"ח בסימן כ"ב ס"ו וכתב בט"ז דבזה אין חילוק בין בב"ח ובין סכין של איסור דבשניהם אם חתך במקום א' די בכדי נטילה ואם חתכו דק דק נאסר כולו אלא לענין בישול שמבשלים אח"כ יש חילוק דבשל חלב לבשר צריך ס' נגד הנגיעה בסכין דהיינו הלהב בין שחתך במקום א' בין דק דק אבל בסכין של איסור וחתך דק דק צריך ס' נגד כל הצנון ובחתך במקום א' צריך ס' נגד הנטילה אלא דצ"ע מ"ש הרמ"א דאם חתך דק דק צריך לשער ס' נגד כל הצנון דזה פשוט דקאי אסכין של עובד כוכבים וקשה תרתי על רמ"א חדא דהיה לו לכתוב דבר זה בשם י"א דלדעה קמייתא אף בזה סגי בס' נגד מקום הסכין דלא ס"ל חנ"נ בשאר איסורים ותו דה"ל לכתוב דאם חתך במקום א' צריך ס' נגד הנטילה כיון דבסכין של איסור מיירי וכתב עוד ונ"ל פשוט דאם יש ס' א"צ להסיר הבצלים כיון שלא היה שם איסור עליהן ול"ד למ"ש בסימן ק"ו דחתיכה שנאסרה מבליעת איסור נשארה אסורה לעולם דשאני התם כיון שנאסרה א"א לה להחזיר להיתירה משא"כ אם לא נבלע רק היתר כמו כאן שפיר אמרינן דהותרו הבצלים לגמרי אבל אם נחתכו הבצלים בסכין של איסור נ"נ ואף אם יש ס' צריך להסיר הבצלים זה נראה ברור ורבים אינם מדקדקים בזה וע"ל סימן צ"ח ס"ד עכ"ל:
+**** ENGLISH ****
+הradish.  the taste איתא בש"ך דכל חתיכה וחתיכה נאסרה the measure of נטילה מיהו that is דווקא כשהradish קטן מהסכין or thatאין הסכין לפנינו לשער בו אבל כשהסכין קטן מהradish והוא לפנינו פשיטא דא"צ sixty אלא כנגד הסכין מיהו בסכין של איסור for us דwe establish chein nafsho בכל איסורים if so כל חתיכה וחתיכה נ"נ the measure of נטילה וכשחותכו דק דק צריך לשער נגד כל הradish מיהו certainly היכא שבשלו radish שלם שנחתך בסכין של איסור אם יש בdish sixty נגד הנטילה שרי ודלא כמהר"ם מלובלין שwrote דeven though דמfirst לא נ"נ רק הנטילה nevertheless מיד כשנותנו בdish נעשה כל הנצון נבלה דאותה הנטילה הוי איסור דבוק אם אין בradish עצמו sixty נגד הנטילה end of his words אבל זה אינו דכיון דאין הנטילה forbiddenה מצד עצמה וגם אין האיסור ניכר ומובדל וגם אינו נאסר רק the measure of נטילה לא שייך למימר ביה איסור דבוק וכ"פ Bach בsiman כ"ב ס"ו וwrote בט"ז דבזה אין חילוק בין בב"ח ובין סכין של איסור honeyניהם אם חתך במקום א' די בthe measure of נטילה ואם חתכו דק דק נאסר כולו אלא regarding cooking שcooksים afterward יש חילוק honeyל חלב לmeat צריך sixty נגד הנגיעה בסכין that is הלהב בין שחתך במקום א' בין דק דק אבל בסכין של איסור וחתך דק דק צריך sixty נגד כל הradish ובחתך במקום א' צריך sixty נגד הנטילה אלא דrequires study what he wrote הרמ"א דאם חתך דק דק צריך לשער sixty נגד כל הradish דזה plain דdeals with אסכין של non-Jew וקשה תרתי על רמ"א חדא דהיה לו לכתוב דבר זה in name of י"א דלדעה קמייתא even בזה סגי בsixty נגד מקום הסכין דלא ס"ל chein nafsho in other איסורים ותו דה"ל לכתוב דאם חתך במקום א' צריך sixty נגד הנטילה כיון דבסכין של איסור deals with וwrote עוד וit appears to me plain דאם יש sixty א"צ להסיר הבצלים כיון שלא היה שם איסור עליהן וsome say לwhat he wrote בsiman ק"ו דחתיכה שנאסרה absorbsת איסור נשארה forbiddenה לעולם דthis case is different התם כיון שנאסרה א"א לה להחזיר להיתירה משif so אם לא נabsorbed רק היתר כמו כאן well אמרינן דהותרו הבצלים לגמרי אבל אם נחתכו הבצלים בסכין של איסור נ"נ וeven אם יש sixty צריך להסיר הבצלים זה it appears ברור ורבים אינם מדקדקים בזה וע"ל siman צ"ח ס"ד end of his words:
+**** END BLOCK ****
+```
+
+### 6. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ו`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%95`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ו
+**** HEBREW ****
+<b>איסור. </b> פי' אפי' לא חתך דק דק דבכל גוונא מתפשט האיסור של טעם הסכין בכל הצנון והיינו לכתחלה אבל בדיעבד אין אסור רק כ"נ אם לא חתכו דק דק אבל בדק דק צריך ס' בשל בב"ח נגד הסכין או הצנון כשהוא קטן מהסכין ובסכין של איסור אפי' אם הצנון גדול מהסכין צריך לשער נגד כל הצנון משום דכל חתיכה וחתיכה נ"נ וכתב הש"ך דדיעבד מקרי אם כבר נתבשל דוקא:
+**** ENGLISH ****
+איסור.  פי' even לא חתך דק דק דבכל גוונא מתפשט האיסור של טעם הסכין בכל הradish וthat is לat first אבל b'dieved אין forbidden רק כ"נ אם לא חתכו דק דק אבל בדק דק צריך sixty בשל בב"ח נגד הסכין או הradish כשהוא קטן מהסכין ובסכין של איסור even אם הradish גדול מהסכין צריך לשער נגד כל הradish becauseכל חתיכה וחתיכה נ"נ וwrote Shach דדיעבד מקרי אם כבר was cooked specifically:
+**** END BLOCK ****
+```
+
+### 7. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ז`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%96`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ז
+**** HEBREW ****
+<b>הירק. </b> שהוא אינו חריף וכתב בת"ח דזנבות של שומים ובצלים נמי לא חריפים ולא בלעי אלא כדי קליפה:
+**** ENGLISH ****
+הירק.  שהוא אינו sharp וwrote Turei Chayim דזנבות של שומים ובצלים נמי לא חריפים ולא absorbedי אלא the measure of shell:
+**** END BLOCK ****
+```
+
+### 8. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ח`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%97`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ח
+**** HEBREW ****
+<b>זנבותיהן. </b> שכל שהן חתוכים לצד זנבותיהם עד חצי הצנון תלינן במרא וחצינא אבל למעלה מזה לא והיכא דידוע דהסכין היה ב"י אלא דמסופק אם חתך בו הצנון ספיקא לחומרא והיינו דוקא בצנון אבל בקרי"ן מקילין משום דכמה פוסקים ס"ל דאין לאסור אלא בצנון ולא במידי אחרינא. ש"ך בשם הגהת או"ה:
+**** ENGLISH ****
+זנבותיהן.  שכל שהן חתוכים לצד זנבותיהם עד חצי הradish תלינן במרא וחצינא אבל למcame up מזה לא והיכא דידוע דהסכין היה ben yomo אלא דמסופק אם חתך בו הradish ספיקא לstringency וthat is specifically בradish אבל בקרי"ן מקילין becauseכמה poskim ס"ל דאין לforbidden אלא בradish ולא במידי אחרינא. ש"ך in name of הגהת Issur VeHeter:
+**** END BLOCK ****
+```
+
+### 9. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 1 — marker `ט`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%98`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 1
+marker: ט
+**** HEBREW ****
+<b>ובמקום. </b> אבל במקום שנמצא לקנות אחרים הוי כלכתחילה דאסור כולו. ש"ך:
+**** ENGLISH ****
+ובמקום.  אבל במקום שis found לקנות אחרים הוי כl'chatchila דforbidden כולו. ש"ך:
+**** END BLOCK ****
+```
+
+### 10. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 2 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 2
+marker: א
+**** HEBREW ****
+<b>מלוחים. </b> כתב הש"ך משמע מדעת הר"ב דלכתחלה אסור כולו ובדיעבד צריך לשער כדי נטילה אבל בת"ח מביא בשם או"ה דאם חתך דגים מלוחים בסכין של איסור צריך גרידה ואם חתכו קודם שנמלחו סגי בהדחה וצ"ל דהמחבר איירי כשהם מלוחים ביותר דאז אגב חורפי' דמלח ודוחקא דסכינא בלע יותר אבל משום מעט מלח לא חשיבי חריף כדלעיל סימן צ"ה סעיף ב' בהג"ה וכתב בט"ז בשם או"ה דתפוחים חמוצים לא מקרי דבר חריף ואותו משקה שעושים במדינת רוסי"א שקורין בארש"ט נראה פשוט דמקרי דבר חריף אפילו אינו מחומץ הרבה עדיין מידי דהוי אחומץ שאינו חזק וכו' <small>(ובה"י כתב בסימן צ"ה דאינו מקרי דבר חריף דיכולין לשתותו כשהוא חי אם לא שהוא כ"כ מחומץ שאינו יכול לשתותו כשהוא חי כמו חומץ ע"ש)</small>:
+**** ENGLISH ****
+salted.  wrote Shach it appears מדעת Rama דלat first forbidden כולו וb'dieved צריך לשער the measure of נטילה אבל Turei Chayim מביא in name of Issur VeHeter דאם חתך fish salted בסכין של איסור צריך גרידה ואם חתכו קוblood שנsaltו סגי בrinsing וone must say דMechaber איירי כשהם salted ביותר דאז אגב חורפי' דsalt וforcedא דסכינא absorbed יותר אבל because מעט salt לא חשיבי sharp כדabove siman צ"ה seif ב' בהג"ה וwrote בט"ז in name of Issur VeHeter דתפוחים חמוצים לא מקרי דבר sharp ואותו liquid שעושים במדינת רוסי"א שקורין בארש"ט it appears plain דמקרי דבר sharp אפילו אינו מחומץ הרבה עדיין מידי דהוי אחומץ שאינו חזק etc. (ובה"י wrote בsiman צ"ה דאינו מקרי דבר sharp דיכולין to drinkו כשהוא חי אם לא שהוא כ"כ מחומץ שאינו יכול to drinkו כשהוא חי כמו חומץ see there)}:
+**** END BLOCK ****
+```
+
+### 11. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 2 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 2
+marker: ב
+**** HEBREW ****
+<b>מיוחדי'. </b> כתב הש"ך משמע דאי ידעינן בודאי שנחתך בסכין של עובד כוכבים אפי' אינו ב"י אסור דדמי לקורט של חלתית אבל מהרש"ל חולק ע"ז הלכך נראה דאין להחמיר כ"כ בזנגבי"ל כיון דאפילו בצנון הרבה פוסקים מתירים באינו ב"י וגם זה פשוט דכל דבר חריף יבש מותר בהדחה:
+**** ENGLISH ****
+מיוחדי'.  wrote Shach it appears דאי ידעינן certainly שנחתך בסכין של non-Jew even אינו ben yomo forbidden דדמי לקורט של חלתית אבל Maharshal disagrees ע"ז הלכך it appears דאין להחמיר כ"כ בזנגבי"ל כיון דאפילו בradish הרבה poskim מתירים באינו ben yomo וגם זה plain דכל דבר sharp יבש permitted בrinsing:
+**** END BLOCK ****
+```
+
+### 12. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: א
+**** HEBREW ****
+<b>תבלין. </b> כ' הש"ך וה"ה מלח שנדוך וכל שאר דברים החריפים ודוקא נידוכו אבל לא כשהיו נתונים במדוכה של בשר:
+**** ENGLISH ****
+spice.  wrote Shach and the same applies salt שנדוך וכל שאר דברים החריפים investigateא נידetc. אבל לא כשהיו נתונים במדוכה של meat:
+**** END BLOCK ****
+```
+
+### 13. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 3 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 3
+marker: ב
+**** HEBREW ****
+<b>אינו. </b> ופסק הש"ך דכן עיקר וכן נוהגין כרמ"א:
+**** ENGLISH ****
+אינו.  וruled Shach דכן עיקר וכן נוהגין כרמ"א:
+**** END BLOCK ****
+```
+
+### 14. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 4 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 4
+marker: א
+**** HEBREW ****
+<b>לימוני"ש. </b> פי' שחותכין הלימונ"יש ומוציאין ממשו ממנו שקורין לימוני"ש זאפ"ט והנה הב"ח חולק ומחמיר בדינים אלו ע"ש וכתב הש"ך דק"ל לדעת הר"ב שכתב לעיל אם חתכו דק דק צריך ס' נגד כל הצנון משום דחנ"נ וא"כ מה שייך כאן לומר דאם נאסרו מקצתן מתבטלים באחרים הא כל א' נ"נ וכמ"ש הרב עצמו לקמן סי' קי"ד גבי זיתים וצ"ל דס"ל דזיתים חריפים טפי מלימוני"ש א"נ דבאמת לענין דינא אין לסמוך ע"ז ומה"ט כתב הרב דבמקום שנוהגים להחמיר אין לשנות והיינו דאסורים הזיתים אלא משום דבלימוני"ש ודכוותייהו נוהגין היתר כתב הרב דיש ליישב המנהג ויש לסמוך אה"ט דכבר נתבטל כיון דאפשר לומר ג"כ דחתכו אותם בסכין חדשה שיש להם כלים מיוחדים לכך כדאמרינן בזנגבי"ל אלא מספיקא אסרינן להו והלכך מצטרפין הך סברא דנתבטל כו' ליישב המנהג ואף על גב דלעיל בס"א דקונין הצנונות מעובדי כוכבים משום דיש ספק אם נחתך בסכין של איסור אזלינן לקולא דהתם יש לתלות במרא וחצינא מה שאין כן הכא דקרוב הדבר שחותכין אותן בסכין שלהם עכ"ל. ובט"ז כתב דהמחמירים בכרוב פרוס אחר חמיצתו יחמירו ג"כ במרקחות חריפים ומי לימוני"ש דאל"כ הוי תרי מילי דסתרי אהדדי <small>(ולה"פ כתב דמרקחת לא מיקרי דבר חריף כלל שהדבש מבטל החריפות ע"ש. בת' נ"ש סי' ע"א מתיר כרוב שלם שמבשלים הכותים תחילה שלימים ואח"כ כובשין אותן דמותרים באכילה ע"ש)</small> וכתב עוד דגם בזנגבי"ל יש להחמיר לפי שכתב בתו"ח גבי כרוב דאין הכותים נאמנים לומר שיש להם כלים מיוחדים א"כ גם במרקחת הדין כן ע"ש:
+**** ENGLISH ****
+לימוני"ש.  פי' שחותכין הלימונ"יש ומוציאין ממשו ממנו שקורין לימוני"ש זאchapter 9 והנה Bach disagrees וis stringent בדינים אלו see there וwrote Shach דinvestigate לדעת Rama שwrote above אם חתכו דק דק צריך sixty נגד כל הradish becausechein nafsho וif so מה שייך כאן לומר דאם נאסרו מקצתן מתבטלים באחרים הא כל א' נ"נ וכwhat he wrote הרב עצמו below סי' קי"ד גבי זיתים וone must say דס"ל דזיתים חריפים טפי מלימוני"ש א"נ דבאמת regarding the halachah אין לסמוך ע"ז ומה"ט wrote הרב דבמקום שנוהגים להחמיר one should not change וthat is דforbiddenים הזיתים אלא becauseבלימוני"ש ודכוותייהו נוהגין היתר wrote הרב דיש לresolved הcustom וone may rely אה"ט דכבר נתבטל כיון דאפשר לומר ג"כ דחתכו אותם בסכין חדשה שיש להם כלים מיוחדים לכך כדאמרינן בזנגבי"ל אלא מספיקא אסרינן להו והלכך מצטרפין הך סברא דנתבטל etc. לresolved הcustom וeven על גב דabove בס"א דקונין הצנונות מgentiles becauseיש doubt אם נחתך בסכין של איסור אזלינן לקולא דהתם יש לתלות במרא וחצינא מה שאין כן הכא דקרוב הדבר שחותכין אותן בסכין שלהם end of his words. ובט"ז wrote דone who is stringentים בכרוב פרוס אחר חמיצתו יחמירו ג"כ בsauceחות חריפים ומי לימוני"ש דאל"כ הוי תרי מילי דcontradictedי אהדדי (וLechem HaPanim wrote דsauceחת לא מיקרי דבר sharp כלל שהhoney מבטל החריפות see there. בת' נ"ש סי' side 1 מתיר כרוב שלם שcooksים הכותים first שלימים וafterward כובשין אותן דpermittedים באכילה see there)} וwrote עוד דגם בזנגבי"ל יש להחמיר לפי שwrote בתו"ח גבי כרוב דאין הכותים נאמנים לומר שיש להם כלים מיוחדים if so גם בsauceחת הדין כן see there:
+**** END BLOCK ****
+```
+
+### 15. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 4 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 4
+marker: ב
+**** HEBREW ****
+<b>לפתות. </b> כתב הט"ז וקשה מאי קמ"ל בזה הא בלפת מותר בכל גוונא ונ"ל להגיה עפ"י דבריו בת"ח בזה הלשון אבל שאר דברים שאינם חמוצים כ"כ כגון תפוחים או פירות יבשים וכדומה וכו' עכ"ל וכתב בת"ח כיון שמקילין בדבר שנפשו של אדם קצה עליו יש ג"כ להקל אם חתך התולע עם הפרי שמותר ע"י קליפה מעט הואיל ואף בצנון אינו אוסר יותר מכ"ק ע"כ ועיין מזה בסימן פ"ד ס"ט מ"ש בשם הש"ך אי תולעים נקרא נטל"פ או לא:
+**** ENGLISH ****
+לפתות.  wrote Taz וקשה מאי it teaches us בזה הא בלפת permitted בכל גוונא וit appears to me להגיה עפ"י דבריו Turei Chayim בזה הlanguage of אבל שאר דברים שאינם חמוצים כ"כ כגון תפוחים או fruit dry וכדומה etc. end of his words וwrote Turei Chayim כיון שמקילין בדבר שנפשו של אblood קצה עליו יש ג"כ to be lenient אם חתך התולע עם הfruit שpermitted ע"י shell מעט הואיל וeven בradish אינו אוסר יותר מכ"ק until here ועיין מזה בsiman פ"ד seif 9 what he wrote in name of Shach אי worms נקרא nat bar lichtmile או לא:
+**** END BLOCK ****
+```
+
+### 16. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 5 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 5
+marker: א
+**** HEBREW ****
+<b>בלבד. </b> פי' שהוא פחות מקליפה שהקליפה צריך שתהא גסה קצת כדי שתוכל להנטל כולו כא' משא"כ בגרידה מיהו בגרידה סגי דמדינא הוי סגי בהדחה אלא שמתוך לחותם א"א להדיחם שע"י ההדחה נסרך בהם יותר:
+**** ENGLISH ****
+בלבד.  פי' שהוא פחות מshell שהshell צריך שתהא גסה קצת the measure of they drankכל להנטל כולו כא' משif so בגרידה מיהו בגרידה סגי דמthe halachah הוי סגי בrinsing אלא שמתוך לחותם א"א לrinsedם שע"י הrinsing נסרך בהם יותר:
+**** END BLOCK ****
+```
+
+### 17. `siman_096/baer-heitev/part-001.txt` — baer-heitev — seif 5 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: baer-heitev
+seif: 5
+marker: ב
+**** HEBREW ****
+<b>צנון. </b> כתב הש"ך לכאורה משמע מל' זה דלכתחילה אסור לחתוך בו צנון לאכלו עם בשר אע"פ שכבר חתך בו לפת אבל מהרש"ל חולק ומתיר אפילו לכתחילה וא"ל כיון דהצנון עכ"פ בעי הדחה ניחוש דילמא משתלי ואכיל עם בשר בלא הדחה כדאסרי' בר"ס צ"א להניח בשר בקערה של איסור ע"ש דשאני הכא דהדחה גופה היא רק חומרא בעלמא ואף אם יאכל כך אין בו איסור לכך לא חיישינן דלמא וכו' א"נ דשם מיד כשהניחו בקערה צריך הדחה משא"כ כאן יכול להיות שיאכל אותו כך ולא עם בשר דאז א"צ הדחה כלל מיהו ודאי לחתוך לכתחילה לפת כדי לחתוך אח"כ צנון משמע בש"ס ופוסקים דאסור עכ"ל:
+**** ENGLISH ****
+radish.  wrote Shach it appears it appears מל' זה דl'chatchila forbidden לחתוך בו radish to eat them עם meat אon the surface of שכבר חתך בו לפת אבל Maharshal disagrees ומתיר אפילו l'chatchila וand some say כיון דהradish עכ"פ בעי rinsing ניחוש lest משתלי ואכיל עם meat without rinsing כדאסרי' בר"ס צ"א להניח meat בbowl של איסור see there דthis case is different הכא דrinsing גופה היא רק stringency mere וeven אם יאכל כך אין בו איסור לכך לא we are concerned דלמא etc. א"נ דשם מיד כשthey placed בbowl צריך rinsing משif so כאן יכול להיות שיאכל אותו כך ולא עם meat דאז א"צ rinsing כלל מיהו certainly לחתוך l'chatchila לפת the measure of לחתוך afterward radish it appears בGemara וposkim דforbidden end of his words:
+**** END BLOCK ****
+```
+
+### 18. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ב
+**** HEBREW ****
+<b>בן יומו או כו'. </b>והוא כשני הטעמים של רש"י שם ד"ה קישות. ואע"ג דנתבשלו מותר לדעת הש"ע ר"ס צ"ה וא"א לומר כטעם השני שברש"י כמ"ש תוס' ד"ה הלכתא ס"ל דחורפיה פלט גוף הטעם. עש"ך: <br><b>(ליקוט) בן יומו או כו'. </b>מהאי הימלתא כנ"ל <small>(בסי' צ"ה ס"ק י"ד) </small>דמותר אלא דלא אמרינן כי אם בחלתית וסתם סכיניהם מקונחים כמ"ש הרשב"א דלכן הוצרך לומר בחלתית ואע"ג דאמר מר כו' דאומן מקנה כליו וכמ"ש בסי' קכ"ב <small>(ס"ק ז') </small>ע"ש (ע"כ):
+**** ENGLISH ****
+ben yomo או etc.. והוא כthe two tastes של רש"י שם s.v. קישות. וeven though דwas cookedו permitted לדעת הש"ע ר"ס צ"ה וא"א לומר כטעם the second שברש"י כwhat he wrote תוsixty s.v. the halachah ס"ל דits sharpness פלט גוף the taste. עש"ך: (ליקוט) ben yomo או etc.. מהאי הימלתא כit appears to me (בסי' צ"ה s.k. י"ד) }דpermitted אלא דלא אמרינן כי אם בחלתית וstam סכיניהם well scrapedים כwhat he wrote Rashba דלכן הוצרך לומר בחלתית וeven though דאמר מר etc. דאומן מקנה כליו וכwhat he wrote בסי' קכ"ב (s.k. ז') }see there (until here):
+**** END BLOCK ****
+```
+
+### 19. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ג
+**** HEBREW ****
+<b>כדי כו'. </b>דא"א לומר כדי קליפה ממ"ש אבל קישות גריר לבי פסקיה וכאן אמר סתם אסור ובין גרירה לקליפה הפרש כ"ש וער"ן ות"ה:
+**** ENGLISH ****
+כדי כו'. — see there.
+**** END BLOCK ****
+```
+
+### 20. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ד`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%93`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ד
+**** HEBREW ****
+<b>או שיטעמנו כו'. </b>גמ' שם האי אפשר כו':
+**** ENGLISH ****
+או שיטעמנו כו'. Gemara there. האי אפשר כו':
+**** END BLOCK ****
+```
+
+### 21. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ה`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%94`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ה
+**** HEBREW ****
+<b>וי"א כו'. </b>כמו קורט של חלתית בע"ז ל"ט א' וע"כ בסכין מקונה מיירי מדאמר ואע"ג דאמר מר כו'. וסברא ראשונה ס"ל דל"ד לקורט ש"ח דחריף מאד דלהכי לא תני במתני' שם אלא קורט ש"ח ובפ"נ דחולין <small>(נ"ח ב') </small>הלעיטה חלתית כו' דמנקבה למעיינה משא"כ בצנון ושאר דברים החריפים. הר"מ ורא"ש בפ"ב דע"ז שם. ובהג"ה סי' צ"ח ס"ב סתם כסברא האחרונה: <br><b>(ליקוט) וי"א כו'. </b>דס"ל כתי' המרדכי כמ"ש בס"ב בהג"ה (ע"כ):
+**** ENGLISH ****
+וי"א etc.. כמו קורט של חלתית בע"ז ל"ט א' וuntil here בסכין מקונה deals with מדאמר וeven though דאמר מר etc.. וסברא ראשונה ס"ל דsome say לקורט ש"ח דsharp מאד דלהכי לא תני במתני' שם אלא קורט ש"ח ובפ"נ דחולין (נ"ח ב') }הלעיטה חלתית etc. דמholeה לinnardsינה משif so בradish ושאר דברים החריפים. הר"מ ורא"ש בchapter 2 דע"ז שם. ובהג"ה siman 98 ס"ב stam כסברא האחרונה: (ליקוט) וי"א etc.. דס"ל כתי' המרדכי כwhat he wrote בס"ב בהג"ה (until here):
+**** END BLOCK ****
+```
+
+### 22. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ו`
+
+- Quality: **error** — hebrew_in_english, untranslated_copy
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%95`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ו
+**** HEBREW ****
+<b>ואם חתכן כו'. </b>תוס' ד"ה אגב כו'. ועבה"ג וכמש"ל סי' צ"ד ס"ו:
+**** ENGLISH ****
+ואם חתכן כו'. תוס' ד"ה אגב כו'. ועבה"ג וכמש"ל סי' צ"ד ס"ו:
+**** END BLOCK ****
+```
+
+### 23. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ז`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%96`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ז
+**** HEBREW ****
+<b>וי"א כו'. </b>דאסור משמע כולו אסור וכמ"ש בקורט ש"ח. ת"ה. ועתוס' שם ד"ה אגב כו' והרא"ש בחולין כתב שאני חלתית שהן קטנים וא"י לידע באיזה מקום חתכם אבל אין לאסור יותר מרותח דצלי או מבושל בלא רוטב:
+**** ENGLISH ****
+וי"א etc.. דforbidden it appears כולו forbidden וכwhat he wrote בקורט ש"ח. ת"ה. ועתוsixty שם s.v. אגב etc. וRosh בחולין wrote this case is different חלתית שהן קטנים וא"י לידע באיזה מקום חתכם אבל אין לforbidden יותר מרותח דצלי או cooked without sauce:
+**** END BLOCK ****
+```
+
+### 24. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 1 — marker `ט`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%98`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 1
+marker: ט
+**** HEBREW ****
+<b>ואם יש ספק כו'. </b>עש"ך ס"ק י"ב י"ג דדוקא בתמכא מפני שי"א דוקא צנון וי"א דוקא ב"י וסתם כליהם אינם ב"י לכך מקילין בספקו:
+**** ENGLISH ****
+ואם יש ספק כו'. As explained in Shach ס"ק י"ב י"ג דדוקא בתמכא מפני שי"א דוקא צנון וי"א דוקא ב"י וסתם כליהם אינם ב"י לכך מקילין בספקו:
+**** END BLOCK ****
+```
+
+### 25. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 2 — marker `א`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=2#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 2
+marker: א
+**** HEBREW ****
+<b>אם חתך כו'. </b>תוס' שם ד"ה אגב כו': <br><b>(ליקוט) אם חתך כו'. </b>אבל סמ"ק כתב בשם ר"י דאין לך אלא מ"ש חכמים וכ"כ כמה פוסקים (ע"כ):
+**** ENGLISH ****
+אם חתך כו'. תוס' שם ד"ה אגב כו': (Lekut) אם חתך כו'. אבל סמ"ק כתב בשם ר"י דאין לך אלא מ"ש חכמים וכ"כ כמה פוסקים (end of his words):
+**** END BLOCK ****
+```
+
+### 26. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 2 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch, overliteral
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=2#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 2
+marker: ב
+**** HEBREW ****
+<b>ומ"מ כו'. </b>ממ"ש בפ"ו דברכות האי הימלתא כו': <br><b>(ליקוט) ומ"מ כו'. </b>מהאי הימלתא כנ"ל וע' מרדכי שם (ע"כ):
+**** ENGLISH ****
+ומ"מ כו'. ממ"ש בפ"ו דברכות האי הימלתא כו': (Lekut) ומ"מ כו'. מהאי הימלתא כנ"ל וע' מרדכי שם (end of his words):
+**** END BLOCK ****
+```
+
+### 27. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 3 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=3#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 3
+marker: ב
+**** HEBREW ****
+<b>וי"א. </b>כסברא האחרונה שבס"א: <br><b>(ליקוט) תבלין כו'. </b>כתי' הסמ"ג דבדבר יבש דוקא בן יומו: וי"א כו' כשיטתו דסתר דברי הסמ"ג מחלתית וז"ש בס"ב בהג"ה דברי המרדכי שני התי' שלו (ע"כ):
+**** ENGLISH ****
+וי"א. כסברא האחרונה שבס"א: (ליקוט) spice etc.. כתי' הSemag דבדבר יבש specifically ben yomo: וי"א etc. כשיטתו דcontradicted דברי הSemag מחלתית וז"ש בס"ב בהג"ה דברי המרדכי שני התי' שלו (until here):
+**** END BLOCK ****
+```
+
+### 28. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 4 — marker `_`
+
+- Quality: **error** — hebrew_in_english
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=4#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 4
+marker: _
+**** HEBREW ****
+<b>מי לימוני"ש. </b>עש"ך ופר"ח אוסר:
+**** ENGLISH ****
+מי לימוני"ש. As explained in Shach ופר"ח אוסר:
+**** END BLOCK ****
+```
+
+### 29. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 5 — marker `א`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%90`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 5
+marker: א
+**** HEBREW ****
+<b>הדחה. </b>כמ"ש ח' ב' לימא בהא קמיפלגי כו': <br><b>(ליקוט) אלא הדחה. </b>פי' ראשון שברש"י משום דסתם סכין שמנוניתו כו' ועבת"ה צ"ד א' שהקשה מזה על סי' ראשון שברש"י ותי' דה"נ דבעי הדחה כו' ע"ש והסכים לפי' ראשון דלפי' השני קשה אמאי קישות גריר הא אינו חריף כלל אבל לפי' ראשון ניחא משום דקישות רך הוא וא"א בהדחה דכ"ש שמבליע בהדחה לכך צריך גרירה (ע"כ): <br><b>(ליקוט) הדחה. </b>היינו בשאין מקונח וז"ל ת"ה פירש"י משום שמנונית שקרוש כו' וק' דליפתא אמאי שרי ופי' אחר פירש"י משום חורפיה ואינו מחוור דמ"מ נ"ט בר נ"ט הוא ופי' ראשון עיקר והא דקאמר דליפתא שרי הדחה מיהא בעי כו' ע"ש (ע"כ):
+**** ENGLISH ****
+rinsing. כwhat he wrote ח' ב' לימא בהא קמיפלגי etc.: (ליקוט) אלא rinsing. פי' ראשון שברש"י becausestam סכין greaseו etc. ועבת"ה צ"ד א' שchallenged מזה על סי' ראשון שברש"י ותי' דה"נ דבעי rinsing etc. see there וagreed לפי' ראשון דלפי' the second קשה אמאי קישות גריר הא אינו sharp כלל אבל לפי' ראשון ניחא becauseקישות רך הוא וא"א בrinsing דkli sheni שabsorbs בrinsing לכך צריך גרירה (until here): (ליקוט) rinsing. that is בשאין well scraped וand these are his words ת"ה separated"י because grease שקרוש etc. וק' דליפתא אמאי שרי ופי' אחר separated"י because its sharpness ואינו מחוור דnevertheless noten taam bar noten taam הוא ופי' ראשון עיקר והא דקאמר דליפתא שרי rinsing מיהא בעי etc. see there (until here):
+**** END BLOCK ****
+```
+
+### 30. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 5 — marker `ב`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%91`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 5
+marker: ב
+**** HEBREW ****
+<b>ודוקא כו'. </b>וכפי' הת"ה וטוש"ע לפי כו' ולהכי נקט ליפתא:
+**** ENGLISH ****
+ודוקא כו'. — see there.
+**** END BLOCK ****
+```
+
+### 31. `siman_096/beur-hagra/part-001.txt` — beur-hagra — seif 5 — marker `ג`
+
+- Quality: **error** — hebrew_in_english, marker_label_mismatch
+- Checkpoint id: `siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%92`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: beur-hagra
+seif: 5
+marker: ג
+**** HEBREW ****
+<b>ואפילו כו' </b>אם כו'. רש"י שם ד"ה ואי ערבן כו' אחת וז"ש בגמ' ואי פתך בהו כו' ר"ל ערבן:
+**** ENGLISH ****
+ואפילו כו' אם כו'. — see there.
+**** END BLOCK ****
+```
+
+### 32. `siman_096/kaf-hachayim/part-001.txt` — kaf-hachayim — seif 1 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=1#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: kaf-hachayim
+seif: 1
+marker: _
+**** HEBREW ****
+<b>א) [סעיף א'] צנון או סילקא שחתכם בסכין של בשר בן יומו.  </b>אעפ"י שהוא מקונח ונקי בודאי דאגב חורפיה דצנון וסילקא ודוחקא דסכינא פלט סכין גוף הטעם שבו והוי כמו איסור בעין הלכך לא דמי לשאר נ"ט בר נ"ט דלעיל סי' צ"ה דמותר. ש"ך סק"ב. כריתי או' א' וכתב וכן עיקר כדברי הש"ע ודלא כפר"ח שחולק. וכ"כ הפר"ת או' א' דכן עיקר ודלא כפר"ח. וכ"כ השפ"ד או' ב' דחלילה לזוז מדברי הש"ע והרב. וכ"פ החו"ד או' א' חכ"א כלל מ"ט או' א' בי"צ או' ב' ערוך השלחן או' ה' זב"צ או' א' וכתב וכן הסכימו רוב האחרונים ודלא כפר"ח או' ב'.
+**** ENGLISH ****
+א) [seif א'] radish או סילקא שחתכם בסכין של meat ben yomo.  אעפ"י שהוא well scraped וclean certainly דאגב its sharpness דradish וסילקא וforcedא דסכינא פלט סכין גוף the taste שבו והוי כמו איסור visible הלכך לא דמי לשאר noten taam bar noten taam דabove סי' צ"ה דpermitted. ש"ך סק"ב. Kereti או' א' וwrote וכן עיקר כדברי הש"ע ודלא כPeri Chadash שdisagrees. and so too הפר"ת או' א' דכן עיקר ודלא כPeri Chadash. and so too השפ"ד או' ב' דחלילה לזוז מדברי הש"ע והרב. וכ"פ החו"ד או' א' חכ"א כלל מ"ט או' א' בי"צ או' ב' ערוך השלחן או' ה' Zivchei Tzedek או' א' וwrote וכן הסכימו רוב האחרונים ודלא כPeri Chadash או' ב'.
+**** END BLOCK ****
+```
+
+### 33. `siman_096/kaf-hachayim/part-001.txt` — kaf-hachayim — seif 2 — marker `_`
+
+- Quality: **error** — hebrew_in_english
+- Checkpoint id: `siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=2#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: kaf-hachayim
+seif: 2
+marker: _
+**** HEBREW ****
+<b>ב) שם. שחתכם בסכין של בשר ב"י או שאינו מקונח וכו'  </b>זהו כסברת מהר"ם שהביא הטור דלא מקרי דבר חריף אלא קורט של חלתית דמנקב בני מעיה של בהמה כשאוכל אותה (כמ"ש לעיל ססי' נ"א) וע"כ נותן טעם לשבח אפי' אינו ב"י אבל שאר דברים חריפים אין דינם כן וע"כ כתב כאן שאינו אוסר אלא ב"י או שהוא אינו מקונח ואז אוסר מפני שמנונית שעליו וע"כ צריך נטילת מקום. ט"ז סק"א. ור"ל זו סברת מהר"ם אבל יש חולקים בזה כמבואר בטור וב"י וע"כ כתב אח"כ בש"ע וי"א דה"ה לאינו ב"י והוא מקונח. ועיין לקמן או' ט'.
+**** ENGLISH ****
+ב) שם. שחתכם בסכין של meat ben yomo or thatאינו well scraped etc.  זהו כסברת מהר"ם שהביא Tur דלא מקרי דבר sharp אלא קורט של חלתית דמhole בני innardsה של animal כשאוכל אותה (כwhat he wrote above ססי' נ"א) וuntil here noten taam for improvement even אינו ben yomo אבל שאר דברים חריפים אין דינם כן וuntil here wrote כאן שאינו אוסר אלא ben yomo or thatהוא אינו well scraped ואז אוסר מפני grease שעליו וuntil here צריך נטילת מקום. ט"ז סק"א. ור"ל זו סברת מהר"ם אבל יש disagreesים בזה כexplained בטור וben yomo וuntil here wrote afterward בש"ע וי"א דה"ה לאינו ben yomo והוא well scraped. ועיין below או' ט'.
+**** END BLOCK ****
+```
+
+### 34. `siman_096/kaf-hachayim/part-001.txt` — kaf-hachayim — seif 3 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=3#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: kaf-hachayim
+seif: 3
+marker: _
+**** HEBREW ****
+<b>ג) שם. או שאינו מקונח.  </b>פי' שאינו ב"י ואינו מקונח. דסתמא השמנונית קרוש על פניו. ש"ך סק"ג. מנ"י על התו"ח כלל נ"ח או' י"ז וכלל ס"א או' י"ג. פר"ת או' ג' חו"ד או' א' שפ"ד או' ג' זב"צ או' ג' דלא כפר"ח או' ג' שכתב דבסתם סכין סגי בקליפה.
+**** ENGLISH ****
+ג) שם. or thatאינו well scraped.  פי' שאינו ben yomo ואינו well scraped. דסתמא הgrease קרוש על פניו. ש"ך סק"ג. מנ"י על התו"ח general rule 58 או' י"ז וכלל ס"א או' י"ג. פר"ת או' ג' חו"ד או' א' שפ"ד או' ג' Zivchei Tzedek או' ג' דלא כPeri Chadash או' ג' שwrote דבstam סכין סגי בshell.
+**** END BLOCK ****
+```
+
+### 35. `siman_096/kaf-hachayim/part-001.txt` — kaf-hachayim — seif 4 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=4#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: kaf-hachayim
+seif: 4
+marker: _
+**** HEBREW ****
+<b>ד) שם. עד שיטול ממקום החתך כדי נטילת מקום וכו'  </b>דדבר האוסר מחמת חריפות אינו אוסר יותר מכדי נטילה. ש"ך סק"ד. וכ"כ הער"ה או' ב' דרוב הפו' ס"ל דאין לאסור כולו ולכן אין להחמיר אלא בנטילת מקום כפסק מרן בש"ע ודלא כהפר"ת עכ"ל. זב"צ או' ד'.
+**** ENGLISH ****
+ד) שם. עד שיטול ממקום החתך the measure of נטילת מקום etc.  דדבר האוסר מחמת חריפות אינו אוסר יותר מthe measure of נטילה. ש"ך סק"ד. and so too הער"ה או' ב' דרוב הפו' ס"ל דאין לforbidden כולו ולכן אין להחמיר אלא בנטילת מקום כruled מרן בש"ע ודלא כהפר"ת end of his words. Zivchei Tzedek או' ד'.
+**** END BLOCK ****
+```
+
+### 36. `siman_096/kaf-hachayim/part-001.txt` — kaf-hachayim — seif 5 — marker `_`
+
+- Quality: **error** — hebrew_in_english, overliteral
+- Checkpoint id: `siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=5#marker=_`
+
+```text
+**** YD001 SOURCE BLOCK ****
+slug: kaf-hachayim
+seif: 5
+marker: _
+**** HEBREW ****
+<b>ה) שם. שהוא כעובי אצבע.  </b>והיינו כעובי רוחב אצבע כמ"ש לקמן סי' ק"ה סעי' ד' ואצבע והיינו אצבע אגודל כמ"ש לעיל סי' מ"ו או' נ"ד וסי' נ"ג או' י"ט יעו"ש.
+**** ENGLISH ****
+ה) שם. שהוא כעובי אצבע.  וthat is כעובי רוחב אצבע כwhat he wrote below siman 105 סעי' ד' ואצבע וthat is אצבע אגודל כwhat he wrote above סי' מ"ו או' נ"ד וסי' נ"ג או' י"ט יעו"ש.
+**** END BLOCK ****
+```
+
+---
+
+## After completing this batch
+
+```bash
+cd newtry/YD_001
+npm run apply:dictionary -- --root output/siman_096
+npm run pipeline:editorial:advance -- --siman 96
+```
+
+## Checkpoint ids
+
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%90
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%91
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%92
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%93
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%94
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%95
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%96
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%97
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=1#marker=%D7%98
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%90
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=2#marker=%D7%91
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%90
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=3#marker=%D7%91
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%90
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=4#marker=%D7%91
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%90
+siman_096/baer-heitev/part-001.txt#slug=baer-heitev#seif=5#marker=%D7%91
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%91
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%92
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%93
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%94
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%95
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%96
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=1#marker=%D7%98
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=2#marker=%D7%90
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=2#marker=%D7%91
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=3#marker=%D7%91
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=4#marker=_
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%90
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%91
+siman_096/beur-hagra/part-001.txt#slug=beur-hagra#seif=5#marker=%D7%92
+siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=1#marker=_
+siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=2#marker=_
+siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=3#marker=_
+siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=4#marker=_
+siman_096/kaf-hachayim/part-001.txt#slug=kaf-hachayim#seif=5#marker=_

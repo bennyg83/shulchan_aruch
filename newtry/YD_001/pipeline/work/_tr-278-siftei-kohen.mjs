@@ -1,0 +1,8 @@
+/** Editorial translations — siman 278 / siftei-kohen (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `And one must not sew the entire sheet, etc. — so it not tear; for when he does not leave from the glue strongly, when he glues it to the Torah scroll it tears; but now when he glues it with force and begins to widen and wants to tear — he prevents gluing more. Rashi. And Bach wrote: since it is only a rabbinic enactment so the Torah scroll not tear thereby — a Torah scroll is not disqualified thereby — end quote; and likewise Ran, and Beit Yosef brings him and other later authorities.`,
+};
+
+export const FILES = [
+  ['siman_278/siftei-kohen/part-001.txt', 'siftei-kohen'],
+];

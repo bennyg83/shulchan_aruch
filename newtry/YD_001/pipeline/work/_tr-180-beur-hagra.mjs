@@ -1,0 +1,11 @@
+/** Editorial — siman 180 / beur-hagra */
+export const TRANSLATIONS = {
+  '1#א': `Tattoo, etc. Tosefta Kelayim; and even though in Tosefta it is stated he is not liable until he inscribes with ink for idolatry — stam is R. Shimon and we establish like mishnah; and as written Yevamot 42b and Rosh end ch. 3 Pesachim and ch. 17 Shabbat.`,
+  '2#_': `If he does, etc. As Tosefta ch. 3: one who writes tattoo inscription on another's flesh — both liable when both intentional; but if both unwitting — exempt; one unwitting and one intentional — unwitting exempt and intentional liable; and so in second section as written in Gemara "one who eats dates," etc.; and see ch. 11.`,
+  '6#_': `And regarding, etc. Gemara there baraita "and incision," etc.; and Beit Yosef wrote even prohibition does not exist; and Avodat HaTaharah.`,
+  '7#_': `And some, etc. Rosh end Moed Katan; and Tosafot Yevamot 13b s.v. who said, etc.`,
+  '9#ג': `And its measure, etc. We establish R. Yehuda and R. Yosi; halachah like R. Yosi; and as Tosafot and Remazim wrote in ch. 6 Berachot (Tosafot there 39b s.v. one who blesses forty-two, etc.) and Shach.`,
+  '11#_': `The bald spot, etc. Tosefta there: one who rounds another's head — both liable when both intentional; if both unwitting — exempt; one unwitting one intentional — unwitting exempt intentional liable; one who destroys another's beard corner — both liable when both intentional, etc., unwitting exempt intentional liable; one who makes bald spot on another's head — both liable per R. Elazar, etc., intentional liable; one who makes incision on another's flesh — both liable, etc.; and all in second section as Gemara regarding rounding as written "one who eats," etc.`,
+  '12#א': `Also women, etc. Unlike Isi Beit Yosef in Kiddushin 35b but like mishnah; and likewise in Yerushalmi R. Hamnuna commanded colleagues: guardians of your wives so they stand on graves not to pull hairs lest they come to bald spot — as stated "for you are a holy people" — both men and women; and Rif brought there and Rosh there and end Moed Katan; and this is what is written in Hagah "and some," etc.`,
+};
+export const FILES = [['siman_180/beur-hagra/part-001.txt', 'beur-hagra']];

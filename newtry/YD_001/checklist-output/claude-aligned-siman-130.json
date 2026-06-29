@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-06-17T05:07:18.225Z",
+  "method": "claude-aligned",
+  "validatorCodes": [
+    "mt_garbage",
+    "hebrew_in_english",
+    "untranslated_copy",
+    "mt_api_artifact",
+    "pending_placeholder",
+    "literal_bow_swim",
+    "html_in_english",
+    "json_wrapped_english",
+    "hybrid_mt_garbage"
+  ],
+  "grepPatterns": [
+    "grep_meshkonah",
+    "grep_meluh",
+    "grep_katzuzot",
+    "grep_saturday",
+    "grep_lords_prayer",
+    "grep_her_age",
+    "grep_the_craft",
+    "grep_mymemory",
+    "grep_haar_loop",
+    "grep_kulya",
+    "grep_charitz",
+    "grep_laketah",
+    "grep_hand_recoils"
+  ],
+  "passCount": 0,
+  "failCount": 1,
+  "simanim": [
+    {
+      "siman": 130,
+      "pass": false,
+      "failBlocks": 33,
+      "totalBlocks": 95,
+      "validator": {
+        "mt_garbage": 33
+      },
+      "grep": {
+        "grep_lords_prayer": 15
+      },
+      "files": [
+        "siman_130/baer-heitev/part-001.txt",
+        "siman_130/beer-hagolah/part-001.txt",
+        "siman_130/beur-hagra/part-001.txt",
+        "siman_130/pitchei-teshuva/part-001.txt",
+        "siman_130/siftei-kohen/part-001.txt",
+        "siman_130/turei-zahav/part-001.txt",
+        "siman_130/yad-ephraim/part-001.txt"
+      ]
+    }
+  ],
+  "failingSimanim": [
+    {
+      "siman": 130,
+      "pass": false,
+      "failBlocks": 33,
+      "totalBlocks": 95,
+      "validator": {
+        "mt_garbage": 33
+      },
+      "grep": {
+        "grep_lords_prayer": 15
+      },
+      "files": [
+        "siman_130/baer-heitev/part-001.txt",
+        "siman_130/beer-hagolah/part-001.txt",
+        "siman_130/beur-hagra/part-001.txt",
+        "siman_130/pitchei-teshuva/part-001.txt",
+        "siman_130/siftei-kohen/part-001.txt",
+        "siman_130/turei-zahav/part-001.txt",
+        "siman_130/yad-ephraim/part-001.txt"
+      ]
+    }
+  ]
+}

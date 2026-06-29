@@ -1,0 +1,6 @@
+/** Editorial translations — siman 253 / turei-zahav (1 block) */
+export const TRANSLATIONS = {
+  '1#ב': `Fourteen meals he does not take from the fund. In chapter Kol Kitvei we ask whose view — if the rabbis there are fifteen — meaning on Shabbat three meals are required; and if Rabbi Chidka who holds four meals on Shabbat there are sixteen; and we answer this is Rabbi Akiva's view who said make your Shabbat profane and do not depend on creatures; and Rashi explained regarding Shabbat for one who can afford he should make Shabbat meals either per the rabbis or per Rabbi Chidka; but this one who must depend on creatures — he should make his Shabbat profane and not impose on others the honor of his Sabbaths — end quote; and Perishah brought this in name of Rash's explanation that we say make your Shabbat profane, etc.; and he wrote on this this is specifically per Rabbi Chidka but per the rabbis it is difficult. And he did not examine the sugya I brought for even per the rabbis we say thus; and from what is written end of siman Ran that we say Shabbat they give him food for three meals — Tosafot resolved on this that for Shabbat meals he should not begin to take; but if he already took he takes also for Shabbat meals.`,
+};
+
+export const FILES = [['siman_253/turei-zahav/part-001.txt', 'turei-zahav']];

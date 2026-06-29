@@ -1,0 +1,8 @@
+/** Editorial translations — siman 196 / nekudot-hakesef (1 block) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 196 in Taz s.k. 11) And I have astonishment, etc. It is not difficult at all — for there, since it became known that not in holiness he is not a complete Jew, for in several laws he differs from Israel, as below siman 269; but even one born from a niddah we hold kosher, as explained in Even HaEzer siman 4 seif 13.`,
+};
+
+export const FILES = [
+  ['siman_196/nekudot-hakesef/part-001.txt', 'nekudot-hakesef'],
+];

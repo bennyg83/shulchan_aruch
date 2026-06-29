@@ -1,0 +1,20 @@
+/** Editorial translations for siman 281 failing blocks */
+export const TRANSLATIONS = {
+  'baer-heitev': {
+    '5#א': `He rented it. Shach wrote: it implies if he wrote for him for free, such as as a gift and the like — he is not believed since it left his hand.`,
+    '5#ב': `However. Taz wrote: plainly this refers also to the first dispute — that he did not write the Divine Names for their sake; and it is difficult to me — if so, he has at least some rental payment — what is different in the first clause that we say perhaps he intended only to cause loss to the buyer; here too let us say so. And per what is written nearby — that whatever has a disqualification in a way not recognizable, it is forbidden to read from it even privately — it fits well here that certainly he need not give him any payment, since it is forbidden to read from it even privately, for it will come to be read publicly, since the disqualification is not evident from within it; in this certainly it is proper that he need not give him any payment (and in Nekudot HaKesef he wrote he did not see Mordechai's words in chapter HaNezikin, where his question is explained there, and he resolves it in another matter — see there).`,
+  },
+  'beer-hagolah': {
+    '1#ב': `Rambam in chapter 1 of Laws of Tefillin, per the latter language there in Gemara; and as Tosafot wrote there — one may rely more that Israelites wrote them; and per the explanation of the mishnah's language there.`,
+    '1#ג': `Tur, and like Rif and Rosh who read the opposite; and likewise R. Yerucham; and as Rav Ashi said to Rav Bodeya there; and Rambam holds it is rejection and we do not rely on rejection.`,
+    '5#א': `From an incident that came before R. Ami, etc., Gittin 54b (and Rambam's language there, law 18).`,
+    '5#ב': `From an incident that came before Rav Abba, etc., there.`,
+  },
+  'pitchei-teshuva': {
+    '2#_': `One burns it. In Rambam chapter 6 of Laws of Foundations of the Torah it is explained that there is a mitzvah to burn it. And see responsum of Teshuvah MeAhavah part 1 siman 110 — regarding a Torah scroll that one wrote when he was greatly suspected of being from the sect of believers in Shabtai Tzvi, that it was worm-eaten and ritually impure; and afterward it became clear that so it was, that he was from the sect of wickedness; and he wrote there is a mitzvah to burn it, even though at the time he wrote the Torah scroll he was only suspected. But in responsum of the Gaon author of Noda BiYehudah there siman 112 letter 3 it is explained that if at the time of writing he was only suspected, one does not burn it but it requires burial — see there. And Radbaz wrote in responsum part 2 siman 974 — regarding a Torah scroll that one of the Karaites wrote — even though Rambam z"l counts them among the sects, nevertheless one does not burn it, for they are not called sects for this matter at all; and one who burns it transgresses "do not do so," but it requires burial and is forbidden to read from it publicly — see there.`,
+    '3#_': `Gentiles wrote it. See responsum of Noda BiYehudah second series Yoreh De'ah siman 181 — in name of one carved by a gentile craftsman on the Holy Ark — if burial is required; and he wrote only if the gentile writes for himself is there concern perhaps he wrote it for idol worship; but where he wrote for an Israelite and the matter itself belongs to an Israelite, we are not concerned he wrote for idol worship. And further, necessarily we are concerned only when the gentile knows what he is writing — that it is a Name; but a gentile generally does not know Assyrian script — only an Israelite permits him with ink, and the gentile does no more than monkey action; certainly there is no concern perhaps for idols [he wrote] and burial is not required — see there.`,
+  },
+  'turei-zahav': {
+    '4#_': `There are those who disqualify. The reason in Beit Yosef — when he reaches the Divine Name written in the Torah, what opposes him he writes not for the sake of sanctity.`,
+  },
+};

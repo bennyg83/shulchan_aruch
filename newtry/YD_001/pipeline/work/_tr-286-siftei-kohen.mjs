@@ -1,0 +1,8 @@
+/** Editorial translations — siman 286 / siftei-kohen (1 blocks) */
+export const TRANSLATIONS = {
+  '13#_': `And if it has enough to square, etc. — and Rosh's view is that one is not obligated in mezuzah unless it is square four by four cubits; and since Beit Yosef wrote we rule like Rambam, for he does not dispute him except Rosh did not bring here except Rambam's words — but in truth also Rabbeinu Yerucham at end of Sefer Adam holds like Rosh, and he wrote that thus they grasped the essence; therefore it seems one should fix without blessing, or bless initially also on another and have intention also on this one.`,
+};
+
+export const FILES = [
+  ['siman_286/siftei-kohen/part-001.txt', 'siftei-kohen'],
+];

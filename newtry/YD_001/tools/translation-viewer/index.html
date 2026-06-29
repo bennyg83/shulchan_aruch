@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YD001 Translation Viewer</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="root">
+      <aside id="sidebar">
+        <div class="sidebar-header">
+          <h1>Yoreh De'ah</h1>
+          <div id="index-summary" class="index-summary">Loading…</div>
+          <div class="filter-row">
+            <label><input type="checkbox" id="filter-garbage" /> Dirty only</label>
+            <input id="search-siman" type="search" placeholder="Search siman #" />
+          </div>
+        </div>
+        <ul id="siman-list"></ul>
+      </aside>
+      <main id="main">
+        <div id="main-placeholder" class="placeholder">← Select a siman</div>
+        <div id="siman-view" style="display:none">
+          <div id="siman-header" class="siman-header"></div>
+          <div id="commentary-tabs" class="commentary-tabs"></div>
+          <div id="blocks-view" class="blocks-view"></div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+/** Editorial translations — siman 167 / beer-hagolah (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `Tur; and so Rosh in his rulings folio 144 side 3; and Mordechai; and Hagahot Maimoniyot chapter 9 Laws of Lending in name of R. Meir of Trashei from Rav Chama folio 65 side 1. (°) Meaning: what was in deposit on the lender's responsibility reverts to being a loan and is on the borrower's responsibility.`,
+};
+
+export const FILES = [
+  ['siman_167/beer-hagolah/part-001.txt', 'beer-hagolah'],
+];

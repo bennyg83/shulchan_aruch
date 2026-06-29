@@ -1,0 +1,17 @@
+/** Editorial translations — siman 232 / baer-heitev (10 blocks) */
+export const TRANSLATIONS = {
+  '12#א': `Constraints. Shach: it appears even though he did not stipulate at time of vow — for such constraint we say he did not vow; Beit Yosef in name of Rabbi Yerucham: the river blocked means the river swelled from snowmelt — uncommon constraint; if common he should have anticipated; if not stipulated included in vow — end quote; and it appears likewise uncommon/common constraint in vows — illness we say in Gemara is common/uncommon constraint and nevertheless in vows it is constraint.`,
+  '12#ב': `Money. Bach challenged this from what Rema wrote in Orach Chayyim siman 656 that he give all his money before transgressing; therefore uprooted this law here from halachah; and difficult — for here he did not transgress at all since we say he did not swear intending to squander much money — end quote, Taz; and written in responsum of Maharam Galanti: one who fixed time to pay his fellow by a set time and if he does not pay he will forbid himself meat and wine and descend from his property before the time — exempt from his oath.`,
+  '12#ג': `Exempt. Taz wrote per what is written in siman 228 seif 41 that there is distinction between saying on day X and saying to day X — here too must say to day.`,
+  '12#ז': `Transgressed. And written in responsum of Rashba likewise if they warned him and he did not concern himself to say at time of warning and ate — all the more when he said nevertheless I am not believed.`,
+  '12#ח': `Wrote. In Semak Choshen Mishpat siman 72 s.k. 15 wrote in name of Terumat HaDeshen: if written in his handwriting that he is obligated to pay and swore on this and afterward says he only wrote thus and did not swear — if claimant admits obviously no concern for this oath at all; if he does not admit regarding money his law is like any document without oath — end quote; Shach wrote: appears this is when he gives excuse for his words; but when he gives no excuse and claims simply I did not swear — even if claimant admits he did not swear before him, since he admitted he made himself a piece of prohibition; when claimant says you swore before me — even when defendant gives excuse his claim is no claim; see Choshen Mishpat siman 73 seif 6 (see above siman 228).`,
+  '14#ד': `To nullify. Taz wrote Rema's words are astonishing; difficult — for Semak there said only that if already swore his oath is nothing even without nullifying in heart; but ab initio obviously must nullify in heart and not swear falsely — see there (in Nekudot HaKesef he challenged and wrote Semak there only means if already swore; ab initio obviously must nullify in heart).`,
+  '15#א': `Actually. Even though he did not nullify in heart. Taz and Shach; Mahari Weil wrote: specifically when they constrained him to give something; but swore not to reveal a matter — cherem applies.`,
+  '16#ב': `One. Shach left Rema's words in doubt; in responsum of Ramban it appears even if husband from another place — see there; see Even HaEzer siman 75.`,
+  '17#_': `She vowed. See above siman 231 s.k. 2 in name of Taz.`,
+  '5#ג': `I will do. And afterward he did that thing — some say forbidden since it could be he did not violate the condition; it appears what the Rav wrote "some disagree" applies here too; if he said except meat all agree it is not a vain vow; all the more if he said except grain since grain includes the five species — end quote, Shach.`,
+};
+
+export const FILES = [
+  ['siman_232/baer-heitev/part-001.txt', 'baer-heitev'],
+];

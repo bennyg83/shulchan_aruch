@@ -1,0 +1,7 @@
+/** Editorial translations — siman 215 / rabbi-akiva-eiger-yd (2 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(There Shach se'if kaf gimmel) Ran in the name of Tosafot in this manner: the author wrote "sukkah she'ani yoshev" — it is obvious that it is a matter with substance, for he forbids himself the sukkah in which he sits. But the Ran added: even one who says "sitting in a sukkah is upon me" is called a matter with substance since he mentions the object. If so, on the contrary — from that the author did not write also in this manner, it implies he does not hold like the Ran. And so it appears from the author's view (siman 213). But Rama in the gloss there brought the opinion of the Ran in the name of some authorities:`,
+  '2#_': `(Siman 215 se'if 2) These that entered your heart. And behold he is not permitted without release at all, as below (siman 232 se'if vav) — for there it is complete inadvertence regarding his father. But here, he should have known that it is impossible for a year to pass without Shabbatot and Yamim Tovim — Rosh explicitly, and Ran wrote there that below it is a mistake in the essence of the vow, that he never intended regarding his father; but here, by forbidding upon himself a year, he knows that Shabbatot and Yamim Tovim will pass upon him and the vow takes effect — only they open for him "had you known that it is forbidden to fast on the eve of Shabbat":`,
+};
+
+export const FILES = [['siman_215/rabbi-akiva-eiger-yd/part-001.txt', 'rabbi-akiva-eiger-yd']];

@@ -1,0 +1,9 @@
+/** siman 098 nekudot-hakesef — editorial translations */
+export const T = {
+  '1#_': `(Siman 98 in Taz s.k. 5) And in my humble opinion Rashba's words are correct, etc. Bach already wrote so too, but I already challenged him in Shach s.k. 8 — it is still difficult: whence do we invent permissibility since there is no rule at all; and there is a sound reason to distinguish between them, for here the taste is sensed — investigate.`,
+  '2#_': `(There s.k. 6) He challenged from siman 81 and expanded on this, and all his words are forced; and initially for practical halachah here it is properly lack of knowledge, since it is impossible to determine the measure; but there from the law it is kosher, for it is possible to examine in lukewarm water and by blowing, only we are stringent and say we are not expert in examination — therefore it is certainly a proper doubt — investigate.`,
+  '3#_': `(There s.k. 8) And what was written in Maggid Mishneh on the hagahah "and we do not say regarding vessels," etc. — that copyist erred, etc. I already wrote so in Shach in my source reference on the margin.`,
+  '4#_': `(There) And there: And in truth this is not proof that there is also use of heter, as Issur VeHeter wrote general rule 24, etc. I do not know what he is saying and what heter is there — is it not a drop of milk that fell on the empty place in the pot? The taste is forbidden because what was absorbed in it became nevelah; if so Rama's proof is well brought.`,
+  '5#_': `(There) And there: And it appears clear that Mordechai deals only regarding, etc. And this is not so, for Mordechai concedes the earthenware body itself does not become nevelah, as Maharshal and Bach wrote, and as Shach wrote s.k. 20.`,
+  '6#_': `(There s.k. 14) But for us. And in Shach s.k. 34 I also wrote for us — see there.`,
+};

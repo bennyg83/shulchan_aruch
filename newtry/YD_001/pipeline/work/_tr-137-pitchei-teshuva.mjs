@@ -1,0 +1,7 @@
+/** Editorial translations — siman 137 / pitchei-teshuva (2 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `Peel. See Ba'er Heitev end s.k. 4 in the name of Shach — and see in responsum Chavot Yair siman 75 that he permits in every matter where it does not forbid more than the peel amount; and see this in responsum Avraham Avinu Panim Me'irrot vol. 1 siman 23 and in responsum Sha'ar Naftali siman 7 in the middle of the responsum. And see what I wrote siman 135 s.k. 2.`,
+  '2#_': `Because of stam yeinam. See in Magen Avraham siman 491 s.k. 40 that regarding burnt wine the law is likewise — see there; however in responsum Perach Mateh Aharon vol. 1 siman 57 it does not appear so — see there and investigate; nonetheless Magen Avraham's words are primary. I again found in responsum Noda BiYehudah second series Yoreh De'ah siman 58 in the middle of the responsum that he wrote that the words of Perach Mateh Aharon in siman 27 are not relied upon; and in his actual case several were lenient, therefore the rabbi did not trouble to be so exacting — so he wrote — and see there siman 67. And see in responsum Shev Yaakov siman 33 that he wrote this is specifically in wood or earthenware vessels, but in metal vessels even spoiled wine — see there that he permitted in Pri Megadim stam yeinam wine guards that burned from a copper barrel — not yayin nesech from guards of stam yeinam — see there.`,
+};
+
+export const FILES = [['siman_137/pitchei-teshuva/part-001.txt', 'pitchei-teshuva']];

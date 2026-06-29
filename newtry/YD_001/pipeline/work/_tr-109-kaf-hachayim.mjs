@@ -1,0 +1,5 @@
+/** siman 109 editorial — kaf-hachayim (2 blocks) */
+export default {
+  '1#_': `a) [Seif 1] A piece that is not worthy of honor, etc. — but worthy of honor, whether in its kind or not in its kind, is not nullified even in a thousand, as above siman 101 and below siman 110 — see there. Shach s.k. 1. Pri Chadash gloss 1, Levush gloss 1; and you find a piece — meaning when not its kind among many kinds or equal in appearance. Shafan David gloss 1; and see above siman 101 gloss 52.`,
+  '2#_': `b) There. That became mixed with others, same kind in its kind, etc. — but when not in its kind, sixty is required, as below in the hagahah. Shach s.k. 2. Pri Chadash gloss 2, Levush gloss 2, Beit Levi gloss 1, Kereti gloss 1, Shafan David gloss 2.`,
+};

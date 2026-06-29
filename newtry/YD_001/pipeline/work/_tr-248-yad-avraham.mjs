@@ -1,0 +1,9 @@
+/** Editorial translations — siman 248 / yad-avraham (2 blocks) */
+export const TRANSLATIONS = {
+  '2#_': `(There) And they descend to his property in his presence. Shach wrote that if he is not here they do not descend to his property until they inform him if possible, for it is no worse than a debt, etc.; and it implies that if it is impossible to inform him they descend to his property not in his presence; and to me it appears this is not so, that they do not descend to his property not in his presence to extract charity, even where it is impossible to inform him, for so it appears in Ketubot (page 48) and there (page 107); and greater than this, that even for his sons and daughters who are more than six — it is clear from the words of the Rambam in chapter 12 of Laws of Marriage that they do not sustain them from his property even if he is wealthy, because they are sustained from the Torah of charity, and they do not descend not in his presence for charity; and likewise the Kesef Mishneh there, and likewise in Shulchan Aruch Even HaEzer siman 71. And all the more so for other charity, for behold it is possible he is doing charity where he is; and as the Kesef Mishneh wrote at the end of Laws of Inheritance — see there. And per this, the truth is charity is not similar to debt. And see in Rivash brought in Choshen Mishpat siman 209. Again I saw that Shach too retracted in Sefer Nekudot HaKesef and brought the above proofs. And in my composition on the Rambam Laws of Gifts to the Poor I elaborated further on this.`,
+  '3#_': `(Shulchan Aruch seif 3 in the gloss) And they had an allowance from their father. Beit HaTov wrote: and likewise if the father vowed in his lifetime, the sons are obligated to pay from their father's estate. And this is against what the gloss wrote in Choshen Mishpat chapter 251, and it is uncertain.`,
+};
+
+export const FILES = [
+  ['siman_248/yad-avraham/part-001.txt', 'yad-avraham'],
+];

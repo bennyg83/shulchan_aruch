@@ -1,0 +1,8 @@
+/** Editorial translations — siman 299 / nekudot-hakesef (1 blocks) */
+export const TRANSLATIONS = {
+  '1#_': `(Siman 299, Shach s.k. 1) And it is difficult on his words — for if so, etc. And it is also difficult on him: what does he challenge in Gemara end of Temurah "and let it be nullified in majority" regarding hair of a nazirite and firstborn; and they answer in Tzipreta — he should have answered that for this reason it is not nullified, since the prohibition has existence in its place.`,
+};
+
+export const FILES = [
+  ['siman_299/nekudot-hakesef/part-001.txt', 'nekudot-hakesef'],
+];

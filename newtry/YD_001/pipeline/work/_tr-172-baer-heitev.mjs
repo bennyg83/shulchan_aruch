@@ -1,0 +1,16 @@
+/** Editorial translations — siman 172 / baer-heitev (9 blocks) */
+export const TRANSLATIONS = {
+  '1#ג': `To remove. Shach wrote: even if lender has power collect debt permitted since nekiya and per this is custom unlike Levush — see there.`,
+  '1#ד': `Books. Taz tzaruch iyun why Rama relied this view since CM 72 Beit Yosef brought responsum Rashba and Mordekhai forbid without nekiya fixed ribbit; at minimum should bring Yesh Im Mi to be stringent; Shach wrote not hidden from Rav these matters as Darkei Moshe therefore concluded good to be stringent do nekiya.`,
+  '1#ו': `Forbidden. Taz wrote nevertheless only avak ribbit.`,
+  '1#ז': `We deduct. Since protests not eat theft; whether must say specifically in court Beit Yosef two views; implies specifically avak ribbit we deduct when protests; where not even avak ribbit e.g. nekiya place they remove since permitted though protests do not deduct until brings money; place not remove nekiya term ended eats after term nekiya as ate initially permitted though not wrote eat nekiya as long as you hold this in your hand so Beit Yosef Rashba; Shach and per author CM 74:3 debt of collateral eating fruits place not remove if wishes not accept money before term unless leaves fruits eat; stam Rav as there; many poskim before removal time cannot protest do not deduct since place not remove; seems court doubt burden of proof.`,
+  '2#_': `To rent it. Levush however seems must not stipulate thus at time of loan; all in mashkanta of Sura; other mashkanta even another rented forbidden; if stipulated fixed ribbit unlike Levush; Taz challenged Levush; Rabbeinu Yerucham wrote places give money on houses mashkanta dwells therein lender never permanently holds house another obligates lender fixed amount yearly Mori HaRadah if one obligating himself does so on own permitted; if agent of borrower forbidden fixed ribbit all agree.`,
+  '3#ב': `It is not. Shach typo should read redeemed in halves i.e. lender must accept half nevertheless lender eats all fruits as CM 74:4.`,
+  '3#ד': `Custom. Shach tzaruch iyun Beit Yosef wrote only mashkanta of Sura not nekiya those who permit nekiya and do not add.`,
+  '6#ב': `When tax. Shach language of Rav unclear from Bahat Halacha Rav extracted this law when tax on land body though lender eats fruits borrower may pay tax land is his; when tax on fruits e.g. master takes tithe on grain forbidden borrower pays master unless pays from fruits belonging to lender; Taz Rav's words if tax in money automatically tax from land body borrower's not sold in nekiya only fruits growing for time therefore borrower must pay by law.`,
+  '6#ג': `Rent. If lender dwelt nekiya such case not even avak ribbit like sale Rashba; Taz tzaruch iyun responsum Rashba mentioned borrower accepted responsibility why Rama not mention borrower accepted responsibility not relevant say responsibility typo therefore ruled if not accepted responsibility explicitly pays only money lent without deduction though forced pay rent no responsibility typo; {Rama: (Nachalat Binyamin: words not compelled can say nekiya like sale regarding fruits like true sale say responsibility typo)}`,
+};
+
+export const FILES = [
+  ['siman_172/baer-heitev/part-001.txt', 'baer-heitev'],
+];
