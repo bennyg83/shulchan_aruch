@@ -1,0 +1,65 @@
+import fs from 'fs';
+import path from 'path';
+
+const DRY = process.argv.includes('--dry');
+const base = 'C:/Users/binya/Documents/Shulchan aruch/newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1';
+
+function brSegs(h){ return h.split(/<br\s*\/?>/).filter(s=>s.trim()); }
+function loc(si,se){ return path.join(base,si,se,'turei-zahav','en.html'); }
+function hep(si,se){ return path.join(base,si,se,'turei-zahav','he.html'); }
+function join(segs){ return segs.join('<br />\n'); }
+function getEN(si,se){ return brSegs(fs.readFileSync(loc(si,se),'utf8').replace(/^﻿/,'').trim()); }
+function safeWrite(p,c){ const t=p+'.tmp'; fs.writeFileSync(t,c,{encoding:'utf8'}); fs.renameSync(t,p); }
+
+const CASES = [
+
+  { si:'siman234', se:'seif-056', seg:
+    `Three gathered together. The reason is found in Ran (page 8): since it is clear that the vower must [present his vow] before a court — the only leniency they made for a husband [to revoke without a full court] is when [three people] are already gathered; but performing such an involved act as gathering them together initially for this purpose is not permitted. And the Tur first cites the view of R' Eliezer of Metz, who gives a different reason for the three who must be gathered, according to his approach there.` },
+
+  { si:'siman244', se:'seif-001', seg:
+    `Even an ignorant person [am ha'aretz]. This is the "ashmaic elder" in the Talmud according to R' Tam's interpretation — and not like Rashi who explains it refers to a wicked person.` },
+
+  { si:'siman262', se:'seif-001', seg:
+    `He must return and draw blood of circumcision, etc. This gloss is puzzling in two respects. First, it implies this is obligatory — and if so, one should return and draw blood even on Shabbat; but this is not so, for we do not find that anyone holds one must return and draw blood — rather Hagahot Maimoniot and the other decisors do not hold this, as Beit Yosef wrote; and it is obvious there is only a stringency here, and on Shabbat one should not do so. Secondly, what is written here in the latter clause — "he circumcised within the eight days and in the daytime, he has fulfilled his obligation" — implies that one does not need to return and draw blood; what then is the difference from the first clause? Certainly circumcision within the eight days is not superior to [circumcision] at night; and so it is proven from siman 264 that circumcision within the eight days is not considered a circumcision at all.` },
+
+  { si:'siman263', se:'seif-004', seg:
+    `And what is written: "and not with iron" — Perisha writes that this refers to the examination [bedikah], that it should not be [performed] with iron; and not like those who say it refers to the milah itself, that one should make an incision with the fingernail.` },
+
+  { si:'siman267', se:'seif-063', seg:
+    `And what is written: "that [the minor] consent to his liberation" — meaning that in truth he is already freed by virtue of the money, since money [alone] effects liberation without a deed; and since the guardian frees him through this money, it is like a sale — and the guardian has the ability to sell him. The reason the minor's consent is required is rabbinic — since the father taught his son to treat [the slave] as his slave, there is occasion for disparagement.` },
+
+  { si:'siman271', se:'seif-001', seg:
+    `That he should say at the beginning of the processing. This is the conclusion of Rosh, who first brought that R' Baruch [of Mainz] was unsure whether explicit declaration is required or whether intention suffices — since regarding piggul the verse says "it shall not be reckoned" and there a verbal declaration is required; whereas terumah may be separated without verbal declaration; and regarding misappropriation [shelihut yad] it says "for every matter of trespass," and the mishnah says "whoever thinks to misappropriate a deposit is liable." One may wonder: does not Beit Hillel hold one is not liable for misappropriation until he actually performs an act, as stated at the end of chapter HaMafkid? Furthermore, Derisha asked: even according to Beit Shammai who makes him liable [for thinking], that is only when he stated it aloud, as Rashi and Tosafot explain. We can resolve this by saying that R' Baruch does not follow Rashi and Tosafot here. And it seems to me that the structure of his argument is: since regarding piggul it says "it shall not be reckoned" and we find it requires verbal declaration — and likewise regarding misappropriation, "for every matter of trespass" is written, and the mishnah uses the language "whoever thinks" in that context, with the mishnah itself relying on the verse — but in other places the doubt remains. And what he wrote: "at the beginning of the processing" — it does not seem he intends to exclude the end of the processing; on the contrary, we find in many places that an act is attributed only to its concluder, and so one who assists at the completion certainly avails. Rather he intends to exclude the need to assist from beginning to end — it is sufficient even at the beginning alone. However one might say: since at the start the non-Jew worked alone, part of it was done without intent; whereas when a Jew assists at the start, one can say that all subsequent work of the non-Jew is drawn after that beginning through the end — as we hold like the Rosh that when a non-Jew acts for a Jew's benefit it is permitted. However, from the Tur's words here in the name of Rav Natronai it is written: "if they have the ability to re-stretch the pressed hides and apply lime to them le-shmah, they have fulfilled the obligation of processing le-shmah" — end of quote. If so, all the more so when one assists at the beginning, when the first coat of lime is still on it — that this avails; and so it is implied from Semag, which Beit Yosef cites in Orach Chayyim siman 32: "one must put the hides into the processing le-shmam, or assist the non-Jew during the processing le-shmam." Nevertheless it seems to me that assisting in the "processing" only counts for the processing act itself — but not for assisting in blackening the tefillin, since that is not part of the processing; and anyone who is lenient in this leads many to sin.` },
+
+  { si:'siman272', se:'seif-003', seg:
+    `And not more than eight. So it should read, and the Tur explains that the ideal is four or five [columns per sheet] — the only prohibition is two or nine specifically. And in Semag, the laws of a Torah scroll, this ruling is written — that if one makes a sheet of three [columns], etc., and all that is mentioned here — he concluded: "all this is a mitzvah but does not invalidate" — end of quote; and Mordechai wrote similarly in the Minor Laws. If so, if only two columns were written in a sheet, it is valid after the fact. And so it is implied in Rambam chapter 10 of the laws of Torah scroll, which does not count this among the invalidating factors. It is surprising that Beit Yosef and Rema did not cite this. And it appears that what the Shulchan Arukh wrote in siman 273 seif 5 — "all these matters, etc." — applies also to this siman.` },
+
+  { si:'siman273', se:'seif-006', seg:
+    `The letter dalet [ד]. This is a complete invalidation — for it is a dalet and not a final kaf [ך]. And so I have seen Maharil warn about this in his Responsa siman 98, calling those who write thus boors who invalidate Torah scrolls for this reason. For the final kaf [kaf peshutah] must have its descending stroke [regel] twice the length of its roof — and so it is in Hagahot Maimoniot chapter 1 of the laws of tefillin, in the name of Ra'am: "a curved kaf and a final kaf have the same measure — namely, if you were to straighten the curved one, it would become a final kaf"; and from this it is proven that the final kaf must have its descending stroke double its roof, analogous to the curved kaf which has three parts. This error is common in many Torah scrolls; therefore every halachic authority should warn scribes about this and correct what has already been done; and a Torah scroll written this way is entirely invalid for reading. When correcting a final kaf, one must erase the whole letter and then write it anew properly — for if one erases only part of its roof, it would be like forming letters through erasure [chak tochos], as we wrote in Orach Chayyim siman 32 seif 17 regarding a letter written all at once — see there.` },
+
+  { si:'siman274', se:'seif-007', seg:
+    `It further seems to me: a Torah scroll that lacks the dots that ought to appear over certain words — such as over "where is Sarah" [ayeh Sarah] or other such places — is not to be declared invalid for reading even if it has not yet been corrected; for in any case it was written as it was given from Sinai, since the dots that the sages mentioned are from Ezra's enactment, as is written in Piskei HaTosafot to Menachot, chapter All Public Sacrifices: "when Ezra wrote the Torah he made dots, and said: if Moses comes and asks why did you make dots, [Ezra] would say: but I did not erase [the letters]" — end of quote.` },
+
+  { si:'siman275', se:'seif-002', seg:
+    `And the Tur wrote: "and there is also in the scribal arrangement a 'regulated' paragraph — namely that he wrote a line up to its middle or up to its third, and begins on the lower line parallel to the indent of the upper line; and it seems that if he deviated from this it does not invalidate, since this is not specified in the Talmud" — end of quote. The plain explanation is: there are certain passages in the Torah that according to our Talmud are open or closed paragraphs, while according to the scribal arrangement they are "regulated" in the manner the Tur described; and the Tur writes that if the scribe deviated from this arrangement and made them open or closed [standard paragraphs] instead, he did not invalidate — since regulated paragraphs are not mentioned in the Talmud. I write this because I saw that my father-in-law of blessed memory understood that the scribal arrangement created entirely new paragraphs where according to our system there is no paragraph at all — and from this he derived: since the Tur wrote that if one deviated he did not invalidate, it implies that if a scribe left a paragraph-sized space where there should be none, there is no invalidation; and the only invalidation is where there is a paragraph and it was made opposite its type [open instead of closed, or vice versa]; but if he left a space where there should be none, the Tur holds it is not invalid — thus disagreeing with Rambam who wrote it is invalid whether one made an open paragraph closed, a closed one open, reversed them, or left a space where one should not have. But I say he was not precise — for this latter case is the most obvious invalidation and need not be written at all; and the baraita in chapter HaBoneh, saying "an open paragraph should not be made closed" and vice versa — did not need to state that leaving a paragraph-sized space where there should be none is invalid, for that follows a fortiori. And this a fortiori is proven from Rambam, who in chapter 10 lists all the invalidations together and writes "if one changed the forms of the paragraphs" — and does not list leaving a paragraph-sized space among them; rather it is obvious that is an a fortiori case. And so the Rosh wrote explicitly, cited by Beit Yosef at the end of siman 274: "since the space is not of paragraph size, there is no reason to invalidate on account of the space" — end of quote; evidently when it is of paragraph size, it is obviously invalid; and no authority may be lenient in this. And so it appears to me as the obvious intent of Beit Yosef, who wrote: "according to the Tur, if one deviated from the regulated paragraphs of the scribal arrangement and made them open or closed, he did not invalidate." If one thought the scribal arrangement creates new paragraphs where we have none, Beit Yosef should have said: if one deviated and made no paragraph there at all — but it is obvious the discussion concerns our existing paragraphs, to which the scribal arrangement also applies, as I have written.` },
+
+];
+
+let ok=0, fail=0;
+for (const {si,se,seg} of CASES){
+  const ep=loc(si,se), hp=hep(si,se);
+  try {
+    const heS=brSegs(fs.readFileSync(hp,'utf8').replace(/^﻿/,'').trim());
+    const enS=getEN(si,se);
+    const diff=heS.length-enS.length;
+    if(diff!==1){ console.log(`SKIP ${si}/${se}: diff=${diff} he=${heS.length} en=${enS.length}`); fail++; continue; }
+    const newSegs=[...enS,seg];
+    if(DRY){ console.log(`DRY ${si}/${se}: ${enS.length}+1 → ${newSegs.length}`); ok++; continue; }
+    try { fs.writeFileSync(ep,join(newSegs),{encoding:'utf8',flag:'w'}); }
+    catch(_){ safeWrite(ep,join(newSegs)); }
+    const v=brSegs(fs.readFileSync(ep,'utf8').replace(/^﻿/,'').trim());
+    console.log(`OK ${si}/${se}: ${enS.length}+1 → ${v.length} segs`);
+    ok++;
+  } catch(e){ console.log(`ERROR ${si}/${se}: ${e.message}`); fail++; }
+}
+console.log(`\nDone. ok=${ok} fail=${fail}`);

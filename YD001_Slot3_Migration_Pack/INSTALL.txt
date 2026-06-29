@@ -1,0 +1,20 @@
+YD001 Slot 3 Migration Pack — 60-second install
+===============================================
+
+1. Unzip this folder anywhere.
+
+2. Copy into your Shulchan Aruch repo:
+   - cursor-rules/yd001-slot3-quality-pass.mdc  →  .cursor/rules/
+   - newtry/YD_001/translation/*                →  newtry/YD_001/translation/
+   - newtry/YD_001/pipeline/work/*              →  newtry/YD_001/pipeline/work/
+   - newtry/YD_001/AGENTS.md                    →  newtry/YD_001/AGENTS.md
+
+3. Your project must already include (from main clone, NOT this zip):
+   - newtry/YD_001/full_dictionary.md
+   - newtry/YD_001/output/
+   - newtry/YD_001/progress.log
+   - newtry/YD_001/pipeline/work/_slot3-scan-range.mjs
+
+4. Open Cursor at repo root. Paste RESUME_PROMPT.txt into Agent chat.
+
+See README.md for details.

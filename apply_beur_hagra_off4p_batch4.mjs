@@ -1,0 +1,68 @@
+import fs from 'fs';
+import path from 'path';
+
+const DRY = process.argv.includes('--dry');
+const base = 'C:/Users/binya/Documents/Shulchan aruch/newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1';
+
+function brSegs(h){ return h.split(/<br\s*\/?>/).filter(s => s.trim()); }
+function loc(si,se){ return path.join(base,si,se,'beur-hagra','en.html'); }
+function hep(si,se){ return path.join(base,si,se,'beur-hagra','he.html'); }
+function join(segs){ return segs.join('<br />\n'); }
+function getENsegs(si,se){ return brSegs(fs.readFileSync(loc(si,se),'utf8').replace(/^﻿/,'').trim()); }
+function safeWrite(p, content){
+  const tmp = p + '.tmp'; fs.writeFileSync(tmp, content, {encoding:'utf8'}); fs.renameSync(tmp, p);
+}
+
+const CASES = [
+
+  // siman138/seif-001 (he=23, en=16, diff=7) — append HE[17]–HE[23]
+  { siman:'siman138', seif:'seif-001', segs: [
+    // HE[17]
+    `But, etc. — that if, etc. There in the baraita: "our Rabbis taught: a winepress," etc. — "of wood," etc. — "and if," etc.; and in the aforementioned Tosafot: "when they are not," etc. — "and one can say that the mishnah," etc.; and it deals with when he [a gentile] trod in it — as written in the gloss: "if he trod in it"; and as written there in the baraita, etc.; and as Tosafot wrote there; and below we establish, etc.; "and one can say," etc. — "since he frequently trod," etc.`,
+    // HE[18]
+    `(Supplement) "If the beginning of its use," etc. — "and if the beginning of its use," etc. See Tosafot s.v. "the winepress," etc. — "and one can say that the mishnah," etc.; and likewise wrote Ran; and there is here another reading for Rashi, who has the first version in the Gemara, etc.; and Tosafot challenged him, etc.; and answered: the baraita [deals with when] the beginning of its use was for a prohibited [purpose] — as it teaches "the winepress of idolaters," etc.; but the mishnah deals with a winepress of a Jew whose beginning of use was for a permitted [purpose]; and he wrote: "but according to the Rif's reading, even [when] the beginning of its use was for a permitted [purpose] it requires wiping"; and he wrote that it seems to him that the Rif's reading is correct (end). And in [a vessel] of earthenware, etc. Like the Sages in the baraita there.`,
+    // HE[19]
+    `If he trod in it. So wrote the Tur: "and if he trod in one that is not pitched, it requires rinsing"; and this is astonishing — for the Rosh there in paragraph 31 wrote that wiping does not expel [absorbed wine] from earthenware vessels; and likewise wrote Tur HaZahav: "and of earthenware — even though," etc. — "and therefore wiping does not suffice for it, and even if it is wiped after peeling it — rather filling and rinsing," etc.; and likewise the law regarding an unpitched [vessel], for the earthenware absorbs greatly; and he already wrote above that pitched vessels do not absorb more on account of their pitch than they would have without pitch [and likewise wrote Ran in chapter 2 there; and nonetheless if he peeled off the pitch they are permitted, etc., since the pitch does not absorb more, etc. — see there]; and likewise wrote Sefer HaTerumah explicitly; and see Rashi there s.v. "but we have taught in a mishnah," etc. — "hence," etc.; and likewise wrote the Rosh in chapter 2 paragraph 21: there is no distinction between [a vessel] that had pitch which was peeled off and one that never had pitch at all — as is proven below in the last chapter, etc. — see there; and likewise wrote Sefer HaTerumah and Tosafot there; and likewise implied there where it says "and Rabbi agrees," etc. — "and what is the difference," etc. — and therefore regarding jars that are not pitched where it says "and he agrees," etc. — "and what," etc. — and if it were so, also for the Rabbis [the same question would arise]: what is the difference, etc. And this "if he trod in it" must be placed before "and in [a vessel] of earthenware" — and before wood and stone, as above; and see above siman 135 seif 4, that even in other earthenware vessels [when] the beginning of their use was by a gentile, rinsing is required. And if the beginning, etc. This is the first version of Rava, as written in the aforementioned Tosafot; and likewise wrote Sefer HaTerumah and Rashba; and see the Rosh paragraph 33; and "and one can further say," etc.; and Tosafot 72b s.v. "if," etc.`,
+    // HE[20]
+    `If it is of wood. For there is no distinction between it and [a vessel of] stone except regarding pitched [vessels]; and see Rashi on the mishnah there s.v. "and of wood," etc.; and the Rosh in chapter 2 paragraph 22.`,
+    // HE[21]
+    `But, etc. In Tur HaZahav: "but even the Sages required filling and rinsing in [a vessel of] earthenware only when the beginning of its use was in the hands of a gentile, etc.; but when the beginning of its use was in the hands of a Jew, wiping suffices; and this is what is written 'the [winepress],' etc., 'of idolaters' — for otherwise why would it [the mishnah] need to teach 'of idolaters'?'; and this is the view of Raavad of blessed memory — end of his words; but nonetheless specifically when [the vessel] is not pitched, for with pitched [vessels] there is no distinction, as above.`,
+    // HE[22]
+    `(Supplement) But, etc. — requires wiping. This is the view of Raavad; but Ran disagrees there and wrote: since the mishnah teaches unattributedly "it is forbidden" — this implies even when the beginning of its use was by a Jew; and the fact that the baraita teaches "of idolaters" is for the greater novelty — that even so Rabbi permits; and all this is according to the Rif's reading; but according to the reading of Tosafot, which the Shulchan Arukh follows, necessarily the mishnah deals with the beginning of use by a Jew — and this requires much study (end).`,
+    // HE[23]
+    `(Supplement) But if it is of earthenware it requires wiping. This requires study — for the mishnah deals with the beginning of its use by a Jew, as Tosafot wrote, and as above; and even when it is not pitched it is forbidden, as written there: "even if he peeled it," etc. — and likewise when it is not pitched, as above; and even though Tosafot answered "and one can say that the mishnah can be explained in another way — for the time being or for the most part" — nonetheless from the language of the Tur, which distinguishes between [when] the beginning of its use was by a gentile or by a Jew, it implies that he interprets Tosafot's answer in this case; and even though Tur HaZahav wrote this, it is according to the reading that does not have the first version — and [therefore] does not need Tosafot's answer; but for us [who have that reading] it is difficult. And as the Rosh wrote that wiping does not help for earthenware vessels, and as above; and it is not comparable to cups [where] they distinguished in chapter 2 (33b) between [when] the beginning of their use was in the hands of a Jew, etc. — for there they are not filled with wine in abundance like a winepress, as Ran wrote — therefore even wiping is not required; but here, according to all, rinsing is required (end).`,
+  ]},
+
+];
+
+let ok = 0, fail = 0;
+for (const { siman, seif, segs } of CASES) {
+  const ep = loc(siman, seif);
+  const hp = hep(siman, seif);
+  try {
+    const heS = brSegs(fs.readFileSync(hp,'utf8').replace(/^﻿/,'').trim());
+    const enS = getENsegs(siman, seif);
+    const diff = heS.length - enS.length;
+    if (diff !== segs.length) {
+      console.log(`SKIP ${siman}/${seif}: diff=${diff} expected=${segs.length} he=${heS.length} en=${enS.length}`);
+      fail++; continue;
+    }
+    const newSegs = [...enS, ...segs];
+    if (DRY) {
+      console.log(`DRY ${siman}/${seif}: he=${heS.length} en=${enS.length} append=${segs.length} → ${newSegs.length}`);
+    } else {
+      try {
+        fs.writeFileSync(ep, join(newSegs), {encoding:'utf8', flag:'w'});
+      } catch(_) {
+        safeWrite(ep, join(newSegs));
+      }
+      const verify = brSegs(fs.readFileSync(ep,'utf8').replace(/^﻿/,'').trim());
+      console.log(`OK ${siman}/${seif}: ${enS.length}+${segs.length} → ${verify.length} segs`);
+    }
+    ok++;
+  } catch(e) {
+    console.log(`ERROR ${siman}/${seif}: ${e.message}`);
+    fail++;
+  }
+}
+console.log(`\nDone. ok=${ok} fail=${fail}`);

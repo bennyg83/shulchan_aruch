@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "oc318-reader",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "newtry/OC_Mobile/oc318-mobile-reader",
+      "port": 5174
+    }
+  ,
+    {
+      "name": "sa-sandbox",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/serve.mjs"],
+      "cwd": "newtry/SA_Sandbox",
+      "port": 5176,
+      "autoPort": true
+    }
+  ]
+}

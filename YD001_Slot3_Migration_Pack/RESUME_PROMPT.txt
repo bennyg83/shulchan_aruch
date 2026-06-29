@@ -1,0 +1,21 @@
+YD_001 Slot 3 quality pass — resume on new machine
+
+1) [INIT] Read newtry/YD_001/full_dictionary.md and newtry/YD_001/progress.log. Print: [INIT] Dictionary loaded. Progress log read. Ready.
+
+2) Run: node newtry/YD_001/pipeline/work/_slot3-scan-range.mjs 201 300
+   Report [TOP] simanim by hit count.
+
+3) Continue editorial retranslation for the next batch:
+   - Target the highest-count simanim in 201–300 (start with 264, 283, 293 unless scan shows worse).
+   - Non-Mechaber commentators only.
+   - Replace ONLY text between **** ENGLISH **** and **** END BLOCK **** from Hebrew.
+   - Follow full_dictionary.md and all R1–R10 rules in .cursor/rules/yd001-slot3-quality-pass.mdc
+     (or translation/SLOT3_CURSOR_RULES.md if rules not installed yet).
+
+4) Create and run pipeline/work/_patch-slot3-batch32.mjs (copy pattern from _patch-slot3-batch-TEMPLATE.mjs or latest batch on disk).
+
+5) Per siman: scan → 0 failure hits → npm run pipeline:validate -- --root output/siman_NNN → append progress.log.
+
+6) Print [COMPLETE] Batch 32 with siman list and remaining [TOTAL] from range scan.
+
+Do not commit git unless I ask. Say which simanim you picked and block count when done.
