@@ -132,7 +132,18 @@ function publishSiman(siman, stats) {
           ? fs.readFileSync(path.join(dest, "en.html"), "utf8") : "";
         const existingEnSegs = existingEn.split(/<br\s*\/?>/).filter(s => s.trim()).length;
         const isPlaceholder = !existingEnSegs || existingEn.includes(EN_PENDING_DEFAULT);
-        if (!isPlaceholder && existingEnSegs >= heSegs && newEnSegs < heSegs) {
+        // Mechaber rescue: the base text is a single "(main)" block per seif, so its
+        // clean translation legitimately has fewer segments than the segmented HE
+        // (which carries a chapter-title segment). The segment guard would otherwise
+        // permanently block that clean source from replacing stale MT. Only rescue when
+        // the SERVED copy is actually bad (Hebrew-leaking or garbage) and the new source
+        // is CLEAN — so a good multi-segment entry is never downgraded. The reader does
+        // not use the old inline anchors, and clean published mechabers already lack them.
+        const HEB_LEAK = /[֐-׿]{4,}/;
+        const existingBad = HEB_LEAK.test(stripTags(existingEn)) || GARBAGE_RE.test(stripTags(existingEn));
+        const newClean = stripTags(en).length > 0 && !HEB_LEAK.test(stripTags(en)) && !GARBAGE_RE.test(stripTags(en));
+        const mechaberRescue = slug === "mechaber" && existingBad && newClean;
+        if (!isPlaceholder && existingEnSegs >= heSegs && newEnSegs < heSegs && !mechaberRescue) {
           // New EN would create a mismatch where existing EN was fine — skip.
           stats.wrote++;
           continue;
