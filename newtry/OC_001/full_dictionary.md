@@ -4,7 +4,13 @@
 ### Optimized for: OC 318, OC 253, and Bishul/Shabbos Literature
 ### Suitable for: All Sections of Shulchan Aruch (OC, YD, EH, CM)
 
-**Version 1.0 | Built for AI Translation Systems**
+**Version 1.1 | Built for AI Translation Systems**
+
+> **Canonical merged edition (2026-07-09).** This single file supersedes the previously
+> divergent copies under `OC_001/`, `EH_001/`, `SA_Rebuild/`, and `OC_001/cli_workspace/`.
+> It fixes `י״ד`=Yoreh De'ah (was mislabeled "Even HaEzer" in the EH copy) and splits
+> `רד״ך` (Radach) from `רדב״ז` (Radbaz). Where a siglum's meaning depends on the section
+> (OC/YD/EH/CM) or the surrounding content, see **§4C–§4E**.
 
 ---
 
@@ -34,10 +40,11 @@ This dictionary is structured for use as a **build reference inside any AI trans
 | ב״מ | בית מאיר | Beit Me'ir |
 | ג״ר / גדולי הראשונים | גדולי הראשונים | the early great authorities |
 | ח״א | חיי אדם | Chayei Adam |
-| ח״מ | חושן משפט | Choshen Mishpat |
+| ח״מ | חושן משפט / חלקת מחוקק | Choshen Mishpat (the section) — BUT in Even HaEzer context = **Chelkas Mechokek** (commentary); see §4E |
 | ח״צ | חכם צבי | Chacham Tzvi |
 | ט״ז | טורי זהב | Taz |
-| י״ד | יורה דעה | Yoreh De'ah |
+| י״ד | יורה דעה | Yoreh De'ah (the section) — a `י״ד` note in another section = a cross-ref to YD |
+| אה״ע / א״ע | אבן העזר | Even HaEzer |
 | כ״מ | כסף משנה | Kesef Mishnah |
 | כנה״ג | כנסת הגדולה | Knesset HaGedolah |
 | מ״א | מגן אברהם | Magen Avraham |
@@ -71,7 +78,8 @@ This dictionary is structured for use as a **build reference inside any AI trans
 | רא״ם | רבי אליהו מזרחי | R' Eliyahu Mizrachi |
 | ראש | רבינו אשר | Rosh |
 | רב | רבינו אשר | Rosh (alternative) |
-| רד״ך / רדב״ז | רב דוד בן זמרה | Radbaz |
+| רדב״ז | רבי דוד בן זמרה | Radbaz (R' David ben Zimra) |
+| רד״ך | רבי דוד הכהן | Radach (R' David HaKohen) — a DIFFERENT posek; never render as "Radbaz" |
 | רי״ו | רבינו ירוחם | Rabbeinu Yeruham |
 | ריב״ש | רבי יצחק בר ששת | Rivash |
 | ריטב״א | רבי יום טוב בן אברהם | Ritva |
@@ -705,6 +713,82 @@ Google Translate and other automated tools often fail to convert Hebrew letter-n
 
 **Note on Siman/Seif numbers:** Simanim and seifim in citations also use Hebrew numerals. Always convert to Arabic numerals in English. e.g. סימן שי״ח = siman 318, סעיף א = seif 1.
 
+## 4B — Full Gematria Values (for citation numbers)
+
+Citation numbers (simanim, dapim, se'if-katan) are Hebrew numerals. Sum the values of **every** letter in the numeral token:
+
+| Letter | Value | | Letter | Value | | Letter | Value |
+|---|---|---|---|---|---|---|---|
+| א | 1 | | י | 10 | | ק | 100 |
+| ב | 2 | | כ/ך | 20 | | ר | 200 |
+| ג | 3 | | ל | 30 | | ש | 300 |
+| ד | 4 | | מ/ם | 40 | | ת | 400 |
+| ה | 5 | | נ/ן | 50 | | תק | 500 |
+| ו | 6 | | ס | 60 | | תר | 600 |
+| ז | 7 | | ע | 70 | | תש | 700 |
+| ח | 8 | | פ/ף | 80 | | תת | 800 |
+| ט | 9 | | צ/ץ | 90 | | תתק | 900 |
+
+Multi-letter examples: קפ״ד = 100+80+4 = **184**; רל״ג = 200+30+3 = **233**; תרמ״ט = 400+200+40+9 = **649**; ת״ט = 400+9 = **409**.
+
+## 4C — THE CITATION-MARKER TRAP (most common gematria error)
+
+A citation marker (`ס'`, `סי'`, `סימן` = "siman"; `דף` = "folio/daf"; `ס"ק` = se'if katan) is a **separate word** from the number that follows. Machine translation constantly reads the marker letter as if it were the first digit of the number, dropping its value:
+
+- **הלק״ט ח״ב ס״ג** — here `ס״ג` is the *number* samech-gimel = 60+3 = **siman 63**. MT wrongly renders "siman 3" (it read the ס as the "siman" marker and kept only the ג=3). **Always: ס״ג = 63, not 3.**
+- **דף ע׳** = daf ayin = **folio 70** (MT often mangles to "9a" etc.).
+- **תרמ״ט** cited as a siman = **siman 649**, not 249 (do not drop the ת=400).
+- **ס״ק ט״ז** = se'if katan (subparagraph) **16** — `ס"ק` is the marker "s.k.", the number is ט"ז=16.
+
+**Rule:** identify the marker word first, then convert *the entire remaining numeral token* by summing all its letters. Every siman/daf number the Hebrew cites must appear, correct, in the English.
+
+## 4D — Numerals that are actually WORDS (do not convert)
+
+Some gershayim tokens are abbreviations, not numbers — never render them as a number:
+
+| Token | It is | Render as |
+|---|---|---|
+| כ״א | כי אם ("rather/only") — OR the number 21; use context | "rather" / "only" (usually); "21" only if counting (e.g. כ״א שנים = 21 years) |
+| ר״ל | רוצה לומר ("that is to say") — NOT 230 | "that is to say" |
+| וכ״ש | וכל שכן | "and all the more so" |
+| מ״מ | מכל מקום | "nevertheless" |
+| ה״ה | הוא הדין | "the same applies" |
+
+## 4E — CONTEXT-DEPENDENT RENDERINGS (differ by sefer / section / content)
+
+**The same siglum can mean different things depending on which section of Shulchan Aruch you
+are in and on the surrounding content.** Always resolve by context; when genuinely unsure,
+still translate and note the uncertainty in `reason` (never fall back to `keep`).
+
+### (i) Which commentary set you are in — by SECTION
+
+The "stock" commentators differ per section, so an ambiguous siglum usually resolves to that
+section's commentator:
+
+| Section | Its main commentaries (and their sigla) |
+|---|---|
+| Orach Chaim (OC) | Magen Avraham (מ״א), Taz (ט״ז), Mishnah Berurah (מ״ב), Baer Heitev (בה״ט), Pri Megadim (פמ״ג), Eliyah Rabbah (א״ר), Machatzis HaShekel |
+| Yoreh De'ah (YD) | Shach (ש״ך), Taz (ט״ז), Pri Chadash (פר״ח), Pitchei Teshuvah (פת״ש), Baer Heitev |
+| Even HaEzer (EH) | Beis Shmuel (ב״ש), **Chelkas Mechokek (ח״מ / חלק״מ)**, Pitchei Teshuvah, Baer Heitev |
+| Choshen Mishpat (CM) | Sma (סמ״ע), Shach (ש״ך), Taz, Ketzos HaChoshen (קצה״ח), Nesivos HaMishpat (נתה״מ) |
+
+### (ii) Sigla that flip meaning by section/content
+
+| Siglum | Meaning A | Meaning B | How to choose |
+|---|---|---|---|
+| ח״מ | Choshen Mishpat (the section) | **Chelkas Mechokek** (commentary on EH) | In EH, a `ח״מ` note ≈ Chelkas Mechokek; a cross-reference "in ח״מ siman N" = the CM section |
+| מ״ב | Mishnah Berurah (OC) | Masas Binyamin (EH get responsa, e.g. "get of Vienna") | OC halacha → Mishnah Berurah; EH responsa → Masas Binyamin |
+| ר״י | R' Yehuda / R' Yitzchak (Talmud) | Rabbeinu Yonah (halacha) | Talmudic sugya vs. halachic citation |
+| ר״א | R' Avraham / R' Eliezer | the Rosh (רא״ש) if truncated | usually a named Tanna/Amora by context |
+| ד״א | Dvar Acher ("another interpretation") | Derech HaChaim (later siddur) — anachronistic in early acharonim | pre-1800 author → not Derech HaChaim; flag if unsure |
+| מהר״י | Mahari (R' Yaakov / R' Yosef / R' Yisrael) | — | resolve to the specific Mahari by context; do not guess a surname |
+| ע״ת | Olas Tamid (OC) | — | in OC = Olas Tamid; often mis-rendered "Eshel Tzedek" — do NOT |
+| מהרמ״פ | Maharam Padua | — | |
+| פ״י | a Tur/SA commentary (Panim Yafos?) | — | uncertain — flag |
+| מהר״ר שמשון | Maharar Shimshon | — | |
+
+### (iii) Values that are words, not numbers → see §4D (ר״ל, כ״א, מ״מ, ה״ה, וכ״ש).
+
 ---
 
 # PART 5 — STANDARD TRANSLATION CONVENTIONS
@@ -797,6 +881,35 @@ Google Translate and other automated tools often fail to convert Hebrew letter-n
 | לא חיישינן | we are not concerned |
 | לא גזרינן | we do not decree |
 | גזרינן | we decree |
+
+---
+
+## 5D — Halachic Register: De'oraisa / De'rabbanan distinctions
+
+When the Hebrew draws a Torah-law vs. rabbinic-law distinction, use the **Orthodox halachic
+register**, not academic/legalistic English. Keep the English clean and readable, but:
+
+- דאורייתא / מדאורייתא → **"according to the Torah" / "D'Oraisa"** (NOT "biblical")
+- דרבנן / מדרבנן → **"rabbinic" / "D'Rabbanan"** (NOT "merely rabbinical" in a dismissive tone)
+- מן התורה → "from the Torah" / "by Torah law"
+- מדברי סופרים → "by rabbinic enactment" (lit. "from the words of the Scribes")
+
+**Example (the corrective case):** `לאו ריבית היא אלא אבק ריבית` →
+"it is not interest according to the Torah, but only D'Rabbanan"
+— NOT "it is not biblical interest, but only rabbinic interest."
+
+Related ribbis terms:
+
+| Hebrew | Render as |
+|---|---|
+| ריבית קצוצה | fixed [Torah-forbidden] interest — ribbis ketzutzah |
+| אבק ריבית | "the dust of interest" — a rabbinic (D'Rabbanan) form of ribbis |
+| ריבית דאורייתא | interest forbidden by the Torah |
+| ריבית דרבנן | interest forbidden rabbinically |
+
+The same principle applies beyond ribbis: wherever the Hebrew hinges on a de'oraisa/de'rabbanan
+distinction, render it with "Torah" / "D'Oraisa" and "rabbinic" / "D'Rabbanan" rather than
+"biblical" / "rabbinical."
 
 ---
 

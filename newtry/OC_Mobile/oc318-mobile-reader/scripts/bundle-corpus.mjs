@@ -19,16 +19,19 @@ import { fileURLToPath } from "node:url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = join(__dirname, "..");
 
-function parseVolumeArg() {
+function parseArg(name, fallback = null) {
   const a = process.argv.slice(2);
   for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--volume" && a[i + 1]) return a[++i];
+    if (a[i] === `--${name}` && a[i + 1]) return a[++i];
   }
-  return "oc1";
+  return fallback;
 }
 
-const VOLUME_ID = parseVolumeArg();
-const CORPUS_ROOT = join(ROOT, "public", "corpus", VOLUME_ID);
+const VOLUME_ID = parseArg("volume", "oc1");
+// --corpus-root <dir>: bundle an alternate corpus tree (e.g. newtry/SA_Rebuild/corpus)
+const CORPUS_ROOT = parseArg("corpus-root")
+  ? join(parseArg("corpus-root"), VOLUME_ID)
+  : join(ROOT, "public", "corpus", VOLUME_ID);
 const BUNDLES_DIR = join(CORPUS_ROOT, "bundles");
 
 /** How many simanim to process in parallel. */
