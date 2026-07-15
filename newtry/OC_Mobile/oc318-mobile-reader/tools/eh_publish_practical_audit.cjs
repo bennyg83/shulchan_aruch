@@ -71,7 +71,7 @@ const garbagePatterns = [
   /\bD\.D\.D\./,
   /starwork/i,
   /lycott/i,
-  /hand recoils/i,
+  // "hand recoils" removed: usually yad soledes bo (heat threshold), not MT garbage
   /first dish/i,
   /Saturday used for Shabbat/i,
   /\bR English\b/i,
