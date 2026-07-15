@@ -105,6 +105,17 @@ issues often begin. Prefer:
 Never write bare "the hand recoils", "disgusted hand", or "hand is scared". Same idea when
 the Hebrew is abbreviated `יס"ב`. See `full_dictionary.md` Part 2A and Part 6 framework.
 
+**R6c — ישמעאלים / faith ethnonyms are often real, not MT garbage.**
+When the Hebrew says `ישמעאלים` / `ישמעאל` in a commercial, bathhouse, furnace, or
+responsa context, render **Ishmaelites** (preferred) or "Ishmaelite / Muslim workers" as
+people in the case — not a theology digression. Do **not** invent mosques, Qur'an, Allah,
+Jesus, church, etc. Those remain forbidden hallucination markers.
+
+**R6d — Biblical verse quotes: never "the Lord".**
+If the Hebrew cites a pasuk that uses the Divine Name (e.g. ישעיהו נ״ח "לקדוש ה' מכבד"),
+render **Hashem** (or "the holy [day] of Hashem"), never "the Lord" / "Yahweh". Same for
+any verse fragment inside a commentary.
+
 **R7 — Purposeful Hebrew.** Normally output NO Hebrew letters. The ONE exception: when the
 text is citing a specific letter's SHAPE (e.g. discussing how to write the ל or the ן in a
 Torah scroll). There you may keep that single Hebrew letter. Never leave whole Hebrew

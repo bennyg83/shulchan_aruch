@@ -363,6 +363,8 @@ This dictionary is structured for use as a **build reference inside any AI trans
 | מאכל בן דרוסאי | maachal ben Drusai, ben Drosai food, ben Drusai stage | maachal ben Drusai — minimally edible / one-third to one-half cooked |
 | יד סולדת בו | yad soledes bo, yad soledet bo, hand recoils, disgusted hand, scalding hot | **yad soledes bo** — a **heat threshold** (≈ the temperature at which liquid/food is hot enough that a hand would be scalded / pull back). Not a description of someone literally recoiling. Use for bishul / hatmanah / returning-to-fire rules: above this heat, cooking/transfer/insulation concerns apply; below it, they often do not |
 | יד סולדת | hand scalded, hand disgusted, hand is scared, hand recoils | same threshold sense: at (or below) **yad soledes** heat |
+| ישמעאלים | Ishmaelites, Muslims, Mohammedans | **Ishmaelites** (ethnonym/people); worker contexts: "Ishmaelite workers". Not an Islamic-theology digression |
+| ישמעאל | Ishmaelite, Muslim | **Ishmaelite** |
 | בית היד | beit hayad, near the hand | beit hayad — near the vessel but not directly in it |
 | גמר מלאכה | gmar melacha, completion of work | completion of the melacha |
 | מכה בפטיש | makeh b'patish, finishing blow | the finishing blow (the final completing act) |
