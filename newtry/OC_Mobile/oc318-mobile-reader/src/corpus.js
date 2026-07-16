@@ -143,7 +143,10 @@ function zipHeEnSegments(heRaw, enRaw) {
  */
 export async function loadSeifCorpus(baseUrl, manifestDoc, fetchSignal) {
   /** Premapped visibility: false = omit commentary entirely (no fetch). Mechaber always loads. */
-  const sources = (manifestDoc.sources || []).filter((s) => s.slug === "mechaber" || s.includeInReader !== false);
+  // TEMP HIDE: Kaf HaChaim is hidden site-wide until its translation is complete
+  // (~76% of it was untranslated MT garbage). Remove HIDDEN_SLUGS to reveal. See newtry/SA_Rebuild/KH_cleanup.
+  const HIDDEN_SLUGS = new Set(["kaf-hachayim", "kaf-hachayyim"]);
+  const sources = (manifestDoc.sources || []).filter((s) => (s.slug === "mechaber" || s.includeInReader !== false) && !HIDDEN_SLUGS.has(s.slug));
   const seifNum = manifestDoc.seif ?? 1;
 
   const entries = await mapPool(sources, CORPUS_FETCH_CONCURRENCY, async (s) => {
