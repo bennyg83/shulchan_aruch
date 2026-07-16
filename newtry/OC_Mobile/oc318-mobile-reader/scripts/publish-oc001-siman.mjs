@@ -140,10 +140,11 @@ function publishSiman(siman, stats) {
         // is CLEAN — so a good multi-segment entry is never downgraded. The reader does
         // not use the old inline anchors, and clean published mechabers already lack them.
         const HEB_LEAK = /[֐-׿]{4,}/;
-        const existingBad = HEB_LEAK.test(stripTags(existingEn)) || GARBAGE_RE.test(stripTags(existingEn));
-        const newClean = stripTags(en).length > 0 && !HEB_LEAK.test(stripTags(en)) && !GARBAGE_RE.test(stripTags(en));
-        const mechaberRescue = slug === "mechaber" && existingBad && newClean;
-        if (!isPlaceholder && existingEnSegs >= heSegs && newEnSegs < heSegs && !mechaberRescue) {
+        const REGISTER_BAD = /\bYahweh\b|\bthe Lord\b|\bthe Bible\b/i;
+        const existingBad = HEB_LEAK.test(stripTags(existingEn)) || GARBAGE_RE.test(stripTags(existingEn)) || REGISTER_BAD.test(stripTags(existingEn));
+        const newClean = stripTags(en).length > 0 && !HEB_LEAK.test(stripTags(en)) && !GARBAGE_RE.test(stripTags(en)) && !REGISTER_BAD.test(stripTags(en));
+        const rescue = existingBad && newClean;
+        if (!isPlaceholder && existingEnSegs >= heSegs && newEnSegs < heSegs && !rescue) {
           // New EN would create a mismatch where existing EN was fine — skip.
           stats.wrote++;
           continue;
