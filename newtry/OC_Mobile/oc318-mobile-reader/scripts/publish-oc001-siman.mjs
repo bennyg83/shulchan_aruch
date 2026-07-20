@@ -21,14 +21,30 @@ const READER_ROOT = path.resolve(__dirname, "..");
 const OC001_OUTPUT = path.resolve(__dirname, "../../../OC_001/output");
 const CORPUS_ROOT = path.join(READER_ROOT, "public/corpus/oc1");
 
-// These commentators' TXT seif numbers are sequential (wrong) — their corpus HE
-// was remapped directly and must not be overwritten from TXT.
+// kaf spelling variants: still sequential / dual-tree — keep skipped until KH reveal.
+// The five formerly-frozen slugs were seif-rewritten in source (Workstream B); they
+// publish again, but corpus HE stays authoritative (unclaimed segments must not be lost).
 const SKIP_SLUGS = new Set([
+  "kaf-hachayim",
+  "kaf-hachayyim",
+]);
+
+/** Corpus HE layout is master (includes unclaimed segments / alignment fixes). Never overwrite he.html. */
+const CORPUS_HE_AUTHORITATIVE = new Set([
   "rabbi-akiva-eiger",
   "chokhmat-shlomo",
   "yad-ephraim",
   "chatam-sofer",
   "shaarei-teshuvah",
+  "mishnah-berurah",
+]);
+
+/**
+ * Corpus EN is also master for these slugs (segment layout / prior editorial).
+ * Only overwrite en.html when missing, placeholder, marker-leaking, or garbage-rescue.
+ */
+const CORPUS_EN_AUTHORITATIVE = new Set([
+  "mishnah-berurah",
 ]);
 
 const pad3 = (n) => String(n).padStart(3, "0");
@@ -47,15 +63,19 @@ function safeWrite(p, content) {
 
 function parseArgs() {
   let siman = null, from = null, to = null;
+  let onlySlugs = null;
   const a = process.argv.slice(2);
   for (let i = 0; i < a.length; i++) {
     if (a[i] === "--siman" && a[i + 1]) siman = Number(a[++i]);
     else if (a[i] === "--from" && a[i + 1]) from = Number(a[++i]);
     else if (a[i] === "--to" && a[i + 1]) to = Number(a[++i]);
+    else if (a[i] === "--only-slugs" && a[i + 1]) {
+      onlySlugs = new Set(a[++i].split(",").map((s) => s.trim()).filter(Boolean));
+    }
   }
   if (siman != null) { from = siman; to = siman; }
   if (from == null || to == null) throw new Error("Required: --siman N  or  --from N --to M");
-  return { from, to };
+  return { from, to, onlySlugs };
 }
 
 function loadAllBlocksForSlug(simanDir, slug) {
@@ -87,13 +107,14 @@ function mergeField(blocks, field) {
   return parts.join("<br />\n") + "\n";
 }
 
-function publishSiman(siman, stats) {
+function publishSiman(siman, stats, onlySlugs) {
   const simanDir = path.join(OC001_OUTPUT, `siman_${pad3(siman)}`);
   if (!fs.existsSync(simanDir)) return;
 
   const slugDirs = fs.readdirSync(simanDir, { withFileTypes: true })
     .filter(d => d.isDirectory() && !SKIP_SLUGS.has(d.name))
-    .map(d => d.name);
+    .map(d => d.name)
+    .filter(n => !onlySlugs || onlySlugs.has(n));
 
   if (!slugDirs.length) return;
 
@@ -121,8 +142,14 @@ function publishSiman(siman, stats) {
       const en = mergeField(blocks, "en");
       if (!he && !en) continue;
       const dest = path.join(seifDir, slug);
-      fs.mkdirSync(dest, { recursive: true });
-      if (he) safeWrite(path.join(dest, "he.html"), he);
+      const heAuthoritative = CORPUS_HE_AUTHORITATIVE.has(slug);
+      // Remapped commentators: never create new seif/slug dirs (map must hit existing HE).
+      if (heAuthoritative) {
+        if (!fs.existsSync(dest) || !fs.existsSync(path.join(dest, "he.html"))) continue;
+      } else {
+        fs.mkdirSync(dest, { recursive: true });
+      }
+      if (he && !heAuthoritative) safeWrite(path.join(dest, "he.html"), he);
       if (en) {
         // Regression guard: don't overwrite if new EN has fewer segments than HE.
         // Corpus HE may have a chapter-title segment that the TXT doesn't include in EN.
@@ -132,6 +159,7 @@ function publishSiman(siman, stats) {
           ? fs.readFileSync(path.join(dest, "en.html"), "utf8") : "";
         const existingEnSegs = existingEn.split(/<br\s*\/?>/).filter(s => s.trim()).length;
         const isPlaceholder = !existingEnSegs || existingEn.includes(EN_PENDING_DEFAULT);
+        const hasMarkers = existingEn.includes("****");
         // Mechaber rescue: the base text is a single "(main)" block per seif, so its
         // clean translation legitimately has fewer segments than the segmented HE
         // (which carries a chapter-title segment). The segment guard would otherwise
@@ -144,6 +172,16 @@ function publishSiman(siman, stats) {
         const existingBad = HEB_LEAK.test(stripTags(existingEn)) || GARBAGE_RE.test(stripTags(existingEn)) || REGISTER_BAD.test(stripTags(existingEn));
         const newClean = stripTags(en).length > 0 && !HEB_LEAK.test(stripTags(en)) && !GARBAGE_RE.test(stripTags(en)) && !REGISTER_BAD.test(stripTags(en));
         const rescue = existingBad && newClean;
+        // MB (and similar): corpus EN layout is authoritative — do not clobber good EN.
+        if (
+          CORPUS_EN_AUTHORITATIVE.has(slug) &&
+          !isPlaceholder &&
+          !hasMarkers &&
+          !rescue
+        ) {
+          stats.skippedEn = (stats.skippedEn || 0) + 1;
+          continue;
+        }
         if (!isPlaceholder && existingEnSegs >= heSegs && newEnSegs < heSegs && !rescue) {
           // New EN would create a mismatch where existing EN was fine — skip.
           stats.wrote++;
@@ -161,14 +199,14 @@ function publishSiman(siman, stats) {
   }
 }
 
-const { from, to } = parseArgs();
-const stats = { wrote: 0 };
+const { from, to, onlySlugs } = parseArgs();
+const stats = { wrote: 0, skippedEn: 0 };
 let published = 0;
 
 for (let s = from; s <= to; s++) {
-  publishSiman(s, stats);
+  publishSiman(s, stats, onlySlugs);
   published++;
   if (published % 100 === 0) process.stdout.write(`  ${s}/${to}...\n`);
 }
 
-console.log(`Done. Simanim ${from}–${to} | Corpus entries written: ${stats.wrote}`);
+console.log(`Done. Simanim ${from}–${to} | Corpus entries written: ${stats.wrote} | EN skipped (corpus-authoritative): ${stats.skippedEn}`);
