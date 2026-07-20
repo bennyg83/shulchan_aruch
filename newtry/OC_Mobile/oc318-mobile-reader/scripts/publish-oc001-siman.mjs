@@ -21,12 +21,10 @@ const READER_ROOT = path.resolve(__dirname, "..");
 const OC001_OUTPUT = path.resolve(__dirname, "../../../OC_001/output");
 const CORPUS_ROOT = path.join(READER_ROOT, "public/corpus/oc1");
 
-// kaf spelling variants: still sequential / dual-tree — keep skipped until KH reveal.
-// The five formerly-frozen slugs were seif-rewritten in source (Workstream B); they
-// publish again, but corpus HE stays authoritative (unclaimed segments must not be lost).
+// kaf-hachayim (single-y) retired after dual-slug swap — only double-y remains.
+// kaf-hachayyim publishes with corpus HE/EN authoritative (never clobber layout).
 const SKIP_SLUGS = new Set([
-  "kaf-hachayim",
-  "kaf-hachayyim",
+  "kaf-hachayim", // legacy spelling — should not exist in corpus after swap
 ]);
 
 /** Corpus HE layout is master (includes unclaimed segments / alignment fixes). Never overwrite he.html. */
@@ -37,6 +35,7 @@ const CORPUS_HE_AUTHORITATIVE = new Set([
   "chatam-sofer",
   "shaarei-teshuvah",
   "mishnah-berurah",
+  "kaf-hachayyim",
 ]);
 
 /**
@@ -45,6 +44,7 @@ const CORPUS_HE_AUTHORITATIVE = new Set([
  */
 const CORPUS_EN_AUTHORITATIVE = new Set([
   "mishnah-berurah",
+  "kaf-hachayyim",
 ]);
 
 const pad3 = (n) => String(n).padStart(3, "0");
