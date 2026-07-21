@@ -33,6 +33,18 @@ const CORPUS_ROOT = parseArg("corpus-root")
   ? join(parseArg("corpus-root"), VOLUME_ID)
   : join(ROOT, "public", "corpus", VOLUME_ID);
 const BUNDLES_DIR = join(CORPUS_ROOT, "bundles");
+/** Optional: comma-separated siman numbers, e.g. --simanim 83,84,123 */
+const SIMANIM_FILTER = (() => {
+  const raw = parseArg("simanim");
+  if (!raw) return null;
+  const set = new Set(
+    raw
+      .split(",")
+      .map((s) => parseInt(s.trim(), 10))
+      .filter((n) => Number.isFinite(n))
+  );
+  return set.size ? set : null;
+})();
 
 /** How many simanim to process in parallel. */
 const CONCURRENCY = 12;
@@ -150,7 +162,7 @@ async function main() {
   await mkdir(BUNDLES_DIR, { recursive: true });
 
   const entries = await readdir(CORPUS_ROOT, { withFileTypes: true });
-  const simanDirs = entries
+  let simanDirs = entries
     .filter((e) => e.isDirectory() && /^siman\d+$/.test(e.name))
     .map((e) => join(CORPUS_ROOT, e.name))
     .sort((a, b) => {
@@ -158,8 +170,17 @@ async function main() {
       const nb = parseInt(basename(b).replace("siman", ""), 10);
       return na - nb;
     });
+  if (SIMANIM_FILTER) {
+    simanDirs = simanDirs.filter((d) => {
+      const n = parseInt(basename(d).replace("siman", ""), 10);
+      return SIMANIM_FILTER.has(n);
+    });
+  }
 
-  console.log(`Bundling ${simanDirs.length} ${VOLUME_ID} simanim → ${BUNDLES_DIR}`);
+  console.log(
+    `Bundling ${simanDirs.length} ${VOLUME_ID} simanim → ${BUNDLES_DIR}` +
+      (SIMANIM_FILTER ? ` (filtered ${SIMANIM_FILTER.size})` : "")
+  );
   const start = Date.now();
   let done = 0;
 
