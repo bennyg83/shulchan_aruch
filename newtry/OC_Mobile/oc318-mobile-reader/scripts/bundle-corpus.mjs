@@ -47,7 +47,7 @@ const SIMANIM_FILTER = (() => {
 })();
 
 /** How many simanim to process in parallel. */
-const CONCURRENCY = 12;
+const CONCURRENCY = Number(process.env.BUNDLE_CONCURRENCY || 4);
 
 const pad3 = (n) => String(n).padStart(3, "0");
 
