@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 63,
+    "chunk_total": 66,
+    "case_offset": 341,
+    "cases_in_chunk": 4,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman202/seif-013/beur-hagra",
+      "volume": "cm1",
+      "siman": 202,
+      "seif": 13,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויש מי שאומר כו'. נמשך אחר ל' הרא\"ש וטור וט\"ס שם ושם וצ\"ל לקנות את הכלים שעליה וצ\"ל בסי\"ד שהוא האיבעיא דגמ' ופ' הרא\"ש במציאה לקולת המוציא וכ\"כ בפרי' שמצא כן בנוס' רא\"ש ישן:",
+        "(ליקוט) ויש מי כו'. כ\"כ הטור ונמשך אחר דברי הרא\"ש אבל ל\"ד דאפי' בלקנות הכלים לבד קני דבהכי הוא הבעיא שם וכנ\"ל ברא\"ש לקנות את הכלים כו' וכ\"ה ברמזים שם וכ\"כ ב\"ח ופר' (ע\"כ):",
+        "(ליקוט) סי\"ג ואפי' כו'. צ\"ע דהא ע\"כ לא קני אלא מטעם חצר ולא משום משיכה כמו שפריך שם א\"ר אי א\"ל משוך קני כו' וכ\"כ הרא\"ש שם ובמקח וממכר אי א\"ל קני בהמה וקני כלים שעליה מחמת משיכת הבהמה לא קנה הכלים ומחמת חצר כו' דוקא בכפותה כו' ומטעם חצר. דאי קנה במשיכה לא היה פריר גמ' כלום וצ\"ע (ע\"כ):",
+        "(ליקוט) אפי' אינה כפותה. דלאו מטעם חצר קני לה אלא מטעם משיכה דזהו הבעיא דגמ' (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is an authority who says, etc. This follows the language of Rosh and Tur, but their text contains a scribal error. It should read, 'to acquire the utensils upon it,' and belongs in seif 14, which is the Gemara's unresolved question. Rosh rules leniently for the possessor in a found-object case. Perishah found this reading in an old manuscript of Rosh.",
+        "(Supplement) There is an authority who says, etc. Tur followed Rosh, but the qualification is imprecise. Even if he intends to acquire only the utensils, he acquires, for that is the Gemara's question. Rosh, his abridgment, Bach, and Perishah all read, 'to acquire the utensils,' etc. (End of supplement.)",
+        "(Lycott) C.J. and F. Dr. Dea did not buy but for a court, and not because of such a attraction as I would like to draw a kimonial and as such, he was sold and sold, I bought an abhorrent, and the instruments on which the withdrawal of the lament did not buy the tools and put a court in his hands and taste. Dalai bought the attraction was not a G-d of nothing and a cheque. Delo on behalf of a canned courtyard for her, but on the basis of the attraction of the Dalai La Dachm"
+      ]
+    },
+    {
+      "id": "cm1/siman207/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 207,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שטר כו'. ממה שהצריכו אג\"ק בפ\"ג דב\"ב אע\"פ שכ' דלא כאסמכתא כמש\"ש ולא מהני שם אלא משום דלא הוי אסמכתא ממש דעיקר הלואתו על הקרקע וכן מטלטלי כששעבד אג\"ק הוי כקרקע ולא הוי אסמכתא אלא משום דמטלטלי לחודייהו הוי אסמכתא דלא סמיך עלייהו שיכול למוכרם כ\"ז שלא שעבדן אג\"ק לכך הצריכו למכתב דלא כו' שלא יאמר שנכתב לשופרא דשטרא כדרך טופסי דשטרא ועברמב\"ן וברא\"ש כלל עב סז משא\"כ כאן וכ' בה\"ת שמ\"ג בשם גאון דדמי לגט שאמר פסול הוא אינו גט דלא אמר כלום כמ\"ש רפ\"ד דגטין וכ' דל\"ד להנ\"ל דהא ערב לאחר מתן מעות דלאו עליה קא סמיך ואפ\"ה משתעבד בקנין בלא בד\"ח וערש\"י בב\"מ ס\"ז ב' ד\"ה אין בע\"ח כו' ואי ירתי קרקעות כו':",
+        "(ליקוט) שטר כו'. ערשב\"ם בב\"ב מד ב' בד\"ה ומקשינן. אבל אקני ליה מטלטלי כו' דכל כו' אע\"ג דכ' דלא כאסמכתא (ע\"כ):",
+        "די\"ח כו'. מההיא דפ\"ג דב\"ב כנ\"ל:",
+        "(ליקוט) דיש חולקין. וראיה מב\"ב מד ב' וס' ראשונה ס\"ל דל\"ד לשם דשם לאו אסמכתא גמורה הוא דהא ערב לאחר מתן מעות דלאו עליה סמיך ואפ\"ה משתעבד בקנין אף בלא ב\"ד חשוב וערש\"י בב\"מ ס\"ז ב' ד\"ה אין בע\"ח כו' ואי ירתי קרקע ויש ראיה לס' ראשונה מדהצריכו לשעבוד מטלטלי באגב ואע\"ג דכ' דלא כאסמכתא (ע\"כ):",
+        "(ליקוט) אע\"ג די\"ח כו'. ערשב\"ם שם ד\"ה דלא כו' ודמי לאסמכתא כו' אבל ליתא דמשום דאינו אסמכתא ממש מש\"ה הוא דמועיל (ע\"כ):"
+      ],
+      "en_segments": [
+        "A deed, etc. In the third chapter of Bava Batra the Gemara required acquisition of movable property together with land even though the deed stated that the obligation was not an asmachta. That language helps there only because the arrangement is not a full asmachta: the original loan principally relies upon the land. Movable property alone would be an asmachta because the debtor could sell it unless it was subordinated together with land. Therefore the document must state that it is not an asmachta, so that the debtor cannot say the phrase was merely standard boilerplate. See Ramban and Responsa Rosh. This case differs. Baal HaTerumot cites a Gaon who compares it to one who merely declares a bill of divorce invalid, an ineffective declaration. It is not comparable to a guarantor after the money was given, who becomes obligated through a kinyan despite the lender's lack of reliance upon him. See Rashi, Bava Metzia 67b. See cited source 514.",
+        "Some disagree, etc. Their proof is the passage in the third chapter of Bava Batra.",
+        "(Supplement) Some disagree. The first opinion answers that the case there is not a complete asmachta, since a guarantor after disbursement may become obligated through a kinyan without an important beit din. See Rashi, Bava Metzia 67b. There is support for the first opinion from the requirement that movable property be subordinated together with land even where the document says it is not an asmachta. (End of supplement.)",
+        "(Supplement) Although some disagree, etc. See Rashbam there, who says it resembles an asmachta. This is not decisive, because it is precisely because it is not a full asmachta that the language is effective. (End of supplement.)"
+      ]
+    },
+    {
+      "id": "cm1/siman215/seif-002/beer-hagolah",
+      "volume": "cm1",
+      "siman": 215,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 11,
+      "enSegs": 10,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ז) לשון הרמב\"ם שם פכ\"ה דין ז' משנה שם ע\"ב ואמרו בגמרא ים טלפחא",
+        "כתב ה\"ה זה כתב במקום ים הנזכר במשנה ול' אבן מגש ז\"ל והיא כמו אבן רחים בנויה ע\"ג אצטבא שעליה טוחנין את הזיתים:",
+        "ח) מפורש בגמ' בפי' בתולות הנזכר במשנה:",
+        "ט) ברייתא שם פי' הבור שיורד לתוכו והיא חקוקה ועשויה כמין נקב:",
+        "י) הוא לפי גירסת הספרים שלפנינו בברייתא מכר את הנסרים וכמו שפי' כרשב\"ם שנראה בעיניו שמחוברין היו:",
+        "כ) שם ברייתא:",
+        "ל) כתב ה\"ה שם בבריית' ואף גירסת המשנה נראה שהיא כן אע\"פ שהיא מוחלפת במקצת ספרים",
+        "מ) והב\"ח כתב ☜כיון דאיכא פלוגתא דרבוותא ספקא דגירסות המע\"ה",
+        "נ) ברייתא דף ס\"ח ע\"א גבי מרחץ",
+        "ס) עובדא שם לקמיה דרב יוסף וכו' וכדא\"ל רב אשי",
+        "ע) כתב ה\"ה בשם ר\"ש שעיקר תשמישן למכור בהם פת יין ושוטחין בו ג\"כ זתים יכול לייבשן לעשות בהן שמן"
+      ],
+      "en_segments": [
+        "Zayin) This is the language of the Rambam there, chapter 25, halachah 7, based on the Mishnah there on 65b and the Gemara's phrase \"the sea of the olive press.\" The Maggid Mishneh writes that Rambam used this term in place of the word \"sea\" in the Mishnah. Rav Yosef ibn Migash explains that it is like a millstone built upon a platform on which the olives are crushed.",
+        "Chet) This is explicitly explained in the Gemara regarding the vertical posts mentioned in the Mishnah.",
+        "Tet) A baraita there. It means the pit into which one descends, which is hollowed out and made like an opening.",
+        "Yod) This follows the version in our texts of the baraita, \"he sold the boards,\" and the Rashbam's explanation that, in his view, they were attached.",
+        "Kaf) There in the baraita.",
+        "Lamed) The Maggid Mishneh writes that this appears in the baraita, and the Mishnah's correct version likewise seems to be so, although some texts differ.",
+        "Mem) The Bach writes that since the Rishonim dispute the matter and the textual versions are uncertain, the burden of proof rests upon the claimant.",
+        "Nun) A baraita on 68a concerning a bathhouse.",
+        "Samekh) The incident there before Rav Yosef, and Rav Ashi's response.",
+        "Ayin) The Maggid Mishneh writes in the name of Rabbenu Shmuel that their principal use is to sell bread and wine upon them, and olives are also spread upon them to dry before producing oil."
+      ]
+    },
+    {
+      "id": "cm1/siman218/seif-020/beer-hagolah",
+      "volume": "cm1",
+      "siman": 218,
+      "seif": 20,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ב) גם זה לשון הרמב\"ם שם פרק כ\"א מהלכות מכירה דין כ\"ב משנה ב\"ב דף ק\"ז ע\"ב ☜",
+        "כדמפרש לה ר' חייא בר אבא א\"ר יוחנן שם:",
+        "ג) שם במשנה:",
+        "ד) כמו שכתב הרב המגיד פי' הגמ' לדעת המחבר שרבי יוחנן אמר שהסיפא מכרחת וכו' דהא חצייה בדרום אמר ליה אם שמן אם כחוש ומיהו משמנין לדמי שאם חצי שבדרום כחוש יוסיפו על המדה כדי שישוה דמי חצי שדה ואם הוא שמן גורעים מן המדה ה\"נ לדמי משמנין דרישא לדמי ולעולם לוקח נוטל כחוש ולזה הפירוש הסכימו הר\"א והרשב\"א ז\"ל ועיקר ושיטות אחרות יש ע\"כ לפי שיד המוכר על העליונה וניחא ליה במעט מן הטוב יותר מהרבה מהגרוע:",
+        "ה) משנה וברייתא שם",
+        "אבל כשמוכ' שדה שלימה כיון דרוב המוכרי' שדיהן אין להן עוד מצידי השדה שמכר ליתן לו כלום משום הכי לא חילקו אף במי שיש לו עוד שדה בצידו כן כתב ר\"ש (סמ\"ע):",
+        "ו) מפרש בגמ' שם דף ק\"ח ע\"א דהנמיה היא חיה קטנה ושאוכלת ומפסדת את התבואה וטעם שצריך לעשות גדר ושתי חריצות אחד רחב יותר מחבירו מפורש שם בגמ':"
+      ],
+      "en_segments": [
+        "Bet) This too is the language of the Rambam there, chapter 21 of Hilkhot Mekhirah, halachah 22, based on the Mishnah in Bava Batra 107b, as Rabbi Chiyya bar Abba explains in the name of Rabbi Yochanan there.",
+        "Gimel) There in the Mishnah.",
+        "Dalet) The Maggid Mishneh explains the Gemara according to Rambam: Rabbi Yochanan says that the latter clause is decisive. If the seller said \"half of it on the southern side,\" the buyer takes that southern half whether superior or inferior, but the valuation is adjusted. If the southern half is inferior, the buyer receives a larger measure so that its value equals half the field; if superior, the measure is reduced. Likewise, in the first clause the adjustment is by value, while the buyer always takes the inferior portion. The Raavad and Rashba agree to this explanation, and it is primary. Other approaches exist. The reason is that the seller has the upper hand and prefers retaining a small amount of superior land rather than a large amount of inferior land.",
+        "Heh) The Mishnah and baraita there.",
+        "But where an entire field is sold, since most sellers have no additional land alongside the field from which to give the buyer anything, the Sages did not distinguish even in the case of one who actually owns adjacent land. So writes Rabbenu Shmuel, as cited by the Sema.",
+        "Vav) The Gemara explains on 108a that the mongoose is a small animal that eats and damages grain. The reason one must make a fence and two trenches, one wider than the other, is explained there in the Gemara."
+      ]
+    }
+  ]
+}

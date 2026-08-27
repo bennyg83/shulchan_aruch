@@ -1,0 +1,102 @@
+{
+  "created": "2026-08-27T20:51:09.706Z",
+  "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "scanMs": 122853,
+  "pairs": 197982,
+  "scannedBoth": 118852,
+  "liveCounts": {
+    "he_has_more_segments": 395,
+    "en_truncated_vs_multi_he": 215,
+    "he_missing": 59,
+    "en_missing": 20,
+    "en_has_more_segments": 9,
+    "he_truncated_vs_multi_en": 0
+  },
+  "priorCounts": {
+    "he_has_more_segments": 395,
+    "en_truncated_vs_multi_he": 215,
+    "he_missing": 59,
+    "en_missing": 20
+  },
+  "countDiffs": {},
+  "kits": [
+    {
+      "kit": "HE_HAS_MORE_PACK",
+      "kind": "he_has_more_segments",
+      "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+      "cases": 395,
+      "parts": 66,
+      "max_part_bytes": 84615,
+      "full_bytes": 4692089,
+      "full_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_PACK.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_PACK.md"
+    },
+    {
+      "kit": "EN_TRUNC_PACK",
+      "kind": "en_truncated_vs_multi_he",
+      "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+      "cases": 215,
+      "parts": 12,
+      "max_part_bytes": 84409,
+      "full_bytes": 805788,
+      "full_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_PACK.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_PACK.md"
+    },
+    {
+      "kit": "HE_MISSING_MISALIGN_PACK",
+      "kind": "he_missing",
+      "purpose": "Misalignment kit: empty/absent HE with EN present — restore HE or flag wrong-seif (NOT structure rejoin)",
+      "cases": 59,
+      "parts": 1,
+      "max_part_bytes": 63808,
+      "full_bytes": 63575,
+      "full_sha256": "a7523477b47dcb7d2bef539ca2b91842689fc632e8c656d713e8793185d53614",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_MISSING_MISALIGN_PACK.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_MISSING_MISALIGN_PACK.md"
+    },
+    {
+      "kit": "EN_MISSING_PACK",
+      "kind": "en_missing",
+      "purpose": "HE present, EN absent — locate approved EN source (not old MT unless authorized)",
+      "cases": 20,
+      "parts": 1,
+      "max_part_bytes": 37940,
+      "full_bytes": 37716,
+      "full_sha256": "5a2849c98bb2b29a09a691f6d9d1c409bf8e9d5872b0111c53ff55541b546fc4",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_PACK.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_PACK.md"
+    }
+  ],
+  "crossLinks": {
+    "GLUED_STILL_OPEN_9_KIT": {
+      "file": "GLUED_STILL_OPEN_9_KIT.json",
+      "bytes": 69557,
+      "sha256": "a51a8c4c8b6293cb02430ad7406aed188083f50a5a609f750f2c989456efb051",
+      "exists": true
+    },
+    "GLUED_STILL_OPEN_9_KIT_md": {
+      "file": "GLUED_STILL_OPEN_9_KIT.md",
+      "bytes": 5278,
+      "sha256": "e5d6b5a7e828df805a0a94affed68cab602a05abf2a5d01477c8d2805c997cd7",
+      "exists": true
+    },
+    "EN_HAS_MORE_GLUED_REVIEW_PACK": {
+      "file": "EN_HAS_MORE_GLUED_REVIEW_PACK.json",
+      "bytes": 690050,
+      "sha256": "556d5889a90e7ee2a4a1bd6a99b37473814c5ee855097afcb32d3d856329b771",
+      "exists": true
+    },
+    "EN_HAS_MORE_REVIEW_PACK": {
+      "file": "EN_HAS_MORE_REVIEW_PACK.json",
+      "bytes": 138566,
+      "sha256": "929dda0b77de9e6e7923c4b4db683de5e90642fe6ad3e5f969c38ed7ced0e837",
+      "exists": true
+    },
+    "EN_HAS_MORE_NONZERO_HE_PACK": null
+  },
+  "skippedRebuild": [
+    "Skipped rebuilding glued / non-zero en_has_more kits — already present (cross-linked below)."
+  ]
+}

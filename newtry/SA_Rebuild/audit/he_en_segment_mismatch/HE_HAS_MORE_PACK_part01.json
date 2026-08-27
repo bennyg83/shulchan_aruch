@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 66,
+    "case_offset": 0,
+    "cases_in_chunk": 3,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman5/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 5,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יכוין בברכות פי' המלות פי' בהזכירו שם אדני יכוין אל קריאתו וכתיבתו וקריאת השם בקמץ תחת הנו\"ן ולא בפת\"ח כי עם נקודות הקמץ יהיה כמנין ה' אחד והם ג' שמות משא\"כ בפתח ויאריך מעט בקמץ שתחת הנו\"ן כדי שיוכל לחשוב בלבו אחד אשר ע\"ז מורה הקמץ:",
+        "ובהזכירו כו' יכוין שהוא בעל הכוחות כלם. כונתו לתרץ משמעות הריבוי שבלשון אלהים. אם שגית באיזו ברכה לבטלה אמור אחריו בשכל\"ו:",
+        "ויקרא אלף של אדנ\"י בחטף פת\"ח וי\"א כך כשהוא קורא השם בכתיבתו כגון אדני שפתי או לעולם אדני וכיוצא בו יקרא פתח תחת אל\"ף וח\"ו לקרות פתח תחת הנו\"ן לפתח חטאת רובץ כי מחליף קודש בחול:"
+      ],
+      "en_segments": [
+        "When reciting the blessings, he should intend the meaning of the words. When mentioning the Name Adonai, he should intend both its pronunciation and its written form. The Name is pronounced with a kamatz beneath the nun, not a patach. With the kamatz vowel points, its numerical value equals that of 'Hashem is One,' comprising three Names. This is not so with a patach. He should extend the kamatz beneath the nun slightly, allowing him to think the word 'One,' which the kamatz signifies.",
+        "And when mentioning, etc., he should intend that He possesses all powers. This explains the apparent plural implication in the word Elokim. If one mistakenly recited a blessing in vain, he should afterward say, 'Blessed is the Name of His glorious kingdom forever and ever.' The alef of Adonai is read with a chataf patach. Some say this applies when the Name is read as it is written, such as 'Adonai, open my lips' or 'Adonai forever,' and similar phrases: A patach is read beneath the alef. God forbid that one read a patach beneath the nun; 'sin crouches at the entrance'; for he would substitute the mundane for the sacred."
+      ]
+    },
+    {
+      "id": "oc1/siman12/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 12,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שני ראשים שיפסקו משני צדדים שא' לא נשתייר כדי עניבה ובשני נשתייר כדי עניב' כשר ממ\"נ (ב\"י ש\"ע):",
+        "ולפי מה שאנו נוהגים לדקדק בעת עשיית הציצית לתת סי' בד' ראשים כו' ה\"ה אם נפסקו כל ד' ראשים מצד א' ולא נשתייר בהן כדי עניבה כשר י\"ב עכ\"ל:",
+        "ואל יחתוך ראשי חוטין בסכין משום שנא' לא תניף עליהם ברזל אלא יפסוק אותן בשינים שהם ל\"ב ויעסוק בחוטין שהם ל\"ב (מ\"מ והגהות מהרש\"ל בשם ר\"ד בר מנחם) ויש נוהגין לנשק הציצית בכל עת כשרואים אותן וכן ראיתי בני עליה המחבבים את המצות ומנשקות את הסוכה בהליכתם וביציאתם וכן ד' מינים שבלולב והכל כדי לחבב את המצות וכן מנשקים המצות והמרור בחג הפסח (לוחות הברית) וגם ציצית נוטריקון \"צדיק \"יבדוק \"ציצותיו \"תמיד:"
+      ],
+      "en_segments": [
+        "If two ends were severed on opposite sides, such that one did not retain enough to tie a bow while the other did retain enough to tie a bow, it is valid in any event. Beit Yosef; Shulchan Aruch.",
+        "According to our practice of carefully marking the four ends when making the tzitzis, etc., the same applies if all four ends on one side were severed and none retained enough to tie a bow: it is valid. So concludes Beit Yosef. One should not cut the ends of the strings with a knife, because it is stated, “You shall not raise iron upon them.” Rather, he should sever them with his teeth, which number thirty-two, and occupy himself with the strings, which likewise number thirty-two. Mateh Moshe and the glosses of Maharshal in the name of Rabbi David bar Menachem. Some have the custom to kiss the tzitzis whenever they see them. I likewise observed elevated individuals who cherished the mitzvos and kissed the sukkah when entering and leaving it, and similarly the four species of the lulav. All this is done to endear the mitzvos. They likewise kiss the matzos and maror on Pesach. Shelah. The word tzitzis is also an acronym for: “A righteous person should inspect his tzitzis constantly.”"
+      ]
+    },
+    {
+      "id": "oc1/siman27/seif-004/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 27,
+      "seif": 4,
+      "slug": "machatzit-hashekel",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ס\"ק ד) דבר כו' בגדי כהונה דכתיב ילבש על בשרו. שלא יהיה דבר חוצץ בינו לבשרו ואיבעי' להש\"ס אי כנה חי חוצצת אי אמרי' כיון דהולכת ריבותי' היא והרי היא כבשרו או לא. וכן נסתפק יצא שערו בבגדו מהו. ופירש\"י יצא שערו מראשו למטה עד שנכנס בין כתנתו לבשרו מהו (ועיין ברמב\"ם הל' כ\"מ):",
+        "ונ\"ל שמפני זה כו' שעל הצואר כו' כיון דהיא איבעי' דלא איפשטא ראוי לילך לחומר' וכן פסק הרמב\"ם פרק יו\"ד מהל' כ\"מ דלכתחלה חייצי. אפשר בשער שכלפי הפנים שהן שערות קצרות אמרי' היינו רבותי'. ושער בית השחי יוכיח. דלא נסתפק הש\"ס אי חייצי בבגדי כהונה. וכן כה\"ג יוכיח שהיה מסתפר כל ערב שבת ולא היה מגלח בתער אלא במספרים:",
+        "ולא היה מגלחן כעין תער אלא היה מניחן מעט מן השערות כמ\"ש ביחזקאל כסום יכסמו ראשיהן וכמבואר בסנהדרין דף כ\"ב. ועיין ברמב\"ם פ\"ה מהלכות כ\"מ ובהשגת הראב\"ד שם ואעפ\"כ היה מניח תפילין של ראש ששערו היה מגולה בין ציץ למצנפת ששם היה מניח תפילין. אע\"כ ששער מועט אינו חוצץ דהיינו רבותי'. אבל לצד העורף שהם גדולים ויוצאים חוץ ממקומם. וכמו שכתב רש\"י באיבעי' דהש\"ס דלעיל שם הוי חציצה:",
+        "ולא נהגו כן. אפשר לומר הטעם כיון דהוא איבעי' דלא איפשט' סמכינן על דעת הרשב\"א הובא בסעיף ה' (ועמ\"ש במ\"א ס\"ק ה') דס\"ל בראש אין בו משום חציצה. אף דלא אמרה למעש':",
+        "ומיהו כו' דבזה לא איבעי' לן כלל. ואמרו שם בפי' דחוצץ וכיון דליכ' ספק בדבר וק\"ל עיקר כדעת הרא\"ש דגם בראש איכ' משום חציצה:",
+        "לכן אין להקל. ומה\"ט רע עלי המעשה אותן המגדלים בלורותיהן מלבד כי הוא דרך שחץ וגאוה ויש קצת איסור עמ\"ש בי\"ד סי' קע\"ח. יש בו איסור בהנחת תפילין כיון שגדולים הרבה ליכ' למימר היינו רבותייהו וחוצצים. ומשום מעשה אנשים הללו ל\"ל היינו רבותייהו. ואפי' לדעת הרשב\"א שאמר להלכ' ולא למעשה דבראש לא קפדינן אחציצה. מ\"מ כה\"ג אפשר מודה הרשב\"א. וכמו שאסור לדידיה על כובע עבה. וכמו שכתב מ\"א ס\"ק ז'. משום דל\"מ הנחה ע\"ג מקום שמוחו של תינוק רופס:",
+        "וה\"ה הני שערות מרובים ה\"ה ככובע עבה:"
+      ],
+      "en_segments": [
+        "Seif katan 4: An intervening substance, etc. Regarding the priestly garments, the verse states, \"he shall wear it upon his flesh,\" teaching that nothing may intervene between the garment and his flesh. The Gemara asks whether a live louse constitutes an interposition. Perhaps, because its natural mode is to move about, it is considered like part of his flesh, or perhaps not. The Gemara likewise asks what the law is if his hair came out beneath his garment. Rashi explains that hair from his head extended downward and entered between his tunic and his flesh. See Rambam, Hilchos Klei HaMikdash.",
+        "It appears to me that for this reason, etc., the hair on the neck, etc. Since the Gemara's question was not resolved, one should act stringently. Rambam likewise rules in chapter 10 of Hilchos Klei HaMikdash that initially these constitute an interposition. Perhaps with facial hair, which is short, we say that this is its normal growth. The hair of the armpit proves this, for the Gemara did not ask whether it interposes beneath the priestly garments. The Kohen Gadol also proves it, for he cut his hair every erev Shabbos, not with a razor but with scissors.",
+        "He did not cut it as close as a razor, but left some hair, as the verse in Yechezkel states, \"they shall trim their heads,\" and as explained in Sanhedrin 22b. See Rambam, chapter 5 of Hilchos Klei HaMikdash, and the Raavad's gloss there. Nevertheless, the Kohen Gadol wore the head tefillin on the area of hair exposed between the tzitz and the turban. Necessarily, a small amount of hair does not interpose, because this is its normal growth. Hair toward the nape, however, when it is long and extends beyond its normal place, is an interposition, as Rashi explains concerning the Gemara's unresolved question above.",
+        "They did not follow this practice. One may say that because the Gemara's question was unresolved, they relied upon the Rashba's view cited in seif 5, and see what Magen Avraham writes in seif katan 5, that with respect to the head there is no concern of interposition, although the Rashba did not state this as a practical ruling.",
+        "However, etc. In this case the Gemara did not ask at all, but explicitly stated that it interposes. Since there is no doubt, and since the primary ruling follows the Rosh that interposition applies to the head as well, one should not be lenient.",
+        "Therefore one should not be lenient. For this reason I am distressed by the practice of those who grow long forelocks. Apart from this being a manner of arrogance and pride, and involving some prohibition as explained in Yoreh Deah, siman 178, it also creates a prohibition regarding tefillin. Since the hair is very long, it cannot be called its normal growth and it interposes. One cannot call this normal merely because these people act this way. Even according to the Rashba, who stated as halacha but not for practical ruling that we are not concerned with interposition on the head, perhaps the Rashba would agree in such a case. According to him too, one may not place tefillin over a thick hat, as Magen Avraham writes in seif katan 7, because this is not considered placement upon the place where an infant's skull is soft. The same applies to this mass of hair, which is like a thick hat."
+      ]
+    }
+  ]
+}

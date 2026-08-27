@@ -1,0 +1,325 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 7,
+    "chunk_total": 66,
+    "case_offset": 23,
+    "cases_in_chunk": 9,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman116/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 116,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 13,
+      "enSegs": 12,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פס ידו. כגי' פיסתא תותי כו':",
+        "ולא כו'. כגי' שלנו וכמ\"ש הר\"ן:",
+        "וכן יזהר כו'. כמ\"ש בפ\"ב דשבת (ל\"ב א') לעולם אל יעמוד כו':",
+        "כי חמירא כו'. פ\"ק דחולין (ט\"ו) וכ\"ה בירושלמי פ\"ח שם שחטו וחטפו זאבים בני מעיה כו' והכא אמרת הכין חומר הוא בסכנת נפשות:",
+        "ולכן אסרו כו'. פ\"ק דר\"ה (ט\"ז ב') ופ\"ג דתענית (כ' ב'):",
+        "או כו'. פ' ע\"פ (קי\"ב):",
+        "וכן אסרו כו'. שם:",
+        "(ליקוט) וכן אסרו כו'. ע\"ז י\"ב ב' וכגי' ר\"י בתוס' שם ד\"ה לא כו' ופסחים קי\"ב א' (ע\"כ):",
+        "או כו'. פ\"ק דעבודת כוכבים (י\"ב):",
+        "ומנהג כו'. רוקח שכן קבלה מקדמונים וענין התקופות ע' בזוהר ח\"ב קצ\"ה ב' פ\"א א' עש\"ה:",
+        "עוד כתבו כו'. כמ\"ש בפ\"ו דב\"ק (ס') כיון שניתן רשות כו' וכמ\"ש (משלי י\"ג) ויש נספה כו' ואמרינן בפ\"ג דתענית (כ\"א ב') איכא מותנא בי חוזאי כו' איכא שיירתא כו' כ\"ש באותה העיר ושם איכא מותנא בחזירי כו' וכן בשאר דברים כמ\"ש (ירמיה כ\"א ל\"ח) היושב בעיר כו' והיתה כו' ונאמר (עמוס ד') והמטרתי על עיר כו':",
+        "ולא בסופו כו'. כיון דכבר איתחזק וכה\"ג אמרו בב\"ק שם דבר בעיר כו':",
+        "ואסור. כנ\"ל:"
+      ],
+      "en_segments": [
+        "The palm of his hand. As the girsa: a piece under, etc.",
+        "And not, etc. As our girsa, and as Ran wrote.",
+        "And likewise he should be careful, etc. As written in chapter 2 of Shabbat (32a): a person should never stand, etc.",
+        "For it is more stringent, etc. First chapter of Chullin (9), and so too in Yerushalmi chapter 8 there — they slaughtered and wolves seized their intestines, etc., and here you say thus: it is more stringent regarding danger to life.",
+        "And therefore they forbade, etc. First chapter of Rosh Hashanah (16b) and chapter 3 of Taanit (20b).",
+        "Or, etc. Perek Arvei Pesachim (112).",
+        "And likewise they forbade, etc. There: (Likut) and likewise they forbade, etc. Avodah Zarah 12b, and as the girsa of Rabbi Yehudah in Tosafot there d.h. lo, and Pesachim 112a — until here.",
+        "Or, etc. First chapter of Avodah Zarah (12).",
+        "And the practice, etc. Rokeach — so he received from the ancients; and regarding the matter of tekufot see in Zohar part 2 295b, part 1 1a, and in Ashrei.",
+        "They further wrote, etc. As written in chapter 6 of Bava Kamma (60): once permission is given, etc., and as written (Proverbs 13): and there is one destroyed, etc., and we say in chapter 3 of Taanit (21b): there is a cord in Bei Chozai, etc., there is a remnant, etc., all the more so in that city; and there: there is a cord in the pigs, etc., and likewise in other matters as written (Jeremiah 21): he who sits in the city, etc., and it was (Amos 4): and I rained upon one city, etc.",
+        "And not at its end, etc. Since it has already become established, and similarly they said in Bava Kamma there: when plague is in the city, etc.",
+        "And it is forbidden — as stated above."
+      ]
+    },
+    {
+      "id": "yd1/siman123/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 123,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי כו'. תוס' ד\"ה אי משום כו' וגם בזה כ' בת\"ה שהוא חומרא בעלמא ומעיקר דינא מותר אף לדידן ע\"ש:",
+        "יין כו'. גמ' ל' א' א\"ר הלכתא כו':",
+        "כ\"ז כו'. ול\"ד למ\"ש בב\"ב צ\"ו ב' כ\"פ דדמא כו' ושם צ\"ז א' בעא מיניה כו' דדוקא בשמרים או בפורצנין אבל ביין גמור טעם גמור ולא קיוהא ועתוס' שם ד\"ה הוא הדין כו' ואף בחרצנים דוקא הנדרכים בגלגל וקורה כמו בזמניהם שכל לחלוחית יוצא מהן וכמ\"ש בס\"ט. ת\"ה:",
+        "ויש כו'. ממ\"ש בע\"ז ע\"ג ב' שני כוסות כו' ומסתמא איירי בשוין ומזוגין על חד תלת מיא כמ\"ש בב\"ב שם וע\"י שאמרינן סלק את מינו כו' ואע\"ג דמין בשא\"מ בנ\"ט ובששים יין במים אינו נ\"ט בו' חלקים ונפגם וכמ\"ש בתוס' דב\"ב הנ\"ל וכ\"מ להדיא בתוס' דחולין כ\"ה ב' ד\"ה המתמד כו' וי\"ל כו' משמע אף יין גמור וכ\"כ בהג\"א שם. ת\"ה בשם ר\"י וכ' יש מי שפי' בכוסות שאינן שוין וכשערבן נתבטל בס' כשאר איסורין דאף תרומה בשא\"מ סגי בס' כמ\"ש בר\"ס שכ\"ג ועתוס' שם ד\"ה שני כוסות כו' דס\"ד דתוס' דיש בהן ק\"א של היתר וזהו סברא ראשונה והוא דברי הרא\"ש בפ\"ב סי\"ב ויין מזוג כ\"ז כו':",
+        "(ליקוט) ויש כו'. מהא דכוסות אבל תוס' לא ס\"ל כן וע\"ש בזבחים ע\"ג ב' סד\"ה רי\"א. ויש עוד לפרש כו' ובמנחות כ\"ב ב' סד\"ה מכאן כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Water, etc. Tosafot, \"if because of,\" etc.; and also in this Terumat HaDeshen wrote that it is a mere stringency, and by essential law it is permitted even for us ; see there.",
+        "Wine, etc. Gemara 41a: Rav Ashi ; the halachah, etc.",
+        "All this, etc. And there is an opinion for what is written in Bava Batra 96b twice: \"blood,\" etc.; and there 97a: \"he asked him,\" etc. ; specifically in grape-skins or in grape-pulp; but in complete wine, complete taste and not mere foam; and Tosafot there, \"likewise,\" etc. ; and even in grape-seeds, specifically those treaded with a wheel and beam as in their times, when all moisture comes from them; and as written in siman 98. Terumat HaDeshen.",
+        "And there are, etc. From what is written in Avodah Zarah 73b: \"two cups,\" etc.; and presumably it deals with equal and mixed on one ; three parts water, as written in Bava Batra there; and through that we say \"remove its type,\" etc.; and even though min b'mino in sixty parts ; wine in water is not nullified in two parts and is spoiled, as written in Tosafot in Bava Batra there; and so explicitly in Tosafot in Chullin 25b, \"the temed,\" etc.; and one may say, etc. ; it implies even complete wine; and likewise in Hagahot Ashiri there. Terumat HaDeshen in the name of R' Yehuda; and he wrote: some explain in cups that are not equal, and when he mixed them it was nullified in sixty like other prohibitions, for even terumah in sixty parts suffices in sixty, as written at the end of siman 123; and Tosafot there, \"two cups,\" etc. ; the presumption is Tosafot's, that there are one hundred one parts of heter; and this is the first reasoning, and these are the Rosh's words in chapter 2 seif 12; and mixed wine ; all this, etc.: (supplement) And there are, etc. ; from the case of cups; but Tosafot do not hold so ; see there in Zevachim 73b, \"R' Yehuda.\" And there is further to explain, etc.; and in Menachos 22b, \"from here,\" etc. (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman123/seif-009/beur-hagra",
+      "volume": "yd1",
+      "siman": 123,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מים כו'. כנ\"ל בס\"ח דגמ' לא מיירי אלא בנעצרו בגלגל:",
+        "פעם ראשון כו'. עברא\"ש פ\"ו דב\"ב ס\"ט ולענין מגע עובד כוכבים כו' וקאי אתמד של חרצנים שכ' למעלה ותמד שרגילין לעשות כו' ופסק כה\"ר יונה שם ובנעצרו בגלגל כתב כדברי אב ב\"ד דבהכי מודה ה\"ר יונה כמש\"ש ובשאר כ' דברי ה\"ר יונה כלשונו ועסי\"א וצ\"ע מ\"ש בשמרים שכ' פעם ראשון דמדמי למעשר וכאן כתב ג\"כ פעם שני ומדמה לתרומה אע\"ג דיש לחלק אף דשל חרצנים גרוע משל שמרים כמ\"ש תוס' צ\"ו ב' ד\"ה אין כו' והרא\"ש שם ה\"מ בנעצרו בגלגל אבל ברגל ודאי עדיפי משל שמרים מ\"מ מנ\"ל לחלק בין פעם א' לב\"פ וכן כאן כ' אפילו לא כו' ובסי\"א כ' אלא כדי מדתן ואמת שכל זה הוא לשון הרא\"ש שם בשם ה\"ר יונה אבל צ\"ע ונראה דהכל תליא אם יש בו טעם יין ועוד צ\"ע מ\"ש בסי\"א שמרים שלנו כו' אלא כו' מ\"ש מחרצנים שנעצרו בגלגל דדוקא מצא ד' ואע\"ג דשמרים עדיפי מחרצנים מ\"מ בחרצנים מהיכן למד מברכת בפה\"ג כמ\"ש אב ב\"ד שם וא\"כ ה\"ה בשל שמרים כמש\"ש ועיקרה נאמר בשל שמרים ועבא\"ח סי' ר\"ד ס\"ה ואפשר דה\"ר יונה סובר דאין ללמוד איסור מברכה דבברכות אזלינן בספיקו להקל משא\"כ באיסורין וכמש\"ש אלא דלענין ברכה כו' אבל כו' ומפרש התמד דהקדש ותרומה ומעשר בכדי מדתו וכז פי' רשב\"ם שם ד\"ה ראשון כו' וא\"כ פליג על האב ב\"ד שם וא\"כ קשה הא דחרצנים ובזה מתורץ מ\"ש בסי\"א אלא כדי מדתן ובלא\"ה ניחא כמש\"ש דאין שמרים בולעים מן המים משא\"כ בחרצנים ולכן כ' בחרצנים אפילו לא מצא כו' וכן מ\"ש בסי\"א לעולם אסורים ג\"כ אינו מדוקדק דאע\"ג שדימן שם להקדש קדושת הגוף מ\"מ ל\"ד לגמרי לשם דהקדש אפילו באלף לא בטיל משא\"כ ביי\"נ שהוא בנ\"ט בשא\"מ הלכך דוקא כ\"ז שיש בו טעם יין וערשב\"ם שם ד\"ה שלישי כו' וד\"ה אף כו' וכ\"ז לסברא ראשונה דס\"ה אבל לסברא אחרונה בו' אפי' יין גמור בטל ועבא\"ח סי' ר\"ד ס\"ה בהג\"ה. והשתא אפרש א' לא'. פעם ראשון כו'. דמדמי לתרומה אע\"ג דל\"ד לשם דשם כבר נאסרו מ\"מ כאן דלא נעצרו בגלגל יש להחמיר ג\"כ:",
+        "(ליקוט) מים שנותנים כו'. עמש\"ש דדברים אלו תמוהים ונכונים דברי הר\"נ בפ\"ב דע\"ז גבי יין מזוג שכתב חרצנים הנדרכים ברגל הכל לפי טעמו וריחו כו' ע\"ש (ע\"כ):",
+        "ואם נעצרו כו'. כדברי אב ב\"ד דבזה מודה הר\"י אבל ליתא כנ\"ל (ועמ\"ש בא\"ח סי' רע\"ב ס\"ז בליקוט בע\"א ע\"ש):",
+        "ויש מי כו'. הראב\"ד שם:"
+      ],
+      "en_segments": [
+        "Water is . . The same is not the case of a fisherman, but in the wheel:",
+        "First time, etc. Orach Chayyim chapter 6 of Bava Batra seif 9; and regarding the touch of a non-Jew, etc.; and it refers to temed of grape-seeds that he wrote above; and temed that people are accustomed to make, etc.; and he ruled like Rabbeinu Yonah there; and in \"stopped in a wheel\" he wrote like the words of the av beit din, that Rabbeinu Yonah agrees, as he wrote; and regarding the rest he wrote Rabbeinu Yonah's words as his wording; and in seif 11 ; and investigate what he wrote regarding grape-skins, that he wrote \"first time\" ; he compares to ma'aser; and here also he wrote \"second time\" and compares to terumah, even though there is reason to distinguish, even though temed of grape-seeds is worse than of grape-skins, as Tosafot 96b wrote, \"there is not,\" etc., and the Rosh there ; this is only when stopped in a wheel; but by foot certainly it is better than grape-skins; nevertheless whence do we distinguish between first time and second time? And likewise here he wrote \"even if not,\" etc.; and in seif 11 he wrote \"except its full measure\"; and in truth all this is the Rosh's wording there in the name of Rabbeinu Yonah; but investigate, and it appears everything depends on whether there is wine taste; and further investigate what he wrote in seif 11 \"our grape-skins,\" etc., \"except,\" etc.; what he wrote from grape-seeds stopped in a wheel ; specifically he found four; and even though grape-skins are better than grape-seeds, nevertheless in grape-seeds whence did he learn prohibition from birkat ha-gomel, as the av beit din wrote there? If so, the same applies to grape-skins, as he wrote; and the essence was said regarding grape-skins; and Orach Chayyim siman 204 seif 5; and it is possible Rabbeinu Yonah holds one does not learn prohibition from blessing, for in blessings we follow the doubt to be lenient, unlike prohibitions, as he wrote \"but regarding blessing,\" etc.; but, etc.; and he explains temed of hekdesh and terumah and ma'aser in its full measure; and so Rashbam explained there, \"first,\" etc.; and if so he disagrees with the av beit din there; and if so there is a difficulty on that of grape-seeds; and if not, it works as he wrote, that grape-skins do not absorb from the water, unlike grape-seeds; therefore he wrote regarding grape-seeds \"even if he did not find,\" etc.; and likewise what he wrote in seif 11 \"forever forbidden\" is also not precise, for even though he compared there to hekdesh ; sanctity of the body ; nevertheless there is an opinion entirely for hekdesh that even in a thousand it is not nullified, unlike yayin nesech that is nullified in sixty in sixty parts; therefore specifically when there is wine taste; and Rashbam there, \"third,\" etc., and \"even if,\" etc.; and all this is according to the first reasoning in seif 5; but according to the second reasoning, in six even complete wine is nullified; and Orach Chayyim siman 204 seif 5 in the hagahah. And now I will explain one law. First time, etc.: he compares to terumah, even though there is an opinion that they were already forbidden ; nevertheless here, since they were not stopped in a wheel, there is reason to be stringent also. (Supplement) Water that they put, etc.: See what he wrote ; these matters are astonishing; and the Rosh's words in chapter 2 of Avodah Zarah regarding mixed wine are correct, who wrote: grape-seeds treaded by foot ; everything depends on its taste and smell, etc. ; see there (end).",
+        "And if they were stopped, etc. Like the av beit din's words, that in this Rabbeinu Yonah agrees; but it is not so, as above (and see in Orach Chayyim siman 472 seif 7 in the supplement in one place ; see there).",
+        "And there is who is. The mountain there:"
+      ]
+    },
+    {
+      "id": "yd1/siman123/seif-017/beur-hagra",
+      "volume": "yd1",
+      "siman": 123,
+      "seif": 17,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דהיינו כו'. כפירש\"י שם וכן הסכים הרא\"ש וכ' דלשון המשכה משמע כפירש\"י דלפיר\"ת הל\"ל קילוח או יורד וכן הרשב\"א מדמשני פקוקה ומלאה והביאו עוד ראיה ממ\"ש בתוספתא הלוקח עביט של ענבים מן העובד כוכבים ומצא בה תחתיו גממיות מותר בצדו גממיות אסור וכן בירושלמי על מתני' היה נוטל בידו ונותן לתפוח עד כדון בשהיה נוטל יין וענבים באחת ונותן לתוך התפוח היה נותן אלו בפ\"ע ואלו בפ\"ע מותר גממיות שתחת האשכולות מותרות שבצידיהם אסורות ר' יוסי ב\"ר בון בשם ר' יוחנן הן עצמן נעשות יי\"נ ר\"ל אפי' תחת האשכולות כיון שנטל הענבים נשאר היין לעצמו ואע\"ג שמעורב בו עדיין חרצנים וזגים הוי המשכה. הרא\"ש ורשב\"א וכ\"פ הרמב\"ם והר\"ן:",
+        "ונאסר כו'. הרא\"ש שם פירש\"י כו' ונאסר כו' וכ\"כ הר\"ן ורשב\"א וש\"פ דלא כהרמב\"ן [וטעמו כמו בירידה לבור למשנה ראשונה במש\"ש במתני' והשאר מותר ועתוס' שם ד\"ה ירד כו' ופ\"ה כו' אבל באמת ר\"ה ומשנה אחרונה פליג בתרתי] ממ\"ש כיון שהתחיל ול\"ק כיון שנמשך ועוד מדפריך ת\"ש ירד כו' ואם איתא מאי קושיא הא גם לר\"ה מותר השאר ועוד ממ\"ש פקוקה ומלאה ולרמב\"ן אף בלא פקוקה מותר. ר\"ן ות\"ה:",
+        "אפילו כו'. וזה שפריך תנן לוקחין כו' ואע\"פ כו':",
+        "אם יש כו'. כמש\"ש ס' ב' אמר רב אשי אי כו' ועתוס' שם ד\"ה אי כו' וכ\"כ שם א' בסד\"ה א\"ר פפא וצ\"ע דהא אמרינן שם ע\"ב א' אר\"ה נצוק כו' וערש\"י שם ד\"ה ומשקה כו' ותירץ ב\"י דסמ\"ג סובר דלא כפירש\"י ושגגה היא דגמ' ערוכה היא בגטין ט\"ז א' ועוד תי' דסמ\"ג ס\"ל כר\"ת דבניצוק אין הלכה כר\"ה וה\"ה למשקה טופח וא\"צ לכל זה דבמשקה טופח ודאי אין הלכה כר\"ה מהא דרב אשי הנ\"ל ותוס' ע\"ב ב' הוכיחו להיפך מזה ע\"ש בד\"ה א\"ל כו':",
+        "אבל כ\"ז כו'. כמ\"ש בירושלמי הנ\"ל ע\"כ כו':",
+        "(ליקוט) אבל כ\"ז שלא הבדיל היין עד כו'. ערא\"ש שם וגרסינן בירושלמי עד כאן כו' ואין הלכה כר' יוסי. ת\"ה קל\"א ב' וכ' שכ\"מ ברי\"ף ע\"ש (ע\"כ):",
+        "עד כו'. תוס' שם ממש\"ש תנן לוקחין כו' אר\"ה בגת כו' ע\"ש בד\"ה אר\"ה כו' וצ\"ל לפירושו כו':"
+      ],
+      "en_segments": [
+        "Meaning, etc. As Rashi explained there; and the Rosh agreed; and he wrote that the language of \"drawing\" implies according to Rashi's explanation ; according to Rabbeinu Tam it should have said \"dripping\" or \"descends\"; and likewise Rashba, since he answered \"closed and full\"; and they further brought proof from what is written in Tosefta: one who buys a basket of grapes from a non-Jew and found beneath it grape-must ; permitted on its side; grape-must forbidden; and likewise in Yerushalmi on the mishnah: he would take in his hand and put into the press-board until here, when he would take wine and grapes together and put into the press-board; he would put these separately and these separately ; permitted; grape-must beneath the clusters permitted; at their sides forbidden ; R' Yosei bar R' Bun in the name of R' Yochanan: they themselves become yayin nesech ; meaning even beneath the clusters, since he took the grapes, the wine remained for itself; and even though grape-seeds and pulp are still mixed in it, it is drawing. Rosh, Rashba, and likewise Rambam and Ran.",
+        "And it is forbidden, etc. Rosh there ; Rashi's explanation, etc., \"and it is forbidden,\" etc.; and likewise Ran, Rashba, and other decisors, unlike Ramban [and his reason is like descent to the pit for the first mishnah in what is written in the mishnah \"and the rest permitted\"; and Tosafot there, \"he descended,\" etc., \"chapter 5,\" etc.; but in truth R' Huna and the latter mishnah disagree on two points] from what is written: since he began ; and there is no difficulty \"since it was drawn\"; and further from what he challenges: \"learn from this ; he descended,\" etc.; and if it were so, what is the difficulty? For even according to R' Huna the rest is permitted; and further from what is written \"closed and full\"; and for Ramban, even without closed it is permitted. Ran and Terumat HaDeshen.",
+        "Even as a. This is what you are doing, and that you will be able to do so, and you will be able to do it.”",
+        "If there is, etc. As he wrote siman 2: Rav Ashi said, \"if,\" etc.; and Tosafot there, \"if,\" etc.; and likewise there 1 in \"R' Papa said\"; and investigate, for behold we say there 72a: Rav Huna said, \"a stream,\" etc.; and Rashi there, \"and he watered,\" etc.; and Beit Yosef answered: Semag holds unlike Rashi's explanation, and it is an error, for the Gemara is arranged in Gittin 16a; and further a question: Semag holds like Rabbeinu Tam, that in a stream the halachah is not like R' Huna, and the same for moist touch; and all this is unnecessary, for in moist touch certainly the halachah is not like R' Huna, from Rav Ashi above; and Tosafot 72b proved the opposite from this ; see there in \"he said to him,\" etc.",
+        "But all this, etc. As written in Yerushalmi there ; end of his words: (supplement) But all this when he did not separate the wine until, etc.: Orach Chayyim there; and we have the text in Yerushalmi \"until here,\" etc.; and the halachah is not like R' Yosei. Terumat HaDeshen 131b; and he wrote that so is the Rif's text ; see there (end).",
+        "Until, etc. Tosafot there from what is written: \"we learned ; one may buy,\" etc., \"Rav Huna said in a winepress,\" etc. ; see there in \"Rav Huna said,\" etc.; and it must be according to his explanation, etc."
+      ]
+    },
+    {
+      "id": "yd1/siman124/seif-011/beur-hagra",
+      "volume": "yd1",
+      "siman": 124,
+      "seif": 11,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או ברגלו. שם נ\"ו ב' ההוא ינוקא כו' ההוא עובדא כו' והשמיטו הרי\"ף הני תרי עובדי וכ' הרשב\"א והר\"ן משום דס\"ל דתנא דאגרדמים שם נ\"ח א' פליג אהא דס\"ל דיש ניסוך בפיו וה\"ה ברגל [וגם השמיט הא דמדדו ביד ורגל ג\"כ מהא דאגרדמים דאפי' שלא בכוונה אסור וער\"ן]. וב\"י כתב משום דס\"ל בת\"ק דר' נתן דמשוה רגל ליד אלא דמתיר בהנאה משום דבעבידתיה טריד ובהא לא ס\"ל כוותיה אלא כתנא דמתני' שם ס' ב' דדוקא בקנה וכמש\"ל סי\"ט. והרא\"ש ס\"ל ג\"כ דניסוך דרגל שמיה ניסוך אלא דמפרש ההוא דינוקא וההוא דמדדו משום דטרוד בעבידתיה וכמש\"ש אמתני' דמדדו בקנה וה\"ה נמי מדדו ביד כו' וכן נמי עובד כוכבים שדרך כו' אבל נגע כו' ע\"ש וכ\"כ הטור כאן וכ\"מ בגמ' שם מדמדמי ההוא עובדא למדדו וקאמר דאי משכח תנא כר\"ש כו' אבל הרשב\"א כתב כפשטו משום דניסוך דרגל לא שמיה ניסוך אפילו בכוונה וז\"ש בהג\"ה וי\"א כו' ופי' התוס' שם ד\"ה מהו והרשב\"א והר\"ן דהבעיא הוא לענין הנאה להשתכר באיסורי הנאה דגת של עובד כוכבים היה ושיטת הרא\"ש היא המחוורת והא דקאמר והא קמנסך כו' והא כו' ניסוך כו' משום דס\"ל כר\"נ דביד אסור אפילו בעבידתיה טרוד וכמש\"ש אילימא משום כו' אימור דאר\"נ כו':",
+        "(ליקוט) או ברגלו. דלא כינוקא ושמואל משום עובדא דאגרדמים דאף בפיו ואף שלא בכוונה וכן סתמא דמתני' מדדו בקנה דוקא ומפרש דרבא שם נ\"ז ב' דשרא לזבוני לעובד כוכבים ס\"ל כת\"ק דקאמר מדדו בין ביד כו' משום דשלא בכוונת ניסוך וה\"נ אבל קי\"ל שם דלא כרבא אלא אפי' בפיו ושלא בכוונה אבל הקשו עליו א\"כ מאי פריך על רבא מהא דאגרדמים לימא אנא כת\"ק דר\"נ ס\"ל ולפחות הל\"ל כתנאי וער\"נ שם וגבי עובדא דאגרדמים (ע\"כ):",
+        "או בד\"א כו'. טור וערש\"י ס' ב' בד\"ה מדדו כו' ודוקא משום דמתכוין לד\"א ושם ד\"ה לזבוניה לעובד כוכבים כו' וברא\"ש סי\"ג וריב\"ם ז\"ל פי' דאסור כו' ובהג\"א סד\"ה ולכך הגלגל כו':",
+        "וישכשך. רמב\"ם רפי\"ב ולמד ממש\"ש נ\"ט ב' א\"ל ר\"א נקטוה כו' וכמו שסיים שם הרמב\"ם אבל אם פשט ידו לחבית ותפסו את ידו כו' וכ\"כ הראב\"ד בהשגות שם וכ\"כ רש\"י שם ד\"ה כי היכי כו' שאין כו' ושם ס' ב' ד\"ה לזבוניה כו' ושם נ\"ז א' ד\"ה אי משכחנא כו' ושם נ\"ט ב' סד\"ה כל כו' וכ\"ד תוס' וע\"ש נ\"ט ב' בד\"ה נקטוה ובסד\"ה ה\"ג ודלא כב\"י שכתב דתוס' חולקים ע\"ז ועש\"ך וודאי ההיא דמדדו וחביתא דאפקע י\"ל משום דבעבידתיה טריד אבל ההיא עובדא דאתרוגא קאמר בהדיא דלא לשכשך וער\"ן שם:",
+        "אפילו בפיו. מעובדא דאגרדמים שם נ\"ח א' ובידרושלמי מהו שיעשה יי\"נ בפיו ר' אדא כו' והביאו הרא\"ש שם וכ' ולפי התוספתא כו' ע\"ש וכ\"כ בת\"ה ש\"ב והאריך שם ע\"ש ועתוס' שם ד\"ה איקלע כו' וז\"ש כגון כו' או כו' והוא שם בברייתא שקדם כו' או שטעם כו':",
+        "אם נגע כו'. ערש\"י ס' ב' ד\"ה או שהיה כו' דוקא משום שהוא דרך טיפוח וכן בדברי הרמב\"ם וש\"ע כדי שתנוח הרתיחה ור\"ל שאינו דרך שכשוך הלא\"ה אסור אע\"ג דבעבידתיה טריד לשיטת הרי\"ף והרמב\"ם דבידו אף שעוסק בד\"א אסור בהנאה כמ\"ש בסי\"ט אבל להפוסקים דאפילו ביד עצמו מותר א\"צ לטעמו של רש\"י אלא משום דבעבידתיה טריד ועהג\"א שם סי\"ח ד\"ה חבית כו':",
+        "(ליקוט) אם נגע כו'. ממש\"ש ע' ב' ההיא רביתא כו' אבל מתוכה הוי אסור ובריש טבול יום ורתיחת כו' ומודים ב\"ה בשאר הטומאות שאפי' רתיחת יין חדש חיבור כ\"ש ביי\"נ דהא ניצוק אינו חיבור לטומאה וליי\"נ חיבור לר\"ה כמש\"ש (ע\"ב א') מרדכי פ\"ה סי' אלף שנ\"ז (ע\"כ):"
+      ],
+      "en_segments": [
+        "Or with his foot. There 56b: that child, etc., that incident, etc.; and the Rif omitted these two incidents; and Rashba and Ran wrote because they hold the tanna of agradim there 58a disagrees with this, holding there is libation by mouth; and likewise by foot [and they also omitted measuring by hand and foot from agradim, for even unintentionally forbidden; and Ran]. And Beit Yosef wrote because they hold according to the first tanna of R' Nasan who equates foot to hand except permits in benefit because he is occupied in his work ; in this they do not hold like him but like the tanna of the mishnah there 60b specifically with a reed; and as stated above seif 19. And the Rosh also holds libation by foot is called libation except he explains that child incident and the measuring incident because he is occupied in his work; and as stated according to mishnah measuring with a reed ; and likewise measuring by hand, etc.; and likewise a non-Jew who treads, etc.; but touch, etc. ; see there; and likewise the Tur here; and so in the Gemara there from comparing that incident to measuring and saying: if you find a tanna like R' Shimon, etc.; but Rashba wrote according to its plain meaning because libation by foot is not called libation even intentionally ; and this is what he wrote in the hagahah \"and there are those who say,\" etc.; and Tosafot explained there \"what is,\" and Rashba and Ran ; the question is regarding benefit to get drunk from forbidden benefit, for the vat was of a non-Jew; and the Rosh's approach is the clear one; and that which says \"behold he pours libation,\" etc., \"behold,\" etc., \"libation,\" etc. ; because he holds like R' Nasan that by hand forbidden even when occupied in something else; and as stated \"if we say because,\" etc., \"say R' Nasan,\" etc.: (supplement) or with his foot. Not like the child and Shmuel because of the agradim incident ; even by mouth and even unintentionally; and likewise stam mishnah measuring with a reed specifically; and explains Rava there 57b permitted to sell to a non-Jew ; he holds like the first tanna of R' Nasan who says measuring whether by hand, etc. ; because without intent of libation ; and likewise; but we establish there not like Rava but even by mouth and unintentionally; but they challenged him: if so what does he challenge Rava from the agradim incident ; let him say I am like the first tanna of R' Nasan; at minimum he should have said like the tannaim; and Ran there; and regarding the agradim incident (end).",
+        "Or through something else, etc. Tur and Rashi 60b in \"he measured,\" etc. ; specifically because he intends for something else; and there in \"to sell it to a non-Jew,\" etc.; and in the Rosh seif 13 and Rivevan explained forbidden, etc.; and in Hagahot Or Zarua in \"and therefore the wheel,\" etc.",
+        "And he will shake it. Rambam chapter 12 and learned from what is written 59b: R' Eliezer said they took it, etc.; and as Rambam concluded there: but if he extended his hand to a barrel and they seized his hand, etc.; and likewise Raavad in his hasagot there; and likewise Rashi there in \"so that,\" etc., that there is not, etc.; and there 60b in \"to sell it,\" etc.; and there 57a in \"if we find,\" etc.; and there 59b in \"all,\" etc.; and so Tosafot; and see there 59b in \"they took it\" and in \"thus\"; and not like Beit Yosef who wrote Tosafot disagree on this; and Shach; and certainly that measuring incident and the barrel that burst ; one may say because he is occupied in his work; but that etrog incident he says explicitly not to shake; and Ran there.",
+        "Even by mouth. From the agradim incident there 58a; and in Yerushalmi: what if he makes stam yeinam in his mouth ; R' Ada, etc.; and the Rosh brought it there and wrote: and according to Tosefta, etc. ; see there; and likewise in Terumat HaDeshen siman 2; and he expanded there ; see there; and Tosafot there in \"incident occurred,\" etc.; and this is what he wrote \"such as,\" etc., \"or,\" etc.; and it is there in the baraita that preceded, etc., \"or he tasted,\" etc.",
+        "If he touched, etc. Rashi 60b in \"or that he was,\" etc. ; specifically because it is a way of patting; and likewise in Rambam's and Shulchan Aruch's words so the boiling will settle; meaning it is not a way of stirring ; otherwise forbidden even though occupied in his work according to Rif and Rambam who forbid by his hand even when engaged in something else in benefit, as written in seif 19; but for poskim who permit even by his own hand ; Rashi's reason is unnecessary except because he is occupied in his work; and Hagahot Or Zarua there seif 18 in \"barrel,\" etc.: (supplement) if he touched, etc. From what is written 72b: that baraita, etc.; but from inside forbidden; and in beginning of Tevul Yom and boiling of, etc.; and Beit Hillel concede regarding other impurities that even boiling of new wine is connection ; all the more stam yeinam connection for R' Huna, as stated (72a side 1) Mordechai perek 5 siman 1000 57 (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman124/seif-012/turei-zahav",
+      "volume": "yd1",
+      "siman": 124,
+      "seif": 12,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "עובד כוכבים שנכנס כו'. זהו לשון הרמב\"ם רק שהמחבר הוסיף תיבת ושכשכו והולך ע\"פ השיטה שכ' בכ\"מ על מה שהשיג הראב\"ד וז\"ל א\"א זה המעשה של עובד כוכבים שנכנס לחנות ואמר איכא חמרא לזבוני וכו' ושדא ידא לכובא ושכשך ביה ואמר האי לאו חמרא הוא ואסרוהו בהנאה מפני השכשוך עכ\"ל ופי' בכ\"מ שעיקר ההשגה היא על שלא כתב הרמב\"ם ושכשך אלא סתם ונגע ובגמרא איתא ושכשך ותירץ ד\"מ ע\"ז דהרמב\"ם לא הוצרך לכתוב ושכשך שכבר כתב באותו פרק שאין נגיעה אוסרת אלא שכשוך עכ\"ל ותמוה הוא דא\"כ לא היה לו להביא רק בלשון זה המעשה הוא של עובד כוכבים ששכשך ותו דכבר כתב הראב\"ד לעיל באותו פרק דבעינן שכשוך ונ\"ל שבא הראב\"ד בזה על ב' דברים הא' להשיג במ\"ש הרמב\"ם ופשט ידו כשהוא מחפש ונגע ביין אוסרו שהרי ליין נתכוין וקשה ע\"ז במה ידענו שבשעת אותה נגיעה נתכוין לנגיעה שמא הנגיעה בעצמה היתה שלא בכוונה כדרך אדם בחפושו ואת\"ל נתכוין לנגיעה שמא היה סבור שזה מים ע\"כ מביא הגמרא שאמר האי לאו חמרא ובזה נודע שכוון לנגיעת היין. עוד בא הראב\"ד בזה לראיה למה שהשיג בתחלת הפרק במ\"ש רמב\"ם כיצד היא הנגיעה שנגע ביין עצמו ומשכשך אבל אם פשט ידו לחבית ותפסו ידו קודם שיוציאנה ולא ינידה כו' לא נאסר היין דמשמע לא נאסר כלל ממילא כל שלא שכשך אלא נגיעה בעלמא מותר אפי' בשתיה אבל אם שכשך אסור בהנאה ע\"ז חולק הראב\"ד לעיל ואמר כשתפסו ידו מי לא נגע ביין אלא כך אמרו תפסו ידו שלא שכשך שאין אוסר בהנאה אא\"כ ישכשך עכ\"ל ממילא יש להראב\"ד איסור בשתיה אפי' במגע בעלמא בלא שכשוך וכן מפרש כ\"מ לתרץ גם דברי רמב\"ם גם רש\"י פי' כן בפרק ר\"י (עבודה זרה דף נ\"ט) וע\"כ בא הראב\"ד כאן להביא ראייה לזה דיש איסור שתייה אפילו הוא בלא שכשוך שהרי במעשה הזה שהיה משכשך אמרו בו דאסור בהנאה בשביל השכשוך משמע דבלא השכשוך יש עכ\"פ איסור שתייה והוא מוכח שם באותו פלפול שאמרו שכשוך עושה יין נסך דמשמע שהשכשוך גורם ליין נסך שהוא איסור הנאה הא בלא שכשוך יש איסור שתייה:",
+        "וכתב הטור בדין זה ואם נתערב באחר דמי המשוכשך אסור בהנאה והשאר מותר בהנאה וקשה פשיטא מי גרע מכל סתם יינם שנתערב כדלקמן סי' קל\"ד בשלמא בגמרא לק\"מ דמעשה היה כך אבל על הטור קשה ל\"ל זה וי\"ל דל\"ת כיון דשכשך ה\"ל כיי\"נ ודאי ואין לו תקנה קמ\"ל דלא הוה אלא סתם יינם. עוד יש יתור לשון שכתב ושכשך בו בידו האי בידו ל\"ל וי\"ל דקמ\"ל בזה שמרמז בידו כלומר האי לאו חמרא בתמיה:",
+        "כסבור שהוא של שמן כו'. ממילא לדידן מותר אפי' בשתייה כמבואר לקמן סעיף כ\"ד:"
+      ],
+      "en_segments": [
+        "A non-Jew who entered, etc. This is Rambam's wording, only the author added the word \"and he shook it\" following the approach Kesef Mishnah wrote challenging Raavad: and this incident of a non-Jew who entered a shop and said \"is there wine to buy,\" etc., and he put his hand on the leather bottle and shook it and said \"this is not wine\" and they forbade it in benefit because of the stirring ; end; and Kesef Mishnah explained the essence of the challenge is that Rambam did not write \"and he shook it\" but simply \"and touched,\" while in the Gemara it says \"and he shook it\"; and Darkhei Moshe resolved on this that Rambam did not need to write \"and he shook it\" since he already wrote in that chapter that touch alone does not forbid except stirring ; end; and it is astonishing, for if so he should have brought only in this language the incident of a non-Jew who stirred; and further Raavad already wrote above in that chapter that we require stirring; and it appears Raavad comes here on two matters: first to challenge what Rambam wrote \"he extended his hand while searching and touched wine\" ; he forbids it, for he intended for wine; and there is a difficulty: how do we know that at the time of that touch he intended touch ; perhaps the touch itself was unintentional as a person searches; and if you say he intended touch ; perhaps he thought it was water ; end; he brings the Gemara that said \"this is not wine\" ; through this it is known he intended touch in wine. Further Raavad comes here as proof for what he challenged at the beginning of the chapter regarding what Rambam wrote how is touch when he touched wine itself and stirred; but if he extended his hand to a barrel and they seized his hand before he removed it and did not shake it, etc. ; the wine is not forbidden ; it implies not forbidden at all; perforce all who did not stir but mere touch is permitted even for drinking; but if he stirred forbidden in benefit ; on this Raavad disagrees above and said: when they seized his hand did he not touch wine? Rather they said thus: they seized his hand so he would not stir ; for it does not forbid in benefit unless he stirs ; end; perforce Raavad has prohibition of drinking even in mere touch without stirring; and Kesef Mishnah explains thus to resolve both Rambam's words; and Rashi also explains thus in perek R' Yishmael (Avodah Zarah daf 59); and perforce Raavad comes here to bring proof for this, that there is prohibition of drinking even without stirring ; for behold in this incident where he was stirring they said of it forbidden in benefit because of stirring ; it implies without stirring there is at least prohibition of drinking; and this is proven there in that discussion where they said stirring makes yayin nesech ; it implies stirring causes yayin nesech which is prohibition of benefit; without stirring there is prohibition of drinking. And the Tur wrote in this law: and if it mixed with other wine the value of what was stirred is forbidden in benefit and the rest permitted in benefit; and it is difficult ; obviously; who is worse than any stam yeinam that mixed, as below siman 134; granted in the Gemara it is difficult for us; but on the Tur it is difficult why need this; and one may say: since he stirred it is definite stam yeinam and has no remedy ; it informs us it was only stam yeinam. Further there is extra language that he wrote \"and he shook it in his hand\" ; this \"in his hand\" why? One may say it informs in this that he hinted with his hand ; meaning \"this is not wine\" in wonder.",
+        "He thought that it was oil, etc. Consequently, according to our practice it is permitted even for drinking, as explained below in seif 24."
+      ]
+    },
+    {
+      "id": "yd1/siman124/seif-014/beur-hagra",
+      "volume": "yd1",
+      "siman": 124,
+      "seif": 14,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "חבית כו'. וכן כו'. תוס' נ\"ט ב' ד\"ה ה\"ג כו' ועיקר דינא דר\"פ יתבאר בסעיף כ\"ג:",
+        "ודוקא כו'. כמש\"ל סכ\"ד:",
+        "(ליקוט) ודוקא כשידע כו'. הג\"א פ\"ה סכ\"ו סד\"ה אשר ואפי' אם הברזא יוצאה חוץ לקנה כו' (ע\"כ):",
+        "אבל אם כו'. טור וכמו עובד כוכבים אדנא כו' וכמש\"ל ר\"ס קכ\"ה וכ\"כ המרדכי והג\"א שם סי\"ב ד\"ה אלא הלכה וראבי\"ה כו' וכ\"ז לשיטתם דס\"ל כרש\"י שם ע\"ב ב' ד\"ה דגוואי כו' ותוס' שם ד\"ה כחו וכמ\"ש בטור ר\"ס קכ\"ה אבל לפי מ\"ש בש\"ע שם דכולו אסור ה\"נ וכ\"כ כאן בת\"ה בשם הרמב\"ן דכה\"ג כולו אסור ומ\"ש במרדכי והג\"א שם או החזירה כו' הקשה הב\"י ע\"ז דהא זהו דר\"פ דאיתמר בגמ' וכ\"מ דברי הטור שלא כ' אלא רישא דהוציאה לבד ובד\"מ תי' דאפשר דר\"פ דוקא באצבעו ודבריו דחוקים ולכן השמיטו ג\"כ כאן:",
+        "ואם הוציא כו'. כמש\"ל סכ\"ד ובהג\"ה שם:",
+        "(ליקוט) אבל אם אינה עובדת כו' כמו כחו. כמ\"ש בסנהדרין (ע\"ז ב') האי מאן דכפתיה כו' גירי דידיה וה\"מ בכח ראשון כו' והכא כולה כח ראשון וער\"נ. ואם הוציא שלא בכוונה כו'. שם בר\"נ (ע\"כ):",
+        "(ליקוט) אם היתה ברזא ארוכה כו'. הג\"א פ\"ד סי\"ב ד\"ה אלא כו' וע\"ש בהג\"א הנ\"ל (בליקוט שבס\"ק ל\"ג) השיב רשב\"א כו' וצ\"ע שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "I owe him a . And yes, yes. Dr. Tassss B. D. N. D. N. D. A.D. will be explained in the section as \"G:\"",
+        "And specifically, etc. As stated above seif 24: (supplement) and specifically when he knew, etc. Hagahot Or Zarua chapter 5 seif 26 in \"which\"; and even if the spigot extends outside the reed, etc. (end).",
+        "But if, etc. Tur and like a non-Jew Adana, etc.; and as stated beginning siman 125; and likewise Mordechai and Hagahot Or Zarua there seif 12 in \"rather the halachah\" and Ravyah, etc.; and all this according to their approach who hold like Rashi there 72b side 2 in \"inside,\" etc., and Tosafot there in \"like his force\"; and as the Tur wrote beginning siman 125; but according to what is written in Shulchan Aruch there all forbidden ; here too; and likewise here in Terumat HaDeshen in the name of Ramban that in such a case all forbidden; and what Mordechai and Hagahot Or Zarua wrote there \"or he returned it,\" etc. ; Bach challenged on this, for this is R' Papa's words that was stated in the Gemara; and it appears the Tur's words he only wrote the first part regarding drawing alone; and in Darkhei Moshe it is possible R' Papa specifically with his finger ; and his words are strained; therefore he also omitted here.",
+        "And if he was released. It is the name of Hashem and the High Court, but if it does not work as it is. As the Sanhedrin, the island of Mandifada was called the \"Gays of Didia\" and the \"First Force\" and the entire right was the first and final force. And if he did not intentionally come out.” The name of Scripture:",
+        "(Supplement) if the spigot was long, etc. Hagahot Or Zarua chapter 4 seif 12 in \"rather,\" etc.; and see there in the hagahah mentioned (in supplement in seif kaf 33) Rashba answered, etc.; and it is difficult there (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman124/seif-018/beur-hagra",
+      "volume": "yd1",
+      "siman": 124,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נטל כו'. שם עובד כוכבים אדנא כו' ושם ע\"ב ב' בעובד כוכבים המערה כו' וסובר דכולו נאסר וז\"ש נאסר היין וכמש\"ל ר\"ס קכ\"ה ודוקא שהגביהו הלא\"ה ס\"ל דלא נאסר וכתב ב\"י שכ\"מ מהרי\"ף והרא\"ש אבל המרדכי והג\"א ורשב\"א והטור וש\"ע לעיל סי\"ד כתבו אבל אם אינה כו' וצ\"ע (ע\"ל סי' קכ\"ה ס\"ק ה'):",
+        "הגביה כו'. ממש\"ש בזיקא וכובא וכן ממש\"ש במערה כו' דגואי שרא ומה שיצא דוקא משום דכחו:",
+        "(ליקוט) הגביה ולא כו'. ממש\"ש ע\"א ב' מדמשכיה עובד כוכבים קנייה יי\"נ לא הוי כו' וע\"ל סי' קל\"ב ס\"ב (ע\"כ):",
+        "וכ\"ש בו'. ממש\"ש ועובד כוכבים אכובא חמרא שרי ושם ב' אבל לפותיא כו':"
+      ],
+      "en_segments": [
+        "He took, etc. There non-Jew Adana, etc.; and there 72b side 2 regarding a non-Jew pouring, etc.; and he holds all became forbidden; and this is what he wrote \"the wine became forbidden\"; and as stated beginning siman 125; and specifically when he lifted it ; otherwise he holds it did not become forbidden; and Beit Yosef wrote so ruled Maharif and the Rosh; but Mordechai and Hagahot Or Zarua and Rashba and the Tur and Shulchan Aruch above seif 14 wrote: but if it is not, etc.; and it is difficult (see above siman 125 seif kaf 5).",
+        "He lifted, etc. From what is stated regarding Zika and leather bottle; and likewise from what is stated regarding pouring, etc., inside permitted and what came out specifically because of force: (supplement) he lifted and not, etc. From what is written 71b side 2: from when the non-Jew drew he acquired stam yeinam ; it is not, etc.; and see above siman 132 seif 2 (end).",
+        "And all the more so in [seif] 6. From what is written there: and an idolater on a wine barrel — it is permitted; and there, 2: but to a flask etc."
+      ]
+    },
+    {
+      "id": "yd1/siman124/seif-019/beur-hagra",
+      "volume": "yd1",
+      "siman": 124,
+      "seif": 19,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מדד כו'. כמש\"ל בדעת הרי\"ף דדחי ההיא פלוגתא דר\"נ ורבנן מקמי מתני' דס\"ל דטרוד בד\"א אינו מועיל להתירו בהנאה אלא דוקא במגע ע\"י ד\"א:",
+        "(ליקוט) מדד כו' שבכל אלו כו'. ודוקא בקנה ומטפח בחבית ס\"ל משום דאינו שכשוך וכן נפל לבור דמתני' שם וכמש\"ש בעובדא דאתרוגא וכמש\"ל סי\"ג ע\"ש וז\"ש כדי כו' (ע\"כ):",
+        "או כו'. עב\"י וע\"ל ס\"ז או שטפח כו':",
+        "וי\"א כו'. הרא\"ש שם דמ\"ש במתני' מדדו בקנה ל\"ד אלא דמעשה שהיה כך היה כמ\"ש במתני' זה היה מעשה כו' ופ' כרבנן דר\"נ וכ\"פ ש\"פ:",
+        "(ליקוט) וי\"א דאפי' כו'. עמש\"ל דרי\"ף דחאה מהלכה מפני ההיא דאגרדמים והר\"נ דחה דבריו אבל הביא ראיה ממש\"ש נ\"ט ב' ההוא חביתא כו' אר\"פ כו' אע\"ג דדמי למדדו ביד אבל הרא\"ש ובשם הראב\"ד תי' שם וכמ\"ש למטה בהג\"ה ואין לדמות כו' ובסכ\"ג בהג\"ה ודוקא שהיה כו' (ע\"כ):",
+        "עובד כוכבים שדרך כו'. שם ברא\"ש מעובדא דינוקא ועובדא דנהרדעא שם נ\"ו ב' ומדמי שם למדדו כו':",
+        "וראו כו'. שם דצייריה כו' ומשום שלא יגע בכוונה וינסך ועמש\"ל סי\"א:",
+        "וכן אם כו'. כעובדא דחרם שם נ\"ה א' וכפי' ר\"ת בתוס' נ\"ט ב' ד\"ה נקטרה כו':",
+        "ואפי' נודע כו'. הרא\"ש שם ס\"י בשם הראב\"ד:",
+        "ואין כו'. שם סי\"ב מדלא התירו ההיא דברזא דסכ\"ג וכן ההיא דאגרדמים שם נ\"ח א' וכ\"כ בת\"ה וכ' דלכן טעי רבא שם בההוא עובדא דמחוזא משום דלא כיון עד שהשיבוהו מהא דאגרדמים והראב\"ד תי' ההיא דברזא בדרך אחר הביאו הרא\"ש והרשב\"א שם וכמ\"ש בסכ\"ג בטור והג\"ה ודוקא כו':"
+      ],
+      "en_segments": [
+        "He measured, etc. As stated according to the Rif's view who pushes aside that dispute of R' Nasan and the rabbis before the mishnah who hold occupied in something else does not help to permit in benefit ; only specifically in touch through something else: (supplement) he measured, etc. in all these, etc. And specifically with a reed and patting the barrel he holds because it is not stirring; and likewise fell into a pit in the mishnah there; and as stated in the etrog incident; and as stated above seif 13 ; see there; and this is what he wrote \"in order,\" etc. (end).",
+        "Or, etc. In Beit Yosef and see above seif 7: or he patted, etc.",
+        "And there are those who say, etc. The Rosh there: what is written in the mishnah measuring with a reed ; he does not explain except the incident that was so, as written in the mishnah \"this was an incident,\" etc.; and he explains like the rabbis of R' Nasan; and likewise other decisors: (supplement) and there are those who say even, etc. As stated the Rif pushed aside halachah because of the agradim incident and Ran rejected his words; but he brought proof from what is written 59b side 2: that barrel, etc., R' Papa, etc., even though similar to measuring by hand; but the Rosh and in the name of Raavad explain there; and as written below in the hagahah; and one may not compare, etc.; and in seif 23 in the hagahah: and specifically when it was, etc. (end).",
+        "A non-Jew who treaded, etc. ; ibid. in the Rosh, from the incident of the child and the incident of Nehardea, ibid. 56b; and he compares there to \"they measured,\" etc.",
+        "Look at him. There is no such name, and because it does not touch the intent and the IDF:",
+        "And likewise if, etc. Like the Cherem incident there 55a side 1; and Rabbenu Tam's explanation in Tosafot 59b side 2 in \"it was tied,\" etc.",
+        "And he was known as “. The Holy One is named after Hashem:",
+        "And there is not, etc. There seif 12: since they did not permit that spigot incident in seif 23; and likewise the agradim incident there 58a; and likewise in Terumat HaDeshen; and he wrote therefore Rava erred there in the Mahuza incident because he did not intend until they answered him from the agradim incident; and Raavad explains that spigot incident differently ; the Rosh and Rashba brought it there; and as written in seif 23 in the Tur and hagahah: and specifically, etc."
+      ]
+    }
+  ]
+}

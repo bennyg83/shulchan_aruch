@@ -1,0 +1,347 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 21,
+    "chunk_total": 66,
+    "case_offset": 219,
+    "cases_in_chunk": 11,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman276/seif-009/turei-zahav",
+      "volume": "yd1",
+      "siman": 276,
+      "seif": 9,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הנטפלות מאחריהם. פי' מה שלפניהם מותר למחקו כגון ל' של לה' או ו' של וה' שאין בזה קדושה אבל הנטפל לאחריהם יש בו קדושה שכבר קדשו השם וזהו כאחרים בברייתא ולא כת\"ק דאמר כ\"ם של אלהיכם ונ\"ו של אלהינו נמחק ונראה כיון שאין בזה אלא משום דבוק לקדוש' יכול לתלותו כגון אם שכח כ\"ם של אלהיכם דאין בזה משום תולה מקצת השם דהא לא מן השם הוא זה דאינו שם אלא שנתפס עליו קדושת השם שלפניו ועל כן יכול לתלותו כנ\"ל ואף מי שעולה על לבו להחמיר בזה לכתחלה מכל מקום בדיעבד פשיטא שאין לפוסלו כנ\"ל:",
+        "אלוה אלהים. בטור כתוב עוד אלהי וכן הוא במקצת ספרי רמב\"ם והטעם דשם אלהי הוא ג\"כ שם העצם והיו\"ד מכלל שורש השם וכן דעת כסף משנה מאחר שמצינו בשם אלהים שגם היו\"ד היא שרשית ה\"נ הוא בשם אלהי. והנה בתשובת מהר\"ר בנימין בספר משאת בנימין כתוב בענין השם של אלהינו ששכח הסופר היו\"ד וכתב אלהנו בלא יו\"ד כתב שם שהיו חלוקי דעות בזה יש מהם אומרים דיגרוד נ\"ו ויכתוב היו\"ד ואח\"כ נ\"ו ואין אומרים בזה שכבר קדשו השם לנ\"ו כיון שחסר אות אחת דהיינו היו\"ד מהשם א\"כ לא נכתב כהלכתו לא שייך לומר שכבר קדשו השם וקצתם אמרו שיסלק היריעה ההיא והוא הסכים שיתלה היו\"ד מלמעלה והאריך בזה מטעם שיש סברא לומר שהיו\"ד אינו שרשית אלא במשקל קדושינו יוצרינו וכל אלהי שבפסוק היו\"ד היא לסמיכות לתיבה שאחריו כמו אלהי השמים ומסיק דאף לפי הכסף משנה שהיא שרשית מ\"מ היינו דוקא לענין קדושה שלא תמחק אבל לענין תלייה שהיא מדרבנן שפיר דמי בזה דאין שייך להחמיר גבי יו\"ד דאלהי כיון שאינה שרשית ואע\"ג דמצינו בירמיה כ\"ג האלהי מקרוב אני ולא אלהי מרחוק והתם אין שום סמיכות שיש שם פסיק התם היו\"ד נמי לאו שרשית רק מורה על לשון רבים כמו אלהים והמ\"ם חסר בתיבה ע\"כ ולפי דבריו המוחק את היו\"ד של אלהי אינו לוקה שהרי כתב הרמב\"ם בפ\"ו דיסודי התורה דהמוחק את השם דוקא לוקה אבל לא הנטפל לאחריו שאיסור מחיקות הנטפל אינו אלא מדרבנן ולפי דברי מהר\"ר בנימין הוה גם היו\"ד של אלהי נטפל ולא נראה כלל לפי ע\"ד דמה שכתב דהיו\"ד היא לסמיכות זה אינו כלל דמה שזכר במלת קדושינו ודאי גם שם [לא] באה היו\"ד להסמיך מלת קדוש לנ\"ו שהרי מצינו כן בלא יו\"ד בפסוק כספנו במשקלו מי שם כספנו וכולם בלא יו\"ד וכן קדושינו בהרבה מקומות בלא יו\"ד וכן במה שכתב אלהי השמים שהיו\"ד מורה על הסמיכות זה אינו וכי בלא היו\"ד לא היה סמיכות אם היה אומר אלוה השמים כמו שמצינו אלוה כל הנפשות וכן בפסוק אדוני יוסף וכי לא היה יכול לומר אדון יוסף אלא ברור שהיו\"ד אינו עושה דביקות אלא מורה על רבים דהיינו במלת אדוני יוסף לשון הרבה שררות וכן הוא במלות אלהי שמורה על הרבה אלהיות ושררות שיש בו יתברך אע\"פ שהוא יחיד ומיוחד וכמו שפירש\"י על פסוק ויהי כי התעו אותי אלהים שהוא לשון מרות ושררה ושם הביא רש\"י גם לשון אדוני יוסף ואם כן ודאי פשוט שהיו\"ד של אלהי היא שרשית ובאה להורות על ריבוי השררה שלו יתברך כמו אלהים אלא שכל לשון רבים של אלהים אינו דבוק לתיבה של אחריו שאין שייך לומר אלהים השמים שכיון שבאה המ\"ם של אלהים לעשותו לשון רבים הוה תיבה מוכרתת מה שאין כן בלא המ\"ם שפיר שייך לומר אלהי השמים או אל השמים אבל בלשון רבים של אלהי אין שם אות מוכרתת אלא שפיר דבוק כמו אלו לא הי' היו\"ד כלל כל זה פשוט וכיון שהיו\"ד מורה על רוב שררה שלו יתברך הוה שרשית ועקרית בשם כמו האל\"ף או הלמ\"ד כיון שתארו יתברך מתפרש בענין אחר מחמת היו\"ד דהיינו מלשון יחיד לרבים וכמו שכתב הוא עצמו על פסוק האלהי מקרוב וגו' כן הוא בכל אלהי ושוב מביא מהר\"ר בנימין שם ראיה וז\"ל ובירושלמי נמי קא חשיב ליה בין שמות הנטפלים ולא בין שמות העצם דקתני התם אל אלהיך אלהים אלהי אלהינו אלהיכם דכל זה משמע דאלהי לאו שם העצם הוא עכ\"ל לא ידענא מה ראיה בזה דהתם אלהי בפתח קאמר שזה ודאי אינו עצם אלא כאומר אלוה שלי וקאמר שמשם אלהים נמשכו אלו ג' נטפלים דהיינו אלהי בפתח שהוא לשון יחיד המדבר על עצמו אלוה שלי ואחר כן המדבר על רבים שנכללו עמו והיינו אלהינו ואח\"כ לשון רבים לנוכח שהוא אלהיכם וזה נראה לי פשוט אבל לשון אלהי בציר\"ה ודאי לשון רבים הוא כמו אלהים ממש ואין מרומז בו כלל של מי הוא עד שיפרש אחריו כמו אלהי השמים וכן אדוני הארץ ועל כן ברור לי כביעתא בכותחא דת\"ק דפליג על אחרים בגמרא וסבר ליה דכ\"ם של אלהיכם ונ\"ו של אלהינו נמחק דוקא נ\"ו קאמר ולא היו\"ד דהיא מעיקר השם דאם לא כן היה לו לומר רבותא יו\"ד של אלהי נמחק והרב מהר\"ר בנימין כתב שם דהיו\"ד פשיטא שנמחקת לת\"ק כיון שאינה נקראת והיא נחה וחס ליה להרב לומר כן דבקדושת השם לאו בקריאה תליא מילתא אלא כמו שהוא נכתב כמו ה\"א אחרונה של אהיה ויו\"ד של אלהיכם) ג\"כ נחות והם מעיקר השם ועל כן היה לו לת\"ק להשמיענו רבותא גדולה שגם היו\"ד שאין מרומז בו שום דבר שהוא נטפל לשם אפילו הכי מותר למחקו וכל שכן כ\"ם או נ\"ו שמפורש בו שהוא נטפל אלא ודאי שלא עלה על דעת הת\"ק מעולם לחלוק היו\"ד של אלהי מן השם העצם ח\"ו והיינו כל שהוא בציר\"ה וכמ\"ש בסמוך וכן כאן שזכר בש\"ע כגון ך' של אלהיך ולא אמר היו\"ד אלא פשיטא שאינה נמחקת וסעיף זה הוא לשון הרמב\"ם על כן כלל ועיקר לא יתכן לפי ע\"ד לתלות היו\"ד של אלהינו אם שכח מלכותבה:",
+        "הדרך השני שזכר שם לגרוד נ\"ו מטעם שכאן אין אומרים שכבר קדשו השם כיון שלא נכתב כהלכתו וזה גם כן לא יתכן לפע\"ד דודאי גם כאן קדשו השם של אל\"ה הנכתב קודם לנ\"ו דהא אל\"ה פשיטא ששם בפני עצמו הוא והוא קודש למה לא יקדש ג\"כ הנטפל לו ככל השמות ואע\"ג שנעשה שם דילוג היו\"ד מכל מקום קדושת השם שנכתב לא אזלא ובמקומה עומדת ומושך הנטפל עמו דהיינו נ\"ו ואין לך צורך ראיה לזה אלא שמעת לה מגופא דברייתא לאחרים שאמרו כ\"ם של אלהיכם אינו נמחק ות\"ק סבר ליה נמחק וכל מחיקה היא מסתמא שנכתב שלא כדין שם דאם לא כן היאך ס\"ד שימחק אפילו שאר אות מאותיות התורה אלא ודאי שנכתב שלא כדין ואפ\"ה ס\"ל לאחרים דאינו נמחק שכבר קדשו השם ש\"מ שאפילו בנכתב בטעות קדשו השם וה\"ה בטעות דילוג היו\"ד של השם כיון שבלאו הכי יש שם קדוש לפנינו וק\"ו הוא לפע\"ד שלא נמחק מה שאין בו טעות משום דילוג היו\"ד דודאי בלאו הכי קדשו השם והדבר ברור לע\"ד דבכ\"מ שנמצא שם קדוש אפילו על ידות הכלים דקי\"ל יגנז אם היה כתוב בו נטפל כגון אלהינו דאין נ\"ו נמחק גם כן כמו השם עצמו דכיון שהוא צריך גניזה ודאי כל המחובר לטהור טהור ואין להקשות ממה שכתוב בסעיף י\"ב היה לו לכתוב השם וכתב יהודה כו' דמוחק ה\"א אחרונה ואין אומרים שכבר קדשו השם של י\"ה שהוא שם בפני עצמו ונימא שגם הדלי\"ת שכתב וה\"א שאחריו כולם קדושים משום נטפל לשם הראשון הא לאו קשיא היא כלל דאין שייכות לומר קדושה משום נטפל לשם אלא ביש לו שייכות דהיינו שיש לו שום משמעות כגון אלהיכם דיש משמעות לכ\"ם הנטפל שהוא מפרש אלוה שלכם ודבר זה הוא כתוב פעמים רבות בתורה ע\"כ אם אירע טעות בשום מקום בזה אמרינן שקדשו השם משא\"כ בהך ד' וה' שטפל בה במ\"ש יהודה אין שום פירוש ושייכות לומר שזה נטפל לשם של יה דהא אין לו שום משמעות והכל רואים שטעות הוא ולא בחנם הוצרכו לומר בברייתא כגון כ\"ם של אלהיכם ולא אמרו סתם כל הנטפל לשם יהיה מה שיהיה אלא כמו שכתבתי דוקא בענין זה ולא בטעות שאין לו משמעות תיבה בתורה רק טעות וע\"כ נ\"ל ודאי ופשוט באם כתב השם כהלכתו וטעה וכתב איזה אות אחריו שאין לו שום פירוש ומשמעות אין בו קדושה ולדברי הכל נמחק. כן נראה לע\"ד נכון ומתקבל:",
+        "הדרך השלישי שזכר דהיינו לסלק היריעה לגמרי ודאי דרך זה הוא יותר מן המובחר דאין לקדר האזכרות מן התורה כמ\"ש ב\"י בשם הרא\"ש וה\"ר יהודה בנו דמוטב שיסלק היריעה כו' מ\"מ כיון שכבר נהגו הסופרים לקדור השם שנכתב בטעות ויש סמך ממס' סופרים פרק ה' הכותב ב' שמות של קודש מקיים הראשון ומעכב את האחרון ויש גורסין מחטב ושניהם פירושן לשון קדירה וכן הביאו ב\"י בשם הר\"י אסכנדרני בשם הרמב\"ם בתשובה ובתשו' הנ\"ל הביאו לזה ע\"כ אם אינו אפשר בקלות לסלק היריעה ולכתוב אחרת גם בזה יעשה כן. כן נראה לע\"ד.) ועוד כתב באותה תשובה בנמצא בס\"ת בפסוק ויטוש אלוה עשהו שם אלוה חסר וי\"ו שא\"צ שום תיקון כי פעמים נכתב מלא ופעמים נכתב חסר ואפי' במקום שנכתב מלא אין מוכרח הוא להיות כך כו' עכ\"ל ותמוה הוא דמה בכך שפעמים מלא הוא כיון דכן הוא בספרים שלנו מלא בוי\"ו קפידא יש בדבר ואין כאן תיקון לתלות הוי\"ו כיון דמגוף השם היא במקום הזה ויש ג\"כ (לקדש) [לקדר] השם הזה ולכתוב אחר. כנ\"ל:"
+      ],
+      "en_segments": [
+        "The letters attached after them. Letters preceding a Divine Name, such as the lamed in “to Hashem” or the vav in “and Hashem,” may be erased because they have no sanctity. Letters attached after the Name possess sanctity because the Name sanctifies what follows it. Therefore, if the final letters of a form such as “your God” were omitted, they may be suspended above the line. This is not considered suspending part of the Divine Name itself, since those letters are not intrinsically part of the Name but merely acquire sanctity through attachment. Even one who is stringent initially should not invalidate the scroll after the fact.",
+        "Eloah, Elohim. The Tur also lists the form “Elohei,” and some Rambam texts do likewise. The yud in “Elohei” is part of the root and is sacred. A responsum in Masas Binyamin discusses a scribe who wrote “Elohenu” without the yud. Some wished to erase the final nun-vav and rewrite the yud and those letters, arguing that the incomplete Name had not yet sanctified what followed. Others required removal of the entire sheet. Masas Binyamin preferred suspending the yud, reasoning that it might not be a root letter and that suspension is only rabbinically restricted. In my opinion this is incorrect. The yud is not merely a sign of construct state. It indicates the plural form of sovereignty, as in “Adonei Yosef” and “Elohei hashamayim,” and is therefore an essential part of the Divine Name. The Yerushalmi's discussion of appended forms does not prove otherwise, for it refers to a differently vocalized form meaning “my God,” not to the plural construct “Elohei.” Nor may the nun-vav be erased. The preceding letters already form the sacred Name “Eloah,” and they sanctify meaningful letters attached to them even though the yud was accidentally omitted. The rule that letters following a Name may lack sanctity applies only where they form no meaningful attachment and are plainly an accidental addition. Accordingly, the preferable repair is to remove the entire sheet. Where that is very difficult, there is support from Maseches Sofrim and responsa for cutting out the mistaken Name and rewriting it. If the word “Eloah” was written without the vav in a place where our scrolls have it full, it likewise requires correction; one cannot dismiss the omission merely because the word is sometimes written defectively elsewhere."
+      ]
+    },
+    {
+      "id": "yd1/siman279/seif-002/turei-zahav",
+      "volume": "yd1",
+      "siman": 279,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ומתחיל ממקום שטעה. דבדיעבד הוה קריאה מה שקרא בספר שהוא פסול כקצת דעות בב\"י:",
+        "ומברך לאחריה כו'. במרדכי פ\"ב דמגילה כתוב דיש ללמוד דס\"ת דחסרין בה אותיות או תיבות או פסוק דאין להפסיק לקורא להביא ספר תורה אחרת אלא קורא אותו בע\"פ ותו יש לחוש להביא ס\"ת אחרת כדאמרינן במסכת יומא (פ' בא לו דף ע') גבי כ\"ג דקורא פרשת אחרי מות בס\"ת ובעשור לחדש שבחומש הפקודים קורא בע\"פ ופריך ונייתי ס\"ת אחרת ונקרי ומשני ר\"י מפני פגמו של ראשון דחד גברא יקרא בב' ס\"ת ר\"ל אמר מפני ברכה שאינה צריכה פרש\"י שאם מביא ס\"ת אחרת היה הקורא צריך לברך לפניה ולאחריה הלכך קורא בע\"פ דבחד ברכה נפיק ואע\"ג דליכא כאן פגמו של ראשון שהרי פגומה היא וחסירה היא מיהו משום דר\"ל יש לחוש משום ברכה שאינה צריכה דלא פליגי אלא מר אמר חדא ומר אמר חדא ולא פליגי והא דפסקינן דלכתחלה קורא ע\"פ פסוקים החסרים ה\"מ אם עדיין לא קרא ג' פסוקים או שהוא רביעי בר\"ח או בח\"ה שצריך לגמור הפרשה שאין מוסיפין עליהם או שהחסרון בסמוך לפרשה ב' פסוקים דאין משיירין בפרשה פחות מג' פסוקים דהוה דומיא דכ\"ג דמוטל עליו לקרות הכל אבל אם כבר קרא ג' פסוקים ורחוק מהפרשה שאפשר לו לסיים ולברך יברך אשר נתן ויביאו ס\"ת אחרת עכ\"ל. והבית יוסף בא\"ח סי' קמ\"ג כתב על דברי המרדכי שאין נוהגין כן אלא כמו שכתב כאן והוא דעת רבו מהר\"י בי רב ע\"ש דברי רמב\"ם ואיני כדאי להכריע אבל נ\"ל שמה שהקשה המרדכי מכח ברכה שאינה צריכה אם יוציאו ס\"ת אחרת לא קשה מידי דתחלה נדקדק שיש לתמוה הרבה למה צריך ברכה אחרת בס\"ת אחרת גבי כ\"ג ולא סגי במה שבירך תחלה וכוון גם על השניה והלא בשאר דוכתי לא אמרי' הכי כגון המברך על פירות ואכל ואח\"כ הביאו לו יותר מאותו המין אין צריך לחזור ולברך כמ\"ש בא\"ח סי' ר\"ו ותו מביא שם בב\"י בשם הירושלמי באמת המים שאדם מברך עליהם ואותן מים שהיו לפניו הלכו ובאים אחרים בשעה ששותה שלכך נתכוין מתחילה והטעם מבואר שם בא\"ח דלכך נתכוין מתחלה מה שאין כן בתורמוס שנפל מידו ונוטל אחר צריך לחזור ולברך לפי שלא היה דעתו עליו תחלה כדאיתא שם בא\"ח בשם הירושלמי לחלק בזה וכן בשוחט שמברך על מה שיביאו לו לשחוט אע\"פ שלא היו כולן לפניו בשעה שמתחיל לשחוט אין צריך לחזור ולברך כמ\"ש בסי' י\"ט ואם כן הכי נמי נימא בס\"ת שלכך נתכוין תחלה גם על השניה ואם כן יקרא גם פרשה של ובעשור לחדש בס\"ת אחרת ונ\"ל ברור דשאני ס\"ת של כ\"ג דיש שתי מצות לפניו תחלה ובתחלה יודע שצריך לעשות שתי מצות ואין לאחת שייכות פטור בחברתה דוגמא לדבר באין שם בבית הכנסת לוי שהכהן קורא גם במקום לוי וחוזר ומברך אע\"פ שבשעת הברכה שבירך תחילה היה יודע שיקרא פעם שנית במקום לוי אפ\"ה כיון שזו מצוה אחרת לא יוכל לפטור אותה תחלה בברכה אחת הכי נמי כן הוא כיון שבשעת הברכה שבירך כ\"ג תחלה היה יודע שיצטרך להוציא אח\"כ ס\"ת אחרת לקריאה אחרת ע\"כ יצטרך לברך שנית וממילא אין זה דומה לאמת המים אע\"ג דהתם ג\"כ ידע מתחלה שיבואו מים אחרים מכל מקום לא חשיב לשתות דוקא ב' פעמים או יותר משא\"כ בכ\"ג שהיה לו ודאי שיקרא ב' קריאות בשני ספרי תורה א\"כ יהיו ב' מצות לפניו שיש לו חיוב על שניהם ואינו דומה ג\"כ לשוחט שזכרנו דהתם אין לו הכרח תחלה לשחוט עוד אחרים ע\"כ יוכל לכלול את הכל בברכה אחת וכמו באכילה שא\"צ לברך על כל כזית בפני עצמו מפני שהרשות בידו לאכול מה שירצה וכל מה שעלה בדעתו לאכול פוטר בברכה אחת וכזה תמצא הרבה פעמים ע\"כ קאמר בגמ' שכ\"ג יקרא פרשת ובעשור לחדש בעל פה שא\"צ ברכה אחרת אלא במה שיקרא בס\"ת אחרת אבל על הקריאה בעל פה לא תקנו ברכה ואחר שמוכח כן אין כאן שום קושיא בנמצא פסול בס\"ת שיצטרך לברך שנית דכאן אין שני חיובים אלא שהשניה באה אחר שנפסלה הראשונה ובזה אמרינן דבשעת הברכה נתכוין אם תהיה ס\"ת זו פסולה תהיה הברכה נמשכת על השניה מה שאין כן בתורמוס שנפל מידו בשוגג שלא חשב על זה תחלה שיאכל אכילה אחרת מן הנשאר כמ\"ש רמ\"א בא\"ח סי' הנ\"ל ע\"כ ודאי א\"צ לברך שנית על ס\"ת שיוציאו שנית כל שלא קרא ג' פסוקים דאלו קרא ג\"פ כ\"ע מודים דמברך ברכה אחרונה אחר קריאת הפסולה כמו שכתב רמ\"א בא\"ח סי' קמ\"ג אלא ודאי דלא קרא עדיין ג\"פ נמצא שלא קיים עדיין שום מקצת קריאה אלא ע\"י השניה ואין כאן מצוה אחרת אלא תקון שהיא משלמת החסרון של הראשונה כדי שיהא יוצא מה שבירך על הפסולה ע\"כ א\"צ לחזור ולברך והוה ככל מילי דעלמא שזכרנו בסמוך וא\"כ דרכו של הש\"ע בזה על פי רבו הוא נכון ולא קשה מהוכחה שזכר המרדכי ועוד כ' המרדכי ראיה לדבריו ממ\"ש במגילה פ' ב' ל\"ק הא בכולה הא במקצתה פירוש דאם כולה מטושטשת או מקורעת אין יוצאין במה שקורין בעל פה הא במקצתה יוצאין במה שקורא על פה ומזה למד לספר תורה שחסר כו' שיקרא בעל פה והוא תמוה מי דמי מגילה לס\"ת דהא בס\"ת אפי' מקורעת מקצתה פסולה ואיני יודע שום מעלה בזה בדרכו של המרדכי מדרכו של מהרר\"י בי רב ואחריו הש\"ע דאדרבה ק\"ו הוא אם תוכל לומר שבשעת ברכתו היה מכוין ג\"כ אם יהיה פסול שיקרא בעל פה ק\"ו שתוכל לומר שיקרא בס\"ת אחרת כיון שהכל מצוה אחת:",
+        "אלא אי קשיא לי הא קשיא לי ממה דפריך במס' יומא שם גבי כ\"ג דקורא פרשת ובעשור בעל פה אמאי נגלול ונקרי ומשני מפני כבוד ציבור ופירש\"י שיהיו מצפים ודומים לכך והדר פריך וניתי ס\"ת אחריתא ונקרי פירש\"י שהיה נגלל לפרשת ובעשור כו' ומשני משום פגמו של כו' כמו שהבאתי לעיל וא\"כ קשה לדרכו של מהרר\"י בי רב וש\"ע דגם הכא ניחוש לכבוד הצבור ולא נוציא אחרת דכשנוציא אחרת יצטרך לגלול בה דהא דמהני התם אחריתא הוא משום שכבר הכינו לזה וגללו אותה למקומה מה שאין כן בכאן בדין הטעות איכא טפי טירחא מגלילה דגבי כ\"ג דכאן יהיה תרתי הוצאת ספר תורה אחרת וגלילתה וכי תימא דעכשיו אין חוששין לכבוד ציבור זה אינו דמסיק ב\"י בא\"ח סי' קמ\"ד דאין חילוק בין זמן לזמן בזה. ע\"כ יש לתרץ דשאני הכא דע\"כ צריך שתוציא אחר כך אחרת כשיגמור זה קריאתו ויעמוד אחר תחתיו א\"כ אמאי לא נוציא תיכף אחרת ויקרא גם הראשון בספר כשר ע\"כ נראה לע\"ד נכון שודאי אף שאין לשנות ממה שכתב וקבע הלכה בשו\"ע כאן ובא\"ח מכל מקום אם נמצא טעות באותו שהוא קורא אחרון ואין אחריו עוד קורא שאז ינהוג כדרך המרדכי אבל לא מטעמים שזכרנו לעיל אלא מטעם כבוד ציבור שהוא תלמוד ערוך ואף ע\"ג דיקרא אחר כך למפטיר מכל מקום אין שייך כאן כבוד הציבור דהא בלא\"ה מפסיקין קצת באמירת קדיש ואם נמצא הטעות בקריאת המפטיר ג\"כ לא יוציא אחרת אלא יאמר בע\"פ כדברי המרדכי ואע\"ג דבא\"ח סי' קמ\"ד כתב בית יוסף בשם אורחת חיים יום שמוציאין שני ספרי תורה שאין שם ספר תורה אחרת מוטב שידחה כבוד הציבור ויגללו הספר תורה ויקראו במקום האחר ולא אמרינן שיקראנה בעל פה שאני התם דודאי אין לומר שיעשה ברכה על קריאה השניה מה שיקרא כל הפרשה בעל פה מה שאין כן כאן שעושה ברכה על הקריאה בתורה אלא שאח\"כ נמצא טעות אמאי לא יקרא בעל פה כמו כהן גדול ולא יטריח הציבור. ואף שמדברי רמ\"א במה שכתב כאן ואין חילוק בזה כו' משמע שאף בקריאת הקורא האחרון יש לנהוג כדרך הש\"ע מ\"מ תלמוד ערוך שזכרתי דוחקני בזה לנהוג כדברי מרדכי אם נמצא הטעות בקריאת האחרון שיאמר הטעות בעל פה ויגמור בספר ההוא כל הקריאה הצריכה ולא יוציא אז אחרת אבל בקריאת הקודמים לו יש לנהוג כדברי הש\"ע על פי רבו והוא נכון. ומו\"ח ז\"ל חולק על דברי בי רב וכתב להקשות על הש\"ע מקושיית המרדכי ולפי מה שכתבנו נתיישב היטב בסייעתא דשמיא. ומה שהקשה מו\"ח ז\"ל על הש\"ע דגלילה של ראשונה הוצאה אחרת היא והוה הפסקה אין זה קושיא דא\"כ תקשה לך גם בההיא דכהן גדול דפריך תלמודא ונגלול ס\"ת ולא משני שיהיה הפסקה. והכל נכון לפי ענ\"ד:"
+      ],
+      "en_segments": [
+        "And he begins from the place where the error occurred. After the fact, the verses already read from the invalid scroll count as a valid public reading according to some opinions cited by the Beit Yosef.",
+        "And he recites the concluding blessing, etc. The Mordechai writes that if a Torah scroll is missing letters, words, or a verse, the reader should not interrupt to bring another scroll. Rather, he should read the missing material orally. He derives this from the High Priest on Yom Kippur, who read one passage from the Torah scroll and another orally, rather than bringing a second scroll, because of concern for the honor of the first scroll and an unnecessary blessing. He limits this ruling to a case where the reader has not yet read three verses, or where the aliyah cannot properly be ended before the defect. If he has already read three verses and may end the aliyah, he should recite the concluding blessing and another scroll should be brought. The Beit Yosef rejects this practice and follows Mahari Bei Rav, whose ruling is adopted here. The Mordechai's concern for an unnecessary blessing is not compelling. The High Priest knew from the outset that he had two separate required readings from two scrolls, and therefore each would require its own blessing. When a defect is unexpectedly discovered, however, the second scroll merely completes the same mitzvah. The original blessing can therefore extend to it, just as a blessing may cover additional food or additional acts of slaughter that were contemplated from the outset. The second scroll does not create a new mitzvah but repairs the interrupted first reading. The Mordechai's proof from a partially damaged Megillah is likewise inconclusive, because the laws of a Megillah differ from those of a Torah scroll. Nevertheless, there is a separate concern for the congregation's honor. If the defect is found during the final aliyah, when no later reader will require another scroll, bringing and rolling another scroll causes unnecessary delay. In that case, the reader should follow the Mordechai, read the defective word or passage orally, and complete the required reading in the same scroll. The same applies if the defect is discovered during the maftir reading. During earlier aliyos, however, another scroll will need to be brought in any event, and the ruling of the Shulchan Aruch should be followed: another valid scroll is brought and the reader continues from the place of the defect without repeating the opening blessing. Rolling and exchanging the scroll is not considered an interruption, just as the Gemara did not treat rolling the High Priest's scroll as an interruption."
+      ]
+    },
+    {
+      "id": "yd1/siman280/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 280,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שאין עיפוצו כו'. וז\"ש בחדתא כו' ובזה מתורץ קושית תוס' שס ד\"ה הא כו':",
+        "אבל לא יותר. בריב\"ש מדייק מלשון הרמב\"ם הנ\"ל אפי' כו' בתוך ג' משמע דוקא ג':",
+        "וכן כו'. פסק הבעיא לקולא שהוא מד\"ס:",
+        "וי\"א כו'. הוא תמוה מאד וכבר תמה ב\"י:",
+        "וי\"א דמותר כו'. בירושלמי שם הל\"מ שיהו כותבין בעורות וכותבין בדיו ומסרגלין בקנה וכורכין בשיעור וטולין במטלית ודובקין בדבק ותופרין בגידין וכשהוא תופר יהא תופר כתפר הזה וי\"ח ע\"ז ואומרים דיחידאה הוא דבמ\"ס ספ\"ב פליגי בזה ע\"ש הלכה י\"א אין דובקין כו' ארשב\"א כו' אבל אין תופרין במקום כו' וכתב מהרי\"ק דליתא לסברא זו כיון דסתם בירושלמי כי הך תנא הלכתא כוותיה וז\"ש וכן אם כו' וכרשב\"א שם אבל י\"מ דקאי אתפלין דומיא דכורכין בשער וכן מפרש הרמב\"ם טולין במטלית אתפלין וכמ\"ש בא\"ח סי' ל\"ב. ומ\"מ במ\"ס שם קאמר הל\"מ ס\"ת שנקרע מטלה כו' ועריב\"ש סי' ל\"א ומהרי\"ק סי' קכ\"ב:",
+        "כ\"ז שמותר כו'. כמ\"ש ודובקין בדבק ותופרין בגידין כ\"ז שמותר לתופרן אבל יותר מג' דלא מהני תפירה כ\"ש דבק דלא מהני:",
+        "ובכל כו' כמש\"ל סי' רע\"ד ס\"ה:",
+        "ואם נחלק כו' וכן יזהר כו'. עש\"ך ס\"ק ז':"
+      ],
+      "en_segments": [
+        "And yes, yes. It is a sign that he is a DJ:",
+        "Oh, yes. He’s very innocent and he’s already in a hurry",
+        "And if we do so, be careful.” A.C.:"
+      ]
+    },
+    {
+      "id": "yd1/siman280/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 280,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בתוך שני שיטין יתפור כו'. כתב מו\"ח ז\"ל כל זמן שלא תפרו אפי' לא נקרע אלא בשיטה אחת אסור לקרות בו עד שיתפור עכ\"ל ולא נראה לענ\"ד דאין כאן פסול לגמרי כל שהוא בפחות משלשה אלא דקמ\"ל דאין איסור בתפירה דלא תימא דמיגניא בכך שזהו טעם שלא יתפור בנקרע עד שלשה משום דמיגניא ובעינן זה אלי ואנוהו כמ\"ש נ\"י קמ\"ל בפחות משלשה לא מיגניא וראיה לדברי מתשובת מהרי\"ק סי' קכ\"ב לענין דבק שכתב במשא ומתן שלו וז\"ל ועוד דלשון הירושלמי משמע דצריך לדבק כו' ואי לא מפסיל בהאי קרע דאמר דובקים אפי' אי לא נסתם א\"כ אין צריך לדבקן כלל עכ\"ל שמע מינה דכל היכא שאין פסול בלא סתימה לא בעינן סתימה ה\"נ לענין תפירה ותו דאם היה פסול בזה כל זמן שלא נתפר היה להם לתת השיעור בזה דזה ודאי דבקרע כל דהו אין פיסול אלא ודאי שאין פסול בפחות משלשה ואף שלפי מה שכתב ב\"י בפירוש דברי רמב\"ם בדין בין שיטה לשיטה משמע דיש בעיא אי צריך תפירה או אין צריך ההיא פירושא לאו עיקר אלא כמ\"ש בתירוץ הראשון ע\"ש:",
+        "לא יתפור. הטעם דמיגניא בכך וכמ\"ש בסמוך דבעינן זה אלי ואנוהו ועל כן צריך לסלק היריעה ופשוט שגם בדבוק מבחוץ בקלף לא מהני בזה כיון שיש כאן פסול והוה כנחלק האות דבסמוך ובהא איירי ההיא דמהר\"ם שאסור לדבקה כמו שכתב הטור ונראה דבדיעבד אם תקנה בתפירה או בדבק וזה נמצא בשעת הקריאה שאין להוציא אחרת בשביל זה דהא אין כאן פסול רק דאינו הידור וכל שכן אם אין שם ספר תורה אחרת שיש לקרות בזאת התורה:",
+        "ובין תיבה לתיבה כו'. שזהו הבעיא בגמ' לרמב\"ם כמ\"ש ב\"י ולא איפשטא ובטור לא כתב אלא בין שיטה לשיטה ונראה שלא גרס בגמ' הך בין תיבה לתיבה וכן הוא בגמ' שלנו ובאמת הוא תמוה דזה הוא נכלל במה שכתב תחלה שיש חילוק בין שני שיטות לשלשה ולרמב\"ם שגורס בין תיבה נ\"ל דלעיל מיירי בין אותיות וכ\"פ בכ\"מ ופסק הרמב\"ם לקולא דס\"ל שאין כאן איסור דאורייתא ומבואר בתשובת הרא\"ש שמביא בית יוסף דקרע בגליון של ס\"ת פשיטא אינו פוסל כלל ולא כהטור שמחמיר בזה אלא כרמב\"ם דמיקל והיינו אפי' גם בקרע בין תיבה לתיבה ואפי' תוך שלש. ולענין הלכה יש להחמיר בין תיבה לתיבה כמו בין האותיות כדעת הטור בזה דתוך ג' לא יתפור:",
+        "וכן אם נחסר דבר כותבין על הקלף כו'. דאין זה דומה לנחלק גוף האות ע\"י הקריעה דבסמוך דלא מהני קלף הדבוק דשם אין כתב כי אם ע\"י הדבק ואע\"ג ששפתי הקריעה נוגעים זה בזה ולא נחסר הקלף אלא שנקבע ונסדק מ\"מ נפסל שהרי אין מוקף גויל עכ\"ל וכוונתו דכל שיש פסול בס\"ת בכתיבה מחמת שלא היה מוקף גויל לא מהני ליה הדבוק לעשותו מוקף גויל דאחר שעת הכתיבה אזלינן וכן בפסול קרע תוך ג' משא\"כ אם לא היה עדיין פסול אלא חסרון יש בקלף והוא מדביק שם קלף מבחוץ נעשה מתוקן ומוכשר קודם הכתיבה וכשבא לכתוב על אותו הדבוק הוי ליה ככותב על שאר היריעה דנעשה גוף אחד ע\"י הדבוק כי טוב הוא ועל כן ודאי שפיר יכול לכתוב אות אחד קצתו על היריעה וקצתו על הקלף כן נראה מבואר כוונת מהרי\"ק שם וראייתו ממה שאמרו בירושלמי ודובקין בדבק. אלא שמו\"ח ז\"ל כתב דאם כתב מקצת האות על היריעה וקצתו על הטלאי הרי פסול לדברי הכל דהא אפילו היכא שנקרע האות באמצע אע\"פ שהדבק מחזיקו פסול כיון שאינו מוקף גויל אע\"פ שכל האות על היריעה כ\"ש כשמקצת האות על היריעה ומקצת על הטלאי דכשתחלוק הטלאי נמצא כאן חצי אות וכאן חצי אות עכ\"ל. ולענ\"ד נראה שאינו כן דכיון שהקלף הדבוק מהני למה שכתוב עליו והוה כנכתב על היריעה למה לא יועיל ג\"כ לכתוב חציה על זה וחציו על זה:"
+      ],
+      "en_segments": [
+        "It will not be broken. The taste of this is in this way, and as a result, it is to me, and it is therefore necessary to remove the deterrent and simple that even from the outside of the card does not mean that there is a flaw here and that it is part of the sign of the bee, and that it is not only possible for this book to occur here",
+        "And if we miss anything, write about the card. This is similar to the part of the letter body by tearing a doll of the card of the bee, it is not written that if by the glue and the G-d that the rash is concerned with each other and not missing the card, but it was determined that it was not yet circumscribed to me, and that it was not circumscribed to me The rest of the hearing was made by a single body by the abomination that is good is and therefore, Shapier can write one letter a bit about the shooting and a bit of it on the card, it seems to be clear from the radar there and his face from what they said in the impressions and Dobkin in the stick. But his name, Dham, wrote a bit of the letter about the fire and a bit of it on the cover of the entire cell, even the depression that the letter was broken in the middle of the PLO, which the glue held a loophole that is not surrounded by a fire, and here is half a sign. It seems that this is not the case that the card is taken from me What is written about him and was written about the expression of why it will not be useful to write a half about it and a half about it:"
+      ]
+    },
+    {
+      "id": "yd1/siman282/seif-002/siftei-kohen",
+      "volume": "yd1",
+      "siman": 282,
+      "seif": 2,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "חייב לעמוד כו'. ע\"ל סימן רמ\"ב סעיף י\"ח:",
+        "זה שמוליכו. ואם עומד לפוש דינו כמהלך מאחר שאינו עומד דרך קבע כ\"כ הכ\"מ ומביאו הב\"ח:",
+        "השומע כו'. כן הוא בכל הספרים אבל אין נוהגין כן וכ\"כ הב\"י שנהגו שלא לעמוד מפניהם ומעולם לא נשמע פוצה פה לערער בדבר ומביאו ד\"מ ונראה שצ\"ל יש מחמירין ואומרים השומע קול הנושא כו' ואלמטה קאי וכן גרס בעט\"ז:",
+        "קול הנושא כו'. וכן קול הפעמונים שבס\"ת עט\"ז והוא מדברי הר\"ר מנוח שבב\"י:"
+      ],
+      "en_segments": [
+        "[This one who is carrying it. And if he stands to rest, his law is as one walking, since he is not standing permanently — so writes Kesef Mishneh, and Bach cites it.",
+        "(One who hears, etc. So it is in all the books, but we do not practice thus — and so Beit Yosef wrote: they practiced not to stand before them, and never was heard one opening his mouth to protest; and it is brought in Darkei Moshe. And it seems that the correct text is: some are stringent and say \"one who hears the sound of one carrying\" etc., and below it refers to this; and so is the version in the Ateret Zekenim.",
+        "[The voice of one carrying, etc. And likewise the voice of the bells on a sefer Torah — Ateret Zekenim; and this is from the words of R' Menachem cited in Beit Yosef."
+      ]
+    },
+    {
+      "id": "yd1/siman282/seif-007/baer-heitev",
+      "volume": "yd1",
+      "siman": 282,
+      "seif": 7,
+      "slug": "baer-heitev",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המטה. וראוי להחמיר שיהא מקום הס\"ת גבוה ממנו י' טפחים ולא יפחות מג' טפחים דכל דבציר מהכי לא חשיב גובה כלל ב\"י ונראה דמדת חסידות קאמר אבל מדינא סגי בגובה טפח לכ\"ע. ש\"ך:",
+        "ספרים. וכתב הר\"ר מנוח דוקא שלא בשעת זמן בהמ\"ד אבל בזמן בהמ\"ד והמקום צר לתלמידים מותר לישב בשוה עם הספרים והפירושים וכן היה נוהג ה\"ר משולם מבדרשי אך כשלא היה במקום ב\"ה היה מדקדק שיהא הספר נתון ע\"ג דבר אחר כל שהוא וכ' בעל ספר א\"ח ונראה שאין להקל בדבר שלא יראה כמזלזל בכבוד הספרים עכ\"ל ב\"י:",
+        "יניח. בחשו' רמ\"א סימן ל\"ד כ' שאין לישב על תיבה שיש בה ספרי קדש וכ' הט\"ז דנ\"ל אפי' מונח עליה הרבה מטלטלין זה על זה לא מהני והטעם דלישב עליהם הוה גנאי ביותר אבל אם נתחבר לכותל במסמרין מותר לישב שם עכ\"ל (ובנה\"כ סתר דבריו וכתב דהרב רמ\"א עצמו הניח שם בצ\"ע מטעם כיון שהספרים שלנו אינן כתב אשורי ע\"ש) :"
+      ],
+      "en_segments": [
+        "The bed. And it is proper to be stringent that the place of the sefer Torah be higher than him by ten handbreadths, and not less than three handbreadths — for anything less than that is not considered a height at all — Beit Yosef; and it appears that he speaks of a measure of piety, but by strict law a height of one handbreadth suffices for all opinions. Shach.",
+        "Books. And R' Menachem wrote: specifically not during the time of the study hall; but during the time of the study hall when the space is cramped for the students, it is permitted to sit level with the books and commentaries; and so R' Meshullam of Béziers practiced; but when not in the place of the study hall, he was careful that the book be placed upon something else, however small. And the author of Sefer Orchot Chayyim wrote: it appears one should not be lenient in this matter so as not to appear to belittle the honor of the books — end quote, Beit Yosef."
+      ]
+    },
+    {
+      "id": "yd1/siman287/seif-002/turei-zahav",
+      "volume": "yd1",
+      "siman": 287,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מזוזה מכאן כו'. פי' שבעינן שיהא גבוה עשרה מן הארץ בשוה בלי עיקום דמן התחלת עיקום אין נחשב בכלל הי' טפחים וזה דעת הרמב\"ם אבל לרש\"י אף העיקום הוא מן צירוף לגובה י' טפחים כל שיש בחללו ד' טפחים ואפילו אם מתחיל מן הארץ להתעקם אבל אחר שאין שם חלל ארבעה מיקרי עיקום ולא מצטרף לשיעור גובה י' טפחים מן הארץ ובטור בזה יש לדקדק מדנקט תחילה ואם יש לו שתי מזוזות כו' משמע דמזוזות בעינן כמו לדעת רמב\"ם ובסוף כתוב אם יש בגובה המזוזה י' קודם שנתקצרה עד שאין בה ד' חייב ואם לאו פטור משמע כרש\"י דבנתקצרה פחות מד' תליא מילתא ונראה דכוליה כרש\"י והא דנקט תחילה שתי מזוזות משום רבותא דסיפא דאפ\"ה פטור באין בגובה י' טפחים. וצ\"ע למעשה היאך נעביד באם יש גובה י' טפחים בשוה בלי עיקום ואח\"כ יש עיקום אבל יש בחללו ד' שיעור גדול עד למעלה אם נעשה המזוזה במקום שכלה מקום השוה והיינו כהרמב\"ם יש לחוש דלמא קי\"ל כרש\"י וטור דאף העיקום שלמעלה בשיעור הגובה יחשב כיון שיש שם ד' בחללו ממילא נעשה המזוזה למטה משליש העליון וזה פסול אפי' דיעבד כמו שנבאר בסי' רפ\"ט ואם נעשה אותו למעלה במקום הרחב בשליש העליון שהוא עקום דילמא קי\"ל כרמב\"ם ושם לא מצטרף לגובה המזוזות כלל והוה כעושה מזוזה למעלה במשקוף ונראה דיש לעשותה בשליש העליון דהיינו למעלה משני שלישים שלמטה דבזה כשר גם לרמב\"ם דאע\"פ שאין העיקום מצטרף לענין גובה י' מלמטה במזוזות מ\"מ כיון דכשר למטה בגובה עשרה קודם העיקום והוה עליה חיוב אז גם חלל העליון שייך לחיוב שלמטה והכל בכלל שעריך עד המשקוף דהא עיקר הפסול באין גובה י' משום שאין לה משקוף כמו שמסיים כאן ממילא כיון שיש גובה עשרה יש משקוף וכשר כל שלמטה מהמשקוף כן נלע\"ד. ועכ\"פ לא יניחה למעלה מכתפיו כמ\"ש בב\"י בסי' רפ\"ט בגובה הרבה בשם המרדכי בענין שלא יגביה משיעור בין כתפיו כדי שתהא נראית נגד עיניו:",
+        "מפני שאין לו משקוף. בכ\"מ כתב צ\"ע אם הכיפה חשוב משקוף אפי' אין גובה המזוזה י' טפחים להתכשר ואם אין חשוב משקוף כי הוויין גובה י' מאי הוה אטו גובה המזוזות משוי לכיפה משקוף עכ\"ל ונראה דלק\"מ דודאי יש בגובה י' אמרינן דיש כאן מזוזות וממילא יש משקוף על מזוזות משא\"כ באין גובה י' טפחים אין לך מזוזות אלא שתאמר מה שמתעקם הוא נחשב למזוזה וא\"כ אין לך משקוף שכל העיקום כחדא חשבינן ליה ואין אתה יכול לעשות מזוזות ממנו וגם משקוף כן נ\"ל:",
+        "ואין להם על מה שיסמכו. שכל מי שנגע יראת אלקים בלבו ורוצה לישב בטח ממורא רוחות רעות ח\"ו יעשה מזוזה לכל פתחיו וכבר זכרנו לעיל דבכ\"מ שהוא בית דירה לא אכפת לן ביש שם טינופת כמ\"ש הטור וב\"י וטעמם דהמזוזה גבוה י' וגם זכרתי לעיל בתיקון כיסוי בזכוכית ועיין במרדכי:"
+      ],
+      "en_segments": [
+        "Because he has no monkey. If you do not know what is important from the mouth of the mouth, you do not have the height of the humming, and if you don’t think of it, it is not so important that the High High Highness of May is the height of the rods that are circumcised from it that you do not believe in any way that you are not afraid of Hashem’s glory, and that you are not in any way that you will be able to do so",
+        "And they have nothing to do with. Everyone who touches Hashem’s wrath in his heart and wants to sit down from evil spirits, and he will do so for all of his openings, and we have already mentioned above that he is an apartment house that does not care whether he is in the name of the column and the groceries of the High School, and I have also mentioned above in repairing glass and looking at the rebellion:"
+      ]
+    },
+    {
+      "id": "yd1/siman288/seif-015/beur-hagra",
+      "volume": "yd1",
+      "siman": 288,
+      "seif": 15,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור כו'. כמש\"ש כתבה אגרת פסולה ופי' הרמב\"ם שלא דקדק בחסרות ויתירות או שהוסיף מבפנים אפי' אות אחת:",
+        "אלא כו' כנגד כו'. זוהר פ' ואתחנן רס\"ו א':",
+        "וי\"א כו'. רמב\"ם ורא\"ש וש\"פ:",
+        "שיהא כו'. ע' זוהר שם: (עוד נוהגין כו'. עמ\"ש רבינו בביאורו על תז\"ח מ\"א ע\"ב ד\"ה דא יד כו'):"
+      ],
+      "en_segments": [
+        "It is forbidden, etc. — as written there: if he wrote it as a letter it is invalid; and Rambam explains: that he was not precise about missing and extra letters, or that he added on the inside even one letter.",
+        "But, etc., facing, etc. — Zohar parashat VeEtchanan 266a.",
+        "And some say, etc. — Rambam, Rosh, and Shulchan Piskei."
+      ]
+    },
+    {
+      "id": "yd1/siman289/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 289,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בטפח כו'. שם ושם ל\"ג ב':",
+        "ואם שינה כו'. מדקאמר מצוה משמע לכתחלה וכ\"ש בתוך חלל כמש\"ש ל\"ב ב' ס\"ד אמינא כו' כמה כו':",
+        "בתחלת כו' ואם כו' והוא כו'. רמב\"ם וס\"ל דר' יוסי ל\"פ אר' יהודה אלא במ\"ש מגביה מן הקרקע טפח אמר בגובה ועוד ס\"ל דמ\"מ לכתחלה יניח בתחלת שליש ודברי ר' יוסי בדיעבד דוקא אבל הרא\"ש וש\"פ חולקין עליו בכל זה וס\"ל דלכתחלה משליש עד המשקוף:",
+        "ואין חילוק כו'. עש\"ך:",
+        "ואם קבעה כו'. ממש\"ש כמאן כר\"מ אימור כו'. ומשמע דפטורה לגמרי ואם בדיעבד כשרה לא ה\"ל ליפטוריה:"
+      ],
+      "en_segments": [
+        "Within a handbreadth, etc. — there, and there 33b.",
+        "At the beginning, etc.; and if, etc.; and it, etc. — Rambam; and he holds R' Yosei does not dispute R' Yehudah except in what he said regarding raising from the ground a handbreadth — he said this refers to height; and furthermore he holds that nevertheless ab initio one should place it at the beginning of the third; and R' Yosei's words are after the fact specifically. But Rosh and Shulchan Piskei dispute him in all this, and hold that ab initio from one-third to the lintel.",
+        "There is no distinction, etc. — see Shach.",
+        "And if he fixed it, etc. — from what is stated there \"like whom — like R' Meir — you may say,\" etc. It implies it is entirely exempt; and if it were valid after the fact, he would not have been exempt."
+      ]
+    },
+    {
+      "id": "yd1/siman289/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 289,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויכוין כו' ויכוין כו'. ירושלמי סוף מגילה והביאו תוס' שם ד\"ה הא כו' ולרש\"י כשיטתו ולר\"ת כשיטתו:",
+        "אבל י\"א כו'. עתוס' שם ובב\"מ ק\"ב א' ד\"ה בגובתא כו':",
+        "והמדקדקים כו'. דיוצאים י\"ש כמש\"ש במזוזתא דבי רבי וכמ\"ש תוס' שם הלכך נראה כו' אבל לענין דינא קי\"ל כרש\"י וכמ\"ש בא\"ח סי' ל\"ב סמ\"ה וכן עושין בס\"ת:"
+      ],
+      "en_segments": [
+        "And he intends, etc.; and he intends, etc. — Yerushalmi end of Megillah; and Tosafot there brought it s.v. Ha, etc.; and according to Rashi per his approach, and according to Rabbenu Tam per his approach.",
+        "But some say, etc. — see Tosafot there and in Bava Metzia 102a s.v. begavta, etc."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 20,
+      "enSegs": 14,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פירות כו'. כמ\"ש בקדושין נ\"ד ב' מ\"ט דב\"ה גמר כו' ושם מני אילימא ר\"מ כו' והא גמרי כו' אלמא לכולה מילתא גמרינן ממעשר ובירושלמי פ\"ה דמ\"ש בש\"א אין לו חומש ואין לו ביעור לדעתיה דהדין תנייא לא למדו נטע רבעי ממ\"ש כל עיקר מעתה אל יהא לו קדושה. וקדושתו מאליו למדו קודש הילולים ה\"ה כקודש שקורין עליו את ההלל. ויהא מותר לאונן קודש הילולים מגיד שהוא אסור לאונן. ויהא חייב בביעור בגין דר\"ש פוטר מן הביעור ויפדה במחובר לקרקע כו' אלמא לב\"ה כל אלו למדו ממ\"ש וכן אמרו לענין נטע רבעי בשביעית ולענין נ\"ר בסוריא וערמב\"ם רפ\"ט מהמ\"ש:",
+        "ובזמן כו'. שם במתני' פ\"ה דמ\"ש וירושלמי שם וגמ' בכמה מקומות:",
+        "והם מותרים כו'. לאפוקי ה\"ג כמ\"ש תוס' בד\"ה י' א' בד\"ה ופירות כו' ויש ה\"ג כו' וכ\"כ הרא\"ש בה\"ק והרמב\"ם בהמ\"א והמ\"ש ונ\"ר וכ\"כ הר\"ש דא\"כ מה הועילו צנועין בתקנתן וע\"ש ברפ\"ה סוף מתני' א':",
+        "והאידנא כו'. כמ\"ש בפ\"א דמ\"ש ואם אין מקדש כו' ובמכות י\"ט א' וש\"מ יכול יעלה כו' ועתו' שם ד\"ה ואי כו':",
+        "(ליקוט) והאידנא כו'. פ\"ה דמ\"ש מתני' ז' מי כו' וער\"ש שם וטעמא דב\"ה כו' (ע\"כ):",
+        "אחר שיגמרו. בת\"כ שם תבואתו מלמד שאין נפדין אלא תבואה מכאן אמרו אין פודין את הרבעי עד שיבאו לעונת המעשרות ובירושלמי ספ\"ק דערלה תני פרי אתה פודה לא בוסר ולא פגין:",
+        "ויתלשו. תוספתא סוף מ\"ש כרם רבעי בש\"א אין פודין אותם ענבים אלא יין ובה\"א ענבים ויין הכל מודים שאין פודין במחובר לקרקע וכתב הרמב\"ם הטעם משום דילפינן ממ\"ש כנ\"ל ואין מעשר במחובר כמ\"ש בפ\"ב דבכורים וכ\"כ תוס' בב\"ק ס\"ט א' ד\"ה אימא והר\"ש בפ\"ה דמ\"ש סוף מתני' ה' וסתרו לטעם זה ממש\"ש בב\"ק אימא כל המתלקט וכתבו משום דבמחובר אין בקיאין בשומא אבל בצנועין תקנה עבידו כו' ולכן כ' בתשובת הרמב\"ן והרשב\"א בב\"ק שם בזה\"ז שפודין בש\"פ מחללין במחובר ולי צ\"ע דלטעמייהו א\"כ בהקדש נמי ומתני' היא בפ\"א ופ\"ד דפאה ופ\"ג דחלה דפודין במחובר וטעמו של הרמב\"ם עיקר וכ\"ה בירושלמי הנ\"ל להדיא שהקשו על ב\"ש דלא יליף נ\"ר ממ\"ש ויפדה במחובר לקרקע כנ\"ל ואה\"נ דהמ\"ל בב\"ק שם מהתוספתא אלא כיון דלא קיימא במסקנא כן לא חש וכמ\"ש רש\"י ותוס' בכמה מקומות וכ\"כ הרמב\"ם שם הלכה ז' והצנועין כו' כל הנלקט כו' שהרי א\"א לפדותו במחובר כמו שבארנו:",
+        "ויכול לפדות כו'. תוס' בברכות ל\"ה א' סד\"ה ולמאן כו' והרא\"ש וש\"פ וז\"ל הרמב\"ם ברפ\"ב רמ\"ש והורו הגאונים שאם רצה לפדות שוה מנה בפרוטה לכתחלה בזה\"ז פודה לא היה זה חמור מן הקדש ומשליך הפרוטה לים הגדול. ולכאורה צ\"ע דאין ראיה מהקדש דטעמא דהקדש משום דאין אונאה להקדש כמ\"ש בב\"מ נ\"ז א' ותמורה כ\"ז א' ואף שי\"ל דמ\"ש בזה\"ז אינן שוין כלום מ\"מ ל\"ד להקדש ועוד שהרי האמוראין אחר הבית היו פודין בשוויין כמ\"ש בירושלמי רפ\"ד דמ\"ש ר\"ש בר' הוה מפקיד על אלין דרומיים דהוון מזלזלן בה נסתין בר קפרא וקרטמן קומויי א\"ל טב הוא כלום כו' א\"ר אימי במה עלל קומוי ר\"י ורשב\"ל ואינון אמרי פוק ואישלם כהדין תניא פודין מ\"ש כשער הזול כמו שהחנוני לוקח כו' ר\"נ בר יעקב מחוי חותל לנגרא ומפרק על פומיה ר' סימון חווי פירין לר' חלקיה א\"ל בשווייהן א\"ל כן א\"ר חלקיה בשם ר' סימון כו' וכמה עובדין מייתו שם שהיו פודין בשווייהון אלא שהרמב\"ם נזהר מזה וכתב שם מידת חסידות שפודין מ\"ש בשוייו כדרך שפודין אותו בפני חבית ואין זה מוציא מידי קושיא דהא הורו שם למעשה ור\"ש בר' היה מקפיד על הדרומים כנ\"ל ודוחק לומר שכל אלו יפלגו על שמואל אלא נ\"ל דטעמם של הגאונים דקי\"ל בקדושין נ\"ד ב' כר\"מ דמ\"ש דין הקדש לו כמש\"ש מני אילימא ר\"מ מי כו' וכן בנ\"ר כמש\"ש ת\"ש כו' וירושלמי ס\"ל דהלכה כר\"י גבי ר\"מ וכן חכמים פליגי על ר\"מ כמ\"ש בפ\"ב דפסחים (ל\"ז ל\"ח) ופ\"ג דסוכה אבל אנן קי\"ל כגמ' דידן ולכן כתב בתה\"ד דאפי' מדת חסידות אינו. ואע\"ג דבמעילה י\"ד אמרינן דוקא דיעבד ואע\"ג דבב\"מ שם ותמורה שם פליגי אמוראי בהכי כבר כתבו תוס' שם ושם דלכ\"ע דוקא דיעבד מ\"מ אמרינן בערכין כ\"ט א' דבזה\"ז פודין אפי' לכתחלה:",
+        "(ליקוט) ויכול כו'. עתוס' דמגילה יו\"ד א' סד\"ה דכ\"ע. ומ\"מ העניים כו' (ע\"כ):",
+        "(ליקוט) ויכול כו'. עמש\"ש ועבתוס' דגטין ס\"ה א' ד\"ה ואמה כו' ובר\"ה ל\"א ב' בד\"ה ובקש כו' ולפי מש\"ש ניחא דסתמא דשם אתיא כר\"י כמ\"ש בקדושין נ\"ד ב' ובתחלה דחיק גמ' שם אליבא דר\"מ אבל למסקנא משום דבבחירתא כו' א\"צ אלא כלהו אתיא כר\"י (ובזה מתורץ ג\"כ קושית התוס' דבכורות ל' א' ד\"ה באתריה. ותימא כו'. דהא לר\"י קיימינן. וכן הא דמפרש שם טעם המתני' דקתני החשוד על השביעית אין חשוד על המעשרות משום דבעי חומה ולא ר\"ל משום דאפשר כדשמואל כו'. משום דאמר שם זו דברי ר\"ע סתימתאה ור\"ע ס\"ל כר\"י דמ\"ש ממון הדיוט הוא כדמוכח בפסחים ל\"ו) (ע\"כ):",
+        "בשוה פרוטה. ט\"ס וצ\"ל בפרוטה:",
+        "וישליך כו' או כו'. כמ\"ש בפ\"ב דפסחים (כ\"ח א') סמ\"ג ואע\"ג דפליגי בפסחים שם כבר כתבו תוס' שם ד\"ה ע\"ז כו' דל\"פ אלא בחמץ אבל בע\"ז לכ\"ע בים א\"צ שחיקה ובשאר נהרות צריך כתי' דרבה ע\"ש וכן משמע מהרמב\"ם שכתב כאן ומשליך לים הגדול בלא שחיקה כנ\"ל ובחמץ פסק כרב יוסף כמ\"ש בא\"ח ר\"ס תמ\"ה:",
+        "(ליקוט) עתוס' דבכורות נ\"ג א' ד\"ה מעות כו' (ע\"כ):",
+        "ויברך כו'. כמו במ\"ש כמ\"ש בירושלמי ספ\"ק דדמאי תני רבי חלפתא בן שאול מחללין דמאי במרחץ שאינו טעון ברכה הא ודאי טעון ברכה ר' מני בעי קומי ר' יודן כיצד הוא מברך אם היו פירות על פדיון מ\"ש אם היו מעות על חילול מ\"ש וכמ\"ש בסי' של\"א סעיף קל\"ז:",
+        "או יפדה כו'. רמב\"ם וכשיטתו שכתב בפ\"ב דהמ\"ש ובפ\"ד שם שיכול אפי' בזמן הבית לחלל פירות על פירות וכמ\"ש בירושלמי הנ\"ל אם היו כו' וברפ\"ד דמ\"ש תני אין פודין מ\"ש אלא במין על מינו דלא כן מה אנן אמרין פודין מן החטין על השעורין ומן השעורין על החטין לכן צריכה אפי' מן האגדות על השמתית ומן השמתית על האגדות וכמ\"ש במתני' פ' בתרא דטבול יום בראשונה כו' וער\"מ שם בפירושו אבל הראב\"ד חלק עליו שם ואמר דכ\"ז הוא בדמאי שמחללין אפי' כסף על כסף כו' כמ\"ש בפ\"ק דדמאי אבל בודאי לא וכמ\"ש בסוכה מ\"א א' דאלת\"ה מעשר כו' ובב\"מ מ\"ד ב' אבל פירות על דינרין כו' ודבריו נראין [וכ\"ה בהדיא בבכורות נ\"א א'] וגם י\"ל כל הנ\"ל בענין אחר ההיא דספ\"ק דדמאי י\"ל דקאי על דבר הנפדה וההוא דפ\"ד דמ\"ש נראה דהאי פודין ט\"ס וצ\"ל מפרישין דקאמר שם אר\"ח רבי היה לוקח קשואין בכורות וקבע מ\"ש שלהן על כל עוקץ ועוקץ וההיא דטבול יום כבר פי' הר\"ש שם. וחלק הראב\"ד אפי' בזה\"ז כמ\"ש בפ\"ב שם ובפ\"י מהמ\"א:",
+        "(ליקוט) או יפדה בפירות. אפי' בשאינו מינו. רמב\"ם שם וכ\"כ במעשר שני בזה\"ז אע\"ג דאין מחללין על שא\"מ בזה\"ז ס\"ל דאין להקפיד כיון דלאיבוד אזלא (ע\"כ):",
+        "שהוא אחד כו'. קדושין י\"ב א':",
+        "ששוקל כו'. רי\"ף ורא\"ש שם ודלא כס\"ד דרב יוסף שם בגמ':",
+        "מלקט ושכחה. כמ\"ש בקדושין נ\"ד ב' כר\"מ במעשר מאי היא כו' אמאי כולו לגת כו' אלמא מדין הקדש והקדש פטור גם מלקט ושכחה כמ\"ש בפ\"ד דפאה הקדיש קמה כו' וכמ\"ש בספרי שם:",
+        "(ליקוט) מלקט ושכחה. כמ\"ש כולו לגת. ומש\"ש פרט ועוללות משום דבכרם משתעי (ע\"כ):"
+      ],
+      "en_segments": [
+        "The fruits, etc. ; as written in Kedushin 64b, why Beit Hillel learns, etc., and there; whose words. Ilfa says R' Meir, etc., and they learned, etc.; apparently for the entire matter we learn from maaser; Yerushalmi chapter 5 of Maaser Sheni; Beit Shammai: he has no fifth and no removal; according to them these mishnayot did not learn net revai from maaser; “from now on let it not have sanctity”; they learned its sanctity by itself; learned holy of celebrations as holy over which one recites Hallel; and permitted to an onen; holy of celebrations teaches it is forbidden to an onen; obligated in removal because R' Shimon exempts from removal and redeems attached to the ground, etc.; apparently for Beit Hillel all these were learned from maaser; and they said similarly regarding net revai in sheviit and nezirut in Syria; and Rambam end of chapter 9 of Hilchot Maaser Sheni.",
+        "And when, etc. ; there in mishnah chapter 5 of Maaser Sheni and Yerushalmi there and gemara in many places.",
+        "And they are permitted, etc. 10 1, s.v. upeiros, and there is alternate reading, etc., and so Rosh in Hilchos Ketanos and Rambam in Maaser Sheni and neta revai and Rosh; for otherwise what did the modest ones accomplish in their enactment; and see there chapter 5 end of mishnah 1.",
+        "And nowadays, etc. ; as written in chapter 1 of Maaser Sheni and if there is no sanctification, etc., and Makkot 19a, Shevuot; can ascend, etc., and Tosafot there s.v. vai, etc. (Likut) And nowadays, etc.; chapter 5 of Maaser Sheni, mishnah “seven who,” etc., and Rosh there and Beit Hillel's reason, etc. (end of comment).",
+        "After they have fully ripened. In the Torat Kohanim there states: “its produce” teaches that only grain is redeemed; hence they said one does not redeem revai until it reaches the season of maasrot; and Yerushalmi at the end of chapter 1 of Orlah teaches: fruit you redeem; not unripe and not pagim.",
+        "And they are detached. Tosefta at the end of Maaser Sheni: fourth-year vineyard; Beit Shammai: one does not redeem them as grapes except as wine; Beit Hillel: grapes and wine; all agree one does not redeem attached to the ground; Rambam wrote the reason because we derive from maaser as above, and there is no maaser on what is attached, as written in chapter 2 of Bikkurim; so Tosafot Bava Kama 69a s.v. aima, and Rosh chapter 5 of Maaser Sheni at the end of mishnah 5; and they contradicted this reason from Bava Kama “whoever gathers,” and wrote because on what is attached they are not expert in appraisal; but the modest ones made an enactment, etc.; therefore in the responsum of Ramban and Rashba on Bava Kama in our times they redeem with appraisal while attached; to me requires study, for according to their reasoning likewise regarding hekdesh; and mishnah in chapter 1 and 4 of Peah and chapter 3 of Challah; one redeems attached; Rambam's reason is primary, and so Yerushalmi cited explicitly that they challenged Beit Shammai, who does not derive neta revai from maaser, and redeems attached as above; and this resolves what Tosafot brought from Tosefta on Bava Kama, but since it is not established in the conclusion he was not concerned, as Rashi and Tosafot wrote in many places; and so Rambam there halacha 7 and the modest ones, etc., “whoever gathers,” etc., for it is impossible to redeem attached, as we explained.",
+        "And one may redeem, etc. ; Tosafot in Berakhot 35a s.v. uleman, etc., and Rosh and the other poskim; and this is Rambam's wording in chapter 2 of Maaser Sheni: the Geonim ruled that if one wished to redeem the value of a maneh with a prutah ab initio in our times, he redeems; this is not more stringent than hekdesh, and he throws the prutah into the Great Sea. At first glance requires study, for there is no proof from hekdesh, since the reason for hekdesh is there is no onaah for hekdesh, as written in Bava Metzia 57a and Temurah 27a; and even though one could say maaser sheni nowadays is worth nothing, nevertheless it is not like hekdesh; and further, the amoraim after the Temple would redeem at value, as written in Yerushalmi chapter 4 of Maaser Sheni: R' Shimon bar [Rabbi] would deposit with those Romans who would belittle it; Nechemyah bar Kefar and Kartamin before him; he said to him: it is good, is it not anything, etc.; R' Imi: in what did he succeed before R' Yochanan and Rashbi. They said: go and pay as this braita teaches; one redeems maaser sheni at the cheap rate, as the shopkeeper buys, etc.; R' Nachman bar Yaakov showed a pouch to the carpenter and unloaded on his mouth; R' Simon showed fruits to R' Chelbo; he said to him: at their value; he said: yes; R' Chelbo in the name of R' Simon, etc.; and how many actions they brought there that they would redeem at value; only Rambam was careful about this and wrote there a measure of piety that one redeems maaser sheni at its value, like the way one redeems it before a barrel; and this does not remove the difficulty, for they ruled there in practice; and R' Shimon bar [Rabbi] was strict with the Romans as above; and it is strained to say all these argue on Shmuel; rather it appears the Geonim's reason is we hold in Kedushin 64b like R' Meir that maaser sheni has the law of hekdesh for him, as written “whose words. Ilfa says R' Meir,” etc.; and likewise regarding neta revai, as written “teach,” etc.; and Yerushalmi holds halacha is like R' Yosi regarding R' Meir, and Sages argue on R' Meir as in chapter 2 of Pesachim (37,38) and chapter 3 of Sukkah; but we hold like our gemara, and therefore he wrote in Teshuvot HaRash that even a measure of piety one does not do. And even though in Meilah 14 we say only after the fact, and even though in Bava Metzia there and Temurah there amoraim argue on this; Tosafot already wrote there and there that according to all it is only after the fact; nevertheless we say in Arakhin 29a that nowadays one redeems even ab initio. (Likut) And one may, etc.; Tosafot Megillah 10a s.v. dechol, etc., and nevertheless the poor, etc. (end of comment). (Likut) And one may, etc.; from what he wrote, and Tosafot Gittin 65a s.v. ve'imah, etc., and Rosh Hashanah 31b s.v. uvikesh, etc.; and according to what he wrote it is settled that the unspecified there follows R' Yosi, as in Kedushin 64b; and at first the gemara is strained according to R' Meir, but at the conclusion because of choice, etc., it is not needed except that all follows R' Yosi (and with this Tosafot's difficulty in Bekhorot 40a s.v. be'atrei is also resolved; “and you might say,” etc., for we establish according to R' Yosi; and likewise that which he explains there the reason of the mishnah that teaches “one suspected on sheviit is not suspected on maasrot”; because it requires a wall, and not that it means because it is possible like Shmuel, etc.; because it says there “these are the words of R' Akiva”; its conclusion; and R' Akiva holds like R' Yosi that maaser sheni is common property, as is proven in Pesachim 36) (end of comment).",
+        "With a perutah. This is a textual error. It should read: “with a perutah.”",
+        "And he should cast it away, etc., or, etc. ; as written in chapter 2 of Pesachim (28a), Semag; and even though they dispute in Pesachim there, Tosafot already wrote there s.v. al zeh, etc., that they do not argue except regarding chametz, but regarding avodah zarah all agree in the sea grinding is not needed; in other rivers writing is needed per Rabbah; see there; and so it appears from Rambam, who wrote here and throws into the Great Sea without grinding as above; regarding chametz he ruled like Rav Yosef, as written in Orach Chaim siman 445. (Likut) Tosafot Bekhorot 53a s.v. maot, etc. (end of comment).",
+        "And he should recite a blessing, etc. ; as in Maaser Sheni, as written in Yerushalmi at the end of chapter 1 of Demai: R' Helbo ben Shaul; demai is redeemed in a bathhouse not requiring a blessing; but it surely requires a blessing; R' Mani asked R' Yudan: how does he bless; if fruits on redemption of maaser; maaser; if money on redemption of maaser; maaser; as written in siman 331 seif 137.",
+        "Or he may redeem, etc. ; Rambam, according to his view that he wrote in chapter 2 of Hilchot Maaser Sheni and chapter 4 there, that one can redeem fruits on fruits even in Temple times, as written in the Yerushalmi cited: if there were, etc.; and in chapter 4 of Maaser Sheni it teaches: one does not redeem maaser except kind on kind; unlike our saying we redeem from wheat on barley and from barley on wheat; therefore it was needed even from roses on myrtle and from myrtle on roses, as in the mishnah at the end of chapter Tevul Yom, first section, etc., and Rambam there in his commentary; but Raavad disagreed there and said all this is in demai, where they redeem even money on money, as written in chapter 1 of Demai, but in certainty not; and as written in Sukkah 41a; otherwise maaser, etc.; and Bava Metzia 44b; but fruits on dinarim, etc., and his words appear correct [and so explicitly in Bekhorot 91a]; also all the above can be explained in another matter; the case at the end of Demai can refer to the redeemed item; and that in chapter 4 of Maaser Sheni; it appears “podein” is a textual error and should read mafrishin; for it says there: R' Chiya; R' would buy gourds of bekorot and set aside their maaser on each and every stalk; and that of Tevul Yom; Rosh already explained there. Raavad disagreed even nowadays, as written in chapter 2 there and chapter 10 of them. (Likut) Or redeem with fruits; even what is not its kind. Rambam there, and likewise Maaser Sheni nowadays; even though one does not redeem not-same-kind nowadays, he holds one need not be strict, since it goes to destruction (end of comment).",
+        "Which is one, etc. Kiddushin 12a.",
+        "Which weighs, etc. ; Rif and Rosh there, and not like the opinion of Rav Yosef there in the Gemara.",
+        "From leket and shikhechah. As written in Kedushin 64b, like R' Meir in maaser; what is it, etc., why all of it to the press, etc.; apparently from the law of hekdesh, and hekdesh is exempt also from leket and shikhechah, as written in chapter 4 of Peah “he dedicated standing grain,” etc., and as written in Sifrei there. (Likut) Leket and shikhechah. As written “all of it to the press.” And from what he specified peret and olelot; because it speaks of a vineyard (end of comment)."
+      ]
+    }
+  ]
+}

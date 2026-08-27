@@ -1,0 +1,475 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 13,
+    "chunk_total": 66,
+    "case_offset": 89,
+    "cases_in_chunk": 14,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman149/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 149,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בד\"א כו'. ירושלמי הביאו הרא\"ש שם:",
+        "חצר כו'. ערש\"י שם במתני' ד\"ה בזמן כו' מפני חשד כו' וכ\"ש כה\"ג:",
+        "ובזמן כו'. לפי' ה\"ר יונה והרא\"ש הנ\"ל וכן פירש\"י בד\"ה מהו כו' ביום ע\"ז כו':",
+        "(ליקוט) ובזמן כו'. טור לפי' ה\"ר יונה ועד\"מ ס\"ק א':",
+        "וי\"א כו'. לפי' הרמב\"ם וכ\"ד הרשב\"א דכל עיר שבתוכו עבודת כוכבים אסור:",
+        "(ליקוט) וי\"א כו'. כ\"כ הטור בשם הרשב\"א וכ\"כ הרמב\"ם בפי' שם ולפיכך יודע לך שכל עיר כו' ק\"ו דין בית עבודת כוכבים כו' וכ\"ש ליכנס בו (ע\"כ):",
+        "אם אין כו'. כנ\"ל ס\"א:",
+        "ומ\"מ מדת כו'. עבס' חסידים:",
+        "וע\"ל סי' קמ\"ב. ס\"ט:"
+      ],
+      "en_segments": [
+        "When does this apply, etc. The Jerusalem Talmud, cited by the Rosh there.",
+        "Courtyard, etc. Rashi there in the mishnah on \"at the time, etc.\" ; because of suspicion, etc.; and all the more in such a case:",
+        "And at the time, etc. According to R. Yona and the Rosh mentioned above; and so Rashi on \"what about, etc.\" on the day of idolatry, etc. (Collected) And at the time, etc. Tur according to R. Yona; and in Darkei Moshe s.k. 1:",
+        "And some say, etc. According to the Rambam; and so the Rashba ; that any city within which there is idolatry is forbidden. (Collected) And some say, etc. So too the Tur in the name of the Rashba; and so the Rambam in explanation there; and therefore know that any city, etc. ; a fortiori the law of a house of idolatry, etc.; and all the more to enter it (end).",
+        "If there is no, etc. As above, seif 1.",
+        "Nevertheless, as a measure of piety, etc. See Sefer Chasidim.",
+        "See above, siman 142. Seif 9."
+      ]
+    },
+    {
+      "id": "yd1/siman149/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 149,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הולכים ליריד כו'. כתב הטור בשם הרא\"ש דאפילו ביום חגם שרי משום דדלמא לא משכח ליה אלא ביריד והוה ליה דבר האבוד וכתב הר\"ן דהיינו דוקא בדברים שצריך להם לעצמו אבל להשתכר בהן לא דהנאת ריוח לא מקרי דבר האבוד ומביאו ב\"י וד\"מ מיהו כל זה מדינא אבל האידנא הכל שרי כמ\"ש הרא\"ש וטור ושאר פוסקים דלאו עובדי עבודת כוכבים הן וכדלעיל ס\"ס קמ\"ח ולקמן סעיף ד' וכ\"כ הב\"ח ס\"ס זה דהאידנא אין חוששין לשום דבר ונהגו היתר אף ביריד ביום אידם ואפילו נותנים מכס לכומרים:",
+        "אסור. שהרי נהנה שמנחת לו המכס. טור והר\"ן. ופסק הב\"ח דהיינו דוקא ביחידים אבל כשעושים חירות לכל אדם בשוה אין בזה איסור אבל אם אין מניחין המכס אלא כשמניח עטרה בראשו לכבוד עבודת כוכבים אפילו מניחין לכל אדם אסור ע\"ש שהאריך וע\"ל סי' קמ\"ג:",
+        "יוליכם ליה\"מ. ובהניחו המכס ליחיד דאסור משום שנהנה נראה מדברי הב\"ח דסגי בהולכת הנאת המכס ליה\"מ וע\"ש:"
+      ],
+      "en_segments": [
+        "Forbidden. For he benefits from the customs exemption they give him — Tur and Ran; and the Bach ruled this is specifically regarding individuals, but when they grant freedom equally to all people there is no prohibition; but if they give the customs exemption only when one places a crown on his head in honor of idolatry — even if they give to all people it is forbidden — see there where he elaborated; and see above siman 143.",
+        "He brings them to the Dead Sea. And in the case where the customs exemption is given to an individual — which is forbidden because he benefits — it appears from the Bach's words that it suffices to send the benefit of the customs to the Dead Sea; see there."
+      ]
+    },
+    {
+      "id": "yd1/siman151/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 151,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דברים כו'. לשון הרמב\"ם והטור:",
+        "(ליקוט) דברים כו' היו כו'. השמיט (הרמב\"ם) הא דאמרינן שם תרנגול למי מותר כו' וגם מש\"ש שמותר למכור חבילה כו' וגם בעיא דרב אשי ויהבי ליה שחור ושקיל כו' וכבר נתקשו בזה ב\"י ולח\"מ (ע\"כ):",
+        "ואם קונה כו'. טור וש\"פ. והרמב\"ם השמיטו וצ\"ע:",
+        "וכן אם כו'. הם דברי המחבר ונראה שהוציא ממש\"ש ואפילו אמר תרנגול זה עובד כוכבים שעשה כו':",
+        "(ליקוט) אא\"כ פסלן כו'. מתני' שם (ע\"כ):",
+        "אסור למכור כו'. דזהו בכלל פירושן ועתוס' שם ד\"ה חצב. ובמסקנא כו':",
+        "ודוקא לכהן עבודת כוכבים. בתוס' הנ\"ל א\"כ אסור לעולם כו' וגם כו' משמע דברישא דוקא לכומר:",
+        "או לעובד כוכבים כו'. רי\"ו:",
+        "י\"א הא כו'. כמש\"ש ו' א\"ב ועתוס' שם סד\"ה מנין. ומיירי כו' אבל הר\"ן שם כ' דכל מש\"ש היינו לאיסור דאורייתא אבל מ\"מ אסור מדרבנן שהרי מחוייב להפרישו מאיסור והיאך יסייע ידי עוברי עבירה וכ\"ב תוס' בשבת ג' א' ד\"ה בבא כו' והרא\"ש שם. ד\"מ וז\"ש ויש מחמירין כו' ומגמ' דעבודת כוכבים שם משמע דאפילו מדרבנן מותר בעובד כוכבים דאל\"כ הדק\"ל מאי נ\"מ הא מתני' אינו אלא מדרבנן וקושית הר\"ן ותוס' דשבת י\"ל דוקא בישראל אסור לסייע אבל דינו של המרדכי לא נראה דדוקא באית ליה אמרו שם דאינו עובר ולא במוצא דאל\"כ תקשי ההיא דנדרים ס\"ב ב' וכי לא היה עצים בעולם ועי\"ל כמ\"ש הר\"ן דמדרבנן אסור ומ\"מ נ\"מ דלפני אידיהן כיון דאין ידוע שקונה לעבודת כוכבים אלא דרבנן גזרו בכה\"ג לא גזרו סוף סוף ההיא דנדרים מכרעא כסברא שניה וכ\"ה דוחק גדול שכל המתני' וכן שם ט\"ו ב' רבה זבין כו' שלא ה\"ל ליקח חמור במקום אחר וכן כלי זיין דשם:",
+        "(ליקוט) י\"א הא כו'. לכאורה נראה שלמד ממש\"ש ו' למאי נ\"מ דאית ליה בהמה כו' אכל לא דמי לשם דשם כבר אית ליה אלא מדפריך וכי אית ליה כו' והתניא כו' הב\"ע כו' וכ\"כ תוס' בחגיגה י\"ג א' בד\"ה אין כו' אבל צ\"ע מהא דנדרים ס\"ב רב אשי ה\"ל כו' וכי לא ה\"ל לקנות במקום אחר עצים ועוד דמ\"מ איסורא מיהא איכא ועתוס' דשבת ג' א' בד\"ה בבא בו' מ\"מ איסורא כו' ואפי' אי מיירי בעובד כוכבים כו' ר\"ל דאינו מצווה על השבת אבל אי שייך לפני עור בעובד כוכבים אסור אף בעובד כוכבים אף בכה\"ג שיכול ליטלו ועבע\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "Things, etc. Rambam's and Tur's wording. (Likkut) Things, etc., were. He omitted (Rambam) that which we say there: a rooster ; for whom is it permitted, etc.; and also from there that it is permitted to sell a bundle, etc.; and also the question of Rav Ashi and they gave him black and he took, etc.; and Beit Yosef and Choshen Mishpat already questioned this (end).",
+        "And if one purchases, etc. The Tur and the other authorities. The Rambam omitted this ruling, and it requires study.",
+        "And likewise if, etc. These are the Mechaber's words. It appears that he derived this from the statement there, “And even if he said, ‘This rooster,’ a non-Jew who made,” etc.",
+        "(Collected) Unless he disqualified them, etc. The Mishnah there (end).",
+        "It is forbidden to sell, etc. This is included in their interpretation. See Tosafot there, s.v. “Chatzav,” and the conclusion there, etc.",
+        "And specifically to a priest of idolatry. In the aforementioned Tosafot: if so it is forbidden forever, etc.; and also, etc. ; it implies in the first part specifically to a priest.",
+        "Or to a non-Jew, etc. Rabbeinu Yerucham.",
+        "Some say, etc. As written above seif 6 aleph-bet; and Tosafot there s.v. minayin. And it deals, etc.; but the Ran there wrote that all that is written there is for Torah prohibition, but nevertheless it is forbidden rabbinically because he is obligated to distance him from prohibition ; how can he assist transgressors; so too Tosafot in Shabbat 3a s.v. ba. The Rosh there. Darkei Moshe ; and he wrote in the gloss: and there are those who are stringent, etc.; and from the Gemara in Avodah Zarah there it implies even rabbinically it is permitted with a gentile ; otherwise what difference would the challenge make ; behold the mishnah is only rabbinic; and the Ran's and Shabbat Tosafot's difficulty can be answered: specifically with a Jew it is forbidden to assist, but the Mordechai's law does not appear to deal specifically with \"he has\" ; they said there he does not transgress, and not with \"he finds\" ; otherwise the case in Nedarim 62b would be difficult: were there no wood in the world? And it can be answered as the Ran wrote ; rabbinically forbidden, and nevertheless there is a difference for before their festivals since it is not known he buys for idolatry but the Sages decreed in such a case they did not decree ; ultimately that case in Nedarim decides like the second reasoning; and so is a great strain that all the mishnah and so there 15b \"Rabbah sold,\" etc. ; he should have bought a donkey elsewhere, and so weapons there."
+      ]
+    },
+    {
+      "id": "yd1/siman151/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 151,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור למכור כו'. אא\"כ פסלן וכדלקמן וכ\"ש הוא מלקמן דאסור:",
+        "למכור. לעולם אפילו שלא ביום אידם ואפילו בזמן הזה כן כתבו האחרונים ופשוט הוא וכתב עוד הב\"ח ולכל עובד כוכבים אסור אפילו אינו כומר דכיון דמיחדים אותו לעבודת כוכבים ודאי לעבודת כוכבים בעי לה:",
+        "לסחורה מותר. ולא חיישינן דילמא אזיל ומזבין לאחריני דאלפני עור מפקדינן אבל אלפני דלפני לא מפקדינן. ש\"ס. ועיין בא\"ע ס\"ס ה' בהג\"ה:",
+        "זכה בכלל לבונה שחורה. והטור כתב דאף לבונה שאינה זכה וכתב הב\"ח משום דהאידנא עובדי כוכבים אין מקפידין בזה הלכך אפילו אינה זכה אסור מיהו אם ניכר שקונה לסחורה פשיטא דאף בלבונה שרי כדלעיל ע\"כ:",
+        "לסתם עובד כוכבים שרי. ולא חיישינן שיתננו לכהן דאלפני דלפני לא מפקדינן:",
+        "י\"א כו'. דס\"ל דכי היכי דאמרינן בש\"ס גבי נזיר דאסור להושיט לו כוס יין דהיינו דוקא בדקאי בתרי עברי דנהרא ה\"ה הכא ויש מחמירין וסוברין דמ\"מ איסור מדרבנן איכא אפילו לא הוי כמו תרי עברי דנהרא וכל זה לדעת הרב אבל לפעד\"נ דלא פליגי דכ\"ע מודים להמרדכי ותוס' בפ\"ק דעבודת כוכבי' דבעובד כוכבי' או מומר שרי והגמ\"ר ותוס' והרא\"ש בפ\"ק דשבת והר\"ן פ\"ק דעבודת כוכבים מיירי בישראל שהוא חייב להפרישו מאיסור וכדכתב הרא\"ש שם דלא גרע מישראל קטן אוכל נבילות שב\"ד מצווים להפרישו כ\"ש ישראל גדול) משא\"כ בעובד כוכבי' וישראל מומר שאינו חייב להפרישו תדע שהרי כתב הרב בד\"מ דדעת התוס' רפ\"ק דעבודת כוכבים כדעת המרדכי שם דשרי ול' הרא\"ש רפ\"ק דעבודת כוכבים הוא כלשון התוס' שם א\"כ לפי דעת הרב יהיו דברי הרא\"ש סותרים זה את זה וכן רבינו ירוחם נתיב י\"ז ריש ח\"ו כתב כדברי התוס' רפ\"ק דעבודת כוכבים ובנתיב י\"ב ח\"ג כתב כדברי התוס' רפ\"ק דשבת אלא ודאי כדפי':",
+        "ונהגו להקל. לשון ד\"מ מיהו בזמן הזה יש להקל מטעם דמקילין להשתתף עמהם עכ\"ל ר\"ל כמ\"ש בא\"ח ס\"ס קנ\"ז דבזמן הזה מותר להשתתף עמהם שכוונתם לעושה שמים וארץ אלא שמשתפים שם שמים ודבר אחר ולא מצינו שיש בזה משום לפני עור שאין בני נח מוזהרין על השתוף וה\"ה הכא:"
+      ],
+      "en_segments": [
+        "Forbidden to sell etc. Unless he disqualifies them — as below; and all the more is it from below that it is forbidden.",
+        "To sell. Always, even not on their festival day and even nowadays — so the later authorities wrote, and it is simple; and the Bach further wrote: it is forbidden to every idolater even if not a priest, since they dedicate it to idolatry and he certainly needs it for idolatry.",
+        "White frankincense — this includes black frankincense. And the Tur wrote even frankincense that is not white; and the Bach wrote because nowadays idolaters are not particular about this — therefore even if it is not white it is forbidden; however if it is apparent that he buys it for trade, it is plainly permitted even frankincense, as above — end.",
+        "To an ordinary idolater it is permitted. And we are not concerned he will give it to the priest — for lifnei de-lifnei we are not commanded.",
+        "And they practiced leniency. The Darkei Moshe’s language: however nowadays there is reason to be lenient because they are lenient to partner with them — end; meaning as he wrote in Orach Chaim end of siman 157 that nowadays it is permitted to partner with them, for their intent is to the Maker of heaven and earth, only they associate God’s name with something else; and we did not find that this constitutes lifnei iver, since Bnei Noach are not warned about partnership; and the same applies here."
+      ]
+    },
+    {
+      "id": "yd1/siman151/seif-004/siftei-kohen",
+      "volume": "yd1",
+      "siman": 151,
+      "seif": 4,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שלא למכור. כגון במקום שחשודים על הרביעה כן הוא בש\"ס (עבודת כוכבים סוף דף י\"ד) ורש\"י ותוס' וכל הפוסקים דלא כהעט\"ז שנעלם ממנו זה וכתב הטעם שאותן המקומות אסרו בהמה דקה משום שבית' אטו בהמה גסה וזהו גזירה לגזירה שהרי בהמה גסה גופה גזירה רחוקה היא כדלקמן גם כל הסוגיא לא אזלה לדידיה ע\"ש. שוב מצאתי ברש\"י וברטנורה פרק מקום שנהגו (פסחים דף נ\"ג ע\"א) שכתבו כהעט\"ז ותמהני וצ\"ע בתוספות שם דף י\"ד ד\"ה אמר רב כו':",
+        "בהמה גסה כו'. גזרה מכירה אטו שאלה או שכירות ובשאלה או שכירות אסור לפי שהעובד כוכבים עושה מלאכה בשבת בבהמתו של ישראל שהוא מצווה על שביתת בהמתו כדכתיב לא תעשה כל מלאכה וגו' וכל בהמתך אי נמי גזרה שלפעמים ימכרנה בע\"ש סמוך לחשכה ואמר ליה נסייה ניהלה ושמעה לקליה ואזלה מחמתיה והוה ליה מחמר אחר בהמתו בשבת:",
+        "סרסור. ישראל דלא שייך ביה הני טעמי:",
+        "ועכשיו כו'. לפי שבימיהם היו דרים הרבה יהודים ביחד והיו יכולין למכור זה לזה אבל האידנא שמעט יהודים דרים במקום אחד ואי לא מזבני איכא פסידא. טור והפוסקים. ויש פוסקים כתבו הטעם לפי שעתה אין אנו בקיאין בקלא דניחוש דשמעה לקליה כו' ומשום שאלה ושכירות ליכא למיחש דאין רגילין עכשיו לקנות בהמה כדי להשכירה כי אם לצורך עצמו קונהו ע\"כ וכתב הר\"ן דלפי זה אפילו לקנות כדי להרויח למכרה מותר ע\"כ וכן נראה דעת המחבר וכן נהגו וכ\"כ העט\"ז וכתב עוד הר\"ן ואעפ\"כ בעל נפש ימעט אבל בשאלה שהדבר פשוט לאסור ראוי למחות למי שעושה כך ע\"כ ועיין בא\"ח סימן רמ\"ו וכל זה בבהמה טמאה אבל בטהורה כתב סה\"ת ופוסקים דא\"צ לכל זה די\"ל דלשחיטה לוקחה וכמ\"ש רש\"י:"
+      ],
+      "en_segments": [
+        "Not to sell. For example where they are suspected of bestiality — so it is in the Gemara (Avodah Zarah end of page 14) and Rashi, Tosafot, and all the poskim — unlike the Eliyah Rabba to whom this was hidden, who wrote the reason that in those places they forbade small animals because of slaughtering them on account of large animals — and this is a decree upon a decree, for large animals themselves are already a distant decree as below; also the entire sugya does not go according to him — see there. I then found in Rashi and the Bartenura chapter Makom SheNahagu (Pesachim 53a) who wrote like the Eliyah Rabba — and I am astonished; and the matter requires investigation in Tosafot there page 14 s.v. amar Rav etc.",
+        "Large animal etc. A decree: selling because of lending or renting; and in lending or renting it is forbidden because the gentile performs labor on Shabbat with the Israelite’s animal, and he is commanded regarding his animal’s rest as written \"you shall not do any labor\" etc. \"and all your animals\"; alternatively, a decree because sometimes he will sell it on Friday evening close to dark and say to him \"try it out\" — and it heeds his voice and goes on account of him, making him one who drives his animal on Shabbat.",
+        "Broker. An Israelite — these reasons do not apply to him."
+      ]
+    },
+    {
+      "id": "yd1/siman151/seif-007/beur-hagra",
+      "volume": "yd1",
+      "siman": 151,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בא\"י כו'. הרא\"ש וש\"פ דלא כרמב\"ן וכמש\"ש במתני' אין משכירין כו' וער\"ן שתי' דברי הרמב\"ן אבל לא הסכים עמו ומ\"מ פשטא דמתני' משמע כדברי הרמב\"ן מדחילק בבתים ושדות ולא חילק כאן וכ\"מ בגמ' שם י\"ד ב' דקל טב כו' והתנן כו' (ולא משני דנ\"מ בדקל טב דאסור למכור אף בח\"ל) אלא שי\"ל דקושיתם הוא משום דר\"מ אוסר מכירת שדות אף בח\"ל אבל זהו לדעת הרמב\"ם דמעשר אילן מד\"ת אבל תוס' וש\"פ חולקין ע\"ז:",
+        "(ליקוט) בא\"י כ\"ד כו'. דקי\"ל כר' יוסי דבח\"ל הכל מותר כ\"ש מחובר לקרקע ודעת הרמב\"ן דמחובר לקרקע כיון שאפשר לימכר משיקצץ לא התירו אף בח\"ל. ר\"נ ע\"ש והסכים להלכה כדברי הרמב\"ם וש\"פ (ע\"כ):",
+        "(ליקוט) אבל מוכרים כו'. פסק כר' יהודה משום דלר\"מ אפילו יודע בודאי שיקוץ מ\"מ אסור כמש\"ש התם טעמא כו' דלאו ברשותיה קיימי ולא כו' וה\"ה לבהמה דחדא פלוגתא הוא כמש\"ש וע\"כ לא קמיבעיא להו אלא לר' יהודה אבל לר\"מ ודאי דאסור אפילו יידע בודאי שישחוט ואמרינן שם ט\"ו א' ד\"ה זבין ההוא פרה לעובד כוכבים כו' א\"ל אימור לשחיטה כו' ופי' ר\"ה גאון והביאו הרא\"ש שם שהיה נראה לו שאינו לוקח אלא לשחיטה אבל הרי\"ף שם פסק כר\"מ דסתם מתני' כוותיה ומ\"ש הרא\"ש טעמו של הרמב\"ם משום דמיבעיא לגמ' אליביה (וע\"ל סי' של\"א ס\"ק קפ\"א ובאה\"ע סי' פ\"ג ס\"ק ד') וכ\"כ בכמה מקומות צע\"ג דבכמה מקומות מיבעיא לגמ' דלא כהילכתא ואליבא דב\"ש ושקיל וטרי אליבייהו הרבה וצע\"ג (ע\"כ):"
+      ],
+      "en_segments": [
+        "In Eretz Yisrael, etc. The Rosh and Shulchan Aruch ; not like the Ramban, as written in the mishnah \"one does not rent,\" etc.; and the Ran's two words on the Ramban's words ; but he did not agree with him; nevertheless the mishnah's plain meaning implies like the Ramban's words, since he distinguished houses and fields and did not distinguish here; so too in the Gemara there 14b \"a good palm,\" etc. ; \"we learned,\" etc. (and they do not answer that the difference is a good palm that is forbidden to sell even in chutz la'aretz) ; rather it can be said their question is because R. Meir forbids selling fields even in chutz la'aretz; but this is according to the Rambam that ma'aser eilan is from the Torah, but Tosafot and Shulchan Aruch disagree on this. (Likkut) In Eretz Yisrael, etc. We rule like R. Yosi that in chutz la'aretz everything is permitted, all the more what is attached to the ground; and the Ramban's view is that what is attached to the ground ; since it can be sold once he cuts it ; they did not permit even in chutz la'aretz. Ran ; see there ; and he agreed to rule like the Rambam's words and Shulchan Aruch (end).",
+        "(Likkut) But they sell, etc. He ruled like R. Yehudah ; because according to R. Meir even if he knows certainly he will cut it down, nevertheless it is forbidden as written there ; the reason, etc., that they do not stand in his domain and not, etc.; and likewise for an animal it is one dispute as written above ; therefore the question arises for them only according to R. Yehudah; but according to R. Meir certainly it is forbidden even if he knows certainly he will slaughter; and we say there 15a s.v. zavin: that person sold a cow to a gentile, etc. ; he said to him: perhaps for slaughter, etc.; and R. Hai Gaon explained and the Rosh brought there that it appeared to him he buys only for slaughter; but the Rif there ruled like R. Meir that the anonymous mishnah is like him; and what the Rosh wrote ; the Rambam's reason because the Gemara asks about him (and see above siman 331 s.k. 181 and Even HaEzer siman 83 s.k. 4); and so in several places it is astonishing that in several places the Gemara asks not like the halacha and according to Beit Shamai and argues much about them ; astonishing (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman151/seif-010/beur-hagra",
+      "volume": "yd1",
+      "siman": 151,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אף כו' בקבע. כדברי תוס' שם ד\"ה אף כו' ויש רוצים להביא כו' וכ\"כ הר\"ש שם וש\"פ וז\"ש בהג\"ה והאידנא כו':",
+        "(ליקוט) בקבע. כמ\"ש בתוספתא כאן וכאן לא ישכיר כו' אבל משכירין להם ארוות ואוצרות ופונדקאות אע\"פ שידוע שמכניס לתוכו עבודת כוכבים וצ\"ל הטעם משום שאינו בקבע וכ\"כ הרא\"ש שם אע\"פ שתוס' דחה שם ועוד כ' טעם אחר משום ר' חיים דמ\"ש בתוספתא כאן וכאן כו' לא קאי אלא אא\"י וסוריא אבל בח\"ל מותר ושכ\"ה בירושלמי בהדיא אף במקום שאמרו להשכיר כו' הא במקום שנהגו למכור מוכר ומשכיר אף לבית דירה ע\"ש בתוס' [וכ\"כ הר\"נ דהאי לא תביא כו' אסמכתא בעלמא דתורה לא אסרה אלא שלא יכניס ישראל לביתו הלכך בא\"י שמצווין לשרש אחריה אסרו חכמים וכ\"מ ממ\"ש בסיפא ובכ\"מ לא ישכיר ואם גם הרישא בכ\"מ ל\"ל ובכ\"מ. שם] (ע\"כ):",
+        "השוכר כו'. דשכירות קניא במקצת ר\"ל דמש\"ש שכירות לא קניא היינו לחומרא ודחקו ההיא דב\"מ נ\"ו ב' אבל כבר תי' תוס' שם ובעבודת כוכבים ט\"ו א' וש\"מ דדוקא באונאה וז\"ש בהג\"א שם ואין נראה וע\"ש [אבל יש להחמיר ע\"פ מ\"ש הרא\"ש להתיר שכירות לעובד כוכבים האידנא נהי דלדידן שכירות לא קניא כיון שיד אומות תקפה ובדיניהם שכירות ליומא כממכר כו' ומ\"ש שיד אומות תקפה ל\"ד דבלא\"ה עבדינן כדיניהם כמ\"ש בעובדא דר\"מ בר רחל (ב\"מ ע\"ג ב') כדיניהם עבדינן כו' וכ\"ש בישראל מעובד כוכבים דקניא]:"
+      ],
+      "en_segments": [
+        "Even, etc., permanently. Like Tosafot's words there s.v. af, etc.; and some want to bring, etc.; so too the Rosh there and Shulchan Aruch; and he wrote in the gloss: and nowadays, etc. (Likkut) Permanently. As written in the Tosefta: here and there one should not rent, etc.; but one rents to them storehouses and treasuries and inns even though it is known he brings idolatry into them ; the reason must be because it is not permanent; so too the Rosh there even though Tosafot rejected there; and he wrote another reason in the name of R. Chaim: what is written in the Tosefta \"here and there\" deals only with Eretz Yisrael and Syria, but in chutz la'aretz it is permitted ; and so explicitly in the Yerushalmi: even in a place where they said to rent, etc. ; behold in a place where they are accustomed to sell, one sells and rents even for a residence; see there in Tosafot [and so too the Ran: this \"do not bring\" is merely an asmachta ; the Torah forbade only that a Jew not bring into his house; therefore in Eretz Yisrael where they are commanded to uproot idolatry the Sages forbade; so too from what is written in the end and in chutz la'aretz one should not rent ; and if the beginning is also in chutz la'aretz, why is the end needed; and in chutz la'aretz. There] (end).",
+        "The renter, etc. For rental acquires partially ; meaning what is written \"rental does not acquire\" is for stringency; and they strained that case in Bava Metzia 56b ; but Tosafot already answered there and in Avodah Zarah 15a and Shulchan Aruch ; specifically for ona'ah; and he wrote in Be'er HaGolah there: and it does not appear; see there [but there is to be stringent according to what the Rosh wrote to permit rental to a gentile nowadays ; although for us rental does not acquire since the hand of nations is strong and in their laws rental for a day is like a sale, etc.; and what is written \"the hand of nations is strong\" ; it does not appear, for otherwise we act according to their laws as written in the incident of R. Mari bar Rachel (Bava Metzia 108b) \"we act according to their laws,\" etc.; and all the more from a Jew to a gentile it acquires]."
+      ]
+    },
+    {
+      "id": "yd1/siman152/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 152,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ברייתא דר' ישמעאל עבודת כוכבים דף ח' ויליף לה מן וקרא לך ואכלת מזבחו שמעל' עליו הכתוב על אכילתו כאילו אכל מזבחי מתים משעת הקריאה: מימרא דרב פפא שם:",
+        "מסקנת הגמרא שם:",
+        "מימרא דרב פפא שם:",
+        "מעובדא דרב יצחק וכו' שם:"
+      ],
+      "en_segments": [
+        "Statement of Rav Pappa there.",
+        "The final conclusion there:",
+        "Statement of Rav Pappa there."
+      ]
+    },
+    {
+      "id": "yd1/siman154/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 154,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפילו אם היא מומחית. כלומר ולא אמרינן דלא מרעת נפשה כדלקמן סימן קנ\"ה ברופא מומחה ב\"י וכ\"כ הפרישה וב\"ח וכתב הטעם דמיילדת יכולה לומר נפל היה וכה\"ג ותמיה לי דבירושלמי פרק אין מעמידין קאמר כי היכי דברופא אומן מותר ה\"ה במיילדת חכמה וכן בשום פוסק לא נזכר דבמיילדת מומח' אסור וצ\"ע:",
+        "ואפי' אחרים בו'. אמיילדת נמי קאי:",
+        "ולהניק כו'. ע\"ל סימן פ\"א ס\"ו בהג\"ה:"
+      ],
+      "en_segments": [
+        "Even if she is an expert. Meaning: we do not say she will not harm herself, as below in siman 155 regarding an expert physician — Beit Yosef; and so Perishah and Bach; he wrote the reason that a midwife can say it was a stillbirth and the like. And I wonder, for in the Jerusalem Talmud chapter Ein Ma'amidim it says: just as an expert physician is permitted, so too an expert midwife; and furthermore no posek mentioned that an expert midwife is forbidden — and the matter requires investigation.",
+        "And even others etc. This also applies to a midwife."
+      ]
+    },
+    {
+      "id": "yd1/siman155/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 155,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שיש בהם סכנה וכו'. משמע דעת המחבר דאם אין בו סכנה בכל ענין מותר וכדפי' רש\"י ורי\"ף ורמב\"ם אבל הרא\"ש וטור פסקו דבדבר שאין בו חולי ואין בו סכנה כמו הקזה וכה\"ג לא יתרפא ממנו דכיון דאין ברפואה זו אומנות אם ימיתנו לא יתלו הדבר בחסרון ידיעתו אלא יאמרו בלאו הכי הגיע זמנו למות או ששונאו היה והמיתו ולא מרע נפשיה לגבי אחרים וכן דעת התו' בשם ר\"ת וכן הר\"ן וגם ר' ירוחם והאגודה הביא דברי ר\"ת במסקנא:",
+        "שמחללין עליהם שבת. וכמו שנתבאר בא\"ח סימן שכ\"ח:",
+        "שאינו מומחה לרבים. אבל מומחה דהיינו אומן לא מרע אומנתיה:",
+        "יכול לסמוך עליו. שירא שמא ישאול גם לאחרים:",
+        "שלא יקח ממנו. דכדי למכור חיישינן שמא משקר (וע\"ל סימן פ\"ו) אי נמי שמא יערב בו סם המות. ב\"י:",
+        "אבל כו' בשכר בכל ענין מותר. ומהרש\"ל כ' ע\"ז חידוש הוא דש\"ס סתמא קאמר וגם גדולה השנאה כו' דלא חייש לשכרו היכא דליכא למיחש למירע חזקתו וכן דעת רוב המחברים ועיקר עכ\"ל ואחריו נמשך הב\"ח וכתב דמדכתבו הרא\"ש והר\"ן ושאר מחברים בחולה שאין בו סכנה דמתרפאים ממנו שאולי ימות יתלו הדבר בחסרון ידיעתו ויקפח פרנסתו אלמא דמיירי בשכר ואפ\"ה בחולי שיש בו סכנה או בריבדא דכוסילתא אין מתרפאים ממנו עכ\"ל ולא עמדתי על סוף דעתם דמ\"ש דש\"ס סתמא קאמר אדרבה בש\"ס (דף כ\"ו ע\"א) קאמר מאי רפוי ממון ומאי רפוי נפשות אילימא רפוי ממון בשכר נפשות בחנם ופרש\"י דלא קטיל דחייש לפסידא דאגריה אלמא דס\"ל לש\"ס דבשכר שרי ונהי דש\"ס מסיק רפוי ממון בהמתו נפשות גופו היינו משום דפריך ליתני מתרפאים מהם בשכר כלומר דלישנא דרפוי ממון ונפשות לא משמע הכי מכל מקום הדין אמת דבשכר שרי דאל\"כ ה\"ל לאקשויי מאי שנא בחנם ומאי שנא בשכר ומ\"ש וגם גדולה השנאה כו' לקשי אש\"ס דבעי לפלוגי בהכי ולא אמרינן גדולה השנאה ועוד תימה מנין לו לומר גדולה השנאה וכי בעובד כוכבים שהוא שונא לו עסקינן והלא בסתם עובד כוכבים קא מיירי אלא מפני שהם חשודים על ש\"ד אסור וכל שבשכר לא מפסיד אגריה ומ\"ש דמדכתבו המחברים יקפח פרנסתו אלמא דבשכר מיירי ליתא דה\"פ שיתלו הדבר בחסרון ידיעתו ויאמרו שהוא אינו בקי ויקפח פרנסתו לגבי אחרים שלא יתרפאו ממנו מחמת חסרון ידיעתו תדע דהא כתבו בריבדא דכוסילתא וכה\"ג דלא יתלו הדבר בחסרון ידיעתו אלא יאמרו ששונאו היה ואי מקפח פרנסתו היינו שכרו שנוטל מחולה זה א\"כ כשיאמרו ששונאו היה אין ספיקא שמקפח פרנסתו אלא ודאי כדפי' ואדרבה משמע מדבריהם איפכא דמיד שרי משום טעמא דאינו מקפח פרנסתו לגבי אחרים כ\"ש היכא דמפסיד שכרו לגבי האי דשרי וכל זה ברור ונמצא דברי הרב עולים כהוגן:",
+        "בלחש מותר. שאין בו סכנה:",
+        "אפיקורוס. עובד כוכבים אפי' הוא מומחה לרבים. הרא\"ש:"
+      ],
+      "en_segments": [
+        "That there is danger in them, etc. It appears the Mechaber's view is that if there is no danger — in every matter it is permitted; and so explained Rashi, Rif, and Rambam; but the Rosh and Tur ruled that in a matter without illness and without danger, such as bloodletting and the like, one may not be healed from him — since there is no expertise in this medicine, if he kills him they will not attribute it to lack of knowledge but will say his time to die had come anyway, or that he was his enemy and killed him — so he does not harm himself relative to others; and so is the view of Tosafot in the name of Rabbenu Tam, and so the Ran; and also R. Yerucham and the Agudah brought R. Tam's words in the conclusion.",
+        "Who is not expert for many. But an expert — meaning a skilled craftsman — does not harm his trade.",
+        "One can rely on him. For he fears perhaps he will ask others too.",
+        "He shall not take from him. In order to sell we are concerned perhaps he lies (and see above siman 86); alternatively perhaps he mixes poison into it — Beit Yosef.",
+        "By whispering it is permitted. Since there is no danger in it."
+      ]
+    },
+    {
+      "id": "yd1/siman155/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 155,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "עובד כוכבים כו'. כמ\"ש בפ\"ב דפסחים (כ\"ה א') בכל מתרפאין חוץ מעצי אשרה ומ\"ש ממים אלובירושלמי ר' יונה ה\"ל צמרמורין כו' והביאו תוס' בעבודת כוכבים שם ד\"ה שאני כו':",
+        "אבל אם כו'. תוס' בד\"ה הנ\"ל מירושלמי פי\"ד דשבת (וע\"ל סי' קנ\"ז ס\"ק כ\"ו):",
+        "אע\"פ כו'. הרא\"ש שם:",
+        "ויש אוסרים כו'. שכ\"ה בירושלמי בפ\"ב דעבודת כוכבים. הר\"ן שם ועבה\"ג וכ\"פ הרב בסי' קנ\"ז ס\"א בהג\"ה וכל איסור עבודת כוכבים וג\"ע כו':",
+        "(ליקוט) ויש אוסרין כו'. בירושלמי פ\"ב דעבודת כוכבים ר' יעקב בר אידי בשם ר' יוחנן בכל מתרפאין חוץ מעבודת כוכבים וג\"ע וש\"ד ר' פנחס בעי עד כדון כשא\"ל הביא לי עצים מעבודת כוכבים והביא לו הביא לי עלים סתם והביא מעבודת כוכבים נישמעינה מן הדא ר' יונה ה\"ל צמרמורין אייתון ליה מן זכרותיה דחווי ושתא ר' אחא אייתון ליה ולא שתה א\"ר מנא אלו הוה ידע ר' יונה מנן הוה לא הוה שתה וכ\"ה בפ' שמנה שרצים אבל תוס' ל\"ג ר' פנחס בעי וג\"כ ל\"ג נישמעינה מן הדא ועתו' שם ד\"ה שאני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "A gentile, etc. As written in chapter 2 of Pesachim (25a): with everything one may be healed except asherah wood; and what is written from water ; in the Yerushalmi R. Yonah was ill with tzamarurin, etc.; Tosafot brought in Avodah Zarah there s.v. she'ani.",
+        "But if, etc. Tosafot in the aforementioned s.v. from Yerushalmi chapter 14 of Shabbat (and see above siman 157 s.k. 26).",
+        "Although, etc. The Rosh there.",
+        "(Likkut) And some forbid, etc. So in Yerushalmi chapter 2 of Avodah Zarah. The Ran there and Be'er HaGolah, and so too the Rav in siman 157 seif 1 in the gloss: and every idolatry prohibition and sorcery, etc. (Likkut) And some forbid, etc. In Yerushalmi chapter 2 of Avodah Zarah: R. Yaakov bar Idi in the name of R. Yochanan ; with everything one may be healed except idolatry and sorcery; R. Pinchas asked: until when? When he said to him \"bring me wood of idolatry\" and he brought him; \"bring me leaves\" unspecified and he brought from idolatry ; shall we learn from this? R. Yonah was ill with tzamarurin; they brought him from the male of Chovi and he drank; R. Acha brought him and he did not drink; R. Mana said: if R. Yonah had known from where, he would not have drunk. So too in chapter \"Eight sheratzim\"; but Tosafot have another version: R. Pinchas asked, and also another version \"shall we learn from this\"; and Tosafot there s.v. she'ani (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman155/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 155,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 12,
+      "enSegs": 10,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "י\"א דכל כו'. כמו באיסור ד\"ת שלא כדרך הנאתן דאסור מדרבנן כמש\"ש אין לוקין כו' משמע הא מדרבנן אסור. תה\"א והר\"ן מפקפק בזה:",
+        "ואפילו יי\"נ כו'. בהר\"ן פרק כל שעה משמע דשוה לשאר איסורין דרבנן אבל הריב\"ש סי' רנ\"ה כתב דאפשר אגב שטפיה נקט אבל יי\"נ הרי הוא בכלל עבודת כוכבים וכמו עצי אשרה דאע\"ג שאין בו אלא לאו בעלמא אסור וכן ג\"ע ואפילו באיסורין דרבנן כמ\"ש בסנהדרין ע\"ה א' וכן יי\"נ דאסרוהו בהנאה ועשאוהו כיי\"נ ממש כמ\"ש תוס' כ\"ט ב' בד\"ה יין מנלן כו' וכן אמרינן שם ס\"ב ב' דאיסוריה חמיר כדיי\"נ ופשטינן דאגריה אסור כדיי\"נ ואמרינן שם דלמא מזבלי בהו ואע\"ג דכל הנשרפין אפרן מותרין הוא בכלל עבודת כוכבים שאפרו אסור ואפילו חטי דאגריה כ\"ש סתם יינם עצמן ע\"ש אלא לסברא ראשונה דס\"ב אף בעבודת כוכבים מותר בכה\"ג כל דלא א\"ל דוקא מעבודת כוכבים ויי\"נ וכ\"ש בזה\"ז דבלא\"ה מתירין בהנאה במ\"ש בר\"ס קכ\"ג בהג\"ה:",
+        "ולעשות ממנו כו'. הרשב\"א אוסר כמ\"ש בסי' קכ\"ג ס\"ב דאמרינן סיכה כשתיה וכ\"ש רחיצה ולא אמרינן דמותר באיסורי הנאה מדרבנן אלא הנאה אבל שתיה לא ואע\"ג דסיכה כשתיה אינו אלא מדרבנן ואסמכתא בעלמא במ\"ש תוס' והרא\"ש בר\"פ בתרא דיומא דאל\"כ היאך התירו לסוך בי\"ה לחטטין בראשו ורחיצה שם לכמה דברים וטבילה מ\"מ אסור דאשכחן דאחמירו בו אפילו באיסור דרבנן כמו בתרומת ח\"ל כדאמרינן בנדה ל\"ב א' וכ\"ש באיסור עבודת כוכבים ויי\"נ דאפילו בדרבנן יהרג ואל יעבור כנ\"ל אלא דלסברא ראשונה דס\"ב א\"צ למסור כנ\"ל. שם ברשב\"א אבל הרב התיר מטעם הנ\"ל כשיטתו דסתם יינם בזה\"ז מותר בהנאה בלא\"ה ורחיצה מ\"מ אינה שתיה ממש וז\"ש ובלבד כו' וכנ\"ל:",
+        "(ליקוט) ובלבד שלא יאכל כו'. [ר\"ל בכל איסורי דרבנן] הר\"נ בפ\"ב דעבודת כוכבים וז\"ל ומיהו לענין אכילה אין לנו דאפשר שעשאום כשל תורה שלא להתרפאות בהם שלא במקום סכנה (ע\"כ):",
+        "(ליקוט) הואיל ואין בו סכנה. דבמקום סכנה מותר לא מבעיא לסברא ראשונה דס\"ב אלא אפילו לסברא אחרונה כיון דסתם יינם מותר בהנאה משום דאינן עובדי עבודת כוכבים ואין אסור אלא משום בנותיהן וה\"ל כשאר איסורין דמותר וכמו בכל איסורי דרבנן כיון דאין בו משום לתא דעבודת כוכבים כנ\"ל ולכן פסק ר\"י דסתם יינם בזה\"ז בס' דאיסורין במשהו משום לתא דעבודת כוכבים כמ\"ש בעבודת כוכבים ע\"ג ואף שהרשב\"א חולק ע\"ז מ\"מ פסק דכל יין שאינו אסור אלא בשתיה אינו אוסר אלא בס' כמש\"ל סי' קל\"ד ס\"ב (ע\"כ):",
+        "וכ\"ש דמותר כו'. כמש\"ש ס\"ו ב' אבל תוס' שם ד\"ה אביי כתבו דזילוף ודאי אסור כו' והנאה גמורה היא ועבסי' ק\"ח ס\"ח בהג\"ה שרוצה ליישב ולחלק בין יי\"נ לסתם יינם ולא נראה וכבר השיגו ש\"ך שם ס\"ק כ\"ה:",
+        "מותר כו'. דכל הנשרפין אפרן כו' וז\"ש חוץ כו' ואף באכילה מותר וקי\"ל נמי דכל איסורין אין לוקין כו' כ\"ש אוכל חלב חי כו' וא\"כ בחולה שא\"ב סכנה מותר כנ\"ל וכ\"כ המרדכי בפסחים שם:",
+        "(ליקוט) חוץ מבעצי עבודת כוכבים. דלא כמרדכי רפ\"ב דפסחים שכתב דגם בכלאי הכרם שאסור משום דס\"ל דאפרן מותר הוא משום שהוא שלא כדרך הנאתן ולכן כתב ג\"כ דכל האיסורין שלא כדרך הנאתן מותר לכתחלה (ועיין לעיל סימן קמ\"ב ס\"ק כ\"ח מ\"ש שם ונרואה שמזה למד המרדכי כו') אבל התוס' דעבודת כוכבים י\"ב ב' והרא\"ש דפסחים שם כתבו דאיסורא איכא וכן הרמב\"ן למד משם דבאיסורי דרבנן אפילו כדרך הנאתן מותר לרפואה דהא איסורין שבתורה שלא כדרך הנאתן איסורא מיהא איכא וכ\"כ הר\"נ וריב\"ש וכן בתוס' דעבודת כוכבים שם נסתפקו בעבודת כוכבים אם לוקין שלא כדרך הנאתן אלמא דלא תליא באפרן ומיהו אף א\"ת שבעבודת כוכבים אין לוקין אלא כדרך הנאתן מ\"מ אסור בעבודת כוכבים לרפואה כאן כמ\"ש הר\"נ וריב\"ש ס\"ס רנ\"ה דבעבודת כוכבים אפילו איסור דרבנן אסור לרפואה אפילו במקום סכנה כמ\"ש ס\"פ בן סורר שאסרו שם בסכנה אפילו בפנויה [ולכן כתב חוץ כו' ולא כתב ג\"כ כל הנקברין דאפרן אסור משום דשלא כדרך הנאתן מותר לרפואה] ובשאר איסורים שני התירים בדבר חדא דאפרן מותר ועוד משום שלא כדרך הנאתן ולפי טעם הראשון אפילו לבריא מותר וכ\"נ דמותר לכתחלה משמע וא\"ל דוקא בהנאה ולא באכילה דמאי שנא הא שניהם דאורייתא (ע\"כ):",
+        "(ליקוט) מותר לשרוף שרץ או כו'. לא דק דה\"ה בבשר וחלב שאסור דהוא מהנקברין דאפרן אסור כמ\"ש בסוף תמורה בשלמא שאר נקברין מ\"מ אין לוקין עליהן שלא כדרך הנאתן ומותר לרפואה כמ\"ש בפ\"ב דפסחים ולעיל בש\"ע משא\"כ בב\"ח כנ\"ל בש\"ע:",
+        "חוץ מבעצי עבודת כוכבים. לאו משום דלוקין עליה שלא כדרך הנאתה דבתוס' דעבודת כוכבים נסתפקו וע\"ל סי' קמ\"ב ס\"י מחלוקת בזה אלא משום ביזרא דעבורת כוכבים אסור אפי' דבר שהוא מדרבנן (ע\"כ):",
+        "וכל חולה כו'. כמ\"ש בפ' בתרא דיומא (במתני' פ\"ב א') ע\"פ בקיאין וכן ברפואה ידועה כמש\"ש (פ\"ג פ\"ד) בנשכו כלב שוטה כו' וש\"מ:",
+        "ואין מתירין כו'. דקי\"ל דשבת דחויה היא אצל פיקוח נפש ולא הותרה כמ\"ש הרמב\"ם ברפ\"ג דשבת וכמ\"ש במנחות ס\"ד א' בעי רבא חולה כו' פשיטא כו' וע\"כ ל\"ק ביומא פ\"ד ב' לא ספק שבת זו כו' מ\"ד כו' משום דמסוכן הוא בהשהאתו וז\"ש מאחר שאין סכנה בדבר ר\"ל בהשהאה אע\"ג שהוא חולה שיש בו סכנה וה\"ה בכל איסור וכמש\"ש פ\"ג א' מאכילין אותו הקל כו' ושם א\"ר היכא דאפשר בחולין כו' אפשר בחולין פשיטא ל\"צ כו'. [ובסוף פ\"ב דפסחים לא ילעוס אדם חטים כו' אע\"ג דשלא כדרך הנאתו הוא ומותר כמ\"ש הרמב\"ם בפ\"ה מהלכות יסודי התורה בד\"א כו' אבל שלא כדרך הנאתן כגון שעושין לו רטיה או מלוגמא מחמץ כו' אלא דמתני' משום שיכול לרכך החטים במי פירות וכיוצא אלא דלועסין משום שקרוב יותר דלא כמגן אברהם ר\"ס תס\"ו]:"
+      ],
+      "en_segments": [
+        "Some say that all, etc. Like the prohibition of Torah not in its usual manner of benefit ; forbidden rabbinically as written above \"one is not lashed,\" etc. ; it implies but rabbinically it is forbidden. Turei Zahav and the Ran question this.",
+        "And even stam yeinam, etc. In the Ran chapter \"Kol sha'ah\" it implies equal to other rabbinic prohibitions; but the Rivash siman 255 wrote: perhaps because of his pressing need he mentioned it; but stam yeinam is in the category of idolatry like asherah wood ; although there is only a plain negative commandment it is forbidden, and so sorcery; and even in rabbinic prohibitions as written in Sanhedrin 75a, and so stam yeinam which they forbade for benefit and made it like actual yayin nesech, as Tosafot 29b s.v. yayin menalan write; and so we say there 62b its prohibition is stringent like yayin nesech, and we resolve its rental is forbidden like yayin nesech; and we say there \"perhaps they fertilize with them\" ; and although all things burned their ashes are permitted, it is in the category of idolatry whose ashes are forbidden, and even its rental wheat all the more so stam yeinam itself; see there ; except for the first reasoning that holds even for idolatry it is permitted in such a case, whatever he did not say specifically from idolatry and stam yeinam, and all the more so in our time when otherwise they permit for benefit as written in siman 123 in the gloss.",
+        "And to make from it, etc. The Rashba forbids as written in siman 123 seif 2 ; we say anointing is like drinking, and all the more bathing; and we do not say it is permitted in rabbinic prohibitions of benefit except benefit but not drinking. And although anointing like drinking is only rabbinic and a mere asmachta in what Tosafot and the Rosh write in the last chapter of Yoma ; otherwise how did they permit anointing on Yom Kippur for the ill in his head, and bathing there for several matters and immersion ; nevertheless bathing is forbidden, for we find they were stringent even in rabbinic prohibition like terumat chutz la'aretz as we say in Niddah 32a, and all the more so in idolatry and stam yeinam prohibition where even rabbinically one should be killed and not transgress as above ; except for the first reasoning in seif 2 one need not deliver as above. There in Rashba ; but the Rav permitted for the aforementioned reason per his view that stam yeinam in our time is permitted for benefit otherwise, and bathing nevertheless is not actual drinking; so he wrote \"provided,\" etc., as above.",
+        "(Collected) Provided that he does not eat, etc. Meaning, this applies to all rabbinic prohibitions. The Ran in chapter 2 of Avodah Zarah writes: Nevertheless, regarding eating we have no permission, for perhaps the Sages treated them like Torah prohibitions and forbade using them for healing when there is no danger (end).",
+        "(Collected) Since there is no danger. Where there is danger it is permitted, not only according to the first view in seif 2, but even according to the latter view. Since ordinary gentile wine is permitted for benefit because contemporary non-Jews are not idolaters, and it is forbidden only because of intermarriage, it is like other prohibitions, which are permitted in danger, and like all rabbinic prohibitions, since it contains no element of idolatry, as above. Therefore Rabbeinu Yitzchak ruled that ordinary gentile wine nowadays is nullified in sixty, unlike prohibitions that are forbidden in any amount because of an idolatry concern, as stated in Avodah Zarah 73a. Although the Rashba disagrees with this, he nevertheless rules that any wine forbidden only for drinking forbids a mixture only in sixty, as stated above, siman 134, seif 2 (end).",
+        "All the more so it is permitted, etc. As stated there, 66b. Tosafot there, s.v. “Abaye,” however, write that sprinkling wine for fragrance is certainly forbidden, for it constitutes full benefit. See siman 108, seif 8, in the gloss, which attempts to distinguish between actual idolatrous libation wine and ordinary gentile wine. This does not appear correct, and the Shach already challenges it there, seif katan 25.",
+        "Permitted, etc. For all things burned their ashes, etc.; and he wrote except, etc., and even for eating it is permitted; and we also rule that all prohibitions one is not lashed, etc. ; all the more eating live fat, etc.; if so for a sick person where there is danger it is permitted as above; so too the Mordechai in Pesachim there.",
+        "(Likkut) Except for idolatry wood. Not like Mordechai chapter 2 of Pesachim who wrote that also in kilaei hakerem forbidden because he holds ashes are permitted because it is not in the usual manner of benefit ; therefore he also wrote that all prohibitions not in the usual manner of benefit are permitted ab initio (and see above siman 142 s.k. 28 what is written there, and it appears the Mordechai learned from this) ; but Tosafot in Avodah Zarah 12b and the Rosh in Pesachim there wrote there is prohibition, and so the Ramban learns from there that in rabbinic prohibitions even in the usual manner of benefit it is permitted for healing ; for Torah prohibitions not in the usual manner of benefit there is nevertheless prohibition; so too the Ran and Rivash. And in Tosafot in Avodah Zarah there they were uncertain regarding idolatry whether one is lashed not in the usual manner of benefit ; behold it does not depend on ashes; however even if you say for idolatry one is only lashed in the usual manner of benefit, nevertheless idolatry for healing is forbidden here as the Ran and Rivash siman 255 write ; in idolatry even rabbinic prohibition is forbidden for healing even in danger, as written in the chapter \"Ben sorer u'moreh\" they forbade there in danger even with an unmarried woman [therefore he wrote except, etc., and did not also write all buried things whose ashes are forbidden because not in the usual manner of benefit is permitted for healing] ; and in other prohibitions both are permitted in one matter: ashes are permitted, and moreover because not in the usual manner of benefit; and according to the first reason even for a healthy person it is permitted, and so it implies permitted ab initio; and one might say specifically for benefit and not for eating ; what is different that both are from the Torah (end). (Likkut) Permitted to burn a sheretz or, etc. Not precise ; likewise with meat and milk that is forbidden, which is among buried things whose ashes are forbidden as written at the end of Temurah; granted other buried things nevertheless one is not lashed for them not in the usual manner of benefit and it is permitted for healing as written in chapter 2 of Pesachim and above in Shulchan Aruch ; not so with meat and milk as above in Shulchan Aruch. Except for idolatry wood. Not because one is lashed for it not in its usual manner of benefit ; in Tosafot in Avodah Zarah they were uncertain, and see above siman 142 seif 10 dispute on this ; rather because of the seed of idolatry prohibition, even something rabbinic is forbidden (end).",
+        "And every sick person, etc. As stated in the final chapter of Yoma, in the Mishnah on 82a, according to medical experts; likewise, where the treatment is established, as stated there on 83a and 84a regarding one bitten by a rabid dog, etc. This proves the point.",
+        "And we do not permit, etc. For we rule Shabbat is overridden for pikuach nefesh and was not permitted as the Rambam writes in chapter 2 of Shabbat and as written in Menachot 64a: Rava asked ; a sick person, etc. ; obvious, etc.; and therefore there is no difficulty in Yoma 84b \"no doubt this Shabbat,\" etc. ; one who says, etc. ; because it is dangerous in delaying it; so he wrote: since there is no danger in the matter ; meaning in delay, although he is a sick person where there is danger; so too in every prohibition as written chapter 83a \"we feed him the lighter,\" etc.; and there R. said: where possible with non-sacred, etc. ; possible with non-sacred, obvious, no need, etc. [And at the end of chapter 2 of Pesachim: a person should not chew wheat, etc. ; although it is not in its usual manner of benefit and is permitted as the Rambam writes in chapter 5 of Hilchot Yesodei HaTorah in the second version, etc. ; but not in the usual manner of benefit such as making a poultice or a sip from vinegar, etc. ; except the mishnah is because he can soften the wheat in fruit juice and similar; rather chewing because it is closer, not like Magen Avraham siman 466.]"
+      ]
+    },
+    {
+      "id": "yd1/siman155/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 155,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בשאר איסורי הנאה מתרפאין כו':",
+        "שלא כדרך הנאתן כו'. לצורך רפואה אבל שלא לצורך רפואה אפי' שלא כדרך הנאתן אסור הרא\"ש פרק כל שעה ופשוט הוא והיינו באיסורי הנאה אבל באיסורי אכילה שרי כדאי' בפוסקים:",
+        "מותר להתרפאות כו'. ובלבד שלא יאכל וישתה האיסור. שם. וכ\"כ הרב בסמוך והיינו דוקא כדרך אכילתן אבל שלא כדרך אכילתן כ' המרדכי ואגודה ר\"פ כ\"ש בשם ראבי\"ה דמותר. וכתב עוד המרדכי שם דמהאי טעמא מותר לאכול חלב חי ומיהו אדם בריא יזהר ע\"כ ועיין בתשו' ר\"א ן' חיים סי' קי\"ב:",
+        "אפילו חולי כו'. אפי' דרך הנאתן:",
+        "בזמן הזה. כלו' דעובדי כוכבים בזמן הזה לאו עובדי עבודת כוכבים הן וכדלעיל סימן קכ\"ג וקכ\"ד וכמה דוכתי והרשב\"א דאוסר בתשובה (והביאו ב\"י ר\"ס קכ\"ג) לעשות מרחץ מסתם יינם מיירי לדין הש\"ס וכ\"כ הריב\"ש סי' נ\"ה דסתם יינם דינו כדין עצי עבודת כוכבים והיינו לדין הש\"ס ונ\"מ במקום שהגוים שם עובדי עבודת כוכבים הן:",
+        "ולעשות ממנו מרחץ לחולה. אבל לבריא לא דסיכה בכלל שתיה או\"ה שם:",
+        "דמותר לזלף כו'. ע\"ל ס\"ס ק\"ח ס\"ק (י') [כ\"ה]:",
+        "או שאר דבר איסור. אפי' הוא מאיסורי הנאה דקי\"ל כל הנשרפין אפרן מותר חוץ מעצי עבודת כוכבים ויי\"נ ריב\"ש סי' רכ\"ה וכן נראה דעת הרב:",
+        "הרפואה ידועה כו'. עיין בא\"ח סי' שכ\"ח ותרי\"ח:"
+      ],
+      "en_segments": [
+        "From other benefit-prohibitions one may be healed etc.",
+        "Not in the normal manner of enjoyment etc. For medicinal purposes; but not for medicinal purposes, even not in the normal manner of enjoyment is forbidden — the Rosh chapter Kol Sha'ah; and it is simple; and this is regarding benefit-prohibitions, but eating-prohibitions are permitted — as stated by the poskim.",
+        "It is permitted to be healed etc. Provided one does not eat or drink the forbidden matter — there; and so the Rav wrote nearby; and that is specifically in the normal manner of eating; but not in the normal manner of eating — the Mordechai and Agudah at the beginning of the chapter Kol She’hu in the name of Ra’avyah wrote it is permitted; and the Mordechai further wrote there that for this reason it is permitted to eat raw fat; however a healthy person should be careful — end; and see responsum R. Eliyahu ibn Chayim siman 112.",
+        "Even illness etc. Even in the normal manner of enjoyment.",
+        "Nowadays. Meaning that gentiles nowadays are not idolaters, as above siman 123 and 124 and many other places; and the Rashba who forbids in a responsum (brought by Beit Yosef beginning of siman 123) making a bath from their ordinary wine — he deals with the Gemara's law; and so the Rivash siman 55 wrote that ordinary wine has the same law as wood of idolatry — and that is by the Gemara's law; and it is relevant where the gentiles there are idolaters.",
+        "And to make a bath from it for a sick person. But not for a healthy person — for anointing is included in drinking — Or Zarua there.",
+        "That it is permitted to sprinkle etc. See above end of siman 108 s.k. 25.",
+        "Or other forbidden matter. Even if it is from benefit-prohibitions — for we rule that all that is burned its ashes are permitted, except for wood of idolatry and yayin nesech — Rivash siman 225; and so appears the Rav's view."
+      ]
+    },
+    {
+      "id": "yd1/siman157/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 157,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 21,
+      "enSegs": 18,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "חוץ כו'. שם בסנהדרין ואע\"ג דר' ישמעאל פליג קי\"ל כר' יוחנן דאמר נמנו וגמרו וכ\"ה הסוגיא בפ\"ב דפסחים ובפ\"ב דכתובות (י\"ט א') ובפ' בתרא דיומא וש\"מ:",
+        "אם הוא בצנעה כו'. גמ' שם:",
+        "ואם ירצה כו'. כמ\"ש ברפי\"ט דשבת כל מצוה שמסרו כו' ואלישע בעל בנפים בפ\"ד (ורפי\"ט) דשבת ור\"ע וריב\"ב וכל הרוגי מלכות שמסרו עצמן על מצות פרטיות ואמרינן בשוחר טוב מה המכות האלה בין ידיך ואמר אשר הכיתי בית מאהבי המכות האלה גרמו לי ליאהב לאבי שבשמים מה לך יוצא ליסקל על ששמרתי את השבת מה לך יוצא לישרף על שאכלתי את המצה מה לך יוצא ליהרג על שמלתי את בני כו' ובפסחים נ\"ג ב' מה ראו כו' ועתוס' שם בד\"ה מה. ומפר\"ת דצלם כו' והרמב\"ם אוסר ומפרש דכל הנ\"ל בשעה צריכה לכך וכמ\"ש בנ\"י בסנהדרין שם ובחנניה מישאל ועזריה בלא\"ה ל\"ק דפרהסיא אפילו אערקתא דמסאנא כו' וכ\"כ תוס' בכתובות ל\"ג ב' אבל מ\"מ אינו מיושב דשם להנאתו ודניאל שמסר עצמו על התפלה בביתו ועוד הביא הרא\"ש ראיה שם בעבודת כוכבים מירושלמי ר' אבא בר זימנא הוה חייט אצל עובד כוכבים וא\"ל אכול נבילות ואי לא קטילנא לך א\"ל אי בעית למקטיל קטול דלא אכילנא ומסתמא בצנעה היה בביתו של עובד כוכבים אלא שרי\"ו כתב דוקא כשהעובד כוכבים מתכוין להעביר על דת וכן מיירי ההיא דירושלמי וכן ההיא דדניאל אבל דחנניה מישאל ועזריה לא משמע כן כנ\"ל ומתוס' משמע כדברי רי\"ו שכתבו בעבודת כוכבים כ\"ז ב' סד\"ה יכול. ואם רצה להחמיר כו' כמו ר' אבא כו' ובסנהדרין ע\"ד ב' ד\"ה קטול כ' ההוא עובדא כו' משום דלהנאתו היה כמ\"ש תוס' שם ועבר\"ן פ\"ד דשבת:",
+        "ואם יוכל כו'. דאפילו שבות דשבת אסור בהפסד ממון כמ\"ש בפט\"ז דשבת (קכ\"א א') א\"א כבה כו' ובפ\"ב די\"ט (כ\"ב א') כי קמיבעיא לי משום הפסד ממון ובפ' בתרא דע\"ז (ע' א') כמה כיסי משתכחי כו' ולא ידענא כו' וכיוצא בו הרבה:",
+        "ובמקום כו'. כמ\"ש בר\"פ בתרא דקדושין (ע\"א א') ישבו ובדקו כו' ופירשו ואפילו בממונו ממ\"ש בסנהדרין ע\"ג א' אי מהתם ה\"א בנפשיה אבל כו' אלמא אי לאו קרא ה\"א דאפילו להציל נפש חבירו אינו מחוייב להוציא ממונו אבל משמע שם מדבריו דאכל מל\"ת אינו מחוייב להוציא ממונו דהוכיח מדכתבה תורה בכל מאדך בע\"ז והוא שלא כדברי הר\"ן הנ\"ל:",
+        "דהיינו כו' מישראל. שם:",
+        "אם העובד כוכבים כו'. גמ' שם והא אסתר כו':",
+        "(ליקוט) אם העובד כוכבים מכוין כו'. טור ולא כ' אלא גבי פרהסיא כתי' הגמ' שם אבל רש\"י שם ד\"ה שדי כו' כ' בפרהסיא וכן בגזירת המלכות (וכ\"כ הרמב\"ן בכתובות ג' ב' דלא כהראב\"ד ע\"ש) ובהג\"א פ\"א דכתובות ס\"ד ד\"ה ולקמן נסתפק בזה אבל רש\"י ס\"ל אף בג' עבירות להנאת עצמן שרי וע\"ש בד\"ה הני קוקי כו' (וע\"ל ס\"ק י\"ב וס\"ק י\"ד) (ע\"כ):",
+        "אפי' על כו'. שם:",
+        "על ישראל לבדם. מדפריך שם והא אסתר פרהסיא הוה ולא פריך דגזירת המלכות היתה:",
+        "ודוקא כו'. דהרי אלישע בעל כנפים נטלן מראשו והטעם דהרי יכולין להעבירו בע\"כ שיטלוהו מראשו ויושיבוהו בבית האסורין וז\"ש בסנהדרין שם קרקע עולם היא ור\"ל שיכולין לכוף אותה בע\"כ והקשה שם הר\"ן היאך מסר עצמו אלישע בתחלה וכן דניאל בשביל התפלה וכן כל הנך שכ' לעיל במדרש ש\"ט מה לך כו' ותי' דרשאי להחמיר על עצמו למסור במקום שא\"צ כמש\"ל וכ\"כ נ\"י בסנהדרין שם על מש\"ש דקרקע עולם כו' כנ\"ל וכתב דאסור למסור עצמו במקום שא\"צ והא דאלישע בעל כנפים וכן חנניה מישאל ועזריה ומדרש ש\"ט הנ\"ל היינו מפני שהיתה השעה צריכה לכך וכ\"כ בד\"מ משמו וז\"ש כאן מיהו אם כו' וצ\"ע שהרי בש\"ע פסק שלא כדברי נ\"י כמש\"ל ואם ירצה כו' ולא הגיה שם כלום ודא ודא אחת היא:",
+        "אפילו כו' ושלא כו'. גמ' שם:",
+        "ואפילו אין העובד כוכבים כו'. דהא אפילו להתרפאות משלשה דברים אלו אסור ואמרינן בסנהדרין שם (ע\"ה א') מעשה כו' בשלמא אשת איש כו' ואע\"ג דמשום הנאתו ובפ' בתרא דיומא (פ\"ב א') עוברה שהריחה כו' שאין לך דבר כו'. ר\"ן בפ' כ\"ש ע\"ש (שכתב וקשה קצת כו' ואלו הקושיות כו'):",
+        "ודוקא כו'. תוס' דיבמות נ\"ג ב' ד\"ה אין אונס כו' ובכתובות ג' ב' ד\"ה ולידרוש כו' ובסנהדרין שם ע\"ד ב' ד\"ה והא כו' וש\"מ:",
+        "וכל איסור עבודת כוכבים כו'. דהא אשירה דאין מתרפאין מהן אינו אלא לאו בעלמא לא ידבק כו' כמ\"ש בפ\"ג דפסחים (מ\"ח א') וסוף מכות וש\"מ וכן ההוא מעשה דסנהדרין הנ\"ל לא היתה אלא לאו דלא תקרבו וי\"א דרק מדרבנן וכנ\"ל (ע\"ל סי' ק\"נ ס\"ק ד' וסי' קנ\"ה ס\"ק ט\"ז י\"ז כ\"ב) אלא דקשה הא דאמרינן בסנהדרין שם דאלת\"ה הני קוואקי כו' אלמא דל\"ק אלא משום דפרהסיא הוא ואסור אף בשאר מצות דמשום עבודת כוכבים לא משני מידי דשם אף בהנאת עצמן אסור כנ\"ל תי' הר\"ן ונ\"י שם דשם כיון שהוא משום לפני עור כו' אינו בכלל עבודת כוכבים וז\"ש אבל אלאו כו':",
+        "ועובד כוכבים כו'. כ\"כ ר\"ת בתוס' דסנהדרין הנ\"ל ובכתובות בד\"ה הנ\"ל דפריך ולידרוש כו' ובסנהדרין שם דפריך והא אסתר כו' ולא פריך גילוי עריות הוי וגם התי' לא היה עולה הנאת עצמן כנ\"ל וכ\"כ הרמב\"ן ועבר\"ן פ' כ\"ש ובפ' בתרא דיומא אבל תוס' תי' משום דקרקע עולם היתה כנ\"ל ופליגי אר\"ת וכן ש\"פ:",
+        "עובדי כוכבים כו'. ירושלמי פ\"ח דתרומות והביאו הר\"ש שם מתני' י\"ב וכר' יוחנן והרמב\"ם פסק כר\"ל משום ההוא עובדא דריב\"ל שם וצ\"ע:",
+        "וכן כו'. מתני' שם:",
+        "כ\"מ כו'. סנהדרין ס\"א וכרבא:",
+        "(ליקוט) כ\"מ שנא' יהרג כו' ופטור. כרבא בסנהדרין דאמר פטור וכתי' ראשון בתוס' שם אבל הרא\"מ פי' כתי' השני שלא נעשה מעולם לשם עבודת כוכבים אלא מאהבת ויראת אדם כגון אנדרטי והמן דלתי' הראשון קשה דתנן הפוער כו' אע\"ג דמתכוין לבזוייה והזורק כו' אע\"ג דמתכוין למרגמיה. הג\"מ פ\"ג ס\"ק ב' ע\"ש והריב\"ש תירץ הקושיא והביאו כ\"מ ע\"ש (ע\"כ):",
+        "ודוקא שלא יוכל לברוח כו'. ואף שתחלתן באונס כמ\"ש בספ\"ד דכתובות (נ\"א ב') הני נשי דגנבי כו' ודאי שבקינהו כו'. הריב\"ש (ע\"כ):"
+      ],
+      "en_segments": [
+        "Except, etc. There in Sanhedrin; and although R. Yishmael disagrees we rule like R. Yochanan who said they counted and concluded; and so the sugya in chapter 2 of Pesachim and chapter 2 of Ketubot (19a) and the last chapter of Yoma ; learn from this.",
+        "If he is in private, etc. Gemara there.",
+        "And if he wishes, etc. As stated in end of chapter 19 of Shabbat ; every mitzvah they handed over, etc.; and Elisha ba'al kenafayim in chapter 4 (end) of Shabbat; and R. Akiva and R. Yehudah ben Bava and all martyrs of the kingdom who gave themselves for private mitzvot; and we say in Shochar Tov ; what are these wounds between your hands; and he said those who struck me in my lovers' house ; these wounds caused me to love my Father in heaven; why do you go out to be stoned for keeping Shabbat, to be burned for eating matzah, to be killed for circumcising my son, etc.; and in Pesachim 53b ; what did they see, etc.; and Tosafot there s.v. mah. And from Rabbenu Chananel ; image, etc.; and Rambam forbids and explains all the above when the hour requires it as Nekudot Yosef wrote in Sanhedrin there regarding Chananiah Mishael and Azariah ; otherwise no difficulty of public [even a cloak of fine wool, etc.]; and so Tosafot in Ketubot 33b; but nevertheless it is not settled for there for his benefit; and Daniel who gave himself for prayer in his house; and Rosh brought proof there in Avodah Zarah from Yerushalmi ; R. Abba bar Zavina was a tailor with a gentile who said eat nevelah or I kill you; he said if you wish to kill ; kill for I will not eat; and presumably in private in the gentile's house; but Rashi wrote specifically when the gentile intends to make him transgress religion; and so is that Yerushalmi case and Daniel's case; but Chananiah Mishael and Azariah do not imply so as stated; and from Tosafot implies like Rashi's view who wrote in Avodah Zarah all this 27b s.v. yachol. And if he wishes to be stringent, etc. like R. Abba, etc.; and in Sanhedrin 74b s.v. ktol he wrote that incident, etc. ; because it was for his benefit as Tosafot wrote there and Ramban chapter 4 of Shabbat.",
+        "And if he can, etc. For even rabbinic Shabbat violation is forbidden with monetary loss as stated in end of chapter 19 of Shabbat (121a) it is impossible to extinguish, etc.; and in chapter 2 of Yom Tov (22a) for I am asked because of monetary loss; and in last chapter of Avodah Zarah (70a) how many purses are found, etc. and I do not know, etc.; and many similar.",
+        "And in a place, etc. As stated in last chapter of Kiddushin (71a) they sat and examined, etc.; and they explained even with his money from what is stated in Sanhedrin 73a if from there you would say for himself ; but, etc.; evidently if not for a verse you would say even to save another's life he is not obligated to give his money; but it implies there from his words that for all negative commandments he is not obligated to give his money ; he proved from Torah writing \"with all your might\" regarding idolatry; and this is not like Ran cited above.",
+        "That is, etc. , of Israel. There.",
+        "If the gentile intends, etc. Gemara there ; but Esther, etc.: (Extract) If the gentile intends, etc. Tur and the Gemara only wrote regarding public; but Rashi there s.v. shedei, etc. wrote in public; and so regarding royal decree (and so Ramban in Ketubot 3b unlike Ra'avad ; see there); and in Hagahot Ashri chapter 1 of Ketubot 64 s.v. velakman I was uncertain on this; but Rashi holds even for three prohibitions for their own benefit it is permitted ; see there s.v. hani kuki, etc. (and see s.k. 12 and 14) (end).",
+        "Even upon, etc. There.",
+        "Upon Israel alone. From the fact that it challenges there \"but Esther was in public\" ; and does not challenge that it was a royal decree.",
+        "And specifically, etc. For Elisha ba'al kenafayim took them from his head; and the reason ; they can force him to remove them from his head and seat him in prison; and this is what is stated in Sanhedrin there ; the world is ground (meaning they can force it against his will); and Ran challenged there how did Elisha initially give himself up; and likewise Daniel for prayer; and likewise all those cited above in midrash Shochar Tov ; what do you, etc.; and they explain one may be stringent on himself to give up life where not necessary as stated; and so Nekudot Yosef in Sanhedrin there on what is stated the world is ground, etc. as stated; and he wrote forbidden to give oneself up where not necessary; and that Elisha ba'al kenafayim and Chananiah Mishael and Azariah and midrash Shochar Tov cited ; because the hour required it; and so Darkei Moshe in his name; and this is what he wrote here however if, etc.; and requires study for behold in Shulchan Aruch he ruled not like Nekudot Yosef as stated; and if he wishes, etc. and he emended nothing there ; certainly one matter.",
+        "Even so, and not so. Gemara there.",
+        "And even if the gentile, etc. For it is forbidden even to obtain healing through any of these three transgressions. Sanhedrin 75a relates the incident, etc.; the Gemara explains that this is understandable in the case of a married woman, etc., even though the coercer's purpose was his own gratification. Likewise, at the end of Yoma, regarding a pregnant woman who smelled food, etc., it states that nothing stands before danger to life, etc. See the Ran in the chapter Kol Sha'ah, who writes that this is somewhat difficult, etc., and discusses these questions, etc.",
+        "Specifically, etc. Tosafot to Yevamos 53b, s.v. “There is no coercion,” etc.; Kesubos 3b, s.v. “Let them expound,” etc.; and Sanhedrin 74b, s.v. “But Esther,” etc. This proves the ruling.",
+        "And every idolatry prohibition, etc. For the asheirah from which one is not healed is only a plain negative commandment lo yidbak, etc. as stated in chapter 3 of Pesachim (48a) and end of Makot ; learn from this; and likewise that incident in Sanhedrin cited was only negative commandment of lo tikravu; and some say only rabbinically as stated (see siman 150 s.k. 4 and siman 155 s.k. 16, 17, 22); except it is difficult that we say in Sanhedrin there ; if so these kuki, etc.; evidently no difficulty except because it is public and forbidden even for other mitzvot because of idolatry makes no difference ; there even for their own benefit forbidden as stated; Ran and Nekudot Yosef explained there since it is because of lifnei iver, etc. it is not in the category of idolatry ; and this is what he wrote but a plain prohibition, etc.",
+        "And a gentile, etc. So Rabbeinu Tam in Tosafot of Sanhedrin cited and in Ketubot s.v. cited who challenges and to expound, etc.; and in Sanhedrin there who challenges but Esther, etc. and does not challenge gilui arayot; and also the explanation was not for their own benefit as stated; and so Ramban and Ramban chapter 21 and last chapter of Yoma; but Tosafot explain because the world was ground as stated; and they disagree with Rabbeinu Tam; and so Shach.",
+        "And likewise, etc. Mishnah there.",
+        "As is stated kill, etc. and exempt. Like Rava in Sanhedrin who said exempt; and the first version in Tosafot there; but Ra'avan explained the second version that it was never for idolatry but from love and fear of man such as monuments and Haman whose first door is difficult for our mishnah one who exposes, etc. even though he intends to disgrace; Hagahot Maimoniyot chapter 3 s.k. 2 ; see there; and Rivash resolved the difficulty and Knesset HaGedolah brought it ; see there (end).",
+        "Specifically where he cannot escape, etc. This applies even though the matter began under coercion, as stated at the end of the fourth chapter of Kesubos 51b regarding women who were abducted, etc.: certainly, if their captors released them, etc. Rivash."
+      ]
+    }
+  ]
+}

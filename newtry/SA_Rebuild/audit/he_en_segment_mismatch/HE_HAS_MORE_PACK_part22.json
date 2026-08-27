@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 22,
+    "chunk_total": 66,
+    "case_offset": 230,
+    "cases_in_chunk": 12,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman294/seif-016/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אחד כו'. ת\"כ אין לי אלא שנטע אגוז ושקד נטע ייחור מנין ת\"ל כל עץ:",
+        "או שעקר כו' ואחד כו'. פ\"ק דר\"ה (ט' ב') ת\"ד אחד הנוטע כו':",
+        "דהיינו כו'. תוס' שם ד\"ה מבריך כו':",
+        "ודוקא כו'. תוס' שם ד\"ה מרכיב לתרץ ההיא דת\"כ וכן הוא מפורש במתני' פ\"ק דערלה סיפוק הגפנים וסיפוק כו' הבריכה שנה אחר שנה ונפסקה כו' וכן בריכה שנפסקה כו'. והרמב\"ם כתב דה\"ה למרכיב והוא תמוה מאד דאם הרכיב ילדה בזקנה בטלה ילדה ואפי' נקצץ ואם זקנה בילדה כ\"ש שבטלה הזקנה ואפי' לא נקצץ וכמ\"ש למטה ואפי' ילדה בילדה לכי מטי שלש לילדה ראשונה שניה נמי שרי כמ\"ש תוס' במנחות ס\"ט ב' ד\"ה דאמר כו' מדלא מוקי בסוטה כה\"ג אלא ההיא דת\"כ במרכיב ילדה בזקנה וההיא דר\"ה בילדה בילדה וכגון שנטען לסייג כו' וכמ\"ש בסוטה שם וכ\"כ הר\"ש והמרדכי בפ\"ק דקדושין והר\"נ בפ\"ק דר\"ה וכתב הר\"נ שם דעוד משכחת לה במרכיב באילן סרק וכמ\"ש בתוספתא וירושלמי פ\"ק דערלה עובד כוכבים שהרכיב אילן מאכל ע\"ג אילן סרק אע\"פ שאין ישראל רשאי לעשות כן יש בו משום ערלה מאימתי מונין לו משעת נטיעתו ונ\"ל שז\"ש בסוטה שם ל\"ק כאן בהרכבת כו' האי הרכבת היתר ה\"ד כו' דר\"ל בל\"ז ה\"א באילן סרק. ומ\"מ כ\"ז צ\"ל דמש\"ש בפ\"ק דר\"ה שלשים יום כו' במרכיב קאי אאילן הראשון וכמ\"ש בירושלמי הנ\"ל מאימתי כו' וכן בגווני הראשון לסייג ולקורות כמ\"ש בגמ' דאיסורה אינה אלא משום דמימליך כו' וזה אינה אלא עד ג\"ש כמ\"ש בירושלמי וכמ\"ש בסכ\"ג ויכול לאוקמי ההיא דר\"ה בזקנה בילדה ואפי' לאכילה [וכן פירש\"י בסוטה שם בד\"ה בטילה כו' וכי תנן כו'] ולכן לא פריך גמ' אלא בסוטה שם ולא בפ\"ק דר\"ה. אבל במחובר או נפסק אין נ\"מ כלל ולכן לא נזכר במתני' דין ההפסק אלא בהברכה:",
+        "(ליקוט) ודוקא שחתכו כו'. עמש\"ש דזה במבריך אבל במרכיב כתב הר\"נ שהוא במרכיב באילן סרק אע\"פ שאינו רשאי ואע\"פ שמונה משעת נטיעתו צ\"ל דקאי אאילן הראשון. ובירושלמי פ\"ק דערלה תני עובד כוכבים שהרכיב אילן מאכל ע\"ג אילן סרק אע\"פ שאין ישראל רשאי לעשות כן חייב בערלה מאימתי הוא מונה לו משעת נטיעתו רשב\"ל אמר ובלבד דברים שהן באים במחשבה כגון חרובי צלמונה וחרובי גידודה אבל ערבה כנטוע בארץ ר' יוחנן אמר אפי' ערבה והתנינן אין נוטעין אין מבריכין ואין מרכיבין ערב שביעית פחות משלשים יום לפני ר\"ה ואם נטע או הבריך או הרכיב יעקור ע\"ד דרשב\"ל דו פתר לה בערבה ניחא ע\"ד דר\"י דו אמר אפי' ערבה ל\"ל יעקר שנייא היא שהן מתאחין בשביעית והא דתנינא הנוטע והמבריך והמרכיב שלשים יום לפני ר\"ה עלתה לו שנה שלימה ומותר לקיימו בשביעית פחות משלשים יום לפני ר\"ה לא עלתה לו שנה שלימה ואסור לקיימו בשביעית אבל אמרו פירות נטיעה זו אסורין עד ט\"ו בשבט תני ר' יהושע לית כאן מרכיב א\"ר אבא אפי' לר\"ל לית כאן מרכיב לשעבר הא בתחלה לא ר\"ל שא\"א להמצא מרכיב אלא באיסור ודיעבד והמרכיב משמע אפי' לכתחלה וזו ראיה שא\"א להמצא מרכיב אלא כה\"ג (ע\"כ):",
+        "ואם לאחר כו'. מתני' סיפוק הגפנים כו':",
+        "הפסיק כו'. שם הבריכה שנה כו':",
+        "ואם כו'. שם אילן כו':"
+      ],
+      "en_segments": [
+        "Whether one, etc. ; Torat Kohanim states: I have only one who planted a nut and almond tree, planted a shoot; from where. Scripture teaches “every tree.”",
+        "Or if he uprooted, etc., and whether one, etc. ; first chapter of Rosh Hashanah (9b): Tanna: one who plants, etc.",
+        "That is, etc. See Tosafos there, s.v. “one who grafts,” etc.",
+        "And specifically, etc. ; Tosafot there s.v. markiv to resolve that of Tosefta, and so explicit in mishnah chapter 1 of Orlah grafting of vines and grafting, etc., layering year after year and it ceased, etc., and likewise layering that ceased, etc.; and Rambam wrote that likewise for markiv, and it is very astounding; if he layered a young shoot in an old tree the young is nullified, even if cut; and if old in young, all the more the old is nullified even if not cut, as written below; and even young in young; when three years reach the first bearing, the second is also permitted, as Tosafot in Menachot 69b s.v. de'amar, etc., since they do not establish in Sotah such a case except that of Tosefta in layering young in old, and that of Rosh Hashanah young in young, and such as planted for a fence, etc., as in Sotah there, and so Rosh and Mordechai in chapter 1 of Kedushin and Ran in chapter 1 of Rosh Hashanah; and Ran wrote there that one also finds layering in a barren tree, as in Tosefta and Yerushalmi chapter 1 of Orlah: gentile who layered food tree on barren tree; even though Israel may not do so, there is orlah; from when do we count. From time of planting; and it appears that this is what is in Sotah there; no difficulty here in layering, etc., “this layering is permitted”; how so, etc., meaning in our time it would be in a barren tree. Nevertheless all this must be said that what is written in chapter 1 of Rosh Hashanah “thirty days,” etc., regarding layering refers to the first tree, as in Yerushalmi cited “from when,” etc.; and likewise in the first manner for fence and beams, as in gemara its prohibition is only because one consults, etc., and this is only until three years, as in Yerushalmi and as in siman 223; and one can establish that of Rosh Hashanah as old in young even for eating [and so Rashi in Sotah there s.v. batilah, etc., and when we learned, etc.]; and therefore the gemara only challenges in Sotah there and not in chapter 1 of Rosh Hashanah. But attached or ceased; no difference at all; therefore mishnah law of cessation is mentioned only in layering. (Likut) And specifically when he cut it, etc.; from what he wrote that this is in layering; but in markiv Ran wrote it is markiv in a barren tree even though not permitted, and even though counted from planting; it must refer to the first tree. And in Yerushalmi chapter 1 of Orlah teaches: gentile who layered food tree on barren tree; even though Israel may not do so, liable in orlah; from when counted. From planting; Rashbag said: provided things that come to mind, such as carobs of Tzalmona and carobs of Geduda; but willow like planted in ground; R' Yochanan: even willow; and we learned: one does not plant, layer, or markiv on the eve of sheviit less than thirty days before Rosh Hashanah; if he planted, layered, or markived; uproot; according to Rashbag both resolve it with willow; according to R' Yosi both say even willow; why uproot. It is different, for they join in sheviit; and that which we learned “one who plants, layers, and markives thirty days before Rosh Hashanah; a complete year counts for him and permitted to keep in sheviit; less than thirty days before Rosh Hashanah; a complete year did not count and forbidden to keep in sheviit”; but they said: fruits of this planting are forbidden until 15 Shevat; R' Yehoshua taught: there is no markiv here; R' Abba: even according to R' Eliezer there is no markiv for the past; at first R' Eliezer that markiv cannot be found except in prohibition and after the fact, and markiv implies even ab initio; and this is proof markiv cannot be found except such (end of comment).",
+        "And if afterward, etc. This is the Mishnah there concerning the grafting of vines, etc.",
+        "It became detached, etc. This is stated there concerning a branch layered year after year that was subsequently detached, etc.",
+        "And if, etc. This is stated there concerning a tree, etc."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-026/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 26,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בין לעצמו. כנ\"ל ס\"ח:",
+        "ועל גג כו'. ממ\"ש בפ' בתרא דמעשרות בצלים שהשרישו בעליה כו' אלמא כנטועין בשדה ואע\"נ דאמרינן במנחות פ\"ד ב' גג אגג ל\"ק כו' היינו דוקא לענין בכורים דבעינן משבח ארצך מידי דהוה אחורבה שאינה עבודה ותמרים שבהרים ופירות שבעמקים ואדרבה משם ראיה להיפך דקאמר שם פ\"ה א' אלא לר\"י קשיא תנאי היא כו' ולא תי' כלום מגג וחורבה וערש\"י שם ד\"ה תנאי כו' וצ\"ל דגג וחורבה עדיפי מתמרים שבהרים ופירות שבעמקים ודאי לר\"ל דמצי ליישבם אליביה אבל לר\"י לא הקשה אלא מעציץ וספינה. וא\"צ לכל האריכות הזה דמפורש בתוספתא כנ\"ל:",
+        "(ליקוט) ועל גג כו'. ראייתו של הרא\"ש ממ\"ש בפ\"ה דמעשרות בצלים שהשרישו כו' ולמד דאף בתרומות ומעשרות חייב כמש\"ש בתשובה. אבל הוא תמוה דדוקא לענין טומאה אמרו ולא לתו\"מ כמ\"ש בתוספתא פ\"ג דמעשרות בצלים שהשרישו זה בזה בקופות ה\"ז בחזקתן למעשרות ולשביעית אם היו טמאים לא עלו מידי טומאתן ומותר לתלוש מהן בשבת השרישו זה בזה בקרקע עלייה ה\"ה בחזקתן למעשרות ולשביעית ואם היו טמאים עלו מידי טומאתן ואסור לתלוש מהן בשבת ואם תלש פטור נפלה עליהן מפולת והן מגולין הרי אלו כנטועין בשדה אסורין בשביעית וחייבין במעשרות וכ\"כ הר\"ש שם ומ\"ש נפלה כו' וכן במתני' שם לא קאי אעלייה אלא בארץ ממש (ע\"כ):",
+        "אע\"פ כו'. אע\"ג דבירושלמי אמר כ\"ח ס\"ל דכ\"ש בשל עץ וכשיטת תוס' בפ\"ק דגטין ובמנחות שם אבל הרא\"ש והטור כתבו כאן כשיטת רש\"י ודוקא בכ\"ח אבל בירושלמי משמע כדברי הרמב\"ם דבכל ענין מדאיבעיא להו אי מהני ג\"כ לזרעים הואיל והשרשים של האילן ניקבו אותו כבר אבל לשיטת רש\"י א\"צ לזה דהא נקוב הוא ג\"כ לכ\"ד. ושיטת הרמב\"ם דלא מפליג בכ\"מ לשל חרס או של עץ דס\"ל דוקא בספינה מחלקינן בין עץ לחרס שהמים מלחלחים אותה ועתוס' במנחות שם ופ\"ק דגטין ור\"ש בפ\"ב דחלה מתני' ב' ועמ\"ש בא\"ח סי' של\"ו ס\"ח:"
+      ],
+      "en_segments": [
+        "Whether for himself. As explained above in seif katan 8.",
+        "And upon a roof, etc. ; from what is written in last chapter of Maasrot: onions that took root in an upper story; apparently like planted in a field; and even though we say in Menachot chapter 4b “roof on roof; no difficulty,” etc.; that is specifically regarding bikkurim that require “from the praise of your land,” unlike a ruin that is not cultivation, and dates on mountains and fruits in valleys; and on the contrary, from there proof to the contrary, for it says there chapter 5a: rather for R' Yosi it is difficult; it is a dispute of tannaim, etc., and do not infer anything from roof and ruin; and Rashi there s.v. tanai, etc.; must say roof and ruin are preferable to dates on mountains and fruits in valleys; and certainly for R' Eliezer he can reconcile them to him, but R' Yosi only challenged from pot and ship. And all this length is unnecessary, for explicit in Tosefta as above. (Likut) And on a roof, etc.; Rosh's proof from what is written in chapter 5 of Maasrot: onions that took root, etc., and he learned that even for terumot and maasrot he is liable, as in his responsum; but it is astounding, for they said only regarding impurity and not terumot and maasrot, as in Tosefta chapter 3 of Maasrot: onions that took root one in another in pots; they remain in presumption for maasrot and sheviit; if they were impure they did not leave their impurity and permitted to detach on Shabbat; took root one in another in ground of an upper story; likewise in presumption for maasrot and sheviit; if impure they left impurity and forbidden to detach on Shabbat; if detached; exempt; a collapse fell on them and they are exposed; behold these are like planted in a field, forbidden in sheviit and liable in maasrot; and so Rosh there; and what he wrote “fell,” etc., and likewise in mishnah there; it does not refer to upper story but actual ground (end of comment).",
+        "Even though, etc. ; even though in Yerushalmi R' Chiya holds all the more in a wooden one, and like Tosafot in chapter 1 of Gittin and Menachot there; but Rosh and Tur wrote here like Rashi's view, and specifically earthenware; but in Yerushalmi it implies like Rambam's words that in every matter, since they were in doubt whether it helps also for seeds, since the tree's roots already perforated it; but according to Rashi this is unnecessary, for it is perforated also according to all. And Rambam's view that he does not distinguish in all places between earthenware and wood; he holds specifically in a ship we distinguish between wood and earthenware, for water softens it; and Tosafot in Menachot there and chapter 1 of Gittin and Rosh in chapter 2 of Challah mishnah 2; and see Orach Chaim siman 336 seif 8."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור כו' ונאסרו כו'. מפורש בכמה מקומות ועבה\"ג ועבס\"ד:",
+        "בהנאה שנאמר כו'. ספ\"ב דקדושין:",
+        "ואפי' הקש כו'. עבה\"ג ועתוס' דפסחים כ\"ה א' ד\"ה עיקרן כו':",
+        "(ליקוט) ואפי' הקש כו' והעצים כו'. וכ\"כ תוס' בפסחים כ\"ה א' ד\"ה עיקרן כו' אבל לי נראה ברור דהעצים מותרין וכן הקש וז\"ש בפסחים שם זאת אומרת כו' עיקרן כו' דוקא עיקרן ואם איתא לא גרע עיקרן מהקש והעצים וכן בכתובות פ' א' ובב\"ב ל\"ו א' אכלה ערלה כו' ודלא כמו שדחקו בתוס' שם ושם וראיה ממ\"ש בפ\"י דתרומות ובפ\"ג דערלה מי שה\"ל חבילי תלתן בכלאי הכרם ידלקו ואם איתא מאי שנא חבילי תלתן דנקט אלא דוקא תלתן שטעם עצו ופריו שוה ומ\"ש בפסחים כ\"ו ב' בקשין של כלאי הכרם היינו ג\"כ בתלתן דומיא דקליפי ערלה שאינו אלא בקליפין של אגוזים ורמונים אלא שבירושלמי ספ\"ה דכלאים והביאו הר\"ש שם מתני' ז' ר\"ז בשם ר\"ל בשם ר\"א אם עשבים כו' ר' יוחנן כו' ועוד שם ר' יעקב בר אידי בשם ר\"ל פעמים שהקשין מותרין והדגן אסור פעמים שהקשין אסורין והדגן מותר כו' וכמ\"ש לקמן סעיף ס\"ו וצ\"ל גם זה בתלתן ודוחק וצ\"ע אבל העצים ודאי מותר ובזה ניחא ההיא דחבילי זמורות הנ\"ל (ע\"כ):",
+        "בעת שריפתן. לאפוקי אפרן שמותר לכתחלה וגחלים דיעבד כמש\"ש כ\"ו ב' ועתוס' שם ד\"ה בישלה כו' ועמ\"ש בא\"ח סי' תמ\"ה ס\"ב:"
+      ],
+      "en_segments": [
+        "It is forbidden, etc., and they become forbidden, etc. This is explicit in several places. See Baer HaGolah and seif 4.",
+        "For benefit, as it is stated, etc. This is taught at the end of the second chapter of Kiddushin.",
+        "And even the straw etc. Baer Hagolah and Tosafot Pesachim 25a s.v. ikran etc. Likut: and even straw etc. ; so Tosafot Pesachim 25a; but to me it appears clear that wood is permitted and so the straw; Pesachim says \"this teaches\" etc. ; specifically ikran; if so, ikran is not worse than straw and wood; Ketubot chapter 1 and Bava Batra 36a ; \"ate orlah\" etc., unlike Tosafot's forced reading; proof from Terumot chapter 10 and Orlah chapter 3 ; bundles of flax in kilay hakerem must be burned; if so, why mention flax bundles specifically ; only flax whose wood and fruit taste the same; Pesachim 26b bundles of kilay hakerem ; also flax, similar to orlah peels only on walnut and pomegranate shells; Yerushalmi chapter 5 and Rosh there ; mishnah 7, R' Zeira in R' Elazar's name: if grasses etc., R' Yochanan etc.; R' Yaakov bar Idi in R' Levi's name: sometimes straw permitted and grain forbidden, sometimes straw forbidden and grain permitted etc., as below seif 66 ; must say this too is in flax, forced, requires study; but wood is certainly permitted ; this resolves the bundles of vines case ; end.",
+        "At time of their burning. ; to exclude ashes that are permitted initially, and coals post factum, as written 26b; and Tosafot there s.v. \"when he cooked,\" etc.; and see Orach Chayim siman 445 s.k. 2."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-004/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אחד כו'. מתני' פ\"ה דכלאים:",
+        "כיון שראה כו'. מתני' שם הרואה כו' ושם סיערתו הרוח לפניו ועתוס' דב\"ב ב' ב' ד\"ה נתייאש כו':",
+        "ואין אדם כו'. עבה\"ג ועתוס' שם ד\"ה קידש כו' ועתוס' שם ד\"ה ד' יוסי כו' ועמ\"ש למטה בס\"י על ההיא דמנחות:",
+        "(ליקוט) פ' כשמואל יבמות ס\"פ הערל ואע\"ג דר\"ה א\"ר פליג רב אדא בשם רב ס\"ל כוותיה ואין הלכה כאחד במקום שנים דלא כהרא\"ש ביבמות שם שפסק כר\"ה וערא\"ש במ\"ק (פ\"א סי\"ג) על מתני' לא יעורר כו' ועבח\"מ סי' תי\"ד ס\"א בהג\"ה ששם פ' הרא\"ש וסייעתיה כר\"ה א\"ר והרמב\"ם כר\"א בר אהבה (ועמש\"ש) (ע\"כ):",
+        "לפיכך כו'. ירושלמי שם א\"ר יוחנן הכל מודים בענבים שהן אסורות אר\"א האוסר אינו נאסר ושאינו אוסר נאסר מה פליגין במסכך את גפנו ע\"ג תבואתו של חבירו אבל המסכך גפנו של חבירו ע\"ג תבואתו כל עלמא מודיי שהאוסר נאסר המסכך גפנו של חבירו ע\"ג תבואתו של חבירו נשמעיניה מן הדא אר\"י מעשה באחד שזרע את כרמו בשביעית ובא מעשה לפני ר\"ע ואמר אין אדם אוסר דבר שאינו שלו הרי אין הגפן שלו ואין התבואה שלו ואיתותב והביאו הר\"ש שם ופ' כר' יוחנן:"
+      ],
+      "en_segments": [
+        "One, etc. This is the Mishnah in the fifth chapter of Kilayim.",
+        "Once he saw, etc. This follows the Mishnah there, “one who sees, etc.,” and the case there in which the wind swept it before him. See Tosafot, Bava Batra 2b, s.v. nityaesh.",
+        "And no person, etc. ; Beit HaGadol; and Tosafot there s.v. \"he sanctified,\" etc.; and Tosafot there s.v. \"four Yose,\" etc.; and see below in this seif on that of Menachot. (Likut) Chapter \"Shmuel\" Yevamot end \"the foreskin\": and even though R' Hoshaya disputes ; Rav Ada in the name of Rav holds accordingly; and halacha is not like one against two ; not like Rosh in Yevamot there who ruled like R' Hoshaya; and Or Zaru'a in Mo'ed Katan (chapter 1 seif 13) on mishnah \"one may not arouse,\" etc.; and Choshen Mishpat siman 414 seif 1 in gloss where Rosh's chapter and his supporters like R' Hoshaya; and Rambam like R' Elazar bar Ahavah (and see what is written) (end).",
+        "Therefore, etc. ; Yerushalmi there: R' Yochanan ; all admit regarding grapes they are forbidden; R' Elazar: one who forbids is not forbidden, and one who does not forbid is forbidden; what do they dispute in one who roofs his vine over his fellow's grain ; but one who roofs his fellow's vine over his grain ; all admit the forbidding one is forbidden. One who roofs his fellow's vine over his fellow's grain ; we learn it from this: R' Yosi ; incident of one who sowed his vineyard in shemitah and the matter came before R' Akiva and he said: a person does not forbid what is not his ; behold neither the vine nor the grain is his ; and he was refuted; and Rosh brought there and explained like R' Yochanan."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-032/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 32,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכמה כו'. ירושלמי פ\"ד הלכה א' דאר\"ז ר' ייסא בשם ר' מתנא אין זנב לכרם גדול ולא מחול לכרם קטן אין זנב לכרם גדול שאי אתה זקוק לו ואין מחול לכרם קטן לוסר חוצה לו יותר מתוכו תוכו שמנה וחוצה לו שתים עשרה ואיזה כרם קטן שלש כנגד שלש כו' [ובתוספתא פ\"ג וכמה מטעתה ג' נגד ג'] וכ\"מ ממתני' ב' בפ\"ז המבריך ג' גפנים כו' לפי' הר\"ש והראב\"ד:",
+        "וכן אם היה כו' היו ג' כו'. פסק כחכמים אלא דוקא בג' שאפי' רואה את השורה האמצעית כאלו אינה נשארו ב' שורות והוא כרם משא\"כ בב' שורות:",
+        "(ליקוט) וכן אם היה כו'. דבכה\"ג מודו רבנן לר\"ש ממ\"ש בב\"ב פ\"ג א' רצופין דתנן כו' וכן פסק רבא שם וא\"א לומר דכולה כיחידאה ועוד דאמר שם מדלר\"ש פלגא לרבנן כו' ורבנן דהכא ס\"ל אפי' פחות מד' וצ\"ל דפליגי ארבנן דהתם אלא דבג' אילנות מודי רבנן שאם יטול א' מהן לא ישארו אלא שתים ומש\"ש ל\"ז ב' אר\"ז כתנאי כו' התם באילנות הרבה. אבל הרי\"ף פסק שם כרבא וכתב הרא\"ש שם דס\"ל דרבא דאמר אפי' כרבנן דע\"כ ל\"ק רבנן אלא לענין כלאים דעבידי דנטעי הכי כו' ורשב\"ם פ\"ג א' ד\"ה רואין כו' כתב דחומרא הוא לענין כלאים ולכאורה דבריו תמוהין דהא אמרינן בפ\"ג כתנאי כנ\"ל ולדברי הרא\"ש ניחא דר\"ז ס\"ל הכי ודחקום כ\"ז לומר דרבא וכולהו אמוראי שם הכל אליבא דר\"ש אבל להרמב\"ם ניחא הכל (ע\"כ):"
+      ],
+      "en_segments": [
+        "And how much etc. Yerushalmi chapter 4 halachah 1 ; R' Zeira, R' Yisa in R' Matna's name: a large vineyard has no tail and a small vineyard has no mechol; a large vineyard has no tail because you do not need it; a small vineyard has no mechol lest he forbid outside more than inside ; inside eight, outside twelve; which is a small vineyard ; three against three etc. [Tosefta chapter 3: how much its planting ; three against three]; and so from mishnah 2 chapter 7 hamarbich three vines etc. per Rosh and Raavad.",
+        "And likewise if there were three etc. Ruled like the Sages, but specifically with three ; for even if one sees the middle row as if it were not there, two rows remain and it is a vineyard; not so with two rows. Likut: and likewise if there were three etc. ; in this case the Sages agree with R' Shimon from what is said in Bava Batra chapter 3 ; \"planted in a row\" as we learned etc.; so Rava ruled there; cannot say the whole thing is like an individual; further they said there from R' Shimon half goes to the Sages etc.; the Sages here hold even less than four; must say they argue on the Sages there, but with three trees the Sages agree that if he takes one only two remain; what is written 37b2 ; R' Zeira: tannaim dispute there with many trees; but Rif ruled there like Rava; Rosh wrote Rava holds even per the Sages there is no difficulty for the Sages except regarding kilayim because they are accustomed to plant thus etc.; Rashbam chapter 3 s.v. ro'in wrote it is a stringency for kilayim ; his words seem astounding, for we say chapter 3 like tannaim as above; per Rosh it fits that R' Zeira holds thus and they forced all that to say Rava and all amoraim there are all per R' Shimon; for Rambam everything fits ; end."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-058/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 58,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כיצד כו'. בירושלמי שם והביאו הר\"ש שם ודלא כמ\"ש בפי' שם:",
+        "ואם בא כו'. מדלא קאמר בירושלמי הנפקא מינה להיפך ש\"מ שבזה מודי ב\"ה. אבל הראב\"ד גורס בירושלמי להיפך מ\"ד מעיקר הגדר מושחים אינו אסור אלא ב\"א ומ\"ד מעיקר הגפנים אסור עוד ב\"א וכתב אבל אחורי הגדר זורע מיד שהגדר מפסיקו וזו הגירסא נכונה ולהכי לא תני בעדיות וכן משמע שם בירושלמי דאמרינן שם בין כמ\"ד מעיקר הגפגים מושחין ובין כמ\"ד מעיקר הגדר מושחין מה ביניהון א\"ר יונה תפתר שהיו הכרתין ר\"ל עיקרי הגפנים נתונים מקצתן בתוך ד\"א ומקצתן חוץ לד\"א מ\"ד מעיקר הגפנים מושחין ניחא ר\"ל שצריך ד\"א מעיקר הגפנים מ\"ד מעיקר הגדר מושחין מקום שהחוט כלה אסור והשאר מותר ר\"ל מותר לזרוע אצל הגפנים ול\"ד דהא צריך להרחיק ו\"ט ואח\"כ אמר היה שם שתי אמות כו' כנ\"ל:",
+        "(ליקוט) כיצד כו'. עמש\"ש שפי' הר\"ש והראב\"ד נכון שמצד הגדר א\"צ להרחיק ועוד ראיה ממ\"ש בפ\"ב דעדיות ולקמן סעיף ס\"א גנה קטנה כו' אם יש כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "How to turn. There was a blessing in Hashem’s name, and he was brought to him, and he was not like Hashem",
+        "And if he comes, etc. ; since Yerushalmi does not derive the opposite conclusion ; learn that here Beit Hillel agrees. But Raavad's version in Yerushalmi is reversed: one who says from the root of the fence they do not extend ; forbidden except sixteen; and one who says from the root of the vines ; forbidden another sixteen; and he wrote: but behind the fence one sows immediately since the fence separates ; and this version is correct; therefore not taught in Eduyot; and so it seems in Yerushalmi there we say between whether from root of vines they extend or from root of fence they extend ; what between them? R' Yonah answered: interpret that the vine roots were partly within four cubits and partly outside four cubits; one who says from root of vines they extend ; well, meaning need four cubits from root of vines; one who says from root of fence they extend ; where the rope ends forbidden and the rest permitted ; meaning permitted to sow by the vines; and \"four\" that need to distance sixteen and afterward said there were two cubits, etc. ; as above. (Likut) How, etc. ; see what is written: Rosh and Raavad's explanation is correct that from the side of the fence need not distance; and further proof from what is written chapter 2 of Eduyot; and below seif 61 small garden, etc., if there is, etc. (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-060/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 60,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "עריס כו'. הראב\"ד תמה עליו דזה ב' עריסים הן ומקדש בתוך ח' אמות ופי' הוא כפי' הר\"ש שם. והרמב\"ם ס\"ל שאין נקרא עריס אלא כשעירסן וכמ\"ש בסנ\"ו וז\"ש בסנ\"ט הואיל ועירסן כו' וכאן חרבו שורה האמצעית שסמוכה לגדר ועריס עליו:",
+        "(ליקוט) עריס כו'. פי' צ\"ע למה יגרע משאר עריס יחידי והר\"ש דחק עצמו ראתי כריב\"נ או כו' וכמה דחוקין דבריו אבל נראה כפי' הר\"ש שכתב כגון שנטע י\"א גפנים בצד הגדר ומצד א' וחרב גפן אמצעי ולזרוע שם ולא מטעמיה כריב\"נ כו' אלא דאין איסור בעריס אלא נגד הגפנים לרחבן שרואה כל הגפנים אבל כה\"ג א\"צ להרחיק אלא ו\"ט כגפן יחידי וכאן בפסקי עריס הדין כו' וז\"ש שם במתני' ז' עריס שהוא יוצא כו' ור\"ל כמו בצורה זו ב' ג'..... א' שנטוע במקצת הכותל בקרן לזרוע על קצה האחר של הכותל כגון בקצה ב' ואמר ר' יוסי אם אין במקום הפנוי ד\"א כגון בחתיכת ב\"ג לא יבא כו' ודלא כפי' הרמב\"ם בסעיף ס\"ג (ע\"כ):",
+        "וא' מס' באמה. עבה\"ג וכ\"ה בירושלמי שם לית הדא פליגא אדר\"ז דר\"ז אמר שמנה חוץ ממקום כרתין פתר לה שמנה אמות וכ\"ש ולמה לא תניתה ולא תסבור כההיא דא\"ר יוחנן כל מדות שאמרו חכמים ועוד טפח וההין ריבה ציבחר לפום כן לא תניתה:",
+        "ואם אין כו'. ירושלמי כנ\"ל:"
+      ],
+      "en_segments": [
+        "Trellis, etc. ; Raavad wondered on him: these are two trellises and sanctify within eight cubits; and he explains like Rosh there. And Rambam holds trellis is called only when layered; and as written in siman 296; and he said in siman 299: since he layered, etc.; and here the middle row adjacent to the fence was destroyed and trellis upon it. (Likut) Trellis, etc. ; requires study why it should be less than other single trellises; and Rosh strained himself ; I saw like Rivavan or, etc., and how strained his words; but it seems Rosh's explanation: such as he planted eleven vines by the fence on one side and the middle vine was destroyed to sow there ; not per Rivavan's reason, etc.; rather prohibition of trellis is only opposite the width of the vines one sees all the vines; but in such a case need not distance ; only sixteen like a single vine; and here in trellis rulings, etc.; and he said there in mishnah 7: trellis that protrudes, etc. ; meaning like this form two, three... one planted partly on the wall at a corner to sow on the other end of the wall such as at end of two; and R' Yosi said if there is not free space four cubits such as a piece of two by three ; it shall not come, etc. ; not like Rambam's explanation in seif 63 (end).",
+        "And one cubit. Beit HaGadol; and so Yerushalmi there: this does not dispute R' Zeira; R' Zeira said eight excluding the place of the vine cuttings ; he explained eight cubits; and all the more why was it not taught; and do not think like R' Yochanan: all measures the sages stated ; add a handbreadth and the hin ; Rabbi Tzvi Chaver accordingly why was it not taught.",
+        "If there is not, etc. This follows the Yerushalmi cited above."
+      ]
+    },
+    {
+      "id": "yd1/siman297/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 297,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור כו'. ע\"ש ס\"א ואין עודרין כו' ובתוספתא ספ\"ב דכלאים וירושלמי סוף ערלה אין עושין עם העובד כוכבים בכלאים בין בכלאי הכרם בין בכלאי זרעים אבל עיירות המובלעות בא\"י כגון בית ענה אימה וחברותיה עושין עמהם בכלאים וע\"ש בירושלמי:",
+        "ומותר לומר כו'. מ\"ש הכ\"מ בשם הרי\"ק לו היינו לצורך עובר כוכבים אין הלשון משמע כן ועבסי' שקדם סעיף ס\"ט ואם אמר אלא דס\"ל שאין איסור אמירה לעובד כוכבים אלא בשדהו של ישראל וכמ\"ש בסירוס בפי\"ו מהא\"ב דוקא בהמתו אבל לזדוע בשדהו של עובד כוכבים אף לצורך ישראל מותר וז\"ש ואסור לקיים בשדהו אבל בשדה ישראל אפי' לקיים אסור וכ\"ש לזרוע דאמירה לזרוע לא גרע מקיום ולמד ממ\"ש בב\"מ צ' א' חסום פרתי ומשמע בתבואה של ישראל כמש\"ש בתוס' ד\"ה חסום ואפ\"ה דוקא פרתי וה\"ה כאן אפי' לצורך ישראל:",
+        "(ליקוט) ומותר לומר לעובד כוכבים כו'. עסי' רצ\"ז ס\"ד ובא\"ח סי' ש\"ז סכ\"א (ע\"כ):",
+        "ואסור כו'. מתני' דפ\"ח דכלאים ואפי' לת\"ק וכנ\"ל ואף שבע\"ז ס\"ד משמע דלרבנן מותר היינו בשדה של עובד כוכבים:",
+        "ואם כו'. כת\"ק וכנ\"ל ולמ\"ש בס\"א אף לר\"ע אינו לוקה כמ\"ש בירושלמי אלא שבגמ' דידן במכות לא משמע כן אבל מ\"מ כיון דקי\"ל דלאו שאב\"מ אין לוקין עליו דין זה הוא אליבא דכ\"ע:"
+      ],
+      "en_segments": [
+        "It is forbidden, etc. See there, seif 1: \"One may not hoe,\" etc. The Tosefta at the end of chapter 2 of Kilayim and the Yerushalmi at the end of Orlah state: one may not work together with a non-Jew in matters of kilayim, whether kilayim of a vineyard or kilayim of seeds. In towns enclosed within Eretz Yisrael, however, such as Beit Anya, Ima, and their neighboring towns, one may work with them in kilayim. See the Yerushalmi there.",
+        "And permitted to say, etc.; Kesef Mishneh in the name of Ri Korki: \"for him\"; meaning for the gentile's need; the language does not imply so; and see previous seif 69; and if he said; but he holds there is no prohibition of speech to a gentile except in an Israelite's field, as written regarding castration in chapter 16 of Eben HaEzer; specifically his animal; but to plow in a gentile's field; even for Israel's need permitted; and he said \"and forbidden to sustain in his field\"; but in an Israelite's field even to sustain forbidden; and all the more to sow, for speech to sow is no less than sustain; and he learned from Bava Metzia 90a: \"muzzle my cow\"; and it implies in Israelite grain, as Tosafot s.v. \"muzzle\" wrote; and nevertheless specifically \"my cow\"; and the same here even for Israel's need. (Likut) And permitted to say to a gentile, etc.; see siman 297 seif 4 and Orach Chayim siman 307 s.k. 1 (end).",
+        "And it is forbidden, etc.; Mishnah chapter 8 of Kilayim; and even according to the first tanna, as above; and although in Avodah Zarah page 64 it seems that according to the rabbis it is permitted; that is in a field of a non-Jew.",
+        "And if, etc.; like the first tanna and as above; and for what is written in seif 61: even per R' Akiva he is not lashed, as Yerushalmi writes; only in our Gemara Makkot it does not seem so; but nevertheless since we rule it is not \"speak and act\"; one is not lashed for it; this law is according to all."
+      ]
+    },
+    {
+      "id": "yd1/siman297/seif-051/beur-hagra",
+      "volume": "yd1",
+      "siman": 297,
+      "seif": 51,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כב או הזורע. בספרי שם אין לי אלא חורש מנין לרבות הדש כו':",
+        "כג (ליקוט) או הנהיגם כו'. אבל הרא\"ש בה\"ק ובפ\"ה דשבת כתב דוקא שמושך משוי בגופו ע\"ש ושם וכ\"כ תוס' במכות כ\"ב א' ד\"ה המנהיג כו' ע\"ש (ע\"כ):",
+        "כד דבכל האיסורין. כמ\"ש בשבת נ' ואי ר\"ש כו' נזיר כו' ובזבחים צ\"א ב' ל\"ק הא ר\"י כו':",
+        "(ליקוט) דבכל האיסורין כו'. כמ\"ש בפ\"ט וש\"מ מוכרי כו' (ע\"כ):",
+        "(ליקוט) דבכל האיסורין כו'. דקי\"ל הלכה כר\"ש כמ\"ש בפ\"י דשבת (צ\"ה א') ופ\"י דעירובין והאידנא כו' וש\"מ הרבה וכן בכל האיסורין וכמ\"ש בבכורות ל\"ד א' עד השתא כו' וע\"ל סי' ש\"א ס\"ו בהג\"ה וסי' שי\"ג ס\"ו (ע\"כ):",
+        "כה אם אינו כו'. ערש\"י בזבחים שם ד\"ה הא ר\"ש כו' ותוס' בשבת ק\"ג א' ד\"ה ל\"צ כו':",
+        "כו וי\"א דאינו כו'. הרא\"ש בשם ראבי\"ה ממ\"ש במתני' שם אין קושרין כו':",
+        "כז וי\"ח. שם בשם ר' אפרים ממ\"ש בירושלמי ותוספתא הנ\"ל איסי בן עקביא כו' ומה אם בבגדים כו' בהמה כו' ובגדים ע\"כ בלא קשירה כמ\"ש בשבת נ\"ד א' וכ\"מ בגמ' שם אילימא כלאים דאדם כו' אלא כו' אלמא אכלאים דאדם ל\"ק מהתוכף כו' ובספרי דריש יחדיו דכלאי בגדים לתוכף כו' ויחדיו דחרישה לרבות דש ומנהיג כו' ולא קאמר ג\"כ לתוכף וראיותיו מוכרחין ועברא\"ש שם שיישבן ראבי\"ה קצתן בדוחק. וכן פליגי אם צריך דוקא מלאכה דבשבת שם משמע דא\"צ וראבי\"ה הוכיח דצריך מלאכה מירושלמי דכלאים שם על מתני' אין קושרין את הסוס כו' תני ר\"מ פוטר אם היה מסייע בין במעלה בין כו' והביאו הר\"ש שם ור' אפרים דחה זה משום שאין מנהינן יחד שזה לפני הקרון כו' ודעת רש\"י שם ד\"ה אי נימא כו' כראבי\"ה וכן תוס' שם ד\"ה והתנן כו' והרא\"ש שם ובירושלמי שם משמע כראבי\"ה דאמר שם ר' ירמיה בעי קשרן בשערן מהו מה אנן קיימין אם בשקשרן בשערן כך אנו אומרים אסור להרכיב בהמה ע\"ג חבירתה אם בשקשרו החבל בשערן נאמר מפני שנושאין החבל שבינתיים אלמא דוקא בשעת מלאכה ובקשרן דקשרן בשערן הם שניהם יחד:"
+      ],
+      "en_segments": [
+        "Or one who threshes. The Sifrei there states: I know only one who plows; from where do we include one who threshes, etc.?",
+        "23 (Likut) or he drove them as one. But Rosh in Hilchot Kiddushin and chapter 5 of Shabbat wrote: specifically when pulling a load with his body; see there; and so Tosafot Makkot 22a s.v. \"one who drives,\" etc.; see there (end).",
+        "In all prohibitions etc.; as written in Shabbat 50; and if R' Shimon etc., Nedarim etc., and Zevachim 91b; Lika R' Yosi etc. Likut: in all prohibitions etc.; as written in chapter 9 and merchants etc.; end. Likut: in all prohibitions etc.; for we hold halachah like R' Shimon as written in Shabbat chapter 1 (95a) and Eruvin chapter 1; nowadays etc. and merchants many; so in all prohibitions; as written in Bekhorot 34a until now etc.; and see above siman 301 note 66 and siman 313 note 6; end.",
+        "25 and if not so. Rashi in Zevachim there s.v. \"behold R' Shimon,\" etc.; and Tosafot Shabbat 103a s.v. \"not necessary,\" etc.",
+        "26 and some say he is not, etc.; Rosh in the name of Ra'avyah from what is written in the mishnah there: one may not tie, etc.",
+        "27 and some explain. There in the name of R' Efraim from what Yerushalmi and aforementioned Tosefta Issi ben Akavya, etc.; and what if in garments, etc.; animal, etc.; and garments; therefore without tying, as Shabbat 54a; and so in the Gemara there: \"if you say kilayim of a person,\" etc.; rather, etc.; evidently kilayim of a person is not challenged from pressing, etc.; and in Sifrei \"together\"; kilayim of garments together, etc.; and \"together\" of plowing to include flax and one who drives, etc.; and also did not say together; and his proofs are compelling; and Or Zaru'a there settled Ra'avyah somewhat with strain. And they dispute whether specifically Shabbat work is required; there implies not required; and Ra'avyah proved work is required from Yerushalmi of Kilayim there on mishnah: one may not tie the horse, etc.; R' Meir exempts if he assisted whether above whether, etc.; and they brought Rosh there; and R' Efraim rejected this because we do not drive together; this before the wagon, etc.; and Rashi's view there s.v. \"if you say,\" etc., like Ra'avyah; and so Tosafot there s.v. \"and we taught,\" etc.; and Rosh there; and Yerushalmi there implies like Ra'avyah: R' Yirmiyah asked: tied in their hair; what is the law? What are we dealing with? If tied in their hair; thus we say forbidden to mount animal on its fellow if tied in their hair; if tied the rope in their hair; we say because they carry the rope between them; evidently specifically at time of work and tied in their hair; both together."
+      ]
+    },
+    {
+      "id": "yd1/siman299/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 299,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם היה הרוב כו'. מתני' שם:",
+        "מפני שאינם כו'. כמ\"ש למטה ולא שייך ביטול כו':",
+        "וכן הקנבוס כו'. שם:",
+        "הלכך מי כו'. ירושלמי שם צמר ופשתן שטרפן אסור כיצד הוא עושה מביא ליטרא ועוד צמר גמלים ומבטלן:",
+        "ולא כו'. בתוספתא שם והביאה הר\"ש שם בזמן שהביא כו' אבל העושה כו' ובגמ' בגד שאבד בו כלאים כו' וז\"ש בהג\"ה דאפי' נאבד כו' וז\"ש בש\"ע אפי' כו' אבל אין ענין זה משום שהן חוטין דאפי' קודם לכן אסור כמ\"ש בירושלמי הנ\"ל צמר ופשתן שטרפן אסור כיצד כו' ושם אבא בד\"ה בשם ר' ירמיה צמר ופשתן שטרפן בטלין רב אמר אסור בתערובתן מה פליג מה דאמר רב כשעשאן בגד בפ\"ע מה דא\"ר ירמיה בההוא דבעי מערבתיה עם חורן ועתוס' דנדה ס\"א ב' ד\"ה בגד כו' והרא\"ש שם ודברי ש\"ע תמוהים גם דברי הרמב\"ם וש\"ע הנ\"ל שכתבו מפני שאינם כו' תמוהים וכבר הקשה הראב\"ד וכתב זה שבוש וכי צמר בפשתים בטל ברוב והל\"ל מפני שאינו טווי כו' ואמת שאינו שוע טווי נוז כלל ודברי כ\"מ שם תמוהים ביותר ושגה מאד שם:",
+        "בגד שהשתי כו'. כנ\"ל דחוטין אינן בטלין ולשון הטור הלכך בגד שהשתי כו':"
+      ],
+      "en_segments": [
+        "And if most of them were. A gift there:",
+        "And the candidacy is so. Name:",
+        "“Who is called?” Jerusalem has a wool name and a splatoon that is not how it does bring a litre and more camels and annulls:",
+        "I was wearing a dress. The same is not a void and the tongue of the thorns which I have used as:"
+      ]
+    },
+    {
+      "id": "yd1/siman391/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 391,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויכול ללבוש קצת בגדי שבת כו'. בעט\"ז השמיט תיבת קצת ואולי גם הרב ל\"ד נקט דה\"ה דיכול ללבוש כל בגדי שבת וכן נוהגין:",
+        "ובלבד שיהא אחר ל' כו'. גם כאן פירש הב\"ח דיש להתיר לאבל על שאר קרוביו תוך ל' כמו בכניסת יתום ויתומה דלעיל ולשון הרב לא משמע כן אלא נראה כמ\"ש בס\"ק ג':",
+        "ובלבד שלא יהא במקום שמחה. כגון בבית אחר כצ\"ל וכן הוא בעט\"ז:",
+        "לאכול באותה סעודה של דגים כו'. כתב הב\"ח מיהו בליל ב' אע\"פ דנוהגים בק\"ק קראקא שלא לברך שהשמחה במעונו אין לאבל לאכול באותה סעודה דל\"ד ליום ב' שכבר בעל בעילת מצוה בליל ב' כפי מנהגם ולכך עושים סעודה של דגים ביום ב' משום ברכת דגים כדאיתא פ\"ק דכתובות הלכך אינה נקראת סעודת שמחה ואין אומרים לא אשר ברא ולא שהשמחה במעונו אבל בליל ב' מקמי בעילת מצוה דמברכים אשר ברא לא נגמרו הנשואים ומה שלא נהגו לומר שהשמח' במעונו הוא מפני דמתאספי' שם אנשים ונשים כו' עיין שם:",
+        "יש אומרים דאסור לאכול כו'. וכ' העטרת זהב ולא ראיתי נוהגים כן ואני אומר דבר שאינו מצוי לא שייך בו מנהג כמו שכתב לעיל ר\"ס ק\"צ ולא ראינו אינו ראיה ואני ראיתי נוהגים לאיסור גם לקמן ס\"ס ת\"ב כתב הרב בסתם לאיסור:"
+      ],
+      "en_segments": [
+        "He may wear some Shabbat garments, etc. The Levush omits the word 'some.' Perhaps the Rama was also not precise, since one may wear all his Shabbat garments, and this is the custom.",
+        "Provided that it is after thirty days, etc. The Bach permits a mourner for other relatives to attend within thirty days in certain cases, comparing it to bringing an orphan bride or groom to marriage, but the Rama's language does not support this. The distinctions between a wedding meal, instrumental music, serving as an attendant, and merely entering to offer greetings must be followed as stated by the authorities. The prevailing custom is to be stringent during the thirty days except where a specific mitzvah need and the recognized exceptions apply."
+      ]
+    },
+    {
+      "id": "cm1/siman7/seif-005/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 7,
+      "seif": 5,
+      "slug": "urim-vetumim-tumim",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שתויי יין כו' הרב בעל כה\"ג הקשה דמבואר במדרש רבה פ' נשא שתה רביעי' יין אל יורה שתה רביעי' יין אל ידון וכתב דהגמ' שלנו חולק. וצ\"ע דראי' התו' אין ראיה ברורה כ\"כ לסתור דברי המדרש דכל ראי' התו' בסנהדרין דף מ\"ב מהא דאמרי' דבד\"נ לא היו שותים יין כל היום כולו משום קרא לרוזנים אי שכר העוסקים ברזו של עולם אל ישתכרו משמע דווקא ד\"נ אבל לא ד\"מ ומזה אין ראי' דוודאי בד\"מ אי מלין דין דיכול אח\"כ לשתות יין דקודם שיגמור הדין למחר בין כך יהיה סר יינו מעליו ויתיישב בדינו אבל בד\"נ שהיה מלין דין עד למחר ומ\"מ לא היו רשאים ביום ההוא לשתות יין אף דקודם ג\"ד יהיה יינם סר מעליהם מ\"מ לא ראוי להם להסיח דעתם רגע א' מלעיין במילתא אולי ימצאו לו זכות ולכך לא יהיו שות' יין לבלבל דעתם וזה מותר בד\"מ אבל אם שתה יין שיהיה יכול לדון ולגמור דין בעודו יינו בקרבו ולא סר מעליו מנלן ולמה יהיה זה קל מאיסור והיתר הלא אין לך מקצוע יותר בתורה מדיני ממונו' שצריך ישוב ובקל הדברים מתחלפי' וצריך ישוב הדעת למאוד. ובכה\"ג משמע דעיקר ראי' מהא דאמרינן אל יורה משמע לדון מותר והמעיין בתו' משמע דאין זה ראי' רק התו' כתבו דמהך דאין יורה אין קושיא די\"ל דווקא הוראה ולא דין אבל מ\"מ אין ראי' משם. ולכן גם בזה צ\"ל דס\"ל לתו' לחלק דבשלמא בהוראה דיכול להורות לבדו וא\"צ צירוף כלל אסור לשתו' אבל בדין דצריך שלשה וזה לא שכיח דכל שלשה ישתו וישכרו לא אסרו דשנים יזכירו אותו ואם יראו שדעתו בלתי צלול לרב יינו יזהירו אותו להמתין ולא ימהר לחתוך הדין. וזהו ההבדל בין ד\"נ לד\"מ דשם אפי' אחד מכל ב\"ד של כ\"ג לא היה יכול לשתות יין משא\"כ בד\"מ דמותר אבל יחיד מומחה דדן יחידי ודאי דאסור לשתות יין כמו חכם המורה. ובזו יובן דברי המדרש רבה הנ\"ל דאוסר אף לדון וכן נראה נכון. שוב מצאתי בתשובת הב\"ח ג\"כ להחמיר מהך דרש דמדרש וכ\"כ ר\"י באגרת התשובה אלא שלא נחית לחלק בין יחיד דדן ועכ\"פ יש להחמיר אם שתה כדי לשכר למנוע עצמו מהדין עד שסר יינו:",
+        "אם ראוהו בלילה כבר כתבתי באורים שדעת הב\"ח ה\"ה אם ראו בשבת וי\"ט דהואיל דא\"י לדון תיכף מחמת איסור דרבנן אין עד נעשה דיין והט\"ז פקפק עליו דהואיל דבדיעבד אם דנו דיניהם דין שייך שפיר לא תהא ראי' וכו' וזה יש לדחות דא\"כ לרשב\"ם וסייעתו דס\"ל בלילה ג\"כ אם דנו אפי' תחילת דין דיניהם דין כמ\"ש הרמ\"א לעיל סי' ה' סעיף ב' ועמ\"ש. איך אמרינן בגמ' בראוהו בלילה לא אמרינן תהא ראי' גדולה משמיעה. ועכצ\"ל הואיל ולכתחילה אסור לדון לא אמרינן תו לא תהא ראי' גדולה כו' וה\"ה בראוהו בשבת וי\"ט אלא דהקשה עוד איך אפשר לדמות מה דפסל בתורה בלילה ודכוותיה לשבתות וי\"ט דהוא רק מדרבנן כמו דבעדות דרבנן כגון קיום שטרות וכיוצא אמרינן עד נעשה דיין משום דלא עשו חז\"ל בזה דבריהם כשל תורה א\"כ י\"ל ה\"ה אם גוף עדות מילתא דאורייתא רק פסול לדון מדרבנן לא אמרו חז\"ל ושייך שפיר בהו עד נעשה דיין כיון דחזי למידן ד\"ת. והנה שמעתי אומרים בפי' דברי התו' בסוף פ\"ק דמכות אשר אם פירושם נכון יש כאן ראי' לדברי הב\"ח דסוף פ\"ק הנ\"ל דף ז' ע\"א דאמרינן במשנה אמר ר\"ע ור\"ט אילו היינו בסנהדרין לא נהרג אדם מעולם ומפרש הגמ' דהוו אמרו ראיתם שלם הרג או טריפה הרג דדילמא במקום סייף נקב הוה ופריך בבעול הערוה היכי הוה עבדי ומשני אביי ורבא אמרי ראיתם כמכחול בשופפרת והקשו התו' תימא ע\"ז ומחלל שבת מא\"ל וי\"ל דלא שכיח כולי האי כי אם רוצח ובועל ערוה ועי\"ל דא\"ל ראיתם שהמחלל אינו טריפה דאם הוא טריפה וכו' ה\"ל עדות שאי אתה יכול להזימן עכ\"ל והקשה מהרש\"א א\"כ אף ברוצח ובועל ערוה נימא כן ול\"ל לגמרא טעמא אחרינא וגם מדקדקים למה נקט התו' בלישנא בתירוץ השני ראיתם שהמחלל אינו טריפה והשמיטו עובד ע\"ז דכללו בלשונם בקושיא והלא דבר הוא. ולכן נראה דלפי דקיי\"ל טריפה שהרג בפני ב\"ד נהרג מפני דכתיב ובערת הרע מקרבך והוא גמ' דסנהדרין דף ע\"ח ע\"ש וכתב התו' דמיירי דראה ביום דאי בלילה הא אין עד נעשה דיין ואם כן ל\"ל הן בעובד ע\"ז והן ברוצח והן בבועל ערוה ראיתם שהעובר אינו טריפה והוי עדות שאי אתה יכול להזימן דהוה קשה איך אמר לא נהרג אדם מעולם דתינח הרג שלא בפני ב\"ד הרג בפני ב\"ד וראוהו ביום מה א\"ל דמ\"מ נהרג אף שהוא טריפה ולכך הוצרך התו' לומר דלא שכיח אבל מחלל שבת שפיר תי' התו' ראיתם שהמחלל דייקא אינו טריפה דאף דחילל שבת בפני ב\"ד מ\"מ הא כשראוהו מחלל שבת ראהו ע\"כ בשבת והוי כראוהו בלילה כהנ\"ל כסברת הב\"ח וא\"כ צריך הב\"ד להעיד והוי עדים שאי אתה יכול להזימן כמ\"ש התו' בסנהדרין הנ\"ל וא\"ש דדייקי רק מחלל ובאמת אלו היה מקום לתי' זה גם קושיא שנית של מהרש\"א היה מיושב דהקשה דהתו' הקשו מקודם איך אמרינן דילמא במקום סייף נקב הא אזלינן בתר רובא ול\"ל דר\"ע חייש למעוטי דהא במקום דלא אפשר כ\"ע מודים דלא חיישינן למועוטי ותי' תו' דהיה מרבים בבדיקות כל כך עד שהיו מכחישים זא\"ז א\"נ דהוה אפשר שהיה קרום של מוח מגולה ולא היה בו נקב ובא זה ונקרו. והקשה מהרש\"א א\"כ בהך דילמא העובד דלא שייך לבדוק ואם כן הוה לא אפשר ותי' דהוא קאי לשיטת ר\"ת והוא דחוק דהתו' דחו לעיל פי' ר\"ת אבל לפמש\"ל ניחא דהוא אפשר אף במחלל שבת אם ראוהו ב\"ד ואי קשה הא ה\"ל ראה בלילה ז\"א דהפי' אי אפשר דהתורה דצוה להרוג למחלל שבת היכי משכחת ליה ודבר תורה יכולים לדון בשבת והוי אפשר וא\"ש ודברי הב\"ח כמעט מוכרחי':",
+        "אך מלבד דזה דוחק דמה בכך דאם יראו הב\"ד עובר דיהיה נהרג מ\"מ שייך שפיר לא נהרג כמ\"ש התו' דזה לא שכיח ואיך. שכיח זה דיעבור עבירה במזיד בהתראה בפני סנהדרין של כ\"ג ושפיר קאמרו לא נהרג אדם מעולם דאין זה שכיח פ\"א ביובל שיעשה התועבה בפני ב\"ד גדול כזה והיה אפשר לומר להיפוך דעל קושי' מהרש\"א הא אי אפשר ולא חיישינן למעוטי דיש אפשר אם הרג בב\"ד ומ\"מ שייך שפיר לא נהרג דמי יהרג בב\"ד אבל בע\"ז כתב קרא להדיא עפ\"י שני' עדי' וכמו כן בנערה מאורסה לא תעשה דבר צעקה הנערה וכו' ע\"כ דלא היה בב\"ד דאיך יתכן צעקה הנערה וכו' וא\"כ ל\"ל אולי טריפה דעקרת מה שכתוב בתורה אבל במחלל שבת שפיר י\"ל בפני ב\"ד איירי התורה וכיון דיש מציאות אזלינן בתר מעוטי ודוק. אף גם דהא ר\"ע הוא דאמר לא נהרג כו' דר\"ע ס\"ל דאזלינן בתר מעוטי' דמאן דאזיל בתר רובא בלא\"ה ל\"ל דחיישינן לטריפה וא\"כ לר\"ע הא ס\"ל ב\"ד שראו בא' שהרג הנפש דאין דיינים אף שראוהו ביו' דאין כאן הצלה לזכות וכתיב ושפטו והצילו העדה כמבואר בגמ'. ולכן נראה ליישב דברי התו' בפנים אחרות והוא דבחולין דף י\"א ע\"ב ד\"ה ודילמא וכו' במה דאמרו שם בגמ' דאזלינן בתר רובא דאל\"כ דלמא הך דאסהידו בי' הוי טרפה וה\"ל עדות שאא\"י לה\"ז הקשו התו' דלמא חובשין אוחו י\"ב חודש וראינו אם חי ותי' התו' דשמא ס\"ל טריפה חי' עכ\"ל ולפ\"ז אף כאן בתי' התו' דילמא המחלל טריפה דלא תיקשי נמי קושית התו' הא יכולין לחבוש למחלל יב\"ח וע\"כ ר\"ע ור\"ט ס\"ל ג\"כ דטריפה חי' ומבואר בגמ' דחולין דף כ\"ז ע\"ב דאף למ\"ד טריפה חי' אבל מ\"מ אינה יולדת דלאו הא בהא תלי' וכ\"כ התו' בע\"ז דף ו' ד\"ה אלא למ\"ד ע\"ש ולפ\"ז בנקבה אם תלד לאחר חילול אגלאי מילתא דהוי אינה טריפה בעת חילול שבת והוי עדות שיכול להזימם כמ\"ש התו' גבי חי יב\"ח וכבר פירשו המחברי' במ\"ש בגמ' בזכר כל שחי יב\"ח ובנקיבה כל שתלד דבזכר אין הלידה סימן דמי יימר דממנו הרה ואין אפטרופס וכו' ובפרט למאן דחייש למעוטי ולא אזיל בתר רובא ואין בו סימן רק שחי יב\"ח אבל בנקיבה אף הלידה סימן ופשוט. וא\"כ יובנו דברי התו' דהא העלו התו' בדבור שלפניו אף דחיישינן למעוטי מ\"מ דהיכי דאי אפשר דצריכין אנו עי\"כ לעקור מ\"ש בתורה לא חיישינן אבל אם יש אפשרות לקיים מ\"ש בתורה אפי' בדרך רחוקה ונפלאה כמ\"ש התו' שהיה כל קרום של מוח מגולה וזה נקרו וכדומה מ\"מ אפשר קרינן ליה וחוששין למעוטי ולפ\"ז א\"ש במחלל שבת שפיר י\"ל אולי המחלל טריפה והוי עדות שאאילה\"ז ואף דרובא אינם טריפה הא ר\"ע חייש למעוטי כמ\"ש התו' וא\"ק א\"כ לא אפשר ועקרת מ\"ש בתורה מחללי' מות יומת הא לאו קושיא דאף דס\"ל לר\"ע ור\"ט טריפה חי' וא\"א לחבוש אותו יב\"ח מ\"מ טריפה אינו מוליד וא\"כ יש מציאות ואפשרות לקיום ד\"ת באשה שחללה שבת והרה וילדה אח\"כ דהוא סימן שאינה טריפ' ונסקלת ומ\"מ יפה אמרו דלא היה נהרג אדם מעולם דמלבד די\"ל דכוונו לזכר שהוא בסתם מובן בלישנא דאדם אף גם נקיבה כמעט לא היה במציאות שתהיה נהרגת דבשלמא חבישה יב\"ח כקושית התו' יש ביד ב\"ד לחבוש ולברר האמת אי טריפה הוא או לא אבל הריון ולידה בבחירתה תלי' ואם עי\"כ תבוא לכלל מיתה מהיכי תיתי תהיה היא שוטה כזו להזדקק לבעל אחר חילול שבת ולהתעבר ולהוליד אשר עי\"כ תהיה נסקלת בב\"ד וזולת זה היא פטורה אם תחי' אלף שנים ודבר זה כמעט בלתי מצוי אבל אין כאן עקירה למ\"ש בתורה דעכ\"פ ישנו באפשרות אם היה כך מעשה שנבעלה ונתעברה אח\"כ כהנ\"ל ולק\"מ. אך זהו תי' מספיק לחילול שבת דנאמר בתורה סתם וי\"ל דמתקיים באשה כנ\"ל אבל בע\"ז דכתב בקרא להדיא בפ' שופטים איש או אשה גו' וילך ויעבוד אלהי' אחרים וגו' וכן ברוצח דכתיב להדיא ואיש כי ירצח ומכ\"ש בנואף ובועל ערוה דדיברה התורה בזכרים הנואפי' ופשוט וא\"כ בהא ל\"ל דילמא העוברים ההמה טריפה הם דא\"כ עקרת מ\"ש בתורה דהתורה דיברה להדיא בזכרי' ובהם אין לידה סימן וא\"כ אי חיישינן לטריפה ולמעוטי עקרת מ\"ש בתורה וע\"כ לא חיישינן במקום דלא אפשר וא\"כ אין זה תי' מספיק בהנך עבירות דבהם גזירת הכתוב מבלי לחוש למיעוטי ולכך הוצרך הגמ' והתו' לומר בהו שנויי' אחרי' ובהך תי' דלמא טריפה הוה נקטו בלשונם רק המחלל דבזהו שייך שפיר כנ\"ל ולק\"מ מכל קושי' מהרש\"א. גלל כן אין לדברי הב\"ח ראי' ונראה כדברי הט\"ז דאין לנו לבדות דין חדש מלבנו מה שלא נזכר במחברים. וכתב הב\"ח דעידי קידושין וגירושין דדיני נפשות דנין בהו. ומכ\"ש דלמאן דקטל גברא דלכהי' לעיני' דדנין בזה\"ז כדלעיל בסי' ב' אף העד הרואה אף שאינו מעיד מ\"מ אינו נעשה דיין אפילו לקבל עדות אחרים ולדון עליהם עכ\"ל. ונראה מדבריו דפוסק כר\"ע דבדיני נפשות עד הרואה אינו נעשה כלל דיין ותמהני למה פסק הוא נגד הרמב\"ם במה דלא מצינו חולק בפוסקים להדיא נגדו כי התו' והרא\"ש דהביאו הך דר\"ע לא הביאו רק לפרש דבריו ולברר הדין אבל לא מצינו בדבריהם דיחשבו דהלכה כר\"ע והרמב\"ם בפ\"ה מהלכ' עדות פוסק להדיא כר\"ט דעד הרואה נעשה דיין אפי' ד\"נ וע\"ש בכ\"מ דטרח ליתן טעם למה פסק הלכה כר\"ט ולא כר\"ע וא\"צ לחפש בטעם כי רבא אמר סתם בסנהדרין דף ע\"ח טריפה שהרג בפני ב\"ד חייב ופי' התו' בראוהו ביום דלא תהא ראיה גדולה משמיעה וזהו כר\"ט דלר\"ע אפי' ביום אינם יכולים לדון וצריכין להעיד בפני ב\"ד אחרים ואף המה ה\"ל עדים ובעינן עדות שאי אילה\"ז ופסק הרמב\"ם הלכה כרבא דהוא בתרא ופשוט ונכון ולכך דברי הב\"ח אין להם קיום במשפט:"
+      ],
+      "en_segments": [
+        "One who has drunk wine, etc. Kenesset HaGedolah asks from Midrash Rabbah, Parashat Naso, which says: one who drank a revi'it of wine should not issue a halachic ruling, and one who drank a revi'it should not judge. He suggests that our Gemara disagrees. This requires study, because Tosafot's proof is not sufficiently clear to reject the Midrash. Tosafot in Sanhedrin 42 derive their position from the rule that in capital cases the judges did not drink wine the entire day, based on the verse, \"It is not for rulers to drink intoxicating drink\", those occupied with the secrets of the world should not become intoxicated. This sounds specific to capital cases rather than ordinary civil cases. But that is not decisive. In a civil case, if the judges postpone final judgment until the next day, they can drink wine afterward because by the time they return to issue judgment the wine will have left their system and they can reconsider the matter with settled judgment. In a capital case, however, even where final judgment is delayed until the next day, the judges may not drink throughout that day. The reason is that they must not divert their minds even temporarily from searching for arguments in the defendant's favor. Wine could cloud their thought and cause them to miss a basis for acquittal. That concern is unique to capital cases. It therefore does not follow that a civil judge may sit and render judgment while wine is still affecting him. Why should civil law be lighter than ordinary halachic ruling? There is no field of Torah more intricate than monetary law. Small distinctions can completely reverse the result, and extraordinary clarity of mind is required. Kenesset HaGedolah implies that the primary proof is from the expression \"one who drank should not issue a ruling,\" suggesting that judging remains permitted. But anyone examining Tosafot sees that this is not itself their proof. Tosafot say only that the statement about issuing rulings does not automatically include judging. That removes a question; it does not affirmatively prove permission. It therefore seems necessary to distinguish between an individual halachic decisor and a panel of judges. A posek may issue a ruling alone, with no one required to review or correct him. It is therefore prohibited for him to rule after drinking. Civil judgment ordinarily requires three judges. It is uncommon that all three will drink enough to become impaired. If one judge has drunk, the other two can remind and correct him. If they see that his mind is not clear because of the amount he drank, they can insist that the court wait before issuing judgment. This also explains the distinction between capital and civil cases. In capital law, even one member of a court of twenty-three may not drink, because every individual judge must continuously search for grounds of acquittal. In civil law, an individual member can be protected by the presence of his colleagues. But an individual expert who judges alone should certainly be prohibited from judging after drinking, exactly like a sage issuing a halachic ruling. This also explains the Midrash Rabbah, which forbids both ruling and judging. I later found that Bach likewise rules stringently on the basis of this Midrash, and R. Yonah writes similarly in Iggeret HaTeshuvah, though he does not distinguish between a single judge and a panel. In practice, one who has drunk enough to become intoxicated should certainly refrain from judgment until the wine has left him.",
+        "If they saw it at night. In Urim I cited Bach, who writes that the same rule applies if the judges saw the event on Shabbat or Yom Tov. Since they cannot immediately judge because of the rabbinic prohibition against judging on those days, a witness cannot become a judge. Taz questions this. Since if they nevertheless judged on Shabbat their judgment would be valid after the fact, the principle \"hearing should not be greater than seeing\" should still apply. That objection can be answered. According to Rashbam and those who follow him, even commencement of judgment at night is valid after the fact if they mistakenly judged, as Rama rules above in siman 5. Yet the Gemara plainly says that if the judges saw the event at night, we do not invoke \"hearing should not be greater than seeing.\" We must therefore say that once they are prohibited from judging initially at the time of seeing, direct seeing cannot become judicial seeing. The same would seem to apply to Shabbat and Yom Tov. Taz has another, stronger objection. Nighttime is disqualified by Torah law, whereas the prohibition against judging on Shabbat and Yom Tov is only rabbinic. In rabbinic testimony, such as certification of documents and similar matters, we allow a witness to become a judge because Chazal did not make their own enactments fully equivalent to Torah law. Perhaps the same is true here: even if the testimony itself concerns a Torah matter, where the only obstacle to judging immediately is rabbinic, Chazal did not impose the full rule that a witness cannot become a judge. D'oraisa the judges were fit to judge at the moment of seeing. I have heard an interpretation of Tosafot at the end of the first chapter of Makkot which, if correct, would provide proof for Bach. The Mishnah there says R. Akiva and R. Tarfon declared that had they sat on a Sanhedrin, no person would ever have been executed. The Gemara explains that in a murder case they would ask the witnesses: did you see that the victim was intact before the killing, or perhaps he was already a tereifah? Perhaps there was already a hole where the sword entered. The Gemara then asks what they would do in a case of forbidden relations and answers that they would require extraordinarily direct visual confirmation. Tosafot ask: what would they do with idolatry or desecration of Shabbat? They give two answers. First, such cases were not as common as murder and forbidden relations. Second, they could ask whether the Shabbat desecrator was a tereifah, because if he was a tereifah the testimony would be testimony incapable of being refuted by hazamah. Maharsha asks: if that is the answer, why not say the same regarding murder and forbidden relations? He also notes that Tosafot's second answer says specifically \"the Shabbat desecrator\" and omits the idolater, even though the question had included both. It was suggested that the reason is this. We rule that a tereifah who kills in the presence of beit din is executed because \"you shall remove the evil from your midst.\" Sanhedrin 78 says so. Tosafot explain there that the judges must have seen the killing by day, for if they saw it at night a witness cannot become a judge. Accordingly, in idolatry, murder, and forbidden relations, Tosafot cannot simply ask whether the offender was a tereifah. If the offense occurred in front of beit din during daytime, then even a tereifah could be executed without the ordinary problem of testimony that cannot be refuted. Therefore R. Akiva and R. Tarfon could not guarantee that nobody would ever be executed merely by introducing the tereifah doubt, and Tosafot needed another answer, that such a case is exceedingly uncommon. But Shabbat desecration is different. If the judges personally saw the desecration, they necessarily saw it on Shabbat. If seeing on Shabbat has the same effect as seeing at night, as Bach says, they themselves cannot judge. They must testify before another court. Their testimony then has the ordinary requirement of being capable of hazamah, and the tereifah doubt prevents execution. This would explain why Tosafot's second answer specifies only \"the Shabbat desecrator.\" It would also answer Maharsha's first question. The tereifah answer cannot eliminate murder or forbidden relations because those offenses could theoretically occur before beit din at a time when the judges can immediately act as judges. Shabbat desecration necessarily occurs at a time when the court is rabbinically barred from judging. If this explanation were correct, Bach's position would be almost compelled. However , this reading is quite strained. First, even if an offense seen directly by a Sanhedrin can sometimes result in execution, such an occurrence is itself extraordinarily rare. What person will deliberately commit a capital offense, after warning, in the presence of a full court of twenty-three? Tosafot could still say \"no one would ever be executed\" in the ordinary practical sense because that circumstance might not occur once in a jubilee. Indeed one could argue the reverse against Maharsha's question. Tosafot's concern that following a minority possibility cannot uproot explicit Torah laws can be resolved by saying the Torah's capital laws remain applicable where the offense is seen directly by beit din. But that still leaves the practical claim that executions would virtually disappear because such cases are extraordinarily rare. Second, and more importantly, the entire Mishnah's statement is R. Akiva's. R. Akiva himself holds that where beit din sees one person kill another, the judges cannot judge the case even if they saw it by day, because capital judgment requires the possibility of searching for merit, from \"the congregation shall judge and the congregation shall save.\" According to him, direct seeing by the judges does not solve the problem. It therefore seems better to explain Tosafot in an entirely different manner. In Chullin 11b the Gemara proves that we follow the majority. Otherwise, perhaps the person against whom witnesses testified was a tereifah, making the testimony incapable of hazamah. Tosafot ask: why not imprison him for twelve months and see whether he survives? They answer that perhaps the sugya follows the opinion that a tereifah can live longer than twelve months. Even according to the opinion that a tereifah can live, however, the Gemara in Chullin 57 says that a tereifah does not reproduce. Tosafot in Avodah Zarah 6 write likewise. Accordingly, if a female Shabbat desecrator later gives birth, it becomes clear that she was not a tereifah at the time of the offense. The testimony would then be capable of hazamah. This matters because Tosafot had earlier established that although R. Akiva is concerned for minority possibilities, where taking the minority seriously would make a Torah law impossible to fulfill, even he must follow the majority. Tosafot illustrate that \"possible\" remains possible even through a remote scenario, such as where the membrane of the brain was exposed but intact and the murderer then pierced it. Now their second answer concerning Shabbat is clear. They could ask whether the Shabbat desecrator was a tereifah, creating testimony incapable of hazamah. One cannot object that this would uproot the Torah's explicit command that a Shabbat desecrator be put to death, because the command remains possible in the case of a woman who desecrates Shabbat and subsequently becomes pregnant and gives birth. Birth proves she was not a tereifah. True, this is extremely rare in practice. If a woman knows that pregnancy and childbirth will establish the fact necessary for her execution, why would she voluntarily place herself in that situation? But practical rarity is irrelevant to the textual question whether the Torah's law has any possible application. Since a possible case exists, R. Akiva can continue to consider the minority concern in all other cases. This explanation works specifically for Shabbat desecration because the Torah's command is stated generically and can be fulfilled through a woman. It does not work for idolatry in the same way where the relevant verse speaks explicitly of \"a man or woman\" and establishes separate application, nor for murder where Scripture explicitly says \"a man who murders,\" and certainly not for male forbidden relations where Torah speaks expressly of the male offender. Regarding a male, childbirth cannot provide the necessary proof. If we treated the possibility of tereifah as sufficient there, we would effectively uproot an explicit Torah law. Therefore in those cases we must follow the majority and cannot use the tereifah doubt as Tosafot's universal device. This also explains Tosafot's exact wording. In the second answer they say specifically \"the Shabbat desecrator\" and omit the idolater because only Shabbat permits the foregoing resolution. Accordingly, Tosafot in Makkot provide no proof at all for Bach's extension of nighttime seeing to Shabbat and Yom Tov. Since the rule is rabbinic and I have not found an explicit earlier authority applying \"a witness cannot become a judge\" merely because judging was rabbinically prohibited at the time of seeing, Taz's objection remains persuasive. We should not create a new disqualification from our own reasoning where the earlier poskim did not state it. Bach also writes that witnesses to kiddushin and divorce involve matters with potential capital consequences. Certainly where a person killed another in the judge's presence, in a case that can be adjudicated nowadays under the extraordinary jurisdiction discussed in siman 2, Bach holds that the observer cannot serve as judge even if he does not testify, and cannot even receive other witnesses and judge on their testimony. This appears to follow R. Akiva's position that in capital matters one who personally saw the event cannot become a judge at all. I am surprised that Bach rules this way against Rambam where no explicit early authority is found rejecting Rambam. Tosafot and Rosh cite R. Akiva's view in order to explain the sugya and clarify the positions. They do not state that the halachah follows him. Rambam, in Hilchot Edut chapter 5, rules explicitly like R. Tarfon that one who saw the event can become a judge even in a capital case. Kesef Mishneh labors to explain why Rambam rules like R. Tarfon rather than R. Akiva, but the reason is actually straightforward. Rava states without qualification in Sanhedrin 78 that a tereifah who kills in the presence of beit din is liable. Tosafot explain that the court saw the killing by day, so that direct seeing is no less than hearing. This ruling accords with R. Tarfon. According to R. Akiva, even if they saw it by day they could not judge and would have to testify before a different beit din. Rambam therefore correctly follows Rava, the later authority, and rules like R. Tarfon. Bach's conclusion on this point should therefore not be maintained."
+      ]
+    }
+  ]
+}

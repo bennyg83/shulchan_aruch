@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 35,
+    "chunk_total": 66,
+    "case_offset": 280,
+    "cases_in_chunk": 1,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman87/seif-001/meirat-einayim",
+      "volume": "cm1",
+      "siman": 87,
+      "seif": 1,
+      "slug": "meirat-einayim",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שהיה יכול להחזיק בו בטענת לא היו דברים מעולם כו'. לאפוקי אם לוה ממון וא\"ל אל תפרעני אלא בעדים או הפקידו החפץ בידו לפני עדים וראוהו עדים או הב\"ד בידו עתה קודם תביעתו דלא מצי טעין טענות הללו בתובעו בחפץ ידוע וכן בתובעו דברים העשויים להשאיל ולהשכיר וראוהו עדים עתה בידו דבאלו אין מאמינים לו בהיסת ככופר הכל וכמ\"ש הטור והמחבר לעיל בסי' ע\"ב ולקמן בסי' קל\"ג ובסי' קל\"ד וקל\"ה יתבאר הדין במסר בגדו לאומן או בתובעו בהמה או עבד קטן דלא שייך בהו נמי טעמים הללו וה\"ה אם תבעו הלואתו שא\"ל אל תפרעני אלא בעדים פלוני ופלוני דשוב אינו יכול להחזיק בממון בטענת להד\"ם או פרעתיך ע\"ד שנתבאר לעיל בסי' ע' וע\"ש:",
+        "אם הוא מודה מקצת וכו'. כתב הר\"ן פ' שבועת הדיינין בא' שתבע לחבירו מאה זוז נ' זוז שהלוה לו ונ' זוז שחבל בו וזה כפר בכל ואע\"ג דדינא הוא שהנחבל נשבע ונוטל מ\"מ לא הוי כמו הודה לו בנ' כיון דהנחבל עדיין לא נשבע אבל אם נשבע כבר והוא כפר בכל מיקרי מודה מקצת דאנן סהדי דחייב לו נ' כיון שנשבע והוה כתובעו מנה וכפר בכל ועדים מעידים שיש לו נ' כו' ד\"מ א':",
+        "מודה מקצת כו'. דין שבועה דמודה מקצת ובעד א' ודין שבועת היסת וטעמו נתבאר לעיל ר\"ס ע\"ה ושם כתבתי מילתא בטעמא ע\"ש ודלא כמ\"ש בע\"ש בטעם שבועה דמודה מקצת ז\"ל דאמרינן דכולי בעי דלודי אלא דלית לי' וסבר אשתמוטי אשתמיט עד דלהוי ליה לכן הטילה התורה שבועה עליו דחשיד אדם אממונא ולא אשבועתא עכ\"ל וז\"א דמסקינן בפ\"ק דב\"מ דשוה לאינשי חומרא גזילות ממון לחומרא דשבועה וכמ\"ש הטור בסי' צ\"ב ס\"ד אלא ה\"ט דמודה מקצת דאמרי' אין דעתו לגזלו אלא דמשתמיט ודעתו לפרוע לאחר זמן והשתא דרמו רחמנא שבועה עליה ודאי לא ישבע ובכופר הכל כיון דחזקה הוא דאין אדם מעיז כ\"כ בפני ב\"ח מ\"ה אינו חייב ש\"ד אלא שרז\"ל חששו שמא משתמיט משום ספק מלוה ישנה וכופר עתה עד שיוודע לו האמת שאינו ח\"ל ואז ישלם לו ומ\"ה רמו רבנן שבועה עליה שישבע היסת שאינו ח\"ל דודאי לא ישבע משום ספק מלוה ישנה דהא אם יוודע לבסוף שלא נשאר ח\"ל תהיה שבועתו למפרע לשוא וכמ\"ש כל זה בסי' צ\"ב ע\"ש וכ\"כ בר\"ס ע\"ה ואם הי' דעת ע\"ש ג\"כ לזה ומש\"ה כתב נחשד אממונא ור\"ל דוקא אספק ממון לא ה\"ל לסתום אלא לפרש:",
+        "אלא ע\"פ העד. ע\"ל ס\"ס ע\"ה בטור ובדברי המחבר סכ\"ג:",
+        "בין במלוה בין בפקדון. כ\"כ לאפוקי מדעת רש\"י שכ' הטור בשמו בס\"ט דדוקא במלוה שעשה טובה עם הלוה הוא דפטור מן התורה בכופר הכל משום חזקה דאין אדם מעיז פניו בפני ב\"ח שעשה עמו טובה בהלואתו משא\"כ בפקדון דאין המפקיד עשה טובה עם הנפקד במה שהפקיד בידו קמ\"ל דאין חילוק וכן דעת רוב הפוסקים וכמ\"ש הטור ע\"ש:",
+        "אפי' אמר כו'. והלה אומר להד\"ם פי' ל\"מ אם מודה לו שהלווהו אלא שפרעו או שיש לו בידו כנגדו כ\"כ דאז אף לפי טענת הלוה הי' למלוה עמו תחלה שייכות ממון דצריך לישבע היסת אכפירתו בכולו אלא אפי' טען להד\"ם נמי וכ\"כ הטור ועפ\"ר:",
+        "כמו שנתבאר לעיל בסי' ע\"ה. ע\"ש בדברי הטור ובדברי המחבר מסעיף י\"ז ואילך:",
+        "אם א\"ל הילך כו' דכיון דנתן לו מיד מה שמודה לו ה\"ל על הנשאר כופר בכל ודין כופר בכל יש לו:",
+        "ואפי' אם יתן לו משכון כו'. דכיון דהמשכון לא ישאר בידו אלא היום או מחר יפדנו ה\"ל כהודאה דעלמא דג\"כ היום או מחר ישלם לו ומ\"ה כתב הריב\"ש שאם נתן לו רשות למכור המשכון מיד וילקח ממנו דמי הודאתו ה\"ל כאלו נתן לו המעות מיד וער\"מ:",
+        "דהא אפי' שטר חשוב הילך. כל' זה כתב ג\"כ הטור ובפרישה כתבתי דמדכתב בל' דהא אפי' שטר כו' משמע דשטר פשוט הוא דיש לו דין הילך וליכא מאן דפליג עליה והיינו מדמצינו בגמ' פ\"ק דב\"מ בתבעו בשטר שכתב בו שח\"ל סלעים או דינרים סתם ומלוה תובעו ה' ולוה אינו מודה לו אלא ב' דאין לו דין מודה מקצת כיון דהודאתו כתובה בשטר שביד המלוה דאין סלעים פחות משנים ונכסי לוה משועבדים למ\"ש בשטר מ\"ה מחשב השטר הילך ומיניה יש ללמוד דה\"ה אם תבעו בע\"פ במנה וזה הודה לו כו' ומסר לו מיד שטר באחריות נכסים ליתן לו נ' דג\"כ דין הילך יש לו ומ\"ה סתמו הטור ומור\"ם וכתבו דאפי' שטר הוי הילך דמשמע שנותן עתה שטר בשעת הודאה דומיא דנתן לו משכון דמיירי מיניה ועיין בע\"ש דמסיק וכ' ע\"ז ז\"ל ולא מסתבר לי דשטר יהא נקרא הילך דקשה להוציא אפי' בשטר נ\"ל עכ\"ל ודבריו תמוהין דהא כבר כתבתי ראיה מגמרא דשטר חשוב הילך וסברא קמייתא החולקת וס\"ל דאפי' משכון לא מיקרי הילך צ\"ל דס\"ל דשאני שטר הנ\"ל דהיה כבר ביד המלוה שעיקר סמיכתו מתחלה היה עליו מ\"ה גם עתה יסמוך עליו במ\"ש בו והוא מודה לו משא\"כ זה שבא ליתן לו עכשיו משכון או שטר שלא היה עליו סמיכתו מתחלה והוא טעם נכון לחלק בינייהו אבל מ\"מ אין מקום לתמיהתו דעיר שושן על מאן דס\"ל דיש לו דין הילך וק\"ל:"
+      ],
+      "en_segments": [
+        "Where he could have retained it with the claim, 'It never happened,' etc.",
+        "This excludes a case where he borrowed money and the lender said, 'Do not repay me except before witnesses,' or where an object was deposited with him before witnesses and the witnesses or beit din now saw the object in his hands before the lawsuit.",
+        "In such cases he cannot make those claims concerning the identified object.",
+        "The same applies where the claimant demands items ordinarily lent or rented and witnesses currently saw them in the defendant's possession.",
+        "In all such cases he lacks the ordinary migo that supports possession.",
+        "The rules of hesset and of a partial admission therefore depend on whether, at the time of the claim, the defendant had a legally available full-denial defense regarding the very property in dispute.",
+        "Where the property was seen in his possession in circumstances excluding 'I returned it' or 'it never happened,' that supporting migo falls away."
+      ]
+    }
+  ]
+}

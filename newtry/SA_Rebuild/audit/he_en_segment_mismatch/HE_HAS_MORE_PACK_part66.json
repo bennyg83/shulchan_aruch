@@ -1,0 +1,793 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 66,
+    "chunk_total": 66,
+    "case_offset": 368,
+    "cases_in_chunk": 27,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman356/seif-003/beer-hagolah",
+      "volume": "cm1",
+      "siman": 356,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ח) שם ד\"ג וכנוסחא הבדוקה שכתב ה\"ה שם ואמה שהשיגו הראב\"ד שם ע\"פ הנוסחא משובש' משיבוש המעתיק ספרו והיא הנוסחא שהעתיק הטור כמ\"ש הכ\"מ שם ובבית יוסף וכנוסחא הבדוקה שכ' ה\"ה היא גירסת ספרינו והשתא אתי שפיר דכיון דאיכא יאוש ושנוי רשות ודאי קנה מיהו אם קנה מגנב מפורסם אע\"פ שקנה לענין שאינו צריך להחזיר הכלי דמים מיהא צריך להחזיר ואם קנה מגנב שאינו מפורס' מפני תקנת השוק אפי' דמים אינו צריך להחזיר והב\"ח הוכיח בראיו' דמחזיר הלוקח הדמים אלא שמנכה הלוקח מן דמי החפץ שנותן לבעלים דמיו שנתן לגנב מפני תקנת השוק:",
+        "כן הוה ברמב\"ם",
+        "ט) שם ס\"ג כמ\"ש שם בשם הרב המגיד",
+        "י) דברי הרב רמ\"א הם פי' לנוסחת הרמב\"ם שהעתיק הטור ולענ\"ד אין לו ענין לנוסח שהעתיק המחבר אשר העיד עליה ה\"ה שהוא הנוסחא הבדוקה והאמיתית והסמ\"ע כ' שמוהרמ\"א מאהבת הקצור כתב סברתו מדברי המחבר מאחר די\"ל דגם הב\"י והמחבר מודי' לזה לדינא אלא שהם מיירי בלוקח שלא קנה אותו בפחות משוויו ובפריש' כתב שבסברא זו שכתב מוהר\"ם שיחזור המותר מיושבים כמה קושיות בטור ובדברי הרמב\"ם עכ\"ל והכ\"מ האריך ביותר שם בסתירת הנוסח שהביא' הטור בשם הרמב\"ם ואכמ\"ל"
+      ],
+      "en_segments": [
+        "chet) Ibid., law 3, following the verified reading cited by the Maggid Mishneh. The Raavad's objection was based on a corrupt reading caused by a copyist's error, which is the reading reproduced by the Tur, as the Kesef Mishneh and Beit Yosef explain. The verified reading cited by the Maggid Mishneh is the reading in our books. It is then clear that where there was despair by the owner together with a change of possession, the purchaser certainly acquires the object. Nevertheless, if he purchased from a notorious thief, although he acquires the item and need not return the object itself, he must return its value. If he purchased from a thief who was not notorious, then because of the market regulation he need not even return the money. The Bach proves from several sources that the purchaser returns the money, but deducts from the value of the object that he gives the owner the amount that he himself paid the thief, because of the market regulation. So appears in the Rambam.",
+        "tet) Ibid., seif 3, as written there in the name of the Maggid Mishneh.",
+        "yud) The Rama's words explain the version of the Rambam quoted by the Tur. In my humble opinion, they do not fit the version copied by the Mechaber, concerning which the Maggid Mishneh testified that it is the verified and authentic reading. The Sema writes that the Rama, for brevity, derived his view from the Mechaber because it may be said that the Beit Yosef and Mechaber also agree with this law, but they discuss a purchaser who did not buy the item below its value. In Perishah he writes that Maharam's principle, that the excess is returned, resolves several difficulties in the Tur and Rambam. The Kesef Mishneh discusses at length the rejection of the version quoted by the Tur, and this is not the place to elaborate."
+      ]
+    },
+    {
+      "id": "cm1/siman359/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) רמב\"ם בפ\"א מה' גזילה ואבידה ד\"ב וכ\"כ הטור ובסעיף ז' וח' מבואר איזה גזל ואיזה עושק",
+        "ב) כתב ה\"ה זה מתבאר בסוגי' דפ\"ד מיתות דף ל\"ז ע\"א",
+        "ג) ה\"ה שם בשם קצת מפרשים",
+        "ומבואר שם שאלו היה עושה כן כ\"א נמצא החביל' כול' כלה והגדר נהרס"
+      ],
+      "en_segments": [
+        "a) Rambam, chapter 1 of Hilkhot Gezeilah vaAveidah, law 2, and so writes the Tur. Seifim 7 and 8 explain what constitutes robbery and what constitutes oppression.",
+        "bet) The Maggid Mishneh writes that this is explained in the sugya in Sanhedrin 37a.",
+        "gimel) The Maggid Mishneh there in the name of some commentators. It is explained there that if everyone acted this way, the entire bundle would ultimately be consumed and the fence destroyed."
+      ]
+    },
+    {
+      "id": "cm1/siman359/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' כו' בין כו'. כת' בסי' שמ\"ח ס\"א וס\"ב:",
+        "ואם כו'. כ\"מ בירושלמי שם ועבה\"ג וכ\"ה בירושלמי שם:",
+        "(ליקוט) אפי' כו' ואם כו'. ירושלמי פ\"ג דדמאי על מתני' הלוקח ירק מן השוק ונמוך כו' כיצד הוא עושה נוטל מן העלין ומתקן ואינו אסור משום גזל כהדא ר\"ש בר כהנא הוה מסמיך לר\"א עברון על חד כרם א\"ל אייתי לי חד קיסם מחצד שיניי חזר ואמר ליה לא תיתי לי כלום אמר דאין אייתי כל בר נש ובר נש מיעבד כן הא אזיל סייגא דגוברא ר' חגי הוה מיסמך לר\"ז עבר חד טעון חד מיבל דקיסין א\"ל אייתי לי חד קיסם מחצד שיניי חזר אמר ליה לא תיתי לי כלום דאין אייתי כל בר נש ובר נש מיעבד כן הא אזיל מיכלא דגוברא לא ר\"ז כשר כל כך אלא מילין דיוצרן שמע לן מיעבדינן. מביא ראיה שמותר בדבר שאין מקפידין והם מחמירים ומדקדק בעצמן (ע\"כ):"
+      ],
+      "en_segments": [
+        "Even, etc., whether, etc. This was explained in siman 348, seifim 1 and 2.",
+        "And if, etc. This appears from the Yerushalmi. The Yerushalmi proves that taking a trivial item to which people ordinarily do not object is technically permitted, though the Sages acted stringently for themselves lest universal repetition destroy the owner's fence or food supply. See 14 and 50."
+      ]
+    },
+    {
+      "id": "cm1/siman360/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 360,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כל כו'. ס\"ו א' אם כעין כו':",
+        "(ליקוט) כל הגוזל חייב כו'. ערש\"י דסנהדרין ע\"ב א' ד\"ה אבל כו' (ע\"כ):",
+        "ואם אבדה. מכות ט\"ז א' וש\"מ:",
+        "(ליקוט) כל הגוזל כו' ואם אבדה כו'. תוספתא ספ\"י גנבים כו' טול דמי פרתך טול דמי טליתך אין שומעין לו נגנבו או אבדו נותן לו דמיהן (ע\"כ):",
+        "(ליקוט) בין שהודה כו'. ר\"ל אע\"ג דקרא אשר גזל דיליף שינוי ממנה משתעי בהודה מעצמו מ\"מ ה\"ה בעדים דהא אמרינן שינוי ג\"כ לענין כפל ודו\"ה (ע\"כ):",
+        "גזל קרקע כו'. כ\"א א' ההוא גברא כו' זיל פייסינהו כו' פי' הרשב\"א בשביל שכירות הקרקע דא\"י לגבות יציאותיו מהיתומים עד שיגדלו ואפי' כשיגדלו אפשר שיאמרו טול עציך ואבניך כו' ע\"ש (ע\"כ):",
+        "(ליקוט) גזל קרקע כו'. עמש\"ש ועמש\"ל בסי' שע\"ה ש\"ו:",
+        "דלא עשו כו'. עתוס' צ\"ו א' ד\"ה כל כו':"
+      ],
+      "en_segments": [
+        "Every, etc. See Bava Kamma 66a and Rashi, Sanhedrin 72a.",
+        "(Supplement) Every robber is obligated, etc. The verse's formulation does not limit the rule to voluntary admission. (End of supplement.)",
+        "If it is lost. All the groves are circulated, and if they are lost. Hashem’s promise is that Hashem’s promise is not to be stolen or lost",
+        "(Supplement) Whether he admitted, etc. Although the verse from which change is derived speaks of one who admitted voluntarily, the same rule applies when witnesses testify, since change also governs double and fourfold or fivefold payment. (End of supplement.)",
+        "He robbed land, etc. See Bava Kamma 21a. Rashba explains that the robber must appease the heirs concerning the land's rental value, because he cannot collect his expenses from minor heirs until they mature, and even then they may tell him to remove his materials. See simanim 61 and 375.",
+        "(Supplement) He robbed land, etc. See what I wrote there. (End of supplement.)",
+        "Do not do so. A. D.C.:"
+      ]
+    },
+    {
+      "id": "cm1/siman369/seif-002/beer-hagolah",
+      "volume": "cm1",
+      "siman": 369,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג) שם ד\"ב וכ' ה\"ה זה פשוט יאוש כדי לא קני כמ\"ש בפ\"א מה\"נ (ולעיל סי' שנ\"ג) ובפ\"ג דסוכה דף ל' ע\"ב והא דאמרי' בפ\"י דב\"ק גבי דינא דמלכותא דינא דלמא מייאשי מרותייהו מינייהו (דף קי\"ג ע\"ב) התם דאיכא יאוש ושינוי רשות שנמסר לרבים שכל זמן שיש בדבר יאוש ושינוי רשות מותר ליהנות בו וזה ברור",
+        "ד) כתב ה\"ה פשוט הוא דקרקע אינה נגזלת כדאיתא שם דף י\"ז ע\"ב וכחכמים",
+        "ה) מפורש שם בפ\"ב ד' נ\"א ע\"א ומבואר לעיל סי' שס\"ג ס\"ו",
+        "ו) כתב ה\"ה זה מתבאר בההיא דהגוזל בתרא דף קי\"ג וביאר שם אע\"ג דשינוי מעשים בלבד קונה זה שינוי החוזר לברייתו כמ\"ש בפ\"ב (ולעיל סי' ש\"ס ס\"ח)",
+        "ז) שם די\"ו ומבואר בהגוזל בתרא שם",
+        "ח) טור ס\"ט ושם בגמ' וכדמפרש שם טעמא שלוחא דמלכא כמלכא ולא טרח ואינהו הוא דאפסידו אנפשייהו דאיבעי להו דאינקוט מכולי באגי ולמשקל דמי",
+        "שם ברמב\"ם",
+        "ט) שם די\"ח וכ' ה\"ה וזה מבואר"
+      ],
+      "en_segments": [
+        "gimel) Ibid., law 2. The Maggid Mishneh writes that this is straightforward, because despair alone does not acquire, as written in chapter 1 of Hilkhot Geneivah and above in siman 353. In Sukkah 30b, and in Bava Kamma 113b regarding the law of the kingdom, the Gemara says that perhaps the owners despaired. There, however, there is both despair and a change of possession, because the property was transferred to the public. Whenever there is despair together with a change of possession, one may benefit from the property.",
+        "dalet) The Maggid Mishneh writes that it is straightforward that land cannot be stolen, as stated there on 117b, following the Sages.",
+        "heh) Explicit there in the second chapter, 51a, and explained above in siman 363, seif 6.",
+        "vav) The Maggid Mishneh writes that this is explained in the latter chapter HaGozel, 113a. Although a change in the object itself can acquire, this is a reversible change, as written in chapter 2 and above in siman 360, seif 8.",
+        "zayin) Ibid., law 16, explained in the latter chapter HaGozel.",
+        "chet) Tur, seif 9, from the Gemara there, which explains that the king's agent is like the king, and that the owners caused their own loss because the agent need not trouble himself; they should have collected proportionately from all the fields and taken payment. So appears in the Rambam.",
+        "tet) Ibid., law 18. The Maggid Mishneh writes that this is explained."
+      ]
+    },
+    {
+      "id": "cm1/siman369/seif-010/beer-hagolah",
+      "volume": "cm1",
+      "siman": 369,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ז) שם דין ט\"ו וכתב ה\"ה גם זה בפ' חזקת (בבא בתרא דף נ\"ה ע\"א) דאמר מלכא מאן דיהיב טסקא ליכול ארעא אי נמי מדאמרינן בפ\"ה דב\"מ דף ע\"ג ע\"ב ארעא לטסקא משתעבד'",
+        "ר\"ל בשלמא מכרו גזב' ממכר עולם אלא שזה החזיק מעצמו ופרע מנת המלך ה' המגיד:",
+        "ח) כבר כתבו המחבר לעיל ס\"ז מבואר' במ\"ש שם"
+      ],
+      "en_segments": [
+        "zayin) Ibid., law 15. The Maggid Mishneh writes that this too is in Bava Batra 55a, where the king says that whoever pays the land tax may possess the land; alternatively, it follows from Bava Metzia 73b, that land is pledged for its tax. The meaning is that where the tax collector sold the land, the sale is certainly permanent; the discussion is where someone took possession on his own and paid the king's tax, Maggid Mishneh.",
+        "chet) The Mechaber already wrote this above in seif 7, as explained there."
+      ]
+    },
+    {
+      "id": "cm1/siman373/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 373,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפ\"ט מה' גזילה דין ו' וכתב ה\"ה דהכי אסיקנא בפ\"ק דב\"מ והלכתא יש לו מעות ויש לו שבח וכו' (דף ט\"ו ע\"ב) והחילוק שכתב רבינו איזה יותר אם השבח אם ההוצא' מבואר בה' בדברי הרב ז\"ל",
+        "ב) שם ד\"ז כתב ה\"ה גם זה מבואר שם (פלוגתא דרב ושמואל שם דף יד ע\"ב ופסק רבא הלכתא כרב שם ד' טו ע\"ב) ובה' הרב וכו' ע\"כ וכן כ' התוספת שם דף יד ריש ע\"ב",
+        "ג) פלוגתא דרב ושמואל שם דף טו ע\"ב ופסק רבא הלכתא כרב דשבח אין לו מעות יש לו",
+        "ד) כתוב בהל' ופשוט הוא ה\"ה ☜",
+        "כ\"כ התו' שם דף טו בד\"ה מעות יש לו וכ' הב\"ח וכן כתב הרז\"ה אבל הרמב\"ן חלק עליו וכ' כדברי הרא\"ש ושזה דעת הרי\"ף ע\"ש בס' במלחמות ונ\"י כתב ב' הסברות ☜ ולפיכך בספיקא דדינא אין מוציאין מיד המוחזק"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 9 of Hilkhot Gezeilah, law 6. The Maggid Mishneh writes that this is the conclusion in the first chapter of Bava Metzia 15b: the purchaser has reimbursement for the purchase money and for the improvement. The distinction the Rambam makes regarding which is greater, the improvement or the expenses, is explained in the Rif.",
+        "b) Ibid., law 7. The Maggid Mishneh writes that this too is explained there, in the dispute of Rav and Shmuel on 14b, with Rava ruling like Rav on 15b, and so in the Rif. Tosafot likewise write this at the beginning of 14b.",
+        "gimel) The dispute of Rav and Shmuel there on 15b, with Rava ruling like Rav that he has reimbursement for the purchase money but not for the improvement.",
+        "dalet) This is written in the Rif and is straightforward, Maggid Mishneh. Tosafot likewise write on 15b. The Bach writes that the Baal HaMaor agrees, but the Ramban disputes him and rules like the Rosh, and that this is the Rif's view, as explained in Milchamot. The Nimukei Yosef cites both opinions. Therefore, in a matter of unresolved law, property is not taken from the party in possession."
+      ]
+    },
+    {
+      "id": "cm1/siman378/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 378,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כ\"מ כו' בין כו'. מתני' ל\"ב ב' המבקע כו'",
+        "ואפי' כו'. מ\"ח א':",
+        "ל\"ש בגופו כו. ר\"ל גופו של ניזק כמש\"ו ל\"ש ממונו של ניזק וכמש\"ש וא\"ר הכניס כו' וא\"ר נכנס כו' אלמא דשוין ה\"ה לענין הזיקו בע\"ה ודוקא בממלא חצר חבירו אמרו שם כ\"ח א' משבר ויוצא כו' ועתוס' שם ד\"ה משבר כו':",
+        "ודוקא במזיקו כו' היו שניהם ברשות כו'. כ\"ז לשון הטור והן תמוהים שהרכיב שיטת רש\"י עם הרמב\"ם וכן הקשה הלח\"מ שיטת הרמב\"ם דברשות המזיק או שניהם ברשות או שלא ברשות שוין דבכוונה חייבין והיינו בזדון וע\"ש פ\"ו מה' חובל הל' ג' ושלא בכונה פטורין אבל הזיקו לבע\"ה דהיינו ברשות הניזק אפי' שלא בכוונה חייב כנ\"ל ופי מש\"ש נכנס לחצר כו' והזיק כו' ר\"ל בכוונה הוזק ר\"ל שלא בכונה אר\"פ לא אמרן כו' לא ידע היינו שלא בכוונה ידע היינו בכוונה ובא לפרש מ\"ש הזיקו בע\"ה פטור היינו הוזק בו ואזדו כו' הזיקו כו' הוזקו כו' ג\"כ כנ\"ל בכוונה שלא בכוונה טעמא כו' משום סיפא שלא ברשות חייב אפי' הוזק ר\"ל שלא בכוונה כנ\"ל אבל ברשות שוה לשניהם כו'. ושיטת רש\"י דבשניהם ברשות או שלא ברשות אפי' שלא בכוונה חייב אם הזיק בידים הוזק ממילא פטור וברשות הניזק לעולם חייב וברשות המזיק לעולם פטור והוא דלא ידע ואם ידע ביה הוי כשניהם ברשות וז\"ש הרמב\"ם וש\"ע בס\"ד כל אלו כו' ר\"ל דוקא ברשות הניזק אבל בר\"ה שוה לרשות המזיק דוקא במתכוון וכמ\"ש הרמב\"ם שם בפ\"ו בד\"א ברשות הניזק אבל ברשות המזיק כו' וכן אם היו שניהן ברשות או שניהן שלא ברשות והזיק א' מהן ממון חבירו שלא בכוונה פטור וכן הזיקו את גופו כמש\"ש בפ\"א אלא דבפ\"ו איירי בממון אבל בש\"ע לא סיים רק ברשות המזיק משום דלרש\"י בר\"ה אפי' שלא בכוונה חייב וערש\"י שם ד\"ה חייבין כו' והא דתנן כו' אבל להרמב\"ם ניחא דאפי' הזיקו אלא דהזיקו בע\"ה פטור ניחא לרש\"י יותר ומ\"ש אבל ברשות המזיק כו' לרש\"י דוקא בדלא ידע ביה כנ\"ל וע\"ש בד\"ה דברשות פטור כו':",
+        "ויש מי כו'. הרמ\"ה ס\"ל כשיטת רש\"י אלא שמוסיף בידע הוי שניהם ברשות לגמרי אפי' גבי נכנס ואם הוזק בו בע\"ה פטור ומ\"ש ר\"פ לא אמרן כו' ל\"ד אסיפא דה\"ה ארישא אלא דעיקר רבותא אסיפא וז\"ש ואזדו כו' ר\"ל דידע הוי כשניהם ברשות ולפ\"ז מש\"ש ך\"ז א' ובא אחר כו' ואם הוזק כו' הכל בדלא ידע ומ\"ש ודוקא במזיקו כו' הוא שיטת הרמב\"ם ומ\"ש וי\"א הוא לפי שיטת רש\"י ועמ\"ש בס\"ז:",
+        "(ליקוט) עמש\"ש דלהרמ\"ה אם ידע ביה הוי כשניהם ברשות אבל ט\"ס הוא וצ\"ל כשניהם שלא ברשות והוא פשוט א\"צ לפנים ומתני' דשם היה בעל כו' הי' בעל כו' הוי שניהם ברשות ואם עמד כו' ואם עמד כו' הוי א' ברשות וא' שלא ברשות ואם א\"ל כו' ואם א\"ל כו' שניהם שלא ברשות (ע\"כ):"
+      ],
+      "en_segments": [
+        "It's like a quaint between a quake. \"And thou shalt beat him.\"",
+        "and O'D. A:",
+        "Whether with his body, etc. Meaning the injured party's body, as explained below, and likewise the injured party's property. This is as stated there concerning one who brought an object in and one who entered, showing that the rules are equal. The same applies where the householder caused the damage. Only where one filled another's courtyard did they say that the owner may break his way out. See Tosafot there.",
+        "And specifically where he damaged him, etc.; if both had permission, etc. This entire passage is Tur's wording, but it is difficult, because it combines Rashi's approach with Rambam's. Lechem Mishneh already raised this issue. According to Rambam, where the damager has permission, where both have permission, or where neither has permission, the laws are equal: intentional damage is liable, and unintentional damage is exempt. When the damage occurs in the injured party's domain, however, the damager is liable even unintentionally. This is Rambam's explanation of the Gemara. Rashi's approach differs: where both have permission or neither has permission, one who actively damages is liable even without intent, but one who is injured automatically is exempt. In the injured party's domain the entrant is always liable, while in the damager's domain he is always exempt unless he knew of the entrant, in which case it is as though both had permission. Thus Rambam and Shulchan Aruch in seif 4 refer specifically to the injured party's domain. In the public domain, Rambam equates it with the damager's domain, requiring intent, whereas Rashi imposes liability for active damage even without intent. This also explains the different readings of the Gemara. See 50 and 81.",
+        "And some say, etc. Ramah follows Rashi's approach, but adds that if the householder knew of the entrant, both are treated as having equal permission even regarding the entrant, so if the householder was injured through him he is exempt. Rav Pappa's distinction applies to both clauses, though its principal novelty concerns the latter. The statement that where he knew they are both 'with permission' should read 'both without permission.' This is clear from the Mishna: where each proceeds normally, both have permission; if one stops, one has permission and the other does not; if one warns the other, both are without permission. See 80 and 81."
+      ]
+    },
+    {
+      "id": "cm1/siman386/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 386,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הטור מהא דאמר ר\"ל לר\"א ר\"א וסבירא להו כוותיה בפ\"ט דב\"ק דף ק' ע\"ב",
+        "ב) שם בשם הרמב\"ם בפ\"י מה' חובל ומזיק די\"א כ' ה\"ה מימרא דרבה פוטר (שם דף צח ע\"א) משום דלית ליה דינא דגרמי אבל המפרשים כתבו דלדידן חייב בכולהו וכן דעת ר\"ח ובהלכות ויתר הפוסקים ז\"ל",
+        "פירוש אפילו למים צלולים וקא חזי ליה באופן שאינה אבודה ממנו אלא גורם להפסידו אותו שכר ליודע לשוט תוך המים ולמשקליה דאילו יכול להוציא ע\"י שכר הנז' גם רבה מחייבו:",
+        "ג) ל' הרמב\"ם שם ד\"ט כדרפר' דכפייה לרב אשי וכו' שם ע\"ב"
+      ],
+      "en_segments": [
+        "a) The language of the Tur, from Reish Lakish's statement to Rabbi Elazar and those who follow his view, Bava Kamma 100b.",
+        "b) Ibid., in the name of the Rambam, chapter 10 of Hilkhot Chovel uMazik, law 11. The Maggid Mishneh writes that Rabba exempts in Bava Kamma 98a because he does not accept dina d'garmi, but the commentators write that according to our ruling one is liable in all these cases. This is also the view of Rabbeinu Chananel, the Rif, and the other poskim. This applies even if he throws the coin into clear water where it remains visible and is not truly lost, but he causes the owner to lose the wage that must be paid to someone skilled enough to dive and retrieve it. If the owner can retrieve it by paying that wage, even Rabba requires the one who caused the loss to reimburse it.",
+        "gimel) The language of the Rambam there, law 9, following Rafram, who compelled Rav Ashi to pay, there on 98b."
+      ]
+    },
+    {
+      "id": "cm1/siman386/seif-003/beer-hagolah",
+      "volume": "cm1",
+      "siman": 386,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ד) ל' הטור וכדעת הרי\"ף שכתב דלית הלכתא בהא כרבה דפוטר בזה שם סוף דף כו ע\"ב דס\"ל שלא דיינינן דינא דגרמי ואנן קיימא לן דלית הלכתא הכי אלא כרפרם דכפייה לרב אשי וכו' וכן דעת הרמב\"ם שם ד\"ח אך לא כתב מפורש כי היה לו קצת גי' אחרת ופי' אחר בדברי רבא כמ\"ש ה\"ה שם ואכמ\"ל",
+        "ה) וביאר הרא\"ש שם בפסקיו בשם ר\"י כיון שלא עשה מעשה בגוף הדבר הניזוק ושהכי מסתבר וכן כתבו התו' בשם ר\"י בפ\"ב דב\"ב סוף דף כ\"ב ועוד כתב משמו חילוק אחר דדינא דגרמי דחייב היינו דמשעת מעשה בא ההיזק",
+        "ו) חפשתי ולא מצאתי מפורש שפסקו התו' או הרא\"ש בדוחף מטבע של חבירו לים או בפוחת צורתו כרבה דפטור לפי השני חילוקים שכתבו התוס' והרא\"ש בפרק לא יחפור כנזכר לעיל נראה שחייב לדעתם בשני אלו בדוחף וכו' או פוחת וכו' כיון שעושה מעשה לגוף הדבר הניזוק ומשעת מעשה בא ההיזק",
+        "ז) ע\"ש סוף ד' כ\"ו שהקשה על כל מה שכת' ר\"י מהא דטיהר את הטמא וב\"ה עצמו עירבן עם פירותיו אמאי חייב דהוא עצמו אינו עושה היזק בממון חבירו וגם באותה שעה שמטהר אינו בא ההיזק ולכן כתב דדינא דגרמי הוא משום קנס ובהזיקן מצוי ורגיל כדמוכח בירושלמי בהא סלקי התוספות משם אך הרא\"ש כ' שם בפסקיו דמה שעושה ב\"ה על ידו הוי כעושה מעשה",
+        "עכו\"ם שעשה מקח עם ישראל א' כך וכך מדות יין שרוף בכך וכך ונגמר המקח כדרך התגרים שמכים כף אל כף והלך עכו\"ם אל בית ישראל שני ורוצה גם כן לעשות עמו מקח על יין שרוף והיתה כוונתו שאם יוזיל ישראל השני שיקח ממנו המקח וכשהרגיש ישראל ראשון שלכך הלך לבית ישראל שני שלח אל ישראל הב' זה וביקש ממנו שלא ימכור לו יין שרף כי כבר עשה עמו מקח ולא השגיח הישראל השני ועשה מקח עם עכו\"ם ולקח היין שרוף ממנו ולא מן הראשון ☜פסק הסמ\"ע דאין לענוש ישראל השני אם אין ערמה בדבר לפי ראו' הדיינין כיון שלא היה מהדר הישראל הב' אחריו והעכו\"ם בא אצלו מעצמו אף ששלח אליו ישראל הראשון שלא יעשה מקח עמו לאו כל כמינים לעשות לנפשו היזק עבורו כו' ויש עוד טענה לישראל השני מי יאמר שלא יקחו גם כן ממך השיעור שעשה המקח עמך והאריך עוד בזה"
+      ],
+      "en_segments": [
+        "dalet) The language of the Tur, following the Rif, who writes that the halakhah does not follow Rabba's exemption at the end of 26b, because Rabba held that dina d'garmi is not adjudicated. We rule otherwise, following Rafram, who compelled Rav Ashi to pay. The Rambam likewise rules this way in law 8, although he does not state it explicitly because he had a somewhat different textual reading and explanation of Rava's words, as the Maggid Mishneh writes.",
+        "heh) The Rosh explains in his rulings in the name of Rabbeinu Yitzchak that liability applies where he did not perform an act upon the damaged object itself, and writes that this is the reasonable distinction. Tosafot likewise write this in the name of Rabbeinu Yitzchak at the end of Bava Batra 22b. He further writes another distinction, that dina d'garmi applies where the damage follows immediately from the act.",
+        "vav) I searched and did not find that Tosafot or the Rosh explicitly ruled like Rabba to exempt one who pushes another's coin into the sea or defaces it. According to the two distinctions Tosafot and the Rosh give in chapter Lo Yachpor, it appears that they would impose liability in both cases, because the person acts directly upon the damaged object and the loss follows immediately from the act.",
+        "zayin) See there at the end of 26b, where Tosafot challenge Rabbeinu Yitzchak's distinctions from the case of one who declared a tamei item tahor and the owner then mixed it with his produce: why is he liable, since he did not damage the other's property directly, and the damage did not occur at the moment of his ruling? Tosafot therefore conclude that dina d'garmi is a penalty imposed for common and frequent forms of damage, as indicated by the Yerushalmi. The Rosh, however, writes that what the owner subsequently does on the basis of his ruling is treated as though the first person performed the act. The Sema ruled regarding a gentile who concluded a commercial agreement with one Jew for a certain amount of distilled liquor at a set price in the customary merchant fashion of striking hands, and then went to another Jew intending to purchase from him if he offered a lower price. When the first Jew realized this, he asked the second not to sell because the deal had already been concluded, but the second nevertheless sold to the gentile, who then bought from him instead of the first. The Sema rules that the second Jew is not penalized, absent deceptive conduct as assessed by the judges, because he did not pursue the customer and the gentile came to him on his own. Even though the first Jew asked him not to transact, the first cannot require the second to incur a loss for his benefit. The second also has the argument that perhaps the gentile would still purchase the agreed amount from the first. The Sema discusses the matter further."
+      ]
+    },
+    {
+      "id": "cm1/siman388/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 388,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' רמב\"ם בפ\"ז מה' חובל די\"ז וכ' ה\"ה מפורש בסוף הכונס (מימרא דשמואל דף ס\"ב ע\"א)",
+        "ב) שם די\"ח זה מעשה שם ההיא גברא דבטש בכספתא וכו' (שם)",
+        "ג) שם משתבע ושקיל",
+        "ד) פשוט שם בגמרא ממתני' ומודים חכמים לר' יהודה במדליק את הבירה",
+        "כתב ה\"ה נ' שרבינו ז\"ל סובר דבעי' בגמ' בעובדא דלעיל דסלקא בתיקו הוא בדבר הידוע שאין דרכו להניחו שם וזה טוען שהניחו שם והלה הזיקו ומשום דסלקא בתיקו פסק הרב שאם תפס אין מוציאין מידו כדרכו בכל תיקו",
+        "ה) וכתב שלשון דגמרא נראה כדברי האחרים דקאמרינן מי מנח אינשי וכו' (וכמ\"ש התו' שם) ומ\"מ אם יש עדים שאותו דבר שהוא טוען היה שם אע\"פ שאין דרך להניח שם גובין מן המזיק וכו' נותנים לניזק בלא שבועה אך העלה הרשב\"א ז\"ל בזה שלא כדברי התוספות ע\"כ",
+        "ו) שם די\"ט וכתב ה\"ה דין זה יתבאר בפ\"ה מה' שאלה ופקדון בארוכה טעם המחבר והר\"ב המשיג ע\"כ ע\"ש כי קצר הגליון מהכיל"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 7 of Hilkhot Chovel uMazik, law 17. The Maggid Mishneh writes that this is explicit at the end of chapter HaKones, from Shmuel's statement on Bava Kamma 62a.",
+        "b) Ibid., law 18, from the incident there of the man who kicked a chest.",
+        "gimel) Ibid.: he swears and collects.",
+        "dalet) Straightforward from the Gemara there, from the Mishnah where the Sages concede to Rabbi Yehudah regarding one who burns a building. The Maggid Mishneh writes that the Rambam understands the unresolved question in the preceding incident as concerning an item that is known not ordinarily to be placed there, while the injured party claims that he did place it there. Since the question remains unresolved, the Rambam rules according to his general approach that if the claimant seized payment, it is not removed from him.",
+        "heh) The Maggid Mishneh writes that the wording of the Gemara appears to support the other authorities, since it asks whether people ordinarily place such an item there, as Tosafot explain. Nevertheless, if witnesses testify that the claimed item was there, even if such an item is not ordinarily placed there, the damages are collected from the one who caused the loss and the injured party is paid without an oath. The Rashba, however, ultimately rules differently from Tosafot on this point.",
+        "vav) Ibid., law 19. The Maggid Mishneh writes that the reason for this law, and the disagreement between the Mechaber and the Raavad, is explained at length in chapter 5 of Hilkhot She'eilah uPikadon. See there, for the margin is too narrow to contain it."
+      ]
+    },
+    {
+      "id": "cm1/siman388/seif-002/beer-hagolah",
+      "volume": "cm1",
+      "siman": 388,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ז) ל' הרמב\"ם רפ\"ח מהלכות חובל ומזיק מבואר בפ\"ק דב\"ק דף ה' ע\"א ובפ\"י דף קיז ע\"א",
+        "ח) כ\"כ ה\"ה פירוש בקרקע אבל במטלטלי כל מידי מקרי מיטב כמ\"ש וכו' (וכמ\"ש לעיל בסימן שמ\"ח ולקמן סימן תיט) דאי מוסר לא הוה משלם ממיטב לא הוה מקשינן (שם בפ\"ק לתנינהו בהדי הני דמשלמי ממיטב דכ\"ש היא ממטמא דמדמע דהיזק שאינו ניכר נינהו ומשלמי' ממיטב) כמ\"ש שם",
+        "ט) מבואר בגמרא שם בפ\"י מימרא דרבה",
+        "פי' שדבר לאנס והראה לו ממון חבירו דבמקום פלוני הם",
+        "י) כתב הרב המגיד פי' שאין זה היזק שאינו ניכר שפטרו חכמים את היורש וכמו שכתבתי וכו' (ולעיל סי' שפ\"ה סעיף א') ובגמרא פ' הגוזל בתרא (שם) משמע דדינא הוא במוכס דלא קנסא וכ\"כ רבינו האי והרמב\"ן והרשב\"א ז\"ל",
+        "כ) שם דין ב' מעובדא דרב הונא בר יהודה וכו' וכדא\"ל רבא וברייתא שם בפרק י' דף קיז ע\"א",
+        "ל) אוקימתא דגמרא בלישנא אחרינא אמתני' שם דף קיז ע\"ב",
+        "מ) שם דף ג' וג' ה\"ה כל אלו הבבו' עד בעלי דינין וכו' הם בביאור בהלכות הרב שם בפ' הגוזל בתרא ונחלקו בקצתן המפרשים ז\"ל וראיות ההלכות נכונות ביותר וכן העלה הרשב\"א ז\"ל",
+        "וע\"ל סימן ק\"ח ס\"ב",
+        "נ) כן משמע התם בעובדא דההוא גברא דאפקידו גביה כסא דכספא סליקו גנבי עליה וכו' שם דף קי\"ז ע\"ב"
+      ],
+      "en_segments": [
+        "zayin) The language of the Rambam at the beginning of chapter 8 of Hilkhot Chovel uMazik, explained in the first chapter of Bava Kamma 5a and in the tenth chapter 117a.",
+        "chet) The Maggid Mishneh writes that this refers to land. Regarding movable property, any item may be considered best quality, as explained above in siman 348 and below in siman 419. If an informer did not pay from best-quality land, the Gemara could not have asked why informers were not counted among those who pay from best-quality land, all the more so than one who renders terumah tamei or mixes forbidden produce, whose damage is not physically recognizable yet who still pays from best-quality land.",
+        "tet) Explained in the Gemara there in the tenth chapter, in Rabba's statement. The meaning is that he spoke to the coercive official and showed him where another's property was located.",
+        "yud) The Maggid Mishneh explains that this is not the type of unrecognizable damage for which the Sages exempted heirs, as written above in siman 385, seif 1. The Gemara in the latter chapter HaGozel indicates that this is actual law regarding a tax collector and not a penalty. Rabbeinu Hai, the Ramban, and the Rashba likewise write so.",
+        "kaf) Ibid., law 2, from the incident involving Rav Huna bar Yehudah, Rava's statement to him, and the baraita in Bava Kamma 117a.",
+        "lamed) The alternate interpretation of the Gemara regarding the Mishnah there on 117b.",
+        "mem) Ibid., laws 3 and 4. The Maggid Mishneh writes that all these clauses up to the discussion of litigants are explained in the Rif in the latter chapter HaGozel. The commentators disagree on some of them, but the Rif's proofs are the strongest, and the Rashba likewise concludes so. See also siman 108, seif 2.",
+        "nun) This is implied there from the incident of the man with whom a silver cup had been deposited and robbers came upon him, Bava Kamma 117b."
+      ]
+    },
+    {
+      "id": "cm1/siman389/seif-006/beer-hagolah",
+      "volume": "cm1",
+      "siman": 389,
+      "seif": 6,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "י) שם דף ה' ושם במשנה ונתבאר בגמ' שם דף ט' ע\"ב",
+        "ר\"ל אבל לא לאחר שאם הועד' ליגח לא הועדה לישך וכן הוא בגמ' אם הועדו חמשתן (שם דף טז ע\"ב)",
+        "כ) שם במשנה",
+        "ל) שם בפ\"א מנזקי ממון ד\"ה חילוק דין כלים גדולים מבואר במ\"ש בסעיף ז' ע\"ש",
+        "מ) משנה שם דף יט ע\"ב",
+        "נ) משנה שם דף י\"ז ע\"א"
+      ],
+      "en_segments": [
+        "yud) Ibid., law 5, from the Mishnah there and as explained in the Gemara on 9b. The meaning is that an animal becoming forewarned for one form of damage does not make it forewarned for another, for if it became forewarned to gore it did not thereby become forewarned to bite. So too the Gemara says regarding five forms of forewarning on 16b.",
+        "kaf) Ibid., in the Mishnah.",
+        "lamed) Ibid., chapter 1 of Hilkhot Nizkei Mamon, law 5. The distinction concerning large utensils is explained in seif 7 there.",
+        "mem) Mishnah there on 19b.",
+        "nun) Mishnah there on 17a."
+      ]
+    },
+    {
+      "id": "cm1/siman389/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 389,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' אם כו'. דלא כר\"א:",
+        "(ליקוט) בנגיחה או כו'. ז\"ש הזאב כו' הרי כו' וערש\"י שם ד\"ה הרי כו' (ע\"כ):",
+        "ואפי' כו'. בזה אפי' ר\"א מודה כמש\"ש:",
+        "וי\"א דוקא כו'. ט\"ז ב':",
+        "(ליקוט) וי\"א כו'. עתוס' ט\"ז א' ד\"ה והנחש כו' (ע\"כ):",
+        "לדרוס. ולאכול ולטרוף להניח. שם וברא\"ש:",
+        "וזאב כו'. כמ\"ש בב\"מ צג ב' בא זאב וטרף ארי ודרס ועתוס' ד\"ה והנחש כו' וכ\"פ הרשב\"א וכ' הרא\"ש דכל חיה דינה כזאב דדוקא ארי שהוא מלך כו'. והרמב\"ם פ' דלא כשמואל משום דאקשינן עליה טובא וכולהו שינויי דחיקי נינהו וכן הרי\"ף השמיט וז\"ש חמשה כו' בנגיחה כו' וכיוצא כו':"
+      ],
+      "en_segments": [
+        "A.D. if they are. Despite this:",
+        "(Supplement) By goring or, etc. This is the meaning of the statement concerning the wolf, etc., 'these are, etc.' See Rashi there, s.v. these are.",
+        "And even, etc. In this case even Rabbi Eliezer agrees, as stated there.",
+        "Oh, and I'm like that. A.D. (S.A.A.) and A. “Ah, O Lord, and the serpent is.”",
+        "To maul. Meaning to eat, whereas 'to seize' means to kill and leave the prey. See the Gemara there and Rosh.",
+        "And a wolf, etc. As stated in Bava Metzia 93b: if a wolf came and seized, or a lion came and mauled. See Tosafot there, s.v. and the snake. Rashba rules likewise. Rosh writes that every wild animal has the law of a wolf; only a lion, which is king among animals, differs. Rambam rules against Shmuel because the Gemara raises numerous objections against him and all the answers are strained. Rif also omits his view. This is why the text says, 'five, etc., by goring, etc., and the like.'"
+      ]
+    },
+    {
+      "id": "cm1/siman390/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 390,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ופטור כו'. ג' ב' י\"ט א':",
+        "ואם כו'. ג' ב' וכר\"פ דבתרא הוא ועוד לא שבקינן פשוטותיה משום ספיקא דרבא:",
+        "(ליקוט) משלם מהיפה כו'. מדקא' סתמא דגמ' שם ואמאי כו' לר\"פ פשיטא ליה ואע\"ג שי\"ל דגם ר\"פ ס\"ל כרבא ולפוטרו ברה\"ר (ע\"כ):",
+        "ודבר כו'. שם:"
+      ],
+      "en_segments": [
+        "A.J.A.:",
+        "And if they are.” J. B. and P. Dovra is and no more simply because Spike Darba is paying off the beautiful spot. Madka Seth Samma is a name, and my mother is called to R&D R. P.S.A., and I will call on the R.S. model and be fired at the chair",
+        "And a word like.” Name:"
+      ]
+    },
+    {
+      "id": "cm1/siman390/seif-012/beer-hagolah",
+      "volume": "cm1",
+      "siman": 390,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ש) ל' הרמב\"ם שם דף ט\"ו משנה שם דף כ\"א ע\"ב:",
+        "ת) מבואר בגמ' שם:",
+        "א) כ\"כ התוס' שם והרא\"ש מברייתא ואוקימת' דגמ' שם עוד כתבו התוס' שם שאם היה לא מקורבות ולא מרוחקות מחברי בין בנפילה בין בקפיצה ולענ\"ד י\"ל דבהכי מיירי הרמב\"ם והרי\"ף שלא חילקו בזה בין שהיו סמוכין לכותל או רחוקים או שהיה להם גירסא אחרת כמ\"ש ה\"ה:",
+        "ב) אוקימתא דגמ' שם",
+        "ג) מבואר במ\"ש בסמוך",
+        "ד) שם דף ט\"ז וכתב ה\"ה הוא כפי גי' ההלכות מברייתא שם וכדמתרגמא ר\"פ שם ריש דף כ\"ב",
+        "פירוש שנועץ צפרניו בכותל ואין דרכן בכך ומשונ' הם",
+        "ה) שם בבריי' סוף דף כ\"א",
+        "ו) טור ס\"ו כ\"כ התוספת שם בד\"ה אדם ותרנגול וכן כתב הרא\"ש שם וש\"פ"
+      ],
+      "en_segments": [
+        "shin) The language of the Rambam there, law 15, from the Mishnah on 21b.",
+        "tav) Explained in the Gemara there.",
+        "a) Tosafot and the Rosh write this from the baraita and the Gemara's interpretation. Tosafot further write that if the objects were neither close nor distant, the cases of falling and jumping are combined. In my humble opinion, one may say that the Rambam and Rif, who do not distinguish between items near the wall and far from it, discuss this middle case; alternatively, they had another textual reading, as the Maggid Mishneh writes.",
+        "bet) The Gemara's interpretation there.",
+        "gimel) Explained in what is written immediately below.",
+        "dalet) Ibid., law 16. The Maggid Mishneh writes that this follows the Rif's reading of the baraita there, as Rav Pappa explains it at the beginning of 22a. The meaning is that it digs its claws into the wall, which is not its normal manner and is therefore an unusual act.",
+        "heh) Ibid., in the baraita at the end of 21b.",
+        "vav) Tur, seif 6. Tosafot write this there, s.v. 'a person and a rooster,' and so do the Rosh and the other poskim."
+      ]
+    },
+    {
+      "id": "cm1/siman391/seif-011/beer-hagolah",
+      "volume": "cm1",
+      "siman": 391,
+      "seif": 11,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "י) ל' הרמב\"ם שם בפ\"ג ד\"י וכתב הכ\"מ מימרא דאילפא ורבי אושעיא שם דף כ' ע\"א וכדמפרש רבא בקופצת וכמ\"ש הנ\"י וז\"ל פי' קופצת היינו שזקפה רגליה ועמדה על הבהמה ואכלה זקופה אבל אם עמדה מעט כדי לפשוט צוארה פטורה משום דבהמתו לאו כרשות הניזק גמור הוא",
+        "פי' וחשיב כר\"ה טור",
+        "כ) טור וכן כתב הרשב\"א וקופצ' דקאמר (רבא שם אמימר' דרבי אושעיא) שקפצה על האדם שהקופה מופשלת לאחוריו וכן ע\"ג אנטבא שבר\"ה כיון דאורחה למיכל שעורים או כרשינין שבקופה אף היא דרכה לקפוץ שם וטעם חיובן של אלו מפני שהם כחצר הניזק ואע\"פ שהם עומדים בר\"ה מפני שיש להם רשות לעבור שם עם משאן"
+      ],
+      "en_segments": [
+        "yud) The language of the Rambam, chapter 3, law 10. The Kesef Mishneh cites Ilfa and Rabbi Oshaya's statements on 20a, as Rava explains them regarding jumping. The Nimukei Yosef explains that 'jumping' means that the animal raised its legs and stood upon the other animal, eating while upright. But if it merely stood slightly so as to stretch out its neck, it is exempt, because the other person's animal is not fully equivalent to the injured party's domain. The Tur explains that otherwise it is treated as the public domain.",
+        "kaf) The Tur and Rashba write that Rava's reference to jumping means that the animal jumped upon a person carrying a basket behind him, or onto a platform in the public domain. Since it is normal for the animal to eat barley or vetch from the basket, it is also normal for it to jump there. The reason for liability in these cases is that they are treated like the injured party's courtyard, even though located in the public domain, because those persons have permission to pass there with their loads."
+      ]
+    },
+    {
+      "id": "cm1/siman393/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 393,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפ\"ג מה' נזקי ממון די\"ד משנה פ\"ה דב\"ק דף מז ע\"א",
+        "ב) מבריי' האשה שנכנסה לטחון וכו' שם ע\"ב וכן כ' הרשב\"א אם הוחלקה והוזקה בהמתו של בעל הבית וה\"ה אם אכלתן בהמתו של ב\"ה נמי פטור",
+        "ונלפע\"ד שהגה זו קאי אחלוקה שניה מ\"ש ואם קיבל עליו וכו' ומקומה בסוף הסעיף ומחלוקתה מבואר בס\"ס שנ\"ח",
+        "ג) כרבי שם במשנה וכשמואל דפכק כוותיה בגמ' שם דף מ\"מ ע\"ב וכתב ה\"ה ואף רבי לא אמרה דבעי קבלה בפי' אלא להתחייב בעל הבית בנזקי בעל הפירות אבל להפטר בעל הפירות מנזקי בעל החצר כיון שהרשהו להכנס פטור ונכון הוא וכן דעת התו' וגם הרא\"ה הודה לו בהשגות"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 3 of Hilkhot Nizkei Mamon, law 14, from the Mishnah in the fifth chapter of Bava Kamma 47a.",
+        "bet) From the baraita concerning a woman who entered to grind there on 47b. The Rashba likewise writes that if she slipped and the homeowner's animal was injured, she is exempt, and likewise if the homeowner's animal ate the produce she is exempt. In my humble opinion, this gloss refers to the second clause, 'if he accepted responsibility,' and belongs at the end of the seif. Its dispute is explained at the end of siman 358.",
+        "gimel) Following Rabbi Yehudah HaNasi in the Mishnah and Shmuel, who rules accordingly on 48b. The Maggid Mishneh writes that even Rabbi Yehudah HaNasi required explicit acceptance only in order to make the homeowner liable for damage to the entrant's produce. But to exempt the owner of the produce from damage caused to the homeowner's property, once he had permission to enter he is exempt. This is correct, and Tosafot agree; even the Raah conceded this in his glosses."
+      ]
+    },
+    {
+      "id": "cm1/siman394/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 394,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפ\"ג מהנ\"מ די\"א משנה רפ\"ו דב\"ק דף נ\"ה ע\"א",
+        "ב) כדמפרש רב כהנא שם דף נ\"ח ע\"א",
+        "ג) כדמפ' שם דרב לא מבעיא קאמר וכו'",
+        "ד) כדאמר רבי יוחנן שם",
+        "ה) שם במשנה",
+        "ו) בעיא דרכ ירמיה שם דף נ\"ח ע\"א למ\"ד תחלתו בפשיעה וסופו באונס פטור אבל למ\"ד תחלתו בפשיעה וסופו באונס חייב פשיט דחייב ואנן קיימא לן כוותיה",
+        "פרש\"י דהיה לו לשמרה שלא תרד",
+        "ז) פסק כרב כהנא וכתב ה\"ה שפסק בפסק ההלכות וכתב הב\"י דפשטא דגמ' כוותיהו",
+        "ח) פסקו כרבא דמפרש מתניתין נפלה לגינה וכו' בשדחפוה חברותיה ופי' ☜פטור לשלם מה שהזוקה אבל חייב לשלם מה שנהנית פשוט ומבואר שם בגמ' וכ\"כ הרא\"ש בשם התוספת ולא דמי לעובדא דאדא סבולאה בפ\"ז דב\"מ דף צ\"ג ע\"ג ואיתא לעיל סימן ש\"ג סי\"א דחייבוה לשלם לאו משום פשיעה חייביה אלא משום שהיה ש\"ש וזה חשוב כגניבה ואבידה כדמשמע התם וכשם שהבעלים פטורים אם דחפה חבירתה כך שומר שכר שלו פטור דהא תנן מסר לש\"ח וכו' כלן נכנסו תחת הבעלים בפ\"ד דב\"ק סוף דף מ\"ד ע\"ב"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 3 of Hilkhot Nizkei Mamon, law 11, from the Mishnah at the beginning of the sixth chapter of Bava Kamma 55a.",
+        "bet) As Rav Kahana explains on 58a.",
+        "gimel) As the Gemara explains that Rav stated one case and certainly the more obvious one.",
+        "dalet) As Rabbi Yochanan says there.",
+        "heh) Ibid., in the Mishnah.",
+        "vav) Rabbi Yirmiyah's question on 58a. According to the view that initial negligence followed by an unavoidable accident is exempt, the question arises, but according to the view that such a person is liable it is obvious that he is liable, and we follow that latter view. Rashi explains that he should have guarded the animal so that it would not descend.",
+        "zayin) The ruling follows Rav Kahana. The Maggid Mishneh writes that the Rif rules so, and the Beit Yosef writes that the plain Gemara supports them.",
+        "chet) They rule like Rava, who explains the Mishnah's case of an animal falling into a garden as one where other animals pushed it. The meaning is that the owner is exempt from paying for the damage the animal caused, but must pay for the benefit it received. This is straightforward in the Gemara. The Rosh writes likewise in the name of Tosafot. This is unlike the incident of Ada Sabolaah in Bava Metzia 93b, cited above in siman 303, seif 11, where liability was imposed not because of negligence but because he was a paid guardian, and such a loss is treated like theft or loss. Just as the owner is exempt when another animal pushed it, so too his paid guardian is exempt, for the Mishnah in the fourth chapter of Bava Kamma at the end of 44b teaches that when the owner transferred the animal to a guardian, all guardians enter in place of the owner."
+      ]
+    },
+    {
+      "id": "cm1/siman395/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 395,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפ\"ב מהל' נזקי ממון דין י\"ט",
+        "ב) פשוט בפ\"ב דב\"ק דף כ\"ד ע\"ב ופרש\"י דגרמא בנזקין הוא וכ' הב\"י ומשמע לרבינו דמ\"מ חייב בדיני שמים (ומבואר לעיל סי' שע\"ח וסי' שפ\"ו)",
+        "ג) נלע\"ד שלמדו מהא דאמר רבא שם את\"ל המשסה כלבו של חבירו בחבירו חייב וכו' משמע ליה דנפשטא הבעיא אי מחייב בעל הכלב או לא וכמו שדרכו ודרך הגאונים לפסוק ככל את\"ל",
+        "ד) כתב ה\"ה שנ\"ל ☜ואפילו הוא מועד כיון שלא עשה מעצמו אלא ע\"י שיסוי כדאמרי' גם גבי שור האצטיידין כי יגח ולא שיגיחוהו ופטור ממיתה אף כאן דינו כתם",
+        "ה) שם במימרא דרבא",
+        "פי' שנשך הכלב את המשסה"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 2 of Hilkhot Nizkei Mamon, law 19.",
+        "bet) Straightforward from Bava Kamma 24b. Rashi explains that it is indirect causation in damages. The Beit Yosef writes that according to the Rambam he nevertheless remains liable under the laws of Heaven, as explained above in simanim 378 and 386.",
+        "gimel) In my humble opinion the Rambam learned this from Rava's statement there introduced by 'if you say,' regarding one who incites another's dog against a person. This implies that the question whether the dog's owner is liable was resolved, following the Rambam's and the Geonim's general practice of ruling according to an 'if you say' formulation.",
+        "dalet) The Maggid Mishneh writes that even if the dog was forewarned, since it did not act on its own but only because it was incited, it is like an arena ox, concerning which the verse teaches 'if it gores,' but not if others cause it to gore; such an ox is exempt from death. Here too its status is that of a tam.",
+        "heh) Ibid., in Rava's statement. The meaning is that the dog bit the person who incited it."
+      ]
+    },
+    {
+      "id": "cm1/siman397/seif-002/beer-hagolah",
+      "volume": "cm1",
+      "siman": 397,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג) שם ס\"ב ושם בגמ' מכריז רב יוסי ואתימא רבה וכו'",
+        "ד) כן כתב רש\"י והרא\"ש שם",
+        "ה) ל' הרמב\"ם ריש פ\"ה וכ\"כ הרי\"ף וכן הוא בגמ' שם אכן במ\"ש הרמב\"ם שם שהדין כן בכל הבהמות לא קי\"ל כוותיה",
+        "פי' אפילו ביומא דלאו שוקא רש\"י"
+      ],
+      "en_segments": [
+        "gimel) Ibid., seif 2, and in the Gemara where Rav Yose, or according to another version Rabba, announced the ruling.",
+        "dalet) Rashi and the Rosh likewise write there.",
+        "heh) The language of the Rambam at the beginning of chapter 5, and so writes the Rif, and so appears in the Gemara. However, insofar as the Rambam writes there that the same law applies to all animals, we do not rule like him. Rashi explains that the ruling applies even on a day that is not a market day."
+      ]
+    },
+    {
+      "id": "cm1/siman407/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 407,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפ\"ח מהנ\"מ דין וברייתא בפ\"ג דב\"ק דף לג ע\"ב:",
+        "ב) שם בגמ' מכור לרדיא ופ' ה' המגיד הכונה לומרי שהלוקח חורש בו לכתחלה וכן שהמכר קיים ואין א' יכול לחזור בו נראה שהוא סובר שהברייתא אתיא מפי' לר\"ע דאמר התם שותפי נינהו ויליף לה מדאמר הקדישו מוקדש מדרב אבהו וכו' דאי לרבי ישמעאל דאמר ב\"ח לא צריכין לרבי אבהו",
+        "ג) שם בגמ'",
+        "פי' לדידן דלא מגבינן ליה אי תפס לא מפקינן מיני'",
+        "ד) מבואר בסוגי' שם אליבא דר\"ע דהלכה כוותיה מחבירו"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 8 of Hilkhot Nizkei Mamon, from the baraita in the third chapter of Bava Kamma 33b.",
+        "bet) Ibid., in the Gemara, 'sold for plowing.' The Maggid Mishneh explains that the purchaser may initially plow with it, and that the sale remains valid and neither party may retract. He appears to understand the baraita according to Rabbi Akiva, who says there that the injured party and owner are partners, and derives this from the law that if the owner consecrated the ox the consecration takes effect because of Rabbi Abbahu's principle. According to Rabbi Yishmael, who treats the injured party as a creditor, Rabbi Abbahu's rule would not be needed.",
+        "gimel) Ibid., in the Gemara. The meaning is that in our time, when beit din does not collect the penalty, if the injured party seized the ox it is not removed from him.",
+        "dalet) Explained in the sugya there according to Rabbi Akiva, whose view is followed against an individual colleague."
+      ]
+    },
+    {
+      "id": "cm1/siman412/seif-005/beer-hagolah",
+      "volume": "cm1",
+      "siman": 412,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ק) שם ס\"ח וברמב\"ם שם די\"ב וכתב ה\"ה הוא כשמואל דבגמרא ולא כרב והטעם מפני שכל אלו הנזקין תולדות בור ולא מצינו בור שחייב בו את הכלים",
+        "ר) כשמואל שם דף כ\"ח ע\"ב דקי\"ל כוותיה",
+        "ש) גם זה כשמואל דאמר בור שחייב' עליו התורה להבלו וכל שכן לחבטי שם דף נ ע\"ב ודלא כאוקימתא דרב שם דף צ ע\"א",
+        "ת) דבכה\"ג לרב נמי חייב מבואר שם בסוגיא:",
+        "א) ברייתא שם",
+        "פי' רש\"י צינור המקלח מי שופכין של תשמיש הבית לר\"ה:"
+      ],
+      "en_segments": [
+        "kuf) Ibid., seif 8, and in the Rambam there, law 12. The Maggid Mishneh writes that this follows Shmuel in the Gemara and not Rav, because all these forms of damage are derivatives of pit, and we do not find liability for utensils damaged by a pit.",
+        "reish) Following Shmuel on 28b, whose view we follow.",
+        "shin) This too follows Shmuel, who says that the pit for which the Torah imposed liability is liable for its air, and all the more so for the force of impact, 50b, unlike Rav's interpretation on 50a.",
+        "tav) In such a case even Rav imposes liability, as explained in the sugya there.",
+        "a) The baraita there. Rashi explains that the pipe carries household wastewater into the public domain."
+      ]
+    },
+    {
+      "id": "cm1/siman414/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 414,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הרמב\"ם בפי\"ג מהנ\"מ די\"ד משנה פ\"ג דב\"ק דף ל' ע\"א ואוקימתא דרב אשי שם",
+        "פי' כדי לזבל שדות וכרמים",
+        "ב) שם במשנה וכרב דאמר בין בגופן בין בשבחן שם ע\"ב",
+        "ג) פשוט שם בגמרא ע\"ב אליבא תירוצא דרב נחמן",
+        "ד) כן כתב הרא\"ש בפסקיו מאוקימתא דגמרא שם וכ' הב\"י וכן בכ\"מ דהרמב\"ם ס\"ל דהאי אוקימתא דיחויא בעלמא הוא ונלע\"ד הא דאיתא מימרא מפורשת דרב הונא משמיה דרב שם ס\"ל לרבינו הרמב\"ם דהדר ביה שם בסוגיא ריש ד' נ\"א",
+        "ה) אוקימתא דגמרא שם",
+        "ו) בעיא שם ולא נפשטא ולטעמיה אזיל דבכל ספיקא דדינא ס\"ל אם תפס אין מוציאין מידו וכ\"כ הטור בשם הרמ\"ה",
+        "ז) שם במשנה"
+      ],
+      "en_segments": [
+        "a) The language of the Rambam, chapter 13 of Hilkhot Nizkei Mamon, law 14, from the Mishnah in the third chapter of Bava Kamma 30a and Rav Ashi's interpretation there. The meaning is that the material is placed there to fertilize fields and vineyards.",
+        "bet) Ibid., in the Mishnah, following Rav that liability concerns both the substance itself and its increase in value, on 30b.",
+        "gimel) Straightforward from the Gemara there according to Rav Nachman's answer.",
+        "dalet) The Rosh writes this in his rulings from the Gemara's interpretation. The Beit Yosef and Kesef Mishneh write that the Rambam views that interpretation as a mere rejection. In my humble opinion, although there is an explicit statement of Rav Huna in the name of Rav there, the Rambam understood that Rav retracted it in the sugya at the beginning of 51a.",
+        "heh) The Gemara's interpretation there.",
+        "vav) An unresolved question there. Following his general approach in uncertainties of monetary law, the Rambam holds that if the claimant seized, it is not removed from him. The Tur writes likewise in the name of the Ramah.",
+        "zayin) Ibid., in the Mishnah."
+      ]
+    },
+    {
+      "id": "cm1/siman420/seif-026/beer-hagolah",
+      "volume": "cm1",
+      "siman": 420,
+      "seif": 26,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "י) שם דין י\"ג כ' ה\"ה בעיא דרבא שם ואמר את\"ל כיון דלא אמדוהו יהיב ליה דמי כולו וכו' ופסק כאת\"ל וכן דרך רבינו בגמרא:",
+        "כ) כן היא שם בגמ' ברמב\"ם ובטור",
+        "פירו' כאלו עשה הכל בפע' אחת שאינו עולה כ\"כ כמו שאומדין כל אחת בפני עצמו תוס'",
+        "ל) וכן כ' ה\"ה שם בשם התו' ושלזה הסכים הרשב\"א ואפשר שזה דעת רבינו הרמב\"ם ז\"ל",
+        "מ) שם ושם בגמרא בעיא דלא איפשטא",
+        "נ) כ' ה\"ה פי' אחר שנגרעו דמיו מחסרון ידו ורגלו דודאי אם תפס דמי כולו כמו שהיה בריא מפקינן מיניה וא\"ת הכל עולה לחשבון א' לא היה דחילוק יש בין שומ' אחת לשומות הרבה כדאמרינן לעיל"
+      ],
+      "en_segments": [
+        "yud) Ibid., law 13. The Maggid Mishneh writes that this is Rava's question there, followed by an 'if you say': since they did not first assess him, he gives him the value of the entire injury. The Rambam rules according to the 'if you say,' as is his general practice in the Gemara.",
+        "kaf) So appears in the Gemara, Rambam, and Tur. The meaning is that the injuries are treated as though they were all inflicted at one time, because the total appraisal is then less than the sum of separate appraisals, Tosafot.",
+        "lamed) The Maggid Mishneh writes likewise there in the name of Tosafot, and that the Rashba agreed. It is possible that this is also the Rambam's view.",
+        "mem) Ibid., an unresolved question in the Gemara.",
+        "nun) The Maggid Mishneh explains that this refers to the value after his worth was already reduced by the loss of his hand and foot. Certainly, if the injured party seized the full value he had when healthy, it is removed from him. If all the appraisals necessarily produced the same total, there would be no issue, but there is a difference between one combined appraisal and multiple appraisals, as stated above."
+      ]
+    },
+    {
+      "id": "cm1/siman421/seif-013/beer-hagolah",
+      "volume": "cm1",
+      "siman": 421,
+      "seif": 13,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ה) טור סי\"ט משנה בפ\"ג דל\"ג ע\"א",
+        "ו) שם בשם אביו הרא\"ש שם בפסקיו",
+        "פי' לאחר שנפרדו זה מזה וע\"ל בסי' ת\"כ",
+        "ז) וכ' מהר\"ם מרוזבורג ☜ראובן טען על שמעון שקראו ממזר ושמעון אומר שמתחל' לחש לו באזנו שהוא ממזר לכן נתרגז וא\"ל כן אומדנא דמוכח הוי כיון שקראו פתאום ממזר ודאי האמת אתו עכ\"ל וא\"צ לישבע ע\"ז כמ\"ש לעיל סימן ת\"כ סל\"ח סמ\"ע בשם ד\"מ",
+        "ח) וכ' בנימוקי מהר\"ם דדין אשה לענין בזיון כדין איש ואם אין האיש רוצ' שתתבזה אשתו צריך לפדותה בממון כפי אשר ישיתו עליו הב\"ד וע' לעיל סי' תכד ס\"ח מזה סמ\"ע בשם ד\"מ",
+        "ט) שם ושם:",
+        "י) שם ושם:",
+        "כ) כ' המרדכי פרק המניח אין לדחוף אדם את חבירו כשמכין זה את זה אלא יש לשומטו בנחת ואם דחף חייב לעשות לו דין ונלע\"ד שלמדו מדין שור שעלה ע\"ג שור מבואר בסי' שפ\"ג ס\"ב"
+      ],
+      "en_segments": [
+        "heh) Tur, seif 19, from the Mishnah in the third chapter on 33a.",
+        "vav) Ibid., in the name of his father the Rosh in his rulings. The meaning is after the parties had separated from one another. See above in siman 420.",
+        "zayin) Maharam of Rothenburg writes: Reuven claimed that Shimon called him a mamzer. Shimon responded that Reuven had first whispered in his ear that Shimon was a mamzer, and therefore Shimon became enraged and called him that. This is a compelling circumstantial inference, because if Shimon suddenly called him a mamzer, it is evident that his account is true. He therefore need not swear concerning this, as written above in siman 420, seif 38, Sema in the name of Darkei Moshe.",
+        "chet) Nimukei Maharam writes that a woman's status regarding humiliation is the same as a man's. If a husband does not wish his wife to be humiliated, he must redeem her through monetary payment in the amount assessed by beit din. See above in siman 424, seif 8, Sema in the name of Darkei Moshe.",
+        "tet) Ibid., in the same source.",
+        "yud) Ibid., in the same source.",
+        "kaf) The Mordechai in chapter HaMeniach writes that when two people are fighting, one should not shove the other, but should disengage gently. If he shoves him, he is liable for the resulting injury. In my humble opinion, this was learned from the law of an ox that mounted another ox, explained in siman 383, seif 2."
+      ]
+    },
+    {
+      "id": "cm1/siman425/seif-005/beer-hagolah",
+      "volume": "cm1",
+      "siman": 425,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פ) ל' הרמב\"ם שם פרק ד' דין י' מברייתא פ\"ב דע\"א דף כ\"ו ע\"ב וסוגיא דגמרא שם ויש נוסחא אחרת בב\"י והעתיק' בי\"ד סי' קנ\"ח סי\"א וע\"ש",
+        "צ) הן הוא ברמב\"ם שם וכ' הכ\"מ בפלוגתא דרב אחא ורבינא וכו' שם פסק כמ\"ד מותר להכעיס אפיקורס הוא ועוד דר' אבהו ור' יוחנן סברי הכי שם:",
+        "ק) שם בברייתא וכדמפרשי לה האמוראי שם:",
+        "ר) כלומר דהא דתני' בסוף קידושין ובמ\"ש טוב שבעכו\"ם הרוג היינו בשעת מלחמה וכמ\"ש התוספת בשם הירושלמי:",
+        "ש) לא אמרו חז\"ל דבר זה אלא על העכו\"ם שהיו בזמניהם שהיו עובדי כוכבים ומזלות ולא היו מאמינים ביציאת מצרים ובחדוש העולם אבל אלו הגוים אשר אנחנו אומה ישראלים חוסים בצל שלהם ומפוזרים ביניהם הם מאמינים בחדוש העולם וביציאת מצרים ובעיקרי הדת וכל כוונתם לעושה שמים וארץ כמ\"ש הפוסקים והביאו רמ\"א בא\"ח סי' קכ\"ו בהגה לא די שאין איסור להצילן אלא אפילו אנחנו מחוייבים להתפלל בשלומם וכאשר האריך בזה בעל מעשה ה' בסדר הגדה בפסוק שפוך חמתך על הגוים אשר לא ידעוך שדוד המע\"ה התפלל לשפוך על העכו\"ם אשר אינם מאמינים בחידוש העולם וענין האותות והנפלאות אשר עשה השי\"ת לנו במצרים ובמתן תורה אבל הגוים אלו אשר אנחנו בצילם חיים וחוסי' תחת כנפיהם הם מאמיני' בכל אלה כמ\"ש ועל משמרתינו אנחנו עומדי' להתפלל תמיד על שלום המלכות והשרים להצלחתם ועל כל מדינות ומקומות ממשלתיהם וכ' הרמב\"ם דהלכה כר' יהושע בפרק חלק (סנהדרין דף ק\"ה ע\"א) דאפילו חסידי עכו\"ם יש להם חלק לעוה\"ב",
+        "ת) כ' הכ\"מ פי' ואינו עומד ברשעו תמיד לאפוקי רועה בהמה דקה אף על פי שעושים להנאת עצמן בשביל חמדת ממון מ\"מ הוא עומד ברשעו תמיד",
+        "לאפוקי שאם אוכל נבילות להכעיס אע\"פ שאינו עומד ברשעו הרי הוא בכלל האפיקורסי' כמה שקדם בתחלת הסעיף"
+      ],
+      "en_segments": [
+        "peh) The language of the Rambam there, chapter 4, law 10, from a baraita in the second chapter of Avodah Zarah 26b and the Gemara's discussion there. The Beit Yosef records another textual version, copied in Yoreh Deah siman 158, seif 11; see there.",
+        "tzadi) So appears in the Rambam there. The Kesef Mishneh writes that in the dispute of Rav Acha and Ravina the Rambam rules according to the view that one who sins in order to provoke is an apikores. Rabbi Abbahu and Rabbi Yochanan likewise hold this view there.",
+        "kuf) Ibid., in the baraita, as the Amoraim explain it there.",
+        "reish) This means that the statement taught at the end of Kiddushin, 'the best among the gentiles, kill,' refers to a time of war, as Tosafot write in the name of the Yerushalmi.",
+        "shin) Chazal said this only regarding the gentiles of their time, who worshipped stars and constellations and did not believe in the Exodus from Egypt or creation of the world. But the nations under whose protection the Jewish people presently live and among whom we are dispersed believe in creation, the Exodus from Egypt, and the fundamentals of religion, and direct their intent toward the Creator of heaven and earth, as the poskim write and the Rama cites in Orach Chaim siman 126 in a gloss. Not only is it not prohibited to save them, we are even obligated to pray for their welfare. The author of Maaseh Hashem explains this at length in his commentary on the Haggadah to the verse, 'Pour out Your wrath upon the nations that do not know You': King David prayed against those nations that do not believe in creation or in the signs and wonders Hashem performed for us in Egypt and at Matan Torah. The nations under whose protection we live believe in all these matters, as stated, and we remain steadfast in continually praying for the welfare of the government and its ministers, for their success, and for all the lands under their rule. The Rambam writes that the halakhah follows Rabbi Yehoshua in Sanhedrin 105a, chapter Chelek, that even the righteous among the nations have a share in the World to Come.",
+        "tav) The Kesef Mishneh explains that the phrase means one who does not persist continually in wickedness, excluding a shepherd of small livestock. Although such shepherds act for their own benefit out of greed for money, they remain constantly engaged in wrongdoing. It also excludes one who eats neveilot deliberately to provoke, for even if he does not constantly persist in that wrongdoing, he is included among the apikorsim, as explained at the beginning of the seif."
+      ]
+    }
+  ]
+}

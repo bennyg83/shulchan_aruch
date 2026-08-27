@@ -1,0 +1,601 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 20,
+    "chunk_total": 66,
+    "case_offset": 199,
+    "cases_in_chunk": 20,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman246/seif-021/beur-hagra",
+      "volume": "yd1",
+      "siman": 246,
+      "seif": 21,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 26,
+      "enSegs": 25,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין ד\"ת כו'. כמ\"ש בעירובין נ\"ד א' וערש\"י שם ד\"ה כאבן כו':",
+        "ולא בלומדים כו'. סנהדרין קי\"א א':",
+        "ומתוך כו' ומצער גופו כו'. כמ\"ש (פ\"ו דאבות) פת במלח כו' וחיי צער כו' ובסוף ברכות כתתו עצמיכם כו' ומיץ חלב יוציא המאה במי כו':",
+        "אלא במי שממית. פ\"ט דשבת (פ\"ג ב' וש\"מ):",
+        "ולא יתן שינה כו'. כמ\"ש (פ\"ו דאבות) במיעוט שיגה ובפ\"ב דחגיגה (י\"ד א') אשר קומטו כו' ובפ\"ח דיומא (ע\"ז א') כן יתן לידידו כו' וכמ\"ש (משלי ו' כ\"ד) מעט שנות מעט תנומות כו' ובא כו':",
+        "ולא יחשוב כו'. עירובין נ\"ה א' רבא אמר כו':",
+        "אלא יעשה כו'. רפ\"ו דברכות:",
+        "ויסיר כו'. עירובין נ\"ד א' וערש\"י שם ד\"ה שדורסת כו' ופי' זה עיקר וזש\"ש עושה סעודה כו':",
+        "(ליקוט) ולא יחשוב כו' ויסיר תענוגי כו'. כמ\"ש בחלק (קי\"א א') לא תמצא בארץ כו' ובאבות דר\"נ פכ\"ח ר\"י הנשיא אומר כל המקבל עליו תענוגי העוה\"ז מונעין ממנו תענוגי העה\"ב וכל שאינו מקבל עליו תענוגי העה\"ז נותנין עליו תענוגי העה\"ב (ע\"כ):",
+        "ויעשה מלאכה כו'. רפ\"ו דברכות ת\"ר ואספת כו':",
+        "ומעלה גדולה כו'. פ\"א שם (ח' א') גדול הנהנה כו':",
+        "כל המשים כו'. כמ\"ש באבות (פ\"ד) ר' צדוק אומר אל תעשם כו' הא למדת כו' ובנדרים ס\"ב א' כל המשתמש כו' שלא יאמר כו':",
+        "שאסור ליהנות כו'. שם בעובדא דר\"ט:",
+        "וכל תורה כו'. פ\"ב דאבות:",
+        "וסופו כו'. פ\"א דקדושין (כ\"ט א') רי\"א כל שאינו מלמדו כו':",
+        "וכ\"ז בבריא כו' אבל כו'. ירושלמי סוף פאה והביאו הר\"ש שם כל מי שצריך כו' ופי' כה\"ג ע\"ש:",
+        "וי\"א כו' ולכן כו'. כמ\"ש רפי\"ג דכתובות גוזרי גזירות כו' מלמדי כו':",
+        "ודוקא חכם כו'. כמ\"ש בעובדא דר\"ט הנ\"ל:",
+        "ויש מקילין כו'. כמ\"ש (כתובות קי\"א ב'. וברכות יו\"ד ב' ל\"ד ב' ס\"ג ב') והמהנה ת\"ח מנכסיו כו' ובחולין קל\"ד ב' ואב\"א אדם חשוב כו' וערש\"י בסוטה מ' א' ד\"ה א\"ר אבהו כו' ובהוריות י' א' ד\"ה נתן כו':",
+        "ומ\"מ כו'. כמ\"ש בפ\"ג דחולין (מ\"ד ב'):",
+        "אבל אין לו כו'. כמ\"ש בחולין שם ובפ\"ד דמגילה כי שדרי ליה כו' דכתיב כו':",
+        "והא דאמרינן כו'. בכתובות שם:",
+        "אבל ליקח מתנה כו'. בחולין שם:",
+        "ודאשתמש כו'. קאי אלמעלה שאסור להנות מן התורה וכמ\"ש בפ\"ד דאבות וכן היה הלל אומר כו':",
+        "וי\"א כו'. באדר\"נ ספ\"ב ודאשתמש כו' ובחלק (ק\"ו א') אוי מי יהיה כו':",
+        "ומותר כו'. בנדרים שם:"
+      ],
+      "en_segments": [
+        "Words of Torah are not, etc. As stated in Eruvin 54a. See Rashi there, s.v. 'like a stone,' etc.",
+        "And not among those who study, etc. Sanhedrin 111a.",
+        "And through, etc.; and he afflicts his body, etc. As stated in chapter 6 of Avot: Bread with salt, etc., and a life of hardship, etc. At the end of Berachot: Crush yourselves over it, etc.; and 'the pressing of milk produces cream' refers to one who, etc.",
+        "But in who is real. P.S. (P.A.)",
+        "And he should not give sleep, etc. As stated in chapter 6 of Avot: through little sleep. Chagigah 14a expounds, 'who were snatched away,' etc.; Yoma 77a says, 'so He gives sleep to His beloved,' etc. Likewise Proverbs 6 states: 'A little sleep, a little slumber,' etc., 'and your poverty will come,' etc.",
+        "And he should not think, etc. Eruvin 55a: Rava said, etc.",
+        "Rather, he should make, etc. The beginning of chapter 6 of Berachot.",
+        "And he should remove, etc. Eruvin 54a. See Rashi there, s.v. 'that tramples,' etc. This explanation is primary, and this is the meaning of the statement there: He makes a banquet, etc. (Additional note) And he should not think, etc.; and he should remove worldly pleasures, etc. As stated in Sanhedrin 111a: It will not be found in the land, etc. Avot deRabbi Natan, chapter 28, records Rabbi Yehuda HaNasi's teaching: Whoever accepts upon himself the pleasures of this world is denied the pleasures of the World to Come; whoever does not accept upon himself the pleasures of this world is granted the pleasures of the World to Come.",
+        "And he should engage in labor, etc. The beginning of chapter 6 of Berachot: The Sages taught concerning 'You shall gather,' etc.",
+        "And it is a great virtue, etc. Berachot 8a: Greater is one who benefits from his own labor, etc.",
+        "Anyone who makes, etc. As stated in chapter 4 of Avot: Rabbi Tzadok says, 'Do not make them,' etc.; from this you learn, etc. Nedarim 62a likewise says: Whoever makes use of the crown of Torah, etc.; he should not say, etc.",
+        "For it is forbidden to benefit, etc. There, in the incident involving Rabbi Tarfon.",
+        "And any Torah, etc. Chapter 2 of Avot.",
+        "And his end, etc. Kiddushin 29a: Rabbi Yehuda says, anyone who does not teach his son, etc.",
+        "All this applies to a healthy person, etc.; but, etc. The Jerusalem Talmud at the end of Peah, cited by the Rash there: Anyone who needs, etc. It explains the law in this manner; see there.",
+        "And some say, etc.; and therefore, etc. As stated at the beginning of chapter 13 of Ketubot regarding the judges who issued decrees, etc., and the teachers, etc.",
+        "And specifically a sage, etc. As stated in the incident involving Rabbi Tarfon cited above.",
+        "And some are lenient, etc. As stated in Ketubot 111b and Berachot 10b, 34b, and 63b: One who benefits a Torah scholar from his property, etc. See also Chullin 134b: Alternatively, an important person, etc.; Rashi to Sotah 40a, s.v. Rabbi Abahu said, etc.; and Horayot 10a, s.v. He gave, etc.",
+        "Nevertheless, etc. As stated in Chullin 44b.",
+        "But if he has no, etc. As stated in Chullin there, and in chapter 4 of Megillah: When they sent him, etc., as it is written, etc.",
+        "And that which we say, etc. In Ketubot there.",
+        "But to accept a gift, etc. In Chullin there.",
+        "And one who makes use, etc. This refers back to the rule that it is forbidden to benefit from Torah, as stated in chapter 4 of Avot: Hillel likewise used to say, etc.",
+        "And some say, etc. Avot deRabbi Natan, at the end of chapter 2: 'And one who makes use,' etc.; and Sanhedrin 106a: 'Woe, who shall live,' etc.",
+        "And it is permitted, etc. In Nedarim there."
+      ]
+    },
+    {
+      "id": "yd1/siman246/seif-026/beur-hagra",
+      "volume": "yd1",
+      "siman": 246,
+      "seif": 26,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כשמסיים כו'. פט\"ז דשבת (קי\"ט א'):",
+        "(ליקוט) כשמסיים מס' כו'. כמ\"ש בב\"ב קכ\"א ב' וערשב\"ם שם ד\"ה מניסן כו' לפי שבאותו יום כו' ועבא\"ח סי' תרס\"ט בהג\"ה ובהג\"א סוף סוכה (ע\"כ):",
+        "ואסור כו'. פ\"ד דמגילה (כ\"ח א') וש\"מ:",
+        "ולכן כו'. פ\"ג דברכות (כ\"ד ב'):",
+        "ומ\"מ כו'. ערש\"י בקדושין ל\"ג א' ד\"ה לאונסיה כו':"
+      ],
+      "en_segments": [
+        "When he completes, etc. Shabbat 119a. (Additional note) When he completes a tractate, etc. As stated in Bava Batra 121b. See the Rashbam there, s.v. 'from Nisan,' etc., because on that day, etc. See Orach Chaim, siman 669, in the gloss, and Hagahot Ashri at the end of Sukkah.",
+        "And it is forbidden, etc. Megillah 28a, and see there.",
+        "Therefore, etc. Berachot 24b.",
+        "Nevertheless, etc. See Rashi to Kiddushin 33a, s.v. 'due to his compulsion,' etc."
+      ]
+    },
+    {
+      "id": "yd1/siman254/seif-002/turei-zahav",
+      "volume": "yd1",
+      "siman": 254,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וינתן לעניי עובדי כוכבים. אבל לישראל לא דכתיב ביבוש קצירה תשברנה פירוש כשיכלה לחלוחית זכות של עובדי כוכבים אז ישברו. וקשה דברישא התירו לקבל בצינעא ולא איכפת לן במה שיהיה לעובד כוכבים זכות בזה ובדרישה הקשה זה ותירץ שיחיד המקבל כיון שהוא נהנה מותר אבל גבאי שאין לו הנאה אסור לגרום זכות לעובד כוכבים בשביל הנאת אחרים והוא תמוה דהיאך נתיר לו להאריך הגלות בשביל הנאתו ונראה לי שאין שייך ביבוש קצירה אלא כשהעובד כוכבים מכוין דוקא לעניי ישראל ובזה מייקר שם ישראל בזה יש זכות גדול כגון הכא וכמעשה דאימיה דשבור מלכא בגמ' ששלחה לחלק לישראל ואע\"ג דכתב רש\"י שהיא ידעה גם כן שמפרנסין ג\"כ עניי עובדי כוכבים עם ישראל דאם לא כן הוי ליה גניבת דעת וכמו שנעתיק בסמוך מ\"מ העיקר בשביל עניי ישראל בזה הקפידו משום ביבוש קצירה משא\"כ ברישא שהעובד כוכבים אין כוונתו דוקא על ישראל אלא הוא מצד טבעו רחמן על כל הפושט יד אין זה זכות גדול ולית ביה משום ביבוש קצירה כן נ\"ל עיקר. ונותנין לעניי עובדי כוכבים בסתר. א\"ל מזה על מה שכתבתי דעיקר כוונת העובד כוכבים היה על ישראל דכאן נותן הכל לעניי עובדי כוכבים וה\"ל גניבת דעת י\"ל דלא שייך גניבת דעת אלא אם הוא עושה מעשה בדרך גניבה דהיינו אם הנותן נתכוין לתת לישראל ולא לעובד כוכבים נמצא דבשעת נתינה לעובד כוכבים עובר על דעתו של העובד כוכבים הנותן משא\"כ כאן דיש עכ\"פ היתר בנתינה לעובד כוכבים אלא במה שאין נותן לישראל כלום הוא עובר על דעתו בשב ואל תעשה אין בזה איסור גניבת דעת כנ\"ל נכון וע' מ\"ש עוד בסי' ק\"כ מענין גניבת דעת עובדי כוכבים:",
+        "וי\"א דיעשה בהן כו'. לא ירדתי לסוף דעת רמ\"א דתמוהים דבריו דבגמ' פ\"ק דב\"ב איכא תרי עובדי חדא בדף י' דאימיה דשבור מלכא שדרה ארבע מאה זוזי לרבא וקבלינהו משום שלום מלכות ופלגינהו לעניי עובדי כוכבי' והיינו הך דסעיף זה שזכר הטור והש\"ע ואיכא תו בדף ח' דאיפר' הורמיז שדרה ארנקי דדינרי לרב יוסף דליהוי למצוה רבה נתנן רב יוסף לפדיון שבויים שהוא מצוה רבה וכתבו רש\"י ותוס' בהך עובדא דרב יוסף לא חש להך דביבוש קצירה משום ששלח ליהוי לפדיון שבויים וא\"א לחלקם ע\"כ הוכרח ליתנם לפ\"ש ישראל דאלו לפ\"ש דעובדי כוכבים היה עובר משום גניבת דעת אבל גבי רבא דשלחו לו מעות ואפשר לחלקם לעניי עובדי כוכבים אין כאן גניבת דעת דאינהו נמי ידעי דמפרנסים עניי עובדי כוכבים עם עניי ישראל. נמצא לפ\"ז שאם שלחו לפ\"ש צריך לקיים מאמר הנותן משום גניבת דעת אבל במעות המתחלקות לעניים יתנם לעניי עובדי כוכבים וכתב בית יוסף מדלא חילקו הפוסקים בזה ש\"מ שאף רב יוסף פלגינהו לשבויי עובדי כוכבים פירוש דביבוש קצירה שייך בכל מקום אפילו לפ\"ש וכ\"כ התוס' לחד תירוץ בדף ח'. וע\"כ יש לתמוה על רמ\"א שכתב בשם י\"א דבמעות יעשה מה שצווה המושל והא תלמוד ערוך הוא אינו כן בעובדא דרבא ולית פלוגתא אלא לענין פ\"ש. ובלבוש ראיתי שאינו מביא הך וי\"א כולה אלא כתב ואם אומר העובד כוכבים בפירוש שלא ליתנם לעניי עובדי כוכבים יעשה כדבריו משום גניבת דעת ומכל מקום קשה דהוא נגד סתימת הפוסקים שכתב בית יוסף דלא חשו כאן לגניבת דעת ומ\"מ נראה שיש כאן ט\"ס:",
+        "אבל אם מנדבין דבר וכו'. דהוה במקום קרבן ודרשינן איש איש לרבות עובדי כוכבים שנודרים נדרים ונדבות כישראל. וכתוב בהגה' אשיר\"י פ\"ק דב\"ב שאלתי מ\"ש צדקה דלא מקבלינן מינייהו ופירש לי מורי רבי אברהם לפי שנדרים ונדבות אין באין לכפרה עכ\"ל:"
+      ],
+      "en_segments": [
+        "And it shall be given to poor gentiles — but not to poor Israelites, because it is written \"in the withering of her harvest they shall be broken\" — meaning when the moist merit in gentiles' hands dries up and their charity withers, then they shall be broken. It is difficult: at the beginning they permitted receiving in private and we do not care that the gentile gains merit thereby; and Derishah challenged this and answered that an individual who receives, since he benefits, is permitted; but a gabbai who has no benefit may not cause merit for gentiles for others' benefit — and this is astounding, for how do we permit him to prolong exile for his benefit? It appears to me that \"in the withering of her harvest\" applies only when the gentile intends specifically for poor Israelites — thereby Israel's name is exalted and there is great merit, as here and like the incident of the mother of King Shapur in the Gemara who sent to divide for Israel; and although Rashi wrote she also knew they sustain poor gentiles with Israel, for otherwise there would be theft of mind as we cite below — nevertheless the main point was for poor Israel, and therefore they were concerned about \"withering of harvest\"; not so at the beginning where the gentile does not intend specifically on Israel but from his nature is merciful to all who stretch out a hand — this is not great merit and there is no \"withering of harvest\" — so appears main. And they give to poor gentiles in secret. One may say on what I wrote that the gentile's main intent was for Israel: here he gives everything to poor gentiles and it would be theft of mind — one may answer that theft of mind applies only when the giver intends to give to Israel and not to gentiles; giving to gentiles passes through the gentile's mind who was given a burden to give to gentiles; but where he gives nothing to Israel, there is no theft of mind nor such prohibition.",
+        "And some say one should do with them, etc. — I have not reached the end of Rama's view; his words are astounding, for in the Gemara first chapter of Bava Batra there are two incidents: one on page 10 — the mother of King Shapur sent four hundred zuz to Rava, he accepted them for peace of the kingdom, and divided them for poor gentiles — this is the seif Tur and Shulchan Aruch mention; and also on page 8 — Hormiz sent a purse of dinars to R. Yosef for a great mitzvah, and R. Yosef gave them for redeeming captives, which is a great mitzvah; and Rashi and Tosafot wrote in R. Yosef's incident he did not heed \"withering of harvest\" because he sent for redeeming captives and could not divide them — therefore he had to give to captive Israelites, for if to captive gentiles he would transgress theft of mind; but regarding Rava who was sent money and could divide for poor gentiles, there is no theft of mind, for they too know Israelites sustain poor gentiles with poor Israel. It follows that if sent for captives one must fulfill the giver's statement because of theft of mind; but money divided for the poor one gives to poor gentiles; and Beit Yosef wrote that since poskim did not divide on this, learn that R. Yosef too divided for gentile captives — meaning \"withering of harvest\" applies everywhere even for captives; and so Tosafot for one answer on page 8. Therefore Rama's words that one should do as the ruler commanded apply when sent for captives or a great mitzvah like redeeming captives; but money sent for charity one gives to poor gentiles. And in the incident of Darva and Hormiz creation of a company — but for captives. And in Perishah I saw the entire Beit Yosef does not bring to you that if the gentile says stars in a manner that does not belong to gentiles, he says because of theft of mind; and from any difficult place he is against disobeying verses Beit Yosef wrote, who is here to steal the mind — and there is a Taz."
+      ]
+    },
+    {
+      "id": "yd1/siman257/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 257,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ומ\"מ כדי כו'. כמ\"ש במ\"ד ובתנחומא ריש פ' פקודי ד\"א איש אמונות זה משה שנעשה גזבר על מלאכת המשכן כו' אע\"פ שהיה משה גזבר לעצמו הוא קורא לאחרים ומחשב על ידיהם שנאמר אלה פקודי המשכן אשר פקד משה אין כתיב כאן אלא אשר פקד ע\"פ משה ע\"י משה ביד איתמר כו' שנו רבותינו מי שהיה נכנס לתרום את הלשכה לא היה נכנס בפרגוד חפות כו' שאדם צריך לצאת ידי הבריות כדרך שצריך לצאת ידי המקום שנאמר והייתם כו' משנגמרה מלאכת המשכן א\"ל בואו ואני עושה לפניכם חשבון א\"ל משה אלה פקודי המשכן כך וכך יצא על המשכן כו' אותה שעה נתפייסו כל ישראל על מלאכת המשכן מי גרם לו ע\"י שישב ופייסן הוי אלה פקודי כו':",
+        "וכ\"ז כו'. כמש\"ש ולא יחשבו כו' כי באמונה כו' וכמ\"ש במ\"ר שם ולא יחשבו זה דורו של יואש שהיו עושין באמונה:",
+        "או שנתמנה כו'. כמ\"ש (גטין נ\"ב) באפטרופוס דא\"צ לחשב עמהן באחרונה וא\"צ שבועה משום דא\"כ ממנעי ולא עבדי וה\"ה כאן משא\"כ אם נעשו באלמות. שם:",
+        "וכשרוצים כו'. עש\"ך ועבא\"ה סי' נ\"ג סכ\"ו:"
+      ],
+      "en_segments": [
+        "And as a “six.” “And they will not believe in Hashem’s presence, and they will not believe in Hashem’s presence, and they will not believe in Hashem’s judgment",
+        "Either they have been named. As he says, \"Gint N.B.B.A. has recently thought about her and I will call on her because she is not a slave and not a slave, and the 'here' is a burden. Name:",
+        "And when they want to remove him, etc. — Shach and Pri Megadim siman 53 seif 26."
+      ]
+    },
+    {
+      "id": "yd1/siman258/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 258,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכ\"ז כו'. דלעולם הולכין אחר כוונת הנודר כמ\"ש בנדרים נ\"ה ב' ס\"ג ב' וש\"מ:",
+        "ואפי' נדר כו'. דדעת הנודר על המנהג מסתמא וכמש\"ש נ\"ג א' מ\"ט א' וש\"מ:",
+        "ואפי' היתה כו'. דממון שא\"ל תובעים וא\"י להוציא מידן וטובת הנאה שלהם ועתוס' דחולין קל\"א א' ד\"ה יש כו':",
+        "המחייב כו'. כנ\"ל בש\"ע האומר כו' וכפ\"ד דמגילה (כ\"ז א') יחיד שפסק כו' ואפי' בבני העיר כו' אמרינן דמביאים כו' ומפרנסים עניי עירם דוקא וכנ\"ל סי' רנ\"ו ס\"ו:",
+        "אבל מי כו'. כמ\"ש בחולין שם ובספ\"ה דב\"ק:",
+        "ואפי' כו'. כנ\"ל ס\"ס רנ\"ז:",
+        "ואפי' בצדקה כו'. דממון שי\"ל תובעין הוא דהגבאי תובע הוא וכמ\"ש בב\"ק שם עניי כו' וה\"ה בגבאי העיר ועיין בח\"מ סי' ש\"א ס\"ו מ\"מ דוקא הגבאי או המורשה:",
+        "המקדיש מנה כו'. כמו בהקדש בב\"מ קי\"ד א':"
+      ],
+      "en_segments": [
+        "and O'D. Same as S.R.:",
+        "One who consecrates a maneh, etc. As with consecrated property, in Bava Metzia 114a."
+      ]
+    },
+    {
+      "id": "yd1/siman258/seif-007/beur-hagra",
+      "volume": "yd1",
+      "siman": 258,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין אדם כו'. ב\"מ ו' א' את\"ל תקפה כו' את\"ל כו' ושם ז' א' מאי הוה כו':",
+        "אבל אם לא כו'. רי\"ף ורא\"ש שם וש\"פ ועבה\"ג ועתוס' שם ד\"ה הקדישה כו' ובב\"ק ע' א' ד\"ה לא כו' ובשבועות ל\"ג ב' ד\"ה היכא דלא כו' ובבכורות מ\"ט א' ד\"ה ה\"מ כו' וש\"מ:",
+        "בד\"א כו'. שם ז' א':",
+        "הגוזל כו'. שם:",
+        "אם יש כו' וי\"א כו'. ממ\"ש בפ\"ה דכתובות (נ\"ט ב') ובסוף נדרים שדה זו שמשכנתי לך כו' וע\"ל סי' רכ\"א ס\"ז וממשכן כו' ומש\"ש:",
+        "(ליקוט) אם יש כו' וי\"א כו' מההיא דסוף נדרים שדה זו כו' וראית סברא ראשונה מההיא דערכין כ\"א וב\"מ ע\"ג ב' ועתו' ד\"ה השתא כו' (ע\"כ):",
+        "המקדיש שט\"ח. דגוף השטרות אינן ממון והחוב א\"י להקדיש כמ\"ש בס\"ח. שם:"
+      ],
+      "en_segments": [
+        "There is no such person. In the U.S.A., the IDF attacked the PLO and named May 1st:",
+        "In the D.C. The name of X:",
+        "The bastard is a. Name:",
+        "If there is a quaint and a quaint. And in the end of this field, I will give you a name, and I will show you that I will give you a name, and that I will be able to do so, and that I will show you what it is like, and that it is what it is like, and that it is the first time it is",
+        "It is a prison. The body of the banknotes is not money and the debt is to devote itself to the report. Name:"
+      ]
+    },
+    {
+      "id": "yd1/siman258/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 258,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם יש כו' אבל כו'. עתוס' דב\"ק ל\"ו ב' ד\"ה יד כו' וכ\"כ שם הרי\"ף וש\"פ:",
+        "ואפי' האומר כו'. גמ' שם:",
+        "או בפני כו'. ממש\"ש דאר\"י א\"ש יתומים כו' ר\"ג וב\"ד כו':",
+        "ואסור לשנותו. שם בתוס' ור\"ת פי' כו':"
+      ],
+      "en_segments": [
+        "And he says so. Jim there:",
+        "Or in front of K. The Holy One is the Holy One of the Holy Ones:",
+        "It should not be changed. There is a name in Hosss and R. R"
+      ]
+    },
+    {
+      "id": "yd1/siman258/seif-013/beur-hagra",
+      "volume": "yd1",
+      "siman": 258,
+      "seif": 13,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "האומר כו'. ב\"ב קל\"ג ב' לא תשיימי את כו':",
+        "(ליקוט) דכל כו'. שהר\"נ הקשה בקדושין כ\"ח ב' ל\"ל לרשות הגבוה בכסף ואמר גזבר שנתן מעות בבהמה כו' הא בלא\"ה אמירתו לגבוה כו' ותירץ דלא אמרינן אמירתו לגבוה כו' אלא בדאיכא רווחא להקדש וכמ\"ש ברפ\"ח דערכין חזר בו של חמשים כו' חזר בו כו' אבל על השאר לא דל\"ל רווחא להקדש וכן משמע כל הסוגיא שם ע\"ש ובזה מתורץ קושית תוס' דקדושין שם ד\"ה משכו כו' וא\"ת כו' אבל לפי מ\"ש ניחא כיון דבשעתו לא היה רווחא להקדש וכ\"כ הר\"נ שם דז\"ש שם פדאו במאתים ולא כו' דדוקא פדאו כו' אבל בדיבורא בעלמא לא וכמש\"ו בש\"ע אבל כו' וכ\"ה תירוץ השני בתו' שם ולמדו צדקה מהקדש כמ\"ש הר\"נ שם דהא אמרינן בפיך זו צדקה ובפ\"ק דנדרים (ז' א') את\"ל יש יד כו' ופסקו הראשונים כאת\"ל (ע\"כ):",
+        "אבל כו'. קדושין כ\"ט א' משכו במאתים כו' לא יהא כח כו' דוקא משכו ומשום לא יהא כו' ועתוס' שם ד\"ה משכו כו' א\"נ י\"ל כו':",
+        "אם חשב כו'. כמ\"ש בפ\"ג דשבועות (כ\"ו ב') ורפ\"ב דקדושין ומ\"ש בפ\"ק דקדושין (כ\"ח ב') שם אמירתו לגבוה דוקא אמירה וכן בברייתא שם כיצד האומר כו' משום דהתם מיירי שכופין אותו ב\"ד לתת ואין אנו יודעין מחשבתו עד שיאמר. מרדכי פ\"ק דקדושין וז\"ש הרב אלא דאם כו' ואיני יודע למה כתבו:",
+        "וי\"א כו'. דדוקא בתרומה וקדשים וכמש\"ש ושם וסברא ראשונה ס\"ל דצדקה ה\"ה כקדשים וכמש\"ל ס\"א ועבח\"מ סי' רי\"ב ס\"ח ומש\"ש:",
+        "(ליקוט) וי\"א דאם כו'. עח\"מ סי' ש\"א ס\"א וס\"ו דאין צדקה כהקדש ולעיל סי' ק\"ס סי\"ח דריבית קצוצה אסור ועמש\"ש (ע\"כ):"
+      ],
+      "en_segments": [
+        "They say so. “In the U.S., you won’t live your name.”",
+        "And some say, etc. Specifically regarding terumah and kodashim, as stated there; and the first view holds that charity has the same law as kodashim, as stated above seif 1; see Choshen Mishpat siman 212 seif 8, and what is stated there.",
+        "(Gleanings) And some say that if, etc. See Choshen Mishpat siman 301 seifim 1 and 6 — that charity is not like hekdesh; and above siman 160 seif 18, that fixed interest is prohibited; and what is stated there."
+      ]
+    },
+    {
+      "id": "yd1/siman259/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 259,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דאין הצדקה כו'. גמ' שם:",
+        "ואין נושאין כו'. פ\"ד דשקלים:",
+        "שמא כו'. רפי\"ג רכתובות (ק\"ו ב') וז\"ש אבל כו':",
+        "(ליקוט) ואין נושאין כו' אבל כו'. דאמרינן בב\"מ ע' א' א\"ל רבה לרב יוסף כו' א\"ל מותיבנא כו' ור\"ל דמעות יתומים והקדש דין א' להם כמ\"ש ברפ\"ח דב\"ק אנן יד כו' דאר\"י א\"ש יתומים כו' וכי היכי דאין משתכרין בשל עניים ה\"נ בשל יתומים א\"ל בדקינן כו' דהוא כסף בכסף אלא אר\"א חזינן כו' ור\"ל שנותנין לו שיהא הקרן קיים ויאכל מהריוח וה\"ה בעניים ועסה\"ת שמ\"ו (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is no such justification. Jim is there:",
+        "There is no such thing. P. D.D.:",
+        "Perhaps, etc. Chapter 13 of Ketubot (106b), and so he wrote \"but\", etc. (Likkut) And one does not marry, etc. \"but\", etc. For we say in Bava Metzia 70a: Ravah said to R. Yosef, etc. — he said to him I will challenge, etc. — meaning orphans' money and consecrated property have one law, as stated in chapter 8 of Bava Kamma \"we have hand\", etc. — R. Yitzchak said to Rav Ashi: orphans, etc. — and just as they do not profit from the poor, likewise from orphans. He said to him: we examined, etc. — it is money for money; but R. Elazar said: we see, etc. — meaning we give him that the principal remain and he eat from the profit; and likewise regarding the poor. And in Etz Chaim siman 46 (end quote)."
+      ]
+    },
+    {
+      "id": "yd1/siman259/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 259,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "צדקות כו'. כמ\"ש ברפ\"ד דמגילה מבי כנישתא כו' כוותיה דר\"פ מסתברא כו' וכ\"ש לת\"ת כמש\"ש ת\"ש דארבב\"ח כו' דלמא לימוד שאני כו':",
+        "אפי' אם כו'. כמ\"ש בס\"ג ישראל כו' אבל לדבר כו' ועבא\"ח סי' קנ\"ג סי\"ד:",
+        "אבל לא כו'. כנ\"ל בגמ' שם:",
+        "ודוקא בדאיכא כו'. כמ\"ש ורשאין בני העיר כו' ולשנותה כו' וכמש\"ל סי' רנ\"ו ס\"ד וכתב הרא\"ש וטור שם והביאו ג\"כ בש\"ך ס\"ק ז' והא דתנן בפ\"ב דשקלים מותר עני לאותו עני וא\"י לשנותה דשם לא יתנו לו דבר אחר אבל בקופה ותמחוי שהוא קבוע אם יחסר להם יגבו פעם אחרת ועש\"ך שם ועמהרי\"ק:",
+        "ואפי' אם כו'. עמש\"ל סי' רנ\"ח ס\"ו:",
+        "וכ\"ז כו' אדעתא דמנהגא. עמש\"ל סי' רנ\"ח ס\"ה בהג\"ה:",
+        "ולב ב\"ד כו'. עבא\"ח סי' קנ\"ד ס\"ח:",
+        "ובלבד כו'. דבלא\"ה שמא לא ידע מהמנהג וכמ\"ש הרמב\"ם (בפט\"ז מה' אישות) בכתובה שנגבית ממטלטלין דוקא שידע מהתקנה או שהוא מפורסם ע\"ש:"
+      ],
+      "en_segments": [
+        "A.D. if they are. As a result of Hashem’s covenant with Israel, he said, “But he spoke and spoke to him.”",
+        "But not so. The same is the name:",
+        "And I'm in the dark.\" “And the children of the city were called and changed, and they were given to them, and they were given to them, and they were given to them, and they were not allowed to do anything else, but they would not give him anything else.”",
+        "I'm like if he is. A.C.:",
+        "Go to “Dr. K.” C. Kendall:"
+      ]
+    },
+    {
+      "id": "yd1/siman259/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 259,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי שמצא כו' סמכינן כו'. כמו דסמכינן בפקדון כמ\"ש בח\"מ סי' ש' ס\"א וצ\"ע דהא תנן בספ\"ד דמ\"ש אר\"י אפי' מצא כו' ועתוס' דיבמות קט\"ו ב' ד\"ה אימור כו' ומפקדון הנ\"ל אין ראיה ופשוט:",
+        "וכן אם כו' וכן כו' אבל כו'. סנהדרין ל' א':",
+        "המשתמש בתיבה כו' ואם כו' ואם כו'. פסחים ז' א':",
+        "בגומא דאיכא כו'. ר\"ל דוקא בגומא שהוא כה\"ג ועתוס' דנדה נ\"ו ב' ד\"ה בגומא כו'. שם:"
+      ],
+      "en_segments": [
+        "“And if you are a son and a son,” he said. Sanhedrin to A:",
+        "The user in the box is called, and if he is called. The Holy One:",
+        "In Gumma, he is called. R. D. B. A.D. in Gumma, who is such a “Gand” and “J. D. B.D. in Gummo. Name:"
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-023/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בין כו'. כמש\"ש בגמ' מנלן דכתיב והתנחלתם כו' אלמא אפי' אחר שהטבילו רבו ושם ר' יהודה הנדאה כו' א\"ל לעבדיה כו':",
+        "ודוקא אלו כו'. דהא נלמד מקרקעות ובקרקעות אין נקנה באכילת פירות ועבה\"מ סי' קצ\"ב סי\"א בהג\"ה. רמב\"ן ורשב\"א ורא\"ש אבל הרמב\"ם ובע\"ה חולקים שם וכמש\"ש בש\"ע ועמש\"ש:",
+        "(ליקוט) ודוקא כו'. דאל\"כ הוי אכילת פירות דאף בקרקע אינו קונה כמ\"ש בספ\"ג דב\"ב (נ\"ז א') והרי אכילת פירות כו' ודלא כהרמב\"ם הביאו ש\"ע בח\"מ סי' קצ\"ב. רא\"ש ור\"נ בקדושין שם בשם הרמב\"ן ע\"ש בר\"נ ועח\"מ סי' קצ\"ו ס\"ד ועבה\"ג שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Whether, etc. As written in Gemara ; whence do we know it is written \"and you shall take them as inheritance,\" etc. ; evidently even after they immersed their master; and there R' Yehuda HaNasi, etc. ; he said to his slave, etc.",
+        "And specifically these, etc. For we learn from land and in land one does not acquire through eating fruits; and Avodah HaMikdash siman 192 s.k. 11 in gloss. Ramban and Rashba and Rosh; but Rambam and Avodah HaGolah dispute there; and as written in Shulchan Aruch; and as written: (Likkut) And specifically, etc. ; for otherwise it is eating fruits, for even in land he does not acquire as written at end of chapter 3 of Bava Batra (57a) \"behold eating fruits,\" etc.; and unlike Rambam Shulchan Aruch brought in Choshen Mishpat siman 192; Rosh and Rosh in Kiddushin there in Ramban's name ; see there in Rosh; and Choshen Mishpat siman 196 s.k. 4; and Avodah HaGolah there (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-026/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 26,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או בראשי אברים. שם כ\"ד ב':",
+        "או בשטר. שם במתני':",
+        "כיצד כו'. שם:",
+        "או שוה כסף. שם ח' א':",
+        "וא\"צ כו'. שם כ\"ג א' ואף לר\"מ ואף בע\"כ דהא לר\"מ חוב הוא לו ואפ\"ה ש\"ד וכמש\"ש ושאני כסף כו' מקני כו' משא\"כ בשטר וכמש\"ל סמ\"א והר\"נ כתב שמדברי הרי\"ף ורמב\"ם נראה דגם בכסף בע\"כ לא וכ\"כ הרשב\"א בשמם וכמ\"ש הרי\"ף בכסף ע\"י אחרים אע\"פ שנתנו שלא מדעתו דקי\"ל זכות כו' וטעמו דמ\"ש אף בע\"כ דוקא לר\"מ אבל רבנן לא ממש\"ש וחכ\"א בכסף כו' ע\"י אחרים לא מכדי שמענא להו לרבנן כו' אלמא דוקא משום דזכות כו' ובעומד וצווח לא מהני כמ\"ש בפ\"ח דב\"ב קל\"ח א'. ועוד ממש\"ש א\"ה ויערבינהו כו' משמע דכסף ושטר שוין לגמרי לדידהו אבל הרשב\"א ורא\"ש כתבו דרבנן ל\"פ בזה אר\"מ ואף בע\"כ כנ\"ל וערשב\"א שם:",
+        "אם רצה כו'. דדעת הרב ודאי בעינן ועתוס' דגטין מ\"ם ב' סד\"ה וכתיב:",
+        "(ליקוט) אם רצה כו'. במכילתא פ' משפטים ר' ישמעאל אומר עבד כנעני אין לו פדיון לעולם ואינו יוצא אלא לרצון רבו שנאמר והתנחלתם אותם לפי דרכנו למדנו שעבד כנעני כשדה אחוזה לעולם אבל אם היה רבו רודהו והפיל את שינו וסימא את עינו או אחד מכל ראשי האברים גלוים ה\"ז קונה עצמו וז\"ש בסכ\"ז וכופין כו' ומשמע אפי' אינו מתכוין לאבר כל שמתכוין לעבד כמ\"ש רבו רודהו וז\"ש הרמב\"ם וש\"ע בסל\"ו לפיכך כו' דוקא לבהמה וכ' שהרי לא ידע דבר כו' אבל אם ידע מהעובר שם לא ומ\"ש טוש\"ע אבל אם כו' שהרי כיון לאבר ל\"ד אלא לעבד והטור נמשך אחר תוס' שס\"ל כן וע\"ש בד\"ה מיבעי כו' ולשון הרמב\"ם הרי נתכוין לנגוע באיברי העבד כו' ור\"ל בא' מאיבריו אע\"ג שלא כיון לאבר (ע\"כ):",
+        "ואם לא רצה כו'. כמש\"ש ורבנן סברי לדידיה נמי כו':",
+        "וי\"א כו'. גטין ל\"ט ב' ועתוס' שם אבל ר\"ח פי' שם בע\"א וערא\"ש שם וכ\"כ הרשב\"א משמו שם:",
+        "(ליקוט) וי\"א כו'. אבל הרשב\"א חולק ע\"ז מדל\"ק בקדושין שם ג\"כ אסיפא תנא אף בחליפין וכ\"כ בגטין שם בשם ר\"ח וכתב בשם הרמב\"ן דלדברי ר\"ח מש\"ש בגטין לא עשה ולא כלום ר\"ל להוציא מידי שיעבוד דבחליפין יצא מדי שיעבוד אבל צריך גט שחרור וכ\"כ הר\"ח בהדיא ובתוס' דחו ג\"כ הא דגטין די\"ל דשם היה בתורת דמים וכ\"ד הרמב\"ם אלא שהתוס' חזרו לומר כסברא ראשונה דקונה א\"ע בחליפין מהא דריש קדושין מניינא כו' כמש\"ש בגטין בד\"ה משום כו' עכ\"ל הרשב\"א שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Or through the tips of the limbs. Kiddushin there, folio 24b.",
+        "Or by a document. There in the Mishnah.",
+        "How so, etc. There.",
+        "Or the equivalent of money. There, folio 8a.",
+        "And he needs, etc. There 23a; and even for R' Meir and even against his will for R' Meir it is a debt to him and nevertheless \"give\" ; and as written \"and different is money,\" etc., acquires, etc.; unlike document; and as written siman 41; and Rosh wrote from Rif and Rambam's words it appears also through money against his will no; and so Rashba in their name; and as Rif wrote through money through others even though they gave not with his consent ; we rule \"right,\" etc.; and his reason what is written \"even against his will\" ; specifically for R' Meir; but Sages no as written; and some say through money through others ; since we heard them for Sages, etc. ; evidently specifically because of \"right,\" etc.; and standing and shouting does not help as written in chapter 8 of Bava Batra 138a. And further from what is written \"one who\" and he combined them, etc. ; it implies money and document are completely equal for them; but Rashba and Rosh wrote Sages do not explain thus according to R' Meir and even against his will as above; and Rashba there.",
+        "If he wished, etc. For master's opinion certainly we require; and Tosafot Gittin 40b s.v. vekhtiv: (Likkut) If he wished, etc. In Mekhilta parashat Mishpatim R' Yishmael says a Canaanite slave has no redemption ever and goes out only with his master's will, as stated \"and you shall take them as inheritance\" ; from their way we learn a Canaanite slave is like an ancestral field forever; but if his master afflicted him and knocked out his tooth or blinded his eye or one of all exposed limbs ; he acquires himself; and this is what is written in siman 27 \"and they compel,\" etc.; and it implies even if he did not intend for a limb as long as he intended for the slave as \"his master afflicted him\"; and this is what Rambam and Shulchan Aruch wrote in siman 36 \"therefore,\" etc. ; specifically for an animal; and he wrote since he did not know the matter, etc.; but if he knew from the fetus there no; and what Shulchan Aruch wrote \"but if,\" etc. ; since he intended for limb ; no; rather for the slave; and Tur followed Tosafot who hold thus ; see there s.v. mibai, etc.; and Rambam's language \"behold he intended to touch the slave's limbs,\" etc. ; meaning one of his limbs even though he did not intend for limb (end).",
+        "And if he did not wish, etc. As written and Sages hold for him too, etc.",
+        "And some say, etc. Gittin 39b; and Tosafot there; but R' Chananel explains there in one matter; and Rosh there; and so Rashba in his name there: (Likkut) And some say, etc. But Rashba disputes this from that which is brought in Kiddushin there also in the end \"tanna af b'chalipin\"; and so in Gittin there in R' Chananel's name; and he wrote in Ramban's name according to R' Chananel what is written in Gittin he did nothing ; meaning to remove from subjugation, for through exchange he left subjugation but needs bill of release; and so R' Chananel explicitly; and in Tosafot they rejected also that Gittin ; one can say there it was as monetary value; and so Rambam; only Tosafot returned to say like first reasoning he acquires himself through exchange from that at beginning of Kiddushin \"count,\" etc.; as written in Gittin s.v. mishum, etc. ; end Rashba there (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-041/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 41,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כיצד בשטר כו'. כמ\"ש (קדושין ט' א' כ\"ו א' וש\"מ) באשה ובמכירה:",
+        "הרי כו'. עבה\"ג:",
+        "או לאחר כו'. דקי\"ל כחכמים שם ובספ\"ק דגטין:",
+        "ואם מוחה כו'. דאינו אלא משום דזכות כו' וכמש\"ל סכ\"ו:",
+        "(ליקוט) ואם מוחה בידו כו'. כ\"כ הרא\"ש שם וכ\"ה בתוס' שם בד\"ה מהו שיעשה כו' וכ\"כ הר\"נ שם וכ\"כ הרשב\"א שם בשם הרמב\"ן וכ\"ש בפ' יש נוחלין (קל\"ח א') אבל הרשב\"א שם מפקפק בדבר זה וכתב שדעתו שאפי' בע\"כ ממש ולא דמי לממון דאינו מועיל ועוד טעמים אחרים ע\"ש בארוכה (ע\"כ):"
+      ],
+      "en_segments": [
+        "How with a document, etc. As written (Kiddushin 9a, 26a and Semag) regarding a woman and sale.",
+        "Behold, etc. See Be'er HaGolah.",
+        "Or to another person, etc. For we rule like the Sages there and at the end of the first chapter of Gittin.",
+        "And if he protests, etc. It is only because of \"right,\" etc.; and as written siman 26: (Likkut) And if he protests in his hand, etc. So too Rosh there; and so in Tosafot there s.v. mah sheya'aseh, etc.; and so Rosh there; and so Rashba there in Ramban's name; and all the more in chapter Yesh Nochalin (138a); but Rashba there questions this matter and wrote his opinion that even literally against his will and it is not comparable to money that it does not help; and other reasons there at length (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman270/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 270,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפי' אין לו כו'. רמב\"ם וטור וכמש\"ש יתר ע\"כ ארשב\"ג כו'. והג\"מ תמה על הרמב\"ם דסי' ברכה כו' אבל איסורא ליכא דומיא דבתו ובירושלמי סוף ביכורים ר\"י בשם ר' חייא בר ווא שאלו לרשב\"ג מהו שימכור אדם ס\"ת לישא אשה א\"ל אין מפני חייו ולא אגיבון כו' ולמה לא אגיבון כי אתא ר\"ח ר' פנחס ר' יוחנן בשם רשב\"ג מוכר אדם ס\"ת לישא אשה וללמוד תורה כ\"ש מפני חייו ותי' בד\"מ דאין לו מה יאכל דקאמר הרמב\"ם רק ע\"י הדחק:",
+        "וה\"ה לצורך כו'. עתוס' דב\"ב ה' ב' ד\"ה פדיון כו':",
+        "שכר כו' אבל כו'. מנחות ל' א' ועתוס' שם ד\"ה אם כו':",
+        "(ליקוט) ערש\"י שם ד\"ה כחוטף. מצוה עבד כו' ועט\"ז ודברי רש\"י עיקר (ע\"כ):"
+      ],
+      "en_segments": [
+        "Even if he has nothing, etc. Rambam and Tur, based on the statement there, “More than this, Rabban Shimon ben Gamliel,” etc. Hagahot Maimoniyot questions Rambam: selling it does not carry a sign of blessing, etc., but there is no prohibition, just as regarding his daughter. At the end of Bikkurim, the Yerushalmi states: R' Yose said in the name of R' Chiyya bar Va, “They asked Rabban Shimon ben Gamliel whether a person may sell a Sefer Torah to marry a woman. He answered them, ‘No, because of his livelihood,’ and they did not respond,” etc. Why did they not respond? When R' Chiyya came, R' Pinchas said in the name of R' Yochanan, in the name of Rabban Shimon ben Gamliel, “A person may sell a Sefer Torah to marry a woman and to study Torah. All the more so may he sell it for his livelihood.” Darkei Moshe answers that Rambam's case, where he has nothing to eat, applies only in pressing circumstances.",
+        "The same applies for the purpose of redeeming captives, etc. See Tosafos to Bava Batra 8b, s.v. Pidyon, etc.",
+        "He received payment, etc.; but, etc. Menachos 30a. See Tosafos there, s.v. Im, etc. (Collected note) See Rashi there, s.v. KeChotef. He performed a mitzvah, etc. See Taz. Rashi's words are the primary view. This concludes the collected note."
+      ]
+    },
+    {
+      "id": "yd1/siman271/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 271,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ס\"ת כו' ואם כו'. בירושלמי שם הל\"מ שיהו כותבין בעורות וכותבין בדיו ומסרגלין בקנה כו' וכן במ\"ס שם הלכה א' [ובויקרא רבה אמרינן קווצותיו תלתלים זה הסירגול שחורות כעורב אלו השיטות] ובמגילה ט\"ז ב' וערש\"י שם ד\"ה כאמתה כו' ודלא כר\"ת בתוס' דמנחות שם ד\"ה הא מורידין כו' ודחק שם אבל כל הפוסקים הסכימו לפירש\"י:",
+        "(ליקוט) ס\"ת צריך כו'. בספ\"ק דמגילה וכפירש\"י וכ\"ה בירושלמי שם הלכה א' ר' חלבו ר' ייסא בשם ר\"א נאמר כאן דברי שלום ואמת ונאמר להלן אמת קנה ואל תמכור ה\"ה כאמיתה של תורה מה זו צריכה שרטוט אף זו צריכה שרטוט מה זו ניתנה להדרש כו' (ע\"כ):",
+        "ולא ישרטט בעופרת. דז\"ש בירושלמי ובמ\"ס מסרגלין בקנה לא למעוטי סכין וכיוצא אלא עופרה וכיוצא. הרא\"ש בשם ר\"י וש\"פ:"
+      ],
+      "en_segments": [
+        "Torah scroll, etc. In Yerushalmi there Hilchot Lem — they write on hides and write with ink and rule with a reed, etc.; and so in Meseches Soferim there halachah 1 [and in Vayikra Rabbah we say — his locks are curled — this is the ruling, black as a raven these are the lines]; and Megillah 16b and Rashi there s.v. ke'amatah, etc., and unlike Rabbeinu Tam in Tosafot Menachot there s.v. ha moridin, etc., who strained there; but all the poskim agreed with Rashi's explanation: (Likkut) A Torah scroll needs, etc. At the end of chapter 1 of Megillah and as Rashi explained, and so Yerushalmi there halachah 1 — R' Chelbo, R' Yissa in the name of R' Eliezer: it says here words of peace and truth, and it says below \"truth is a reed\" — do not sell; so too the truth of Torah — just as this needs ruling, so too this needs ruling; just as this was given for exposition, etc. (end).",
+        "There is no vibration in lead. Dr. Khrushami and S. S. S. S. S. S. S. A.C. on the other hand, does not steal a knife and so on, but rather than aura and so on. It is called R&D:"
+      ]
+    },
+    {
+      "id": "yd1/siman275/seif-002/siftei-kohen",
+      "volume": "yd1",
+      "siman": 275,
+      "seif": 2,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ט' אותיות. ג\"פ אשר כ\"כ הרמב\"ם וכב\"י אפשר דלא פסול כששייר פחות מאשר אשר אשר ומ\"מ יהיה כשיעור ט' אותיות קטנות אבל כשאין בו ט' אותיות אפי' קטנות אפשר דפסול נמי הוי דכל בציר שיור מט' אותיות קבלו דלא הוי שיור עכ\"ל ומיהו יש פוסקים דסגי בריוח ג' אותיות ועיין דרישה מ\"ש בזה:",
+        "לא יסור מדברי הרמב\"ם בזה כו'. וז\"ל הרמב\"ם רפ\"ח מהל' ס\"ת פרשה פתוחה יש לה שתי צורות אם גמר באמצע השיטה מניח שאר השיטה פנוי ומתחיל הפרשה שהי' פתוחה מתחלת השיטה השניה בד\"א שנשאר מן השטה ריוח כשיעור ט' אותיות אבל אם לא נשאר אלא מעט או אם גמר בסוף השטה מניח השטה שניה בלא כתב ומתחיל בפרשה הפתוחה מתחלת השטה השלישית. פרשה סתומה יש לה שלש צורות אם גמר באמצע השיטה מניח ריוח כשיעור ומתחיל לכתוב בסוף השטה תיבה א' מתחלת הפרשה שהיא סתומה עד שיצא הריוח באמצע ואם לא נשאר מן השיטה כדי להניח הריוח כשיעור ולכתוב בסוף השיטה תיבה א' יניח הכל פנוי ויניח מעט ריוח מראש שיטה ויתחיל לכתוב הפרשה הסתומה מהאמצע השטה שניה ואם גמר בסוף השטה מניח מתחלת שטה שניה כשיעור הריוח ומתחיל לכתוב הסתומה מאמצע השטה נמצאת אומר שפרשה פתוחה תחלתה בתחלת השיטה לעולם. ופרשה סתומה תחלתה מאמצע השיטה לעולם עכ\"ל: וכ' העט\"ז ובצורה ב' שכ' הרמב\"ם בפתוחה בד\"א שנשאר מן השטה ריוח כו' נ\"ל) דה\"ה אם נזדמן לו כן בשיטה התחתונה שבסוף הדף שלא נשאר אלא מעט או שגמר בסוף השטה מניח שטה העליונה של ראש הדף שאחריו חלק ויתחיל לכתוב בב' שנמצא פנוי ביניהם שטה נ\"ל ע\"כ ולדעת הרא\"ש זו היא סתומה ועיין עוד בטור וב\"י דעת הרא\"ש וש\"פ מהו פתוחה או סתומה לדעתם ועיין ברמב\"ם פ\"ח מהס\"ת שהאריך לבאר הפרשיות הסתומות והפתוחות. ועוד יש בטור וש\"פ ענין אחר מפ' סדורה לא ראיתי להאריך בהם כי כבר ידוע המנהג אצל הסופרים והם יודעים ולומדים כדת מה לעשות ועי' בת' מהרש\"ל סל\"ז:",
+        "ומ\"מ כו' כי יש גדולים כו'. בין שנמצא שינוי בצורות הפתוחות או הסתומות או שנמצא שינוי במה שמנה הרמב\"ם שצ\"ל פתוחה או סתומה ואינה פרשה כלל בכל ענין אין לפסול בדיעבד כיון שבקצת מקומות יש לגדולים סברות אחרות בזה א\"כ אפילו במקום שאין נמצא חולק על הרמב\"ם י\"ל שאותה ס\"ת היתה כתובה ע\"פ איזה גדול שחולק על הרמב\"ם וכן משמע בעט\"ז שכתב וז\"ל ומ\"מ אם נמצאת ס\"ת שאינה נכתבה כדברי הרמב\"ם אין לפסלה כי כמה גדולי הפוסקים שיש להם דעות אחרות בפי' פרשיות סתומות או פתוחות ומחזקינן לאותו סופר שכתב על פי אחד מגדולי הפוסקים כו' עכ\"ל וכן משמע בתשובת מהר\"י מינ\"ץ סי' ח' שכתב שם דכיון דמצינו מחלוקת באחד מהן איכא למימר ה\"ה באחריני ע\"כ נ\"ל שאין לפסול שום ס\"ת אם שינה בה סדר הרמב\"ם כו' עכ\"ל ומ\"מ משמע דהיינו דוקא כשנמצאת ס\"ת שאינה כתובה לפי דברי הרמב\"ם דיש לתלות ולומר שנכתבה ע\"פ איזה גדול אחר אבל אם ידוע שהוא טעות סופר שטעה ושינה מסדר הרמב\"ם במקום שאין שום פוסק חולק עליו נראה דפסולה היא אף בדיעבד והכי דייק לישנא דהרב והעט\"ז שכתבו ומ\"מ אם נמצא ס\"ת שאינה כתובה ולא כתבו כו' ומ\"ה בדיעבד לא נפסל אם שינה מסדר הרמב\"ם אלא ודאי כדפי':",
+        "תשובה אשר השבתי למהר\"ר אליעזר יצ\"ו",
+        "על דבר הס\"ת שראוי להיות בפ' צו וידבר ה' דכל חלב פתוחה כאשר היא בכל ס\"ת ואינה פתוחה ורצית לפסלה הנה ברור הדבר דספרא דוקנא כתבה ע\"פ הרמב\"ם שמנה כל הפתוחות וסתומות דויקרא וכתב שם וידבר דזה קרבן וידבר דדבר אל אהרן וזאת תורת האשם וזאת תורת זבח וידבר דדבר אל בני ישראל המקריב וידבר דקח את אהרן כולן פתוחות והן ששה עכ\"ל ולא מנה הך וידבר דכל חלב ש\"מ דלאו פתוחה היא ואע\"פ שהגמי\"י כתבו שבדקו בכל ספרים הטובים ומצאו שתיהן פתוחות וסבורני שט\"ס יש כאן ואע\"פ שהחשבון מכוון מכל צד שמא גם הוא נכתב לפי הטעות עכ\"ל מ\"מ ודאי דלפי האמת אין טעות סופר בדברי הרמב\"ם שהרי כתב והן ששה ואם כן הל\"ל והן שבעה ועוד שכתב לבסוף מנין כל הפתוחות שנים וחמשים ולדבריו הל\"ל שלשה וחמשים וכן כשכתב והסתומות ששה וארבעים סך הכל תשעים ושמונה הל\"ל סך הכל צ\"ט ודוחק גדול להגיה בכל המקומות וכן הכסף משנה שהיה גדול בדורו ואחרון השיג על הגמי\"י בזה וכתב שטעות הוא ואין שם פרשה כלל וכן בספר מע\"מ העתיק לשון הרמב\"ם כמ\"ש וכן בדקתי בכל החומשים הישנים והחדשים ובכולן אין שם פתוחה וכן בתיקונים שנדפסו באמשטרדם הסתומות והפתוחות ע\"פ דברי הרמב\"ם אין שם פתוחה וכן בחומשים עם המסורת וכן בהרבה ספרים ובאמת בדקתי בהרבה ס\"ת ובכולם נמצאו שם פתוחה אבל בלתי ספק שהם נמשכו אחרי הגמי\"י והאי ספרא נמשך ע\"פ האמת אשר בדברי הרמב\"ם ואי איישר חילי והיה יכולת בידי לבטל מנהג הסופרים הייתי מגיה כל הספרי תורות שבהם הפתוחות אבל כיון שכבר נהגו כך הסופרים ותפסו דברי הגמי\"י שהעידו גם הם שבדקו מקדם בהרבה ספרי תורות ומצאום פתוחה אין לפסול אבל ודאי ס\"ת זו שלכם היא כשרה וישרה וברורה תורת ה' טהורה:"
+      ],
+      "en_segments": [
+        "Nine letters. This means the space occupied by the word 'asher' three times, as the Rambam writes. The Beit Yosef states that perhaps a section is not invalid if he left less space than the three words 'asher, asher, asher,' provided that the space still equals nine small letters. If there is not enough room even for nine small letters, however, it may indeed be invalid, for the received rule is that anything less than a space of nine letters is not considered a section break. Nevertheless, some authorities maintain that a space of three letters is sufficient. See the Derishah's discussion of this matter.",
+        "He should not depart from the Rambam's ruling in this matter, etc. The Rambam writes at the beginning of chapter 8 of Hilchot Sefer Torah: An open section has two forms. If the preceding section ends in the middle of a line, one leaves the remainder of that line blank and begins the open section at the beginning of the next line. This applies when the blank space remaining on the line equals nine letters. If only a small space remains, or if the preceding section ends at the end of the line, one leaves the entire next line unwritten and begins the open section at the beginning of the third line. A closed section has three forms. If the preceding section ends in the middle of a line, one leaves the required space and begins writing at the end of that same line at least one word from the beginning of the closed section, so that the blank space lies in the middle. If insufficient room remains on the line both to leave the required space and to write one word at its end, one leaves the entire remainder of the line blank, leaves a small space at the beginning of the next line, and begins the closed section in the middle of that second line. If the preceding section ends at the end of a line, one leaves the required blank space at the beginning of the next line and begins the closed section in the middle of that line. Thus, an open section always begins at the beginning of a line, and a closed section always begins in the middle of a line. End quote. The Levush writes regarding the Rambam's second form of an open section, where only a small space remains on the line or the previous section ended at the line's end, that the same applies if this occurs on the bottom line of a sheet. One leaves the top line of the next sheet blank and begins writing on its second line, so that a full blank line separates the sections. According to the Rosh, however, this constitutes a closed section. See further in the Tur and Beit Yosef for the Rosh's view and those of the other authorities concerning what they define as open and closed sections. See also chapter 8 of the Rambam's Hilchot Sefer Torah, where he explains the open and closed sections at length. The Tur and other authorities also discuss another form called a 'set section.' I have not prolonged the discussion, because the accepted practice is already known among scribes, who know and study the proper method. See responsum 37 of the Maharshal.",
+        "And nevertheless, etc., because there are great ones. Whether change is found in forms of open or closed, or change in what Rambam enumerated should be open or closed and it is not a parashah at all — in any case one does not invalidate after the fact, since in some places great ones have other views on this; if so even where no disputant on Rambam is found — one may say that Torah scroll was written per some great one who disputes Rambam; and so appears in Taz who wrote: nevertheless if a Torah scroll is found not written per Rambam's words one does not invalidate it, for how many great poskim have other views in explanation of closed or open parshiot; and we strengthen that scribe who wrote per one of the great poskim — end quote. And so appears in responsum of Mahari Mintz siman 8 who wrote there: since we find dispute in one of them, one may say the same in others; automatically it appears to me one does not invalidate any Torah scroll if it changed Rambam's order — end quote. And nevertheless it implies specifically when a Torah scroll is found not written per Rambam's words — one may attribute and say written per another great one; but if known it is scribe error who erred and changed Rambam's order where no posek disputes — it appears invalid even after the fact; and so is the precision of the rabbi's and Taz's language who wrote \"nevertheless if a Torah scroll is found not written,\" etc.; and what after the fact one does not invalidate if changed from Rambam's order — but certainly as I explained. Response I answered to Maharam Eliezer regarding the Torah scroll that should be in parashat Tzav \"and Hashem spoke\" that \"all chelev\" is open as in every Torah scroll and it is not open — they wanted to invalidate it: behold the matter is clear this accurate scroll was written per Rambam who counted all open and closed in Vayikra and wrote there \"and He spoke\" — this is korban \"and He spoke,\" Aaron \"and this is the law of guilt-offering,\" \"and this is the law of sacrifice,\" \"and He spoke\" to children of Israel who offer, \"and He spoke\" take Aaron — all open and they are six — end quote; and he did not count this \"and He spoke\" of \"all chelev\" for it is not open; and although Gemara wrote they checked all good scrolls and found both open — I think there is a mistake here; and although the count aligns from every side — perhaps it too was written per error — end quote; nevertheless certainly per truth there is no scribe error in Rambam's words, for he wrote \"and they are six\"; if so he should have said \"and they are seven\"; and further he wrote at end count of all open parshiot fifty-two — per his words should be fifty-three; and when he wrote closed parshiot forty-six, total ninety-eight — should be total ninety-nine; and great strain to emend all places; and likewise Kessef Mishneh who was great in his generation and last challenged Gemara on this and wrote it is error and there is no parashah at all; and likewise in book Maalot HaMaalot he copied Rambam's language as written; and likewise I checked all old and new Chumashim and in all there is no open there; and likewise in editions printed in Amsterdam closed and open per Rambam's words there is no open; and likewise in Chumashim with masoret; and in many books; and truly I checked in many Torah scrolls and all found there open; but without doubt they followed Gemara, and this scroll follows truth per Rambam's words; and if I had strength and ability to abolish scribes' custom I would emend all Torah scrolls in which they are open; but since scribes already practiced so and adopted Gemara's words who also testified they checked previously in many Torah scrolls and found them open — one does not invalidate; but certainly your Torah scroll is valid, upright, and clear — Torah of Hashem is pure."
+      ]
+    },
+    {
+      "id": "yd1/siman275/seif-002/turei-zahav",
+      "volume": "yd1",
+      "siman": 275,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויניח חלק כדי ט' אותיות ויתחיל כו'. זהו דלא כדעת הטור שנתן שיעור ריוח בסתומה כדי ג' אותיות ובפתוחה כדי ט' אותיות ובדרישה הביא דעות שסוברים גם בפתוחה כדי שלש אותיות ולהלכה אין לנו אלא כדברי הש\"ע שהוא מוסכם מרוב הפוסקים:",
+        "לא יסור מדברי הרמב\"ם. שני פלוגתות יש בין רמב\"ם לרא\"ש. חדא דאם עושה מקום פנוי בתחילת השיטה כדי ט' אותיות ומתחיל הפרשה באמצע השיטה זהו הוראה שהפרשה ההיא סתומה להרמב\"ם אבל להרא\"ש הוה פתוחה. שניה אם מסיים בסוף השיטה או שיש מקום פנוי אלא שאין בו כשיעור ט' אותיות ואח\"כ מניח שורה אחת כולה פנויה ומתחיל הפרשה בשורה שאחריה בתחילתה זהו להרמב\"ם פתוחה אבל להרא\"ש סתומה. והכלל לרמב\"ם אין פתוחה רק שמתחלת מריש השורה ואין סתומה אלא כשמתחלת באמצע השורה או בסופה ומה שכתב בסעיף א' הוא בין לרמב\"ם בין להרא\"ש כמ\"ש הש\"ע:",
+        "ובטור כתוב וז\"ל ועוד יש בתיקון סופרים פרשה סדורה והוא שכתב שיטה עד חציה או עד שלישיתה ומתחיל בשיטה תחתיה כנגד הנחת העליון ונראה שאם שינה בזה לא פסל כיון שאינו מפורש בגמרא עכ\"ל. הפי' הברור בזה שיש מקצת פרשיות בתורה שלתלמוד שלנו הויין פתוחות או סתומות ולתיקון סופרים הויין סדורות באופן שזכר הטור וכתב הטור על זה שאם שינה הסופר מתיקון זה ולא עשאן אלא פתוחות או סתומות כשר כיון שאין מוזכר בגמרא סדורות. כתבתי זה לפי שראיתי למו\"ח ז\"ל שהבין שלפי תיקון סופרים עושין פרשיות במקום שלדידן אין שם פרשה כלל ויצא לו מזה כיון שכתב הטור שאם שינה לא פסל אלמא אם עשה הסופר ריוח כשיעור פרשה במקום שאין שם פרשה אין כאן פסול ואין פסול אלא במקום שיש פרשה והיתה פתוחה או סתומה והוא עשה בהיפך אבל אם הניח ריוח במקום שאין לו להניח אין פסול לדעת הטור וחולק על הרמב\"ם שכ' שפסול בעשה פתוחה סתומה או להיפך או שהניח ריוח במקום שלא היה לו להניח ואני אומר דלא דק דזה פסול היותר פשוט וא\"צ לכתבו כלל וברייתא דפ' הבונה שאמרה פתוחה לא יעשה סתומה וכן להיפך לא הוצרכה לומר שאם עשה פרשה במקום שאין שם פרשה דזהו ק\"ו דפסול וזה ק\"ו מוכח ברמב\"ם שהרי בפרק י' חשיב ביחד כל הפסולים וכתב שאם שינה צורות הפרשיות ולא חשיב אם הניח ריוח כשיעור ויפסול לדידיה אלא פשוט דכ\"ש הוא וכ\"כ הרא\"ש בהדיא הביאו ב\"י בסוף סימן רע\"ד וז\"ל וכיון שאין האויר כשיעור פרשה אין לפוסלו מחמת אויר כו' וכל שאינו כשיעור פרשה אין לחוש לו עכ\"ל ש\"מ כל שיש כשיעור פשיטא דפסול וחס ליה לשום מורה להקל בזה וכך נראה פשוט כוונת ב\"י שכתב לפי דעת הטור שאם שינה בסדורות לפי תיקון סופרים ועשאן פתוקות או סתומות דלא פסל ואי ס\"ד דתיקון סופרים עשו פרשיות חדשות היה לו לומר שאם שינה ולא עשה שם פרשה כלל אלא פשוט דתיקון סופרים אפרשיות שלנו קאי וכמ\"ש:"
+      ],
+      "en_segments": [
+        "He should leave a space of nine letters and begin, etc. This differs from the Tur, who assigns three letters to a closed section and nine to an open section. The Derishah cites opinions requiring only three even for an open section. For practical halacha, however, we follow the Shulchan Aruch, whose measure is supported by most authorities.",
+        "One should not depart from the Rambam's words. The Rambam and Rosh disagree in two cases. First, when nine letters of blank space are left at the beginning of a line and the next section begins in the middle, the Rambam regards it as closed, while the Rosh regards it as open. Second, when the prior section ends at the end of a line, or leaves less than nine letters, and an entire blank line is then left before the next section begins at the start of the following line, the Rambam regards it as open, while the Rosh regards it as closed. According to the Rambam, an open section begins only at the start of a line, while a closed section begins in the middle or at the end of a line. The arrangement in seif 1 is valid according to both."
+      ]
+    },
+    {
+      "id": "yd1/siman276/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 276,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טעה ודילג כו'. ע\"ל סי' רע\"ג ס\"ו דאף בשם תולין תיבה שלימה ובשאר ל\"פ דבין ר' יהודה ובין ר' יצחק וכ\"ש לר' יוסי ורש\"ש כולם ס\"ל דתולין כמש\"ש הטועה כו' ותולה כו' [וכן רשב\"א דפליג אמר משום דאין כותבין את השם כו' כיצד הוא עושה כו' הלא\"ה תולה את מה שגרר ומחק] ובירושלמי שם תולין בספרים ואין תולין לא בתפלין ולא במזוזות ואפי' בפסוק שלם אמרו שם אם אין בו רק שלש שיטין יתקנו ועבד\"ה בשם רשב\"ץ:",
+        "אבל לא כו'. טור וכנ\"ל סי' רע\"ג ס\"ג דתיבה שלימה אין כותבין בין דף לדף ועבד\"ה שם:",
+        "(ליקוט) אבל לא כו'. מ\"ס פ\"ה הלכה ח' הטועה ודילג את השיטה כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "He erred and skipped, etc. — see above siman 273 seif 6 that even for a Name one hangs a complete word; and in other languages between R' Yehuda and R' Yitzchak, and all the more for R' Yosi and Rashash — all hold one hangs as written \"one who errs, etc.\" and hangs, etc. [and likewise Rashba who disagrees said because one does not write the Name, etc. — how does he do it? Hagahot Maimoniyot: he hangs what he scraped and erased]; and in Yerushalmi there they hang in sifrei Torah but not in tefillin or mezuzot, and even a complete verse they said there: if there are only three lines they may fix — and Avodat HaGershuni in the name of Rashbatz.",
+        "But not so. Tur; and likewise above siman 273 seif 3 that a complete word one does not write between page and page — and Avodat HaGershuni there. (Likut) But not so. Maharshal chapter 5 halacha 8 — one who errs and skips a line, etc. — end of his words."
+      ]
+    },
+    {
+      "id": "yd1/siman276/seif-009/beur-hagra",
+      "volume": "yd1",
+      "siman": 276,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור כו'. ספרי פ' ראה ר' ישמעאל אומר מנין למוחק אות מן השם שעובר בל\"ת שנאמר ואבדתם את שמם לא תעשון כן לה' אלקיכם וכ\"ה במ\"ס פ\"ה הלכה ו':",
+        "ולא כו'. פ\"ד דשבועות (ל\"ה ב'):",
+        "ואלו השבעה שמות כו'. רמב\"ם כנוסחא שניה שכתב כ\"מ והנוסחא הראשונה הוא ודאי טעות עבכ\"מ שם:",
+        "ויש גורסים כו'. הוא כנוסחא האחרונה שכתב הכ\"מ ברמב\"ם והיא הנכונה שהרי בגמ' מנו לה והיא ודאי שם קדש וכן מנו לה בירושלמי פ\"ק דמגילה ואע\"ג שבגמ' ובירושלמי מונה הרבה בכללם אינן אלא שבעה וכ\"ה במ\"ס פ\"ד הלכה א' אלא שנשמט משם שם אלקים ושם הלכה ב' הכותב אלף למ\"ד מד' אותיות כו':",
+        "(ליקוט) ויש גורסין כו'. ר\"ל אבל ל\"ג שם אלו\"ק דהוא נכלל באלקים אלא דזהו בלשון יחיד וזהו בלשון רבים כמו אדון אדונים והחילוק ביניהם הוא השגחה והנהגה בכלל או בפרט. ולא מנה שם י\"ק שהוא נכלל ג\"כ בשם העצם אע\"ג שמנה שם אל\"ף למ\"ד לפי שהוא שורש אחד שהוא לשון חוזק וראיה שמצינו משמש במקום אחד יש לאל ידי (בראשית ל״א:כ״ט) אילי הארץ (יחזקאל י״ז:י״ג) אבל שם י\"ק הוא ג\"כ משם העצם משמש על הוי\"ה וקיום ולכן לא מצינו במקום אחר וכן בגמ' וירושלמי ומ\"ס לא מנו אותו לבד וכ\"ה כל הז' שמות סדורין בגמ' רק שתחשוב כל שם אלקו' לאחד. אבל לפי תרגומו י\"ק שם היראה ונראה שזהו פלוגתת רשב\"נ ור\"א בירושלמי (פ\"ב דחגיגה) ובמ\"ד (פ' בראשית פי\"ב) ובגמ' שלנו אמרינן כר\"א כמ\"ש בפ\"ג דמנחות (כ\"ט ב') מאי דכתיב כי בי\"ק כו' (ע\"כ):",
+        "אשר אקי\"ק. ה\"ה לאקי\"ק השלישי אלא דרבותא קאמר דאף אשר אקי\"ק קדש ואינו כאלקי האלהים שהשני חול כמש\"ש הלכה ד' ואינן אלא שלשה:"
+      ],
+      "en_segments": [
+        "Forbidden, etc. — Sifrei parashat Re'eh: R' Yishmael says: from where for one who erases a letter from the Name that he transgresses a negative commandment? As it says \"and you shall destroy their name... you shall not do so to Hashem your God.\" And so in Mishnat Soferim chapter 5 halacha 5.",
+        "And not so.” A.D. (L.B.):",
+        "These are the seven names. The Rambam, as a second formula written by the first ISA, is certainly a mistake there:",
+        "And some have the version, etc. — it is the latter version that Kesef Mishneh wrote in Rambam, and it is the correct one, for in the Gemara they counted it and it is certainly a sacred name; and so they counted it in Yerushalim first chapter of Megillah; and even though in Gemara and Yerushalim many are counted among them, they are only seven; and so in Mishnat Soferim chapter 4 halacha 1 — only the name Elohim was omitted from there; and there halacha 2: one who writes aleph-lamed-mem from four letters, etc. (Likut) And some have the version, etc. — meaning but the version Elok is included in Elohim; rather this is singular language and that is plural language, like Adon and Adonim; and the difference between them is providence and conduct in general or in particular. And he did not count the name Y-K, which is also included in the essential name, even though he counted the name aleph-lamed-mem, because it is one root meaning strength and power, as we find used in one place \"to El my hand\" (Genesis 31:29), \"rams of the land\" (Ezekiel 17:13); but the name Y-K is also from the essential name, used on Havayah and existence; therefore we do not find it elsewhere; and so in Gemara, Yerushalim, and Mishnat Soferim they did not count it alone; and so all seven names are arranged in the Gemara — only consider each name Elok as one. But per its translation Y-K is the name of fear; and it seems this is the dispute of Rashbam and R' Elazar in Yerushalim (chapter 2 of Chagigah) and in Midrash (parashat Bereishit 12); and in our Gemara we say like R' Elazar, as written in chapter 3 of Menachot 29b: \"what is written ki b-Y-K,\" etc. (end).",
+        "That I will be. The same for the third Y-K — rather he speaks emphatically, that even \"that I will be\" is sacred; and it is not like Elohai Elohim where the second is profane, as written halacha 4; and they are only three."
+      ]
+    }
+  ]
+}

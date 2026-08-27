@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 28,
+    "chunk_total": 66,
+    "case_offset": 252,
+    "cases_in_chunk": 8,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman28/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 28,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ת\"ח. שבועות ל\"ב:",
+        "וכל מי. ב\"ק מ\"ו ב' ב\"מ ל\"ט ב' כתובות כז ב':",
+        "ואם ידעו. ב\"מ וכתובות שם:",
+        "צריכין. שבועות ל\"א ב':",
+        "לכתחלה. ירושלמי מהא דגטין ע\"א א' כשם כו' שמיירי בחולה ועבה\"ג:",
+        "(ליקוט) לכתחלה. מהא דלמטה ואם העד כו' (ע\"כ):",
+        "ואם. שבועות:"
+      ],
+      "en_segments": [
+        "The report. Weeks to B:",
+        "And all who. B.C. B. B. B. B.S.:",
+        "And if they knew. Bava Metzia and Ketubot there.",
+        "needed. Weeks to B:",
+        "snoring. Jerusalem from the A.A. is like a firefighter in the sand and a fire. What is it like if the witness is gone",
+        "And if. Weeks:"
+      ]
+    },
+    {
+      "id": "cm1/siman28/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 28,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "צריכין. שבועות שם ב' ו ירושלמי סנה' פ\"ו מחלוקת בבע\"ד כו':",
+        "לכתחלה. ירו' פ\"ד מיתות ממתנ' דסנה' נ\"ו א':",
+        "(ליקוט) לכתחלה. ירו' הביאוהו תוס' ברפ\"ב דזבחים (ע\"כ):",
+        "צריך כו'. מכות ו' ב':",
+        "(ליקוט) ואם מבינים כו'. טור וכפי' דעובד' דשם בעדים וכאותו שאמרו במתנ' שם בעדי' אבל הרמב\"ם מפרש בדיינים וז\"ש בהג\"ה וע\"ל סי\"ז ועכ\"מ שם ומ\"מ גם להרמב\"ם ה\"ה לעדים מדהביאו בגמ' על המתנ' (ע\"כ):"
+      ],
+      "en_segments": [
+        "They must. Shevuot there, page 32, and Yerushalmi, Sanhedrin, chapter 6: the dispute concerns a litigant, etc.",
+        "Replaced. Jesssss is a sign of Hashem’s mercy. He was brought to him, and he was brought to him",
+        "You need a . B and B:",
+        "(Anthology) And if they understand, etc. This is the Tur's view, interpreting the incident there as concerning witnesses, like the statement in the Mishnah there concerning witnesses. The Rambam, however, explains it as concerning judges. This is the meaning of the gloss. See below, seif 17, and the Kesef Mishneh there. Nevertheless, even according to the Rambam the same rule applies to witnesses, since the Gemara cites that incident in connection with the Mishnah."
+      ]
+    },
+    {
+      "id": "cm1/siman28/seif-017/beur-hagra",
+      "volume": "cm1",
+      "siman": 28,
+      "seif": 17,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ראובן. כמו העדים מבקשים כנ\"ל:",
+        "(ליקוט) ראובן כנ\"ל בסט\"ו שאינו מצוי בעיר (ע\"כ):",
+        "וכן. כנ\"ל:",
+        "(ליקוט) וכן אם כו'. כמו עדיו מבקשים (ע\"כ):",
+        "אע\"פ. וע\"ל סי' ק\"מ ס\"י:",
+        "(ליקוט) אע\"פ כו'. כמ\"ש ושלחו לו:",
+        "(ליקוט) כאשר נתבאר. ר\"ל כנ\"ל ודוקא שאין כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Reuven. This follows the same rule as where the witnesses request accommodation, as above.",
+        "(Anthology) Reuven. As above in seif 15, where he is not present in the city.",
+        "And yes. The same is true, and if you are. Like his witnesses, he asks",
+        "AJ. A.C. (S.A.) He was sent and sent to him:",
+        "(Lycott) when we get well. The same is true, and there is no such thing"
+      ]
+    },
+    {
+      "id": "cm1/siman30/seif-002/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 30,
+      "seif": 2,
+      "slug": "urim-vetumim-tumim",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם הכחשה בחקירות עדותן בטלה וזהו דלא כדעת הרמב\"ן בתשובה שהשיב לרבני רעגנשפורג כמ\"ש בתשובה ובעה\"ת סי' שער כ\"ט ח\"ד דאף בחקירות כשרה ורוב הפוסקים חלקו עליו והנה הגאון בעל תשובת שב יעקב סי' י\"ד לחלק א\"ה התפאר שמצא ראי' ברורה לדברי הרמב\"ן מהא דפרכינן בפרק אחד ד\"מ בהא דתנן שטר שזמנו בניסן בשמיטה יבאו עדים ואמרו עמנו הייתם העדים והשטר כשר דאמרינן אחרוהו וכתבוהו ופריך הגמ' אי ס\"ד ד\"מ בעי דו\"ח אם כן האיך אמרינן שמא אחרוהו וכתבוהו ומשני הגמרא ד\"ת בעינן דו\"ח רק משום שלא תנעול דלת מפני לוין תקנו חז\"ל דלא בעינן דו\"ח וכתב הוא אי אמרינן אי הוכחשו בחקירות פסולים דהניחו אדאורייתא עדיין הקושי' במקומה כיון דתקנת חכמים לא נעשה רק על תחילה אבל אי כבר הוכחשו לא תקנו אם כן מאוחרין אמאי כשרים היכי מתרצין למילתא דשטרי ולא נימא זייפא הוא כמו שפירש\"י בקושי' הגמרא כיון דהוכחשו על אותו יום שכתבו בשטר א\"ו דהתקנה היה אפילו בדיעבד אי הוכחשו לא מפסלו בד\"מ וכו' עכ\"ל ושינה בדבר זה בתשובתו כמה פעמים וכל דבריהם ממש בלתי מובנים כי לא זו לדברי הראב\"ן דקושי' הגמרא משום דהוי עדות שאאילה\"ז לק\"מ כמ\"ש הוא בעצמו אף זו גם לפירש\"י אין כאן נדנוד קושי' דלדברי רש\"י הפי' כך בשלמא אי אמרינן ד\"מ א\"צ דו\"ח והטעם דמה לנו לחקור העדים חזקה קושטא קמסהדי ומהכ\"ת יעידו לשקר רק בדיני נפשות משום ושפטו העדה והצילו העדה ולכך מרבין בחקירות אולי ימצאו דבר שיסתרו זא\"ז או יאמרו א\"י ועי\"כ יהיה ניצול וכמו ששקדו מאוד כמ\"ש במכות ראיתם טריפה הרג וכו' ופי' ר\"ת דעי\"כ היה מבולבלי' בעדותם ולא נהרג אבל בד\"מ אמרינן חזקה עדים אמת מעידים ולכך לא בעינן דו\"ח ואף ביש מקום פקפק בעדות אמרינן חזקה עדים קושטי קאמרי רק אחרוהו וכו' וכדומה כדי שנחזיק אותם לעדי אמת וכשרים אבל אי אמרינן דגם בד\"מ צריך דו\"ח אם כן ע\"כ אין הטעם משום ושפטו וכו' דמה דזכות לזה חובה לזה וע\"כ משום דחשדינן דעדים משקרי ולכך הצריכה התורה דו\"ח אשר עי\"כ ברב החקירות יתברר האמת אם כן בשריעות' לפנינו דעדים אומרים בו ביום עמנו הייתם איך נחפש למצוא דרך לקיים הכשרן מה שאין הכשר' ברור ואולי ישקרו ולא הם בחזקת כשרות עד בשבע חקירות כי הן הנותנ' עדות שבאמת דבריהם וכאן נהפך הוא שע\"י העדות אין דבריהם מכוונים כי באותו יום הנכתב בשטר לא ראו הלואה כלל ואיך יחפשו ב\"ד לתקן דבריהם וקושי' הגמרא שפיר ומשני הגמרא כך הוא ד\"ת אבל משום נעילת דלת תקנו חכמים להעמיד העדים בחזקת כשרות ולומר דודאי אמת מעידים וא\"צ דו\"ח ולכך בכה\"ג אנן אוקמינן ליה בחזקת כשרות דכך היה תקנת חכמים להעמידן בחזקת כשרות דקושט' קא מסהדי ואמרינן אחרוהו וכתבוהו משא\"כ במכחיש' זא\"ז בחקירות הרי כאן ודאי א' דמשקר ואם כן איך נימא אוקמי בחזקת כשרות וקושט' קמסהדי הא ודאי חד משקר ולכן עדותן פסולה וזה פשוט וברור ולדבריו יאמר הא בהזמה אף הרמב\"ן מודה דפסול כמבואר בטור סי' ל\"ה ובכל הפוסקים ובהך ענין בשטר שנכתב בשמיטה הא היו עדים מזימין אותם ולכ\"ע פסול ואיך מכשרינן השטר ואמרינן אחרוהו אלא כיון דתקנת חכמים להעמיד העדים על חזקתן ולומר דקושטא קמסהדי אנן מתרצין דבריהם בכל אופן ואמרינן אחרוהו ולא ק\"מ ואם יטעון אם כן אף בעדות בע\"פ כשמכחישין זא\"ז בחקירות דהיינו באיזה יום נימא אחרוהו או טעו כמ\"ש שם בתשובה דברים אלו אין בהם ממש דהא בעדות בע\"פ איירי דהשני עומד ומכחישו ואמר לא כי אתה אומר בניסן אני אומר באייר איך שייך אחרהו הא אין עונה ואפילו בשטר אי אמר בזמנו כתבתי לא שייך תו אחרהו מכ\"ש דעומד פא\"פ בב\"ד ומכחישין זא\"ז ומ\"ש נטען אולי טעו גם זה ליתא דאם הוא טעות דעבידא למטעו פשיטא דטענינין כמ\"ש דכל שנוכל ליישב דבריהם מיישבן ובאמת אין כאן הכחשה ואם אינו איך נטען במה דלא עבידי דטעו ומ\"ש התו' במוקדם דאמרינן טעו בשנת המלך עיין לקמן סימן מ\"ג איירי בטעות דעבידי למטעי או בשאין כת\"י יוצא ממקום אחר ויש להם מגו אבל זולת זה לא אמרינן כן מעולם ועיין מש\"ל בסי' מ\"ג ולכן כל דבריו אין בהם ממש לדינא ולא ירד לכוונת רש\"י על בורי' כי אלו ירד לא היה כותב בזה ושגגה יצא מלפני השליט הזה:",
+        "עדותן בטלה ואם שנים אמרו בב' לחודש ואחד אומר בד' בחודש וכתב הרמב\"ם בפ\"ב מהלכות עדות ד\"ג היה העדים מרובים שנים כוונו עדותן בדו\"ח והשלישי אומר א\"י תתקיים העדות בשנים ויהרג אבל אם הכחיש את שנים אפילו בבדיקות עדותן בטלה עכ\"ל וזהו לדין הנאמר בד\"נ ואפילו בבדיקות עדותן בטלה אבל בד\"מ בבדיקות לית כאן פיסול אבל אם הכחישו בחקירות כמ\"ש בזו יש מקום ספק דבחקירות והוכחשו חוזר דין ד\"מ להיות שוה לד\"נ וכבר עמדו בזו הספק גדולי חקרי לבב בתשובת רבינו ב\"י בשאלות קידושין שאלה יו\"ד ע\"ש:",
+        "והנה דעת חכם אחד שם בתשובה דכי אמר הרמב\"ם היינו בבאו בבת א' אבל אם העד המכחיש היום בא אח\"כ אין דבריו כלום כיון שכבר נתקבל עדות הראשונים. ולכאורה לפי מה שהקשה הלח\"מ על הרמב\"ם מהא דאמרינן בפרק היו בודקין אם אחד אומר איני יודע תתקיים העדות בשאר ואמרינן כמאן דלא כר\"ע ופרש\"י דר\"ע דס\"ל דשלשה מעידים אין בהם הזמה עד שיוזמו שלשתן וא\"כ בשלישי האו' א\"י לית כאן הזמה וכל העדות בטלה דהוי עדות שאאיל\"ז והתו' פירשו דהשלישי האומר א\"י הוה כמו אילו נמצא קרוב או פסול לר\"ע הא בשלשה אפי' מאה ונמצא ביניהם קרוב או פסול כל העדות בטלה ולכל אלו הפי' כיון דקי\"ל וכן פסק הרמב\"ם דבשלשה ונמצא א' מהן קרוב או פסול כל העדות בטלה וכן אין נזומין עד שיוזמו כולן אפי' הם מאה וא\"כ הך דינא ליתא ואיך פסק דאם אחד אומר א\"י תתקיים העדות בשנים הנשארי' וצ\"ע לכאורה כי דבריו סותרי' זא\"ז ותי' הלח\"מ דגמ' איירי בהעידו בבת א' ולכך הוי עדות אחד ואם אומר א\"י בטלה כל העדות אפילו הן ק' משא\"כ הרמב\"ם מיירי דלא באו בבת א' והעד השלישי או' א\"י לאחר כ\"ד מן עדות השנים ולכך אין מבטל באומרו א\"י עדות ב' הראשונים זהו תמצות דבריו ע\"ש. ולפי פירושו דמיירי הרמב\"ם שהשלישי העיד לאחר כ\"ד ומ\"מ במכחיש לשני' עדותן בטלה הרי מבואר דלא כדעת החכם הנ\"ל דאפילו בזא\"ז מבטל העדות אבל באמת תי' הלח\"מ דחוק דא\"כ גוף הדין הנאמר בגמ' דבבאו בבת א' דאפילו א' אמר א\"י כל עדות בטל אפילו הן מאה למה לא זכרו הרמב\"ם כלל וכי כך דרכו להשמיט דין הנזכר בגמ' ולכתוב דין אחר שחידש מלבו וגם איך סתם ולמה לא פי' ההבדל דהא יש מקום לטעות בדבריו אפי' באו כאחד והדוחק מבואר א\"צ אריכות. ולכן נראה דרמב\"ם מפרש בגמרא דלא כר\"ע כך דשם במכות במשנה מחולק ר\"י עם רבי אליבא דר\"ע דס\"ל מה שנים נמצא א' מהן קרוב או פסול עדותן בטלה אף השלשה ורבי אמר אימתי בזמן שהתרה בו אבל לא התרה לא ובד\"מ שיילינן אי למחזי וכו' כמבואר בגמ' ומשמע דר\"י אליבא דר\"ע דרישא לא ס\"ל כרבי לחלוק בין התרה ללא התרה וצ\"ל במה פליגי ונראה דבזה פליגי דהא דמקשינן שלשה לשנים אם מקשינן לגמרי בהיקש מוחלט בלי שינוי כלל א\"כ מה שנים אם נמצא אחד קרוב או פסול הא עדות הא' הנשאר אין כלום דמה יועיל ואפי' לא התרו בו השני ולמחזי בעלמ' אתא אף בשלשה הדין כן דהא מקשינן להדדי לגמרי אבל ר' ס\"ל דלא לגמרי מקשינן דבשלמא בשנים בנמצא קרוב לא שייך ביטול להשני דע\"א כמאן דליתא אבל שלשה דנשארו עדות להעיד לא נפסלו מחמת השלישי דהיה קרוב או פסול רק כשהיה בצירוף דלהעיד בא אבל זולתו דלא היה צירוף לא מבטל עדות הנשארים וע\"ש במכות בתו' דף וי\"ו ד\"ה אמר רבא כו' ותראה בירור הדברים כמ\"ש בלי ספק והארכתי בזה בסי' ל\"ו ע\"ש: וא\"כ אף בזו אי אמרינן דלגמרי בלי הבדל כלל מקשינן שלשה לשנים א\"כ מה שנים ואחד אמר א\"י כל העדות בטלה אף בשלשה אי אמר האחד א\"י כל העדות בטלה אבל אי אמרינן דלא מקשינן בזו לשנים דשם הטעם דלא נשאר עדות א\"כ אף בזו כן דבשנים וא' אומר א\"י לא נשאר עדות הראוי להזמה משא\"כ בשלשה הרי כאן שנים הראוי' להזמה ועל השלישי אין דין קרוב או פסול כמ\"ש רש\"י רק הוי כמאן דליתא ולכך אין פוסל בצירופו להשני' וזה פשוט וא\"כ א\"ש הא דאמרינן דלא כר\"ע היינו ר\"י אליבא דר\"ע החולק על רבי וס\"ל לגמרי מקשינן ואפילו למחזי אתו פוסל העדות ש\"מ דלגמרי מקיש ואף זהו כמוהו באומר א\"י דפסול כל העדות אבל הברייתא כרבי דס\"ל אי למחזי אתו לא פוסל העדות וש\"מ דלא לגמרי מקשינן וא\"כ אף בזו כשר וא\"ש וכן צ\"ל לפי' התו' דהא דאמרינן דלא כר\"ע היינו ר\"י אליבא דר\"ע דלרבי דלמא בהא דקתני דא\"י דעדות הנשאר כשרים היינו באומרים למחזי קאתו דאין כאן צירוף לבטל אליבא דרבי ועכצ\"ל דהיינו אליבא דר\"י בדר\"ע וכן פי' הרמב\"ם ולכך הרמב\"ם דפסק בפ\"ה מהל' עדות לחלק בין למחזי או לאסהודי כרבי א\"כ הך ברייתא קם להלכה ופסקו הרמב\"ם דאם הג' אומר א\"י תתקיים העדות בהנשארים ונכון הוא. וא\"כ נכרים ונראין הדברים כמ\"ש החכם הנ\"ל דעל כל פנים בעינן דוקא בהעידו כולם בבת א' זה בתוך כ\"ד של חבירו ואין לפקפק כמ\"ש התו' שם במכות ד\"ה אמר רבא כו' לחלק דכי בעינן שיעידו תוך כ\"ד היינו בהזמה דהא באמת שקרו ולא ראו הענין כלל וצירוף עדותן בב\"ד מתחיל מאז שהעידו ולכך בעינן שיעידו תוך כ\"ד אבל בנמצא קרוב או פסול דבאמת ראו המעשה כאחד אז מתחיל הצירוף וא\"כ לא נ\"מ אם העידו בתוך כ\"ד או לאחר כ\"ד ע\"ש וכן הוא דעת הרמב\"ם בפ\"ה מהל' עדות ע\"ש וא\"כ לכאורה אף בזו י\"ל כן דהא באמת ראה רק שיש כאן הכחשה בחקירות או בבדיקות בד\"נ א\"כ משעת ראי' מתחיל הצירוף ולא נ\"מ אם העידו תוך כ\"ד או לאח\"כ אך זו אינו דמלבד דיש לחלק בגווני טובי בין הנושאים האלה. אף גם הא דהוצרכו התו' לומר חילוק זה היינו דאזלו לשיטתן דס\"ל דאפילו בקרוב ופסול שראה כאחד ולהעיד נתכוון מ\"מ לא נתבטל עדות הכשרים אם לא שבא הפסול והעיד בב\"ד ולכך הוצרכו לחילוק הנ\"ל אבל לשיטת הרמב\"ם דאפילו לא בא קרוב או פסול לב\"ד להעיד כלל מ\"מ אם כיון לעדות בשעת ראיה בטל כל העדות א\"צ לחילוק התו' הנ\"ל דפשיטא אפילו בא זמן טובא אחר שהעידו הכשרים נתבטל כל העדות דלו יהיה דלא העיד כלל בב\"ד רק היה בשעת ראיה נתבטל ופשוט אבל בהך דהכחישו זא\"ז בחקירות תלוי הכל בבא לב\"ד דפשיטא ברואה העדות ואינו בא לב\"ד אף דבלבו להעיד ליום ולמקום אחר לית לן ביה כל זמן שאינו מכחישים בב\"ד וכיון דבעי העדה בב\"ד חזר דינו כמו לענין הזמה דצ\"ל מעידים בבת א' ואין להבדל בינותם. וכן מורה הסברא. אך אם באו בבת א' דפוסל בד\"נ אי גם בדיני ממונות פוסל בזו ספק כהנ\"ל ואף כי רבינו הגדול ב\"י בתשובה הנ\"ל החליט לדינא דלא שייך רק בד\"נ ולא בדיני ממונות מ\"מ לבי נוקפי כי מנין לחלק במה דלא מצינו ראיה ברורה לזו בגמ' לחלק ובהכחשה בחקירות הרי שוה דיני ממון לדיני נפשות ולמה סתם רבינו הרמב\"ם ולא ביאר הדברים דבד\"מ ליתא להך דינא ואפילו הוכחשו בחקירות וגם אולי לא אמרה רבינו ב\"י רק בנדון שנשאל עליו בענין קדושין וכל דבריו להחמיר שם ולהחמיר דין קדושין כד\"נ ולכך גם בזו החליט הענין להחמיר כחומר הנושא אבל בד\"מ להכשיר העדים ולהוציא הממון ע\"פ מן המוחזק בדבר שאין ברור כשמש קשה והממע\"ה. ואין להקשות הא דאמרינן בר\"ה ובסוף פרק כל הנשבעין בעדות החודש אחד אומר גבוה שלשה וא' אומר חמשה הרי עדותן בטלה ומצטרפין לעדות אחרת ופרשינן דאם בא עוד עד ואמר ה' הרי אלו שנים תרי ואין דברי של האומר ג' כלום דאין חד במקום תרי וקשה מה בכך הא הך גבוה ה' וכו' ה\"ל חקירות כמבואר שם בגמרא ובהא אם אחד מכחיש שנים כל העדות בטל ול\"ל דהא השלישי בא לאח\"כ בשכבר עבר כ\"ד כהנ\"ל דמה בכך דשנים ראשונים באו בב\"א והכחישו זא\"ז והוכחש הא' מפי הא' ומה יועיל אח\"כ ביאת השלישי לאחר זמן להכשיר דכיון דא' המכחיש בא תחיל' וכבר הכחיש לאחד ואיפכ' שפיר אמרינן דאם באו שנים שאינם מכחישים זא\"ז תחיל' כבר נתקבל עדותן ולכך אם בא השלישי אח\"כ להכחישן לא משגיחין בו כלל אבל כאן נהפך הוא דהא המכחישים זא\"ז באו תחילה והשלישי שבא לעשות צירוף לא עדיף מאילו בא תיכף לב\"ד וזה פשוט די\"ל דהא כתב הרמב\"ם בפ\"ב מהלכות קדוש החדש דד\"ת עדות קדוש החודש א\"צ דו\"ח כלל רק מפני בייתוסין ימ\"ש תקנו חכמי' דו\"ח וא\"כ ד\"ת א\"צ דו\"ח כלל רק מכח תקנה ודאי אמרינן בהכחישו אפילו בחקירות אין דבר של אחד במקום שנים ולא דמי לד\"נ ולד\"מ דבעי ד\"ת דו\"ח כהנ\"ל וזהו דלא כדעת הרב לח\"מ דדעתו בפי' הרמב\"ם דס\"ל אף בעדות החדש בעי דו\"ח ד\"ת וביקש להסיב שם כוונת הרמב\"ם לפי' אחר ולפמ\"ש הדבר מוכח בבירור מהנ\"ל. ונראה טעמו של דבר דלא צריכי בעדות החודש דו\"ח ד\"ת הוא משום דלאחר שנתקדש התודש אין מועיל הזמה כלל על עדים המעידים בעדות החודש ואפילו קודם שנתקדש החודש מאיימי' על עדי הזמה ורואי' לבלבל דעתם כדי שיתבטל הזמתן כמ\"ש הרמב\"ם סוף פרק ג' מהלכות ק\"ה וא\"כ למה לן דו\"ח דכל עצמותו הוא כדי שיהיה בו הזמה וכאן לא בעינן זו ולכך לולי תקנת חכמים מפני בייתוסין לא היה צריך דו\"ח כלל וצ\"ע וא\"כ עדיין הדבר בספק. אמנם נראה אף כי מסתימת דברי הרמב\"ם משמע דבחקירות שוה הדין בד\"מ לד\"נ וגם לא מצינו ראיה לזו בש\"ס מ\"מ לדינא נראה כמ\"ש רבינו ב\"י דהא ודאי אם שנים אומרים לוה והשלישי מכחיש לגמרי ואמר לא לוה וכן בד\"נ שנים אומרים הרג והשלישי אומר לא הרג דאפילו העידו תוך כ\"ד מ\"מ מודה הרמב\"ם דאין דבריו של א' במקום שנים וכן מוכח מגמר' דסוטה דאמרינן במשנה אחד אומר נטמאת וכו' דס\"ד שם בגמרא דמיירי בבאו בבת אחת ומ\"מ קתני סיפא שנים אומרים נטמאת ואחד אומר לא נטמאת אין דבריו של א' במקום שנים ולא היתה שותה וכ\"כ הרמב\"ם בהל' סוטה והל' עגלה ערופה שכתב באו שנים אחר שהעיד האחד והכחישו ואמרו לא ראית הרי הן כשנים המכחישים ב' והיה עורפין הרי מבואר דאילו באו כאחד והכחישו לעד האומר ראיתי הרוצח לא משגיחין ביה ועורפין דהואיל ובאו כאחד אין דין תורת שנים על עד אחד המעיד דהא יש לו תיכף מכחישין א\"כ מבואר דבהכחשה מודה הרמב\"ם דבטל א' נגד שנים רק צ\"ל לשיטתו לחלק דבשלמא במכחיש כל העדות א\"כ היחיד המכחיש אינו בגדר העדות כלל והוי כמכחיש קרוב או פסול לשני כשרים ומה יועיל ואף זהו ע\"א לגבי שנים הוה כקרוב או פסול אבל במעיד גוף הדבר כמו הנך שנים רק מכחיש אותם באחד מן החקירות א\"כ ה\"ל צירוף והוי כמו קרוב או פסול המבטל כל עדות ולפ\"ז נראה לדינא דהאמת כדברי ב\"י דהא כתב הבעל תרומות בשער כ\"ט ח\"ד דרמב\"ן נחלק עם הרמב\"ם אם עדים שהוכחשו בחקירות בד\"מ כשרים או פסולים וכתב הבע\"ת וראיתי כי חכמי לוניל הכריעו דלא מצטרפי כדעת הרמב\"ם ולא מטעמי' דידיה וכו' דאילו שתקו ולא אמרו באחד בתשרי הלוהו רק הכחישו ואמרו לא באחד בניסן הלוהו. אי אתה מודה דע\"א בהכחשה לא מהימני' ולא הוי דינו אפילו כע\"א ואפי' בשבועה לא מחייב והשתא דאמר בתשרי הלוהו מחשיב עד קמא עד א\"ו דעד ראשון לא חשיבינ' לי עד והוי דינו כע\"א דאתא לשבועה עכ\"ל הרי דטעמם משום דאילו הכחישו להדיא הוי הכחשה ובשביל התוספת לא מהני כלל להכשיר עדותו ולפ\"ז בשלשה אם שנים אומרים בניסן וא' אומר לא כי אלא באייר כל טעמו לפסול בהכחשה משום דאנן אמרינן דהוי כהכחשה להדיא והא באחד המכחיש לשנים אין דבריו של אחד במקום שנים. וא\"כ אף תוספת כלא נחשב והוי כהכחשה לחודא ואינו דהא מהך טעם לחוד פוסלים בהכחשה ולולי כן אפילו א' המכחיש א' היינו אומרים דכשר כרמב\"ן רק אנן פוסלים משום דהוי כהכחשה לגמרי וזה לא שייך באחד במקום שנים וא\"ש כי העיקר כמכריעו כמותו וזהו ברור ולכך הרמב\"ם דלא ס\"ל כהכרעתם ולא כטעמם כלל סתם הדברים דאפילו בד\"מ פוסל משא\"כ לדידן דקי\"ל כהכרעה הנ\"ל וזה ברור לדינא וא\"כ פשיט' דאם שנים מכחישים זא\"ז בחקירות ובא אחד מהשוק להצטרף עם העד אחד דמהני וה\"ל חד לגבי תרי כנ\"ל ופשוט:",
+        "של שמן היתה עדותן בטלה וכתב הסמ\"ע דאפי' שבועה א\"צ אפילו תובע שניהם הואיל והוי הכחשה בדרישה עדותן בטלה לגמרי ועיי' פרישה עכ\"ל ולא זכינו לפרישה על סימני' הללו וחבל על דאבדן ונרא' דנמשך אחרי דברי ב\"י דכתב לרמב\"ם הואיל ויין ושמן הוי בכלל דרישה א\"כ עדותן בטלה לגמרי בלי שבועה והאמת כן בדברי הרמב\"ם אבל לדינא תמהני דהא כבר כתבנו כי חכמי לוניל הכריעו כרמב\"ם ולא מטעמי' וכו' וסיימו בדבריהם להדיא בא' אומר בניסן וא' אומר לא כי אלא בתשרי דעד קמא לא חשבינן ליה לעד והוי דינו כע\"א דאתא לשבועה עכ\"ל הרי דפסקו להדיא דצריך שבועה ומי יבא אחרי הכרעתם ודוחק לומר דהם מיירי בכה\"ג דזה אומר לא כי כי אם בתשרי אבל עד האומר בניסן הלוהו לא אמר לא כי על הלואת תשרי וא\"כ העד דתשרי ממש לית ליה הכחשה ולכך חייב שבועה אבל אילו גם זה המעיד על הלואת ניסן היה אומר ל\"כ על הלואת תשרי אין כאן שבועה כלל כדעת הרמב\"ם דמלבד דזה דוחק גדול דסתמא דמילת' משמע מכחישין זא\"ז דהיינו כל אחד מכחיש את חבירו אף גם מה זה שכתב דחכמי לוניל הכריעו כרמב\"ם ולא מטעמי' וכן כתב הב\"י מה נ\"מ אם הוא מטעם אחר סוף כל סוף הדין דין אמת ועוד מנלן דילמא גם טעמו של רמב\"ם הוא משום כך ולכך פסק בהכחשה בחקירות עדות בטל מטעם חכמי לוניל הנ\"ל ומנלן דהוא לא מטעמו אלא ברור דלטעם חכמי לוניל דהוי הכחשה ואיך יצרפו א\"כ עכ\"פ יש כאן עד א' המעיד אמת יהיה איזה שיהיה ויש כאן ש\"ד דביטול העדות לית כאן רק מכח הכחשה ועכ\"פ עד א' מעיד אמת וחייב שבועה משא\"כ הרמב\"ם דכתב בטלה דמשמע כל העדות ואפילו שבועה אינו זוקק כמ\"ש הב\"י וסמ\"ע וע\"כ דלאו מטעמ' חכמי לוניל ס\"ל רק פשוט דנתבטל העדות לגמרי ויפה כתב הבעה\"ת דהם לא שוים עם הרמב\"ם בטעם ויש נ\"מ ביניהם לענין שבועה כמ\"ש וזה ברור בכוונתו וא\"כ הלכה כחכמים המכריעים ובפרט שנראה שגם בעה\"ת מסכים עמהם ולא נשאר ספק. ואפילו אנו נפקפק לומר קים ליה כרמב\"ם (ועיי' לעיל קונטרס התפיסות) מ\"מ בהך נידון חביות של יין ושמן כיון דבלא\"ה דעת רש\"י דאינו דריש' כלל רק משום דאינו רק ע\"א ורבו החולקים על הרמב\"ם פשיטא דאין כאן טענת קים ליה כלל וחייב שבועה ואין לפקפק דכיון דאיכא א' דמשקר מה בכך דהשני אומר אמת הא הוי כנמצא אחד מהן קרוב או פסול דכל העדות בטלה דהא כבר כתבו התו' סנהדרין דף ל\"א ד\"ה שבית שמאי וכו' דהיכי דמכחשי אהדדי לא שייך זו ועיין מש\"ל בסי' ל\"ו ע\"ש ולכך ברור דחייב שבועה:",
+        "והוא תובע שניהם המחבר השמיטו דנמשך אחר דעת הנ\"י דכיון דעבידי למטעי בין שחור ללבן מה צורך לתבוע שניהם וכ\"כ הסמ\"ע אבל הרמ\"א נמשך אחרי דברי הטור דכתב והוא תבעו שניהם וחתרו האחרונים למצוא טעם הגון למה צריך תביעת שניהם ודבריהם דחוקים ולכן נר' ברור דס\"ל להטור דאף דאמרינן בין מנה שחור למנה לבן לא דייקי מ\"מ שני מיני' הם כמו חיטין ושעורי' דהא ר' יהודא ס\"ל דבין חיטין לשעורי' לא דייקי כמבואר בגמ' דב\"ב דף נ\"ו ע\"ש ואילו במנה שחור ולבן סבירא ליה דדייקי ואף שהתו' שם ביקשו ליישבו ולחלק בחילוק אחר מכל מקום הטור לא סבירא ליה רק סבירא ליה דעדיף ומובדל יותר מן חיעין ושעורי' דצריך הבחנה יתירה לדייק בינם וא\"כ עכ\"פ לא גרוע והם שני מיני'. וצריך לומר דאף על פי דעדים לא דייקי אבל המלוה דייק דהא אמרינן בין חיטין לשעורין לאו אדעת' דאינשי ואילו הרא\"ש כתב בשמעת' דשאלה ושכורה דלכך טענו בחיטין והודה בשעורי' פטור דבין חיטין ושעורי' לא טעו אלא דיש הבדל בין עדים לבע\"ד וכמו שכתב הרא\"ש דבין שאלה לשכירות טעו ועדים ודאי אם א' אומר בשאלה וא' אומר בשכירות דדייקי אלא דיש הבדל בין עדים לבעל דבר. וא\"כ קשה ליה לטור קושית הבעה\"ת דהא הוי כטענו בחיטין והודה בשעורי' דפטור מהכל ומ\"ש הבעה\"ת לתרץ דשאני הכא דכופר ואומר להד\"ם אין תי' זה אלא למאן דס\"ל כרמ\"ה וסייעתו דלכך הודה בשעורי' פטור דיכול לטעון השטאה וכדומה וזה לא שייך כאן דהא אמת הוא שהלוהו מנה אחת אבל לפי דס\"ל להטור כהרא\"ש דהטעם משום דהוי מחילה א\"כ אף כאן הוא תובע דרך משל מנה שחור וא' מעיד כדבריו ועד השני אמר מנה לבן א\"כ אנן אמרינן הואיל ותובע שחור אחולי מחל על מנה לבן והך עד שאמר מנה שחור שקורי משקר והאמת כדברי האומר מנה לבן ועל זה מחל במחילה ומה בכך דעבידי דטעו גם בחיטין ושעורי' עבידי דטעו ומ\"מ פטור משעורים ולא אמרינן דהתובע טעה בין חיטין לשעורים ואף שחור ולבן כיוצא בו ולכך צ\"ל דתבעו שניהם ואם כן לא שייך מחילה כלל וא\"ש והנ\"י דסבירא ליה דא\"צ לתבוע שניהם היינו דסבירא ליה כרמ\"ה דטעם משום השטאה אבל לשיט' הרא\"ש דהטעם משום מחילה צריך תביעת שניהם ונכון וברור:",
+        "אם המקומות קרובים שאפשר לראות מזה לזה זהו דעת הטור וסבירא ליה בהא דאמרינן בגמרא א' אומר בדיוט' עליונה ואחד בתחתונה עדותן קיימת משום שאפשר לראות מזה לזה ואם כן לא שייך בי' הזמה כמ\"ש הכי להדיא אמנם הריב\"ש נתן טעם משום דבין דיוטא עליונה לדיוטא תחתונה לא זכירי אנשי ואם כן לפי דבריו אפילו אינם רואים מזה לזה ג\"כ אין כאן הכחשה ויש להבין לפי שיטתו הא דאמרינן מכות דף ה' באו שנים ואמרו במזרח הבירה פירש\"י טרקלין גדול ובאו עדים ואמרו הלא במערב הבירה עמנו היתם אם יכולים לראות זה לזה אין כאן הזמה ואם לאו הרי זו הזמה הרי משמע כדעת הטור דאילו לדעת הריב\"ש מה הזמה שייך בזה הא לא מדכרי ועבידי דטעי ודוחק לומר בין דיוטא תחתונה לדיוטא עליונ' טעו ובין מזרח למערב בטרקלין גדול לא טעו ומדכרי רוח' הטרקלין אם מזרח אם מערב ודבר זה רחוק ולפימ\"ש המהרש\"א בפ' היו בודקין דאף דאמרינן באחד אומר בב' בחודש וא' אומר בג' אמרינן דטעו בעיבורא דירחא אבל אם אמרו בב' והוזמו עמנו הייתם בב' לא אמרינן דטעו הואיל ואין כאן עדות על ג' ע\"ש י\"ל דבזה אומר במזרח וזה אומר במערב באמת טועים אבל לגבי הזמה כיון דליכא עדות על מערב לא אמרינן דטעו ולק\"מ אך כתבתי לקמן דל\"נ כמהרש\"א אחר כך מצאתי בתשובת מהר\"ר בצלאל אשכנזי ז\"ל סי' ה' שהביא דברי הריב\"ש והביא עליו דברי הר\"ן שכתב גם כן דברי ריב\"ש וסיים הואיל וטעו ולא דקדקו כ\"כ בד\"מ ע\"ש ומזה דייק הרב המוסמך הנ\"ל הא בדיני נפשות לא אמרינן ולא דייקי ואם כן לק\"מ דשם איירי בד\"נ ודייקו וה\"ל הזמה אלא דקשי' ליה לדעת הטור אם כן כלל החקירה באיזה מקום יש בו ב' פרטים פרט אחד באיזה עיר אם בסורא או בנהרדעי כדאמרי' שם במכות ופרט שני אף בסורא באיזה מקום אם בעלי' או בית או אם היה בבירה גדולה אם במזרח או במערבה ועל שניהם יחול הזמה פרטית כי העדים לא ידעו באיזה צד היה בו ביום ואם בבית או בעלי' אבל ידעו שבו ביום היה בעיר אחרת וכן להפוך שבאמת היה בו ביום באותו עיר אבל ידעו שלא היה באותו חדר כל היום הוא אומר בבית והם ידעו שהיה בעלי' וכן להיפוך ואם כן קשה הא דטרחינן בסנהדרין דף מ\"ם ע\"ב דלא מצינו שמנה חקירות ולהך ברייתא דמנה שמנה חקירות אמרינן דשאלינן ליה באיזה יובל וזהו דוחק כמבואר שם בגמרא להדיא ולא אמרינן דשאלינן ליה ב' שאלות פרטיות באיזה מקום באיזה עיר ובאיזה בית אם בחדר או בעלי' וכדומה בטרקלין אם במזרחו או במערבו והרי כאן שמנה חקירות וקשי' זו לא לבד לשיטת הטור אף גם לשיטת הריב\"ש דהא כבר בררנו דבדיני נפשות לא אמרינן דטעו ואמת אם אמרינן כדעת הר\"י בי רב הובא בתשובת מהרלב\"ח סי' קל\"ו קל\"ח דלא אמרינן טעות בשנים א\"כ י\"ל שפיר טעמו אפילו בד\"נ וזהו בא' אומר בדיוטא עליונה וא' אומר בדיוטא התחתונה אבל בשנים אומרים במזרח הבירה ליכא למימר דלמא טעו ובמערב הבירה היו דבשנים לא תלינן הטעות ושם מבואר דשנים אומרים במזרח הבירה וכו' ואם כן גם מהך דבאיזה מקום דנימא בי' שמנה חקירות לק\"מ דכל החקירות דילפינן מקרא צריך להיות אפילו בע\"א ולאו דוקא בשנים (וכך צ\"ל לדעת מהרי' בי רב דהא אמרינן בגמרא דלכך לא חשבינן בהמה בשעה דהא אדם טועה וכו' וקשה הא בשנים לא אמרינן וצ\"ל דכי כתב קרא אף על אחד כתיב) ואם כן באיזה מקום נמי בע\"א הא י\"ל דטעו ולית בי' הזמה ולכך לא חשבינן ליה אבל לפמש\"ל דהעיקר כדעת מהרלב\"ח דאף בשנים כאחד אמרינן שטעו קשה וצ\"ע:",
+        "אפילו אמר האחד מנה וכו' זהו כרשב\"א דאמר ב\"ש ובית הילל נחלקו בכת אחת וב\"ה סבירא להו יש בכלל מאתי' מנה ויש לדקדק דגם הרמב\"ם בהל' עדות פסק כך ואילו בהלכות נזירות פסק מי שהיה שני כתות עדי' כת א' אומר נזיר ב' וכת א' אומרים נזיר חמש הרי זה נזיר שתים דיש בכלל חמש שתים מדכתב דין זה בשני כיתות ולא בכת אחת וע\"א אומר שתים וע\"א אומר חמש ש\"מ דפוסק כהך תנא דנחלקו ב\"ש וב\"ה בב' כיתות אבל בכת אחת נחלקה עדותן ודלא כרשב\"א וצ\"ל דסבירא ליה לרמב\"ם דהא על כל פנים בזה אומר שתים וזה אומר חמש יש עכ\"פ הבדל והפרש רב בינותם ואם כן ה\"ל בבדיקות שנחלקו בו וכן משמע בירושלמי סנהדרין פרק היו בודקין ובנזיר דזה הוי כמו אחד אומר בסייף וא' אומר בארירין דהוי בדיקות ולכך במילתא דממון לא נ\"מ דשם הוכחשו בבדיקות כשרים ולכך אמרינן יש בכלל ק' אבל שם בנזירות דלא שייך נעילת דלת ואם כן בעינן דו\"ח ובמקום דבעינן דו\"ח אם הוכחשו בבדיקו' בטלה כמו ד\"נ דמ\"ש וכמ\"ש כל הפוסקים ואם כן בע\"א אומר בב' וע\"א אומר בה' הוי כאילו נחלקו בבדיקות ובטלה עדותן ולכך מצריך ב' כתי עדים וא\"כ מ\"מ חדא קיימי ואין כאן הכחשה כמו לרשב\"א לב\"ש וא\"ש והא דצריך בעדי נזירות דו\"ח צ\"ל דגם בזו שייך הזמה דאם היה נזיר ושתה יין חייב מלקות אם כן אף הזוממים חייבים מלקות ואם כן בעינן דו\"ח כדיני נפשות ודוק:"
+      ],
+      "en_segments": [
+        "If the witnesses contradict each other in the formal interrogations, their testimony is void. This is unlike Ramban's responsum to the sages of Regensburg, who holds that even a contradiction in the formal interrogations can be accepted in civil cases. Most authorities disagree. Shev Yaakov, responsum 14, attempts to prove Ramban correct from the Gemara's discussion of a promissory note dated in Nisan of the Sabbatical year. Witnesses come and say to the signatories, \"You were with us elsewhere on that date,\" yet the document can remain valid because perhaps it was written later with an earlier transaction date. The Gemara asks that if civil cases require interrogation and examination, why should we preserve the document rather than assume the witnesses are false? It answers that Torah law requires interrogation, but Chazal relaxed the requirement in civil law to avoid closing the door before borrowers. Shev Yaakov argues that if a contradiction in the formal interrogations would still invalidate the testimony, the problem remains. The witnesses were contradicted regarding the date written in the document. This is not correct. According to Rashi, the question is conceptual. If Torah ordinarily requires interrogation in civil cases because witnesses are not presumed truthful until they survive detailed examination, then where a serious flaw appears, such as proof that they were elsewhere on the date written, why should beit din search for an uncertain explanation such as \"perhaps they wrote it late\"? The answer is that after the rabbinic enactment, civil witnesses are again treated with a presumption that they are speaking truthfully unless clear contradiction makes that impossible. We therefore interpret the document in a manner that preserves their credibility and say it was written later. But where two oral witnesses directly contradict each other in a formal interrogation, one of them is certainly speaking falsely. There is no way to preserve both under a presumption of truth. That is an entirely different case. Indeed, even Ramban agrees that formal hazamah invalidates. Yet in the document case the signatories are being contradicted by witnesses who say they were elsewhere. Why is the document not automatically disqualified? Because once the rabbinic framework presumes valid civil documents, we interpret the written date itself as not necessarily the day of signing. The witnesses are therefore not truly refuted. This does not show that direct contradiction between witnesses is tolerated. Nor can one compare ordinary oral testimony where one says Nisan and the other says Iyar by suggesting perhaps one made a mistake or the event was delayed. If the kind of mistake is common and reasonable, we already say the testimony is not contradictory. But where the alleged mistake is not one people ordinarily make, we cannot invent an explanation. The authorities from Lunel, cited by Baal HaTerumot, correctly distinguish the matter and their approach remains the stronger halachic position. Accordingly, Shev Yaakov's proof does not establish Ramban's view, and a contradiction in the formal interrogations voids the testimony in civil law as well.",
+        "Their testimony is void. Rambam rules in Hilchot Edut that where there are many witnesses, if two agree in the formal interrogations and a third says, \"I do not know,\" the testimony stands through the two and, in a capital case, the defendant can be executed. But if the third contradicts the two, even in the subsidiary examinations, all the testimony is void. In capital law this is understandable. Contradiction even in subsidiary examinations can invalidate. In civil law, where contradiction in subsidiary examinations ordinarily does not invalidate, there remains a serious question whether a third witness who contradicts two in the formal interrogations invalidates the whole testimony. A great scholar in a responsum of Beit Yosef argued that Rambam's rule applies only when all the witnesses testify together, meaning within the short interval of one another. If the contradicting witness comes later, the first two have already been accepted and the later single witness cannot undo them. Lechem Mishneh appears at first to say the opposite. He asks how Rambam can rule that if the third witness says, \"I do not know,\" the remaining two are valid, when the Gemara says this is not according to R. Akiva, who treats a group of three as one testimony for the laws of hazamah and disqualification. Lechem Mishneh answers that the Gemara concerns witnesses who testify together, whereas Rambam speaks where the third comes later. If so, when Rambam then says that a contradicting third witness does invalidate, even though he comes later, this would appear to reject the distinction of the scholar cited by Beit Yosef. But Lechem Mishneh's answer is strained. If the Gemara explicitly gives the rule for witnesses who testify together, why would Rambam omit that law entirely and record only a different case not stated in the Gemara? Why would he not explain the distinction? A better reading of Rambam is based on the dispute in Makkot concerning the rule that when one of three witnesses is found related or disqualified, all testimony is void. R. Yehudah, in the name of R. Akiva, treats the group more fully as one unit. Rebbi distinguishes between witnesses who came to testify and people who merely came to observe. According to Rebbi, one who merely observed does not disqualify the others. The underlying dispute is how completely we equate three witnesses to two. With two witnesses, if one is disqualified, nothing remains. Therefore no distinction is needed between one who came to testify and one who merely saw the event. If the comparison of three to two is absolute, then likewise any disqualified third destroys the testimony. Rebbi holds that the comparison is not absolute. Where two valid witnesses remain, an outsider does not destroy them unless he joined as an actual witness. The same reasoning applies when the third witness says, \"I do not know.\" If we compare three completely to two, then just as with two witnesses one who says \"I do not know\" leaves no complete testimony capable of hazamah, so too with three the entire testimony should fail. But according to Rebbi, where two valid witnesses remain and the third is effectively absent rather than disqualified, the testimony can stand. Rambam rules like Rebbi in Hilchot Edut concerning people who merely came to observe. He therefore also rules that if a third says \"I do not know,\" the testimony survives through the remaining two. Thus the baraita is fully consistent with the halachah and Rambam need not be speaking of witnesses who arrived at different times. Accordingly, the scholar's distinction regarding contradiction remains plausible: a third witness can invalidate the two only when his testimony joins theirs as one evidentiary unit, meaning he testifies together with them. If he appears only later, after the first testimony has already been accepted, his contradiction is no stronger than one witness against two. Tosafot in Makkot distinguish the laws of hazamah from the laws of a related or disqualified witness. In hazamah, since the witnesses did not actually see the event, their joinder begins only when they testify in beit din, so testimony within the short interval is necessary. Where they all actually witnessed the event, their joinder can begin at the time of seeing it. One might therefore argue that a third witness who contradicts the others in the formal interrogations joined them from the original event and can invalidate even if he testifies later. But that reasoning does not fit Rambam's own approach. Rambam holds that where a related or disqualified person intended to testify at the time of seeing the event, he can disqualify the whole group even if he never later comes to court at all. In the present case of contradiction, however, nothing happens merely because the person saw the event. The problem arises only when he actually comes to beit din and contradicts the others. Thus the decisive joinder is the courtroom testimony, more like hazamah. The witnesses should therefore have to testify as one unit. Still, if they do testify together and the third contradicts the two in the formal interrogations, there remains a question whether the same rule applies in civil cases. Beit Yosef, in the responsum mentioned above, decides that the special invalidation applies only in capital-type matters and not in ordinary monetary law. I was initially hesitant. Rambam's broad wording suggests that contradiction in the formal interrogations may function similarly in civil and capital matters, and no explicit Talmudic source clearly distinguishes them. But the practical law can be clarified from the rule of the sages of Lunel. They explain why two witnesses who contradict each other about the date in a civil case do not combine. If one had merely said, \"It was not in Nisan,\" and the other said, \"It was in Tishrei,\" one witness would be contradicting the other and there would not be two witnesses for the claim. The added positive statement about another date does not strengthen the first witness. Accordingly, where two witnesses say Nisan and a third says, \"No, it was not Nisan but Iyar,\" the third witness's contradiction is still only one against two. His additional positive statement about Iyar does not elevate his contradiction. One witness has no standing against two. This reasoning applies especially in civil law, where our practical ruling follows the compromise of the sages of Lunel rather than Rambam's broader conceptual framework. There is further support from the laws of Sotah and eglah arufah. Where two witnesses say one thing and one witness directly contradicts them, the single witness is disregarded even if they appear together. The same should apply where the third witness agrees with the basic event but contradicts only a detail of the formal interrogations. Therefore Beit Yosef's conclusion is correct for practical civil law. If two witnesses agree and a third contradicts them in the formal interrogations, the third does not invalidate the two merely by that contradiction. One witness cannot stand against two. Likewise, if two witnesses first contradict each other in the formal interrogations and a third later comes from the marketplace and agrees with one of them, the agreeing witness can join that one. The result becomes two against one, and the single contradictory witness is disregarded. This is the correct practical ruling.",
+        "If one said it was a barrel of oil, their testimony is void. Sema writes that the defendant need not even swear, even if the plaintiff claims both versions, because the contradiction concerns a matter included among the formal interrogations and the testimony is entirely void. That follows Beit Yosef's reading of Rambam. But for practical halachah I am not convinced. The sages of Lunel, cited by Baal HaTerumot, agree with Rambam's result that witnesses contradicted in the formal interrogations do not combine, but for a different reason. They explicitly write that where one witness says the loan was in Nisan and the other says, \"No, rather in Tishrei,\" the first witness is not treated as a valid witness for monetary payment, but the testimony can still function as a single witness and obligate an oath. This is a significant practical difference. According to Rambam's own conceptual approach, the contradiction destroys the testimony entirely and not even an oath remains. According to the sages of Lunel, the two do not combine for payment, but at least one of them must be truthful, and one valid witness remains for an oath. Their wording is explicit and this is precisely why Baal HaTerumot says they agree with Rambam in result but not in reason. One should not force their case into a situation where only one witness denies the other's account while the other does not deny his. The ordinary language implies mutual contradiction, and in any event the whole point of their explanation is that contradiction prevents combination but does not erase the one-witness status. Therefore the practical halachah should follow these mediating authorities, especially since Baal HaTerumot appears to agree. In the present case of a barrel of wine versus a barrel of oil there is an additional reason to require an oath. Rashi holds that this difference may not even be part of the formal interrogations. Many authorities disagree with Rambam's classification. Accordingly, there is no basis for a claim of kim li to avoid the oath. The defendant must therefore take the oath required by one witness. There is no objection that because one of the witnesses is certainly lying the situation resembles a group where one witness is found related or disqualified. Tosafot in Sanhedrin explicitly distinguish contradiction between witnesses from the rule of a related or disqualified witness. Therefore the oath remains required.",
+        "And he claims both. Mechaber omits this condition, following Nimukei Yosef, because witnesses can easily confuse a black maneh with a white maneh, so there is no need for the plaintiff expressly to claim both. Sema follows that understanding. Rama, however, follows Tur, who explicitly requires that the plaintiff claim both amounts. Later authorities struggled to explain why. The reason appears clear. Even though witnesses can confuse a black maneh with a white maneh, the two remain distinct types, at least like wheat and barley. Indeed R. Yehudah holds that witnesses can confuse wheat and barley, yet he is more stringent concerning a black and white maneh. This shows that black and white are certainly not less distinct than wheat and barley. There is also a difference between witnesses and litigants. Witnesses can make mistakes in identifying categories that a litigant himself would ordinarily distinguish. Rosh makes this point elsewhere regarding the difference between a borrowed and rented animal. Now Tur follows Rosh's reason why one who claims wheat and receives an admission of barley is exempt: the claimant's failure to claim the barley is treated as waiver. Apply the same logic here. If the plaintiff claims only a black maneh, one witness supports him and the other says it was a white maneh, then even though witnesses can confuse those types, the plaintiff himself ordinarily does not. By claiming only the black maneh, he has effectively waived any separate claim to the white maneh. If the truth is according to the witness who says white, the plaintiff waived that debt. The witness who says black is then false. Therefore the plaintiff must claim both. Once he does, no waiver can be inferred and the witnesses can be reconciled through the ordinary possibility of confusion. Nimukei Yosef, who does not require both claims, follows the authorities who explain the wheat-barley rule through the defendant's ability to say the admission was merely joking or similar, not through waiver. According to that approach, the present case is different because the existence of some loan is independently established. Thus Tur and Nimukei Yosef follow their respective broader theories consistently. Rama therefore correctly preserves Tur's requirement that the plaintiff claim both.",
+        "If the places are close enough that one can see from one to the other. This is Tur's view. He explains the Gemara's rule that where one witness says the event occurred on the upper gallery and the other on the lower gallery the testimony can stand because the locations can be seen from one another. There is therefore no meaningful contradiction and the testimony remains capable of hazamah. Rivash gives a different reason: people do not ordinarily remember carefully whether an event occurred on the upper or lower gallery. According to him, even where the two places cannot actually be seen from one another, the contradiction may still be disregarded because it concerns a detail people commonly confuse. This appears difficult from Makkot 5. Two witnesses say an event occurred on the east side of a large hall, while refuting witnesses say, \"You were with us on the west side.\" If the two locations can be seen from one another there is no hazamah; if they cannot, there is hazamah. This seems to support Tur. According to Rivash, why not say the witnesses may simply have confused east and west? One answer follows Maharsha. Although witnesses can sometimes be assumed to confuse nearby details when their own testimonies differ, hazamah is different. If they positively said the event was on the east and the refuting witnesses place them on the west, we do not invent a different location not contained in their testimony merely to save them from hazamah. I have reservations about Maharsha's broader formulation, but it resolves this passage. R. Betzalel Ashkenazi, responsum 5, cites Ran together with Rivash and infers that the tolerance for such confusion applies in civil law but not in capital law. That is another strong answer. The Makkot passage concerns capital law, where witnesses are expected to be more exact. This distinction is supported by authorities who say that even if a woman alone contradicts witnesses in a kiddushin matter, the case can become one that appears fraudulent and requires formal interrogation. Still, Tur's approach raises a separate question. The interrogation \"where\" appears to contain several possible subquestions. The witnesses can be asked in which city the event occurred, such as Sura or Nehardea, and also within that city, in which house, room, upper floor, lower floor, east side, or west side. Each detail can theoretically generate its own hazamah. Why then does Sanhedrin struggle to identify an eighth formal interrogation, eventually suggesting the difficult question of which Jubilee cycle? Why not count two separate place interrogations, city and precise location? The answer may depend on the view of R. Yaakov Berav, cited by Maharlbach, that where two witnesses make the same mistake together we do not generally attribute it to ordinary error. The possibility of confusion applies more naturally to one witness, while the Torah's formal interrogations must be questions that independently matter even to a single witness. If so, the precise internal location cannot always serve as a separate Torah-level interrogation because a single witness may be assumed to err about it. This resolves the count. But according to Maharlbach's view that even two witnesses together can be treated as mistaken in appropriate circumstances, the question remains and requires further study. The better practical distinction may be that \"which place\" is one formal interrogation, with city and internal location functioning as details within it rather than separate Torah interrogations. The matter still requires study.",
+        "Even if one said one hundred, etc. This follows Rashba's view that Beit Shammai and Beit Hillel disagree even within a single set of witnesses, and Beit Hillel hold that two hundred includes one hundred. Rambam appears to rule the same way in Hilchot Edut. Yet in Hilchot Nezirut he writes that where one set of witnesses says a person undertook two periods of nazirut and another set says five, he observes two because five includes two. Why does Rambam formulate the nazirut case specifically with two separate sets of witnesses rather than one witness saying two and another five? This suggests that in nazirut he follows the opinion that Beit Shammai and Beit Hillel disagree only where there are two sets, whereas in one set the testimony is divided. The answer is that \"two\" versus \"five\" contains a significant difference and can be treated as contradiction in the subsidiary examinations. The Yerushalmi in Sanhedrin and Nazir suggests a comparison to one witness saying the killing was by sword and another by a different weapon. In monetary law, contradiction in subsidiary examinations does not invalidate because the rabbinic relaxation for civil law applies. Therefore we can say that two hundred includes one hundred and preserve the shared core of the testimony. Nazirut is different. There is no concern of closing the door before borrowers, so the ordinary rules of interrogation remain stronger. A material contradiction in subsidiary details invalidates a single set, like capital law. Rambam therefore requires two separate sets of witnesses in the nazirut case. At least one complete set remains valid, and the smaller common obligation can be imposed. Nazirut testimony also requires interrogation because violations of nazirut can lead to lashes, and false witnesses can themselves become liable to lashes through hazamah. The two rulings of Rambam are therefore consistent."
+      ]
+    },
+    {
+      "id": "cm1/siman33/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 33,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) ואפי' הוא כו'. עססי' זה (ע\"כ):",
+        "ונ\"ל דבדיעבד. ע\"ל סי' ז' ס\"ז בהגה:",
+        "(ליקוט) ונ\"ל. דלאו כשושבינו הוא ועס\"י ז' ס\"ז (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Lycott) and he is a quaint. This is (for)",
+        "and N. D.D. A.C. (L.C.) and N. He and his servants, he and his servants"
+      ]
+    },
+    {
+      "id": "cm1/siman34/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 34,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) ואפי' עבר כו'. כמ\"ש בתד\"א כי השבועה כו' וכי שבועה היתה שם והלא לא היה שם אלא חרם אלא שהשבועה הוא חרם וחרם הוא שבועה. רמב\"ן (ע\"כ):",
+        "(ליקוט) מי שבאו כו'. דאל\"כ האיך פסלינן לכל פסולי עדות שי\"ל כן. רשב\"א וכמש\"ש סברי מצוה קעבדי והא קמשמתינן כו' אלמא דתלינן כ\"מ שיכול ולא תלינן בכה\"ג (ע\"כ):",
+        "(ליקוט) מי כו'. דאל\"כ מאי קאמר דלמא אערומי כו' אם איתא הל\"ל שוגג הייתי (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Anthology) Even if he violated, etc. As stated in Tanna Devei Eliyahu: 'for the oath,' etc. Was there an oath there? There was only a ban. Rather, an oath is a ban and a ban is an oath. Ramban.",
+        "\"He who came here.\" D. How is it possible for all cases of evidence that Hashem is. Hashem’s promise to Abraham and his servants, “He who is holy, and who is holy, and who is not Hashem.” May I say, “If I do not believe that I would have been.”"
+      ]
+    },
+    {
+      "id": "cm1/siman34/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 34,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכגון אלו. יבמות ס\"ג ב':",
+        "(ליקוט) ובכלל אלו המקבלים כו'. כמש\"ש דמבזי נפשיה כו' (ע\"כ):",
+        "וא\"צ הכרזה. מדקאמר בתוספתא כל דיניו וכל עדיותיו כו' אפי' שכבר ואמר בטלים ובזה אמר דיניו בטלים ובזה אמר עדותיו בטלים מ' דאינו פסול רק אותו מעשה בלבד:",
+        "וכ\"ז בעדים. שם מה אני בחנם כו': (ליקוט) וכ\"ז בעדים כו'. ק\"ו מפיסוק טעמים (ע\"כ):",
+        "דיין שדן. כמו בריבית ס\"פ איזהו נשך (בבא מציעא ע\"ה ב)':",
+        "(ליקוט) דיין כו'. וההוא דבר חמא שם משום דת\"ח בלא\"ה פטורים ממס. רא\"ש שם (ע\"כ):",
+        "כל מה כו'. כתובות י\"ח ב' אנוסים היינו כו':",
+        "(ליקוט) כל מה שמעיד כו'. כמ\"ש בפ\"ג דב\"ב אי לאו דאודי ממטי כו' אע\"ג דהודאת בע\"ד כו' ובפ\"ב דכתובות עדי' שאמרו אנוסין היינו כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And like that. You will be able to see SJ B:",
+        "(Luke) and even those who receive it. As a result of Hashem’s mercy, Hashem’s promise is the same",
+        "A.S. announcement. In addition to his law and all of his witnesses as an epic that has already been said to be nulls and that his law has been said, and that his witnesses are nullified of the same act:",
+        "All this applies to witnesses. As stated there: 'Just as I teach without payment,' etc. (Anthology) All this applies to witnesses, etc. It follows a fortiori from the rule regarding punctuation of the Torah text.",
+        "Dayan Shaden. As in the interest of the P.S.A., he is called, and he is called. And he is an exalted word for Hashem’s mercy. And there is a name",
+        "Everything that, etc. Ketubot 18b: 'We were coerced,' etc.",
+        "(Anthology) Everything he testifies, etc. As stated in chapter 3 of Bava Batra: Were it not for his admission, the property would have gone to the other party, even though the admission of a litigant is binding. Likewise, in chapter 2 of Ketubot, witnesses who say, 'We were coerced,' etc."
+      ]
+    },
+    {
+      "id": "cm1/siman34/seif-023/beur-hagra",
+      "volume": "cm1",
+      "siman": 34,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפי' פסול כו' מוקמי'. כתובות כ\"ו ב':",
+        "(ליקוט) ואפי' פסול כו'. כמ\"ש בס\"ט אבל אם אין עדים כו' (ע\"כ):",
+        "וכל מה. כמ\"ש בנדה ב' ב':"
+      ],
+      "en_segments": [
+        "And it's called 'Honey'. It is written as “Vo B” and “Falco” and “Falco” is written. But if there are no witnesses",
+        "Everything. As an \"Benda B\":"
+      ]
+    }
+  ]
+}

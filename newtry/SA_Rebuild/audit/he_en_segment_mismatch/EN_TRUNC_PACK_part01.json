@@ -1,0 +1,340 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 12,
+    "case_offset": 0,
+    "cases_in_chunk": 13,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman1/seif-008/yad-ephraim",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 8,
+      "slug": "yad-ephraim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(שם) אא\"כ בשנטמא וא\"כ לא מיקרי נדבה לענ\"ד יש לתמוה דבין בחטאת ובין באשם מ\"מ השתא מיהא לא נדר בנזיר ולא נתחייב קרבן וע\"כ לא אמרינן אלא היכא שיכול לנדב אותו קרבן עצמו כגון עול' ושלמים שפיר יכול לומר יה\"ר דהוי נדב להקריב משא\"כ מזה שאין הקרבן בעצמו בא בנדבה אם לא כשנודר בנזירות וזה יודע בעצמו שלא נדר בנזירות ומה לי כשאינו יודע אם חטא או שלא נדר בנזירות. ולכן נראה דודאי אין הכוונה שיכוון ביה\"ר לאשם נזיר אלא דס\"ל כיון דאפשר שיתכפר לו איזה חטא ע\"י קרבן אשם שגרם לו נדבת לבו שפיר שייך לומר יה\"ר כו' כאלו הקרבתי אשם כגון באשם נזיר דע\"י הקרבתו מתכפר מקופיא על חטא אחר שבידו ומ\"מ עיקר הקרבן בא על נדבת לבו שנדר בנזיר ואח\"כ נטמא באונס וכה\"ג דממילא נתכפר בו איזה חטא אחר ולכן שייך לומר יה\"ר כו' כאלו הקרבתי אשם ע\"י נדבת לבו ועי\"ז מתכפר לו חטא אשר שיש לו מקופיא משא\"כ בחטאת א\"א לומר כן דשאר חטאת אינו יכול לגרום אותם על נדבת לבו ורצונו כי אם ה' אנה לידו איזה חטא. וחטאת נזיר כיון שאינה באה לכפרה אין חטא מתכפר בו כלל וזה כוונת הגאון המפורסם מוהר\"ר יצחק מפוזנא ז\"ל:",
+        "ובמה שהקשה המג\"א דהא חטאת בעי ידיעה בתחלה ואא\"ז בת\"ש כתב דאשם נמי בעי ידיעה בתחלה והאחרונים האריכו בזה. לענ\"ד לק\"מ דלענין שמא אינו מחוייב כלל א\"ש שלא יאמר כיון שאינו בא בנדבה אבל בדרך תנאי אינו מעכב מה שהוא מחוסר ידיעה דאמירה זו אינה צריכה כל התנאים והפרטים האמורים בחטאת דהא אינה הקרבה ממש רק שאומר ענין הקרבה ומתפלל שיעלה לרצון לכפר עליו אשר חטא וא\"כ מה בכך שלא נודע דמ\"מ החטא לא יתכפר לו אלא שכך גזרה חכמת התורה שלא יקריב חטאת בלי ידיעה וזה אינו בא להקריב קרבן בלא ידיעה רק אומר הפרשה ומבקש רחמים שאם חטא אלא שלא נודע לו שמ\"מ קולר העון תלוי בצוארו תעלה לו אמירה זו כאילו נודע לו להקריב הקרבן כדינו שאז היה מתכפר בו כדין כן יתכפר לו עכשיו ע\"י מחשבתו הטובה שחשב שאם היה יודע מתחלה והי' רשאי להביא קרבן היה מביאו וכמש\"ל בשם הבחיי תחשב לו מחשבה זאת כמעשה דהיינו כאלו הודע אליו חטאתו והי' מחויב להביא קרבן כנלענ\"ד:"
+      ],
+      "en_segments": [
+        "There: 'Unless he became impure, and if so it is not called voluntary.' In my humble opinion this is difficult. Whether a sin offering or a guilt offering is involved, he has not presently vowed to become a nazir and has incurred no offering. We therefore allow the prayer only where one can voluntarily bring that very offering, such as a burnt offering or peace offering; there he can properly say, 'May it be Your will,' because he could volunteer to bring it. This differs from an offering that cannot itself be brought voluntarily except through a vow of naziriteship, when the person knows that he did not vow to become a nazir. What difference is there between not knowing whether he sinned and knowing that he did not vow naziriteship? It therefore appears that the intent is certainly not that his 'May it be Your will' refer to a nazir's guilt offering. Rather, the view is that since some other sin can be atoned through a guilt offering occasioned by his voluntary resolve, he may properly say, 'May it be Your will, etc., as though I had brought a guilt offering.' A nazir's guilt offering, for example, incidentally atones for another sin in his possession. The offering's primary cause nevertheless arose from his voluntary resolve: he vowed to become a nazir and afterward became impure through circumstances beyond his control. Another sin is thereby atoned incidentally. He may therefore say, 'May it be Your will, etc., as though I had brought a guilt offering' occasioned by his voluntary resolve, through which an incidental sin is atoned. This cannot be said of a sin offering. Other sin offerings cannot be caused by his voluntary resolve and desire, but only if Hashem brings a sin to his hand. A nazir's sin offering, since it does not come for atonement, atones for no sin at all. This is the intent of the renowned gaon R' Yitzchak of Pozna, of blessed memory. Regarding Magen Avraham's objection that a sin offering requires prior awareness, my revered grandfather writes in Tevuot Shor that a guilt offering likewise requires prior awareness, and the later authorities discuss this at length. In my humble opinion there is no difficulty. Regarding the possibility that he has no obligation at all, it is understandable that he should not say the prayer, since the offering cannot be donated. When he recites it conditionally, however, his lack of awareness is no impediment. This recitation does not require every condition and detail stated regarding a sin offering, because it is not an actual sacrifice. He merely recites the subject of the offering and prays that it be accepted to atone for any sin he committed. What difference does it make that the sin is unknown? The sin would indeed not be atoned through an actual offering; the Torah's wisdom decreed that a sin offering may not be brought without awareness. But this person is not attempting to offer a sacrifice without awareness. He recites the passage and requests mercy: if he sinned but does not know it, so that the burden of sin nevertheless hangs upon his neck, may this recitation be accepted as though the sin had become known to him and he had offered the sacrifice according to its law, in which case it would properly atone. May he now likewise be atoned through his good intention; that had he initially known and been permitted to bring an offering, he would have done so. As stated above in Rabbeinu Bachya's name, this thought is counted as an act: it is as though his sin had become known to him and he had become obligated to bring an offering. This appears correct in my humble opinion."
+      ]
+    },
+    {
+      "id": "oc1/siman1/seif-009/yad-ephraim",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 9,
+      "slug": "yad-ephraim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ס\"ק י\"ב יש מגיהים ובתפלת המנחה כ\"ע מודים דתמיד קודם לקטורת כדאיתא ביומא. אבל פרשת מנחה י\"ל אחר קטורת כצ\"ל. ובאמת אם יגיה כן אינו מדוקדק מ\"ש דלא כע\"ש דהא הע\"ש באמת כ\"כ לחלוק על דברי הש\"ע שכ' תמיד ואח\"כ קטורת וע\"ז כ' בע\"ש ולי נראה שאין הסדר כן אלא תמיד ואח\"כ מנח' ואח\"כ קטורת ע\"ש והכי הו\"ל להמג\"א למימר ובע\"ש כתב די\"ל מנחה קודם כו' ואין נראה דהא אביי כו' ולישנא דלא כע\"ש משמע שנמשך לדבריו הקודמים שמזה מוכח דלא כע\"ש וכן הוא ברוב המקומות במג\"א ונלע\"ד לפרש דהנה באמת צריך ליתן תבלין בדברי הע\"ש דלמה מקדים פרשת מנחה לקטורת ומ\"ש בע\"ש וע' ברמב\"ם הלכות תמידין לא מצאתי דבר ובודאי אין חולק שהקטרת הקטרת היו קודם למנחה והוא ש\"ס ערוך. ונראה דהע\"ש ס\"ל ג\"כ דמה שאנו אומרים פרשת תמיד הוא נגד אברים ואף שקטורת קודמין לאברים מ\"מ אמרינן פ' תמיד תחלה שהוא מין זבח. וא\"כ כיון דבלא\"ה אין אנו אומרים כסדר הקרבה בבה\"מ ממילא דיש לסמוך פ' מנחה לפרשת התמיד שהמנחה ג\"כ היא שייך לקרבן משא\"כ הקטורת. ואף שהקטורת קודמים למנחה מ\"מ הא בלא\"ה אין אנו אומרים כסדר דאל\"כ היה צריך לאומרו קודם תמיד ג\"כ כאשר הוא באמת הגה' מיי\"נ. ולפי מ\"ש המג\"א דאמירת הפרשה הוא נגד דם התמיד ממילא שהאמירה הוא כסדר ההקרבה וא\"כ פשיטא שאין לשנות הסדר וי\"ל קטורת קודם מנחה ולכן אחר שהכריע המג\"א שהוא כנגד דם התמיד כתב דבמנחה כ\"ע מודו שתמיד קודם משום דאיתא ביומא דקטורת של בין הערבים בין אברים לנסכים ועכ\"פ האמיר' צריך להיות כסדר ודלא כע\"ש שכתב דמנחה קודם לקטורת והיינו משום דס\"ל דפ' התמיד נגד האברים והאמירה שלא כסדר דז\"א אביי הוה מסדר כו' דם התמיד קודם לקטורת וקטורת לאברים ואברים למנחה. וממ\"נ אם הפ' נגד אברים יש להקדים הקטורת קודם לפ' התמיד ג\"כ אבל מ\"מ אין לומר שלא כסדר א\"כ באמת הכפרה בדם ושפיר אמירה שלנו כסדר ודו\"ק:",
+        "ומה שצ\"ע בזה לפע\"ד כיון דהמג\"א וע\"ש מיירי מן המנחה שהיו מקריבין עם תמיד של שחר איזה פ' מנחה יש כאן דפ' מנחת נסכים שבשלח לך אינה ענין למנחת התמיד כלל ע\"ש ובמ\"ש אא\"ז ת\"ש ובמנחת התמיד היא אמירה באותו פ' של קרבן התמיד גופו דקאמר ועשירית האיפה סולת למנחה ועיין בש\"ס דיומא שם וברש\"י שם ופשיטא שאינו עולה על הדעת שיפסיק בפ' קודם ועשירית האיפה ויאמר פ' קטורת באמצע הא ודאי ליתא. וצ\"ע:"
+      ],
+      "en_segments": [
+        "Se'if katan 12. Some emend the text to read: 'Regarding the Minchah prayer, everyone agrees that the tamid precedes the incense, as stated in Yoma; but the passage of the meal offering can be recited after the incense.' In truth, if this is the emendation, the words 'unlike Olat Shabbat' are imprecise. Olat Shabbat itself writes this in disagreement with the Shulchan Aruch, which places the tamid and then the incense. Olat Shabbat writes: 'It appears to me that this is not the order; rather, the tamid is followed by the meal offering and then the incense.' Magen Avraham should therefore have said: 'Olat Shabbat writes that the meal offering should precede, etc., but this does not appear correct, for Abaye, etc.' The phrase 'unlike Olat Shabbat' implies that it follows from Magen Avraham's preceding words that Olat Shabbat is wrong, as is Magen Avraham's usual style. It appears to me as follows. Olat Shabbat's words require explanation: why does he place the passage of the meal offering before the incense? His reference to Rambam's Hilchot Temidin supplies nothing, and no one disputes the explicit Talmudic rule that burning the incense preceded the meal offering. It appears that Olat Shabbat also holds that our recitation of the tamid passage corresponds to the limbs. Although the incense preceded the limbs, we nevertheless recite the tamid passage first because it is a type of sacrifice. Since in any case we do not recite the passages in the Temple's sacrificial order, the meal-offering passage may be placed beside the tamid passage, because the meal offering also belongs to the category of offerings, unlike the incense. Although the incense preceded the meal offering, we are already not following the order; otherwise the incense would also have to be recited before the tamid passage, as Hagahot Maimoniyot indeed states. According to Magen Avraham, however, reciting the tamid passage corresponds to the tamid's blood. The recitation consequently follows the sacrificial order, and it is obvious that the order may not be changed: the incense must precede the meal offering. After Magen Avraham concludes that the passage corresponds to the tamid's blood, he writes that at Minchah everyone agrees the tamid comes first, because Yoma states that the afternoon incense came between the limbs and the libations. In any event, the recitation must follow the order, unlike Olat Shabbat, who places the meal offering before the incense because he holds that the tamid passage corresponds to the limbs and that the recitation does not follow the order. This is incorrect, for Abaye arranged it as follows: the tamid's blood preceded the incense, the incense preceded the limbs, and the limbs preceded the meal offering. Whichever way one turns, if the passage corresponds to the limbs, the incense should also precede the tamid passage; one cannot recite them out of order. The atonement is in fact effected by the blood, so our recitation properly follows the order. Understand this carefully. What remains difficult in my humble opinion is that Magen Avraham and Olat Shabbat discuss the meal offering brought with the morning tamid. What separate meal-offering passage is there? The passage of the libation offering in Parashat Shelach has no relevance to the tamid's meal offering; see there and what my revered grandfather writes in Tevuot Shor. The tamid's meal offering is recited within the tamid passage itself: 'and a tenth of an ephah of fine flour as a meal offering.' See the Talmud in Yoma there and Rashi there. It is obviously inconceivable that one should interrupt the passage before 'and a tenth of an ephah' and insert the incense passage in the middle. This certainly cannot be correct and requires further study."
+      ]
+    },
+    {
+      "id": "oc1/siman35/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 35,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "במנין השיטין אלו הם ראשי השיטין וידבר את היום יוצאים לתת חג ההוא תורת בב' והיה רחם בשה לאמר כי הקשה בהמה לאות ג' שמע את והיה לבבך ובלכתך ידך מזוזת ד' והיה ובכל נפשכם ואכלת ה' בכם אשר ה' בין עיניכם ביתך ובשעריך:",
+        "ובש\"ר וידבר מזה הזאת ב' והי' כל פטר חמור ממצרים מבית. ג' שמע לבניך וי\"א לבבך על. ד' והיה עשב לא תתן את בניכם (מהרר\"מי):"
+      ],
+      "en_segments": [
+        "Regarding the number of lines, these are the opening words of the lines: In the hand tefillin: “And Hashem spoke”; “this day”; “you are going out”; “to give”; “the festival”; “the Torah.” In the second passage: “And it shall be”; “the womb”; “with a lamb”; “saying”; “for He hardened”; “animal”; “as a sign.” In the third passage: “Hear”; “you”; “and it shall be”; “your heart”; “and when you walk”; “your hand”; “the doorposts.” In the fourth passage: “And it shall be”; “and with all”; “your soul”; “and you shall eat”; “among you”; “which Hashem”; “between your eyes”; “your house and your gates.” In the head tefillin: First passage: “And Hashem spoke”; “from this”; “this.” Second passage: “And it shall be”; “every firstborn”; “a donkey”; “from Egypt”; “from the house.” Third passage: “Hear”; “to your children”; and some say, “your heart”; “upon.” Fourth passage: “And it shall be”; “grass”; “you shall not give”; “your children.” This is from Rabbi Moshe Isserles."
+      ]
+    },
+    {
+      "id": "oc1/siman51/seif-003/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 51,
+      "seif": 3,
+      "slug": "shaarei-teshuvah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בדבור עבה\"ט. עיין בשו\"ת פ\"י ח\"א סי' ה' חבורה שלא היה להם מנין קודם ב\"ש והתחיל לו' פסוקי דזמרה ובאו י' אסור לו' קדיש בתוך פסוקי דזמרה ע\"ש והביאו הבה\"ט לקמן סי' נ\"ג והטעם מבואר בתשובה דלא דמי אמירת קדיש אחר תהלים לעניית קדיש וברכו בין הפרקים דכיון שלא היה עשרה בשעת אמירת תהלים לא נתחייבו ואף ע\"ג דהקדוש אלקי האר\"י ז\"ל מצריך קדיש קודם ב\"ש אף בלא תהלים אינו לפי דעתי כ\"א למצוה לפי כוונתו הקדושה כו' וגם ע\"פ כוונתו כבר הא עבר הזמן אם לא הגידו קודם ב\"ש והמבין יבין כו' וע\"ש דאף קודם ויברך דוד שהוא סוף פסוקי דזמרה וכן בין שירת הים לישתבח אין להפסיק ע\"ש:",
+        "(ג)",
+        "בדבור עבה\"ט. ומ\"ש מי שצריך להפסיק כו' בכנה\"ג כתב בשם הג\"ה תכ\"י שהוא קולא יתירה ובש\"ץ כתב בשם מאמר מרדכי דהתם כשהיה צריך להפסיק בהכרח גדול מיירי אבל כשמפסיק לקדיש ולקדושה א\"צ שיאמר פסוקים אלו כלל ע\"ש וכתב בפע\"ח שאין להפסיק בפסוק בין פסוקי יהי כבוד לתהלה לדוד אפי' בשבת וגם פסוק והוא רחום יאמר ואין לדלגו בשבת ויום טוב ודלא כמ\"ש שאילת יעב\"ץ:"
+      ],
+      "en_segments": [
+        "Through speech. See Baer Heitev. Responsa Penei Yehoshua, part 1, siman 5, discusses a group that did not have a minyan before Baruch SheAmar. They began Pesukei DeZimrah, and then ten people arrived. They may not recite Kaddish in the middle of Pesukei DeZimrah. Baer Heitev cites this below in siman 53. The reason is explained in the responsum. Reciting Kaddish after Tehillim is not comparable to answering Kaddish or Barechu between sections. Since there was no minyan when they recited Tehillim, no obligation of Kaddish arose. Although the holy Arizal requires Kaddish before Baruch SheAmar even without Tehillim, in my opinion that is only an ideal practice based upon his sacred intentions. According to those intentions, once its proper place before Baruch SheAmar has passed, the opportunity has already been missed. One who understands will understand. The same responsum states that one may not interrupt even before Vayevarech David, which concludes Pesukei DeZimrah, nor between the Song at the Sea and Yishtabach. Through speech. See Baer Heitev. Regarding Baer Heitev’s statement that one who must interrupt should recite the designated verses, Knesses HaGedolah cites a manuscript gloss that calls this an excessive leniency. Shalmei Tzibbur cites Maamar Mordechai that the source concerns a case of extremely great necessity. When interrupting for Kaddish or Kedushah, one need not recite these verses at all. Pri Etz Chayim writes that one should not interrupt with any verse between the verses beginning Yehi Chevod and Tehillah LeDavid, even on Shabbos. One should also recite the verse VeHu Rachum and not omit it on Shabbos or Yom Tov, unlike Sheilas Yaavetz."
+      ]
+    },
+    {
+      "id": "oc1/siman51/seif-009/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 51,
+      "seif": 9,
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואין אומרים מזמור לתודה בשבת ויום טוב ומוסיפין בכאן ט' מזמורי' ואין לו' השמים מספרים בחול וכן נרא' מדברי הזוהר ב\"י בסי' נ':",
+        "בעי\"כ אין אומרים מזמור לתודה. וי\"א שאין אומרים גם כן לא בעט\"ב ולא בט\"ב (הגה' מנהגי' הלכות ט\"ב ס\"ה) י\"א שהוא טעות שאם יבנה ב\"ה אז יקריבו קרבנות ויהיה ט\"ב לששון ולשמחה. ואז לא יתענה (מהרש\"ל בש\"ת סי' ד'):"
+      ],
+      "en_segments": [
+        "One does not recite Mizmor LeSodah on Shabbos or Yom Tov. Nine additional Tehillim are added here. One should not recite HaShamayim Mesaprim on weekdays. This also appears from the words of the Zohar. See Beit Yosef, siman 50. On the eve of Yom Kippur one does not recite Mizmor LeSodah. Some say that it is likewise omitted on the eve of Tisha B’Av and on Tisha B’Av itself. See Hagahos Minhagim, Hilchos Tisha B’Av, seif 5. Others say that this is an error. Were the Beis HaMikdash rebuilt, offerings would be brought and Tisha B’Av would become a day of joy and celebration, and there would then be no fast. This is stated by Maharshal in responsum 4."
+      ]
+    },
+    {
+      "id": "oc1/siman55/seif-003/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 55,
+      "seif": 3,
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם יצאו לאחר שהתחיל בקול רם וקדושה יכולין להשלים כל סדר קדושה כו' דהיינו ובא לציון וקדיש שלאחריו:",
+        "ותפלת ערבי' לכן אם התחילו והוא רחום בי' ויצאו מקצתן גומרים עד יראו עינינו ואומרים ג\"כ קדיש כי הוא שייך לק\"ש וברכותיו ותפל' ערבי' בלחש כי אין צריך עשרה לתפל' בלחש אבל אין אומרים קדיש של אחר תפלת י\"ח אלא בי' ובעלינו לשבח אף אם פתח בי' ויצאו מקצתן אפ\"ה אין אומרי' קדיש יתום שאחריו פחות מעשרה וכן אם אמרו עלינו בלא עשרה א\"א אחר כך הקדיש אפילו בי' וכן הדין בתהלים ושיר היחוד אם גמרו אותן בלא י' שאין אומרים קדיש אפי' בי' או איפכא אם היו בתהלים ושיר היחוד י' ובקדיש לא היו י' שאין אומרים והכי נהוג (ל\"ח) כמו כן ראיתי נוהגין באיזה מקומות באם אומרים תהלים בלא עשר' שמשייר מזמור א' לאומרו אחר שבאו עשרה והטעם נ\"ל דלא אלים קדיש ההוא דהוא מדרבנן לאומרו אף בי' וכן להיפך:"
+      ],
+      "en_segments": [
+        "If some of the congregation leave after the chazzan has begun the repetition aloud and Kedushah, those who remain may complete the entire order of Kedushah, including U’va LeTzion and the Kaddish that follows it. The same principle applies to Maariv. If they began Vehu Rachum with ten and some then left, they complete the service through Yir’u Eineinu and also recite the Kaddish that follows, because that Kaddish belongs to Shema and its blessings. They may then recite the silent Maariv Shemoneh Esrei, since ten are not required for the silent prayer. The Kaddish following Shemoneh Esrei, however, may be recited only when ten are present. Similarly, even if Aleinu was begun with ten and some then left, the Mourner’s Kaddish that follows may not be recited with fewer than ten. If Aleinu was recited without ten, the Kaddish afterward may not later be recited even after ten arrive. The same applies to Tehillim and Shir HaYichud. If they were completed without ten, the Kaddish afterward may not be recited even if ten are now present. Conversely, if ten were present during Tehillim or Shir HaYichud but were no longer present when the time for Kaddish arrived, the Kaddish is not recited. This is the accepted practice, as stated by Lechem Chamudos. I have likewise seen the practice in some places that when Tehillim is being recited without ten, they leave one chapter of Tehillim to be recited after ten arrive. The reason appears to be that this Kaddish, being of Rabbinic institution, does not possess sufficient force to be recited merely because ten were present earlier, nor does the reverse case permit it."
+      ]
+    },
+    {
+      "id": "oc1/siman128/seif-043/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 43,
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יצא מב\"ה וה\"ה אם אין שם כהן אלא הוא ג\"כ לא ישא את כפיו רק שאינו צריך אז לצאת מב\"ה כשאין קוראין כהנים וגם הנוטל ידיהם לא יבא אליו ואז אינו עובר בעשה כמבואר:",
+        "ואומרים רבון בשעה שמאריכים בניגון התיבות ויש מי שכתב שלא יאמר כל אחד רבון הנ\"ל בשעה שהכהנים עולין לדוכן כי אם דוקא מי שחלם אותו לילה חלום רע אז יאמר רבון כי אף שחלם בשאר ימות השנה אין הביטול מועיל אלא בו ביום כשראה החלום כדאשכחן בתענית חלום דוקא בו ביום או ידלג ב' התיבות חלום חלמתי אלא יאמר רבש\"ע אני שלך וחלומותי שלך יר\"מ כו' (רא\"ש פר' שור שנגח הפרה) וכן נכון בעיני שזה מועיל שאם ראו אחרים חלום רע עליו שמבטלו שאומר בין חלומות שחלמו אחרים עלי כנ\"ל כי בלא\"ה אין נכון לומר תחנות בשבת וי\"ט בחנם כי אסור לעורר עצמו בענייני תחינות השוברות לבו של אדם אבל תפלה ובקשה נופל ג\"כ על דברים שמתפלל שיתן לו הקב\"ה מתנות רבות יותר מכדי צרכו וזה מותר להתפלל אפילו בשבת וי\"ט זה היתה הטעם מסדרי סדר מעמדות שסדרו בשבת בקשות יותר לטוב. כתב לבוש שחיבר מהררמ\"י על פירש\"י בפ' ואתחנן כתוב בזוהר פרשת נשא כשמתפלל הש\"ץ בחזרת תפלת י\"ח באם שאין שם נשיאת כפים כשאומר יברכך ה' יראה לצד ההיכל וישמרך לצד ימין שלו. יאר ה' כלפי ההיכל פניו אליך ויחונך יראה לצד שמאלו ליחדו בימין ואסור לשהות כדי הילוך כ\"ב אמות בין נטילה לברכה לכן צריך ליטול סמוך לרצה:"
+      ],
+      "en_segments": [
+        "He should leave the synagogue. The same applies if he is the only kohen present. He should not raise his hands, but in that case he need not leave the synagogue, since no one calls “Kohanim.” The person who washes the kohanim’s hands should likewise not approach him, and he then does not violate the positive commandment, as explained. The prayer beginning “Master of the universe” is recited while the kohanim prolong the words with their melody. Some write that not every person should recite this prayer when the kohanim ascend the platform. Rather, only one who dreamed a bad dream that night should recite it. Even if he dreamed on another night during the year, the annulment is effective only on the very day of the dream, just as a fast for a dream is effective specifically on that day. Alternatively, he should omit the two words “I dreamed a dream,” and say instead: “Master of the universe, I am Yours and my dreams are Yours; may it be Your will,” etc. This is from Rosh, chapter Shor Shenagach Es HaParah. This appears correct to me. It is also effective when others dreamed a bad dream concerning him, because he annuls it by saying, “whether dreams that I dreamed or that others dreamed concerning me.” Otherwise, it is improper to recite gratuitous supplications on Shabbos or Yom Tov, because one may not deliberately arouse himself with matters of supplication that break a person’s heart. Prayer and request, however, also include asking Hashem to grant a person abundant gifts beyond his essential needs, and such requests may be made even on Shabbos and Yom Tov. This is why those who arranged the order of the Maamados included additional requests for good on Shabbos. The Levush, authored by Maharam Yaffe, writes, based on Rashi in parashas Va’eschanan, that the Zohar in parashas Naso states as follows: When the chazzan repeats Shemoneh Esrei and there is no Bircas Kohanim, upon saying “May Hashem bless you,” he should face the aron; upon saying “and protect you,” he should turn toward his right. Upon saying “May Hashem illuminate,” he should face the aron; upon saying “His countenance toward you and favor you,” he should turn toward his left, thereby joining it to the right. It is forbidden to delay between washing and the blessing for the time required to walk twenty two amos. The kohanim must therefore wash close to Retzei."
+      ]
+    },
+    {
+      "id": "oc1/siman162/seif-007/peri-megadim",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 7,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נטל ידו אחת כו׳ עט״ז הביא דברי הב״י בכאן יע״ש והנה מ״ש בב׳ ידיו כ״א בפ״ע א״צ לפרש משיורי טהרה זה אמת ויציב עמ״ש במ״א אות ט״ו וי״ו אמנם מה שפירש דמיירי ששפך מים שניים ושפשפה בראשו אפ״ה טמא כשחזר ונגע בהם לא זכיתי להבינם שזה היפך מ״ש הר״ש בפ״ב מ״ב דידים והרע״ב פ״א מ״א ומ״ש הר״ש ומיהו אפשר שפשוף בעי לעולם לומר ניגוב דל״ת כל האוכל בלי ניגע מיירי בלא היה מים שניים אבל הוא ז״ל נראה שפירש דמסופק הר״מ דאפילו בשפך מים ב״ת ונגע אח״כ טמאה וצ״ע ועא״ר אות י״ח וצ״ע כעת. עיין קס״ה אות ב׳ מזה אי״ה:",
+        "אמר הכותב כפי הפרטים המבוארים בסימן זה ובסימנים הקודמים כי רבים המה צריך האדם בינוני להתבונן ולומר אולי מיומא לא משאי ידי כראוי והנה בשפיכה בעלמא סגי עפ״י הרוב אין כל היד מה שצריך נטילה בא המים בכל המקומות וכ״ת מיעוט דמיעוט אין כ״כ קפידא הא בורכא והרי טבילה כל שמיעוט הגוף חוץ למים מ״ה לא הוי טבילה ואי קשיא מיעוט המקפיד מ״ה הוי טבילה או רובו שאין מקפיד דמ״מ כל בשרו במים קרינן ביה משא״כ כשהושיט אצבע א׳ חוץ למים מ״ה לא הוי טבילה ומינה לנט״י כל שמקום א׳ לא באו המים לא הוי נטילה וכמ״ש הב״ח כאן בס״א ראשי אצבעות לרש״י יע״ש ובין אצבעות שצריך שיבואו המים בכל מקום והיה נראה שמש״ה צריך לשפשפם אחר נטילה כמ״ש הר״ב בס״ג ובט״ז ד׳ כי יש מקומות שלא באו המים וכשמשפשף יבואו והרי מים ראשונים עם שפשוף ניגוב די כמ״ש המ״א י״ו (ועט״ז כאן) גם בט׳ קבין א״י אם לא יבואו המים בכל הגוף בלי מקום פנוי א״י מה תועלת:",
+        "גם בקס״א בס״ד י״א עד הזרוע וי״א עד חיבור אצבעות לכף היד ועט״ז אות וי״ו והנה לפ״ז מהגודל ג״כ צריך עד סוף ב׳ קשרים ומ״ש הב״י עד קשר א׳ היינו אם נאמר לחולין ב׳ קשרים משא״כ לרא״ש ג׳ קשרים ומגודל ב׳ קשרים. והיותר נכון שיטול עד הזרוע רביעית על כל יד בפני עצמו ולית מים טמאים ועכ״ז צריך זהירות וצ״ע:",
+        "מ״ש הט״ז שנבלעו במפה עיין ברכות נו״ן ב׳ במפה על השולחן:"
+      ],
+      "en_segments": [
+        "If he washed one hand. See Taz, who cites Beis Yosef here. When both hands were washed separately with a reviis on each, there is no need to explain the ruling as involving residual water of purity. This is correct. Rema, Magen Avraham, and the commentators discuss how rubbing can be effective when the hands touch each other. The case must be one in which sufficient water remains upon them, or where the second hand is washed from the first hand’s residual water in the manner described by the Rishonim. If each hand received less than a reviis, the first water becomes impure and can render the other hand impure when they touch. If each hand received a full reviis at once, the water does not become impure and the hands may touch. When one hand was washed and then rubs the other before the second washing, he must be careful that the unwashed hand not render the washed hand impure. See siman 165, seif katan 2. The essential distinction is between water that remains first water and water that has already become impure through contact with an unwashed hand. The language of Shulchan Aruch and the Tur should be understood accordingly. See siman 12. See siman 140."
+      ]
+    },
+    {
+      "id": "oc1/siman252/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 252,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 5,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והמגיס עט״ז בשי״ח אות כ״ב וכ״ג צמר או דצריך בישול רב (וזה נראה דעת המחבר כאן ובמ״א אי״ה באות ב׳ יבואר) או צובע. ועיין רא״ש פ״ק דשבת י״ח ב׳ הביא פירש רש״י מגיס מבשל ובפ׳ כירה ד״מ ע״ב הביא בסימן י״א שם פירושים מגיס מבשל אף ע״ג דאין בישול אחר בישול סמנין לצבוע בהן צריך בישול לעולם א״נ צובע שמגיס מכניס הסמנין בצמר וז״ש הט״ז בשי״ח אות כ״ב שצמ״ר צריך הרבה בישול ל״ד סמנין צריך הרבה בישול ויש בהם בישול אחר בישול תמיד ונ״מ המגיס ביורה סמנים שאין בהם צמר כו׳ ויבואר אי״ה בשי״ח וכאן במ״א ב׳: אמר מר והנמהר ראיתי לכתוב כאן קצת דברים פרטיים בענין זה. רש״י שבת ח״י ב׳ ד״ה מגיס והמבשל הוה בישול פירוש הרא״ש שם דחייב משום בישול אבל הב״ח דקדק מלת ובמבש״ל לומר בתבשיל הוה בישול וכאן משום צובע וכמ״ש התוס׳ ד״ה דילמא וכן פירש מהרש״ל עכ״ל. הנה מלת ובמבש״ל י״ל כ״ז שיס״ב וכ״ר אבל כ״ש או אין יס״ב אף מגיס אין פועל בו בישול וכרא״ש. ולב״ח משמע כל דליכא מבשל ליכא צובע אבל לקמן אבאר אי״ה די״ל אף כ״ש וכדומה מגיס נכנס הסמנים בצמר וכדכתיבנא. עי״ד בסימן ס״ט בש״ך או׳ ל״ח ול׳״ז דחומץ וציר י״ל מבשל בכ״ש וא״כ אותם המטמינים בשר ובצלים וחומץ חריף ומערין לכ״ש אסור להגיס כ״ז שיס״ב אם אין מבושל כל צרכו אבל כ״צ שרי כמ״ש בסימן שי״ח סי״ח ובאין יס״ב ראוי להקל שם וכאן. ולהר״ב בשי״ח ה״ה בכ״צ בכ״ש כה״ג:",
+        "והנה הר״מ ז״ל פרק שלישי הי״א מה״ש אסו״ר להכניס מגריפה לקדירה והיא על האש מפני שמגיס בה וזה מצרכי בישול ונמצא כמבשל בשבת ופ״ט שס ה״ד מגיס מבשל ופכ״א הי״ג מותר לגמור שחיקת הריפות אחר שמורידין הקדירה מעל האש ועיין מ״מ וכ״מ ולח״מ פ״ג ולאחר התבוננות היטב בדבריהם הוא דהלח״מ הבין במ״מ דתחיבת המגריפה לאו מגיס הוא אלא דגזור אטו יגיס ויהפוך בה הלכך במבושל כ״צ דליתן על האש איכא איסור דרבנן (יבואר אי״ה בסמוך) תחיבת המגריפה מותר הא הגסה ממש אסור מדרבנן ובלא כ״צ חייב חטאת ומגיס נמי הילכך תחיבת המגריפה אסור שמא מגיס וכתב רבינו דין זה כאן ולא בפרק תשיעי ששם מקומו משום דלמדה מהך דצמר ליורה דילמא יגיס כמ״ש המ״מ והיינו אע״ג דהתם דילמא מגיס והוה צובע מ״מ דמי ליה לגז״ר כמו התם דילמא מגיס ה״נ דרך להפך המגריפה הילכך הוצאה ותחיבה נמי אסור וכ״ז על הא״ש הא עקורה אף כ״ר ויס״ב אין הגסה פועלת בישול הילכך מותר מגריפה ושמש״ה כתבו התוספות שם שבת י״ח ב׳ ד״ה דילמא משום צובע לא בישול ברייתא ביצה ל״ד אלא בעקורה אין הגסה פועלת בישול אף בכ״ר. וא״ש ההיא דפכ״א הריפות אחר שמורידין מאש מהפכין בה אע״ג הגסה ממ״ש אסור מדרבנן עכ״פ להר״מ ז״ל בכ״צ כמ״ש המ״מ בעקורה אין פועלת כלל ובעודה על הא״ש אה״נ מדרבנן אסור. אבל הכ״מ שם פ״ג הבין דלכ״ע בעקורה וכ״ר יס״ב הגסה בבישול דמ״ש על האש כו׳ התוספות שכתבו צובע לא בישול דקשיא להו מה פריך דסתמא סמנים כבר מבושלים כי כן דרך הצובעים ואח״כ נותנים צמר ליורה ומתירין ב״ה אע״ג שעדיין לא קלט העין דא״כ מגיס אין בישול אחר בישול (בצמר ל״ש בישול רק בסמנים) (עמש״ל בט״ז שי״ח אות כ״ב) לכן כתבנו צובע וכתי׳ הב׳ של הרא״ש פ׳ כירה דף מ״ם ב׳ סי׳ י״א: וכתב רבינו ר״ן דלמדה ג״כ והלא מגיס מבשל וז״ש הרמ״ך הביאו הכ״מ שם יע״ש. אלא דיקשה ההיא דפכ״א הי״ג דאסור בעל האש לגמור שחיקת הריפות למגיס במבושל כ״צ עכ״פ מדרבנן אסור ולמה התיר אחר שמורידין כו׳ והן אמת פ״ט ה״ג המבשל על האור מבושל כ״צ פטור משמע אבל אסור והחילוק יש שי״ל בין נצטנן או לאו מבוארים ומ״מ לכ״מ דכתב בפשיטות כן קשה ואי״ה בסימן רנ״ג במ״א אות כ״ב ול״ב ובשי״ח ס״ד וסט״ו יבואר הדין להמחבר בזה:",
+        "עוד רגע אדבר בהגהות פ״ג אות ו׳ דחלק אסה״ת במבושלת כ״צ מפרשים דהר״ח בכ״צ מיירי ותחיבת מגריפה מגיס ממש הוא ואסור על האש כ״צ או מ״ה אף ע״ג דאין בישול אחר בישול הגסה פועלת יותר או מדרבנן עכ״פ ויתיישב כמבש״ל בכף הדמיון ועמ״א שי״ח מ״ב ולדינא יבואר שם אי״ה בזה:",
+        "ועדיין פש גבן לברורי כי שלש טעמים יש ביורה עקורה מגיס אחד בישול כפירש״י וכרא״ש פרק כירה מ״ם ב׳ סי״א בב״ח סימן (הוא שי״ח) דסמנים לעולם צריכין בישול ולפ״ז דוקא בכ״ר ויס״ב השני תי׳ הב׳ ברא״ש צובע כשמגיס נכנסו הסמנים בצמר ויש לכ״א לכאורה קולא וחומרא לתי׳ הא׳ קולא בכ״ש או אין יס״ב חומרא אף קלט העי״ן אסור כי הסמנים צריכין לעולם בישול ולתירוץ הב׳ קולא בקלט העי״ן מבע״י ל״ש צובע תו וחומרא אף בכ״ש י״ל מגיס צובע. ואמנם טעם השלישי למדתי מר״ן ז״ל לשבת שכן דרך הצובעים להגיס שלא יחרוך וכ״מ בירושלמי ומשמע מטעם צביעה הוא כי היא מלאכת הצביעה שלא יחרוך הצמר הילכך אף שקלט העי״ן אסור אבל בכ״ש י״ל ל״ש שמחריך ושרי אפשר אף בלא קלט העי״ן באופן שיש לכ״א מהפירושים קולא וחומרא ויבואר אי״ה במ״א אות ב׳:",
+        "ומנא הא מילתא דאמרי רבנן אף כ״ר שהעבירו מעל האש הגסה פועלת בה מתורתו של הר״ן ומההיא דילמא מגיס בה אף בעקורה (דכ״ר מבשל יליף ממשנה אלפס וקדירה שהעבירן מרותחין בשבת כו׳) ולתירוץ צובע לא מוכח מידי ולזה י״ל דסברא היא בלא ילפותא דכ״ר מבשל אף הוסר ומגיס כבישול מה לי הוסר. אמנם בר״ן קשה דכתב ומכאן למידין ואח״כ כתב מטעם מלאכת הצביעה א״כ אין ראיה ומירושלמי צ״ע וכבר עמד הגאון המפרש בירושלמי עלה דהך שלמד הירושלמי יע״ש גם דברי הירושלמי גופא צ״ע לי ומה אעשה שעוונותי גרמו שלא זכיתי להבין כל זה ואי״ה במ״א ב׳ יבואר עוד:"
+      ],
+      "en_segments": [
+        "One who stirs. See Taz in seif katan 18, paragraphs 22 and 23. Wool may require extensive cooking, and this appears to be the Mechaber’s view here. Magen Avraham will be discussed, with God’s help, in seif katan 2. The same applies to other materials whose processing requires heat. Stirring a pot hastens and improves the cooking, and therefore constitutes cooking even when the food was already placed on the fire. Where the contents are fully cooked and no further cooking is possible, the prohibition depends on whether stirring improves the mixture or causes another prohibited effect. The Rishonim disagree concerning a pot removed from the fire and concerning food that has not yet reached the degree of maachal ben Derusai. One must therefore distinguish between a vessel on the fire, a first vessel removed from the fire, and a second vessel; between raw, partially cooked, and fully cooked contents; and between merely moving the food and actively mixing it so that the heat is distributed. The Mechaber’s language indicates that actual stirring is forbidden while the food still requires cooking. Even removing a portion with a spoon can resemble stirring when the contents are thick, because the remaining material is displaced and mixed. Where there is no cooking concern, one must still consider dyeing, kneading, or selecting, according to the substance involved. The practical rule is to avoid stirring a pot on the fire and to remove it before serving whenever the food is not unquestionably fully cooked. The detailed distinctions stated by Taz and Magen Avraham should be followed in their respective cases. See siman 1. See siman 8. See siman 11. See siman 69. See siman 90. See siman 253. See siman 318."
+      ]
+    },
+    {
+      "id": "oc1/siman289/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 289,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הוי שכר עט״ז הוקשה לו משום ברכה שאין צריכה הא לענין קדימה אף המוציא קודם לפה״ג כמבואר ברי״א ס״ה מ״מ י״ל דלענין קידוש יין חשוב קודם משא״כ לענין ברכה שא״צ כו׳ ותי׳ דהכרח הוא וברכה שא״צ דפת פוטר כל מיני משקין וי״ל דרכם היה לשתות יין לפני המזון לפתוח המעיים ומיהו קושייתו רק אשכר כו׳ ומ״ש יכוין שלא להוציא פת קשה דבר״ו ס״ב פסק המחבר דוקא נתכוין הא סתמא אין מוציא וכ״ש שכר לפת לחשוב אף בשוין בעינן כוונה. גם ממרוצת לשונו דהטעם שיכוין בלא להוציא כו׳ שיהא ניכר הקידוש דאם מכוין לפטור בשהכל פת אזי לא יהיה ניכר שמשום קידוש מברך שהכל הא בלא״ה לכתחלה צריך לברך כ״א ברכה הראוי לו עמ״א ר״ו אות ב׳ ובגמ׳ אם אמר דיעבד כו׳:",
+        "דע קידוש היום דרבנן ואפ״ה נשים חייבות בו וכמ״ש המ״א רצ״א אות י״א כל מילי דשבת איש ואשה שוין אף בדרבנן כל שישנו בשמירה מדרבנן מוקצה ושבותים ישנו בזכירה דקידוש היום ועיין סימן תקצ״ז מ״א ג׳ המתענה בשבת בקידושא רבה דרבנן אין מקדש בשחרית אבל בלילה קידוש היום ד״ת י״ל צריך לקדש ובפר״ח כתבנו מזה ולענין להוציא אחרים פה״ג בשחרית אם אין שותה עסי׳ רע״ג ט״ז ג׳ וקס״ז בס״ז ומ״א שם וב״י שם הביא ב׳ דיעות לענין פה״ג דשחרית יע״ש לכאורה דקידוש היום משום עונג שבת נגעו ביה מס״ה י״א דאין מוציא או דאין כ״כ שינוי ועמ״א וט״ז שם בקס״ז ועדיין צ״ע. והר״ב ברע״ג ס״ד פסק דמוציא בשחרית:",
+        "מ״ש המחבר ומטה מוצעת היינו למי שדרך לישב על מטה מוצעת ולדידן אם המטה בחדר שאוכל שם יציע בשחרית עמ״א סימן ש״ב אות וי״ו ועיין פרישה ושכ״ג בזה:",
+        "אם אין לו בשחרית יין כ״א פת דאסור לו לאכול דברים אחרים קודם המוציא כמ״ש המ״א אות ד׳ י״ל דיכול להוציא אחרים בהמוציא אעפ״י שאין אוכל עמהם עיין סימן רע״ג ט״ז ג׳ ומ״א קס״ז ס״א אבל להט״ז שם י״ז אין מוציא דליכא שינוי:"
+      ],
+      "en_segments": [
+        "It is considered wine. See Taz, who was troubled by the apparently unnecessary blessing. With respect to precedence, HaMotzi ordinarily comes before Borei Peri HaGafen, as explained in siman 211, seif 5. Nevertheless, the wine of Kiddush is of special importance and precedes the bread because Kiddush must be recited over it. When one wishes to avoid an unnecessary blessing, the order must be arranged so that the blessing required for Kiddush is not displaced. The Mechaber’s ruling concerns a person whose principal intention is to fulfill Kiddush and then begin the meal. If the bread is already covered, the wine is blessed first, both to avoid embarrassing the bread and because Kiddush establishes the meal. Beer or another beverage can serve only where the local beverage has the status of chamar medinah and wine is unavailable or inappropriate. Even then, the laws of precedence and the blessing over bread remain distinct. Taz’s question is therefore resolved by distinguishing the obligation of Kiddush from the ordinary rules governing which food or drink is blessed first. The blessing is not unnecessary, since it fulfills an independent obligation. See siman 273. See siman 302. See siman 597."
+      ]
+    },
+    {
+      "id": "oc1/siman292/seif-002/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 292,
+      "seif": 2,
+      "slug": "machatzit-hashekel",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 6,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ס\"ק ב) ג' אנשים כו' שאין כאן במה להפסיק כו' דאחר ובא לציון אומרים קדיש ואחר הקריאה קודם תפלת י\"ח אומרים ג\"כ קדיש. וא\"כ אם נאמר הקדיש על הבימה אחרי הקריאה. איך יאמר שוב קדיש קודם תפלת י\"ח. והא אין ענין מפסיק בין שני הקדישים בשלמ' בשחרית איכ' הפסק בין ב' הקדישים אשרי שאומרים אחר קדיש שעל הקריאה אבל במנחה שכבר אמרו אשרי קודם הקריאה ואין אומר ואין דברי' אחרי הקריאה. ואפי' במנחה בתענית ס\"ד שיאמרו קדיש אחר שקראו ג' בתור' קודם שיאמר הפטר' ותהיה ההפטרה הפסק בין הקדישים לזה כ' מ\"א דההפטרה שייכ' אל הקריא' ונפטרה ההפטרה בקדיש שלפני ההפטר' א\"כ קדיש שלפני י\"ח למה הוא בא:",
+        "וכ' הריב\"ש כו' דבמקו' שאין ס\"ת א\"א קדיש שלפני י\"ח דהא כבר אמרו קדיש אחר ובא לציון וא\"כ קדיש שני על מה יאמרוהו. והקשה בס' א\"ר לפמ\"ש מ\"א סס\"י קמ\"ג דאפי' במקום שאין ס\"ת יקרא החזן בקול רם מתוך החומש וא\"כ תהיה הקריאה מתוך החומש הפסק וגם בס' ת\"ש כ' גם בעיני יפלא למה יגרע מפסוקי תהלים וצריך לחלק בין קדיש של ש\"ץ לקדיש יתום עכ\"ל ת\"ש. ולענ\"ד י\"ל דלא מצינו קדיש יתום או ש\"ץ כ\"א על תחנה ותפל' או שיר ושבח אבל על לימוד התורה אומרי' קדיש דרבנן. רק כשקוראים בס\"ת כתקנות עזרא אומרים קדיש על קיום מצות תקנות חכמים משא\"כ במקום שאין ס\"ת והחזן קורא מתוך החומש שלא תשתכח תורת קריאה אין לה מתקנת חכמים אלא מנהג בעלמא ע\"ז לא שייך קדיש כ\"א קדיש דרבנן על הלימוד וזה ניתקן בצבור:",
+        "שלא יאמרו גם כן ואני תפלתי כמש\"ל בס\"ק שלפני זה לטעם ש\"ל שם:",
+        "א\"ל שיאמרו ואני תפלתי ויאמרו קדיש עליו. ר\"ל לטעם שני שלא להפסיק כו' הוא יש לזה תקנה שיאמרו אחר ואני כו' קדיש שנית:",
+        "מ\"ד איהללו. ר\"ל מ\"ש לעיל דמה\"ט א\"א קדיש במנח' אחרי הקריא' דאין דבר להפסיק בין קדיש שלאחר הקריאה ובין קדיש שלפני י\"ח והא איכ' הפסק אמירת יהללו שאומרים בשעה שמכניסים ספר תורה להיכל אע\"כ דפסוק א' ל\"מ הפסק:",
+        "או יאמרוהו כו' ר\"ל אם אעפ\"כ רצונם לו' ואני יאמרוהו מיד אחר סיום ובא לציון ויאמרוהו אחר זה קדיש ולא יהי' הפסק. מ\"מ לטעם הש\"ל שכ' בס\"ק א' אפי' מיד אחר סיום ובא לציון אין לאמרו:"
+      ],
+      "en_segments": [
+        "Three men, etc. There is no interruption here, because after U'va LeTzion they recite Kaddish, and after the Torah reading, before Minchah, they also recite Kaddish. If Kaddish were recited at the bimah after the reading, how could another Kaddish be recited immediately before Minchah? There would be nothing between the two Kaddishes. At Shacharis, Ashrei is recited after the Kaddish that follows the Torah reading, and this serves as an interruption. At Minchah, however, Ashrei was already recited before the Torah reading and is not repeated afterward. Therefore, no Kaddish is recited after the reading. Even at Minchah on a fast day, one might have thought that Kaddish should be recited after the three aliyos and before the haftarah, with the haftarah serving as an interruption before the Kaddish preceding the Amidah. Magen Avraham therefore clarifies that this is not the practice."
+      ]
+    },
+    {
+      "id": "oc1/siman438/seif-001/chok-yaakov",
+      "volume": "oc1",
+      "siman": 438,
+      "seif": 1,
+      "slug": "chok-yaakov",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 6,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שנכנס לבית בדוק. משמעות הש\"ס והפוסקים דאין לחלק כלל אפי' בככר קטן שיוכל עכבר לאכלו ואפי' ביטלו אפ\"ה לא תלינן לקולא מטעם ספיקא דרבנן לקולא משום דאין ספק מוציא מידי חזקת ודאי איסור כיון שידעינן בודאי שעכבר גררה החמץ לפנינו אין ספק מוציא מידי ודאי כדאיתא להדיא בפסחים דף ט' ע\"א וכ\"כ הב\"ח ודלא כראש יוסף דכת' דמיירי בככר גדול דאל\"כ הוי ספיקא דרבנן לקולא לא דק:",
+        "ומצא פירורין. אבל אם מצא ככר שלם א\"צ בדיקה כמבואר להדיא בסמוך בסימן תל\"ט והיינו דוקא בביטל משא\"כ בלא ביטל לא תלינן להקל וצריכין לבדוק עדיין כל הבית וכ\"כ הטור להדיא בסי' תל\"ט ובע\"ש הניח דין זה בצ\"ע וסיים וכת' מיהו מהא דפסק הטור עכבר נכנס וכו' נתעלם ממנו דברי הטור שכת' להדיא דין זה וכן דעת שאר הפוסקים ע\"ל סימן תל\"ט ס\"ק ח':",
+        "ולבדוק הבית. והיינו כל החדרים שפתחיהן פתוח שיוכל העכבר לכנס שם אפילו דרך חור כמ\"ש סימן תל\"ד בשם שכה\"ג. והב\"ח פסק דלא חיישינן שמא גררה דרך חור אכן במ\"א השיג על הב\"ח בזה וכת' וז\"ל ול\"נ דבית פירושו חדר ואינו צריך בדיקה אלא אותו חדר שראינו שנכנס לשם אבל שאר חדרים היינו בעי' דגמ' בנכנס לחצר ואינו ידוע אם נכנס לבית ומסקינן אע\"פ שקרוב לבית מאד תלינן להקל וא\"צ לבדוק אם ביטל או שאין הככר גדול ה\"ה כאן עכ\"ל ובאמת מל' הרמב\"ם בפ\"ב מהל' חמץ והטור בסי' תל\"ד והרוקח ושאר פוסקים שכתבו וז\"ל יהא נזהר בחמץ שמשייר להצניעו שלא יצטרך בדיקה אחרת כגון אם יטלנו עכבר בפניו שאז צריך לבדוק כל הבית פעם אחרת עכ\"ל מלשון כל הבית תשמע דכל החדרים שאפשר לעכבר לבא משם לשם צריך בדיקה וכן משמע קצת בהא דמדייק שם בש\"ס דף ט' על המתני' אין חוששין שמא גררה חולדה מבית לבית טעמא דלא חזינא דשקיל אבל חזינא דשקיל בעי בדיקה וגם בשני בתים בדוקים ולא ידעינן להי עייל אם הם של אדם א' שניהם צריכין בדיקה לדעת הטור סימן תל\"ט ומה דמייתי המ\"א ראיה מהא דחצר אין ראיה כלל דאפשר לומר דהתם כיון שהחצר אינו בדוק תלינן באינו בדוק כמו בית א' אינו בדוק וא' בדוק תלינן באינו בדוק כמבואר בסי' תל\"ט וגם איכא למימר שלא נכנס העכבר כלל לא' מהבתים רק מחצר לר\"ה ועופות ועורבים השכיחים בחצר נטלוהו כדאיתא לעיל סי' תל\"ג ובזה מיושבים גם כן מה שמקשה בראש יוסף לקמן סי' תל\"ט על הטור בדין דחצר ע\"ש ומדחיק מאד בזה ולפמ\"ש ניחא:",
+        "שאין דרכו של עכבר לפרר וה\"ה כלב ותרנגול. אחרונים בשם רוקח:",
+        "אם תינוק נכנס ודוקא תינוק משא\"כ קטן בר דעת ע\"ל ס\"ס תל\"ד.",
+        "שחזקתו שאכלו. אפי' לא ביטלו כ\"כ הב\"ח וגיסי הרב בספרו א\"ז ודלא כע\"ש וכן נ\"ל ראיה ברורה ממ\"ש התוס' בפסחים דף יו\"ד ע\"ב ד\"ה מפני שדרכו של תינוק לפרר ואפי' לרשב\"ג דאמר תבדוק כל השדה שאני הכא דיש רגלים לדבר שפירורין מן הככר שהרי מיד נכנס אחריו עכ\"ל ואם איתא דלא מתירין גבי תינוק אלא א\"כ שבטלו בלא\"ה לא קשה מידי מרשב\"ג דמיירי שם לענין טומאה באיסור דאורייתא ומשום ספיקא דאורייתא לחומרא משא\"כ הכא בביטול באיסור דרבנן וכמבואר להדיא בטור וב\"י סי' תל\"ט ע\"ש וגבי על ובדק ואשכח דבביטול מודה רשב\"ג אלא ודאי אין לחלוק כלל וק\"ל:"
+      ],
+      "en_segments": [
+        "That entered an inspected house. The Gemara and poskim imply that no distinction exists even if the loaf is small enough for a mouse to eat, and even if it was nullified. We do not rule leniently on the basis of a Rabbinic doubt, because a doubt cannot displace an established certainty of prohibition. We know with certainty that the mouse dragged the chametz before us, and a doubt cannot displace that certainty, as Pesachim 9a states explicitly. Bach writes similarly, unlike Rosh Yosef, who writes that the case concerns a large loaf and that otherwise one should rule leniently in a Rabbinic doubt. And found crumbs. If he found a whole loaf, however, he need not inspect, as is explicit below in siman 439. This applies specifically where he nullified the chametz. If he did not nullify it, we do not attribute the matter leniently and he must still inspect the entire house. Tur writes this explicitly in siman 439. Olas Shabbos leaves this law requiring study and concludes, “Nevertheless, from Tur’s ruling concerning a mouse that entered,” etc. He overlooked Tur’s explicit statement of this law. The other poskim agree. See below, siman 439, seif katan 8. And inspect the house. Meaning all rooms whose doors are open and into which the mouse could enter, even through a hole, as explained in siman 434. Bach rules that we do not suspect the mouse dragged the chametz through a hole. Magen Avraham disagrees and writes that “house” means the room into which we saw the mouse enter. The other rooms present the Gemara’s unresolved question of a mouse entering a courtyard without knowing whether it entered a house. The conclusion is that even if it was very close to the house, we attribute the matter leniently and no inspection is required if he nullified the chametz or if the loaf was not large. In truth, Rambam in chapter 2 of Hilchos Chametz, Tur in siman 434, Rokeach, and the other poskim write: “He should take care with the chametz he leaves over and hide it so that he will not require another inspection, as where a mouse takes it before him, in which case he must inspect the entire house again.” The phrase “the entire house” indicates that all rooms the mouse could reach require inspection. The Gemara, Pesachim 9, likewise infers from the Mishnah, “We are not concerned that a weasel dragged chametz from house to house,” that if we actually saw it take the chametz, inspection would be required. Even where there are two inspected houses and we do not know into which one the mouse entered, both require inspection according to Tur, siman 439. Magen Avraham’s proof from the courtyard case is no proof. There the courtyard itself was not inspected, and we may attribute the chametz to the uninspected place, just as where one house is uninspected and one inspected we attribute it to the uninspected house, as explained in siman 439. It is also possible that the mouse entered neither house, but left the courtyard for the public domain, or that birds and ravens commonly found in a courtyard took it, as explained above in siman 433. This also resolves Rosh Yosef’s question below, siman 439, against Tur’s ruling concerning a courtyard. His answer is very strained, while this explanation is straightforward. Because it is not the way of a mouse to crumble. The same applies to a dog or chicken. The later authorities in the name of Rokeach. If a child entered, this applies specifically to a young child. Regarding a minor with understanding, see the end of siman 434. Because his presumption is that he ate it. This applies even if the chametz was not nullified. Bach and my brother-in-law in Eliyah Zuta rule this way, unlike Olas Shabbos. I find a clear proof from Tosafos, Pesachim 10b, under the heading “Because it is the way of a child to crumble.” Tosafos asks that even according to Rabban Shimon ben Gamliel, who requires inspection of the entire field, this case is different because there are grounds to assume that the crumbs came from the loaf, since the child entered immediately beforehand. If the leniency concerning a child applied only where the chametz was nullified, there would be no question at all from Rabban Shimon ben Gamliel, whose case concerns a Torah-level doubt involving impurity. Here, after nullification, the issue is merely Rabbinic. Tur and Beit Yosef, siman 439, explicitly distinguish in that manner concerning one who entered and inspected and found something. It is therefore clear that no distinction should be made."
+      ]
+    },
+    {
+      "id": "oc1/siman440/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 440,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם הוא חייב היינו באם א\"ל הישראל הנה הבית לפניך הניחו במקום שתרצה אבל אם וחד לעכו\"ם קרן זוית המיוחד בתוך ביתו להניחו שם אינו זקוק לבער אפילו קיבל הנפקד עליו אחריות דכיון שהשאיל לו מקום מיוחד הוי כאלו אינו ברשותו וכאלו שומר חמצו של עכו\"ם בבית עכו\"ם וה\"מ בחנם אבל בשכר אסור דהא משתכר באיסורי הנאה מכל מקום בדיעבד שקבל שכרו מותר בהנא' (מהרמ\"י):",
+        "ואפי' חזר והפקידו ביד עכו\"ם אחר כו' הגהות אלפסי פ\"ק דפסחים. ונ\"ל דזהו בודאי פשיטא אם מתחלה נתן העכו\"ם חמצו ברשות העכו\"ם ושם קיבל עליו ישראל אחריות א\"צ לבערו כמ\"ש ב\"י דאם יחד לו קרן זוית כו' מכל שכן הכא דמתחלה הניח שם חמצו אפי' קיבל עליו ישראל אחריות ויש להביא על זה כמה ראיות ואם אינו חייב באחריות אינו חייב לבערן וצריך לעשות לפניו מחיצה גבוה י' אפי' יחד לו מקום יש להחמיר וצריך מחיצה י' טפחים: כת' מהרי\"ץ וזה לשונו במחיל' מכבוד תורתו נ\"ל דאין להביא ראיה כלל משם דהתם באשר שהבעלים של חמץ הוא ישראל א\"כ גם להיפוך יש מקום קפידא לחול דאם לא יאמר להבעלים הרי שלך לפניך רק הגזלן ישלם לבעליו תמורת החמץ שלו אם כן הבעלים של החמץ יהיה להם הנאה מהחמץ שעבר עליו הפסח דהא יקבל תשלומין מן הגזלן עבור החמץ שלו ולכן אמרי' דאומר לו הרי שלך לפניך זיל שקול חמצך מאי אמרת דהגזלן יקיים מצות ביעור חמץ וכשיהי' מבוער אז יהיה חייב לשלם כמו שהדין הוא בנאבד ולא יהי' חששא דאית לבעלים הנאה בהחמץ בהתשלומין אליו דהא החמץ אינו בעולם. זה אינו רוצה הגזלן לעשות ואמר להיפך להבעלים הרי המצוה לפניך של ביעור חמץ ואתה תקיים המצוה והרי שלך לפניך ואני איני רוצה לשלם לך ממון לשתהיה לך הנאה בממון ומכבדו בהמצות של ביעור חמץ לבעליו של החמץ משא\"כ כאן בנידון דידן שאם יחזור ישראל להעכו\"ם לא יקוים בו מצות ביעור חמץ ויהא לישראל הנאה במה שיחזיר' להעכו\"ם החמץ שלא יהא צריך לשלם ובאמת אין אסור בהנאה ודו\"ק:"
+      ],
+      "en_segments": [
+        "The Jew is liable when he tells the non-Jew, “The house is before you; place it wherever you wish.” If, however, he designates for the non-Jew a specific corner within his house in which to place the chametz, he need not remove it, even if he accepted liability for it. Since he lent the non-Jew a specific place, it is regarded as though the chametz is not in the Jew’s domain, and as though he is guarding a non-Jew’s chametz in the non-Jew’s house. This applies when the place was provided without payment. If the Jew rents the place to him for payment, it is forbidden because he profits from an item from which benefit is prohibited. Nevertheless, after the fact, if he accepted the payment, it is permitted for him to benefit from it. This is from Maharam Yaffe. Even if he later deposited it with another non-Jew, etc. This is from Hagahos Alfasi at the beginning of Pesachim. It appears obvious that if the non-Jew originally placed his chametz in another non-Jew’s domain and the Jew accepted liability for it there, the Jew need not remove it. Beit Yosef writes that if the Jew designated a corner for the non-Jew, he need not remove it, so this case is certainly no more stringent, since the chametz was placed in the non-Jew’s domain from the outset, even though the Jew accepted liability. Many proofs may be brought for this. If the Jew bears no liability, he is not obligated to remove it, but he must place before it a partition ten tefachim high. Even when a specific place was designated for the non-Jew, one should be stringent and require a partition ten tefachim high. Maharitz writes as follows: With due respect to his Torah scholarship, it appears to me that no proof can be brought from that case. There, the owner of the chametz is a Jew. Therefore, there is also a concern in the opposite direction. If the robber does not tell the owner, “Your property is before you,” but instead pays him the value of the chametz, the owner will derive benefit from chametz that remained in existence over Pesach, since he will receive compensation from the robber for it. We therefore say that the robber may tell him, “Your property is before you. Take your chametz.” One might argue that the robber should fulfill the mitzvah of removing chametz, and after destroying it he should become liable to pay, as in a case where the object was lost. There would then be no concern that the owner benefited from the chametz through receiving payment, since the chametz would no longer exist. The answer is that the robber does not wish to do so. Instead, he tells the owner: “The mitzvah of removing the chametz is before you. You fulfill the mitzvah, and your property is before you. I do not wish to pay you money and thereby cause you to benefit through money.” He therefore honors the owner of the chametz with the mitzvah of removing it. That case is unlike ours. Here, if the Jew returns the chametz to the non-Jew, the mitzvah of removing chametz will not be fulfilled. The Jew will benefit by returning the chametz because he will thereby avoid liability to pay. In truth, however, such benefit is not prohibited. Consider this carefully."
+      ]
+    }
+  ]
+}

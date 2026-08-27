@@ -1,0 +1,389 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 6,
+    "chunk_total": 12,
+    "case_offset": 97,
+    "cases_in_chunk": 15,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman223/seif-004/turei-zahav",
+      "volume": "yd1",
+      "siman": 223,
+      "seif": 4,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לאחיו או לבנו. בח\"מ סימן שס\"ו כתב הטור דין כיוצא בזה לענין גזילה כתב שם דאחיו ר\"ל אחי אביו ובניו ר\"ל אחיו ורמב\"ם לא פירש כן ואין המשנה משמע כדבריו:",
+        "וכן אם פרעם כו'. כ\"כ הרמב\"ם והטור כתב על זה ואיני מבין את דבריו היאך יהא מותר לו לפרוע חובו מנכסים האסורים עליו הרי הוא נהנה מהם כו' וכתב בית יוסף דאישתמיטתיה לרבינו מתניתין בהגוזל קמא שאמרה בהדיא כמו שכתב הרמב\"ם ולענ\"ד נראה דשפיר מקשה דעיקר קושיית הטור על מה שכתב הרמב\"ם שהנאסר עצמו אומר שפורע חובו בדבר האסור לו ולא אמרו במשנה אלא שהמדיר פורע חוב הנאסר בלי ידיעת הנאסר ורצונו ומה ששנינו במשנה ובאים בע\"ח ונפרעים ממנו היינו בעל כרחו שכן משמע הלשון שאמרה המשנה ונפרעים משא\"כ בלשון הרמב\"ם זה שכתב אם פרעם משמע הוא עצמו והר\"ן הביאו ב\"י בסי' רי\"ו מוקי גם לדברי הרמב\"ם אלו באופן זה דאין הוא עצמו משלם לבעל חוב אלא מראה לו מקום היכן הם והטור לא ניחא ליה לפרש בכך. עוד הקשה הטור על מה שכתב הרמב\"ם כאן וצריך להודיעם כו' מאי נפקותא מיניה והר\"ן שם תירץ דהך הודעה הוא שהוא כמו הפקר כמי שאומר אלו נכסי אבא איני יודע מה אעשה בהם טלו לעצמכם והיינו ג\"כ לפי דרכו שפי' דהוא עצמו אינו פורע אבל הטור דמפרש דברי רמב\"ם דהוא עצמו פורע על כן הקשה שפיר נמצא לדינא אין מחלוקת דכל שעושה הוא בעצמו הפרעון אסור ולא מהני מה שמודיע אלא שלענין נותן ירושת אביו לבניו סובר הר\"ן גם כן דאסור כשהוא נותן בעצמו מפני שיש לו טובת הנאה מזה אלא מיירי שמראה להם מקום ואומר להם נכסים אלו של אבא אסורים עלי איני יודע מה אעשה בהם טלו לעצמכם ותעשו בהם מה שתרצו והב\"י כתב שם כיון שמודיעם שממון זה אסור לו ומפני כך נותנו להם והם בניו ואחיו שיש להם שייכות בממון זה הלכך אין לו עליהם טובת הנאה ושרי עד כאן לשונו. ומכל מקום משמע דדוקא דיעבד מהני אם נתן או פרע אבל לא לכתחלה אע\"ג שמודיע:"
+      ],
+      "en_segments": [
+        "His brother or son. His father and his sons wrote that his brother and his brothers did not allow him to do so, and that he did not speak to him"
+      ]
+    },
+    {
+      "id": "yd1/siman227/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 227,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם ישמעו לו. כ\"ה הגירסא העיקרית במתני' וער\"נ ורא\"ש שם:",
+        "וזבינא כו'. הרא\"ש בפסקיו וטור וכמ\"ש בגמ' שם:"
+      ],
+      "en_segments": [
+        "If they hear him. \"The main hydrawal from the mercies,\" he said:"
+      ]
+    },
+    {
+      "id": "yd1/siman234/seif-051/beer-hagolah",
+      "volume": "yd1",
+      "siman": 234,
+      "seif": 51,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הרשב\"א בתשובות",
+        "(°) וסיים שם כיון דחכם עוקר הנדר מעיקרו הרי עקר הקמה מעקרא ונמצא ההפרה במקומה עומדת:"
+      ],
+      "en_segments": [
+        "Rashba in a responsum. He concludes that since a sage uproots the vow from its inception, the prior confirmation is likewise uprooted retroactively and the husband's annulment remains effective."
+      ]
+    },
+    {
+      "id": "yd1/siman236/seif-004/siftei-kohen",
+      "volume": "yd1",
+      "siman": 236,
+      "seif": 4,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "על איש שהוא אשה כו'. לא שאומר בפי' זה האיש אני נשבע שהוא אשה אלא אפי' אומר סתם אני נשבע שזה אשה ובאמת הוא איש:",
+        "מכל פירות שבעולם כו'. ע\"ל סימן רל\"ב סעיף ה':"
+      ],
+      "en_segments": [
+        "\"A man who is a woman.\" “I swear that he is a woman, but I swear it’s a woman and he’s a man.”"
+      ]
+    },
+    {
+      "id": "yd1/siman237/seif-005/turei-zahav",
+      "volume": "yd1",
+      "siman": 237,
+      "seif": 5,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הוי שבועה. נלמד ממה דכתיב אשר נשבעתי על מי נח ולא מצינו שעשה שבועה רק מה שאמר שני פעמים לא אוסיף ומדלאו לאו הוה שבועה הן הן נמי שבועה:",
+        "לשם שבועה. פי' כשם שהקב\"ה כפל לשם שבועה וזהו שכתב הראב\"ד להן הן שאמר הבורא שתמה הטור עליו:"
+      ],
+      "en_segments": [
+        "Oh, the oath. We will learn from what it is written that I have sworn on who is rested, and we do not expect to do anything that he has said two times that he is not finished, and that they are not the same as the oath:"
+      ]
+    },
+    {
+      "id": "yd1/siman237/seif-006/turei-zahav",
+      "volume": "yd1",
+      "siman": 237,
+      "seif": 6,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או בשלחן המקדש. עיין מה שכתבתי בסימן ר\"ד סעיף ב' מה שיש לתמוה על רמ\"א שם מכאן:",
+        "ומ\"ש כנדרי רשעים כיון דרשעים רגילים לישבע הוה כמוציא שבועה מפיו במה שקבל עליו כנדר רשעים:",
+        "ומ\"ש שאיני אוכל לך כן הנוסחא גם במקצת טורים אבל הוא טעות סופר דאם כן פשיטא וצ\"ל שאי אוכל לך דהכי אמרינן בגמרא בהדיא בתירוץ רב אשי ופריך פשיטא מהו דתימא מיתקיל לישנא הוא דהיה לו לומר שאוכל לך ונתקל בלשונו לומר שאי קא משמע לן כיון שהוציא בשפתיו שאי אוכל לא מהימנינן ליה במה שאמר שהיה מגמגם כן כתב הרא\"ש פרק שני דנדרים:"
+      ],
+      "en_segments": [
+        "Or on the Temple table—see what I wrote in siman 204 se'if 2 regarding what is surprising about the Rama there from here. And what he wrote \"like vows of wicked people\"—since wicked people are accustomed to swear, it is as extracting an oath from his mouth in what he accepted as a wicked person's vow. And what he wrote \"that I will not eat for you\"—the formula is also in some Tur manuscripts, but it is a scribal error; for if so it is obvious, and it should read \"that I will not eat to you\" (she'i okhel lekha)—for so we say explicitly in the Gemara in Rav Ashi's answer, and it challenges: it is obvious! Lest you say it is a language stumble—he should have said \"that I will eat for you\" and stumbled in his language to say \"that I will not\"—it teaches us: since he uttered with his lips \"that I will not eat,\" we do not believe him in what he said that he was stammering. So wrote the Rosh, second chapter of Nedarim."
+      ]
+    },
+    {
+      "id": "yd1/siman238/seif-012/beer-hagolah",
+      "volume": "yd1",
+      "siman": 238,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרבא שם דף כ\"ד ע\"ב:",
+        "(°) פי' אם לא נתרצית קודם פסח ונתרצית אחר הפסח אינו מחויב לקדשה כיון שעבר הזמן וכמ\"ש לעיל בסי' רכ\"ח סעיף מ\"א שאם לא הי' מחוייב בדבר בלא שבועה זו ועבר היום שוב אין חיוב שבועה עליו ומיגו דחיילא אאחר הפסח חיילא נמי אקודם הפסח באיסור כולל וכשהשבועה היא לתועלת האשה או ע\"י שידוכין שבלי ספק היה לתועלתה וכדי שלא תתבייש אזי צריך התרה אפילו עבר הזמן כדעת הי\"א שם וכמ\"ש שם בשם הריב\"ש לדעת הרא\"ש כנלע\"ד:"
+      ],
+      "en_segments": [
+        "The statement of Rava there, Shevuot 24b. If she did not consent before Pesach but consented afterward, he is not obligated to betroth her, because the designated time has passed. As explained above in siman 228, seif 41, when he had no independent obligation apart from the oath and the day passed, the oath no longer obligates him. Since the oath could take effect regarding the period after Pesach, it also took effect regarding the period before Pesach through an inclusive prohibition. If, however, the oath was undertaken for the woman's benefit, or through a match arranged for her benefit so that she would not be embarrassed, release is required even after the time has passed, according to the first opinion there and the Rivash's explanation of the Rosh."
+      ]
+    },
+    {
+      "id": "yd1/siman239/seif-010/beer-hagolah",
+      "volume": "yd1",
+      "siman": 239,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פ\"ג מהל' שבועות",
+        "(°) ע\"ש סעיף י\"ד בהג\"ה דבמקום שיש עונש מיתה מקרי שבועת אונס ולא חילק אם יש חילול השם בדבר ובאונס ממון שלא כדין כתב והוא דליכא חילול השם בדבר:"
+      ],
+      "en_segments": [
+        "Rambam, chapter 3 of Hilchot Shevuot. See seif 14 in the gloss: where there is a threat of death, it is considered an oath under compulsion, without distinguishing whether desecration of Hashem's Name is involved. Concerning unlawful monetary compulsion, however, he writes that this applies only where no desecration of Hashem's Name is involved."
+      ]
+    },
+    {
+      "id": "yd1/siman242/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 242,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והוא נעשה כו'. דע\"כ רבה בר\"ה היה נקיט רשות מר\"ג אלא שהיה רב הונא ג\"כ בכללם דאל\"כ ל\"ל לא מינייכו כו' אלא דכ\"ז מיותר לא מינייכו לחוד סגי:",
+        "אבל אם כו'. מהנ\"ל וע\"כ לאו בדיני ממונות קאמר או כיוצא היאך קאמר במילתא דעלמא וכי רבה בר\"ה יעשה שלא כדין אלא בשררות בעלמא שרצו להשתרר עליו:"
+      ],
+      "en_segments": [
+        "He was done as a. In fact, the High Court was clear to the authority of the M.J., but it was a great deal that would not be deemed to be “not your kind” but rather that it would not be your kind of thing"
+      ]
+    },
+    {
+      "id": "yd1/siman242/seif-036/siftei-kohen",
+      "volume": "yd1",
+      "siman": 242,
+      "seif": 36,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 28,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אבל אם הוא פשוט. בש\"ס או בפוסק אחד שם:",
+        "פלפול בהנהגת הוראות באיסור והיתר מהרב המחבר יזיי\"א",
+        "כתב הרב בח\"מ סימן כ\"ה כל היכא דאיכא ספיקא בהוראת איסור והיתר והוא דבר דאורייתא ילך לחומרא ואי דבר דרבנן ילך אחר המיקל ודוקא אם הב' החולקים הם שוים אבל אין סומכין על דברי קטן נגד גדול ממנו בחכמה ומנין אפילו בשעת הדחק אא\"כ היה בו ג\"כ הפסד מרובה וכן אם היה יחיד נגד רבים הולכים אחרי רבים בכ\"מ עכ\"ל וכתב כך על פי תשובת הרשב\"א סימן רנ\"ג שהביא בד\"מ והב\"ח תמה עליו על מ\"ש אפילו בשעת הדחק אלא אם כן היה גם כן הפסד מרובה כו' ולא ידענא מאי קשיא ליה דהרי מפורש ברשב\"א שם דדוקא בשעת הדחק שיש בה הפסד מרובה שרי ועוד דהא הב\"ח גופיה אסיק דנקטינן כהרשב\"א ודלא כהתו' דמתירין אפי' בשאר שעת הדחק דליכא הפסד מרובה עכ\"ל א\"כ ודאי דברי הרב פשוטים ור\"ל דאין סומכין עליו אפילו בשעת הדחק היכא דליכא הפסד מרובה אלא אם כן היה ג\"כ הפסד מרובה וכשיש הפסד מרובה שרי דהיינו שעת הדחק:",
+        "עוד האריך הב\"ח בכמה דקדוקים להוכיח שהרשב\"א לא התיר בשעת הדחק שיש בו הפסד מרובה אלא ביחיד נגד רבים אבל לא בקטן נגד גדול ממנו בחכמה ובמנין ודלא כהרב והוציא דברי הרשב\"א שם מפשטן וכל מעיין בצדק ישפוט שדברי הרב ברורין ואין צורך להאריך בדברים פשוטים:",
+        "גם מה שכתב משום דביחיד נגד רבים אשכחן בדוכתי טובי דפסק ש\"ס כדברי יחיד נגד רבים אבל בקטן נגד גדול לא אשכחן כו' ליתא דהא אשכחן נמי בדוכתי טובי דפסק ש\"ס הלכתא כקטן נגד גדול כריש לקיש בהנהו תלת נגד ר' יוחנן כדאיתא בפרק החולץ (יבמות דף ל\"ו) ובאשר\"י פ\"ק דב\"ק חשיב נמי טובי דקי\"ל הלכתא כר\"ל נגד ר' יוחנן ע\"ש וקי\"ל רב ור' יוחנן הלכה כר' יוחנן אע\"ג דרב גדול היה מרבי יוחנן כדאיתא באלו טריפות (דף נ\"ד ע\"א) דא\"ר יוחנן עליו כל אותן שנים ששימש את ר' בישיבה אני שמשתיו בעמידה ומאן גבר הוא גבר בכולה ובפ' ג\"ה (דף צ\"ה ע\"ב) כולי שני דרב כתב ליה ר' יוחנן לקדם רבינו שבבבל כי נח נפשיה הוה כתב לשמואל לקדם חבירנו שבבבל אמר לא ידע ליה מידי דרביה אנא כתב שדר ליה עיבורא דשתין שנין ותליסר גוילי דספק טריפתא ובפ\"ק דכתובות (דף ח' ע\"א) אמרי רב תנא ופליג אתנא דברייתא ור' יוחנן לאו תנא הוא שיחלוק אתנא כמ\"ש התוס' שם וכ\"כ מהרי\"ק שורש ק\"ע דרבי יוחנן דהוי פליג יקרא לרב משום שהיה גדול ממנו. רב חסדא הוה תלמיד חבר דרב הונא כדאיתא בעירובין פרק הדר ובס\"פ אלו מציאות וכן הוכיח מהרי\"ק שם בארוכה שרב הונא היה גדול מרב חסדא כל ימיו ואפילו הכי כתבו התוס' פרק מי שמת (דף ע\"ב) והרא\"ש שם בשם ר\"ח וא\"ז דהלכה כרב חסדא דאף על גב דהיה תלמידו אזלינן לחומרא וכ\"כ שאר פוסקים שם וכה\"ג אשכחן טובי בש\"ס ופוסקים הלכתא כקטן נגד גדול עצמו מספר: ועוד תימה על דבריו כיון דביחיד נגד רבים סומכים בהפסד מרובה אע\"ג דהלכה כרבים דאורייתא הוא וכדאיתא בפרק הזהב גבי יצאת בת קול הלכה כר' אליעזר בכל מקום ולא אשגחו ביה שכבר כתבת בתורה אחרי רבים להטות וכן הוא בדוכתי טובי וכל הש\"ס ופוסקים מלאים מזה כ\"ש בקטן נגד גדול והיאך יעלה על הדעת דגדול נגד קטן שלא הוזכר בתורה ולא במקומות ידועים בש\"ס ופוסקים יהא עדיף מרבים נגד יחיד. ועוד דהא הרמב\"ם וסמ\"ג ושאר פוסקים שאביא לקמן ס\"ל דאין חילוק בין קטן נגד גדול וע\"כ הם מודים ביחיד נגד רבים הלכה כרבים א\"כ ע\"כ זכות הרבים עדיף:",
+        "ועוד תימה על דבריו דע\"כ האי גדול ממנו בחכמה ובמנין פירושו חכמה או מנין כמ\"ש בהג\"ה רפ\"ק דעבודת כוכבים מא\"ז וז\"ל אם זה גדול בחכמה וזה גדול במנין הולכין אחר גדול במנין פי' תלמידים הרבה אי נמי שרוב התלמידים אומרים כמותו עכ\"ל ומביאו ד\"מ והסמ\"ע סימן כ\"ה ס\"ס י\"ז ונ\"ל שיצא לו כן ממאי דאמרינן בש\"ס פ\"ק דיבמות (דף י\"ד ע\"א) לא עשו ב\"ש כדבריהם דב\"ה רובא אף על גב דב\"ש מחדדי טפי ואפילו מ\"ד עשו כדבריהם מודה דלאחר בת קול לא עשו ע\"ש אם כן כשסומכין על יחיד נגד רבים בהפסד מרובה כ\"ש דסומכין על קטן נגד גדול ממנו בחכמה או במנין וזה ברור:",
+        "אע\"ג דהראב\"ד כתב בריש עדיות אהא דתנן אין ב\"ד יכול לבטל דברי ב\"ד חבירו אא\"כ גדול ממנו בחכמה ובמנין דמנין היינו שנים יש לומר דדווקא בב\"ד תלוי בשנים לבטל דברי ב\"ד חבירו אבל לא בב' חכמים ועוד שהרי הרמב\"ם רפ\"ב מהל' ממרים והסמ\"ג עשין קי\"א מפרשים מנין היינו מנין חכמי הדור: ואולי גם הב\"ח לא כתב כן אלא כנגד גדול ממנו בחכמה וגם במנין או אפשר שחשב מנין היינו פנים ומ\"מ נראה דאפילו גדול בשנים דינא הכי ומהני טעמי דלעיל ועוד דודאי רבים עדיף וכמו שהוכחתי:",
+        "אבל הדבר ברור כדפי' וא\"כ דברי הרב ברורים ולא ירדתי לסוף דעת הב\"ח שהשיג עליו ע\"ש:",
+        "עוד נראה מבואר מדברי הב\"ח דהא דמתיר הרשב\"א בהפסד מרובה ביחיד נגד רבים היינו אפי' באיסורא דאורייתא וכתב וה\"ה בס\"פ הערל (יבמות דף פ\"א) גבי חתיכת חטאת כו' ותימה והרי הא דיחיד ורבים הלכה כרבים דאורייתא הוא וכמ\"ש לעיל והיאך אפשר לעקור דבר תורה בהפסד מרובה והלא כך הוא גזרת המקום לילך אחר הרבים ומה בכך שהוא הפסד מרובה ועוד שהרי הורגין נפשות ומחרימין ומפקירין ומאבדין ביד ע\"פ הרוב ועיר הנדחת נדונין ע\"פ הרוב והרי אין לך הפסד מרובה גדול מזה וע\"ק דהיאך אפשר דהרשב\"א בא לומר דאפילו באיסור דאורייתא דינא הכי והלא ממקום שלמד כן מהך דפ\"ק דנדה (דף ט') דאמר ר' כדאי הוא רבי אליעזר לסמוך עליו בשעת הדחק אינו אלא דרבנן דגזירות מעת לעת אינו אלא דרבנן והכי אמרינן בערובין (דף מ\"ו ע\"א) אמר ליה רב פפא לרבא ובדרבנן לא שני לך בין יחיד ורבים כו' עד אלא רבים פליג עליה אמר כדאי הוא ר\"א לסמוך עליו בשעת הדחק לכך נראה דה\"ק הרשב\"א הלכה פסוקה היא שאין סומכים על הקטן נגד הגדול ולא ביחיד נגד רבים אא\"כ שיש הפסד מרובה משכחת לה דסומכין עליהן וכמ\"ש פ\"ק דנדה כו' והיינו כהך דנדה דהוא איסור דרבנן וטעמא דהם אמרו והם אמרו לסמוך על היחיד בהפסד מרובה וכה\"ג אשכחן טובי דלא העמידו דבריהם במקום ממון וכמו שכתבתי ג\"כ בסימן קי\"ט ס\"ק כ\"ז כ\"ש במקום שיש מי שמתיר וההיא דפרק הערל אין ראיה כלל (אף לפירוש רש\"י וכ\"ש לפי' התו' שם שפי' בע\"א) דהתם לא אמרינן דבהפסד מרובה סמכינן אקטן או איחיד אלא דרבנן סבירא להו התם מין במינו בטיל ובהפסד מועט לא חששו ובהפסד מרובה אוקמוה אדינו עיין שם מבואר כך להדיא ועוד דהתם אף על פי שעיקר הדבר הוא איסור דאורייתא מכל מקום הוא מדרבנן דמדאורייתא חד בתרי בטיל כדאיתא בסי' ק\"י וכן נראה מדברי הרב דמדמסדר האי אא\"כ יש בו גם כן הפסד מרובה אסיפא מכלל דברישא באיסור דאורייתא אין סומכין אקטן כלל וכ\"ש איחיד נגד רבים:",
+        "מיהו כל זה לדעת הרב וב\"ח שנמשכו לדעת הרשב\"א אבל לא שמו לבם לעיין בפוסקים אחרים שהרמב\"ם ספ\"א מהל' ממרים כתב בסתם ב' ת\"ח או ב' בתי דינים כו' בשל תורה הלך אחר המחמיר בשל סופרים הלך אחר המיקל ולא חילק בין קטן לגדול משמע דסבירא ליה דר\"י בן קרחה ארישא נמי פליג וכמו שכתב הכסף משנה שם אי נמי מספקא ליה להרמב\"ם אי פלוג נמי ארישא ופסק בספיקא בשל תורה לחומרא ובשל סופרים לקולא ואם כן אין חילוק בין קטן לגדול וכן דעת הסמ\"ג עשין קי\"א וכ\"ד הגמי\"י שם:",
+        "מיהו נראה דדוקא בשאין הגדול רבו אבל אם הוא רבו גם להרמב\"ם וסייעתו אין סומכין על הקטן דהלכה פסוקה היא בכמה מקומות בש\"ס שאין הלכה כתלמיד במקום הרב וחזר הדין הזה להיות כדין קטן אצל גדול לדעת הרשב\"א:",
+        "ואין להקשות לדעת הרמב\"ם וסייעתו דהא ודאי הולכין אחר רבים וא\"כ אמאי אין הולכין כאן אחר הגדול במנין שהוא תלמידים הרבה וכמש\"ל בשם הג\"ה יש לומר דסבירא ליה כפירוש הראשון שבהג\"א שיש תלמידים הרבה ופירושו שיש לו תלמידים הרבה ואפי' אינם אומרים דעתם מכל מקום הוא גדול בתלמידים ומכל מקום סבירא ליה להרמב\"ם והסמ\"ג נמי האי דינא שבהג\"א שרוב התלמידים אומרים כמותו ולא הוצרכו לכתבו כאן דודאי פשוט הוא דהולכין אחר רבים בכל מקום אלא דסד\"א דתלמיד אין מכריע וכבר כתב הרמב\"ם פי\"א מהל' סנהדרין דלענין טומאה וטהרה ואיסור והיתר הרב ותלמידו מונין אותם בשנים וכ\"כ הסמ\"ג עשין נ\"ח והוא מהש\"ס פ' אחד דיני ממונות (סנהדרין דף ל\"ו) ונתבאר בח\"מ ס\"ס י\"ח:",
+        "ודאי דאין להקל באיסור דאורייתא נגד דעת הרמב\"ם והסמ\"ג והגמי\"י דלעיל ובדרבנן היה נראה לכאורה גם כן כהרמב\"ם וסייעתו דבשל סופרים הלך אחר המיקל אך כיון דהב\"ח מחמיר וגם הרב כתב דאין סומכין על הקטן נגד הגדול קשה להקל ועוד שמצאתי בר\"י סוף נתיב ב' ובריב\"ש סימן שע\"ט ובתשו' מהר\"מ אלשקר סימן נ\"ד שסוברים כהרשב\"א וכ\"נ דעת הגה\"א מא\"ז ספ\"ק דעובד כוכבים שהבאתי לעיל ועוד שהרי יש כמה ספיקות דרבנן להחמיר כמו שכתבתי בדיני ס\"ס דין י\"ט וגם במרדכי פרק החולץ כתב תשובת רבינו ברוך דאשכחן דפליגי בספק דרבנן ופסקינן להחמיר ועוד דיש כמה דברים שהם דרבנן ונוגעים באיסור דאורייתא ומי יפריש ביניהם: מתוך מ\"ש נתבאר דמ\"ש הב\"ח וז\"ל יש מקום עיון בשלחן ערוך במקומות שלא הכריע הרב ב\"י לפסוק כדעת א' מהפוסקים ולפעמים כותב בתחלה בסתם לאיסור ואחר כך אומר יש מי שמתיר או ויש חולקים ולפעמים כותב בהפך כו' עד כשכותב בהגהת שלחן ערוך דעת מי שחולק על מה שפסק בש\"ע בדוכתא שלא נתפשטה הלכה כדברי הא' ויש לו דין זה דלא איתמר הלכתא לא כמר ולא כמר עד כאן לשונו צ\"ע דמ\"ש ביחיד נגד רבים סומכין על היחיד בהפסד מרובה כבר נתבאר דז\"א אלא באיסורא דרבנן ולא באיסורא דאורייתא:",
+        "וכ\"ת א\"כ למה כתב המחבר או שאר פוסקים בכמה מקומות אפילו באיסור דאורייתא דעת היחיד החולק יש לומר דהא תנן בריש עדיות למה מזכירין דברי היחיד בין המרובים שאם יאמר אדם כך אני מקובל אומרים כדברי פלוני שמעת ועוד תנן התם שאם יראה ב\"ד דברי היחיד ויסמוך עליו כו' ופי' הראב\"ד לומר שאם יראה לב\"ד האחרון שהלכה כדברי היחיד הראשון ויסמוך עליו כלומר ויקבע הלכה. כמותו כמו שמצינו באמוראים שקבעו הלכה כיחידים הראשונים בכמה מקומות ואף על פי שהמרובים חולקים עליהם ואם לא שמצאו דברי היחיד הראשון לא היו האחרונים יכולים לדחות דברי הראשונים כו' עד כאן לשונו וה\"נ אלו היו כותבים המחבר והפוסקים דעת רבים בסתם הייתי אומר שהוא תורת משה או מוסכם במשנה וש\"ס ולא היה שום אחרון רשאי לחלוק אפילו בראיות לכך כותב דברי היחיד שאם יביא שום אחרון ראיות ברורות לדבריו יתנו עדיהן ויצדקו אי נמי משום שמצינו בכמה ארצות ומקומות מחולקים בדינים ונהרא נהרא ופשטיה לכך כתבו דברי יחיד כי אולי יש מקום או מדינה שמורים כן שיש להם על מה שיסמכו וכ\"כ בתשו' מנחם עזריה ר\"ס צ\"ז וז\"ל דע כי המחבר ההוא רבן של בני הגולה זה דרכו בש\"ע הקבוע להוראה להביא תחלה דעת היותר מוסכמת והיכא דאיכא למיחש לסברא אחרת מייתי לה בשם י\"א (א) א\"כ מה שסתם תחלה (בס\"ס נ\"ו) כדעת הגאונים להתיר הוא פסק גמור ומוחלט לפי סברתו ולא זכר הסברא הב' אלא לחלוק כבוד לבעלה שגם גדולים ורבים הם ובהרבה מקומות פשט המנהג לאסור כוותייהו (כמ\"ש הרב שם שכן עיקר וכן נוהגין ע\"ש) עכ\"ל א\"נ כשהמחבר תופס א' בחזקת גדול נגד קטן ולא ברירא ליה מילתא שהוא גדול נגד קטן אי עביד להחמיר כדברי הקטן לא מהדרינן עובדא וכדכתב ג\"כ הב\"ח א\"נ משום שאולי יזדמן הדין ההוא במקום אח' שיהיה שם עוד איזה צד היתר (כדאיתא בס\"ס נ\"ז ע\"ש) וכה\"ג אשכחן טובי בפוסקים דמצטרפים כמה צדדים להיתר א\"נ משום שאפשר שימצא בחבורים אחרים ג\"כ כדעת היחיד בענין שיהיו שקולים או היחיד יהא רבים וכמו שמצינו כן הרבה פעמים או אפשר לענין שבעל נפש יחמיר לעצמו כדברי היחיד או הקטן דאע\"ג דהלכה פסוקה דהלכה כרבים מ\"מ בספרי הפוסקים אולי יש לאותו יחיד ראיה ברורה מן הש\"ס או תוספתא או ירושלמי או אולי ימצא עוד בספרים אחרים כן:",
+        "ומ\"ש דאי עביד עובדא כו' שנראה מדבריו דוקא בדעבד עובדא אבל לכתחלה לא אפילו בהפסד מרובה וכ\"כ עוד שם בביאור דאפילו באיסורא דרבנן אין לעשות כן לכתחלה ולא משמע כן בתשובת הרשב\"א וכן נראה מדברי הרב דאפילו לכתחלה סומכין בהפסד מרובה מיהו היינו באיסור דרבנן וכמו שכתבתי למעלה:",
+        "ומשמע דדוקא להקל סומכים בהפסד מרובה על היחיד או על הקטן אבל לא להחמיר דהיינו אפילו עביד כדברי היחיד או הקטן לחומרא מהדרינן עובדא בין באיסור דאורייתא בין באיסור דרבנן כיון דלא עביד כהלכתא והא דמותר בהפסד מרובה היינו משום דלא העמידו דבריהם במקום ממון והא אמרו במקום הפסד מרובה לסמוך איחיד לאוקמא אדין תורה וכמ\"ש לעיל וכן משמע מדברי הב\"ח שכתב דאי עבד עובדא לחומרא כהיש מי שחולק לא מהדרינן עובדא כו' כיון דלא ברירא לן בודאי דגדול הוי כו' משמע אי ברירא לן בודאי מהדרינן עובדא וכ\"ש ביחיד נגד רבים וכמ\"ש לעיל:",
+        "וכתב עוד הרב בח\"מ סימן כ\"ה ואפילו אין הרבים מסכימים מטעם א' אלא כל אחד יש לו טעם בפני עצמו הואיל והם מסכימים לענין הדין מקרי רבים ואזלינן בתרייהו והוא ממהרי\"ק שורש מ\"א ובאמת מהרי\"ק שם לא ברירא ליה דין זה וגם לא כתב שם כן אלא ליישב מנהג האשכנזים בהדם וגם מסיים שם ומכל מקום כל זה רחוק בעיני וכן משמע מדברי האגור בשם מהרא\"י ומביאו בית יוסף וד\"מ בסימן צ\"ב דאין להקל בכה\"ג באיסור דאורייתא בנדון דידן בחלב שנתערב בשומן וספק אם יש בשומן ס' מן החלב ואחר כך הושם מן השומן לקדרה לא אמרינן חנ\"נ בלח להא\"ז אע\"ג דמוכח באשר\"י דלית ליה האי סברא לחלק בין לח ליבש מכל מקום אין להחמיר בשביל כך דלכ\"ע האי סברא דחנ\"נ אינו אלא מדרבנן ונ\"ד בין למר בין למר שרי לדעת הא\"ז משום דדבר לח הוא ולהרא\"ש משום שאין אומרים חנ\"נ אלא בב\"ח עכ\"ל (ב) אלמא אי הוי דאורייתא לא הוי שרי כיון שאין מסכימים מטעם א' כ\"ש היכא שיש גם כן חולק על ב' הטעמים ודו\"ק:",
+        "קיצור בהנהגת הוראות איסור והיתר העולה מכל הש\"ס והפוסקים אשר אסף הרב המחבר יזיי\"א ורוחו הוא קבצם:",
+        "א חכם שאסר וחלה הוראתו ונתפשטה מותר לשאול לשני רק שיודיעוהו שאסר הראשון ואם מברר שהראשון טעה בדבר משנה או שטעה בשקול הדעת ועל דרך שנתבאר בח\"מ סימן כ\"ה יכול להתיר אבל אם אינו יכול לברר שטעה רק שיש לו קבלה להתיר או שהוא חולק עליו בשקול הדעת אפילו הראשון חוזר ומודה לדבריו אינו יכול להתיר ואם התירו אינו מותר דשויה חתיכה דאיסורא. ויש אומרים שאפילו השני גדול ממנו בחכמה ובמנין אינו יכול להתיר ויש מתירים בגדול ממנו. ואם התיר הראשון יכול השני לאסור. ואם שניהם יושבים בבה\"מ ולא חלה עדיין הוראת הראשון יכול השני להתיר. וכל זה באותו דבר עצמו אבל במעשה אחר יכול להורות היתר אם לא שהראשון אסרו משום חומרא או משום סייג וגדר:",
+        "ב שני ת\"ח שחלוקים זה עם זה בטומאה וטהרה או באיסור והיתר אם הוא דבר תורה הלך אחר המחמיר אפילו הוא קטן ממנו בחכמה ובמנין פירוש שאין לו כל כך תלמידים כמו חבירו ואם הקטן הוא תלמידו אין הלכה כתלמיד במקום הרב אף על פי שהוא מחמיר באיסור תורה ואם נתחכם התלמיד כרבו שוה הוא לו ואם הוא דבר דרבנן אם שניהם שוים שלא נודע איזה מהן גדול הלך אחר המיקל ואם אחד מהן גדול בחכמה או במנין והוא מיקל אפילו עשו מעשה להחמיר כדברי הקטן מהדרינן עובדא ואם הגדול מחמיר סומכין על הקטן בשעת הדחק ואם אחד מהן גדול בחכמה והשני במנין דהיינו שיש לו תלמידים הרבה אפילו אינם אומרים דעתם וכ\"ש אם רוב תלמידים אומרים כמותו נקרא זה שגדול במנין גדול נגד חבירו. ואם אחד מהם גדול בשנים לא נקרא גדול בשביל זה וכן סומכים על התלמיד במקום הרב באיסור דרבנן אם הוא שעת הדחק וכן במקום מחלוקת יחיד ורבים אם עשה כיחיד להחמיר מהדרינן עובדא ואם הרבים מחמירים סומכים על היחיד באיסור דרבנן ושעת הדחק:",
+        "ג ושעת הדחק היינו דוקא במקום הפסד מרובה או בהפסד מועט לעני בדבר חשוב או לעשיר לכבוד שבת ויום טוב או לכבוד אורחים. ובכל האיסורים חוץ מיין נסך אם יכול למכרו לעובד כוכבים ואין הפסד מרובה לא מיקרי הפסד מרובה אף על פי שמפסיד כל הריוח כיון שאין מפסיד בקרן:",
+        "ד וכל זה שכתבו היינו בסתם אבל אם תמצא לפעמים עוד צד היתר אחר הן מן הש\"ס או שקול הדעת וכיוצא בזה יש לעשות כפי מה שיראה בעיניו ואין לדיין אלא מה שעיניו רואות אם הוא בר הכי שיודע להכריע ולהבין ולהורות. ומטעם זה אם תמצא באיזה מקומות בש\"ס ופוסקים דברים הסותרים לכללם אלו הוא מפני שיש שם איזה צד או טעם אחר:",
+        "ה זה שתמצא בכמה מקומות בדברי המחבר והרב או שאר אחרונים שמביאים בתחילה סברא אחת בסתם ואחר כך יש מי שמתיר או יש מי שאוסר או יש מתירין או יש אוסרים או יש מי שחולק או יש חולקים הוא מפני שנראה להם עיקר כהסברא שכתבו בסתם והסברא האחרת היא טפלה בעיניהם ועל כן צריך עיון וישוב הדעת מפני מה היא טפלה אם מפני שהוא כקטן נגד גדול או תלמיד נגד הרב או יחיד במקום רבים ועל הדרכים שאמרנו ואם הוא דבר דרבנן יש לסמוך על הטפלה להתיר בשעת הדחק ואם היא טפלה מחמת שהיה בעיניהם בחזקת קטן נגד גדול כיון שאינו בבירור קטן נגד גדול לא מהדרינן עובדא אם עשה להחמיר באיסור דרבנן ואם הוא איסור תור' אין להורות כסברא הטפלה לא להחמיר ולא להקל אפי' בשעת הדחק ויש לבעל נפש להחמיר לעצמו באיסור תורה:",
+        "ו אם הרב והתלמיד מסכימים לדעת א' מונים להם שנים באיסור והיתר אפילו הוא צריך לסברת הרב ובשעה שמלמדו הרב הדין הוא סומך על פיו:",
+        "ז אם אין הרבים מסכימים מדעת א' אלא כל אחד יש לו טעם בפני עצמו והם מסכימים לענין הדין אין לסמוך עליהם להתיר באיסור תורה ובאיסור דרבנן:",
+        "ח כל מקום שדברי הראשונים כתובים על ספר והם מפורסמים והפוסקים האחרונים חולקים עליהם הולכים אחר האחרונים. אבל אם נמצא לפעמים תשובת גאון ולא עלה זכרונו עלספר ונמצא אחרים חולקים עליו אין צריך לפסוק כהאחרונים שאפשר לא ידעו דברי הגאון ואי הוי שמעי הוי הדרי בהו ויש חולקים שאין שומעים לאחרונים נגד גדולי הראשונים ויש להחמיר ומכל מקום אם האחרון מביא דברי הראשון וחולק עליו אם הוא מפורסם בכך שהוא ראוי לחלוק יכול לסמוך עליו וצריך להתישב בדבר מיהו אם יש ביד המורה להכריע יכול לפסוק כאיזה שירצה ומכל מקום אין לחלוק על הגאונים הקדמונים. ומקודם הרי\"ף כבר פסקו דורות הגאונים:",
+        "ט כשם שאסור להתיר את האסור כך אסור לאסור את המותר אפילו בשל עובד כוכבים ואפילו במקום שאין הפסד מפני שעל הרוב יש בו צד הקל במקום אחר מחמת שנאסר והוי חומרא דאתי לידי קולא ואע\"פ שלפי הנראה לא יבא מזה צד קולא אסור שאפשר שיתגלגל ויבא קולא עד אחר מאה דברים. לפיכך אם הוצרך לאסור מחמת ספק או מחמת חומרא בזה שאין האיסור ברור כשמש צריך המורה לומר שאין האיסור ברור אלא שאנו מחוייבים להחמיר וכל שכן אם המורה מתיר בשעת הדחק וכיוצא בו שיאמר לו כן.",
+        "י בית דין אחד בעיר אחת שנחלקו בדבר אסור להורות מקצתן כך ומקצתן כך משום לא תתגודדו לא תעשו אגודות אגודות ודבר זה גורם מחלוקת בישראל והתורה נעשית כשתי תורות וכן אסור לעשות כל כת וכת מהם כדבריו או לנהוג כן אף על פי שאין מורין כן להדיא אף על פי ששניהם שוים בחכמה ובמנין אלא ישאו ויתנו בדבר הרבה עד שיסכימו כולם לדעת אחת ואם אי אפשר בכך אם הוא דבר תורה יעשו הכל כדברי המחמירים ואם הוא דבר דרבנן יעשו הכל כדברי המקילים ושתי בתי דינים בעיר אחת יכולים להורות אלו כך ואלו כך ודוקא בשני בתי דינים ידועים אבל אם אין ידועים שני בתי דינים בעיר אסור לנהוג מקצת העיר כך ומקצת העיר כך ואף על פי שעל ידי מחלוקת זה נעשו שני בתי דינים אסור מכל שכן שדבר זה מרבה מחלוקת ואם ב\"ד א' גדול מחבירו דינן כשני ת\"ח החולקים בדבר וא' מהן גדול מחבירו ועל דרך שנתבאר למעלה:"
+      ],
+      "en_segments": [
+        "But if it is plain. In the Gemara or in one posek there: Pilpul on the conduct of rulings in issur and heter from the authoring rav, may his Rock and Redeemer guard him. The Rav wrote in Choshen Mishpat siman 25: wherever there is a doubt in a ruling of issur and heter, and it is a d'oraisa matter, go to be stringent; and if it is a d'rabbanan matter, follow after the lenient; and specifically if the two who dispute are equal; but we do not rely on the words of a lesser against one greater than him in wisdom and number, even at a time of pressure, unless there was also in it great financial loss; and likewise if it was an individual against many, we follow after the many in every place — end of his words. And he wrote so according to a responsum of the Rashba siman 253 that he brought in Darkei Moshe; and the Bach wondered about him regarding what he wrote \"even at a time of pressure unless there was also great financial loss,\" etc.; and I do not know what is difficult for him, for it is explicit in the Rashba there that specifically at a time of pressure in which there is great financial loss it is permitted; and further, for the Bach himself concluded that we take like the Rashba and unlike Tosafot who permit even at other times of pressure where there is no great financial loss — end of his words; if so certainly the Rav's words are plain, and his meaning is that we do not rely on him even at a time of pressure where there is no great financial loss, unless there was also great financial loss; and when there is great financial loss it is permitted — that is a time of pressure. The Bach further elaborated with several fine points to prove that the Rashba permitted at a time of pressure in which there is great financial loss only regarding an individual against many, but not regarding a lesser against one greater than him in wisdom and number, unlike the Rav; and he extracted the Rashba's words there from their plain sense; and every fair examiner will judge that the Rav's words are clear and there is no need to elaborate on plain matters. Also what he wrote because regarding an individual against many we find in many places that the Gemara ruled like the words of an individual against many, but regarding a lesser against a greater we do not find, etc. — that is not so, for we also find in many places that the Gemara ruled the halacha like a lesser against a greater, like Resh Lakish in those three against R' Yochanan as is stated in the chapter \"HaCholetz\" (Yevamos daf 36); and in the Asheri in the first chapter of Bava Kamma he also enumerates many where we rule the halacha like Resh Lakish against R' Yochanan — see there; and we rule Rav and R' Yochanan — the halacha is like R' Yochanan, even though Rav was greater than R' Yochanan, as is stated in \"Eilu Tereifot\" (daf 54a), that R' Yochanan said of him: all those years that he served R' in the yeshiva, I served him standing; and what a man he is — a man in everything; and in the chapter \"Gid HaNasheh\" (daf 95b): all the years of Rav, R' Yochanan wrote to him \"to our master who is in Babylonia\"; when he passed away he wrote to Shmuel \"to our colleague who is in Babylonia\"; he said he does not know anything of him — \"I am his master\"; he wrote and sent him the intercalation of sixty years and thirteen sheets of doubtful tereifah; and in the first chapter of Ketubot (daf 8a) they say Rav is a Tanna and disputes a Tanna of a baraita, and R' Yochanan is not a Tanna to dispute a Tanna, as Tosafot wrote there; and so Mahariv root 170 wrote that R' Yochanan who would give honor to Rav — because he was greater than him. Rav Chisda was a colleague-student of Rav Huna as is stated in Eruvin chapter \"HaDar\" and at the end of the chapter \"Eilu Metziot\"; and so Mahariv proved there at length that Rav Huna was greater than Rav Chisda all his days, and even so Tosafot wrote in the chapter \"Mi SheMet\" (daf 72) and the Rosh there in the name of Rabbeinu Chananel and Or Zarua that the halacha is like Rav Chisda, for even though he was his student we follow to be stringent; and so other poskim wrote there; and of this sort we find many in the Gemara and poskim the halacha like a lesser against a greater himself without number. And further wonder about his words: since regarding an individual against many we rely in great financial loss even though the halacha like the many is d'oraisa, as is stated in the chapter \"HaZahav\" regarding a heavenly voice that went forth \"the halacha is like R' Eliezer in every place\" and they did not heed him, for you already wrote in the Torah \"after the many to incline,\" and so it is in many places, and all the Gemara and poskim are full of this — all the more so a lesser against a greater; and how could it enter the mind that a greater against a lesser, which is not mentioned in the Torah nor in known places in the Gemara and poskim, would be better than many against an individual. And further, for the Rambam and Semag and other poskim that I will bring below hold that there is no distinction between a lesser against a greater; and therefore they admit regarding an individual against many that the halacha is like the many — if so necessarily the merit of the many is better. And further wonder about his words: for necessarily this \"greater than him in wisdom and number\" means wisdom or number, as is written in the gloss at the beginning of the first chapter of Avodah Zarah from Or Zarua, and this is his language: if this one is greater in wisdom and that one is greater in number, we follow after the greater in number — meaning many students, or also that most of the students say like him — end of his words; and Darkei Moshe brings it, and Sefer Me'irat Einayim siman 25 end of seif 17; and it appears to me that he derived so from what we say in the Gemara in the first chapter of Yevamos (daf 14a): Beit Shammai did not act according to their words, for Beit Hillel are the majority, even though Beit Shammai are sharper; and even the one who says they did act according to their words admits that after the heavenly voice they did not act — see there; if so, when we rely on an individual against many in great financial loss, all the more so we rely on a lesser against one greater than him in wisdom or in number — and this is clear. Even though the Ra'avad wrote at the beginning of Eduyot on that which the Mishnah teaches a court cannot nullify the words of its fellow court unless greater than it in wisdom and number — that number means years — one may say that specifically regarding a court it depends on years to nullify the words of its fellow court, but not regarding two sages; and further, for the Rambam at the beginning of chapter 2 of Hilchot Mamrim and the Semag positive commandments 111 explain number as the number of the sages of the generation. And perhaps the Bach too wrote so only against one greater than him in wisdom and also in number; or possibly he thought number means faces; and nevertheless it appears that even greater in years the law is so, and from the reasons above; and further that certainly many are better, as I have proven. But the matter is clear as I explained; and if so the Rav's words are clear, and I did not reach the end of the Bach's mind who challenged him — see there. It further appears explained from the Bach's words that that which the Rashba permits in great financial loss regarding an individual against many — that is even regarding a d'oraisa issur; and he wrote: and the same law applies at the end of the chapter \"HaArel\" (Yevamos daf 81) regarding a piece of chatat, etc. And wonder: yet that an individual and many — the halacha is like the many — is d'oraisa, as I wrote above; and how is it possible to uproot a Torah matter in great financial loss — for such is the decree of the Omnipresent to follow after the many, and what of it that it is great financial loss? And further, for we kill souls and ban and declare ownerless and destroy by hand according to the majority, and a wayward city is judged according to the majority — and behold there is no greater financial loss than this. And further it is difficult: how is it possible that the Rashba came to say that even regarding a d'oraisa issur the law is so — for from the place from which he learned so, from that in the first chapter of Niddah (daf 9) that Rabbi said \"R' Eliezer is worthy to rely upon at a time of pressure\" — it is only d'rabbanan, for decrees from time to time are only d'rabbanan; and so we say in Eruvin (daf 46a): Rav Pappa said to Rava, and regarding d'rabbanan is there no difference for you between an individual and many, etc., until rather many dispute him — he said R' Eliezer is worthy to rely upon at a time of pressure. Therefore it appears that this is what the Rashba means: it is a decided law that we do not rely on the lesser against the greater nor on an individual against many unless there is great financial loss — you find that we rely on them, as is written in the first chapter of Niddah, etc.; and that is like that of Niddah which is a d'rabbanan issur; and the reason is they said and they said to rely on the individual in great financial loss; and of this sort we find many that they did not uphold their words in a place of money, as I also wrote in siman 119 se'if katan 27 — all the more so in a place where there is one who permits; and that of the chapter \"HaArel\" is no proof at all (even according to Rashi's explanation, and all the more so according to Tosafot's explanation there who explained differently): for there we do not say that in great financial loss we rely on a lesser or an individual; rather the Rabbis hold there that a kind in its kind is nullified, and in small loss they were not concerned, and in great financial loss they established it on its law — see there, explained so explicitly. And further, for there even though the essence of the matter is a d'oraisa issur, nevertheless it is d'rabbanan, for d'oraisa one in two is nullified as is stated in siman 110; and so it appears from the Rav's words, that since he arranges this \"unless there is also in it great financial loss\" at the end — it is implied that in the beginning regarding a d'oraisa issur we do not rely on a lesser at all, and all the more so an individual against many. However all this is according to the opinion of the Rav and Bach who were drawn after the Rashba's opinion; but they did not set their hearts to examine other poskim: for the Rambam at the end of chapter 1 of Hilchot Mamrim wrote anonymously: two Torah scholars or two courts, etc. — regarding Torah matters follow after the stringent; regarding Sofeirim matters follow after the lenient; and he did not distinguish between lesser and greater — it is implied that he holds that R' Yehudah ben Korcha disputes also the beginning, as Kesef Mishneh wrote there; or also it is a doubt to the Rambam whether he disputes also the beginning, and he ruled in a doubt regarding Torah matters to be stringent and regarding Sofeirim to be lenient; and if so there is no distinction between lesser and greater; and so is the opinion of the Semag positive commandments 111, and so is the opinion of Hagahot Maimoniyot there. However it appears that specifically when the greater is not his master; but if he is his master, also according to the Rambam and his supporters we do not rely on the lesser, for it is a decided law in several places in the Gemara that there is no halacha like a student in the place of the master; and this law returns to be like the law of a lesser by a greater according to the Rashba's opinion. And one should not raise a difficulty according to the opinion of the Rambam and his supporters: for certainly we follow after the many, and if so why do we not follow here after the greater in number, which is many students, as I wrote above in the name of the gloss? One may say that he holds like the first explanation in Haggahot Asheri: that he has many students, and its meaning is that he has many students, and even if they do not state their opinion nevertheless he is great in students; and nevertheless the Rambam and Semag also hold that law in Haggahot Asheri that most of the students say like him, and they did not need to write it here, for it is certainly plain that we follow after the many in every place; only one might have thought that a student does not tip; and already the Rambam wrote in chapter 11 of Hilchot Sanhedrin that regarding tumah and taharah and issur and heter, the master and his student are counted as two; and so the Semag wrote positive commandments 58; and it is from the Gemara in the chapter \"Echad Dinei Mamonot\" (Sanhedrin daf 36); and it is explained in Choshen Mishpat end of siman 18. Certainly one should not be lenient in a d'oraisa issur against the opinion of the Rambam and Semag and Hagahot Maimoniyot above; and regarding d'rabbanan it would appear ostensibly also like the Rambam and his supporters that regarding Sofeirim follow after the lenient; but since the Bach is stringent and also the Rav wrote that we do not rely on the lesser against the greater, it is hard to be lenient; and further I found in the Ri end of pathway 2 and in the Rivash siman 379 and in responsa Maharam Alashkar siman 54 who hold like the Rashba; and so appears the opinion of Haggahot Asheri from Or Zarua at the end of the first chapter of Avodah Zarah that I brought above; and further, for there are several d'rabbanan doubts to be stringent as I wrote in the laws of double doubt, din 19; and also in the Mordechai in the chapter \"HaCholetz\" he wrote a responsum of Rabbeinu Baruch that we find they dispute regarding a d'rabbanan doubt and we rule to be stringent; and further that there are several matters that are d'rabbanan and touch a d'oraisa issur, and who will separate between them. From what I wrote it is explained that what the Bach wrote, and this is his language: there is a place for examination in the Shulchan Aruch in places where the Rav Beit Yosef did not decide to rule like the opinion of one of the poskim, and sometimes he writes at first anonymously for issur and afterwards says there is one who permits or and there are who dispute, and sometimes he writes the reverse, etc., until when he writes in the gloss of the Shulchan Aruch the opinion of one who disputes what he ruled in the Shulchan Aruch in a place where the halacha did not spread like the words of the one, and he has this law that the halacha was not stated neither like this master nor like that master — until here is his language — this requires further study: for what he wrote regarding an individual against many that we rely on the individual in great financial loss — it has already been explained that this is not so except regarding a d'rabbanan issur and not regarding a d'oraisa issur. And if you say: if so why did the Mechaber or other poskim write in several places even regarding a d'oraisa issur the opinion of the disputing individual — one may say: for the Mishnah teaches at the beginning of Eduyot: why do we mention the words of the individual among the many? So that if a person says \"thus I received,\" they say to him \"you heard according to so-and-so's words\"; and further the Mishnah teaches there: so that if a court sees the words of the individual and relies on him, etc.; and the Ra'avad explained: to say that if a later court sees that the halacha is like the words of the first individual and relies on him, that is, and fixes the halacha like him, as we find among the Amoraim who fixed the halacha like the first individuals in several places even though the many dispute them; and if they had not found the words of the first individual the later ones would not have been able to push aside the words of the first ones, etc. — until here is his language. And so too here: if the Mechaber and the poskim wrote the opinion of the many anonymously, I would say it is the Torah of Moshe or agreed in the Mishnah and Gemara, and no later authority would be permitted to dispute even with proofs; therefore he writes the words of the individual so that if some later authority brings clear proofs for his words they will give their testimony and be justified; or also because we find in several lands and places divided in laws, and each river and its course; therefore they wrote the words of an individual, for perhaps there is a place or country that rules so that they have upon what to rely; and so he wrote in responsa Menachem Azariah at the beginning of siman 97, and this is his language: know that that author, master of the children of the exile — this is his way in the Shulchan Aruch fixed for ruling: to bring first the more agreed opinion, and where one should be concerned for another reasoning he brings it in the name of \"there are who say\" (1); if so what he stated anonymously at first (at the end of siman 56) like the opinion of the geonim to permit is a complete and absolute ruling according to his reasoning, and he mentioned the second reasoning only to give honor to its author, for they too are great and many, and in many places the custom spread to forbid like them (as the Rav wrote there that so is the main [view] and so we practice — see there) — end of his words. Or also when the Mechaber takes one in the chazakah of greater against lesser and the matter is not clear to him that he is greater against lesser — if he acted to be stringent like the words of the lesser we do not reverse the act, as the Bach also wrote; or also because perhaps that law will occur in another place where there will be some further side of heter (as is stated at the end of siman 57 — see there); and of this sort we find many in the poskim who join several sides to permit; or also because it is possible that one will find in other works also like the opinion of the individual such that they will be equal or the individual will be many, as we find so many times; or possibly regarding that a conscientious person be stringent for himself like the words of the individual or the lesser — for even though it is a decided law that the halacha is like the many, nevertheless in the books of the poskim perhaps that individual has a clear proof from the Gemara or Tosefta or Yerushalmi, or perhaps one will find further in other books so. And what he wrote \"if he did an act,\" etc., that it appears from his words specifically if he already did an act, but l'chatchila not even in great financial loss; and so he wrote further there in explanation that even regarding a d'rabbanan issur one should not do so l'chatchila — and it is not so implied in the Rashba's responsum; and so it appears from the Rav's words that even l'chatchila we rely in great financial loss; however that is regarding a d'rabbanan issur, as I wrote above. And it is implied that specifically to be lenient do we rely in great financial loss on the individual or on the lesser, but not to be stringent — that is, even if he acted like the words of the individual or the lesser to be stringent, we reverse the act, whether regarding a d'oraisa issur or regarding a d'rabbanan issur, since he did not act according to the law; and that it is permitted in great financial loss — that is because they did not uphold their words in a place of money, and they said in a place of great financial loss to rely on an individual to establish it on Torah law, as I wrote above; and so it is implied from the Bach's words who wrote that if he did an act to be stringent like \"there is one who disputes\" we do not reverse the act, etc., since it is not clear to us with certainty that he is greater, etc. — it is implied if it is clear to us with certainty we reverse the act; and all the more so an individual against many, as I wrote above. And the Rav further wrote in Choshen Mishpat siman 25: and even if the many do not agree from one reason but each one has a reason of his own — since they agree regarding the matter of the law they are called many and we follow after them; and it is from Mahariv root 41; and in truth Mahariv there — this law is not clear to him, and he also did not write so there except to resolve the custom of the Ashkenazim regarding blood; and he also concludes there: and nevertheless all this is distant in my eyes; and so it is implied from the words of the Agur in the name of Maharai, and Beit Yosef and Darkei Moshe bring it in siman 92: that one should not be lenient in such a case regarding a d'oraisa issur in our case of milk mixed into fat and a doubt whether there is in the fat sixty of the milk, and afterwards some of the fat was placed in a pot — we do not say chaticha na'aseh neveilah in liquid according to Or Zarua, even though it is proven in the Asheri that he does not hold this reasoning to distinguish between liquid and dry; nevertheless one should not be stringent for that, for according to all this reasoning of chaticha na'aseh neveilah is only d'rabbanan, and our case whether according to this master or that master is permitted according to Or Zarua's opinion because it is a liquid matter, and according to the Rosh because we do not say chaticha na'aseh neveilah except regarding meat in milk — end of his words (2). It follows that if it were d'oraisa it would not be permitted since they do not agree from one reason; all the more so where there is also one who disputes both reasons — and examine carefully. Abridgment of the conduct of rulings of issur and heter that emerges from all the Gemara and poskim which the authoring rav, may his Rock and Redeemer guard him, gathered, and his spirit collected them: 1. A sage who forbade and his ruling took effect and spread — it is permitted to ask a second, only that they inform him that the first forbade; and if he clarifies that the first erred in a matter of a Mishnah or erred in weighing of opinion, and in the manner explained in Choshen Mishpat siman 25, he can permit; but if he cannot clarify that he erred, only that he has a tradition to permit or that he disputes him in weighing of opinion — even if the first returns and admits to his words he cannot permit; and if he permitted it is not permitted, for he made it a piece of issur. And there are who say that even if the second is greater than him in wisdom and number he cannot permit; and there are who permit regarding one greater than him. And if the first permitted, the second can forbid. And if both sit in the study hall and the first's ruling has not yet taken effect, the second can permit. And all this is regarding that same matter itself; but regarding another act he can rule heter, unless the first forbade it because of a stringency or because of a fence and boundary. 2. Two Torah scholars who dispute one with the other in tumah and taharah or in issur and heter: if it is a Torah matter, follow after the stringent even if he is lesser than him in wisdom and number — meaning he does not have as many students as his fellow; and if the lesser is his student, there is no halacha like a student in the place of the master even though he is stringent in a Torah issur; and if the student became wise like his master he equals him. And if it is a d'rabbanan matter: if both are equal such that it is not known which of them is greater, follow after the lenient; and if one of them is greater in wisdom or in number and he is lenient — even if they did an act to be stringent like the words of the lesser, we reverse the act; and if the greater is stringent we rely on the lesser at a time of pressure. And if one of them is greater in wisdom and the second in number — that is he has many students, even if they do not state their opinion, and all the more so if most students say like him — this one who is greater in number is called greater against his fellow. And if one of them is greater in years he is not called greater for this. And likewise we rely on the student in the place of the master regarding a d'rabbanan issur if it is a time of pressure; and likewise in a place of a dispute of an individual and many: if he acted like the individual to be stringent we reverse the act; and if the many are stringent we rely on the individual regarding a d'rabbanan issur and a time of pressure. 3. And a time of pressure is specifically in a place of great financial loss, or in small loss for a poor person regarding an important matter, or for a rich person for the honor of Shabbos and Yom Tov or for the honor of guests. And in all issurim except yayin nesech: if he can sell it to a non-Jew and there is not great financial loss, it is not called great financial loss even though he loses all the profit, since he does not lose in the principal. 4. And all this that they wrote is anonymously; but if you sometimes find a further other side of heter, whether from the Gemara or weighing of opinion and the like, one should do according to what appears in his eyes, and a judge has only what his eyes see, if he is of the sort who knows to decide and understand and rule. And for this reason if you find in some places in the Gemara and poskim matters that contradict these principles of theirs — it is because there is there some other side or reason. 5. This that you find in several places in the words of the Mechaber and the Rav or other later authorities that they bring at first one reasoning anonymously and afterwards \"there is one who permits\" or \"there is one who forbids\" or \"there are who permit\" or \"there are who forbid\" or \"there is one who disputes\" or \"there are who dispute\" — it is because it appeared to them primary like the reasoning they wrote anonymously, and the other reasoning is secondary in their eyes; and therefore one needs examination and settling of the mind why it is secondary — whether because it is like a lesser against a greater or a student against the master or an individual in the place of many, and in the ways we said; and if it is a d'rabbanan matter one may rely on the secondary to permit at a time of pressure; and if it is secondary because it was in their eyes in the chazakah of a lesser against a greater — since it is not clearly a lesser against a greater, we do not reverse the act if he acted to be stringent regarding a d'rabbanan issur; and if it is a Torah issur one should not rule like the secondary reasoning neither to be stringent nor to be lenient even at a time of pressure; and a conscientious person should be stringent for himself regarding a Torah issur. 6. If the master and the student agree to one opinion, we count them as two in issur and heter even if he needs the master's reasoning, and at the time the master teaches him the law he relies on his mouth. 7. If the many do not agree from one opinion but each one has a reason of his own and they agree regarding the matter of the law — one should not rely on them to permit regarding a Torah issur and regarding a d'rabbanan issur. 8. Wherever the words of the early authorities are written in a book and they are publicized and the later poskim dispute them — we follow after the later. But if sometimes a responsum of a gaon is found and his memory did not rise upon a book, and others are found who dispute him — one need not rule like the later, for perhaps they did not know the gaon's words, and if they had heard they would have retracted. And there are who dispute that we do not heed the later against the great early authorities, and one should be stringent; and nevertheless if the later brings the words of the early and disputes him, if he is publicized as such that he is fit to dispute, one may rely on him, and one needs to settle in the matter; however if the one who rules has in his hand to decide, he can rule like whichever he wishes; and nevertheless one should not dispute the early geonim. And from before the Rif the generations of the geonim already ruled. 9. Just as it is forbidden to permit the forbidden, so it is forbidden to forbid the permitted, even regarding that of a non-Jew, and even in a place where there is no loss, because for the most part there is in it a side of leniency in another place because it was forbidden, and it is a stringency that comes to a leniency; and even though according to what appears no side of leniency will come from this, it is forbidden, for it is possible that it will roll and a leniency will come even after a hundred matters. Therefore if he needed to forbid because of a doubt or because of a stringency in this where the issur is not clear as the sun, the one who rules must say that the issur is not clear, only that we are obligated to be stringent; and all the more so if the one who rules permits at a time of pressure and the like, that he say so to him. 10. One court in one city that split on a matter — it is forbidden for some of them to rule thus and some of them thus, because of \"you shall not form factions — you shall not make groups of groups\"; and this matter causes dispute in Israel and the Torah becomes like two Torot; and likewise it is forbidden for each group of them to do according to its words or to practice so even though they do not explicitly rule so, even though both are equal in wisdom and number; rather they should discuss the matter much until they all agree to one opinion; and if that is impossible: if it is a Torah matter all should do like the words of the stringent; and if it is a d'rabbanan matter all should do like the words of the lenient. And two courts in one city can rule these thus and those thus; and specifically regarding two known courts; but if two courts are not known in the city it is forbidden for some of the city to practice thus and some of the city thus; and even though through this dispute they became two courts it is forbidden — all the more so that this matter increases dispute. And if one court is greater than its fellow, their law is like two Torah scholars who dispute on a matter and one of them is greater than his fellow, in the manner explained above."
+      ]
+    },
+    {
+      "id": "yd1/siman243/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 243,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואין מתירין כו'. כנ\"ל ס\"ז:",
+        "י\"א שבזה\"ז כו'. כמו לענין ליטרא דדהבא ועוד שנתקלקלו הדורות ובטור סי' של\"ד כתב ירושלמי זקן שנידה לצורך עצמו אפי' כהלכה אינו נידוי פי' שישתכר ממון כו' ובפ\"ב דב\"מ (כ\"ג כ\"ד) הני תלת מילי כו' למנ\"מ כו' ובפט\"ו דשבת (קי\"ד א') איזהו ת\"ח המקפיד כו' ובדורינו כו' ועבמהרי\"ו סי' קס\"ג שהאריך בזה והכל לפי ראות וז\"ש וי\"ח ובלבד כו':"
+      ],
+      "en_segments": [
+        "And we do not permit, etc. As stated above seif 7."
+      ]
+    },
+    {
+      "id": "yd1/siman249/seif-001/baer-heitev",
+      "volume": "yd1",
+      "siman": 249,
+      "seif": 1,
+      "slug": "baer-heitev",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שאמרו. ונראה דה\"ה מעשר לבינוני שנותן שנה ראשונה מעשר מהקרן ואח\"כ מעשר מהריוח. ש\"ך:",
+        "מצוה. מהרש\"ל והדרישה כתבו בשם תשובת מהר\"מ דכל מצוה שתבא לידו כגון להיות בעל ברית או להכניס חתן וכלה לחופה וכה\"ג וכן לקנות ספרים ללמוד בהם ולהשאילם לאחרים ללמוד בהם אם לא היה יכולת בידו ולא היה עושה אותה מצוה יכול לקנות ממעשר וכן לפזר מעשרותיו לבניו הגדולים שאינו חייב לטפל בהם מותר דאפי' לאביו מותר לתת אם הוא עני משום כבוד אביו (וכ\"ש לבניו דמותר במקום שאין בעיר תקנה לתת לכיס של צדקה ואפי' יש יכולת בידו לפרנסם ממקום אחר דזהו הוי צדקה) ובט\"ז כ' דאסור לפרוע בהם מסים ולענין לקנות מצות בבהכ\"נ במעות מעשר נ\"ל דאם בשעת קניית המצות היה דעתו על זה שרי דהא המעות לצדקה אזיל ואף שהוא נהנה הא בכל מעשר יש טובת הנאה לבעלים משא\"כ אם בשעת קניית המצות לא היה דעתו ואח\"כ רוצה לפרוע מהמעשר ה\"ל כפרוע חובו מן המעשר וגם כשקונה ספר בעד המעשר צריך לכתוב עליו שזהו מן המעשר למען ידעו בניו דבר זה ולא יחזיקוהו להם עכ\"ל:"
+      ],
+      "en_segments": [
+        "They said. It seems that the Tenth of Medium, which gives the first year from ten of the liar and then from ten of the moons. “Third:"
+      ]
+    },
+    {
+      "id": "yd1/siman251/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 251,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור ולשון סמ\"ג בשם רא\"ם דכיון דעבר במזיד יצא מכלל האחוה ע\"ש הכתוב וחי אחיך עמך ומה שמשמע בגיטין דף מ\"ז ע\"א שרב אמי היה רוצה לפדות מומר אוכל נבלות לפנים משורת הדין הוא דעבד:",
+        "(°) ברייתא גיטין דף ס\"א ע\"א:"
+      ],
+      "en_segments": [
+        "The Tur and the wording of Semag in the name of the Yereim. Since he transgressed intentionally, he left the category of brotherhood, as indicated by the verse, 'Your brother shall live with you.' The implication in Gittin 47a that Rav Ami wished to redeem an apostate who ate non-kosher meat reflects conduct beyond the letter of the law. See also the baraita, Gittin 61a."
+      ]
+    },
+    {
+      "id": "yd1/siman253/seif-012/beer-hagolah",
+      "volume": "yd1",
+      "siman": 253,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה דפ\"ה דפאה וכחכמים וכאשר הגהתי כן הוא ברמב\"ם וטור:",
+        "(°) וכן כתב הרמב\"ם פ\"ט:"
+      ],
+      "en_segments": [
+        "D.F.D. has been preached and wise, and when I have done so, it is in Rambam and column: (°) and also the Rambam"
+      ]
+    },
+    {
+      "id": "yd1/siman262/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 262,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפילו מילה שלא בזמנה. כגון חולה ושאר דברים שיתבארו לקמן:",
+        "עבר ומל כו' ומלו תוך ח' כו'. היינו ע\"פ מ\"ש בד\"מ דהגהמי\"י והרא\"ש לא פליגי דאפשר דעדיף תוך ח' מאלו נימול בלילה עכ\"ל אבל לדעתי א\"א לומר כן כדמוכח להדיא במנחו' ס\"פ רבי ישמעאל (מנחות דף ע\"ב ע\"א) גבי הא דקאמר התם ר\"א בר' שמעון בשטת ר\"ע רבו אמרה כו' עד ואי ס\"ד נקצר שלא כמנותו כשר אמאי דחי שבת כו' ע\"ש בש\"ס ורש\"י גם מ\"ש מהרש\"ל והב\"ח והפרישה דנימול בלילה בדיעבד כשר וגם מ\"ש הרא\"ש פ' ר\"א דמילה בשם ר\"ש דנימול תוך ח' כשר וא\"צ להטיף דם ברית קשיא עלייהו הך ש\"ס דהתם דמוכח דלא יצא דאם איתא דכשר אמאי דחי מילה שבת לימה ליה מע\"ש ע\"ש (ויש ליישב בדוחק) והראיה שהביא שם הר\"ש מדקאמר פרק רבי אליעזר דמילה (שבת דף קל\"ז ע\"א) דהיכא דקדם ומל של שבת בע\"ש דלא ניתנה שבת לדחות אלמא דא\"צ להטיף ממנו דם ברית כיון דלא נתנה שבת לדחות לאו ראיה היא לפע\"ד די\"ל דנהי דלא יצא מ\"מ לא ניתנה שבת לדחות אלא על מצות מילה ממש ולא על הטפת דם ברית אבל באמת נימול בלילה לא יצא אפי' דיעבד כדאיתא בש\"ס התם דמדדחי שבת אלמא אפילו דיעבד פסול (גם מ\"ש הב\"י וד\"מ דמדברי תשובת הרשב\"א דלקמן סי' רס\"ד משמע כהרא\"ש ליתא דלא משמע שם מידי ע\"ש וע\"ל סי' רס\"ד ס\"ק ו') וגם מ\"ש הרמב\"ם פרק ז' מהל' תמידין ומוספין דין ו' גבי עומר מצותו להקצר בליל ששה עשר בין בחול בין בשבת וכל הלילה כשר לקצירת עומר ואם קצרוהו ביום כשר עכ\"ל הוא תמוה כדאיתא להדיא בש\"ס דמנחות שם דדחי שבת נקצר ביום שלא כמצותו פסול ורבי דאית ליה התם נקצר ביום כשר סבירא ליה דלא דחי שבת ומבואר כך להדיא בכולה סוגיא וצ\"ע ולענין דינא נראה מתוך מ\"ש דבין נימול בלילה ובין נימול ביום תוך ח' לא יצא וצריך לחזור ולהטיף ממנו דם ברית וכ\"פ הב\"ח אלא שכתב כן מפני שיש לתפוס לחומרא ולפי מ\"ש כן הוא עיקר ע\"פ הדין:"
+      ],
+      "en_segments": [
+        "(And even a word that was not in her time. It's like a patient and other things to be told to a man.\""
+      ]
+    }
+  ]
+}

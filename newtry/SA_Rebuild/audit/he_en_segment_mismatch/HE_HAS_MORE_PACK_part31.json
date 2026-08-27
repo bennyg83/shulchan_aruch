@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 31,
+    "chunk_total": 66,
+    "case_offset": 270,
+    "cases_in_chunk": 7,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman72/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 72,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין לקהל. דהא אין להם דין מלוה על המשכון דאין חייבים זל\"ז כלום דכ\"א פורע חלקו ועב\"ק קי\"ג ב'. אבל שתא כו' וערש\"י שם:",
+        "ולא לנאמן. אע\"ג דהוא אפוטרופס וחייב כמ\"ש בב\"מ מ\"ב ב' חדא דוקא לטובתם האפטרופוס חייב אבל לטובת העולם לא כמ\"ש בב\"ק ל\"ט א' וע\"ש בתוס' ובב\"מ שם ועוד דאף אפוטרופס אינו חייב רק בפשיעה כש\"ח ולא כש\"ש מדאמרי' בגטין נ\"ב ב' אייתת קבא כו' ועסי' ר\"ץ ס\"ך ועוד דטעמא דחייב דנפק קלא דאינש מהימנא משא\"כ בנאמני הקהל:",
+        "אא\"כ יש. ב\"מ פ\"ג א' ב':",
+        "(ליקוט) אא\"כ יש כו'. עש\"ך שהקשה כיון שהוא נגד הדין כו' ואיני מבין שיחתו הלא פריך בר\"פ הפועלים וליחזי היכי נהיגי כו' אף דיליף מקרא ובירושלמי שם זאת אומרת מנהג מבטל הלכה וכמה מקומות ואינו ענין זה למנהג גרוע (ע\"כ):"
+      ],
+      "en_segments": [
+        "The community is not liable. They do not have the status of a lender with respect to the collateral, because they owe one another nothing; each person merely pays his own share. See Bava Kamma 113b and Rashi there.",
+        "Nor is the communal trustee. Although he is an administrator and an administrator can be liable, that is only when acting for the beneficiaries, not for the public generally, as shown in Bava Kamma 39a. Moreover, an administrator is liable only for negligence as an unpaid guardian, not as a paid guardian, as indicated in Gittin 52b. Finally, the basis for an administrator's liability is the need to preserve his reputation for reliability, which does not apply in the same way to communal trustees.",
+        "A. has. A. A. B. (S.A.) has a name. I don't understand his non-proliferation of the workers' and the predictions that he is against the judgment of Hashem, and I don't understand his non-presidential call, and I don't understand his or her name, and that's why it's not a bad practice"
+      ]
+    },
+    {
+      "id": "cm1/siman75/seif-009/beur-hagra",
+      "volume": "cm1",
+      "siman": 75,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מנה כו'. כר\"ן וכמ\"ש בכתובות י\"ג א': מנה לי בידך שהלותיך או כו'. שם בגמ' ה\"ד כו' אלא דקתבע ליה. ואע\"ג דמסיק דלא קא תבע ליה היינו לר\"י ור\"ה וכ\"ש שאין חלוקין עליו בזה:",
+        "ישבע היסת. דלא עדיף מאלו היה טוען טענת בריא וכ\"ש שיכול להערים ועוד דאותו הטעם שאר\"נ בשבועות מ\"ב חזקה כאן שייך במכ\"ש שאין כאן חזקה נגדה שאמרו שם אדרבה כו':",
+        "ואפי' אם טען. דלא אמרי' אינו חוזר וטוען אלא בשנתחייב בטענתו ראשונה בכה\"ג דב\"ב ל\"א א' וכמש\"ל סי' פ' ע\"ש:",
+        "ואין התובע כו'. דאין נשבעין היסת על טענת ספק כמש\"ל בסי\"ז:",
+        "(ליקוט) ואין התובע כו'. עתוס' דשבועות מ\"ה א' ד\"ה וניתב כו' (ע\"כ):",
+        "אבל אם כו' כמ\"ש הרי\"ף בסוף שבועות והוא מתקנת הגאונים על כל טענת ספק:",
+        "ואם חזר כו'. ואינו טוען וחוזר וטוען אע\"פ שהוא מחיוב לפטור כיון שאינו סותר טענתו הראשונה כמש\"ל סי' פ' וראייה מפ\"ב דכתובות בעובדא דרב אשי עם רב כהנא שאינו נק' חוזר ומגיד:",
+        "(ליקוט) ואם חזר כו'. ב\"ב קע\"ה א' מ\"ט אידכורי מידכר וע\"ש בתוס' (ע\"כ):"
+      ],
+      "en_segments": [
+        "One hundred, etc. This follows Ran, as stated in Ketubot 13a: 'You have one hundred of mine that I lent you,' or, etc. The Gemara asks, 'What is the case?' etc., and answers that he is demanding it. Although it concludes that he is not presently demanding it, that applies according to Rabbi Yehudah and Rav Huna. All the more so they do not disagree with this point.",
+        "He sat down. It was better than those who would claim a healthy claim and that it could circumvent and the taste of the rest of the weeks from a “strong here belongs to a prison that is not strong here against it that said advocating a arrow:",
+        "Affiy if he claimed. Do not say that he does not return, but rather that he is charged with his first claim in the A.A. and as a result of the C.P",
+        "There is no prosecutor. There is no doubt that it is not the case of a doubt as a representative of the IDF. A. A.D. and I will be like this",
+        "But if he is called the PLO at the end of weeks, he corrects the geniuses for any doubt:",
+        "And if he later, etc. This is not considered retracting and advancing a new plea, even though he moves from a plea of liability to one of exemption, because he does not contradict his first plea, as explained above in siman 80. Proof comes from chapter 2 of Ketubot, in the incident of Rav Ashi and Rav Kahana, where this is not deemed retracting testimony.",
+        "(Anthology) And if he later, etc. Bava Batra 175a: why? Because he recollects. See Tosafot there."
+      ]
+    },
+    {
+      "id": "cm1/siman77/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 77,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לוה משנים כו'. דאף אם לוה מאחד ונכתב ע\"ש אחר אין יכול לגבות כמ\"ש בב\"ק ק\"ב הלוקח שדה בשם חבירו כו' ע\"ש וכ\"ש בכה\"ג שרצה שיתחייב לו לבד וז\"ש אבל זה כו' אע\"ג דשם ריש גלותא לא יוכל לתבוע משא\"כ כאן כנ\"ל שהאמינו והרשהו לתבוע הכל וכמ\"ש הרשב\"א סי' אלף קל\"ז ע\"ש:",
+        "וה\"ה אם כו'. הביא שם ראיה ממ\"ש בכתובות צ\"ד הני תרי אחי כו' ובעל בנכסי אשתו בדאיכא פירי בארעא כמ\"ש בפ' השולח וממ\"ש בשבועות ל\"ז א' דא\"ל מינך יזפת כו' ואם איתא דאין יכול לתבוע בלא חבירו ה\"ה כפירת ממון גמורה ונראה שהולך לשיטתו כמ\"ש הר\"ן שס\"ל כפי' הראב\"ד בירושלמי הנ\"ל פרט למכחש באחד מן השותפין שהרי חבירו יכול לתבוע אותו בכל החוב דא אמרה כו' וע\"ז סובב כל ראיותיו ואנן לא קי\"ל כן כמש\"ל בס\"ט מ\"מ בשטר א' דינו אמת וכמ\"ש בב\"מ ל\"ז א' סיפא נעשה כמי כו' וכמש\"ל סי' ע\"ו ס\"א אבל אם היה מלוה כו' דכיון כו' וזה הדין יצא מהרמב\"ן אע\"ג דפי' בירושלמי כנ\"ל ס\"א:",
+        "(ליקוט) וה\"ה אם כו'. הרשב\"א שם הביא ראיה מבעל בנכסי אשתו בס\"פ השולח ומב\"ק ע\"א ואי כתוב למחצה כו' ומכתובות צ\"ד א' הני תרי כו' ולפ\"ז בשנים שהפקידו כ\"א יכול לתבוע כולו כדעת הראב\"ד וכ\"כ הר\"ן בפ' שבועת הפקדון שדעת רשב\"א כהראב\"ד ובס\"ט פ' כהרמב\"ן וכן ק' מ\"ש בסי' ע\"ו ס\"א בהג\"ה דכיון שנעשו שותפים כו' והוא מדברי בעה\"ת והוא כ' שם בפי' לדברי הראב\"ד ע\"ש אלא שכ' שאף להרמב\"ן מ\"מ כיון דהשותפין מאמינים זל\"ז השטר שמונח ביד א' מהן לא ה\"ל למידק (ע\"כ):",
+        "איש ואשתו כו' וה\"ה בטענות כו'. דכל שאינה נושאת ונותנת בתוך הבית כאחר דמי וכמ\"ש בב\"ב נ\"א ב' ת\"ר אין כו' קבל מן האשה כו' ועתוס' שם ד\"ה קבל כו' וע\"ל סי' ס\"א סי\"ב וסי' ס\"א בהג\"ה לא היתה נושאת כו':",
+        "ראובן שכתב כו'. דל' יחיד כו' ואע\"ג דיד בעה\"ש על התחתונה בל' שמשמעות נוטה יותר. כך א\"א יד בעה\"ש על התחתונה כמ\"ש בפ\"ק דע\"ז ההוא שטרא דהוה כתובבה שית שנין יתירתא כו' ובפ' בתרא דב\"ב ההיא שטרא דהוה כתוב בה שית מאה וזוזי כו' דל פריטי כו' ושם קס\"ה ב' מלמעלה מנה כו' הכל הולך אחר התחתון וע\"ל סי' מ\"ב ס\"י בהג\"ה:"
+      ],
+      "en_segments": [
+        "Loh is changed. If he is one of us, and he is written by another, he will not be able to charge him as a member of the Holy One who wants to commit to him alone, and he will not be able to sue him as a result of Hashem’s promise to him",
+        "The same applies if, etc. Rashba proves this from Ketubot, from a husband's rights in his wife's property, and from Shevuot. His reasoning follows Raavad's explanation that denial to one partner is a complete monetary denial because the other partner may claim the entire debt. We do not follow that view generally, as stated above. Nevertheless, where there is one joint deed, the ruling is correct, as in Bava Metzia and siman 76:1. Sefer HaTerumot explains that even according to Ramban, because partners trust one another, a deed held by one partner need not be scrutinized.",
+        "A husband and wife, etc., and the same applies to claims, etc. A wife who does not conduct the household business is treated as an outsider, as stated in Bava Batra 51b. See Tosafot there and siman 61.",
+        "Reuven wrote, etc. The singular wording controls because the language inclines more strongly that way. Although ambiguities in a deed are construed against its holder, that rule does not override the more natural meaning, as shown in Avodah Zarah and Bava Batra. See siman 42:10 in the gloss."
+      ]
+    },
+    {
+      "id": "cm1/siman79/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 79,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי שהודה כו'. אע\"ג דבעובדא דלעיל שהובא בס\"א נאמן על עצמו יותר מהעדים כאן שאומר שנזכר וטעה בהודאתו נאמן כעובדא דגינאי דספ\"ק דגטין וכ' הרי\"ף שם והוא דאייתי סהדי דטעותא הוא וכמש\"ל סי' קכ\"ו סי\"ג ועבסה\"ת שי\"א:",
+        "ודוקא שטען כו'. שאל\"כ אמאי אמרו בב\"ב קכ\"ח ב' המוציא שט\"ח על חבירו כו' נשבע וגובה מחצה ולמה לא יוכל לחזור ולומר נזכרתי שפרעתי כולו ועבמ\"מ שם:",
+        "(ליקוט) ודוקא. ממ\"ש בב\"מ ד' א' מה לפיו שאינו בהכחשה והקשו דשם משום דמתנה קיהיב ליה ותי' דמיירי בכה\"ג נ\"י שם ועוד הביא ראיה מב\"ב קכ\"ח ב' המוציא כו' והעדים כו' ופי' דמסתמא אחר שבאו העדים חזר בו ע\"ש שהאריך (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who admitted, etc. Although in the earlier incident a person is believed against himself more than witnesses, here he claims that he later remembered and that his admission was mistaken. He is believed only where he brings witnesses proving the mistake, as in the case in Gittin and as stated in siman 126:13.",
+        "Specifically when he claimed, etc. Otherwise, why does Bava Batra say that one who produces a deed and is contradicted by witnesses swears and collects half? He should be able to retract and say that he remembered payment of the entire amount. Nimukei Yosef explains the Gemara accordingly and adduces the same proof."
+      ]
+    },
+    {
+      "id": "cm1/siman81/seif-014/meirat-einayim",
+      "volume": "cm1",
+      "siman": 81,
+      "seif": 14,
+      "slug": "meirat-einayim",
+      "kind": "he_has_more_segments",
+      "heSegs": 11,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שלא להשביע את עצמי הודיתי. פי' שלא ארא' כעשיר ושבע:",
+        "נאמן. אע\"פ שהודאתו היתה בהודא' גמור' סבירא לי' גם להרמב\"ם דיכול לטעון שלא להשביע וכמ\"ש לעיל בס\"ח בשמו והא דכתב לקמן בסי' רנ\"ה בס\"ב ז\"ל דאם אמר דרך הודא' ולא הי' שם חשש הערמ' נותנים לק\"מ דבמה שכתב ולא \"הי' \"חשש \"הערמה ר\"ל באופן דל\"ש ביה לומר שלא להשביע וכ\"כ הכ\"מ שם וכתב כגון שכתבו בפניו להרמב\"ם או שאין לו בנים אלא שאר יורשים לכ\"ע ע\"ש:",
+        "ואין חילוק בזה בין עני כו'. ור\"ל אפי' בעני שבלאו הכי אין אנו מחזיקים אותו בעשיר אפ\"ה מצי להתנצל ולו' שהודה שלא להשביע וכדי להחזיקו ביות' עני משישמעו שהוא חייב לאחרים ועד\"ז הוא בנ\"י ולא כע\"ש שבא ללמדינו שאפי' עשיר יכול להתנצל בטענ' זו דז\"א דעשיר פשיטא הוא וק\"ל:",
+        "בין שהי' שכ\"מ ואע\"ג דלענין טענת השטא' נתבאר בטור ובדברי המחבר לעיל ס\"ב דאין אדם משטה בשעת מיתה אבל לענין טענת השבע' גם בשכ\"מ אמרינן כדי שלא להשביע את בניו אמר כן שלא יחזיקום הבריות בעשירות שאביהן הניח להן ירוש' גדולה:",
+        "הי' התובע עמו כו'. דדוק' בהשטא' יכול לומר כשם שאתה באת להשטות בי בתביעתך כו' וכנ\"ל אבל בהשבע' דהיינו שהודה בלא תביע' אמרינן דלא הי' לו להודות בפני התובע מירא' שישמע התובע ויתבענו ע\"פ העדים אלא ודאי להודא' גמורה נתכוין כי הוא הי' חייב לו:",
+        "אלא כדי שלא להשביע כו'. וכ' בנ\"י פ' ז\"ב ואפי' נרא' מדבריו שמכוין להשביע את עצמו כגון שאמר מאן מסיק בי אלא פלניא ופלניא ואפ\"ה (לא) מיקרי הודא' כן מוכח בגמ' ד\"מ ל\"ב:",
+        "ולענין שבוע' כו'. ענין בפני עצמו הוא ואליבא דכ\"ע הוא וכן הוא בטור:",
+        "צריך לישבע. פי' נשבע שאינו חייב לו שהרי טוענו עתה טענת ברי שחייב לו ונרא' דא\"צ לכלול בשבועתו שכונתו הית' כדי שלא להשביע כיון דאנן טענינן ליה טענת שלא להשביע וכן מוכח קצת מלשון הרא\"ש שכ' דדל עדים מהכא כו' משמע דאין עליו שבוע' אלא מכח תביעת ברי שלו:",
+        "טענת שלא להשביע טוענין כו'. אע\"פ שכ' המחבר בסעיף כ\"א פלוגת' בזה כתבו מור\"ם כאן ופסק דטוענין לו כי הוא נמשך אחר לשון הטור שכ' בסי' ל\"ב אהאי דינא בפשיטות דטוענין לו וגם משום דהבה\"ע ס\"ל דהלכ' כמאן דאמר דטוענין לו והמחבר בסעיף כ\"א נמשך אחר לשון הרמב\"ם וכ' בסוף עלה דעת הטור ע\"ש:",
+        "והודה אחד \"על\" ידי \"שליח. כן היא הגירסא נכונ' וכן הוא שם בריב\"ש:",
+        "תביעה מבעל דבר עצמו דדוק' כשבעל דבר עצמו תבעו שייך טעם הנ\"ל שאמר כשם שאתה תבעני בהשטא' כו' ועד\"ז הוא מ\"ש הטור והמחבר בסמוך בס' כ\"ד ע\"ש ולא כמ\"ש בע\"ש דא\"י לטעון השטא' משום דהכרזת ב\"ד לאו השטא' היא עכ\"ל דלאו בב\"ד תליא מילת' אלא כמ\"ש:"
+      ],
+      "en_segments": [
+        "I admitted only so that I would not appear wealthy.",
+        "Meaning, I did not want to appear to be a wealthy and fully satisfied person.He is believed.",
+        "Even though his admission was made in a full form, Rambam also holds that he may explain that he admitted only so that people would not think him wealthy, as explained above in seif 8 in his name.",
+        "What Rambam writes below in siman 255, seif 2, that if a person spoke by way of admission and there was no concern of trickery, the money is given accordingly, is not difficult.",
+        "The phrase 'there was no concern of trickery' means that the circumstances did not allow the explanation that he admitted merely in order not to appear wealthy.",
+        "Where that explanation is plausible, it remains a valid defense even against a formal admission."
+      ]
+    },
+    {
+      "id": "cm1/siman82/seif-001/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 82,
+      "seif": 1,
+      "slug": "urim-vetumim-tumim",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אמנה וכו' כתב הש\"ך ס\"ק ב' דאפילו דאמר דעדים ידעו שהוא אמנה ומשוי' נפשייהו רשעים מכל מקום נאמן הלוה במגו דמזויף אף שיאמר דעדים גופיה ידעו מזה והביא ראיה מדברי נ\"י דנאמן לומר קטן הי' וא\"צ להביא ראיה מנ\"י כי הוא מגמ' שם כתובות דף י\"ט מוכרח בהא דאמר ר\"ה האומר שטר אמנה הוא א\"נ ומוקמינין ליה דאמר לוה. ורב ס\"ל מודה בשטר שכתבו א\"צ לקיימו. ולמה לא מוקמינן ליה דאמר שטר אמנה ועדים ידעו מזה וא\"כ לכ\"ע אינו נאמן ואצ\"ל דוקא כמ\"ד דא\"צ לקיימו ודוחק לומר הואיל בלא\"ה רב ס\"ל כן להלכה וע\"ש בתוס' ועכצ\"ל דבכה\"ג למ\"ד צריך לקיימו נאמן והדבר מוכרח:",
+        "ואם אח\"כ מצא וכו' הב\"ח בספרו וכן בתשובה שלו סי' ך' פסק דאם כבר נשבע דפרע ואח\"כ מצא עדים לקיימו מ\"מ כבר נפטר כיון דאין עדים מעידים בבירור דלא פרע ולכך יכול לומר איני נשבע עד שתקרע השטר אבל בטוען מזויף באמת א\"י לומר קרע השטר ואם אח\"כ נתקיים הרי הוא מוכחש מעדים וחייב לשלם והרב הש\"ך וכן הט\"ז השיגו עליו ע\"ש ואני מוסיף לשאול לשיטת הב\"ח איך נאמן דהוא פרוע במגו דמזויף מה מיגו איכא הלא ידע בנפשו דאינו מזויף וא\"כ ודאי דיש לחוש דימצא עדים לקיימו א\"כ הלא יותר טוב שיטעון פרוע דאף דבאו עדים מכל מקום כבר נפטר משא\"כ אם יטעון מזויף ויבאו עדים יצטרך לשלם א\"ו דליתא לדינו והנכון כש\"ך וט\"ז ואין להקשות אף לשיטתם מה מיגו יש דירא דיבאו עדים וא\"כ אם יטעון מזויף יהיה מוכחש מעדים ויהיה חשוד אבל בטוען פרעתי אף דיתחייב לפרוע מ\"מ לא יהיה מוכחש מעדים די\"ל דיכול לטעון א\"י אם שטר זה אמת ומספק גם כן לא גבינן ולא יהיה מוכחש כלל וכן כתבו התוס' גבי עדים דלא הוי מגו דבי תרי די\"ל שתקי והיינו אם ישאלו להם הב\"ד אם זה כת\"י יאמרו לא ידענו.",
+        "ויש חולקים וכו' ומתוס' ב\"מ דף י\"ג ד\"ה הא קאמר להד\"מ משמע כמו דיעה קמייתא דהקשו בטוען להד\"מ אם יש בו אחריות אמאי לא יחזור בממ\"נ אם לא יקיימנו לא יגבה מעולם ואם יקיימו בדין יגבה ע\"ש שהאריכו בתי' וקשה מה בכך דטען מזויף אם יתקיים יכול הוא לטעון אחר כך כתבתי ללות ולא לוה ונאמן כל זמן שהשטר ביד המוצא כמ\"ש רש\"י ד\"ה הניחא משא\"כ אם יחזירו למלוה ויתקיים שוב לא יוכל לטעון אחר כך כתבתי ללות ולא לוה כיון דשטרו בידו ועכצ\"ל דסבירא ליה לתוס' אף דשטר עדיין ביד המוצא כיון שטען תחילה מזויף ונתקיים שוב לא יכול לומר כתבתי ללות וכו' דהוחזק כפרן ואין לדקדק דמה בכך דהוחזק כפרן מכל מקום איך נהדר ליה שטר שיש בו אחריות דלמא כתב ללות ולא לוה ומה יועיל קיומו ואי דהוחזק כפרן מה יועיל זה לגבי לקוחות לו יהיה דהודה דחייב מכל מקום חיישינן גבי לקוחות דזה אינו חדא דא\"כ למה צורך לומר בשטר שאין בו אחריות ס\"ל לר\"מ דאינו גובה מב\"ח נמי הא לגבי נפשי' הוחזק כפרן וא\"כ בממ\"נ אם יתקיים שורת הדין לגבות מב\"ח באם לא יתקיים אינו מזיק החזרה ועוד הא שמואל לא חייש לקנוני' כלל וא\"כ כיון שהוא הוחזק כפרן וה\"ל כמודה דלא היה כותב ללות ולא לוה מהני גבי לקוחות נמי. וכ\"כ התוס' כתובות דף צ\"ב ע\"ב ד\"ה דינא בהך דטוען מזויף דתו א\"י לטעון פרעתי דהאומר לא לויתי וכו' והדבר מבואר:",
+        "אך לפ\"ז דברי רשב\"א סותרים דהך ויש חולקין דכתב רמ\"א הוא דעת רשב\"א בתשובה הובא בב\"י סי' פ' ואלו הרשב\"א בחדושיו לגיטין דף ט' בפסקא המביא גט בא\"י וכו' הביא גם כן קושית התוס' הנ\"ל ומתחילה עלה ברוחו לומר כמ\"ש דאע\"ג דאמר מתחילה לא כתבתי אותו מכל מקום חיישינן לדלמא כתב ללות ולא לוה דלא רמי אנפשיה או דמימר אמר אי אומר כתבתי ללות דלמא לא יאמינו לי אימא לא כתבתי. אבל כתב לבסוף דדוחק לומר דלגבי נפשיה נימא דטענה אחרת היה לו ולא מגלה טענתו וזה דוחק ע\"ש דמבוארים הדברים דלמסקנא ס\"ל אף בכה\"ג לא מצי לטעון טענה אחרת ולכן היה מקום לומר דוקא שם דמסתמא דין זה נודע לכל בשטר הנמצא אם יטעון הוא לא הגיע מעולם ליד המלוה וכתבתי ללות ולא לוה פשיטא דאין רשות ביד המוצא להחזירו דהשכל מחייב זה למי ישמע אם למלוה או ללוה והרי זה בספק ומונח לעולם וא\"כ ל\"ל כל החרדה לטעון מזויף יטעון כך ועכצ\"ל דשקר הוא ולכך הוחזק כפרן אבל כאן בשטר דיודע אם יטעון פרעתי לא יהיה נאמן ואפי' דמביא עדים אולי לא היו עדים אז מצוים שפיר י\"ל הואיל וחשתי דלא יאמינו לי לכן אימא טענת מזויף כמ\"ש רשב\"א בחדושיו הנ\"ל להדיא וא\"ש ובזה מ\"ש לעיל בסי' ס\"ט ס\"ק וי\"ו מסברא הדבר מוכרח בזה מדברי רשב\"א עצמו ואין בו פקפוק כלל שלא יהיה דעת הרשב\"א סותר זא\"ז כלל והדברים נכונים אמנם מתוך התוס' שסתמו דבריהם וביחוד תוס' דכתובות משמע כמ\"ש דאל\"כ לא ה\"ל להקשות ולחלק בסברא מסתם וה\"ל לתוס' לבאר כדרכם:"
+      ],
+      "en_segments": [
+        "A trust deed, etc. The Shach, seif katan 2, wrote that even if the borrower says that the witnesses knew it was a trust deed, thereby rendering them wicked, the borrower is nevertheless believed by a migo that he could have claimed that the deed was forged, even when he says that the witnesses themselves knew of the arrangement. He brought proof from the Nimukei Yosef that one is believed to say that he was a minor. There is no need to bring proof from the Nimukei Yosef, for this is compelled by the Gemara there in Ketubot 19, where Rav Huna says that one who says, \"This is a trust deed,\" is not believed, and the Gemara establishes this as a statement by the borrower. Rav holds that one who admits that he wrote a deed need not have it authenticated. Why did the Gemara not establish the case as one where he says that it was a trust deed and that the witnesses knew of it, in which case according to all opinions he should not be believed, rather than making the ruling depend specifically on the view that authentication is unnecessary? It is strained to say that this was done merely because Rav independently rules that way as halachah. See Tosafot there. Necessarily, in such a case, according to the view that the deed must be authenticated, he is believed. The point is therefore compelled.",
+        "And if he subsequently found, etc. The Bach, both in his work and in responsum siman 20, ruled that if the borrower already swore that he repaid and the lender subsequently found witnesses who could authenticate the deed, the borrower has nevertheless already been discharged, since the witnesses do not testify clearly that he did not repay. For this reason he may say, \"I will not swear until you tear up the deed.\" But one who pleads that the deed is forged cannot in truth demand that it be torn up, and if it is later authenticated he has been contradicted by witnesses and must pay. The Shach and the Taz challenged the Bach; see there. I add a question against the Bach's position. How can the borrower be believed that the debt was paid by a migo that he could have claimed forgery? What migo is there? He knows himself that the deed is not forged, and he must therefore be concerned that witnesses may later be found to authenticate it. It is thus better for him to plead payment, since even if witnesses later appear, according to the Bach he has already been discharged, whereas if he pleads forgery and witnesses appear he will have to pay. Rather, the Bach's ruling cannot stand, and the position of the Shach and Taz is correct. One should not ask, even according to their view, what migo exists, since he may fear that witnesses will appear, and if he pleads forgery he will be contradicted by witnesses and become disqualified as a suspect person, whereas if he pleads payment, even if he must ultimately pay, he will not be contradicted by witnesses. He could instead plead, \"I do not know whether this deed is genuine,\" in which case collection likewise cannot be made because of the doubt, and he would not be contradicted at all. Tosafot similarly wrote regarding witnesses that there is no migo of two persons, since they could remain silent, meaning that if beit din were to ask whether this is their handwriting they could answer, \"We do not know.\"",
+        "And some disagree, etc. From Tosafot in Bava Metzia 13, s.v. \"He says it never happened,\" it appears like the first view. Tosafot ask, in a case where the borrower claims that there never was such a debt, why, if the deed contains a lien on property, should it not be returned? Either way, if the lender cannot authenticate it he will never collect, and if he does authenticate it he is legally entitled to collect. See there, where Tosafot discuss this at length in their answers. This is difficult. What follows from the borrower's having pleaded forgery? If the deed is authenticated, he should still be able afterward to say, \"I wrote it intending to borrow, but I never borrowed,\" and he is believed so long as the deed remains in the finder's possession, as Rashi wrote on \"this works well.\" This is unlike the case where it is returned to the lender and then authenticated, for once the lender holds his deed the borrower can no longer plead that he wrote it intending to borrow but never borrowed. Necessarily, Tosafot maintain that even while the deed remains with the finder, once the borrower initially claimed that it was forged and it was then authenticated, he can no longer say that he wrote it intending to borrow but never borrowed, because he has established himself as a false denier. One cannot argue that although he has established himself as a false denier, how can we return a deed containing a lien on property, since perhaps he wrote it intending to borrow but never borrowed, and what does authentication accomplish regarding purchasers? Even if he admitted that he owes the debt, we would still be concerned on behalf of purchasers. This is incorrect for two reasons. First, if so, why was it necessary to say that with a deed lacking a lien Rabbi Meir holds that one cannot collect even from the debtor's free property? With respect to the debtor himself, he has established himself as a false denier. Therefore, either way, if the deed is authenticated, the law requires collection from his free property, and if it is not authenticated, returning it causes no harm. Second, Shmuel is not concerned about collusion at all. Since the borrower has established himself as a false denier, it is as though he admitted that he did not write the deed merely intending to borrow and then fail to borrow. This admission is effective even with respect to purchasers. Tosafot in Ketubot 92b, s.v. \"the law,\" likewise wrote in the case of one who pleads forgery that he can no longer plead payment, because one who says, \"I never borrowed,\" etc. The matter is explicit. However, according to this, the Rashba's rulings appear contradictory. The \"some disagree\" cited by the Rama is the view of the Rashba in a responsum brought by the Beit Yosef in siman 80. Yet the Rashba, in his novellae to Gittin 9 on the passage concerning one who brings a bill of divorce in Eretz Yisrael, also cited the question of Tosafot above. Initially he considered saying as I wrote, that even though the borrower first said, \"I did not write it,\" we may nevertheless be concerned that perhaps he wrote it intending to borrow but never borrowed, because he did not pay attention to formulate his first plea precisely, or because he thought, \"If I say that I wrote it intending to borrow, perhaps they will not believe me, so I will say that I never wrote it.\" But he ultimately wrote that it is difficult to say that with respect to his own liability we should assume that he had a different plea but did not disclose it. See there. His words indicate that in his final view, even in such a case he cannot advance a different plea afterward. It may therefore be said that there the rule is different. Everyone presumably knows the law concerning a found deed, namely that if the borrower pleads that it never reached the lender and that he wrote it intending to borrow but never borrowed, the finder plainly has no authority to return it. Reason itself dictates this, for whom should the finder heed, the lender or the borrower? The matter remains doubtful and the deed is held indefinitely. If so, why would the borrower go to the trouble of claiming forgery when he could simply make that plea? Necessarily his forgery plea is false, and he therefore establishes himself as a false denier. Here, however, with an ordinary deed, he knows that if he pleads payment he will not be believed. Even if witnesses might be brought, perhaps such witnesses were not then available. Thus he can properly say, \"Because I feared they would not believe me, I instead pleaded forgery,\" exactly as the Rashba wrote explicitly in the novellae cited above. This is satisfactory. Accordingly, what I wrote above in siman 69, seif katan 6, from reasoning alone is compelled by the Rashba's own words, without any concern that the Rashba contradicts himself, and the matter is correct. Nevertheless, from the unqualified language of Tosafot, especially Tosafot in Ketubot, it appears as I wrote initially. Otherwise, Tosafot should not have raised the question and distinguished merely by an unstated rationale; they would have explained the distinction in their usual manner."
+      ]
+    },
+    {
+      "id": "cm1/siman82/seif-012/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 82,
+      "seif": 12,
+      "slug": "urim-vetumim-tumim",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נשבע המלוה ונוטל הש\"ך כתב דזהו למ\"ד דאפי' כת\"י העדים יוצא ממ\"א נאמנים לומר תנאי היה דמילתא אחריתי הוא ודמי' לפרעון אבל לדעת החולקים א\"כ איך יהיה נאמן הלוה להטיל שבועה הא דמי' לאמנה. ודבריו כמעט מוכרחי' דאל\"כ איך אמרי' דאינם נאמני' בשכת\"י יוצא ממ\"א הוא יטעון תנאי היה ויצטרך לישבע ואיך ישבע והעדים מכחישים. ואם נאמר דעדים הם בזה ודאי משקרים ואינם נאמנים ואמרינן דודאי לא היה תנאי איך נאמין אותו להטיל שבועה ודוחק לומר דהא דאמרינן דאינם נאמנים היינו דאין הלוה חי לטעון רק שמת וליורשים לא טענינן מילתא דלא שכיח כלל והך ע\"כ הוי מילתא דלא שכיח כלל דאל\"כ אף בת\"ז נטעון ליתמי דלמא תנאי היה כהנ\"ל בס\"ק זיי\"ן דתינח בליכא עדים אומרים כן אבל כשיש עדים מהכ\"ת לא נטעון ליתומים דבר שרגלים לדבר בזה. אמנם בזה יש לי ספק ודאי העדים אינן נאמנים דה\"ל לכתוב תנאי בשטר ואיך כתבו סתם והעלימו עיקר שהשטר עומד עליו ועיין בר\"ן שכתב להדיא להך רבוותא דס\"ל דאינן נאמנים אם כת\"י יוצא ממ\"א הטעם דהוא עול להעלים התנאי משטר ומבלי לכותבו רק דהר\"ן הקשה א\"כ אפילו באין כת\"י ממ\"א נמי לא להימני כמו אמנה ולשיטת' צ\"ל כיון דשטר נכתב כהוגן רק צריך להוסיף תנאי כ\"כ דלא נתקיים השטר בב\"ד יכולים לגמור עדות דעדיין לא גמרו עדותן עכ\"פ הטע' דאינם נאמנים משום דהוא עול ואם כן אף באו' דתנאי היה בעדים ולא כתבו מסתבר כש\"ך דהוא עול וחזקה בעדים שעושים כהוגן ומהכ\"ת יכול להטיל שבועה. אבל באומר תנאי היה בינינו מה שלא נודע לעדים כלל ולכך לא כתבוהו אין זה עול כלל ועיי' לעיל סי' מ\"ו דאם העדים אומרים שנתודע להם אח\"כ נאמנים אפי' כת\"י ממ\"א ניכר ואם כן ה\"ה כשהוא אומר דהיה תנאי מבלי נודע לעדים",
+        "דאין אומרים מגו להוציא הש\"ך בס\"ק כ\"א הקשה על זה דהא הוי במקום שטרא מעליא ובמקום שטרא מעליא אמרינן מגו להוציא וזהו במקום שטרא מעלי' דמה בכך דהיה מתחילה ע\"ת עכשיו הוא שטרא מעליא ואלו היה השטר מתחילה באמנה שילוה לו ולבסוף באמת הלוה לו וכי אינו שטר מעליא. ויפה הקשה ולי נראה ודאי אם התנאי היה שיעשה דבר פלוני קודם תשרי ועבר תשרי והמלוה אומר שנא עשה ועכשיו תו ליכא זמן לעשותו ושטרו בכל תוקף בלי שיור כלל ודאי הנכון כמ\"ש הש\"ך דה\"ל כמתחילה היה באמנה ולבסוף הלוהו דהו\"ל שטר מעליא משא\"כ אם התנאי היה שאם יעשה דבר פלוני שיהיה השטר בטל בלי הגבל' זמן רק הלוה אמר שכבר קיימו והמלוה אומר עדיין לא קיימו א\"כ מודה המלוה ששעבודו תלוי ברפיון ואם ירצה הרי כל שעה יכול לקיים תנאו אם כן לא הוי שטר מעליא דכל טעמו לפי דעת הש\"ך דבשטר אמרינן מגו להוציא משום דכגבוי דמי ואין זה כגבוי דהא כל שעה לקיים תנאו ואיך אפשר דהוי כגבוי ולכך נקטו בלשונם הטהור זה אופן התנאי ולא להיפוך דלו' אמר ע\"ת כך מסרתי לך השטר אם תדבר לשלטון בעבורי יהיה לך ואם לאו לא ולא דברת והמלוה אומר אמת היה ע\"ת כך ודברתי דבזה לדברי המלוה חל שטרו לגמרי וה\"ל מגו במקום שטרא מעליא ונאמן אבל באופן שכתבו הם אין כאן שטרא מעליא דבכל עת בידו לבטל החיוב ושעבוד וזהו כוונת הבעה\"ת שכתב ואף על גב דאמרינן בעלמא בשטרא מעליא אמרינן מגו להוציא וכו' האי שטר נמי כיון דקא מודה ליה דע\"ת הוי ואי מקיים תנאו לא חל שעבוד' ולוה קא טען דקיים לתנאי הא לא חל כלל עכ\"ל הרי דקדק לומר ואי מקיים תנאו ולא קאמר אי הוי מקיים תנאו אלא ש\"מ דעוד בידו לקיים תנאו וכן מורה לשון הש\"ע שאומר שעדיין לא קיימו מלת עדיין מורה דעוד יש זמן לקיימו ואם כן לא שייך שטרא מעליא וכגבוי דמי ודוק:",
+        "ואם א' אומר ע\"ת כו' כתב הש\"ך בשם הר\"ן דע\"א אומר פרוע אפי' באין כת\"י יוצא ממ\"א אמרי' תרווייהו בשטר' מעליא מסהדי וה\"ל חד כו' עכ\"ל אבל מדברי הרמ\"ה שהביא הטור בסימן מ\"ו מוכח דגם בפרוע בטל השטר ומ\"מ נראה דאף רמ\"ה לא אמר אלא כשאין כת\"י יוצא ממ\"א אבל אם יוצא ממ\"א לא מסתבר לומר שיהיה נאמן וכו' דא\"כ מצינו ע\"א קם בממון וכו' עכ\"ל ולא הבנתי דבריו דמה דתלי בסברא בכת\"י יוצא ממ\"א דאין נאמן תמהני משנה שלימה היא ע\"א מעיד שפרוע תשבע ואמרי' דהוא רק כדי להפיס דעת ומה לי אותו עד ומה לי עד אחר כיון שכ\"י יוצא ממ\"א ובפרט לענין פרעון דאין ענין לעדותו כלל ובאין כת\"י יוצא ממ\"א ג\"כ הדין כר\"ן דאין נאמן לומר פרוע הוא לבטל השטר רק זוקק לשבועת המשנה ואין כאן מגו דהיה שותק ולא מקיים כתב ידו דמה בכך ה\"ל שטרא בע\"א שהוא עד השני ויהיה הלוה צריך להכחיש העד וזה אינו רוצה ואי יודה הא תו אינו נאמן לומר פרעתי כדלעיל סי' נ\"א בע\"א בשטר ולא שייך לומר הא הטעם דהוי משאיל\"מ וכאן יש לו עד מסייע במקום דאמרי' משאיל\"מ לא מהני עד מסייע וא\"כ הו\"ל מגו להכחיש העד ומ\"ש הש\"ך ראיה מרמ\"ה הרמ\"ה לא כתב רק ע\"א אומר פרוע וא' אומר אינו פרוע דלא אמרי' אין דבריו של הא' במקום שנים וכוונתו דזקוק לשבועת המשנה ולא תימא הואיל וע\"א מכחישו ה\"ל עד מסייע וכמש\"ל בסי' מ\"ו בטעמו של רמ\"ה אבל לא כתב דמבטל שטרא. ועוד י\"ל רמ\"ה ס\"ל כדעת רשב\"א החולק בסי' נ\"א וס\"ל ע\"א בשטר יכול לומר פרעתי א\"כ יש לו מגו דשתיק והי' הלוה נאמן דפרע אף עכשיו נאמן דפרע אבל לדינו של הרמב\"ם לעיל סי' נ\"א ודאי דאינו נאמן ומיהו אפשר אפילו לדעת הר\"ן נאמן לומר פרוע הוא שלא לגבות ממשעבדי דלגבי משעבדי יש לו מגו דשתיק ואי דיהיה מלוה בשטר בע\"א הא לא ניתן לגבות ממשעבדי ואי דאמרינן דהך עד נתכווין שאפילו מב\"ח לא יגבה ולכך העיד שפרע עיין לקמן בכללי מגו אי הוי מגו כה\"ג ע\"ש:",
+        "להיות כי הש\"ך קבע בסוף ס\"ז כללים לדיני מגו כי גם הד\"מ וסמ\"ע כתבו בס\"ז קצת ד\"מ והרב המאסף בעל כנה\"ג אשר היה אחריו בזמן הוסיף בסימן זה ללקט בשושנים דברים מהמחברים בעלי תשובות וספרים קדמונים דינים רבים בעניני מגו ואמרתי להביא דבריו בסדר סמני' שקבע א' לאחת בקצרה כי בדבריו נכללים כל הדינים שלקט הש\"ך ולכתוב בצדו מה שנר' לענ\"ד אם כעוזר ואם כדוחה ופעם כטוען ופעם כמפרק מה שיש בו מקום ובה' נעשה חיל כי בו בטחתי הוא יאיר עיני במאור תורתו למען שמו:"
+      ],
+      "en_segments": [
+        "The lender swears and collects. The Shach wrote that this follows the opinion that even when the witnesses' handwriting is authenticated from another source, they are believed to say that there was a condition, since this is a separate matter and resembles a plea of payment. According to the dissenting opinions, however, how can the borrower be believed even to impose an oath? Such a plea resembles a trust deed. His words are nearly compelled. Otherwise, how can we say that witnesses are not believed, when their handwriting is authenticated from elsewhere, to say that there was a condition? The borrower himself could plead that there was a condition, thereby requiring the lender to swear. How could the lender swear when the witnesses contradict him? If we say that in such a case the witnesses are certainly lying and are not believed, so that we assume there was definitely no condition, why should the borrower be believed sufficiently to impose an oath? It is strained to say that the rule that the witnesses are not believed applies only where the borrower is not alive to make the plea, and that for heirs we do not plead an entirely uncommon matter. This plea must indeed be entirely uncommon, for otherwise even within the term we would plead for the heirs that perhaps there was a condition, as discussed above in seif katan 7. That may suffice where there are no witnesses saying so, but where witnesses themselves say that there was a condition, why should we not plead for the heirs a matter for which there is substantial indication? Still, I am uncertain about this. Certainly the witnesses themselves are not believed, because they should have written the condition into the deed. How could they write the deed without qualification and omit the principal condition upon which it depends? See the Ran, who explicitly writes, according to the authorities who hold that the witnesses are not believed when their handwriting is authenticated elsewhere, that the reason is that it is improper for them to conceal the condition from the deed and fail to record it. The Ran asks that if so, even where their handwriting is not authenticated from another source they should not be believed, just as with a trust deed. According to that view one must answer that since the deed itself was written properly and merely required the addition of the condition, so long as it has not yet been authenticated in beit din the witnesses may complete their testimony, since their testimony is not yet finalized. In any event, the reason they are not believed is that their conduct would be improper. If so, where the borrower says that there was a condition known to the witnesses and they failed to record it, the Shach's position is reasonable, for such conduct would be improper and witnesses are presumed to act properly. Why should the borrower be able to impose an oath on that basis? But where he says that the condition existed privately between the parties and was never known to the witnesses, so that they had no reason to write it, there is no impropriety at all. See above in siman 46, where if the witnesses say that they learned of the condition only afterward, they are believed even though their handwriting is authenticated from elsewhere. The same should therefore apply where the borrower says there was a condition unknown to the witnesses.",
+        "Because we do not say migo to extract money. The Shach, seif katan 21, challenges this, for the migo here stands together with a fully valid deed, and we do say migo to extract where there is a fully valid deed. This is indeed a fully valid deed. What difference does it make that it was initially conditional? It is now fully valid. If a deed was initially given as a trust arrangement on condition that the lender later lend the money, and afterward he actually lent it, would it not become a fully valid deed? The Shach's question is strong. It appears to me that if the condition was, for example, that the borrower perform a certain act before Tishrei, Tishrei passed, and the lender says that he did not perform it, so that there is no longer any opportunity to satisfy the condition and the deed now has full force without qualification, then the Shach is certainly correct. It resembles a deed that was initially a trust deed and later became effective through the actual loan, and is now a fully valid deed. But if the condition was that whenever the borrower performs a certain act the deed is void, without any time limit, and the borrower says that he already performed it while the lender says that he has not yet performed it, then the lender himself admits that his lien remains precarious. The borrower can still satisfy the condition at any time if he wishes. Such a deed is not fully valid in the relevant sense. According to the Shach, the reason we allow a migo to extract money where there is a deed is that the deed is regarded as though already collected. This deed cannot be regarded as collected, because the borrower can satisfy the condition at any time. How can it be considered already collected? Therefore the authorities formulated the condition specifically in this manner and not in the reverse form. They did not describe a case where the borrower says, \"I gave you the deed on condition that if you speak to the ruler on my behalf it will belong to you, and if not it will not, and you did not speak to him,\" while the lender responds, \"It is true that this was the condition, but I did speak to him.\" In that case, according to the lender's own words, the deed has become fully effective, and his migo would stand together with a fully valid deed, making him believable. In the form they wrote, however, there is no fully valid deed, because at every moment the borrower retains the power to annul the obligation and lien. This is the intent of the Baal HaTerumot, who wrote: although elsewhere we say that where there is a fully valid deed one may rely on a migo to extract money, here too, since the lender admits that it was conditional, and if the borrower fulfills his condition the lien never takes effect, while the borrower claims that he did fulfill it, the lien never took effect. His precise language is, \"and if he fulfills his condition,\" not \"and if he had fulfilled his condition,\" showing that it still remains within the borrower's power to satisfy the condition. The language of the Shulchan Aruch likewise indicates this, for it says that the borrower \"has not yet fulfilled it.\" The word \"yet\" indicates that time remains for him to fulfill it. Therefore this is not a fully valid deed regarded as already collected. This is precise.",
+        "And if one witness says that it was conditional, etc. The Shach wrote in the name of the Ran that if one witness says the deed was paid, even where the witnesses' handwriting is not authenticated from another source, we say that both witnesses testify to a fully valid deed, while one of them separately says it was paid, etc. But from the Ramah whose words are cited by the Tur in siman 46 it appears that even where the witness says it was paid, the deed is nullified. Nevertheless, it appears that even the Ramah said this only where the witnesses' handwriting is not authenticated from elsewhere. If it is authenticated from elsewhere, it is unreasonable to say that the witness is believed, for otherwise we would find one witness able to establish a monetary result. These are the Shach's words. I did not understand them. Why does he treat it as a matter of reasoning that where the handwriting is authenticated from elsewhere the witness is not believed? This is an explicit Mishnah: if one witness testifies that the deed was paid, the claimant must swear. The oath is understood as being only to appease the debtor's mind. What difference is there between that witness and any other witness once the handwriting is authenticated from elsewhere, especially regarding payment, which has no connection to the original testimony in the deed at all? Even where the witnesses' handwriting is not authenticated from elsewhere, the law follows the Ran: the witness is not believed to say that it was paid so as to nullify the deed. He only obligates the claimant to take the oath of the Mishnah. There is no migo that the witness could have remained silent and refused to authenticate his handwriting. What would that accomplish? There would still be a deed supported by one witness, namely the second witness, and the borrower would then have to contradict that witness. The first witness does not wish to force him to do so. If the borrower admits the debt, he can no longer plead payment, as above in siman 51 concerning a deed supported by one witness. One cannot say that the reason is only that such a borrower is one who cannot swear and therefore must pay, whereas here he has a supporting witness. In a case where we apply the rule that one who cannot swear must pay, a supporting witness does not help. The witness therefore has no migo except that he could force the borrower to contradict the other witness. As for the Shach's proof from the Ramah, the Ramah wrote only of a case where one witness says that the deed was paid and the other says it was not paid, and ruled that we do not say that the statement of one witness is as nothing against two. His intent is merely that the claimant is obligated to take the oath of the Mishnah. One should not say that because one witness contradicts the debtor's claim, that witness becomes a supporting witness exempting the claimant from the oath, as I wrote above in siman 46 in explaining the Ramah's reason. He did not write that the deed is nullified. Alternatively, the Ramah may follow the Rashba's view, which disagrees in siman 51 and holds that even where there is one witness on a deed, the borrower can plead payment. If so, the witness has a migo that he could remain silent, in which event the borrower would be believed to say that he paid. He is therefore believed now to say that it was paid. According to the Rambam's rule above in siman 51, however, the witness is certainly not believed to nullify the deed. Still, it is possible that even according to the Ran, the witness is believed to say that the deed was paid so far as collection from encumbered property is concerned. With respect to encumbered property he has a migo that he could have remained silent. If he remained silent, the result would merely be a loan evidenced by a deed with one witness, which is not collectible from encumbered property. If one argues that the witness intended through his testimony to prevent collection even from the debtor's free property, and therefore a migo based only on encumbered property should not suffice, see below in the rules of migo whether such a migo is effective. Since the Shach set out at the end of seif 7 a series of principles governing migo, and the Darchei Moshe and Sema also wrote several rules of migo in seif 7, while the later collector, author of Knesset HaGedolah, who lived after them, added in this siman many rulings concerning migo gathered like roses from responsa and earlier works, I decided to present his material according to the numbered order he established, one by one and concisely. His collection includes all the principles gathered by the Shach. I will write alongside them what appears correct in my humble opinion, sometimes supporting, sometimes rejecting, sometimes raising a question, and sometimes resolving one where there is room to do so. With Hashem we shall accomplish valiantly. In Him I trust that He will illuminate my eyes with the light of His Torah for the sake of His Name."
+      ]
+    }
+  ]
+}

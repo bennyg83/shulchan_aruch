@@ -1,0 +1,614 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 65,
+    "chunk_total": 66,
+    "case_offset": 346,
+    "cases_in_chunk": 22,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman264/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 264,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ודוקא כו'. כמו המקיף משלש רוחותיו אע\"ג דגרם לו הקיפא יתירא כמ\"ש בב\"ק כ' ב' וערש\"י שם ד\"ה אין מחייבין כו':",
+        "אבל אם הציל כו'. כמו גדר מד' רוחותיו וקי\"ל בפ\"ק דב\"ב הכל לפי מה שגדר אפי' גדר מקיף וכמו ש\"ח שקדם ברועים ומקנות בשכר כמ\"ש תוס' בב\"ק שם בד\"ה הנ\"ל:",
+        "וכן כו' ואם לא כו'. כנ\"ל:",
+        "אע\"פ כו' מ\"מ כו'. כמו המקיף כו' אע\"ג די\"ל לדידי סגי בנטירא בר זוזא כמ\"ש בב\"ק שם מ\"מ הואיל ונהנה יותר בגדר אבנים נותן כפי מה שגדר:",
+        "ואם נראה כו' לכן כו'. כמו שפריך בפ\"ק שם תנן המקיף כו':",
+        "ונ\"ל כו'. כמו מי שיש לו בית בחצר אחרת וחצר בעיר אחרת בתוספתא הביא הרי\"ף ורא\"ש בפ\"ק דב\"ב:",
+        "וכן כל אדם כו'. כמ\"ש בירו' פ\"ה דב\"מ חד ב\"נ אושיל לחבריה דינרין אשריתיה גו ביתיה א\"ל הב לי דינרי א\"ל הב לי אגר ביתי אתא עובדא קומי ר' אבא בר זבדא ומריק ליה מאי דהוה חמי למשרייה ודוקא בפורע חובו של חבירו משום דהוה כמו מבריח ארי מנכסי חבירו פטרו וכמ\"ש תוס' בכתובות שם ובב\"ק שם וכן במפרנס אשת חבירו דהוי כפורע חובו כמ\"ש בגמ' שם ובר\"פ האומנין השוכר את הפועלים לעשות בשלו כו' ובפ' השואל היורד לתוך שדה חבירו כו' וכיוצא כנ\"ל:",
+        "(ליקוט) וכן כל אדם שעושה כו'. כמו יורד שלא ברשות ומקיף חבירו כו' והשוכר את הפועל והראהו בשל חבירו כו'. תוס' דב\"ק נ\"ח א' סד\"ה א\"נ. והיכא שמשביח כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "This applies specifically, etc. It is comparable to one who surrounds his fellow's field on three sides. Although he caused the other party an additional enclosure expense, he is not automatically charged for the full benefit. See Bava Kamma 20b and Rashi there.",
+        "But if he saved, etc. This is comparable to one who fenced all four sides, where the payment follows the quality of the fence, even if the surrounding owner built it. It is also like an unpaid custodian who hired shepherds and staffs in order to save the deposit.",
+        "“And if not.” Same as:",
+        "Although, etc., nevertheless, etc. As with the surrounding fence, even though the beneficiary could claim that minimal protection would have sufficed, since he in fact benefited from a stone wall he pays according to the wall that was built.",
+        "And if it appears, etc., therefore, etc. This follows the challenge raised in the first chapter there from the Mishna concerning one who surrounds his fellow's field.",
+        "It appears to me, etc. This is comparable to one who owns a house in another courtyard or a courtyard in another city, as taught in the Tosefta cited by Rif and Rosh in the first chapter of Bava Batra.",
+        "And likewise anyone, etc. The Yerushalmi relates that one who lent money and lodged in the borrower's house could be charged fair rent. Only one who merely pays another's debt is exempt, because he is viewed as merely driving away a lion from the other's property. The same applies to supporting another man's wife. By contrast, one who enters another's property and improves it, surrounds his field, or hires laborers and directs them to work on another's property is entitled to compensation for the benefit conferred. See 226."
+      ]
+    },
+    {
+      "id": "cm1/siman267/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 267,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בא כו'. כאוקימתא דר\"ן:",
+        "(ליקוט) עבה\"ג ס\"ק כ' ובבא ראשונה מבואר שם י\"ח ב' רא\"א כגון כו' מספקא כו' ושם ך\"ז ב' אב\"א דכ\"ע שומא כו' וזימנין דרבנן והכא כו' בבא ב' סימנים חשובים כו' שם ך\"ח א' ועתוס' ך\"ז ב' ד\"ה ואנא כו' ובכה\"ג מספקא להו אי סימנין דרבנן בבא ג' מבואר שם ך\"ז ב' ת\"ש אין כו' אמרי גופו כו' אב\"א כליו כו' (ע\"כ):",
+        "והרמאי כו'. ע\"כ צ\"ל כן דומיא דרישא:"
+      ],
+      "en_segments": [
+        "He came, etc. This follows Rav Nachman's explanation. The first clause is explained on 18b, the second concerns significant identifying marks on 28a, and the third is derived from the discussion on 27b concerning bodily marks and the marks of one's garments. See 140 and 150.",
+        "And the chemist is. And so, do you know that you are doing this:"
+      ]
+    },
+    {
+      "id": "cm1/siman267/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 267,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וצריך כו'. בסי\"ז לשון הטור וכאן ל' הרמב\"ם והיא היא:",
+        "של צמר. כפי' הרי\"ף שם דלא כרש\"י וככל האוקימתות שם וכ\"כ הרי\"ף ורא\"ש:",
+        "(ליקוט) של צמר כו'. רי\"ף וש\"פ דלא כרש\"י שפי' להיפך והסוגיא מ' ברי\"ף כמש\"ש ועוד דלרש\"י לא הוי דכותי' דר' יוחנן שם דקא' מי שהניח לו אביו כו' (ע\"כ):",
+        "אבל לא כו'. לחומרא. הרא\"ש ורמב\"ם:",
+        "שמא תגנב. הרמב\"ם וכשיטתו לאחוז בכ\"מ תי' אחרון:"
+      ],
+      "en_segments": [
+        "We need to be. In the book, it is here for the Rambam and it is:",
+        "Of wool. This follows Rif's explanation, unlike Rashi, and fits all the Gemara's resolutions. Rif, Rosh, and the other authorities rule accordingly.",
+        "But not, etc. This is a stringency adopted by Rosh and Rambam.",
+        "Would you steal. The Rambam and its method to hold the last mile:"
+      ]
+    },
+    {
+      "id": "cm1/siman268/seif-001/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 268,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ס\"א בהג\"ה ודלא כי\"א נ\"ב עיין לעיל סי' קצ\"ח סי\"ב והדברים סותרין זא\"ז ונראה שהרגיש בזה המל\"מ פ\"ב מזכי' ה' ה' ועמ\"ש ליישב זה על נכון בחיבורי לה' פסח סי' תמ\"ח בתשובה לק' יאסי בדין מכירת חמץ עיי\"ש ודו\"ק:",
+        "שם (סעיף א'). נ\"ב הנה מדברי הר\"ן בנדרים דף ל\"ד ע\"ב ד\"ה אמר רבא ככר של הפקר וכו'. יש ללמוד מדבריו דין חדש דהיכי דהי' מונח דבר אחד של מציאה והפקר תוך ד' אמות של ראובן בענין שאם הי' ראובן רוצה יכול לזכות לעצמו בו אז יכול לומר שיהי' נקנה הדבר הזה לשמעון כמי בהמגביה מציאה לחברו דקנה חברו במיגו דאי בעי זכי לנפשי' זכי נמי לחבריה. כן נמי בד\"א ג\"כ הוי כן ומיגו דאי בעי זכי לנפשי' זכי נמי להקדש או לחברו ע\"ש היטב. גם מדברי הר\"א ממי\"ץ שהביא הרא\"ש שם יש ללמוד דין חדש שהיכא שהי' מונח כאן דבר הפקר וראובן הי' עומד סמוך לו ורחוק מד\"א בענין שלא הי' נקנה לו בתורת ד\"א רק שאם רצה ראובן הי' יכול לזכות בו ולהגביהו שלא היה אחר עומד כ\"כ סמוך כמו הוא אז כיון דאי בעי לזכות בו הוי זוכה בו שוב יכול הוא להקדישו אף שלא זכה בו עדיין כיון דבידו להקדישו כמו דאמרינן בשדה זו שמשכנתי וכו' כן ה\"נ. ולפי\"ז הה\"נ דמצי למכרו לאחר וחל המכירה דהרי הקדש ומכירה תמיד דין אחד להם והיכי דיכול להקדיש יכול למכור. ולכך ה\"נ דיכול להקדישה חל נמי אמכירה. מיהו נראה דזה דוקא אם אח\"כ בא לידו הדבר ההיא שהגביה אותה וקנאה אז לענין זה חל ההקדש והמכירה דלא נימא כיון שבשעה שהקדיש ומכר לא הוי שלו עדיין א\"כ הוי דבשלב\"ל. ושוב אף שקנאה אח\"כ לא חל האמירה שלו בזה ס\"ל להר\"א ממי\"ץ כיון דהוי בידו לא חשוב האמירה שלו דשלב\"ל. רק הוי כבא לעולם. ואם אח\"כ נעשה שלו כיון שזכה בו ממש אז חל ההקדש והמכירה מכח האמירה שלו מכבר. אבל מ\"מ אם לא זכה בההיא אלא אחר ודאי דאין בהקדש ומכירה כלום. והוי של האחר דודאי לענין שיהיה נחשב שלו ממש שלא יהיה יכול לאחר לזכות בו בזה לא מהני מה שיכול לזכות רק בעינן שיעשה קניה ממש ולא מה שהי' יכול לזכות. וכן משמע מכמה דוכת' עצמו מלספור דלא מהני מה שהיה יכול לזכות שיהי' נחשב שלי. וע' מ\"ש ב\"ה בחידושי לדיני חופה סי' ז' בכיוצא בזה א\"ו דעת הרא\"ש כמ\"ש שלענין זה מהני מה שבידו דלא חשיב דבשלב\"ל כיון שהוא בידו. ואם אח\"כ זכה בו הוא עצמו מהני שפיר. מיהו בזה צ\"ע אם אח\"כ חוזר בו קודם שקנאו ואומר שאינו רוצה להקדיש או למכור אם יכול לחזור בו קודם שקנאו או לא ומצד הסברא נראה שיכול לחזור בו. ולפ\"ז לא נ\"מ לענין מכירה כלום דאם לא חזר בו בלא\"ה קיי\"ל אף בדשלב\"ל דחזר וטרח כי היכי דליקום בהמנותי' ואם חזר בו מקודם שקנאו הרי אף הכא יכול לחזור בו דלענין הקדש שפיר יש נ\"מ אם לא חזר בו קודם שזכה בו. ולדינא צ\"ע בכל זה שוב עיינתי שנית בלשון הרא\"ש בנדרים ומוכח שם להדיא כמש\"כ דמיירי באומר לכשאזכה בזה יהי' הקדש וכו'. מוכח להדיא דודאי כ\"ז שלא זכה לא מהני כלל רק כשזכה אח\"כ נעשה הקדש כמ\"ש בתחלה ע\"ש ודו\"ק היטב:",
+        "שם באותו סעיף. נ\"ב הנה גרסי' בפ\"ב דיומא דכ\"ב בעי ר\"פ ד' אמות שאמרו בהדי אמה היסוד וכו' וקשה לי למה מיבעיא לי' הרי בפשיטות י\"ל דהני ד\"א מה טיבן. ובשלמא אם הוי קרוב לדשן בתוך ד\"א י\"ל כיון דל\"א קונה לו כן ה\"נ זכה בתוך ד\"א להיות הוא התורם אבל אם נימא דהוי ששה אמות ממזבח מה טעם הוי להני ששה ומה לי ששה ומה לי מאה וצ\"ע בזה:"
+      ],
+      "en_segments": [
+        "Seif 1, gloss: Unlike those who say otherwise. See above siman 198, seif 12, where the rulings appear contradictory. Mishneh LaMelech seems to note this, and I resolved it in my responsum concerning sale of chametz, Orach Chaim siman 448.",
+        "There, seif 1. From Ran to Nedarim 34 one can derive a novel rule. If ownerless or lost property lies within Reuven's four cubits such that he could acquire it for himself, he may direct that those four cubits acquire it for Shimon. The principle is the same as one who lifts a found object for another: since he could acquire it for himself, he can acquire it for his fellow. The same reasoning can operate through four cubits. From Rabbi Eliezer of Metz, cited by the Rosh there, one may derive another rule. If ownerless property lies near Reuven but outside his four cubits, yet Reuven is the nearest person and could immediately take it, he may declare it consecrated before actually lifting it, because it is within his power to acquire. By the same logic he may sell it. However, this declaration takes effect only if he later actually acquires the object. The fact that it was within his power prevents the declaration from being treated as dealing with something not yet in existence, but it does not itself make the object his against another claimant. If another person acquires it first, the consecration or sale is void. If Reuven later acquires it, the prior declaration can then take effect. It is doubtful whether he may retract before he acquires it. Logically he should be able to retract. This distinction has practical significance mainly for consecration. On rereading the Rosh, it is explicit that the case is where he says, \"When I acquire this, it shall be consecrated.\" Thus before acquisition nothing takes effect; only after he acquires it does the consecration attach. There, same seif. Yoma 22 asks whether the four cubits used in the contest for removal of ashes are measured together with the cubit of the foundation. I find the question difficult. If the rule is that the priest within four cubits of the ashes acquires priority, one can understand the four-cubit measure by analogy to acquisition through four cubits. But if the total distance is six cubits from the altar, what legal significance would six cubits have rather than one hundred? This requires study."
+      ]
+    },
+    {
+      "id": "cm1/siman269/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואין כו'. מדהוצרך ר\"י לאוקמיה דוקא בדאמר תנה ולא אוקים כמש\"ש דאמר תחלה:",
+        "(ליקוט) ואין המגביה כו'. הוא פשוט בעיני שלכאורה ק' מ\"ש זכה לי מתנה לי אם הגביה לחבירו הרי קנה לו אפי' לא א\"ל כלל וה\"ה בא\"ל תנה לי ואם לא הגביה בשבילו אף בא\"ל זכה לי מאי הוה אלא דס\"ד של הגמ' שהגביה בשבילו וז\"ש ולימא מעני לעני כו' וערש\"י שם ד\"ה ואמר אני כו' קס\"ד כו' ומשני א\"ל מתני' דאמר כו' ואר\"י המגביה כו' וא\"ת משנתינו כו' דודאי ע\"כ מתני' בדקא' תחלה אלא בא\"ל זכה לי אינו נאמן לומר שזכה בו תחלה דמסתמא עשה שליחותו כיון ששתק והגביה אבל אם א\"ל תנה לי אין מתחיל השליחות עד הנתינה והרי חזר מקודם ואמר אני זכיתי תחלה וע\"ל סי' קפג ס\"ד ראובן כו' בד\"א כו' (ע\"כ):",
+        "י\"א כו'. דקני לי הוי כזכי לי:",
+        "וי\"א כו'. עבה\"ג ועסמ\"ע:",
+        "(ליקוט) ראובן כו'. וס' הראשונה עיקר דהטעם הוא במציאה דודאי עשה שליחותו כ\"ז שלא חזר בהדיא וכמש\"ל סי' קפג ס\"ד ואף ראבי\"ה לא חלק בהדיא רק אמר רפיא בידי אבל אין בה שום פקפוק וע\"ל ס\"ב בהג\"ה ודוקא כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And the lifter does not, etc. The distinction is that when the owner says 'acquire it for me,' the person who silently lifts it is presumed to have fulfilled the agency and cannot later claim that he first acquired it for himself. If he says only 'give it to me,' the agency begins at delivery, so before delivery the lifter may retract and claim it. See 183.",
+        "A.S. Let me be like me:",
+        "Some say, etc. The first view is primary. With a found object, one who silently accepts the instruction is presumed to have acted as agent until he expressly retracts. Raavyah did not clearly dispute this, but only wrote that the matter was uncertain to him. See 183."
+      ]
+    },
+    {
+      "id": "cm1/siman270/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 270,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ודוקא כו'. כמש\"ל סי' רמג סט\"ו:",
+        "(ליקוט) ודוקא כו'. ע\"ל סי' רמג סט\"ו בהג\"ה ועתוס' דקדושין יט א' בד\"ה אומר כו' וי\"ל דבדעת כו' וכ\"כ הרא\"ש שם (ע\"כ):",
+        "(ליקוט) ודוקא כו'. ע\"ל סי' רמג סט\"ו ועתוס' דסנהדרין סח ב' ד\"ה קטן כו' (ע\"כ):",
+        "שכירות. ע\"ל סי' פט ס\"ב בהג\"ה היה כו':"
+      ],
+      "en_segments": [
+        "And Duke is. As C. R. R.R.C., and Duke Choo. According to S. R. R. R.R., he says, “And he shall be blessed with him, and so shall he be blessed.” According to S. R. R.R.R., Dr. Sanhedrin, “A little boy is a little.”",
+        "Hire. See above, siman 89, seif 2, in the gloss."
+      ]
+    },
+    {
+      "id": "cm1/siman285/seif-007/beur-hagra",
+      "volume": "cm1",
+      "siman": 285,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפי' אמר כתבו כו'. זו פי' אחר על עיטרא וכ' הרמב\"ם שני הפירושים כדרכו:",
+        "וכ\"ז כו'. תוס' בב\"ב קמג בד\"ה השביחו כו':",
+        "וי\"א עוד כו'. בזה מתורץ קו' תוס' בד\"ה ש\"מ וקשה כו' והטעם דאין חזקה אלא באכילת פירות:",
+        "(ליקוט) וי\"א עוד כו'. ממ\"ש בגטין אין ממנין אפוטרופוס נשים כו' ול\"ק ולא קרובים. הרשב\"א בתה\"א ומביאו ב\"י. אבל ברא\"ש כ' שם ריש סי\"ד דלמא שכיבא כו' ואפי' בתורת אפטרופוס ומ\"ש מתחלה לוקמינהו כו' לאכול הפירות טעמא דס\"ד מפרש למה קס\"ד ליקום בידא דאחתא (ע\"פ):",
+        "וכן כו'. שלכן מחלק בין אחי מאבא לאחי מאימא ואף למסקנא דוקא משום הרחקה",
+        "(ליקוט) וכן אם כו'. שם בתשו' דלא שייך שמא יחזיק:"
+      ],
+      "en_segments": [
+        "And he said, ‘Oh,’ he wrote. This is another aspect of the two verses:",
+        "And all this, etc. Tosafot on Bava Batra 143b, s.v. 'they improved, etc.'",
+        "Some further say, etc. This resolves Tosafot's difficulty. Possessory title is established only through consumption of produce.",
+        "(Supplement) Some further say, etc. Gittin states that women are not appointed as guardians, but does not exclude relatives. Rashba in Torat HaBayit explains accordingly. Rosh, however, writes that concern for the grandmother's death applied even to appointment as guardian. (End of supplement.) See 4.",
+        "And yes, yes. Your brother, from my father, is divided from my mother, and even from Scanna, because of her exclusion, and if he is. There is no name in Hashem’s name:"
+      ]
+    },
+    {
+      "id": "cm1/siman304/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המעביר כו'. כסתם מתני' כמ\"ש סתם במתני' כו':",
+        "דין כו' אבל כו'. גמ' שם:",
+        "שלא פשע בה. דמש\"ש היכי משתבע כו' היינו לר\"מ אבל אנן דקי\"ל כרבנן דנתקל לאו פושע משתבע שלא פשע ועבפ\"ג דב\"ק רי\"ף ורא\"ש:",
+        "(ליקוט) שלא פשע דמ\"ש רבא שלא בכוונה היינו לר\"מ אבל לרבנן מודה ר\"י ורבא לר\"א דהא רבא שם אורי גופא למעשה דישבע שלא פשע וכגי' הרי\"ף ורא\"ש שם אייתי סהדי דלא פשעת וכן העיד במלחמות פ\"ג וערי\"ף ורא\"ש ועמ\"ש בסי' תיג (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who transports, etc. This follows the unqualified Mishna, as the Gemara states that the ruling was taught anonymously in the Mishna.",
+        "\"A lawyer,\" he said. Jim there:",
+        "Not a crime in it. He said, “I am a sinner who is not a sinner, but I am a widower of Hashem’s promise that we are not committed to sin, and that we are not committed to sin, and that we are not committed to death.”"
+      ]
+    },
+    {
+      "id": "cm1/siman306/seif-008/beer-hagolah",
+      "volume": "cm1",
+      "siman": 306,
+      "seif": 8,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ב) שם בס\"פ הנזכר ממימרא דרב' מקרי דרדקי וכו' בפ' ט' דבב\"מ ד' קט ע\"א",
+        "ג) מעובדא דרוני' שתלא דרבינא וכו' וכן כתב הראב\"ד שם וכתב' הרב המגיד מעובדא דרוניא וכו'",
+        "פי' דאם בחנם שחט מסלקינן ליה דלא לעביד לא בשכר ולא בחנם א\"נ אע\"ג דשחט בשכר ומשלם מסלקינן ליה משום בושת ודמי בושת אורחיו א\"נ זמנין דמצטריך לבשרא הרב המגיד חידושי הרשב\"א בשם הראב\"ד",
+        "ד) כפי' הרי\"ף בהלכות",
+        "ה) כפי' רש\"י שם משבשתא כיון דעל על כ' ה\"ה ופירושו לדעת רש\"י כגון שהמלמד בעצמו טוע' בדבר ואינו יודעו וכו' אבל אם היה הוא יודע הדבר ואינו משגיח על אחד מהתינוקות אם אומר הדבר בטעות לא מסלקינן ליה:"
+      ],
+      "en_segments": [
+        "b) Ibid., at the end of the cited chapter, from the statement concerning a teacher of children in Bava Metzia 109a.",
+        "c) From the incident of Ronya, Ravina's gardener, and so too the Raavad writes there. The Maggid Mishneh likewise cites the incident of Ronya. He explains that if one slaughtered improperly without pay, he is removed so that he may no longer do so either for pay or without pay. Alternatively, even if he slaughtered for pay and reimburses the loss, he is removed because of the embarrassment caused and the value of the guests' embarrassment, or because at times meat is urgently needed. Maggid Mishneh; Chiddushei Rashba in the name of the Raavad.",
+        "d) According to the Rif's explanation in the Halakhot.",
+        "e) According to Rashi's explanation there: once an error has entered, it has entered. The Maggid Mishneh writes that according to Rashi this means where the teacher himself errs in the matter and does not know it. But if he knows the matter and merely fails to supervise one of the children when that child states it incorrectly, he is not removed."
+      ]
+    },
+    {
+      "id": "cm1/siman312/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 312,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הטור מהא דאמרי' בפ\"ח דב\"מ דף קא ע\"ב פשיעה נפל ליה ביתא א\"ל לא עדיפת מנאי וכו' כתב הרא\"ש שם בפסקיו וכולא שמעתין איירי בסתם אבל אם שכרו לזמן קצוב כמכר דמי כו' והביא ראיה מהירו' דפרקין ודפסחים פ' מקום שנהגו ושכן כ' לו מורו רבינו מאיר בתשו' וכ\"כ הרמב\"ם ספ\"ו מה\"ש",
+        "ב) שם ס\"ג בפסקיו מהירושלמי דפ' מקום שנהגו דאיתא שם שאם הקדים לו השכר ואח\"כ הקדישו ה\"ז דר בתוכו חנם:",
+        "דין זה כתבו המחבר לקמן סעיף יז"
+      ],
+      "en_segments": [
+        "a) The language of the Tur, based on Bava Metzia 101b, where the Gemara says regarding negligence when the landlord's own house fell, 'You are no better than I am.' The Rosh writes there in his rulings that the entire discussion concerns an unspecified rental term, but if he rented it for a fixed term, it is like a sale. He brings proof from the Yerushalmi to this chapter and from Pesachim, chapter Makom Shenahagu, and writes that his teacher, Rabbeinu Meir, likewise ruled for him in a responsum. So too the Rambam writes at the end of chapter 6 of Hilkhot Sekhirut.",
+        "b) Ibid., seif 3 in the Rosh's rulings, from the Yerushalmi in Pesachim, chapter Makom Shenahagu, which states that if the renter prepaid the rent and the owner subsequently consecrated the house, the renter dwells in it without additional payment. This law is written by the Mechaber below in seif 17."
+      ]
+    },
+    {
+      "id": "cm1/siman325/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 325,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' המשנה פ\"ט דב\"מ קט ע\"א והרמב\"ם בפ\"ח מה\"ש דין ג' כ' השוכר או המקבל וכ' ה\"ה ממאי דאמר רב פפא הני תרתי מתני' קמייתא משכחת להו וכו' דאיתא בחכירות וכו' שם (דף קד ע\"א) פירש\"י דבחכירות היא דאי בקבלנות מאי דבעי ליזרע שהרי הנעלים חולקין בו (וכ\"כ הטור) והרמב\"ן הקשה עליו ופירש דאדרבא וכו' שהרי זה אומר לתבואה אני צריך וכו' רבינו העמידה בין בחכירות בין בקבלנות והוא קצת תימה ואפשר שהוא סובר כמ\"ש הרשב\"א דרב פפא לאו לענין דינא ממש קאמר אלא יש מהן דדינא לא אשתני אלא שלא הוצרך להשמיענו הדין ההוא אלא או בחכירות או בקבלנות ע\"כ והרי המחבר לא נקט אליבא דחד מינייהו והעתיק ל' המשנה",
+        "פירוש פחות משבעה שני' שהפשתן מכחיש הארץ והפסדו ניכר עד ששה שנים וכן השקמה כשקוצצין אותה אינה חוזרת ונעשתה קורות עד שבעה שנים",
+        "ב) ל' הרמב\"ם שם דין י' וכו' ה\"ה ממעשה דרב פפא ורב ביבי [שם נלמד בבא זו]",
+        "ג) וביאר שם ושמין לו שויים כשיוצא ממנו",
+        "ד) וכ\"כ התוס' שם",
+        "ה) מבואר שם במעשה הנז'",
+        "ו) שם במשנ':"
+      ],
+      "en_segments": [
+        "a) The language of the Mishnah, Bava Metzia 109a, and the Rambam, chapter 8 of Hilkhot Sekhirut, law 3, who writes 'the renter or receiver.' The Maggid Mishneh derives this from Rav Pappa's statement regarding the first two Mishnayot, Bava Metzia 104a. Rashi explains that the case is fixed-rent tenancy, because under sharecropping what concern is there over what he plants when the owners share in the produce? The Tur likewise writes this. The Ramban challenges Rashi and explains the opposite, because the owner may say that he needs grain specifically. The Rambam applies the Mishnah both to fixed-rent tenancy and sharecropping, which is somewhat difficult. Perhaps he follows the Rashba, who writes that Rav Pappa was not speaking of the substantive law in every case, but only that some rulings needed to be taught specifically in one form of tenancy even though the law itself does not change. The Mechaber did not choose either position, but copied the wording of the Mishnah. 'Less than seven years' means that flax weakens the soil and its damage remains evident for six years, and likewise a sycamore that is cut does not regrow into usable beams until seven years.",
+        "b) The language of the Rambam there, law 10. The Maggid Mishneh derives this clause from the incident involving Rav Pappa and Rav Bibi.",
+        "c) He explains there that its value is appraised when the tenant leaves.",
+        "d) Tosafot likewise write there.",
+        "e) This is clear from the cited incident.",
+        "f) Ibid., in the Mishnah."
+      ]
+    },
+    {
+      "id": "cm1/siman331/seif-003/beer-hagolah",
+      "volume": "cm1",
+      "siman": 331,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ו) רמב\"ם שם ד\"ב ברייתא שם דף פז ע\"א וכחכמים",
+        "פי' מפועלי העיר",
+        "ז) כן פי' ה\"ה וכ\"כ הטור ס\"ו בשם הרמ\"ה כתב הריב\"ש בסימן קע\"ו כל מה שאדם נודר בשכירות אפי' בע\"פ ובלא שום קנין יש לב\"ה להשלים כל שהנשכר עושה מלאכתו שכירות הפועלים נגמר בהתחל' המעש' ומבואר בסי' של\"ג וע' בת\"ה סי' שכ\"ג ושכ\"ד דיני שכירות:"
+      ],
+      "en_segments": [
+        "f) Rambam, ibid., law 2, from the baraita on 87a, following the Sages. 'From the laborers of the town.'",
+        "g) The Maggid Mishneh explains it this way, and the Tur, seif 6, writes likewise in the name of the Ramah. The Rivash writes in responsum 176 that whatever a person undertakes as wages, even orally and without any act of acquisition, the employer must pay once the hired person performs the work, because a worker's hire becomes binding with the commencement of the work. This is explained in siman 333. See Terumat HaDeshen, simanim 323 and 324, regarding laws of hiring."
+      ]
+    },
+    {
+      "id": "cm1/siman334/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 334,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "השוכר כו' וכן בכל כו'. הרא\"ש בפי' הגמ' שם:",
+        "ואם הוי כו'. עמש\"ש:",
+        "(ליקוט) ואם כו'. עהג\"א ד\"ה וגם ואם הביטול כו' (ע\"כ):",
+        "מי כו'. דבע\"ה כו'. ר\"ל דהוא לוקח השכירות ולכן דינו כפועל דה\"ל להמנות וכ' שם ול\"ד לספינה ע\"ט א' דאמרינן אלא בספינה סתם ויין זה כו' וכמ\"ש תוס' שם בד\"ה אלא כו' ותי' ריב\"ן כו' ומ\"מ מה שדר בו חייב כמש\"ש בחמור דא\"ל אילו בעית כו'. שם:",
+        "מיהו כו'. דשכירות ממכר הוא כמ\"ש בפ\"ד נ\"ו ב' ואמרינן דאין המשכיר יכול להוציאו כמש\"ל ר\"ס שי\"ב:",
+        "לכן כו'. בד\"מ כ' ובתה\"ד פ' כמהר\"מ אלא שמ' שם דאם הקדים השכר א\"צ להחזיר לו וז\"ש לכן כו' אבל במרדכי שם איתא להדיא כן שכ' אם לא נתנה כל השכירות היורשין פטורין כו' וכן נראה לפי מ\"ש הרא\"ש דטעמא דהוי פסידא דפועלים משום המע\"ה אלא דהרב סובר דטעמא משום דה\"ל להתנות וכמ\"ש במרדכי שם וכמ\"ש למעלה וה\"ל להתנות ולכן לא חילק ברישא בדין דפועל באם נתן או לא וא\"כ אפי' נתן יחזיר וז\"ש לכן כו' ר\"ל הואיל הוא פלוגתא דרבוותא וא\"ל דהרב נתכוון למ\"ש בתשובה שם דאם נתנה כל השכירות יש כח ביד היורשין להושיב בתוכה דכוותה כמ\"ש האי מאן כו' ושלים עבידתא בפלגא דיומא ואם לא יחזיר ליורשיו כמה אדם רוצה ליקח פחות כשלא היתה דרה בו כמ\"ש בפועל בטל דבזה ודאי ל\"פ הרשב\"א וכמש\"ל בסי' שי\"ו. אבל בתה\"ד שם ס\"ל דמדינא כ\"ה וכן י\"ל כוונת מהר\"מ וכמ\"ש בספינה שם ע\"ט ומתוס' שם ד\"ה אי אתה כו' וי\"ל כיון שנתן כו':"
+      ],
+      "en_segments": [
+        "One who hires, etc.; and likewise in every, etc. This follows Rosh's interpretation of the Gemara.",
+        "And if he is so. And if you do, and if you do. “And if you do not know what you are doing.”",
+        "Who, etc.; because the employer, etc. Meaning, the landlord receives the rent and therefore has the legal position of a worker, who should have stipulated against the contingency. This differs from the case of a ship on 79a, which concerns an unspecified ship and this particular wine, as Tosafot explain. Nevertheless, payment is owed for the period of actual use, as the Gemara states concerning the donkey: the owner can say that had the renter wished, etc.",
+        "Nevertheless, etc. A lease is a temporary sale, as stated on 56b, and the landlord therefore cannot remove the tenant during the term, as explained at the beginning of siman 312.",
+        "Therefore, etc. Darkei Moshe cites Terumat HaDeshen, who rules like Maharam but implies that if rent was prepaid it need not be returned. Mordechai states this explicitly regarding heirs. Yet according to Rosh, the workers' loss rests on the claimant's burden of proof, while Rama understands the reason as failure to stipulate. On that basis even prepaid rent should be returned. The word 'therefore' means that because the matter is disputed, the tenant may retain what he possesses. Alternatively, Rama may mean that the heirs may place a comparable tenant in the property, as in the case of a worker who completes his task early, and if they do not, the landlord must deduct the value of having the property vacant. Rashba certainly agrees to that deduction. See simanim 5 and 316."
+      ]
+    },
+    {
+      "id": "cm1/siman339/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 339,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וקבל כו' וזש\"ש חוזר או כו':",
+        "(ליקוט) וקבל כו'. דאל\"כ אין להם כלום על השלחני כיון שאין לו אצל השלחני (ע\"כ):",
+        "אפי' אין כו'. דאל\"כ ל\"ק רבה שחוזר דק\"ל דמעמד שלשתן קני רי\"ף וש\"פ וכמ\"ש בסי' קכ\"ו ס\"ב וירושלמי דקאמר הדא דתימא כו' ס\"ל כרב ששת וקי\"ל כרבה דמתני' דייקא כוותיה כמש\"ש מדקתני כו' שם וז\"ש ומ\"מ כו':",
+        "ואם קנו כו'. תוס' שם ד\"ה חוזר כו' וכמ\"ש בסנהדרין כ\"ד ב':"
+      ],
+      "en_segments": [
+        "\"And he shall receive a return, or a name.\" They do not have anything to do with the sender that he does not have",
+        "Even if there is no, etc. Otherwise Rabbah's ruling that he may retract would be difficult, since a transfer in the presence of all three parties effects acquisition. Rif and the other authorities rule so, as stated in siman 126, seif 2. The Yerushalmi that states, 'this was said, etc.,' follows Rav Sheshet, but we rule like Rabbah, because the Mishna's wording supports him. This is the meaning of, 'nevertheless, etc.' See siman 126.",
+        "And if they made a formal acquisition, etc. See Tosafot there, s.v. 'he retracts, etc.,' and Sanhedrin 24b."
+      ]
+    },
+    {
+      "id": "cm1/siman340/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 340,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "א) ל' הטור וכ\"כ הרמב\"ם ריש הל' שאלה ופקדון",
+        "ב) מפורש בתורה ומשנה פרק א' דב\"מ דף צג ע\"א ופרק ח' דשבועות ד' מט ע\"א",
+        "פי' ועדיין הוא ממושכן אצל העכו\"ם בשביל המשאיל:",
+        "ג) וביא' שם ואין המשאיל יכול לטעון תן לי מה שנפטרת מחובך ע\"י משכוני דמשמיא הוא דרחמי עליה דשואל",
+        "ד) הכי אסיק רבא שם דף צו ע\"ב מטעמא דא\"ל לאו לאוקמיה בכילתא שאילתה",
+        "ה) מעובדא דההוא גברא דשאיל נרגא וכו' לקמיה דרבא שם וההוא דשאיל דוולא וכו' לקמי' דרב פפא שם ד' צו מ\"א",
+        "ו) כ\"כ ה\"ה אמ\"ש הרמב\"ם שם אבל אם מתה קודם שיחריש בה או אחר שחרש בה או שרכב עליה וכו' ומתה בשעת רכיבה הרי זה חייב וכו'",
+        "ז) כ\"כ ה\"ה שם ושכן כתבו ז\"ל"
+      ],
+      "en_segments": [
+        "a) The language of the Tur, and so writes the Rambam at the beginning of Hilkhot She'eilah uPikadon.",
+        "b) Explicit in the Torah and in the Mishnah, Bava Metzia 93a and Shevuot 49a. The meaning is that the item is still pledged to the gentile on behalf of the lender.",
+        "c) He explains there that the lender cannot say, 'Give me the amount of debt from which you were released through my collateral,' because Heaven showed mercy to the borrower.",
+        "d) Rava concludes thus on Bava Metzia 96b, because the borrower may say, 'I did not borrow it merely to place it in a canopy,' meaning it was borrowed for use.",
+        "e) From the incident of the man who borrowed an axe before Rava and the incident of one who borrowed a bucket before Rav Pappa, Bava Metzia 96a.",
+        "f) The Maggid Mishneh writes this regarding the Rambam's ruling that if the animal died before he plowed with it, after he plowed with it, or after he rode it, but it died during the riding, he is liable.",
+        "g) The Maggid Mishneh likewise writes there, and states that the earlier authorities wrote so."
+      ]
+    },
+    {
+      "id": "cm1/siman340/seif-008/beer-hagolah",
+      "volume": "cm1",
+      "siman": 340,
+      "seif": 8,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ר) שם במשנה סוף ד' ב\"ח וכמו שפירש\"י שם",
+        "ש) מבואר במ\"ש לעיל סעיף ו'",
+        "ת) מימרא דרפרם בר פפא א\"ר חסדא שם בפ\"ג דף פ\"א ע\"א:",
+        "א) בעיא שם ופשטה אמימר דהוי כש\"ש הואיל ונהנה בשאילת' מהני להיום ש\"ש עד שמגיע ליד הבעלים",
+        "ב) ל' המחבר מפי' רש\"י",
+        "פי' המשאיל",
+        "ג) וע' בסי' ע\"ב ששם הביא המחבר ב\"י הרבה דינים מדיני שאלה שהביא' בספרו ב\"י בסי' זה:"
+      ],
+      "en_segments": [
+        "reish) Ibid., in the Mishnah at the end of 80b, as Rashi explains there.",
+        "shin) This is clear from what was written above in seif 6.",
+        "tav) The statement of Rafram bar Pappa in the name of Rav Chisda, Bava Metzia 81a.",
+        "a) A question there resolved by Ameimar: he has the status of a paid guardian, since he benefited from the loan, and that benefit makes him a paid guardian until the item reaches the owner's hand.",
+        "b) The language of the Mechaber from Rashi's explanation. The reference is to the lender.",
+        "gimel) See siman 72, where the Mechaber in Beit Yosef brought many laws of borrowing that he had discussed in his Beit Yosef here."
+      ]
+    },
+    {
+      "id": "cm1/siman346/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 346,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) בשעה שמשך. כמש\"ש ב' פרה במשיכה כו' (ע\"כ):",
+        "ל\"ש היה כו'. צ\"ה ב':",
+        "(ליקוט) בעוד שהוא משקהו. לאפוקי אח\"כ כמו השאילני היום ואשאילך למחר בס\"ח וקאמר והשקה וכו' דס\"ל להרמב\"ם דוקא אחר שהתחיל במלאכה וכמ\"ש בעידן עבידתייהו אבל לתוס' ורא\"ש אפי' קודם לכן בשעה שהלך וכמ\"ש בס\"ג (ע\"כ):",
+        "אבל אם כו'. שם ומתני' צ\"ד ב' וכמ\"ש בס\"ב:",
+        "(ליקוט) אבל אם משך כו'. שם ואי פקח כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Supplement) At the time he drew it into his possession. As stated there, the cow is acquired through meshicha. (End of supplement.)",
+        "“There was a quaint. C. B:",
+        "(Supplement) While he waters it. This excludes a later time, like one who says, 'lend it to me today and I will lend to you tomorrow,' in seif 8. Rambam requires that the owner have already begun the work, as indicated by the phrase, 'during their work.' Tosafot and Rosh, however, include the earlier moment when he was traveling to perform it, as explained in seif 3. (End of supplement.)",
+        "But if they are . There is a name and a number of people in the United States, but if they do. It's a name and not a name"
+      ]
+    },
+    {
+      "id": "cm1/siman346/seif-012/beer-hagolah",
+      "volume": "cm1",
+      "siman": 346,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ת) ל' הרמב\"ם שם דין ג מימרא דרבא שם דף נו ע\"א:",
+        "א) טור ובית יוסף בשם הרא\"ש בשם פי' הראב\"ד שם בפסקיו ושכתב הנ\"י שכן הסכימו האחרונים",
+        "פי' כיון שהוא שכיר למלאכת שניהם לעשות לכ\"א איזה מלאכה שיצטרך לו"
+      ],
+      "en_segments": [
+        "tav) The language of the Rambam there, law 3, from Rava's statement on 96a.",
+        "a) Tur and Beit Yosef in the name of the Rosh, citing the Raavad's explanation in his rulings, and the Nimukei Yosef writes that the later authorities agreed. The meaning is that he is hired to perform the work of both parties, doing for each whatever task he may require."
+      ]
+    },
+    {
+      "id": "cm1/siman346/seif-017/netivot-hamishpat-beurim",
+      "volume": "cm1",
+      "siman": 346,
+      "seif": 17,
+      "slug": "netivot-hamishpat-beurim",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' פשע עסמ\"ע וש\"ך שתמהו דהא בלוקח ל' יום פסק בסעי' יח דהוי ש\"ח ולפד\"נ לתרץ דהא בלא\"ה קשה מה\"ת יהיה לוקח ל' יום ש\"ח אפילו לא קיבל שמירה הא בעינן דוקא בשומר שיאמר שמור לי כמש\"ל בסי' רצא ועוד דמ\"ש משותפין שכתב הש\"ך בסי' קעו ס\"ק טו דאפילו ש\"ח לא הוי מטעם שלפעמים זה שומרו ולפעמים זה שומרו ולעולם אחריותו על שניהם ע\"ש דמשמע מדבריו דאפילו במקום דלא הוי שמירה בבעלים פטור מטעם דלא הוי שומר כלל ע\"ש ובחידושי שם וע\"כ צ\"ל דבמוכר ל' יום איכא אומדנא דמוכח דנתנו לו אדעתא דשמירה דכשלקחו לעשות מלאכתו בביתו ל' יום הוי כאלו התנה שישמרנו ג\"כ דהא ודאי לא היה דעתו שהמוכר ילך עמו לביתו לשמור וממילא המשיכה שעשה לקנין הוי משיכה ג\"כ לשמור והרמב\"ן במלחמות ס\"פ החובל כתב שאם מוכח מעניינו שאדעתא דשמירה מסר לו חייב אפילו לא אמר שמור לי משא\"כ בשותפים בגוף הבהמה ל\"מ בקנו מאחר דבשעה שעשו שניהם משיכה לא עשו משיכה רק בשביל קנין לקנותו מן המוכר והמשיכה לא היתה כלל שיתחייב זה כנגד זה בשמירה אלא אפי' קנה אחד מחבירו חצי הבהמה שיהיה שותף עמו בגוף הבהמה מ\"מ כיון שלא התנו עמו בשעת מקח על חלוקת הזמנים למלאכה ושמירה אין א' יכול לכוף את חבירו על חלוקת זמנים דאולי יטעון השני גוד או אגוד או להשכיר לאחרים כשעומד להשכיר כמבואר בסי' קעא או אולי יעשו מלאכה וישמרו ביחד ואז אח\"כ כשנטל אחד לשמרו לעשות מלאכתו אינו מוכח מעניינו שנוטלו אדעתא דשמירת חלק חבירו ג\"כ דאולי אינו רוצה רק לשמור חלקו או לעשות מלאכתו עד אחר חלוקת זמנים (דאז באמת נעשה ש\"ש דהוי כאלו השכיר חלקו או שקיבל שמירת חלק חבירו בשכר שיעשה או שישמור האחר בזמנו חלקו) ולפ\"ז באשה שהכניסה הבהמה בשעת נישואין ולא הודיעתו שהיא שאולה כשנוטל אח\"כ לעשות מלאכתו סתם מסתמא לא נעשה שומר עד שיקבל שמירה בפי' כיון שיכול לכופה לעשות מלאכתו בלא קבלת שמירה ואם תרצה שתהא הבהמה משומרת תלך בעצמה לשמור דאשה חייבת עצמה בשמירת חפצו של הבעל ועוד דהא הבעל לא הוי אלא ש\"ח והבהמה היא שאולה בידו ובמקום שמגרע לשמירה ודאי דאסור' למסור לו הבהמה עד שתהא בעצמה אצל המלאכה שעושה עם הפרה כמבואר בסי' רצא דבמקום שמגרע לשמירה אפילו ברגיל להפקיר אסור נמצא שבתחלת הקנין הקניתו לו שתהיה היא בעצמה השומר וא\"כ אף שאח\"כ אינה אצל המלאכה לא מוכח שמקבל לשמירה כיון שיכול לעשות מלאכתו בלא קבלת שמירה עד שיקבל בפירוש:",
+        "ז) מפני שהוא כלוקח ואף דהרא\"ש בכתובות דף עט פסק באם שהכניסה לו פרה שאין לה בה אלא הפירות שצריך למכור הפירות ליקח בדמיהן קרקע והוא אוכל הפירות וא\"כ אם נתנה לו רשות להשתמש בהפרה לכאורה נראה דהוי שואל גמור אמנם נראה דמ\"מ פטור דרשות בעלמא השאילה לו כיון דהמעות שיתן לה לקנות בהן קרקע ג\"כ יהיו שלו דהא מתקנת אושא נקרא לוקח גם על הגוף והוי ככולו שלו וזהו כוונת הש\"ס במה שאמרו בב\"מ דבעל לוקח הוי מתקנת אושא ומ\"מ נראה דאם סילק עצמו מהפירות דלא הוי לוקח רק על הגוף והיא השאילה לו הפירות דמי לב' שותפין שאחד יש לו קנין הגוף ואחד קנין הפירות ושאל בעל הגוף מבעל הפירות ודאי דהוי שואל על שיוי קנין הפירות וע' בחידושי לש\"ס שישבתי בזה קושית תוס' בב\"מ דף צו ד\"ה שואל הוי ע\"ש:",
+        "לא מפטר מטעם שמירה בבעלים לכאורה קשה כיון דע\"כ מיירי הכא שלא הודיעתו דאי הודיעתו הא כתב לקמן דחייב הבעל באונסין א\"כ מה בכך שהחפץ אינו שלה הא לא נכנס אדעתא דחיוב דהא קסבר שהוא שלה והוי בבעלים דפטור ודמי לסי' רצא סעיף ד' דיכול לומר לא קבלתי עלי אלא שמירת דינר כסף ולק\"מ דהא ע\"כ הא דמסיק המחבר בהודיע שהוא חייב ע\"כ היינו שהודיעתו בשעת נישואין דהוי כהתנית עמו שאין רצונה להתנסבא לו ולהכניס לו הפירות אלא באם שיקבל עליו אונסין ואינה רוצה להקנות לו הזכות אלא עם החוב אבל אם הכניסה סתם ולא הודיעתו אף שאח\"כ קודם השימוש הודיעתו מ\"מ כיון שבשעת נישואין הקנית לו סתם וקיבלת החיוב ע\"ע ואח\"כ כשהוא משמש עם הפרה בשלו הוא משמש לפי המסקנא דלוקח הוי וע\"ז כתב שפיר כיון שהחפץ אינו שלה לא הוי שמירה בבעלים כשהוא משמש בהפרה ה\"ל משמש ע\"ד זה שאינו משמש בבעלים דהא הודיעתו שאינו שלה ואינו פטור רק משום דהוי לוקח:",
+        "וכן גזלן לכאורה קשה דהא סתם גזילה יאוש בעלים כמבואר בס' שי\"ח ומבואר בסי' שס\"א סעי' ו' דאפילו אם אכלה השני בגזל לאחר יאוש דפטור השני מקרא דאשר גזל ע\"ש וא\"כ מכ\"ש כשנאבד והרי אין החיוב נגד הנגזל אלא נגד הגזלן ונגד הגזלן הוי שמירה בבעלים וע\"כ צ\"ל דמיירי שידוע שלא נתייאשו הבעלים אך עדיין קשה כיון דע\"כ מיירי בלא הודיע שהיא גזולה דאי הודיע שהיא גזולה השני כשנשתמש בו הוי כשואל שלא מדעת דהא כ\"ז שלא נתאיישו ברשותא דמרא קיימא כמבואר בסי' רצא וחייב מטעם גזלן ואי כשלא נשתמש הא משיכה אינו קונה בשואל ש\"מ כמבואר בתי' ב\"מ ד\"ה חדא לומר וא\"כ בלא הודיע הרי יכול לומר לא קבלתי עלי חיוב אונסין כלל דהא סברתי שהגזלן הוא הבעל החפץ והוי דבעלים ונראה דמיירי שנשאל לו הבעל בעצמו והשואל לא ידע מזה דג\"כ פטור כמבואר לעיל סעי' ד' ע\"ש והרי נכנס בחיוב שמירת שואל אך עדיין קשה דודאי אם בשעה שגוזלו היה שוה דינר ובשעה שמתה ביד השואל היה שוה ד' דהגזלן לא נתחייב רק בדינר כמבואר בסי' שסב סעי' טז והשואל כיון דאשעת אונס הוא דמיחייב ובשעת אונס שוה ד' ודאי דהשואל משלם ד' להגזלן דהא הגזלן קנה לה בשינוי וכמו דגוף השברים אף דנתייקרו ושווין יותר מהדמים שהיה גוף החפץ שוה בשעת גזלה הן של גזלן דקני לה בשינוי כמו כן השבח זה שמשלם השואל שנעשה אחר האונ' דהא קיימ' לן דמשע' אונסין הוא דחייב בתשלומין והרי נולד השבח אחר האונ' דהיינו אחר השינוי ולא שייך לומר בזה כיצד הלה עושה סחורה וכו' כיון שבשעת שאולה הריוח הוא שלו לא של חבירו דכבר קנה לה לכן נראה לפי עניות דעתי דמכל מקום לא הוי שמירה בבעלים כיון דבשע' שאלה לא היה שלו ולא היה מיחשב בעליה בשעת שאלה רק בשעת שכורה נעשה הוא בעלים של החפץ ואנן בעינן בעלים בשעת שאלה ולפי זה אפילו אם קנה אותו בדמים אחר שהשאיל הבעלים לא חשיב בעליו עמו:"
+      ],
+      "en_segments": [
+        "Even if he was negligent. See Sema and Shach, who ask from seif 18, where one who takes an object for thirty days is treated as an unpaid custodian. The deeper question is why the thirty-day taker should be an unpaid custodian at all if he never expressly accepted guarding. Ordinarily a custodian must receive the object with an understanding equivalent to \"guard it for me,\" as explained in siman 291. Why should this differ from partners, whom Shach in siman 176, seif katan 15, does not automatically treat even as unpaid custodians because sometimes one watches and sometimes the other, with overall responsibility remaining shared? The answer must be that in a thirty-day purchase arrangement there is a clear circumstance showing that the object was delivered on the understanding that the recipient would guard it. He takes it to his own house for his use for thirty days. The seller clearly does not intend to accompany him home to guard the object. Therefore the meshichah made for acquisition is also understood as meshichah for guarding. Ramban in Milchamot at the end of HaChovel writes that where the circumstances clearly show delivery for guarding, explicit words \"guard it for me\" are unnecessary. Partners in the body of an animal are different. If both bought from a third party, the original meshichah was only to acquire from the seller. It was not done so that each partner should become custodian for the other's share. Even if one partner sold half his animal to the other, unless they also agreed at the time of sale on alternating periods of use and guarding, neither can force such a schedule. The other might demand gud o agud, insist on renting to outsiders where that is appropriate, or propose that they work and guard together. Therefore, when one partner later takes the animal for his own work, the circumstances do not necessarily show that he accepts custody of the other's share. He may intend merely to guard his own half while using it pending a later division of times. Once they actually establish alternating periods, the partner using it can become a paid custodian of the other's share because his compensation is the reciprocal use or guarding he will receive in the other's period. This explains the husband-and-wife case. Suppose a wife brought an animal into the marriage without informing her husband that it was borrowed. When the husband later takes it for his ordinary marital use, he does not thereby become its custodian unless he expressly accepts custody. He can compel her to perform marital duties without assuming a new custodial obligation. If she wants the borrowed animal guarded at the higher level required of a borrower, she herself must remain responsible for that guarding. Indeed, where handing the animal to the husband would reduce the level of guarding, she would not be permitted to do so without remaining involved, just as siman 291 restricts transfer to a lower level custodian. At the outset of the marriage, therefore, the legal arrangement can be understood as giving him the marital use-right while she remains the one responsible for guarding. Her later absence from the work does not by itself show that he accepted custody. This also explains the second clause, that the husband is treated as a purchaser. Rosh in Ketubot 79 rules that if she brings him a cow in which she owns only the fruits, those fruits must be sold and land purchased with the proceeds, while he eats the fruits of that land. One might therefore think that if she simply gives him permission to use the cow he becomes a full borrower. Nevertheless, he is exempt because she has merely lent him a use-right in something that is, for the marriage, treated substantially as his own economic property. The money with which replacement land would be purchased would itself also come under his marital fruit-rights. By the enactment of Usha he is treated as a purchaser even regarding the body for the relevant marital laws. Thus the Gemara's statement that a husband is a purchaser through the enactment of Usha means that, for these purposes, the property is treated almost entirely as his. If, however, he waived his fruit-rights and retained only a body-interest, while she lent him the fruits, the case resembles two partners where one owns the body and the other owns the fruits. If the body-owner borrows the fruit-right from the fruit-owner, he is a borrower at least with respect to the value of that fruit-right.",
+        "He is not exempt because of shemirah b'baalim. At first glance this is difficult. The case must be one where the wife did not tell him before the marriage that the object was borrowed. If she had informed him, Mechaber later says he can be liable for accidents. If he did not know, why should the fact that the object was not actually hers matter? He accepted the arrangement believing it belonged to her, and on that assumption the owner was with him and he should be exempt. This resembles siman 291, seif 4, where a custodian can say, \"I accepted only the guarding of a silver dinar.\" The answer is that Mechaber's later liability where she informed him must mean she informed him at the time of marriage. Her disclosure then functions as a condition: she is unwilling to enter the marriage and bring him this use-right unless he accepts the accident liability attached to the borrowed object. She grants the marital benefit only together with that obligation. If, however, she brought it into the marriage without disclosure, the marital acquisition was created unconditionally and she herself retained the underlying borrower responsibility. Even if she later tells him, before he begins using the animal, that it is borrowed, he now uses what has already become his marital use-right. According to the conclusion that a husband is treated as purchaser, he is using his own property-right. Accordingly, the statement that shemirah b'baalim does not exempt means that once he knows the object itself belongs to someone else, her presence is not the owner's presence. His exemption, where applicable, rests instead on his purchaser status, not on shemirah b'baalim.",
+        "And similarly a robber. At first glance this is difficult. Ordinary robbery is presumed to lead to the owner's despair in many settings, and siman 361, seif 6, says that if a second person consumes stolen property after despair, the second can be exempt under the verse \"that which he stole.\" If so, all the more where the object is merely lost in the second person's possession, the original victim's claim may remain only against the robber, while vis-a-vis the robber the second person's relationship could be shemirah b'baalim. We must therefore establish the case where it is known that the owner did not despair. Still, if the second person knew the object was stolen and used it, he himself would be an unauthorized borrower or robber, because before despair the object remains in the original owner's domain. If he did not use it, mere meshichah does not necessarily create borrower liability. If he was not told that the object was stolen, he can say, \"I never accepted ordinary accident liability. I believed the person who lent it was the owner, so I understood the arrangement as one with the owner present.\" It therefore appears that the case is where the actual owner of the object entered the second person's service, but the borrower did not know that this person was the true owner. Above, seif 4, such a case can still create a normal borrowing relationship without the borrower's conscious reliance on shemirah b'baalim. Even so, another difficulty arises. Suppose the object was worth one dinar when stolen and four dinars when it later died in the borrower's hands. The robber's principal obligation to the original owner is measured at the earlier theft value in the relevant case. But the borrower becomes liable at the time of the accident, when the object is worth four. If the borrower pays four to the robber, one might say the robber acquires that later benefit because a robber can acquire the changed or broken remains, and later appreciation after the decisive change belongs to him. The borrower's accident payment likewise arises only at the later time. This is not the problem of one person doing business with another's cow, because by the borrowing stage the robber can have a proprietary interest under robbery law. Nevertheless, in my view shemirah b'baalim still does not apply. At the time the borrowing began, the robber was not yet the true owner of the object in the relevant legal sense. Ownership for shemirah b'baalim must exist at the beginning of the borrowing. It is not enough that the robber later acquires the object through change or another event. Accordingly, even if the robber later purchases the object from the true owner for money after he had already lent it out, he is not treated retroactively as \"the owner with him\" at the beginning of the borrowing."
+      ]
+    },
+    {
+      "id": "cm1/siman348/seif-002/beer-hagolah",
+      "volume": "cm1",
+      "siman": 348,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג) שם דין א' וכתב ה\"ה דין ש\"פ נתבאר בהרבה מקומות ומהם שם בסנהדרין דף נ\"ז ע\"א ודין העכו\"ם בפ\"י דב\"ק דף קיג ע\"ב וגזל העכו\"ם הוא אסור וה\"ה לגנבו",
+        "שם בגמ' פי' רש\"י כגון דטען ליה ליורש נתתי לאביך מת דלא ידע העכו\"ם אי משקר ועיין בסימן שנט ורל\"א ובמ\"ש שם (וכן הורו גם הם)",
+        "ד) שכן כתב הרמב\"ם בפ\"ז מה' גניבה ד\"מ וז\"ל וכן אסור להטעות את העכו\"ם בחשבון אלא ידקדק עמו שנא' וחשב עם קונהו אע\"פ שהוא כבוש תחת ידו ק\"ו לעכו\"ם שאינו כבוש תחת ידך והרי הוא בכלל כי תועב' ה' אלהיך כל עושה עול מ\"מ וכ' ה\"ה מפורש בברייתא פ\"י דב\"ב בשם ר\"ע שם",
+        "ה) וכ\"כ הרמב\"ם בפי\"א מה' גזילה ד\"ד שהי' כאבידתו ומותר' וביאר שם כיצד כגון שעשה העכו\"ם חשבון וטעה צריך שיאמר לו ישראל ראה שעל חשבונך אני סימך וכו' ע\"כ וכתב ה\"ה פסק כרב כהנא שם דעביד הכין וע\"ל ר\"ס רס\"ו ושאם החזיר האבידה לעכו\"ם לקדש את השם כדי שיפארו את ישראל וידעו שהם בעלי אמונה ה\"ז משובח וכו' ע\"כ וכן הדין בחזר' הטעות שטעה העכו\"ם מעצמו ואני כותב זאת לדורות שראיתי רבים גדלו והעשירו מן טעות שהטעו העכו\"ם ולא הצליחו וירדו נכסיה' לטמיון ולא הניחו אחריהם ברכה וכמ\"ש בספר חסידים סימן תתרע\"ד רבים אשר קדשו ה' והחזירו טעיו' העכו\"ם בדבר חשוב גדלו והעשירו והצליחו והניחו יתרם לעולליה'"
+      ],
+      "en_segments": [
+        "gimel) Ibid., law 1. The Maggid Mishneh writes that the law concerning misappropriation by a Jew is explained in many places, including Sanhedrin 57a, and the law concerning a gentile appears in Bava Kamma 113b. Robbing a gentile is prohibited, and the same applies to stealing from him. Rashi explains the Gemara there as a case where one tells an heir, 'I gave it to your deceased father,' where the gentile does not know whether he is lying. See simanim 359 and 231 and what is written there; those authorities ruled likewise.",
+        "dalet) The Rambam likewise writes in chapter 7 of Hilkhot Geneivah, law 8: it is prohibited to deceive a gentile in an accounting; rather, one must calculate precisely with him, as it says, 'he shall reckon with his purchaser.' If this applies even when the gentile is under his power, all the more so where he is not. This falls within the prohibition of acting unjustly. The Maggid Mishneh writes that this is explicit in a baraita in Bava Kamma in the name of Rabbi Akiva.",
+        "heh) The Rambam likewise writes in chapter 11 of Hilkhot Gezeilah, law 4, that a gentile's lost property is like his other loss and need not ordinarily be returned. He explains that if the gentile made the calculation and erred, the Jew must say, 'See that I am relying upon your calculation.' The Maggid Mishneh writes that the ruling follows Rav Kahana, who acted this way. See the beginning of siman 266. If one returns a gentile's lost property in order to sanctify Hashem's Name, so that they praise the Jewish people and know them to be trustworthy, this is praiseworthy. The same applies to returning an error the gentile made himself. I record this for future generations because I have seen many who grew wealthy from errors by which they deceived gentiles, but they did not prosper; their property was lost and they left no blessing after them. As Sefer Chasidim, siman 1074, writes, many who sanctified Hashem's Name and returned a substantial error made by a gentile became great, wealthy, and successful, and left their surplus to their children."
+      ]
+    },
+    {
+      "id": "cm1/siman353/seif-002/beur-hagra",
+      "volume": "cm1",
+      "siman": 353,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נתייאשו כו'. כרב יוסף שם ס\"ו א' דעולא שם ס\"ז א' וכן רבא שם ב' וכן ר\"נ ור\"ש שם ס\"ח א' ור' יוחנן שם ב' ס\"ל כוותיה וכן סוגיא דגמ' שם קי\"א ב' לר\"ח דקי\"ל כוותיה ורמי ב\"ח ורבא ע\"כ לאחר ייאוש איירי דשינוי רשית בלא ייאוש לד\"ה לא קנה כמש\"ש ס\"ח א' וערשב\"א סי' תתקס\"ח וכן סוגיא דשם קט\"ו א' וב\"ב מ\"ד א' וסוגיא דסוכה למ\"ד ב' וכן ס\"ל לעולא ורבא בגטין כ\"ה ועתוס' שם צ\"ה מ\"ט כו' ובב\"ק ס\"ז א' ד\"ה אמר עולא כו' ובסוכה ל' א' ד\"ה הא כו'. אבל הרא\"ש והטור פ' כרבה לחומרא וכ\"פ בא\"ע סי' כ\"ח ס\"א בהג\"ה:",
+        "ואם יש כו'. תוס' דסוכה ל' ב' בד\"ה וליקנייה. וא\"ת ועוצבא כו' וי\"ל כו' והשתא כו' ותוס' דב\"ק ס\"ו ב' בד\"ה מי כו':",
+        "(ליקוט) ואם יש כו'. דהא דאמר שם ס\"ז א' שאינו קונה היינו בלא ייאוש כמ\"ש תוס' שם סד\"ה הא. ועי\"ל כו'. אבל בלא ייאוש ודאי לא קנה כמש\"ש ובהא מודה ר\"י דאף מדרבנן אינו קונה דהא שם מדרבנן הוא וכמ\"ש בתוס' דסוכה שם שהוא כדברי ר\"י דשינוי מעשה החוזר קנה מדרבנן ובשינוי השם שחוזר כ' דלא קני כלל ע\"ש (ע\"כ):",
+        "(ליקוט) ואם יש כו'. כ\"כ הטור אבל הרא\"ש כ' ייאוש עם שינוי השם גרוע ע\"ש בפ\"ז ס\"ב והוא מדברי תוס' ס\"ז א' בד\"ה הא בתי' הראשון ונראה לפרש כו' שבתחלה כ' ס\"ו ב' בד\"ה שנוי השם כו' דכל שינוי השם דוקא עם ייאוש וכ\"כ בד\"ה הנ\"ל בתחלה וסתם מריש כיון כו' ולפ\"ז כי משני רז\"א שינוי כו' אפילו עם ייאוש והקשו וא\"ת כו' ומכח זה חזרו וחילקו בשינוי קטן לגדול ומ\"מ הכל בשינוי שאין חוזר דמזה לא חזרו וכמ\"ש רש\"י שם בד\"ה מריש כו' אבל אברזין כו' ועוד תי' דכל שינוי השם אפי' גרוע קני בלא ייאוש ולשני התירוצים שינוי החוזר לא קני אפי' בייאוש אבל דברי הטור לקוחין מתוס' דסוכה כמש\"ש ומ\"ש ב\"י שהטור למד מדברי תוס' ס\"ו ב' ד\"ה מי איכא כו' דבריו תמוהין והוא שגגה גדולה דשם לא מיירי בייאוש כלל ולא בשינוי השם אלא בשינוי מעשה החוזר דס\"ל דקני מדרבנן ואף בלא ייאוש וכשיטתן כמש\"ש ס\"ה ב' בד\"ה הן כו' וכ\"כ הרא\"ש שם בשמן וכ\"כ ברפ\"ג דסוכה וכמש\"ל (ע\"כ):"
+      ],
+      "en_segments": [
+        "The owners despaired, etc. This follows Rav Yosef. Ulla, Rava, Rav Nachman, Rabbi Shimon, and Rabbi Yochanan all support him, as do the sugyot in Bava Kamma, Bava Batra, Sukkah, and Gittin. A change of possession without prior despair does not acquire according to any view. Rosh and Tur nevertheless rule stringently like Rabbah, and Rama rules likewise in Even HaEzer 28. See 28 and 968.",
+        "And if there is, etc. Tosafot in Sukkah and Bava Kamma teach that a weak change of name may join with despair, but without despair it does not acquire. Rosh, however, speaks of despair together with an inferior change of name. Tosafot offer two approaches: either only a substantial and irreversible change of name acquires, or even an inferior change of name acquires without despair. Under both approaches a reversible change of name does not acquire. Tur's formulation follows Tosafot in Sukkah, not the passage cited by Beit Yosef. (End of supplement.)"
+      ]
+    },
+    {
+      "id": "cm1/siman354/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 354,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) גנב כו'. כפרש\"י ותוס' שם. ורשב\"ם בב\"מ חולק וס\"ל דשמין אלא דפחת אין שמין דקאי על מ\"ש מלמד שהבעלים כו' ופריך אפי' י\"ל כו' ומשני לפחת וכן ס\"ל להרמ\"ה כמ\"ש נ\"י בב\"ק שם בשמו. וכ' פירש\"י ורא\"ש וכ' אבל הרמ\"ה ז\"ל כ' דהיינו דוקא כשיש לגנב או לגזלן זוזי כו' דהשתא היכי דאית ליה מנא תבירא לגזלן יהיב ליה דכתיב ישיב כו' דכל כ\"ד אבות כולהו לשלם ממיטב ואין חילוק אלא לענין פחת ע\"ש ודוקא דאין לו מעות משום דאזיל לשיטתו דאף בנזיקין ס\"ל כמש\"ש גבי מ\"ש ישיב לרבות וז\"ש בהג\"ה ודוקא כו' ולא קי\"ל כן ועמש\"ש (ע\"כ):",
+        "(ליקוט) ושברו כו' או נשבר כו'. ר\"ל דבניזקין בין ששברו בידים או ממילא שמין כמש\"ל סי' שפ\"ז וכמש\"ש יו\"ד ב' מנה\"מ כו' וצריכא כו' משא\"כ כאן מדקא' אלא לניזקין מ' דניזקין דממילא (ע\"כ):",
+        "(ליקוט) או דמיו. תוס' שם והרא\"ש דמ\"ל הן מ\"ל דמיהן (ע\"כ):",
+        "(ליקוט) או דמיו. עתוס' שם ד\"ה אין כו' הלכך כו' וה\"ט דמ\"ד כו' וע\"ש צ\"ד א' ומי אמר שמואל כו' (ע\"כ):",
+        "ודוקא כו'. נ\"י בשם הרמ\"ה וכ\"כ תוס' בב\"מ צ\"ו ב' ד\"ה זיל כו' ומפ' הר' שמואל כו' וכ\"מ בירושלמי בקדושין כו' אבל בב\"ק שם הסכימו לפירש\"י וכ\"כ הרא\"ש שם ובהג\"א שם הביא ב' הס' ומ\"ש ודוקא כו' הנ\"י בשם הרמ\"ה אזיל לשיטתו שכ' הא דאמרינן לרבות שוה כסף ואפי' כו' בדל\"ל זוזי כמו בע\"ח וז\"ל שם וכ' הרמ\"ה ז\"ל הא דמצי יהיב ליה אפי' סובין ה\"מ היכא דל\"ל זוזי כו' וה\"נ לבע\"ח וגבי מקח טעות דה\"ל מוכר כגזלן וגזלן א' מכ\"ד נזיקין ואמרינן ברפ\"ו דב\"ב אי דליכא לאשתלומי כו' וכן בהכותב תולה מעותיו כו' ע\"ש אבל תוס' בב\"ב שם ד\"ה אי דליכא כו' כ' אור\"י כו' וכ\"ד הרא\"ש וטוש\"ע בר\"ס תי\"ט דאפי' אית ליה מעות דר\"ה אמר או כסף או מיטב מ' אפי' י\"ל כסף ור\"פ ור\"ה פליגי עליהו וס\"ל דאפי' סובין מיטב הוא אבל הרמ\"ה מפ' דר\"ה אמר או כסף או מיטב אם אין לו כסף ובזה פליגי ר\"פ ור\"ה בריה דר\"י עליה אלא שק' לפ\"ד מאי פריך שם יו\"ד ב' אלא טעמא כו' הא אצטריך להיכא די\"ל מעות וכמו שהקשה הרא\"ש שם. ונמצא ג' שיטות להרמ\"ה כמ\"ש בהג\"ה ולתוס' דב\"מ אפי' בי\"ל מעות יכול לשום בשברים וכמ\"ש בסי' תי\"ט כנ\"ל ולתוס' דב\"ק הנ\"ל אפי' אין לו מעות א\"י לשום בשברים אלא או שלמים או מעות ועברא\"ש שם ואף שאר מטלטלין א\"י ליתן לו כמ\"ש בתוס' ורא\"ש שם ועסי' שס\"ד ס\"ב:",
+        "ואם רצו כו'. המ\"מ הקשה למה לא קנאה בשינוי והביאו בה\"ג וסמ\"ע וקושיא אלימתא היא דכן אמרינן בהדיא בב\"ק צ\"ד א' דמש\"ה אין שמין ובהכחשה דלא הדר לכן תי' של המ\"מ ליתא ועבתוס' דב\"מ בד\"ה הנ\"ל גם תי' של הסמ\"ע שס\"ב שם ב' ק' כחומץ לשינים כיון דקנה היאך יכול לכופו ועסי' תי\"ט ס\"ב וסי' קא ס\"ב ועוד לפ\"ד הא ע\"כ הרמב\"ם מיירי בי\"ל מעות כמ\"ש בהג\"ה כאן ודוקא כו' ובר מן דין הרמב\"ם ל\"ל כלל הא דרמ\"ה:",
+        "(ליקוט) ואם רצו כו'. עבה\"ג שהמ\"מ תמה עליו וודאי שהוא תמוה וכ\"כ נ\"י בפ\"ק דב\"ק שם להדיא דטעמא דאין שמין לגנב ולגזלן משום דקני בשינוי נשברים בע\"כ דנגזל משא\"כ בניזקין (ע\"כ):",
+        "(ליקוט) ואם רצו כו' הוא תמוה ונר' שלמד ממש\"ש צ\"ז א' רצה פחתה כו' אבל הרשב\"א שם תי' דשאני שם שעדיין ראוי למלאכתו ראשונה (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Supplement) A thief, etc. Rashi and Tosafot hold that the broken object itself is not appraised against the thief. Rashbam and Ramah distinguish between payment in money and payment with the broken object, and Ramah permits appraisal only where the thief lacks money. This follows his broader view that damages are paid from the best available property only when cash is unavailable. We do not rule accordingly. (End of supplement.)",
+        "(Supplement) And he broke it, etc., or it broke, etc. In damages the broken article is appraised whether the tortfeasor broke it directly or it broke by itself. Here the Gemara's contrast with damages shows that even spontaneous breakage is included. See 387. (End of supplement.)",
+        "(Supplement) Or its value. Tosafot and Rosh explain that there is no difference between returning the object itself and paying its value. See Bava Kamma 94a. (End of supplement.)",
+        "Specifically, etc. Nimukei Yosef cites Ramah that the thief may tender the broken object only where he lacks money. Tosafot in Bava Metzia, however, allows appraisal even when he has money, while Tosafot in Bava Kamma requires either complete objects or money. Thus there are three views. The principal ruling follows Tosafot and Rosh that cash is not always required, unlike Ramah. See simanim 364 and 419.",
+        "And if they wished, etc. Maggid Mishneh objects that the thief should acquire the article through its change, for Bava Kamma 94a expressly gives that reason. Sema's answer is unsatisfactory: once the thief acquires it, the owner cannot compel him to return it. Nimukei Yosef likewise writes that appraisal is denied because the thief acquired the broken article through change. Perhaps Rambam learned from the case of depreciation where the article remains fit for its original use. See simanim 101 and 419."
+      ]
+    }
+  ]
+}

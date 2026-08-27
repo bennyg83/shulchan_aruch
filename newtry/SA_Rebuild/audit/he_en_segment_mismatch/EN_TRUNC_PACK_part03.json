@@ -1,0 +1,573 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 3,
+    "chunk_total": 12,
+    "case_offset": 51,
+    "cases_in_chunk": 26,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman168/seif-020/siftei-kohen",
+      "volume": "yd1",
+      "siman": 168,
+      "seif": 20,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מותר להלוות כו'. דמה בכך שאין המשכון לעובד כוכבים וכי אסור להלוות לעובד כוכבים על המשכון של ישראל ואפי' אם הלוה העובד כוכבים לישראל ברבית מותר לישראל להלוות לעובד כוכבים על אותו משכון ברבית ולקבל מהישראל הרבית שחייב לעובד כוכבים שהרי הישראל הב' לא הלוה לראשון כלום אלא לעובד כוכבי' ובמקומו הוא לקבל הרבית מיד ישראל. טור והרא\"ש:",
+        "ולסברא הראשונה כו'. ול\"ד לדלעיל ס\"י דאם ישראל פודהו אסור דהתם מיד שנותן לו הישראל המשכון ולוה עליו מחזי דלוה לצורך ישראל א\"נ התם כיון שמשכנו בע\"כ ודאי לא הקנהו לו אבל הכא איכא למימר הקנהו לו. כ\"כ ב\"י גבי דין דס\"י ובזה א\"ש נמי דל\"ק מדלעיל ס\"ט דאסור כשידע המלוה שהמשכון של ישראל דהתם לוה לצורך ישראל וכ\"כ האחרונים:"
+      ],
+      "en_segments": [
+        "Permitted to lend etc. For what difference does it make that the collateral does not belong to the non-Jew — is it forbidden to lend to a non-Jew on a Jew's collateral? And even if the non-Jew lent to the Jew with interest — it is permitted for a Jew to lend to the non-Jew on that collateral with interest and to receive from the Jew the interest the Jew owes the non-Jew; for the second Jew did not lend to the first anything but to the non-Jew, and it is in his place that he receives the interest from the Jew's hand — Tur and the Rosh."
+      ]
+    },
+    {
+      "id": "yd1/siman168/seif-022/beer-hagolah",
+      "volume": "yd1",
+      "siman": 168,
+      "seif": 22,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור בשם ר\"י ושגם הרמב\"ן מודה בזה:",
+        "(°) כאשר הגהתי כן הוא בב\"י:"
+      ],
+      "en_segments": [
+        "The Tur in the name of Ri, and that Ramban likewise agrees in this case. This is the correct reading, as I emended it in Beit Yosef."
+      ]
+    },
+    {
+      "id": "yd1/siman170/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 170,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ה\"ז מותר. ל\"מ הלוהו ק' בק\"נ אלא אפילו התנה עמו לתת לו כך וכך רבית לחודש. ב\"י בשם בה\"ת ומביאו ד\"מ:",
+        "וי\"א שאינו כו'. וכתב ב\"י דלכתחלה מורים דכל שיכול לתבוע לערב תחלה אסור עד שיקבל עליו שלא לתבעו עד שיתבע הלוה תחלה ולא ימצא לגבות ממנו או שיהא אלם ואין ב\"ד יכולים להוציא ממנו או שאינו בא לדין כגון שברח וכה\"ג דכל שהוא ערב כעין ערב דעלמא שרי אבל בדיעבד סמכינן אהי\"א והיכא דקיימי זוזי שבקינן להו כדין הספיקות שהמע\"ה עכ\"ד מבואר מדבריו דבערב שלוף דוץ אפי' כבר פרע לו הרבית מוציאין מידו שלא כדעת הרב ובד\"מ והב\"ח מיקל עוד ופסק כהר\"י קרקוז\"א דאינו אסור אלא לכתחלה אבל בדיעבד יש לוכל ההפסד כיון דמחמתיה קפסיד ואין בזה משום רבית אפילו בערב שלוף דוץ ודעת כל הפוסקים אינו כן ונלפע\"ד דהר\"י קרקוז\"א גופי' לא הקיל בזה אלא בערב קבלן אבל לא בערב שלוף דוץ ע\"ש. ובהכי ניחא מה שהניח בתשובות משאת בנימין ס\"ס ס\"ז בקושיא על הר\"י קורקוז\"א והרב דבש\"ס משמע דבישראל ערב הוי רבית דאורייתא די\"ל דבש\"ס מיירי בשלוף דוץ ובלאו הכי נמי לק\"מ די\"ל דס\"ל כמו שכתב בעל העיטור והביאו ב\"י דבש\"ס מיירי דוקא בעובד כוכבים שלוה מישראל כו' ע\"ש:"
+      ],
+      "en_segments": [
+        "Behold it is permitted. Not only if he lent one hundred for one hundred fifty; but even if he stipulated with him to give him such-and-such interest per month — Beit Yosef in the name of Beit HaTalmud; and Darkei Moshe brought it."
+      ]
+    },
+    {
+      "id": "yd1/siman173/seif-018/beer-hagolah",
+      "volume": "yd1",
+      "siman": 173,
+      "seif": 18,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם בגמרא כיון דמחוסרי גוביינא כמאן דליתנהו דמי:",
+        "(°) בתוס' פירשו כגון פרה וטלית ונלענ\"ד דהטעם דכיון דנותן לו סתם אפרה וטלית ואין שומתן ידוע לא בשעה שמקבל המעות ולא בשעה שמחזירם ולא שייך בהם לומר יצא השער לא גזרו בזה חכמים דלא מחזי כרבית כיון שיכול ליתן לו איזה פרה שירצה שתהיה פחותה בשווי הדמים וכן בטלית:"
+      ],
+      "en_segments": [
+        "There in the Gemara. Since they still require collection, they are regarded as nonexistent. Tosafot explains the example as a cow or garment. In my humble opinion, since he gives the money without specifying a particular cow or garment, and their value is known neither when he receives the money nor when he returns it, the rule of an established market price does not apply. The Sages therefore did not decree, because it does not appear as interest, since he may give him whichever cow or garment he chooses, even one of lesser value."
+      ]
+    },
+    {
+      "id": "yd1/siman173/seif-019/beer-hagolah",
+      "volume": "yd1",
+      "siman": 173,
+      "seif": 19,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרב וכלישנא בתרא שם דף ס\"ד ע\"א הסכמת הפוסקים:",
+        "(°) שם בגמ':"
+      ],
+      "en_segments": [
+        "The statement of Rav, according to the latter version there, page 64a, in accordance with the consensus of the halachic authorities. This is explained there in the Gemara."
+      ]
+    },
+    {
+      "id": "yd1/siman175/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 175,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) היו כו'. כגי' שלנו בגמ' אבל רש\"י שם כתב ה\"ג בתוספתא כו' אין פוסקין על החדשות כו' אבל לגי' שלנו אין פוסקין כלל בין לחדש בין לישן כיון שאינו שער קבוע. מ\"מ (ע\"כ):",
+        "(ליקוט) היו כו'. כגי' שלנו וגי' רי\"ף וש\"פ ומשמע אפי' ליתן לו אח\"ז חדשות מד' דלא כרש\"י שלפ\"ד מותר בכה\"ג. מ\"מ וסה\"ת וש\"פ. ב\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Likkut) They were, etc. As our version in the Gemara; but Rashi there wrote: the correct version is in the Tosafeta, etc. — \"they do not fix a price on new produce,\" etc. But according to our version, they do not fix a price at all, whether for new or old, since there is no established market price. Mishneh LaMelech (end quote). (Likkut) They were, etc. As our version and the version of Rif and others; and it implies that even to give him new produce afterward — like the fourth view — and unlike Rashi, for according to his view it is permitted in such a case. Mishneh LaMelech, Sefer HaTerumah, and others. Beit Yosef (end quote)."
+      ]
+    },
+    {
+      "id": "yd1/siman175/seif-003/turei-zahav",
+      "volume": "yd1",
+      "siman": 175,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פוסק ללקוטות כשער הלקוטות. אפילו לרמב\"ם דלעיל שהחמיר אפי' בישנות מג' דלא הוה שער קבוע כלל מודה הכא שיש לכל א' שער קבוע דדוקא לעיל ששניהם מין א' ועתידין להשוות משא\"כ כאן שהחילוק הוא דתבואות הלקוט הוא תבואה מעורבת שיפון עם חטין והיא כמו מין אחר עם של ב\"ה ולעולם לא יהיו שוין ע\"כ יש לכל א' שער קבוע לעולם. ע\"כ פוסק עם כל א' לפי שער שלו:",
+        "ולא יפסוק לב\"ה. מפ' בגמרא דבשלמא לקיט אי לית ליה יזיף מלקיט חברי' אבל ב\"ה אי ל\"ל זילא ביה מלתא למיזף מלקיט ואב\"א מאן דיהיב זוזי לב\"ה אפירי שפירי יהיב ונראה דיש נפקותא מיניה בין הנך שני תירוצים לענין אם אמר ב\"ה בהדיא יהבינא לך פירא דלקיט לתירוצא קמא אסור דזילא ביה למהוי ליה עסק עם הלקוט ויתן לו משלו ולתירוץ השני מותר בזה וכתב הטור שאפי' מתבואות לקוט לא יפסוק עם בעל הבית והיינו כתירוצא קמא לחומרא וכן יש לכוין דברי הש\"ע כאן דלא יפסוק כלל עם בעל הבית בתבואות לקוט אבל ב\"ה בג' ודאי שרי:"
+      ],
+      "en_segments": [
+        "Go to the cottages as the cemetery. Even the low-cost radar that has worsened A. D. D.D. has a fixed gate at all admits that the oppressor has a fixed gate above that both of them are a type of A and that they are future to compare such a burden here that the division is a constant reference to the ecclesiastic and is like another species with the people of B. So he goes with every A according to his hair:"
+      ]
+    },
+    {
+      "id": "yd1/siman175/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 175,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מקח כו'. עבח\"מ סי' ר\"ח וע\"ל סי' רכ\"ח (ע\"ש בס\"ק ק\"א) ומש\"ש:",
+        "(ליקוט) והוא כו'. וכ\"כ ברא\"ש שם בשם הגאון שנתקיים המקח בקנין וכ\"כ בש\"פ משם הגאון (ע\"כ):"
+      ],
+      "en_segments": [
+        "Take a spoon. And then, he said, “And I will be with him.”"
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-004/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 4,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לשון הרמב\"ם בפ\"ו מהלכות שלוחין ושותפי' דין ב' מברייתא שם וכדמפרש אביי:",
+        "(°) פי' רש\"י שאם היה נפח או נגר כמה אדם רוצה ליטול ליבטל ממלאכה כבדה כזו ולעשות מלאכה קלה וכן משמע מדברי הרי\"ף והתוס' פירשו כפועל בטל היינו כיושב ובטל לגמרי ואין לו שום מלאכה כמה היה רוצה ליקח להתעסק בזה העסק וכ\"כ הרא\"ש שם. וכתב עוד דהכא באבק רבית הקילו חכמים ובדבר מועט שנותן לו לא מחזי כרבית וכ\"כ הטור:"
+      ],
+      "en_segments": [
+        "The wording of the Rambam in chapter 6 of Hilchot Sheluchin VeShutafin, halachah 2, from the baraita there, as Abaye explains it. Rashi explains that if he was a bellows-worker or carpenter, one estimates how much a person would accept to desist from such heavy labor and engage in lighter work. This is likewise implied by the Rif. Tosafot explains \"an idle worker\" as one who is entirely idle and has no other work, estimating how much he would accept to engage in this venture. The Rosh writes likewise. He further writes that here the Sages were lenient regarding rabbinic interest, and a small payment does not appear as interest. The Tur likewise writes this."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-012/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור בשם רבינו ישעיה ופי' הטעם משום דמחזי כמלוה ברבית ואתי לאחלופי בריבית גמורה:",
+        "(°) פירוש אפילו שמקבל עליו שיתן לו הדבר הקצוב בין ירויח בין לא ירויח:"
+      ],
+      "en_segments": [
+        "The Tur in the name of Rabbeinu Yeshayah. The reason is that it appears as an interest-bearing loan and may be confused with actual interest. This applies even where he accepts an obligation to give the fixed amount whether or not profit is earned."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-016/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם חיוב כו'. ולא דמי להא דלעיל סי\"ד דכאן אגר נטר גמור הוא:",
+        "(ליקוט) אם חייב כו' ואע\"ג דאם כו'. כמש\"ש ס\"ה ב' מכר לו את השדה כו' תני ר\"ס כו' אע\"ג שאילו הביא מעות עכשיו לא היה המוכר אוכל אפ\"ה המוכר אסור. הרשב\"א בתשובה שם (הנ\"ל בס\"ק ל\"ה בליקוט ב') (ע\"כ):"
+      ],
+      "en_segments": [
+        "If obligated, etc. And it is not similar to that above seif 14, for here it is full watchman's fee. (Likkut) If obligated, etc., and even though if, etc. As written seif 5 letter bet: he sold him the field, etc.; Rabbi Shimon taught, etc.; even though if he brought money now the seller would not eat, nevertheless the seller is forbidden. Rashba in responsum there (the above s.k. 35 in Likkut letter bet) (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-018/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 18,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג\"ז שם וכתב דלא אמרינן כיון דלדברי התובע הוא רשע אינו נאמן בשבועה:",
+        "(°) וכ\"כ בח\"מ סי' פ\"ב סעיף י' ונלע\"ד שאין זה חולק על מ\"ש לעיל ס\"ס קס\"ט דהתם טוען בהיתר לקחתי ומזכיר ההיתר על ידי עובד כוכבים לקחתי דנאמן מדין הפרוזבול משא\"כ כאן ובסימן פ\"ב דהוא כופר בכל ואינו טוען שבהיתר לקחו משביעין אותו ומ\"ש הרב רמ\"א ויש חולקין לא זכיתי לספרו ד\"מ:"
+      ],
+      "en_segments": [
+        "This too is stated there. He writes that we do not say that because, according to the claimant, he is wicked, he cannot be believed under oath. The same is written in Choshen Mishpat, siman 82, seif 10. In my humble opinion, this does not disagree with what was written above at the end of siman 169. There, he claims that he took the money permissibly and specifies the basis of permission, namely that he took it through a non-Jew, and he is believed by analogy to the law of a prozbul. Here, however, and in siman 82, he denies everything and does not claim that he took it permissibly, so an oath is administered. As for Rama's words, \"and some disagree,\" I did not merit to see his source in Darkei Moshe."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-020/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 20,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מרדכי בפ\"ה דב\"מ בשם תשובת מהר\"מ:",
+        "(°) כלומר אע\"ג דמחזי כי הערמה שודאי לא יעכב ב\"ה מעותיו ואפ\"ה שרי:"
+      ],
+      "en_segments": [
+        "Mordechai in chapter 5 of Bava Metzia, in the name of a responsum of Maharam. Meaning: although it appears to be a circumvention, since the borrower will certainly not withhold his money, it is nevertheless permitted."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-021/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 21,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם נותן כו'. שם ס\"ח ב' ועתוס' שם ד\"ה מקום. ור\"ח גרים כו' פי' אם היו כו'. ולכאורה משמע דלתועלת הנותן קאמר דהוא בכלל הקרן לנותן וכן פי' בתוספת הרא\"ש אבל הטור פי' דלתועלת המקבל קאמר שאם היו פירות של המקבל מונחים ברשותו והנותן נותן לו מעות בשבילן צריך לשום כפי מה שהיה צריך ליתן בשוק עם שכר כתף וכ' וכ\"ש אם יש למקבל כו' כמ\"ש בסכ\"ב. והרמב\"ם פי' בדרך אחר ע\"ש:",
+        "(ליקוט) אם כו'. גירסת ר\"ח ורי\"ף וש\"פ בברייתא מקום שנהגו להעלות שכר כתף למעות מעלין לבהמה מעלין להעלות ולדות בשכר עמלו ומזונו מעלין. ועתוס' שם בשם ר\"ח ומפרש הטור לטובת המקבל כמו בסיפא. ב\"י. וכתב הטור אם נותן כו' כמ\"ש כאן וכ' ואפילו היתה העיסקא בבית המקבל מעלה אותן כשער שבשוק כו' והן שני פירושים פי' הראשון שכ' הטור וכאן בש\"ע הוא כפי' הרמב\"ם וכמ\"ש בב\"ח דברי הרמב\"ם שבכל פעם שמוליך המקבל בשוק למכור העיסקא אם דרך לשכור כו' צריך ליתן כו'. ופי' השני הוא פי' ר\"ח לדברי הטור והוא להוליך משוק הסחורה כשלוקח ומוליך לביתו ורישא הוא כשמוליך לשוק ואע\"ג שבתוס' כ' מבית הנותן והטור כתב מן השוק הכל ענין אחד וב\"ח ודו\"פ פי' בע\"א ול\"נ (ע\"כ):"
+      ],
+      "en_segments": [
+        "If he gives, etc. There 68b; and Tosafot there s.v. place. And Rashi HaChadash, etc., explained: if they were, etc. And at first glance it implies for the giver's benefit he speaks, that it is included in the principal for the giver; and likewise explained in Tosafot of the Rosh. But Tur explained for the recipient's benefit he speaks, that if the recipient's produce were placed in his possession and the giver gives him money on their account he must assess according to what he would need to give in the market with porter wages; and he wrote: and all the more so if the recipient has, etc., as written in seif 22. And the Rambam explained in another manner, see there. (Likkut) If, etc. Rashi HaChadash's and Rif's and Shulchan Arukh's version in the baraita: a place where they practiced to raise porter wages for money, they raise for an animal, they raise to raise offspring with his labor wages and his food they raise. And Tosafot there in name of Rashi HaChadash; and Tur explains for the recipient's benefit as in the latter clause. Beit Yosef. And Tur wrote \"if he gives,\" etc., as written here; and he wrote: and even if the iska were in the recipient's house he raises them at the market rate, etc.; and these are two explanations, the first explanation that Tur wrote; and here in Shulchan Arukh it is like the Rambam's explanation; and as Beit Chadash wrote the Rambam's words that whenever the recipient carries to the market to sell the iska, if it is customary to hire, etc., he must give, etc. And the second explanation is Rashi HaChadash's explanation of Tur's words, to carry from the merchandise market when he takes and carries to his house; and the first clause is when he carries to the market; and even though in Tosafot it is written from the giver's house and Tur wrote from the market, all one matter; and Beit Chadash and D.M. explained with one explanation; and in my humble opinion (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-027/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 27,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם התנו כו'. רמב\"ם וכמש\"ש אי פלגא באגר כו' אי כו' ונמצא שלעולם נוטל שתות השכר כולו יותר על חלקו שהוא בתורת מלוה וכן בהפסד פורע הנותן שתות יותר שהוא שליש חלק של א' מהן וכ' רבותיו של הרמב\"ם שאותו שליש מחשבין מחלק הנותן שהוא פקדון והוא שליש חלקו בין בשכר בין בהפסד ולכן בכה\"ג שכ' כאן בש\"ע שהתנו שיטול המתעסק רביע נמצא שחלק של פקדון הוא שלשה חלקים בהפסד משלם הנותן כולו. ורמב\"ן ורשב\"א ס\"ל בהיפך דהשליש הנ\"ל מחשבין מחלק המלוה בין בשכר בין בהפסד לפיכך משלם בכה\"ג המתעסק שתות אלא בסיפא שהתנו בהפסד רביע נוטל בריוח שליש שהוא חלקו ושליש חלקו אבל הרמב\"ם הקשה על רבותיו שא\"כ פעמים שישלם הנותן יותר על ההפסד כגון אם התנה שיטול א' משבע בריוח ויהיה הפסד שבעה דינרין וישלם הנותן שמנה דינרין וכיוצא וכן קשה כה\"ג על הרמב\"ן ורשב\"א שפעמים יטול המתעסק יותר מהריוח כגון שהתנו שיפסיד הנותן א' משבעה והרויחו שבעה דינרין צריך שיטול המתעסק שמנה דינרין ע\"כ פי' הרמב\"ם שאם התנו על הריוח בהפסד יוסיף הנותן שליש מחלק חבירו שהוא מלוה ואם התנו על ההפסד יטול המתעסק שליש מחלק חבירו שהוא פקדון וז\"ש יפסיד כו' יטול כו' וכן הוא הסברא בהרוחה נוטל התוספת מחלק חבירו וכן בהפסד מפסיד הנותן היתרון בחלק חבירו לכן משערינן הכל בחלק חבירו אבל הרמב\"ן והרשב\"א תי' קושית הרמב\"ם דלעולם אין משלם הנותן יותר מההפסד או הריוח וכה\"ג כ' בח\"מ סי' קע\"ו ס\"ו וע\"ש בסי' צ\"ג סי\"ג דרמב\"ם פליג שם וס\"ל דישלם מביתו:",
+        "(ליקוט) אם התנו כו'. ושיטה אחרת לסמ\"ג עב\"י וכ' בכ\"מ וטעמו של הרמב\"ם דבריוח יטול שליש מחלק הפקדון יותר דהא אותו העודף נוטל בשכר טרחו בחלק הפקדון לכן נוטל מחלק הפקדון בין רב בין מעט לפי החלק של הפקדון משא\"כ בהפסד שאינו נוטל כלום בריוח אלא שבשכר טרחו מנכה לו מהפסד שלו שלא יפסיד כ\"כ מנכה לו לפי ההפסד של המקבל בחלקו כ\"כ מנכה לו שליש בהפסדו שלעולם לא יפסיד אלא ב' שלישים מחלקו של המקבל. ועבב\"י שי\"מ ההיא דפלגא באגר ותילתא כו' דל\"ד שיהא לו שתות יתר בשכר מבהפסד אלא דבר מועט וע\"ש בדבריו שפי' דברי הרי\"ף והרא\"ש כדברי הרמב\"ם והטור ודבריו אינן נראין (ע\"כ):"
+      ],
+      "en_segments": [
+        "If they stipulated, etc. Rambam; and as written \"if half in profit,\" etc., \"if,\" etc.; and it results that always he takes a sixth of all the wages more than his share which is as a loan; and likewise in loss the giver pays a sixth more which is a third of one of their shares. And the Rambam's teachers wrote that that third is calculated from the giver's share which is the deposit, and it is a third of his share both in wages and in loss; therefore in such a case where it is written here in Shulchan Arukh that they stipulated the dealer shall take a quarter, it results that the deposit share is three parts in loss, the giver pays all. And Ramban and Rashba hold the opposite: that the said third is calculated from the lender's share both in wages and in loss; therefore in such a case the dealer pays a sixth. But in the latter clause where they stipulated a quarter in loss he takes a third in profit which is his share and a third of his share. But the Rambam challenged his teachers that otherwise sometimes the giver will pay more than the loss, for example if they stipulated he take one of seven in profit and the loss is seven dinars, the giver will pay eight dinars and similar; and likewise he challenges Ramban and Rashba that sometimes the dealer will take more than the profit, for example they stipulated the giver lose one of seven and they profited seven dinars, the dealer must take eight dinars; therefore the Rambam explained that if they stipulated on profit, in loss the giver adds a third from his fellow's share which is a loan; and if they stipulated on loss, the dealer takes a third from his fellow's share which is the deposit; and this is what is written \"he shall lose,\" etc., \"he shall take,\" etc.; and likewise is the reasoning: in profit he takes the addition from his fellow's share; and likewise in loss the giver loses the surplus in his fellow's share, therefore we estimate everything according to his fellow's share. But Ramban and Rashba answer the Rambam's difficulty that never does the giver pay more than the loss or the profit; and likewise Choshen Mishpat siman 176 seif 6; and see there siman 93 seif 13 that the Rambam disagrees there and holds he pays from his own house. (Likkut) If they stipulated, etc. And another method for Semag, and Kesef Mishneh wrote the Rambam's reason: in profit he takes a third more from the deposit share, for that surplus he takes as labor wages on the deposit share; therefore he takes from the deposit share whether much or little according to the deposit share's portion, not so in loss where he takes nothing in profit except that from his labor wages he deducts from his loss so he does not lose so much, he deducts according to the recipient's loss in his share; so much he deducts a third in his loss so he never loses except two-thirds of the recipient's share. And on Beit Yosef siman 176 that incident of half in profit and a third, etc., he does not hold that he should have a sixth extra in wages than in loss but something small; and see there in his words that he explained the Rif's and Rosh's words like the Rambam's and Tur's words, and his words do not appear correct (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-031/turei-zahav",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 31,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בדקה ל' יום כו'.",
+        "שאלה המקבל עיסקא מחבירו איזה סך ממון על זמן ואחר זמן הפרעון התעכב המקבל אצלו את המעות ונתעסק בהם ואינו רוצה ליתן ריוח ממה שמגיע אחר הזמן פרעון כי אומר שאחר הזמן הזה המעות פקדון אצלו כי אין לו היתר עמו רק עד הזמן ואח\"כ הוה רבית מה שיתן לו:",
+        "עוד שאלה בממרנ\"י שכתוב בה וז\"ל שקיבל החתום עליו ת' זהובים קרן בעיסקא ולתת ריוח למוציא שטר מן העסקא הנ\"ל ק' זהובים ז\"פ קרן וריוח ר\"ח ניסן ובאם ימשוך הפרעון אפילו מקצתו קבל החתום עליו מעכשיו להתעסק באותו סך שיעכב אצלו בתורת עסק הנ\"ל ולתת רווחים לפי ערך הריוח דלעיל ואח\"כ המשיך הפרעון איזה זמן ובא הנותן ואומר שיתן לו רווחים מן הרווחים דהיינו מן ר\"ח ניסן נעשה ה' מאות זהובים קרן ויתן לו רווחים גם מן הק' זהובים אם הדין עמו או לאו:",
+        "תשובה על שאלה הראשונה נראה ברור דהדין עם הנותן וחייב לתת לו רווחים גם מהעסק שאחר זמן פרעון וההיתר שבתחלה נמשך גם אח\"כ עד שיודיעו אחר הזמן שאינו רוצה לקבל עוד בעיסקא אותו המעות וראיה לזה מפרק א\"נ (דף ס\"ט) ת\"ר השם בהמה לחבירו עד מתי חייב לטפל בוולדות בדקה ל' יום ובגסה נ' יום מכאן ואילך נוטל מחצה שלו וחצי מחצה משל חבירו פרש\"י אם רוצה לטפל בהם יותר מזה הזמן ישומו אותן בדמים ומה שישבחו מכאן ואילך יטול המקבל מחצה שלו שחלקו הוא ובמחצה השני שהוא של חבירו יטול מחצה בשבח כדרך שנוטל באמה חצי השבח וכתב ב\"י סי' קע\"ז בשם תלמידי רשב\"א דה\"ה בלוקח מעות להתעסק על איזה זמן והרויח ונתעסק כו' וכתב הרמב\"ם פ\"ח דהל' שותפין דלא שקיל מחצה מחלק חבירו אלא אם שם הוולדות והתנה בפני ג' דאם לא שם והתנה בפני ג' הרי מחל והוולדות בשוה כבתחלה והטור סימן זה לא כתב שם והתנה אלא כתב ואם בא לחלוק צריך להודיע לחבירו כו' וכתב ב\"י דלא פליגי והטור נקט חדא וה\"ה לאידך. הרי לפנינו דעכ\"פ נוטל המקבל מן הריוח שמגיע אחר זמן הקצוב דהיינו ל' יום או גסה נ' יום ולא אמרינן דלא מיקרי מקבל עסקא מחברו רק עד אותו זמן ומכאן ואילך יהיה פקדון בידו ולא יטול מן הריוח שאחר הזמן כלל דאין כאן עסקא אלא ע\"כ כל זמן שהעסק סתם בידו אף שכלה הזמן מ\"מ מעכב העסק בידו אדעתא דמעיקרא אלא דאם הודיעו אז נעשה עסק חדש וזוכה אפילו בחצי חלק חבירו והתוס' כתבו שם דאפי' בלא תנאי כלל נוטל מחצה בשל חברו כמ\"ש ב\"י שם בשם תלמידי רשב\"א מטעם דכיון דמתחלה בתורת עסקא ירד בה דהיינו למחצית שכר אדעתא דהכי מטפל בריוח שיטול לעולם בענין זה עכ\"ל. הרי לפניך שהעסק דמעיקרא לא נשלם בהשלמת הזמן אלא נשאר מסתמא ואפילו בריוח ועוד ראיה מפ' האומנין אמר רבא האי מאן דקביל עיסקא מחבריה ופסיד וטרח ומלייה ולא הודיע לא מצי א\"ל דרי מהאיך פסידא בהדאי פי' קביל עליך חצי ההפסד ובשכר טול השליש כדין מקבל עסק מחבירו ונמצאת פוחת מן הקרן דא\"ל להכי טרחת ומלייתיה דלא ליקרי אותך מפסיד עסקא פרש\"י נכלם היית להכי טרחת למלאות הקרן מדלא אודיעת תחילה ע\"כ ה\"נ בנדון דידן כיון שמתחילה קיבל עליו המעות בעסקא מסתמא בוש הוא שיאמרו עליו שאחר הזמן הוא מעכב המעו' אצלו ואינו מחזירם לבעליהם ובעליהם מפסידים שיש להם הוצאה בביתם ואין להם ריוח וקרנא שלהם כליא וק\"ו הוא דהתם במפסיד עיסקא אין עליו שום פשיעה כי התחת אלקים הוא דברצון היה מרויח רק שמן השמים עכבוהו אפ\"ה בוש הוא בדבר זה ק\"ו בזה שמעכב ממון חברו אצלו בפשיעה שלא כדין אחר הזמן ודאי בוש הוא בזה ודואג שלא יתנו לאחרים בעיסקא ובודאי התעסק עוד לטובת העיסקא כבתחילה. ועל השאלה השניה אם יהיה על הריוח שם קרן אחר הזמן מבואר בירושלמי הביאו הנ\"י פא\"נ בפשט הנהו תרי כותאי דעביד עיסקא בהדדי וכו' וז\"ל זוזי כמאן דפליגי דמי כיון דלא צריך שומר דאלו שהניח כאלו שנטל הלכך מצי למיפלג מנפשיה ולמשקל מחצה בשלו וחצי מחצה בשל חבירו ול\"ד לשותפות אחרת דבעי שומא והיינו דגריס בירושלמי בר נש דיהיב ק' דינרין לחבירו וארווחיה ך' דינרין שקיל לגרמיה י' דינרין ואידך איתעבידו עלייהו קרן ברם בר נש לא עבדין כן נסבין ויהבין ולבסוף אינון פלגין שאע\"פ שהדין כן שאם בא לחלוק הריוח חולק אין נוהגין כן אלא נושאין ונותנין ואין חולקין הריוח עד לבסוף עכ\"ל. הרי לפניך דיש על הקרן שם ריוח וזהו בכלות הזמן של העיסקא שכן משמע מדברי בית יוסף שהביא בסימן קע\"ז בשם תלמידי רשב\"א מנהג זה שאין למקבל ליקח ריוח מן הריוח והוזכר שם שקבל המעות לזמן כו'. והנה בנדון שלפנינו לענין שיטול הנותן ריוח מן הריוח זכר בפירוש בנוסח השטר שמהיום מקבל עליו להתעסק במה שיהיה מעוכב בידו אפי' מקצת מן הפרעון הנ\"ל וכבר הוזכר שם הפרעון הן על הקרן הן על ריוח וע\"ז אמר שמה שיהיה מעוכב בתורת עיסקא בידו נראה דבכהאי גוונא ליכא מנהגא דירושלמי דהירושלמי לא אמר אלא במקבל שאין בו תנאי מפורש מתי יחלוק ויחשוב ריוח לקרן משא\"כ בנותן כיון שהזכיר בפירוש שיהיה נחשב עסק חדש בידו כיון שכתוב בפירוש אפילו מקצת מן הפרעון:"
+      ],
+      "en_segments": [
+        "At the conclusion of the term, they shall divide. Question: one received an iska from his fellow for a sum of money for a time, and after the payment time the recipient withheld the money with him and dealt with them and does not wish to give profit from what accrues after the payment time, because he says after that time the money was a deposit with him since he has no heter iska with him only until the time and afterward it would be ribbis what he gives him. Another question in Maharam Mintz: one accepted on himself three hundred gold coins principal in an iska and to give profit to the document issuer from that iska one thousand gold coins at payment time; principal and profit on Rosh Chodesh Nisan; and if payment is delayed even partially, the signatory accepted from now to deal with that sum withheld with him as that iska and to give profits according to the profit rate above; and afterward payment was delayed some time and the giver came saying he give him profits from the profits; meaning from Rosh Chodesh Nisan it became five hundred gold coins principal and he should give him profits also from the thousand gold coins if the law is with him or not. Answer to the first question: it seems clear the law is with the giver and he is obligated to give him profits also from the business after payment time; and the permission from the outset continues afterward as well until he informs after the time that he does not wish to receive further in the iska those monies; and proof for this from chapter Eizehu Neshech (69a): the Sages taught; one who places an animal with his fellow until when is he obligated to tend the offspring; thirty days for a small animal and fifty for a large; from here onward he takes half his own and half of half of his fellow's. Rashi: if he wishes to tend them more than this time they assess them in money and what appreciates from here onward the recipient takes half his own share and in the second half which is his fellow's he takes half of the increase as he takes with a mother animal half the increase. Beit Yosef wrote in siman 177 in name of the Rashba's students: likewise one who takes money to deal for a time and profited and dealt, etc.; and the Rambam wrote chapter 8 of Hilchos Shutfim: he does not take half of his fellow's share unless he assessed the offspring and stipulated before three; and if he did not assess and stipulate before three; behold he waived and the offspring are divided equally. Tur in this siman did not write \"assessed and stipulated\" but wrote \"and if he comes to divide he must inform his fellow,\" etc.; and Beit Yosef wrote they do not disagree and Tur cited one and the same applies to the other. Behold before us that in any event the recipient takes from the profit that accrues after the stated time; meaning thirty days or fifty for a large animal; and we do not say he is called iska recipient from his fellow only until that time and from here onward it shall be a deposit in his hand and he shall not take from profit after the time at all, for there is no iska here; necessarily all the time the business is unspecified in his hand even though the time ended; nevertheless he withholds the business in his hand with the intent from the outset; except if he informed him; then a new iska is made and he acquires even in half his fellow's share. And Tosafos wrote there that even without any condition he takes half of his fellow's share, as Beit Yosef wrote there in name of the Rashba's students; because since from the outset as an iska he descended in it, meaning for half wages with intent that he tend profit he will always take in this matter; end quote. Behold before you that the business from the outset was not completed with the time's completion but remained unspecified and even in profit; and further proof from chapter HaUmanin: Rava said; this one who accepted an iska from his fellow and lost and toiled and filled it and did not inform; he cannot say to him \"rise from this loss with me.\" Meaning: you accepted half the loss upon yourself and for wages take a third according to the law of iska recipient from his fellow; and it results he diminishes from the principal; for he said to him therefore you toiled and filled it lest you be called one who ruins an iska. Rashi: you were ashamed; therefore you toiled to fill the principal since you did not inform initially; so too in our case, since from the outset he accepted the money as an iska unspecified he is ashamed to say that after the time he withholds the money with him and does not return them to their owners and their owners lose that they have expense in their homes and no profit and their principal is destroyed; and it is a fortiori; there with one who ruins an iska there is no negligence upon him for Heaven withheld him that he wished to profit willingly; nevertheless he is ashamed in this matter; all the more so here who withholds his fellow's money with him through negligence not according to law after the time; certainly he is ashamed in this and worries they will not give him to others in an iska; and certainly he dealt further for the iska's benefit as initially. And on the second question if there will be on the profit there principal after the time; it is explained in Yerushalmi that Nekudot Yosef brought in Perek Eizehu Neshekh in the plain sense: behold those two partners who did business together, etc.: money; as who divides it; since he does not need assessment, for what he left is as if he took; therefore he may divide by himself and take half his own and half of half his fellow's; and do not say for another partnership that requires assessment; and this is what Yerushalmi reads: a person who gave a hundred dinars to his fellow and he profited twenty dinars; he took for himself ten dinars and the other became principal on him; people do not do so; they give and at the end they divide; even though the law is so that if he comes to divide profit he divides; they do not practice so but carry and give and do not divide profit until the end; end quote. Behold before you that there is profit on the principal; and this is at the iska time's completion as it implies from Beit Yosef's words that he brought in siman 177 in name of the Rashba's students this custom that the recipient may not take profit from profit; and it was mentioned there that he accepted the money for a time, etc. And behold in the case before us regarding that the giver shall take profit from profit; he mentioned explicitly in the document's wording that from today he accepts upon himself to deal with what will be withheld in his hand even part of the stated payment; and payment was already mentioned there both on principal and on profit; and on this he said that what will be withheld as iska in his hand; it appears in such a case there is no Yerushalmi custom; for the Yerushalmi spoke only of a recipient who has no explicit condition when he will divide and count profit as principal; not so with the giver, since he mentioned explicitly that there shall be considered a new iska in his hand since it is written explicitly even part of the payment."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-036/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 36,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "רמב\"ם בפ\"ה מה\"מ דין י' וכתב ה\"ה שזה פשוט ומשם נלמד:",
+        "(°) פי' דשמא היה הפסד בעסק דהוה ליה לבעל המעות להפסיד מחצה והיורש אינו יודע התנאי שביניהם וגובה כל השטר ואינו מפסיד כלום וזה רבית:"
+      ],
+      "en_segments": [
+        "Rambam, chapter 5 of Hilchot Malveh, halachah 10. The Maggid Mishneh writes that this is obvious and may be inferred from there. The concern is that perhaps the venture suffered a loss, in which case the investor should have borne half the loss, but the heir does not know the terms between them and collects the entire amount stated in the document without bearing any loss. That is interest."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-039/siftei-kohen",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 39,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גם לעצמו כו'. ממעות אחרים שאינו דמי השותפות מאותו המין וכ\"ש מין אחר. ב\"י והאחרונים. ול\"ד לדלעיל סעיף כ\"ט בחנות משום דבחנות מחויב לישב שם כל היום להתעסק בשלו ולא לבטל בעסק אחר משא\"כ הכא. פרישה:",
+        "שלא ימכרם ביחד. דשמא מה שקנה לעצמו אינו משובח כ\"כ כמו השותפות ונמצא חבירו נפסד בכך. ב\"י והאחרונים: \",\" היכא דאיכא ספיקא דדינא או מחלוקת בין הפוסקים אי הוי ר\"ק או א\"ר כתוב בתשו' ר' אהרן ששון בסי' קס\"ב בשם מהר\"ש די מודינא דאזלי' לחומרא משום דהוי ספק איסור דאורייתא והוא חלק עליו דהוי ספק ממונא ולקולא דהמע\"ה אם לא שרוב הפוסקים מסכימים דהוי ר\"ק דהוי ספק איסור דאורייתא דאזלי' בתר רובא וכן נראה מדברי שאר אחרונים ונ\"ל שהב\"ד יאמרו לו שהוא עושה איסור בדבר ויאיימו עליו וכן ראוי להחמיר לעצמו אבל אם אינו משגיח בכל זה אין כח ביד ב\"ד להוציא ממנו כיון דהוי ספיקא דדינא ולכאורה נ\"ל ראיה ממאי דאמרינן בש\"ס גבי מתנות כהונה ונתבאר לעיל סי' ס\"א סעיף כ\"ג וכן לקמן גבי בכור סי' ש\"ה סי\"ג וכן בכמה דוכתי דפטור משום המע\"ה אע\"ג דהוי מ\"ע שבתורה וע\"ל סי' רנ\"ט ס\"ק י\"ד:"
+      ],
+      "en_segments": [
+        "Also for himself etc. From other money that is not the partnership money — of the same species; and all the more of a different species — Beit Yosef and the Acharonim; and it is not comparable to above seif 29 regarding a shop, because in a shop he is obligated to sit there all day engaging in his own business and not neglect it for another business — unlike here — Perishah."
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-040/beer-hagolah",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 40,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "תלמידי הרשב\"א בשם הרמב\"ן (וע' ב\"י):",
+        "(°) פי' הוא נוטל רביע הריוח ועוד שליש של חלק חבירו שהוא גם כן רביע כי חבירו לקח ג' רביעיות הרי מחצה:"
+      ],
+      "en_segments": [
+        "The students of the Rashba in the name of Ramban. See Beit Yosef. Meaning: he takes one quarter of the profit, and in addition one third of the other party's share, which is also one quarter, because the other party took three quarters. He therefore receives one half in total."
+      ]
+    },
+    {
+      "id": "yd1/siman178/seif-003/beer-hagolah",
+      "volume": "yd1",
+      "siman": 178,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ברמב\"ם בפי\"א כתב הפרע מלאחריו מברייתא בבא קמא ד' פ\"ג ע\"א וסוטה דף מ\"ט המספר קומי הרי זה מדרכי האמורי:",
+        "(°) וכתב עוד שכל העושה אחד מאלו וכיוצא בו לוקה והביאו הטור ולא הוי לאו שבכללות דכולהו משם א' מיתסרי וכתב הב\"י אף ע\"פ שבפי' המשנה לא כתב כן על דבריו בחבור יש יותר לסמוך מעל דבריו בפי' המשנה:"
+      ],
+      "en_segments": [
+        "In chapter 11, Rambam writes that one leaves the hair loose behind, based on the Baraita in Bava Kamma 83a and Sotah 49: one who cuts his hair in the komei style follows the ways of the Amorites. He further writes that anyone who performs one of these practices or anything similar is lashed. Tur cites this. It is not a prohibition that includes several unrelated matters, because all of them are prohibited under one category. Beit Yosef writes that although Rambam did not write this in his Commentary on the Mishnah, his words in Mishneh Torah are more authoritative than his words in the Commentary on the Mishnah."
+      ]
+    },
+    {
+      "id": "yd1/siman181/seif-011/turei-zahav",
+      "volume": "yd1",
+      "siman": 181,
+      "seif": 11,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "על כל זקנו. בכלל זה גם השפה העליונה שלדעת ר\"ח בטור שני גבולי השפה הם מהפאות:",
+        "ואפי' תהת הגרון. בטור כתוב דלר\"ח הוי פאה אחת בסוף הזקן בגרגרת והקשה ב\"י דהא אין זה מוזכר בגמרא רק באשר\"י בדעת ר\"ח הזכיר ושבולת זקן מתחת והיינו מטעם לפי שמושך אליו העור של הפאה שבסוף העצם שקורין סנטור ובתוספתא הביאה הרא\"ש כתוב פאות הזקן מפרק הלחי עד פיקה של גרגרת וא\"כ לכל הפחות היה לו להטור לכתוב עד הגרגרת דמשמע ששם עיקר הפאה החמישית ועל כן השאיר בצ\"ע. ומו\"ח ז\"ל האריך בזה לומר דעיקר פאה החמישית במקום הגרגרת ממש ואין שאר השער שתחת הגרון בכלל האיסור כלל ואין לשון התוספתא משמע כן דהא עד פיקה של הגרגרת קאמר ולא בגרגרת כלל העולה דתחת הגרון אין איסור מן התורה אלא מדרבנן מטעם הנזכר בב\"י בשם הר\"ר יונה שאסרו חכמים להעביר שער בתער בכל מקום בגוף ואפי' על זרועותיו לפי שדומה לתיקון הנשים ואח\"כ כ' בשם סמ\"ק טעם אחר שאסור לר\"ח בתער תחת הסנטור לפי שפעמים שמושך אליו העור של הפאה כו' ולכן במספרים כעין תער מותר שם ועיין בסימן שאחר זה בסעיף א' מה שכתבתי שם:"
+      ],
+      "en_segments": [
+        "All of our time. It is also the upper language that, in the column, the two limits of the language are from the Fa:"
+      ]
+    },
+    {
+      "id": "yd1/siman182/seif-002/beer-hagolah",
+      "volume": "yd1",
+      "siman": 182,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור בשם הרמב\"ם בסוף הלכות עבודת כוכבים:",
+        "(°) פי' ואפי' כעין תער. ב\"י:"
+      ],
+      "en_segments": [
+        "Tur cited Rambam at the end of the section on non-Jewish practices: (°) Peri Davar and so forth."
+      ]
+    },
+    {
+      "id": "yd1/siman183/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 183,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "באונס. פירוש על ידי קפיצה. ברצון פירוש כפי טבע האשה מחמת עצמה:",
+        "אע\"פ שלא יצא לחוץ. עיין ריש סימן קפ\"ח מדינים אלו. בטור שמא תראה האשה בימי נדתה יש מגיהין ושמא כו' משום קושיות ב\"י ולא נייח לי דא\"כ לא היה צריך לכתוב אח\"כ בין זיבה לנדה אלא הוי ליה למימר כדי שלא תטעה בימי נדה עצמה דזיבה מאן דכר שמיה ע\"כ נראה דצ\"ל בטור משום שמא יבאו לטעות באיסור כרת החמירו לטמא כל מראה אדום ושמא תראה כו' כנ\"ל להגיה ולפי זה דבריו הם מסודרים היטב שעל חשש טעות במראה הדמים החמירו לטמא כל מראה אודם רק שיש חשש עוד מחמת זה שמא תראה אשה כו' וצריכה עוד ז' ימים פירוש עם יום הראי' דם טמא היינו עוד ו' ימים ובאמת אף שכאן מיירי מימי נדה מ\"מ צריכה שיהיו נקיים דאם תראה בהם יהיה גם בהם הספק דשמא עד יום האחרון עדיין לא ראתה דם טמא אלא צריך שיהיו הו' ימים שאח\"כ נקיים ולפ\"ז לא צריכה אלא ו' נקיים מ\"ה לא זכר כאן נקיים וכללו במ\"ש אחר כך וכדי שלא יבואו לטעות בין ימי נדה לזיבה דשמא בימי זיבה היא וראתה דם טמא ג' ימים וצריכה ז' ימים נקיים דוקא וזהו שסיים הטור תשב עליה ז' נקיים ר\"ל בלא יום הראיה כזבה גדולה משא\"כ לעיל כ' וצריכה עוד ז' ימים ר\"ל בצירוף היום הראיה האחרון שלפניו ופי' דברי רבינו כך הוא דג' חששות יש כאן. הא' במראה דם שיטעו לטהר ע\"כ החמירו לטמא כל מראה אודם ועוד חשש לענין ימי נדה כמו שזכרנו על כן היה צריך ו' נקיים ועוד חשש שתטעה בימים בין זיבה לנדה ע\"כ צריכה ז' נקיים וא\"ל למה לי חשש האמצעי י\"ל דמהי תיתי לחשוש לטעות בין נדה לזיבה ע\"כ כתב חשש האמצעי דמחמתו צריכה עכ\"פ ו' נקיים וא\"כ יש מקום לטעות בין נקיים דנדה לנקיים דזיבה ע\"כ צריכה בכל מקום שבעה נקיים:"
+      ],
+      "en_segments": [
+        "Rape. It means by jumping. In desire, it means the nature of the woman herself:"
+      ]
+    },
+    {
+      "id": "yd1/siman185/seif-004/beer-hagolah",
+      "volume": "yd1",
+      "siman": 185,
+      "seif": 4,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה שבועות דף י\"ד (ורמב\"ם פ\"ד דין י\"ח):",
+        "מימרא דרב הונא משמיה דרבא שם דף י\"ח ע\"א (ומרדכי):"
+      ],
+      "en_segments": [
+        "A few weeks ago, it was written:"
+      ]
+    },
+    {
+      "id": "yd1/siman187/seif-010/turei-zahav",
+      "volume": "yd1",
+      "siman": 187,
+      "seif": 10,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בביאה הראשונה שאחר טבילתה. זה אינה דומה למה שכתב הש\"ע בסמוך בענין חשש ראיית ליל טבילה דשמה תלוי החשש באותו לילה דוקא ואח\"כ מותרת אבל כאן איכא החשש מחמת ביאה ראשונה שאחר הטבילה אע\"פ שהוא זמן רב אחר הטבילה אלא דקשה בזה פשיטא שאסורה ככל אשה שראתה ג\"פ רצופים ע\"כ צ\"ל דמיירי אע\"פ שבינתיים היו ביאות של היתר וזה מהני בדין שאח\"כ מ\"מ כאן לא מהני דגם שם לא מהני אלא דאמרינן מכח זה דדם הראשון שאחר לידה היה מחמת הלידה כמבואר שם וזה לא שייך בליל טבילה ועיין מה שכתבתי בסעיף י\"א:",
+        "או ראתה אחר כל לידה ג\"פ כו'. דברי רמ\"א א\"א ליישבן אם לא נאמר שיש כאן ט\"ס. תחילה נעתיק דעת מהר\"ר יוחנן בהגהת ש\"ד שמשם לוקח דין זה דעת מהר\"ר יוחנן באשה שראתה פעם אחת שאחר לידתה ואח\"כ שמשה ולא ראתה וכן מנהגה עד ג' לידות ופסק שם כיון שהוחזקה בביאות של היתר בינתיים איכא למימר דמה שראתה פעם אחת אחר הלידה הוא מחמת שהוכו הצדדין מחמת הלידה והוי ליה כמכה דלעיל סעיף ה' זהו כלל דבריו שם משמע דאם לא הוחזקו ביאות היתר בינתיים אלא לא היו רק שלש ביאות לחוד דהיינו ביאה אחת אחר הלידה וראתה ותו לא שמשה כלל עד אחר לידה ג' וראתה דפשיטא שאסורה ולא אמרינן בזה דכל ראייתה הוה מחמת מכת הצדדין אע\"ג שכל אחת תכופה ללידה ואם כן ק\"ו הוא אם שמשה וראתה ג' פעמים רצופים אחר לידה אחת דאסורה עד בדיקתה בשפופרת דהא כאן חמיר טפי בשתי ביאות שאחר ביאה הראשונה שהם אינם תכופים ללידה ותו משמע אם אירע לה כך ג\"פ אחר לידה דהיינו שבכל פעם אחר לידה ראתה ג' רצופים והיא נאסרה כמו שאמרנו ועברה ושמשה אחר אותן הג\"פ אחר כל לידה דלא מהני לה וכ\"ש דבדיקת שפופרת לא מהני דלא מהני תיקון שפופרת או ביאה ולא ראתה אלא במקום שיש חשש באותה ביאה לאיסור אז אמרינן כיון דנתקנה על ידי שפופרת מה שראתה ע\"י תשמיש הוא מחמת צדדין כדלעיל משא\"כ כאן אף את\"ל שניתקנה והותרה אח\"כ היינו עד לידה רביעית אבל אחר שנתחזקה לראות ג\"פ אחר כל לידה לראות ג\"פ רצופים ובזה לא מהני לומר הוכו הצדדין לא מהני לה אף אם יבוא עליה באיסור אחר אותן הג\"פ להתירה אחר לידה רביעית דהא אתחזקה באיסור ג\"פ אחר כל לידה בג\"פ רצופים ובודאי תראה גם בפעם הרביעית אחר הלידה ג\"פ ויהיה ודאי איסור לפנינו וכאן לא שייך לומר כיון שיש בינתיים ביאות של היתר דהא ג\"פ רצופים ראת' אחר כל לידה והוא עכשיו אחר לידתה כמו ליל טבילתה דלעיל אלא אם עבר ובא עליה באיסור אחר לידתה ולא ראתה אז מהני ואזלה חזקת איסור לראות אחר לידתה. כל זה נראה ברור ופשוט וגם פסקי רמ\"א יורו על זה אלא שקשה בדבריו דמה שכתב או ראתה אחר כל לידה ג\"פ כו' דמשמע רצופין דאם לא כן מה זה שכתב אח\"כ וכל זה אם כבר עברה ושמשה כו' למה כתב עברה והלא בהיתר שמשה דלא נאסרה כיון שלא ראתה ג\"פ רצופין אחר שום לידה אלא ע\"כ שראתה שלש פעמים רצופין אחר כל לידה ועל זה קאי אם עברה כו' ואם כן קשה מאי מסיים אח\"כ אבל אם ראתה ג\"פ רצופים אחר לידה לא תלינן בלידה דהא גם ברישא מיירי מרצופין ובלבוש הוסיף כאן תיבה וזה לשונו אבל לכתחלה אם ראתה שלש פעמים רצופים כו' ורצונו לומר דקא משמע לן דלא מצינו תשמיש בינתיים שלא ראתה אלא כשעברה ועשתה כן אבל באמת אינו מותר והג\"ה זאת אינה נכונה דא\"כ לא היה לו לרמ\"א לכתוב אלא אבל באמת אסורה היא ומה לו להזכיר כאן לא תלינן בלידה גם למה לו להזכיר אבל אם ראתה ג\"פ רצופים והא לעיל ג\"כ מיירי ממנו ותו דלמה לא כ' לעיל בעיקר הדין תיבת רצופים והיותר קשה מן הכל דלפי זה משמע אם כבר ראתה רצופין ג\"פ אחר כל לידה מהני לה מה שעברה ושמשה אח\"כ ולא ראתה בין לידה ללידה שתהיה מותרת אפילו אחר לידה רביעית וחלילה לומר כן שהרי הוחזקה בביאות איסור ג\"פ אחר כל לידה בלי החזקת ביאות היתר ביניהם ומהר\"ר יוחנן לא התיר לעיל אלא שראת' פעם א' אחר כל לידה ממילא הופסקו ביאות היתר בין אותן ביאות שרוצים לעשות האיסור דהיינו הצירוף של כל אחר לידה להדדי דהא קודם לידה השניה אין כאן איסור משא\"כ כאן שיש ג\"פ איסור שהרי הם רצופים אחר כל לידה ויש איסור אפי' קודם לידה השניה ולא מהני בזה הוכו הצדדים וא\"כ הוחזקה בכך והוה אחר לידתה כליל טבילתה דלעיל ואסורה אחר כך אחר לידתה רביעית ומה שכתב רמ\"א אח\"כ בסוף דבמקום שצריך בדיקה מהני עברה ושמשה היינו בעברה ושמשה אחר לידה הרביעית וכ\"כ בהדיא בד\"מ אבל לא מהני לה מה ששימשה ולא ראתה קודם לידה הרביעית שזכרנו וזה ברור לכל מבין ע\"כ נראה שיש כאן ט\"ס וצ\"ל וכ\"ז אם כבר שמשה ותיבת עברה אינו נכון כאן ונמצאו דברי רמ\"א ממש כדברי מהר\"ר יוחנן ומ\"ש או ראתה אחר כל לידה ג\"פ מיירי באינם רצופין ויש ביאות היתר ביניהם ועל זה אמר אם שמשה כבר ור\"ל בהיתר אז לא אמרי' שהוחזקה לראות אחר כל לידה ותלינן בהוכו הצדדין ונמצא שפיר מסיק אח\"כ אבל אם ראתה ג\"פ רצופין אפי' אחר לידה אחת צריכה שפופרת ולא מהני לה אם תעבור ותשמש באיסור אח\"כ אלא לענין תשמיש שמכאן ואילך עד לידה רביעית דהיינו שאחר לידה שלישית מותרת עד שתגיע לידה הרביעית ואז אסורה אע\"פ ששימשה בינתיים ולא ראתה כי דרכה של אשה זו לראות דוקא אחר לידתה והוה לה וסת בזה. גם מו\"ח ז\"ל כתב דהג\"ה זאת מיירי ברישא באינן רצופים ולא ידעתי למה לא הרגיש לפרש מ\"ש וכל זה אם עברה דהא אין כאן עברה וע\"כ כמו שהגהתי כן צריך להיות ועיקר הדין נתבאר בסייעתא דשמיא בכל פרטיו. ומ\"ש מיהו כל מקום כו' פי' הן כאן בראתה ג\"פ דהיינו אחר כל לידה פעם אחת ולא הוחזקה בביאות היתר בינתיים שלא ראתה ממילא היא כשאר אשה שראתה ג\"פ רצופים ועברה ושמשה אח\"כ ולא ראתה מהני לה שלא תחשוש עוד אבל אי הוחזקה בביאות היתר בינתיים אין כאן חשש וכן אם ראתה ג\"פ אחר לידה בשלש לידות ועברה ושמש' אחר לידה הרביעית מהני לה אבל לא מהני לה מה שעברה ושמשה באיסור בין לידה ללידה כיון דהוקבע לה וסתות ללידות צריכה תיקון אחר לידה הרביעית דוקא וכן בכל אשה שראתה דם מחמת תשמיש ג\"פ שצריכה שפופרת כמ\"ש סימן קפ\"ו כ\"ש שמהני לה אם עברה ושמשה באיסור והוא סברת רמ\"א בד\"מ ונכונה היא:"
+      ],
+      "en_segments": [
+        "During the first act of relations following her immersion. This is not comparable to what the Shulchan Aruch writes shortly afterward regarding concern that she may see blood on the night of immersion. There the concern depends specifically upon that night, and afterward she is permitted. Here, however, the concern is caused by the first act of relations after immersion, even if it occurs a long time after the immersion. Yet this itself is difficult, for it is obvious that she is forbidden like any woman who saw blood during three consecutive acts of relations. We must therefore say that this applies even though there were permitted acts of relations between those occurrences. Although those permitted acts are effective for the law stated afterward, they are not effective here. There they are effective only because we say on their basis that the first blood following childbirth was caused by the childbirth, as explained there. That reasoning does not apply to the night of immersion. See what I wrote in seif 11."
+      ]
+    },
+    {
+      "id": "yd1/siman188/seif-005/siftei-kohen",
+      "volume": "yd1",
+      "siman": 188,
+      "seif": 5,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אבל אם יש עליהם כו'. ול\"ד לדלעיל סעיף (ב') [ג] דאם ראתה דם בחתיכה אפילו מבוקעת טהורה דהתם הדם הוא בתוך החתיכות אלא שהוא בבקעים מה שאין כן הכא שהלחלוח הדם הוא ע\"ג החתיכות. כן כ' בספר מע\"מ שם:",
+        "ודוקא כו'. צ\"ע דלא נמצא בשום פוסק דמחלק הכא בין שעת וסת או לא ול\"ד לדלעיל סימן קפ\"ז ס\"ה דהתם כיון דרואה דם להדיא לא תלינן במכתה בשעת וסתה מטעם דאל\"כ לא תהיה טמאה לעולם אבל הכא הרי אינה רואה דם אלא דברים יבשים והלכך אפילו בשעת וסתה טהורה וצל\"ע שוב מצאתי בספר אפי רברבי דף פ\"ט ע\"ב וז\"ל ול\"נ כיון שעיקר הטעם דאינו דם רק בריה טהורה אף בשעת וסתה דאף גבי דם מכה ס\"ל לרמב\"ם ורשב\"א דטהורה אף בשעת וסתה דקי\"ל וסתות דרבנן וכ\"ש בכה\"ג דטהורה לכ\"ע:"
+      ],
+      "en_segments": [
+        "But if they have upon them etc. And not comparable to above seif 3, where if she saw blood in a piece even if it split open — she is pure; for there the blood is inside the pieces, only it is in the crevices; but here the blood moisture is on top of the pieces — so wrote the Sefer Ma’adanei Melech there."
+      ]
+    }
+  ]
+}

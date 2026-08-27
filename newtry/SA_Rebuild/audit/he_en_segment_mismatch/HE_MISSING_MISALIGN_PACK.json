@@ -1,0 +1,1012 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_MISSING_MISALIGN_PACK",
+    "kind": "he_missing",
+    "purpose": "Misalignment kit: empty/absent HE with EN present — restore HE or flag wrong-seif (NOT structure rejoin)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 59,
+      "by_volume": {
+        "oc1": 59
+      },
+      "by_volume_slug": {
+        "oc1/eshel-avraham": 5,
+        "oc1/machatzit-hashekel": 3,
+        "oc1/dagul-merevavah": 2,
+        "oc1/levushei-serad": 2,
+        "oc1/shaarei-teshuvah": 12,
+        "oc1/ateret-zekenim": 7,
+        "oc1/baer-heitev": 2,
+        "oc1/beur-hagra": 4,
+        "oc1/magen-avraham": 2,
+        "oc1/netiv-chayim": 4,
+        "oc1/yad-ephraim": 11,
+        "oc1/turei-zahav": 1,
+        "oc1/chokhmat-shlomo": 3,
+        "oc1/chatam-sofer": 1
+      },
+      "prior_expected": 59,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_MISSING MISALIGNMENT review. INPUT: one HE_MISSING_MISALIGN_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT — MISALIGNMENT / WRONG-SEIF / MISSING HE INGEST",
+      "- Each case has heSegs === 0 (visually empty or absent HE) while EN is present.",
+      "- This is NOT a structure-rejoin / merge_groups problem. Empty HE cannot be fixed by rejoining EN.",
+      "- Do NOT invent Hebrew. Do NOT fabricate HE segments from EN.",
+      "",
+      "RULES",
+      "1) needs_he_restore — HE should exist for this slug/seif (EN looks like a real translation of that commentary); restore from authoritative HE source later.",
+      "2) wrong_seif_suspect — EN content appears to belong to a different seif/siman/slug (misfiled); note suspected target if clear.",
+      "3) needs_human — ambiguous; cannot classify safely.",
+      "4) skip — already restored / out of scope.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"needs_he_restore\"|\"wrong_seif_suspect\"|\"needs_human\"|\"skip\",\"suspected_target\":null|\"vol/simanN/seif-NNN/slug\",\"notes\":\"short\"}]",
+      "",
+      "No merge_groups. No invented HE. No corpus edits."
+    ],
+    "hard_cap_utf8_bytes": 85000
+  },
+  "cases": [
+    {
+      "id": "oc1/siman1/seif-001/eshel-avraham",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 1,
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(See Ba'er Hetev, subcomment 6.) And in responsa Shev Yaakov siman 1 he raised that for the matter of the night watches one must reckon from the emergence of the stars until midnight for three watches, as the sense of the Talmud in Berakhot 3a—see there—not like the view of the Zohar. However, one who awakens to rise at midnight according to the Zohar should count twelve actual hours after midday of the day, per the Zohar when the sun stands in the middle of the sky—see there:"
+      ]
+    },
+    {
+      "id": "oc1/siman1/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "No commentary text was included in this merged excerpt (empty segments in the source JSON)."
+      ]
+    },
+    {
+      "id": "oc1/siman1/seif-007/dagul-merevavah",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 7,
+      "slug": "dagul-merevavah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "א. So it is explicit in Keritot 22b: Rava said, and from both [opinions] we learn that an asham vadai does not require prior awareness; the Rambam’s words in Hilchot Shegagot 9 are puzzling, and what Kemach writes—that it is the dispute of Rabbi Yishmael and Rabbi Akiva—follows Rashi and contradicts Rava above; see Tosafot Shabbat 72a s.v. man damar, and the Magen Avraham tried to reconcile the Tur—yet there is no difficulty on the Tur from the Rambam unlike Acharonim who wrote that it was hidden from the Magen Avraham what the Rambam says."
+      ]
+    },
+    {
+      "id": "oc1/siman1/seif-007/levushei-serad",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 7,
+      "slug": "levushei-serad",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "ב. Magen Avraham sk 11. Moreover, in any case a chatat may be called “coming voluntarily”—see Kenesses Yisrael siman 23 (Bechor Shor, Shabbat 61a)."
+      ]
+    },
+    {
+      "id": "oc1/siman1/seif-009/levushei-serad",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 9,
+      "slug": "levushei-serad",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "ג. Magen Avraham sk 12—as opposed to Eliyah Rabbah [is a] scribal error; the proof for these matters is in this Raavad chapter that he brings from Beit Yosef—that after the tamid they would offer the ketoret—therefore he writes unlike Eliyah Rabbah who wrote minchah before ketoret, namely the minchah belonging to the tamid shel shachar—likewise in Tosafot Shabbat."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-002/eshel-avraham",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 2,
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(See Baer Hetev subparagraph 6.) Responsa Shev Yaakov §1 explains that for the “watches” one calculates from emergence of stars until dawn for three watches per Gemara Berachos 3a—see there—not like Zohar; however one who rises at midnight per Zohar counts twelve hours literally after midday per Zohar when the sun stands at mid-heaven—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-002/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 2,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Dawn: see Baer Hetev; Birkei Yosef writes our printed Zohar lacks this; manuscript Zohar p. 10 obligates death heavenward without washing even if not rising; if water distant some walk less than four amos—not clear to me—better run quickly not to delay ruach on hands. Shevus Yaakov III §8: people not careful walking four amos without washing—perhaps relied Rashba Berachos whole house like four amos—cannot rely except dire need; see Eshel Avraham subparagraph 4 and below siman 4."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "It is fitting: everyone must join Rachel’s grief and weep every night over the exile of the Shechinah, which is an aspect of Rachel, and over the destruction of the Temple, as in “Arise, cry out in the night” (Lamentations 2:19); afterward he should engage in Torah until dawn rises. If he cannot, he should perform Tikkun and sleep, then rise before dawn (Lechem Min HaShamayim). One who is among the first ten in synagogue effects a great Tikkun; one who is first in the house of study is at the level of “tzaddik” (Zohar Parashas Terumah). He must accept upon himself the positive commandment “Love your fellow as yourself,” for thereby his prayer will include all Israel, especially love of companions; each must include himself as one companion among companions. If a companion is in distress he should pray for him; if ill or in sorrow, Heaven forbid, he should share his pain. All details of confession must be said; even when there is no explicit “we,” one must use communal language—“we have sinned”—not “I have sinned”—for all Israel is one body in the mystery of Adam, this being the bond of mutual responsibility of souls (Sefer HaKavanos of the Arizal)."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/baer-heitev",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "baer-heitev",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "But prayer and Torah should be with joy (Soles Belulah)."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/beur-hagra",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Seif 3 fitting—Bava Basra 60b whoever mourns Jerusalem … “If I forget Jerusalem” … end Bava Basra …"
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "machatzit-hashekel",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Subparagraph 3 ‘immediately…’ Gitin 70—five things bring near death including slept and stood—Rashi pause before staying briefly."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Destroy Temple. Shelah every meal Rivers Babylon Shabbat Mizmor ‘when God returns Zion’ etc.—heart intention matters."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/netiv-chayim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "netiv-chayim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(There subparagraph 11.) The Tur writes: after Asham one says Yehi Ratzon. See Niddah 70a—because one brings kodshim to an invalid location—and see Rashi; this applies only when sacrifices were actually brought and leftovers remained. For mere recitation, the Sages too agree one may stipulate on an asham conditionally—if not, it is a nedavah. With this the Tur’s words are settled; many great scholars stumbled on the question that asham does not come as nedavah. What seems implied from Tosafos Kiddushin 55a s.v. dilma—that one cannot stipulate—offers no proof: Tosafos’ remark that voluntary libations are for individuals only rebuts a baraisa against Shmuel, who holds thus in Zevachim 91a; but for practical halachah we do not follow Shmuel—voluntary libations also use basins; likewise Rambam Hilchos Maaseh HaKorbanos 16:14—see there. Yet Rambam Hilchos Pesulei HaMukdashin 6:18 is puzzling: he writes that if one finds a male two-year-old ram there is no remedy—perhaps it is an asham whose owner has not yet atoned—cannot one bring it conditionally as Tosafos asked? Needs study."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Shevisi Lord: Baer Hetev; I saw writings of holy Rav Zalman Lokower about menorahs of parchment illustrations placed in siddurim writing Shevisi four letters and names—the menorah called “Shevisi” so one remembers not idle chatter in prayer from fear of Name before eyes; his uncle Gaon Tevuos Shor said poetically “unless Shevisi and silence”—could fence silence without Shevisi—angered greatly because mostly not guarded properly—streets littered—like Rosh Hashanah 18b tallis from scrap parchment turned holiday—therefore abolish custom—elaborated pleasantly; large illustrated menorahs fixed in synagogue before pillar or glass seem fine—concern only small ones in siddurim as above—mostly leads to erasing Names improperly written—warned should shine like Zohar."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-003/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 3,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "There ‘like Israel’s holiness’—scribal error—should read ‘meaning’ … ‘Israel’s holiness’ means trait of Israel—holiness and Shechinah among them—see Pri Megadim—not clear—even emending ‘holiness’ writing ‘congregation’ still ‘like’ error—should read ‘congregation Israel’—but my opinion ‘holiness’ also possible."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-004/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 4,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Those who mock: see Baer Hetev; also modest conduct—see Sukkah 49 and Yad Ephraim citing Gaon Rav Ephraim Zalman."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-004/turei-zahav",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 4,
+      "slug": "turei-zahav",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "A little supplication: “Our teacher: one who increases and one who decreases—provided he directs his heart in supplication—for a little with intention is better than much without.” Difficulty: if at first he increases with intention why compare to one who decreases; if without intention why later “better”—initially equates them; Gemara Menachos end “one who increases and one who decreases… directs heart to Heaven.” Explanation: Shabbat 10a Rava saw Rav Menuna lengthen prayer—“they abandon eternal life for temporal”—he held Torah time separate… Similarly one who lengthens prayer like Rav Menuna holds prayer time separate; one who shortens like Rava intends Torah—therefore concludes “provided he directs heart to Heaven”—meaning when shortening prayer it is for Torah’s sake; therefore our teacher said sometimes lengthening prevents concentration—better shorten with intention—therefore “one who increases and one who decreases” so one has intention—therefore ends “provided…” meaning the decrease is for intention—better little with intention than much without—that is why he decreases—to enable intention."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-004/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 4,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 4) Night twelve hours—meaning after twelve night hours counted day winter opposite summer—for Chatzos after six hours from night start is Chatzos. Eliyah Rabbah/Eshel Tzeddek disagree—see siman 47 and Bechor Shor Berachos citing Likutei Arizal Chatzos middle darkest night—he agreed not Shaarei Tziyon; Shelmei Tzibbur cites Rav Eleif Shalom Mizrachi Shaarei Eliyahu—equator equal day/night—Chatzos six hours from twelve night hours i.e. two hours after midday zenith—Chatzos laylah truly everywhere—equator equal summer winter—from sunset shadows twelve hours then true Chatzos laylah—winter twelve hours from day start/end—Zohar Vayahel etc.—Tamid bein ha’arbayim from leaning shadows—even summer hours sunset to nightfall excess counts next night—after six of twelve night hours Chatzos—rise lion beware sleeping past Chatzos tastes death—even sleeping after Chatzos after blessings repair harmless etc.—Shevus Yaakov Shaarei Teshuvah other responsa elaborate."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-005/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 5,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "It is good to say the order of sacrifices specifically by day; only from “Eizehu makoman” onward may one say before daylight breaks. One should recite the Ten Commandments aloud in order to rouse intention: the Ten Commandments may be linked to Baruch She’amar because there are ten “Baruch” phrases until “Blessed are You, Lord, merciful Father,” corresponding to the Ten Commandments. One may say the Anochi of Parashas Yisro in the morning and the Anochi of Va’eschchanan in the evening after Shema al hamitah (Rabbi Yitzchak Luria)."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-005/eshel-avraham",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 5,
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "And Chatas etc. What Magen Avraham asked—we hold Chatas precedes Olah—see Responsa Shev Yaakov §2, which resolves Tur and Shulchan Aruch in three ways."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-005/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 5,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Promptly: see Yad Ephraim siman 4—the words “bechamela rabba” take a pause (esnachta)—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-005/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 5,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Seif 5) Minchah Shelamim Todah included—Zevachim Todah called Shelamim—Eliyah Rabbah Eshel Tzeddek subparagraph 8—even miracle Todah daily miracle exists."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-006/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 6,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Finally: see Baer Hetev; Yad Ephraim citing TaZ and Shelmei Tzibbur; Shevus Yaakov §1: rising from midnight counts twelve hours from midday when sun at zenith—twelve hours later is Chatzos laylah—then northern wind blows (Shelmei Tzibbur likewise); reckon seasonal hour danger—pious may be strict from day start or night start; Kerias Shema and prayer depend on actual day/night; one praying at changing watches Tur reckons night from tzeit until dawn three watches summer/winter—see there. Eshel Avraham cited some; Responsa Devar Shmuel §213 §221; Yad Ephraim §58; Even HaShoham §23: vows to rise Chatzos mean halachic Chatzos—six hours after night begins long or short nights—principal like Eliyah Rabbah Shiyurei Kneses—also Shevus Yaakov III §44 Chatzos prayer not publicly only privately—“walk modestly”; individuals in synagogue doing so may be arrogance unless whole community does—but nowadays widespread practice no arrogance; Birkei Yosef heard opposite in many towns; groups have room near synagogue—leaders want synagogue for minyan first ten—if youths chatter better stay room; Iggeres Ramaz: no Tikkun start of night even summer nor start second watch—only from Chatzos; sleep early night to rise half hour before dawn; pressed after dawn somewhat possible Tikkun—see there §15 places lengthy Selichos Erev Rosh Hashanah/Yom Kippur night watches—one doing Chatzos year-round should also Erev RH—see §16 one accustomed Chatzos rises watch—congregation already Selichos—no time both—say Chatzos per Arizal order principal over Selichos; Birkei Yosef citing Mahari Azulai after Chatzos say Ani Maamin… Menachem Tzion… quickly—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-006/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 6,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 7) Bachye … Bachye not only Akedah—what Chazal ‘whoever engages Olah portion’—intent explaining portion’s allegory—eyes opened wonders korban mitzvah study sins forgiven like offering—not mere vocalizing—whoever says Tehillah LeDavid … pondering verses’ hints recognizes wonders strengthens faith inherits world—therefore note ‘Parashas Olah.’"
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-007/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 7,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "When he finishes: After an obligatory Chatas and Asham one should not say [Yehi Ratzon] because the blessing belongs amid sacrifices and perhaps he is not liable for Chatas and Asham; nevertheless he says the portions of Chatas and Asham even if he cannot say Yehi Ratzon afterward, since reading those portions atones somewhat if he sinned such that Chatas and Asham would apply—even if he does not know he sinned he reads out of doubt: if he sinned it atones; if not, he receives reward as for Torah reading. After a voluntary-type Asham such as Asham Taluy or Asham Nazir he may say it (Beis Yosef). Some say he may say even after a definite Chatas and Asham, but conditionally: “Master of the worlds, if I am liable for a Chatas, may it be accepted…” (Maharshal and Meorei Beis Chochmah). One should not say before “Eizehu makoman” “May our lips substitute for bulls” with respect to Chatas, for that does not apply—perhaps he is not liable for Chatas and it would be like bringing non-sacred meat in the Temple courtyard; rather say “May our lips substitute for bulls” in place of the Tamid service. One accustomed to read the portions mentioned above or Tehillim must first recite Birkas HaTorah; it is good to say Tehillim specifically before prayer, not after (Maharam of Padua). Before leaving his house in the morning he should say the verse Shema Yisrael (received in the name of Rabbi Yehudah HeChassid). It is good to give or set aside one perutah before each prayer for charity and say “In righteousness I shall behold Your face.” He should intend that that coin redeems his prayer from accusers, for charity saves from death and “he rejoices in his portion” like the scapegoat of Yom Kippur; when giving the coin he should intend the Name Yahedunay… as the giver in the mystery of the Tetragrammaton, and the recipient [should intend] Adonai and unify the Name mentioned, and say orally “for the unification of the Holy One blessed be He and His Shechinah,” for supreme holiness is aroused by speech and deed as explained in Parashas Bechukosai. Give charity generously, for its virtues are many (Toldos Chayim). One who rises from study to prayer must purify his hands before praying (Maharil). When he comes to the synagogue, before anything else he should bow toward the Ark until all the joints along his spine crack, and recall his lowliness and his Creator’s greatness, as David said, “I bow toward Your holy Sanctuary in fear of You”—meaning great awe from abundant arousal (Emek HaBerachah fol. 26). He should begin with the verse “But I, in Your abundant kindness…” and not “How goodly…” that Balaam said; also skip “But as for me, my prayer to You, Lord, is at a time of favor”—one says it only where the Sages fixed it, i.e. Shabbat Minchah according to the Midrash as the Tur writes (Maharshal §64, Shvil Emunah Netiv Dalet)."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-007/eshel-avraham",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 7,
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "See Baer Hetev subparagraph 13. Responsa Shev Yaakov §2 doubts whether one says Parashas Chatas ve’Asham on the day after Yom Kippur; according to Beis Yosef one would also say Yehi Ratzon after Parashas Asham because they said of Bavli Beis Gimmel that he volunteered Asham Taluy daily—see there—but the end of the Mishnah is except the day after Yom Kippur—wait until doubt enters… One might also doubt that even the portions alone should not be said like one cannot say Mizmor LeSodah erev Yom Kippur; still one may justify the custom because those liable for definite Chatas ve’Asham who transgressed them—after Yom Kippur they must bring—but Yehi Ratzon one does not say at all—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-007/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 7,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Subparagraph 11—therefore seems say ‘like voluntary offering’ should read."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-008/beur-hagra",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Seif 8 say with sacrifices—Vayikra Rabbah ch.2 On mountain He says north before God—when Israel offered Tamid reading this north before God God remembers Akedah heaven earth witness Jew non-Jew …"
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-008/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 8,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "With intention: Baer Hetev; Shevus Yaakov II §44; Birkei Yosef: fix time for musar study—for “greater is…”—I received musar rebuke from Chazal is spice against inclination."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-008/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 8,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(There) unless tamei—therefore not nedavah—in my opinion questionable Chatas/Asham yet no nazir vow korban obligation—Yehi Ratzom only when korban itself can be nedavah Olah Shelamim—Asham Nazir atones wrapped sin voluntary nazir—not plain Chatas Nazir doesn’t atone—intent Gaon Rav Yitzchak Poznan … Magen Avraham asked Chatas needs foreknowledge Eliyah Rabbah Eshel Tzeddek wrote Asham too—later elaborated—in my opinion mistaken—for doubtful liability don’t say since not nedavah—but conditional wording doesn’t require full Chatas conditions—not actual offering—asks mercy if sinned unknown collar sin—still counts as if knew to bring—good intent if would have brought—per Bachye thought counts deed—investigate."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-009/beur-hagra",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Seif 9. The Hebrew source text is absent from this worksheet. The surviving source notes cite the opening chapter of Tamid, the second chapter of Yoma, Abaye’s order of the daily Temple service, the passage concerning the altar and the offering of the limbs, and the passage concerning the incense spices."
+      ]
+    },
+    {
+      "id": "oc1/siman135/seif-009/yad-ephraim",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 9,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Subparagraph 12—some emend Minchah everyone agrees Tamid before incense Yoma—but Parashas Minchah after incense—should read—if emend not precise Eshel Avraham challenged—Eshel Avraham disputes Shulchan Aruch Tamid then incense—writes Eshel Avraham—I think order Tamid Minchah incense—Magen Avraham should say—not Eshel Avraham … explain spice Eshel Avraham words … incense actually before Minchah Gemara—but our Tamid parallels limbs … blood … nachron … investigate … Magen Avraham says portions parallel Tamid blood—order must match … Eshel Avraham wrote Minchah before incense … Abaye ordering … blood incense limbs Minchah … if portions parallel limbs incense should precede Tamid … atonement blood … Magen Avraham/Eshel dispute Minchah Tamid shel shachar—which Minchah Parashas Menachas Nesachim Shelach differs from Tamid Minchah … difficult … investigate."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Immediately upon awakening from sleep, if he does not wish to sleep again he should wash his hands even if he remains lying down (Shelah); and certainly he should not walk four cubits without washing."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/baer-heitev",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "baer-heitev",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "See Hilchos Kerias Shema part 2, siman 3, and Sefer Bnei Chiya.",
+        "Shelah writes the pairing of day and night in Torah or prayer, morning and evening. Immediately upon awakening from sleep one washes hands and thereby avoids [ruining] hand-washing after bathroom. Certainly if he does not wish to sleep even while still lying down (Shelah). Tololas Yaakov cites Zohar: one who walks four cubits in the morning without washing hands is liable for death, so rule decisively. BaCH wondered at Rabbeinu Beis Yosef for not writing this; apparently most cannot be careful in this and better they err unknowingly than knowingly, therefore he did not write it; Kenesses HaGedolah likewise for netilas yadayim; see Yad Aharon siman 4 in Hagahos Tur.",
+        "He should picture the four-letter Name constantly before his eyes as Y-H-V-H, this is the inner meaning of “I have set Hashem before me,” and it yields great benefit for awe (Arizal).",
+        "Nevertheless he should not quarrel with them (Beis Yosef).",
+        "Not so; rather pause briefly and do not stand up suddenly (Gitin 70a). Seder HaYom writes: upon rising say Modeh Ani before You, living and enduring King, who has mercifully restored my soul, hand-washing is not required for this even if his hands are dirty, for he mentions neither the Name nor an appellation; nevertheless for learning Torah it appears forbidden (Eliyahu Zuta). After washing hands he says the forty-two-letter name Ana Bechoach."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/chokhmat-shlomo",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Seif 5.) “It is good to say … and the portion of Olah …” Our teacher: Everyone wondered at the Tur for placing Olah before Chatas—see his resolution in Avodas Avodah on idolatry fol. 9, in his Torah commentary to Parashas Vayishlach (5601) on the verse “For I have therefore seen your face as one sees the face of God,” in his Torah commentary to Parashas Tzav (year [5615]), and further in his Chiddushei HaTorah—see there and investigate."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/dagul-merevavah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "dagul-merevavah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Thus it is explicit in Kerisos 22b: Rava said, “From the words of both we learn that a definite asham does not require foreknowledge.” The words of Rambam, Mishneh Torah, Hilchos Shegagos 9:10, are puzzling, and what Kesef Mishneh writes—that it is a dispute between Rabbi Yehudah and Rabbi Akiva—is strained. He follows Rashi, which contradicts Rava above; see Tosafos Shabbat 72b s.v. man deamar. Magen Avraham attempts to reconcile the Tur’s words and holds there is no difficulty for the Tur from Rambam contrary to Rosh—but he wrote that Magen Avraham was unaware of Rambam’s words."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/magen-avraham",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "magen-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Let him awaken at dawn. Shelah writes the pairing of day and night in Torah or prayer morning and evening.",
+        "Because. Nevertheless do not quarrel with them (Beis Yosef).",
+        "Immediately. Not so—rather pause briefly as Gitin 70."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/netiv-chayim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "netiv-chayim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 4.) In our Gemara—see Berachos 3a."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-001/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Like a lion: see Baer Hetev; Taz wrote main strength is against evil inclination—said “like a lion”; appears like Yoma 69 “lion cub of fire emerged from Holy of Holies”—therefore “be strong as a lion” against it."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "One who rises early to engage in Torah should dress himself fittingly to receive his God (Zohar Parashas Noach amud gimel). In Sefer Yesh Sachar VeTov it is good to stand when engaging in Torah so that he not fall asleep (Zohar Parashas Lech). Although he must rise promptly without laziness, as written in Sefer HaYirah and Sefer HaMusar ch. 4, nevertheless he should pause briefly and not stand up suddenly (Levush ch. 1 Berachos). It is written in Seder HaYom that upon rising he should immediately say Modeh Ani before You, living and enduring King, who has mercifully restored my soul within me—great is Your faithfulness—and hand-washing is not required for this even if his hands are dirty, for he does not mention the Name or an appellation. After Modeh Ani he says the forty-two-letter name beginning Ana Bechoach gedulas …"
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/beur-hagra",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Seif 2 early supplicant—principal time night—“Arise cry night” …",
+        "Hours …—first watches Berachos 3 three watches … God roars each watch … prayer …",
+        "End night—donkey first watch dogs midnight wife husband end night—Zohar I p.282b II 173b three watches …",
+        "Destruction prayer—God remembers then."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/chatam-sofer",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "chatam-sofer",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(There subparagraph 11.) Heaven forbid regarding the righteous—see Shach Y.D. §159 subparagraph 28 and what is written there in the margin."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/chokhmat-shlomo",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "chokhmat-shlomo",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Seif 7.) “When he finishes the portion of the Olah …” Our teacher: See Magen Avraham [subparagraph 10] citing Gaon Mahari that Asham Nazir comes for atonement. It is astonishing—how was he unaware of the Gemara in Shevuos 37a, which implies that a tamei nazir is exempt from lashes—yet Scripture requires bringing a korban there so that taharah-nazir takes effect; Rashi explains the verse “He shall consecrate to God the days of his nezirus and bring a yearling lamb …”—there the Gemara challenges from asham; in any case the baraisa discusses asham, distinguishing nazir from shevuas ha’pikadon, where for an oath one is liable for asham, yet the Gemara answers there it is not for atonement but to initiate taharah-nazirus as Rashi states: “so taharah-nazirus begins now—the verse attaches it to the korban but it does not come for atonement”—see there, explicitly the opposite of his words; needs study; investigate."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/netiv-chayim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "netiv-chayim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 8.) I was asked why the Tur wrote [the order as he did]. To me, the lesser Shimon Hirsch, it appears according to what was said earlier: after Olah, Shelamim, and Minchah one says Parashas Nesachim, for there is no sacrifice without libations, but Chatas and Asham do not require libations. If one says Olah after Chatas he must afterward say Parashas Nesachim—then Parashas Nesachim also relates to the Chatas and Asham said earlier; likewise Taz subparagraph 7 regarding “May our lips substitute for bulls”—see there. If one does not afterward say Parashas Nesachim, [one lacks] “there is no sacrifice without libations”; therefore one says Olah before Chatas."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-002/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 2,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Dawn: see Baer Hetev; Birkei Yosef writes our printed Zohar lacks this; manuscript Zohar p. 10 obligates death heavenward without washing even if not rising; if water distant some walk less than four amos—not clear to me—better run quickly not to delay ruach on hands. Shevus Yaakov III §8: people not careful walking four amos without washing—perhaps relied Rashba Berachos whole house like four amos—cannot rely except dire need; see Eshel Avraham subparagraph 4 and below siman 4."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-003/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 3,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "It is fitting: everyone must join Rachel’s grief and weep every night over the exile of the Shechinah, which is an aspect of Rachel, and over the destruction of the Temple, as in “Arise, cry out in the night” (Lamentations 2:19); afterward he should engage in Torah until dawn rises. If he cannot, he should perform Tikkun and sleep, then rise before dawn (Lechem Min HaShamayim). One who is among the first ten in synagogue effects a great Tikkun; one who is first in the house of study is at the level of “tzaddik” (Zohar Parashas Terumah). He must accept upon himself the positive commandment “Love your fellow as yourself,” for thereby his prayer will include all Israel, especially love of companions; each must include himself as one companion among companions. If a companion is in distress he should pray for him; if ill or in sorrow, Heaven forbid, he should share his pain. All details of confession must be said; even when there is no explicit “we,” one must use communal language—“we have sinned”—not “I have sinned”—for all Israel is one body in the mystery of Adam, this being the bond of mutual responsibility of souls (Sefer HaKavanos of the Arizal)."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-003/netiv-chayim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 3,
+      "slug": "netiv-chayim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(There subparagraph 11.) The Tur writes: after Asham one says Yehi Ratzon. See Niddah 70a—because one brings kodshim to an invalid location—and see Rashi; this applies only when sacrifices were actually brought and leftovers remained. For mere recitation, the Sages too agree one may stipulate on an asham conditionally—if not, it is a nedavah. With this the Tur’s words are settled; many great scholars stumbled on the question that asham does not come as nedavah. What seems implied from Tosafos Kiddushin 55a s.v. dilma—that one cannot stipulate—offers no proof: Tosafos’ remark that voluntary libations are for individuals only rebuts a baraisa against Shmuel, who holds thus in Zevachim 91a; but for practical halachah we do not follow Shmuel—voluntary libations also use basins; likewise Rambam Hilchos Maaseh HaKorbanos 16:14—see there. Yet Rambam Hilchos Pesulei HaMukdashin 6:18 is puzzling: he writes that if one finds a male two-year-old ram there is no remedy—perhaps it is an asham whose owner has not yet atoned—cannot one bring it conditionally as Tosafos asked? Needs study."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-003/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 3,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Shevisi Lord: Baer Hetev; I saw writings of holy Rav Zalman Lokower about menorahs of parchment illustrations placed in siddurim writing Shevisi four letters and names—the menorah called “Shevisi” so one remembers not idle chatter in prayer from fear of Name before eyes; his uncle Gaon Tevuos Shor said poetically “unless Shevisi and silence”—could fence silence without Shevisi—angered greatly because mostly not guarded properly—streets littered—like Rosh Hashanah 18b tallis from scrap parchment turned holiday—therefore abolish custom—elaborated pleasantly; large illustrated menorahs fixed in synagogue before pillar or glass seem fine—concern only small ones in siddurim as above—mostly leads to erasing Names improperly written—warned should shine like Zohar."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-003/yad-ephraim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 3,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "There ‘like Israel’s holiness’—scribal error—should read ‘meaning’ … ‘Israel’s holiness’ means trait of Israel—holiness and Shechinah among them—see Pri Megadim—not clear—even emending ‘holiness’ writing ‘congregation’ still ‘like’ error—should read ‘congregation Israel’—but my opinion ‘holiness’ also possible."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-004/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 4,
+      "slug": "machatzit-hashekel",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Subparagraph 4 early risers—should read Ne’ilah … siman 131 seif 3 Rav Beit Yosef no Ne’ilah night—but watch nights close to day fall—Magen Avraham cites Rekanati lengthen Selichos until proper day then fall—to reconcile Rekanati here ambiguous.",
+        "‘Our Gemara explanation one’ Berachos 3a Rabbi Eliezer three watches signs… Gemara challenge middle answer—first explanation gave middle-middle sign—therefore auspicious Chatzos Zohar—even Rashba Chiddushim kodshim Chatzos without Zohar—now Zohar revealed Chatzos night auspicious destruction prayer align Gemara with Zohar—Rosh end Rabbi Eliezer God roars each watch—good fear Heaven lament destruction seif 3. Second explanation doesn’t imply Chatzos.",
+        "‘Always reckon night…’ although prayer Shaarei Tziyon Magen Avraham siman 233 seem night begins stars twelve proportional hours winter summer Chatzos differs summer winter—later elaborate Shevus Yaakov §1 strives Zohar—equatorial noon plus six equals Chatzos laylah—one mourning three watches calculates stars dawn Gemara; Chatzos per Zohar differs watches per Gemara—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-004/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 4,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Those who mock: see Baer Hetev; also modest conduct—see Sukkah 49 and Yad Ephraim citing Gaon Rav Ephraim Zalman."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-004/yad-ephraim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 4,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 4) Night twelve hours—meaning after twelve night hours counted day winter opposite summer—for Chatzos after six hours from night start is Chatzos. Eliyah Rabbah/Eshel Tzeddek disagree—see siman 47 and Bechor Shor Berachos citing Likutei Arizal Chatzos middle darkest night—he agreed not Shaarei Tziyon; Shelmei Tzibbur cites Rav Eleif Shalom Mizrachi Shaarei Eliyahu—equator equal day/night—Chatzos six hours from twelve night hours i.e. two hours after midday zenith—Chatzos laylah truly everywhere—equator equal summer winter—from sunset shadows twelve hours then true Chatzos laylah—winter twelve hours from day start/end—Zohar Vayahel etc.—Tamid bein ha’arbayim from leaning shadows—even summer hours sunset to nightfall excess counts next night—after six of twelve night hours Chatzos—rise lion beware sleeping past Chatzos tastes death—even sleeping after Chatzos after blessings repair harmless etc.—Shevus Yaakov Shaarei Teshuvah other responsa elaborate."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-005/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 5,
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "It is good to say the order of sacrifices specifically by day; only from “Eizehu makoman” onward may one say before daylight breaks. One should recite the Ten Commandments aloud in order to rouse intention: the Ten Commandments may be linked to Baruch She’amar because there are ten “Baruch” phrases until “Blessed are You, Lord, merciful Father,” corresponding to the Ten Commandments. One may say the Anochi of Parashas Yisro in the morning and the Anochi of Va’eschchanan in the evening after Shema al hamitah (Rabbi Yitzchak Luria)."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-005/eshel-avraham",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 5,
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "And Chatas etc. What Magen Avraham asked—we hold Chatas precedes Olah—see Responsa Shev Yaakov §2, which resolves Tur and Shulchan Aruch in three ways."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-005/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 5,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Promptly: see Yad Ephraim siman 4—the words “bechamela rabba” take a pause (esnachta)—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-005/yad-ephraim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 5,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Seif 5) Minchah Shelamim Todah included—Zevachim Todah called Shelamim—Eliyah Rabbah Eshel Tzeddek subparagraph 8—even miracle Todah daily miracle exists."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-006/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 6,
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "Finally: see Baer Hetev; Yad Ephraim citing TaZ and Shelmei Tzibbur; Shevus Yaakov §1: rising from midnight counts twelve hours from midday when sun at zenith—twelve hours later is Chatzos laylah—then northern wind blows (Shelmei Tzibbur likewise); reckon seasonal hour danger—pious may be strict from day start or night start; Kerias Shema and prayer depend on actual day/night; one praying at changing watches Tur reckons night from tzeit until dawn three watches summer/winter—see there. Eshel Avraham cited some; Responsa Devar Shmuel §213 §221; Yad Ephraim §58; Even HaShoham §23: vows to rise Chatzos mean halachic Chatzos—six hours after night begins long or short nights—principal like Eliyah Rabbah Shiyurei Kneses—also Shevus Yaakov III §44 Chatzos prayer not publicly only privately—“walk modestly”; individuals in synagogue doing so may be arrogance unless whole community does—but nowadays widespread practice no arrogance; Birkei Yosef heard opposite in many towns; groups have room near synagogue—leaders want synagogue for minyan first ten—if youths chatter better stay room; Iggeres Ramaz: no Tikkun start of night even summer nor start second watch—only from Chatzos; sleep early night to rise half hour before dawn; pressed after dawn somewhat possible Tikkun—see there §15 places lengthy Selichos Erev Rosh Hashanah/Yom Kippur night watches—one doing Chatzos year-round should also Erev RH—see §16 one accustomed Chatzos rises watch—congregation already Selichos—no time both—say Chatzos per Arizal order principal over Selichos; Birkei Yosef citing Mahari Azulai after Chatzos say Ani Maamin… Menachem Tzion… quickly—see there."
+      ]
+    },
+    {
+      "id": "oc1/siman137/seif-006/yad-ephraim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 6,
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Magen Avraham subparagraph 7) Bachye … Bachye not only Akedah—what Chazal ‘whoever engages Olah portion’—intent explaining portion’s allegory—eyes opened wonders korban mitzvah study sins forgiven like offering—not mere vocalizing—whoever says Tehillah LeDavid … pondering verses’ hints recognizes wonders strengthens faith inherits world—therefore note ‘Parashas Olah.’"
+      ]
+    },
+    {
+      "id": "oc1/siman363/seif-029/chokhmat-shlomo",
+      "volume": "oc1",
+      "siman": 363,
+      "seif": 29,
+      "slug": "chokhmat-shlomo",
+      "kind": "he_missing",
+      "heSegs": 0,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [],
+      "en_segments": [
+        "(Seif 29) A mavo whose one side ends at the sea, etc. See in the Taz what is written regarding frozen water that partitions are nullified and it is worse than garbage heap and is not in the category of a partition at all, as the Rambam wrote explicitly in his commentary chapter 8 of Ohalot that they melt quickly, see what is written there and examine: (there, in the gloss) And there are those who disagree and hold that we are concerned lest the sea rise as a sandbar and there is no partition here. Behold the Taz expanded here in a responsum to forbid in all waters whose way is to freeze, similar to what we are concerned lest the sea rise as a sandbar — and the later rabbis in responsum of Emunat Shmuel and Chacham Tzvi and Knesset Yechezkel disagree and permit; and behold I have no time now to study this through analysis; but in brief it appears it is not similar to the concern lest the sea rise as a sandbar — for there it has no fixed time, therefore it is applicable to forbid on all Sabbaths of the year and on every Shabbat there is concern in this; but regarding freezing of water this is not common except in winter such as Tevet and Shevat and the like, but on other days and especially in summer days their way is not and it is impossible at all that they be frozen — therefore certainly we should not decree on summer days because of winter days since in summer days it is not common that they be frozen; and one cannot say we decree on summer Sabbaths because of winter — from where do we know to decree thus; and behold in truth the essence of the matter is rabbinic and it would be a decree on a decree — therefore we have only what the Sages said lest the sea rise as a sandbar — and that is where on this Shabbat itself there is this concern; but where on those Sabbaths it is not common we need not be concerned thus; one cannot say we decree on those Sabbaths because of others — from where do we have to say thus since we did not find this decree in the Talmud; and also even in winter days whose way is to be frozen and even when already frozen it appears the Taz's proofs are not proof — for all his proofs are from things that are not removed by themselves but only by a person, therefore one may say partitions are nullified; but frozen water behold is destined to melt by themselves and whatever stands by itself — therefore it is as if already done thus, therefore certainly they do not nullify partitions since it stands to melt by itself; and even though regarding irrigation we rule that frozen irrigation water is not considered irrigation water — see above laws of Netilat Yadayim siman 158 — nevertheless this is regarding it in itself, but in any case to be considered ground adjacent to be nullified on ground — in this even something that is not irrigation water if destined to be removed it does not nullify partitions; and if so here too — whatever its end is to melt by itself does not nullify a partition — thus it appears in my humble opinion to be lenient and rely on the view of those who permit, examine well; and see in my Chiburei on Orach Chayim from the year 5601 siman 409 in a responsum to the holy community of Barditchev what is written on this matter further there's help, examine well; and further I was asked by the great sharp elder R' Yissachar av beit din of Shanstichov in the land of Poland regarding the bridges there, and thus he wrote: I ask one question regarding the bridges that great and mighty lords place and fish are beneath them, also launderers are found there and sometimes people pass beneath the bridge, end of his question. Behold according to me there is no doubt this is not considered a partition — and what helps in this that fish are beneath it and likewise people — this does not help except to nullify a partition through which goats penetrate, but to make a partition it does not help — for in the end since people also pass above, the public comes and nullifies the partition; and further I wonder at what he wrote regarding the ditch belonging to the country — who nullifies it — it is astonishing, as if this nullification requires that it be theirs — the intent is only whatever is breached and the public passes there the partition is nullified by itself and their intent is not needed; and behold in a partition through which goats penetrate — who nullifies the partition, and is there power in hand to nullify the partition — only by itself it is nullified; and also what he wrote regarding the ditch for garbage — I wonder at him how he did not sense, for behold regarding the sea we say lest the sea rise as a sandbar — it is proved that if the sea rises as a sandbar it nullifies the partition even though it is by itself and is not set for garbage — nevertheless if the public can pass there the partition is nullified; and likewise the Taz forbids where it can freeze in winter and the Magen Avraham who disagrees in any case forbids if the sea froze even though it belongs to the country and is not set for garbage — if so here too what difference whether it froze above or a bridge was made above and the public passes on it — whatever the public comes and nullifies the partition; and what difference whether it applies to an individual or the public or the entire country — by itself since the public penetrates it they nullify the partition. And also what he wrote regarding the sides of the bridge being coated with tar and an amaltara placed on them — he brought what is stated in Eruvin daf 11 that amaltara does not help in width — behold this too according to me is not so: one, that what is coated with tar does not have the law of amaltara — amaltara is when there are many designs and flowers; but what is coated with tar does not have the law of amaltara; and further amaltara only helps where there are partitions and lechi or korah only where it is wide more than ten in a manner that it is not like an opening — here regarding this the Talmud is uncertain whether amaltara helps in its width; but here in a bridge since there are no partitions and no korah and lechi — what relevance is amaltara here, especially per the truth amaltara does not help in its width; and also what he wrote regarding amot — whether we require precise or imprecise — already see in the first chapter of Eruvin daf 3 that for eruvin to be stringent we require imprecise; and what the Rema wrote that it is a matter that is not applicable — he challenged from daf 5 — and one may distinguish: in my opinion there is no need for distinction, for are precise or imprecise from this uncertainty — it is not from uncertainty but thus the Sages enacted that at the beginning of the enactment they enacted everywhere to be stringent — this is its measure in imprecise and in precise; but where there is uncertainty then it is an eruv uncertainty and valid, so what I answered:"
+      ]
+    }
+  ]
+}

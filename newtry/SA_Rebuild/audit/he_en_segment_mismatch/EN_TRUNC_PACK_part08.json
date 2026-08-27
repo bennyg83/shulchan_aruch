@@ -1,0 +1,365 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 8,
+    "chunk_total": 12,
+    "case_offset": 157,
+    "cases_in_chunk": 15,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman46/seif-017/chelkat-mechokek",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 17,
+      "slug": "chelkat-mechokek",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מיהו אם היא מודה אח\"כ . מפשט הלשון משמע אף שלא הוחזק הקול בתחלה בב\"ד וגם אפשר עתה כשב\"ד רוצי' לבדוק לא מצאו בקול ממש אפ\"ה כיון שהיא מודה שנתקדש' כבר שויתה לנפשה חתיכ' דאיסור' בצירוף הקול הראשון ואף שהקול לא היה קול גמור וכ\"כ בב\"ח מאחר דאיכ' קצת קול מעיקרא דנתקדשה מאחר שויתה לנפשה חתיכה דאיסור' אבל המעיין בגוף התשובה לא מיירי שם שהיה שום קול קודם הקידושין רק שאותו יעקב הוציא קול אחר קידושי המקדש ר' משה שקידשה כבר וכמ\"ש הרא\"ש שם וז\"ל ועוד אפילו היה קול גמור קלא דבתר נשואין לא חיישינן כדאית' בפ' בתרא דגיטין וכו' וכן בנדון זה מאחר שכבר קדשה ר' משה תו לא חיישינן לקלא דנפיק בתר הכי ואפילו קול אחר נשואין לא היה שם כמו שכתב הרא\"ש שם לפני זה וז\"ל ואין חשש איסור בשביל קול שהוציא חדא שאין זה קול אלא כדקאמר תלמוד' וכו' אבל אם אמר קידשתי פלונית והיא אומרת לא קדשתני אין זה קול עכ\"ל וכן אין נראה דהיתה כוונת הרא\"ש לעשות אותה חתיכה דאיסור' מדינ' ואסור להאכילה דבר האסור לה (במ\"ש וז\"ל דאפילו אם היתה מודה בפי' שקבלה קדושין ממנו לאו כל כמינה לאסור עצמה על אותו שקדש' כבר ולא היה בה שום איסור אם היה בא עליה אלא דהוה אמרי' דשויתה לעצמה חתיכה דאיסור' שהרי אומרת שהיא א\"א ולא ספינן לה איסור' ויוציאנה בגט בלא כתובה עכ\"ל) דאם כן כוונתו הכי הל\"ל הי' לאסור אותה מדינ' ולא היה שם איסור אם בא עליה מצד הבעל אך היא אסורה לו עכ\"פ מצידה ולא ספינן לה איסור וצריך להוציאה בגט בלא כתובה ע\"כ נראה דכוונת הרב דמדינ' אף שהיתה מודה בהודאה גמורה אין בה שום איסור אם בא עליה אלא דהוה אמרינן ליה דרך עצה מאחר שלדבריה היא חתיכה דאיסור' אף שאין מחויב להאמין לה מ\"מ למה לך אשה כזאת וטוב להוציאה בגט בלא כתובה אבל מאחר שאין כאן הודאה גמורה אפילו חתיכה דאיסור' לפי דבריה אין כאן מאחר דהיא מתרצת דבריה למה עשתה זאת (רצה לו' ששם בתשובה מבואר שכתבה גט של שקר על שם יעקב הנזכר שהוציא קול שקידשה כבר בכדי שאם יבא יעקב הנזכר ויביא עדים שקרים שקדשה תראה גם היא הגט שגרש' בו וא\"ל בשביל כתיבת הגט הזה לא הוי כאלו הודית שקבלה הקידושין ממנו רק שראתה שהיה מחזר אחר עדים שקרים וחשב מחשבה לא טובה וחשבה גם היא מחשבה לא טובה לבטל מחשבתו שלא תתבייש אם יבואו עדי' שקרי') ונראה שיש להוכיח שכוונת הרא\"ש כמ\"ש ולא כמו שהבינו הבית יוסף והד\"מ והב\"ח דהא הרא\"ש בפסקיו ביבמות פ' שני סעיף קטן ח' ובכתובות בפר' אף על פי הסכים לדעת ר\"י שכתב בתוספות בדברי המתחיל אמר רבי הואיל וכו' דף כ\"ז ע\"ב ודף כ\"ח ע\"א דהנהו עובדי דשילהי נדרים דף צ\"א ע\"א וע\"ב שהובאו שם מיירי באומרת לבעלה טמאה אני לך ואפילו הכי אמרינן התם איתת' שרי' מטעם שכתב שם ר\"י והרא\"ש ולפי שראו חכמים קלקול הדורות שנתנו הנשים עיניהם באחר ורוב האומרות כך משקרות לכך נר' להם להתירן עכ\"ל א\"כ אין לך דבר מכוער מזה שחד מעובדא דשילהי נדרים היה שאשה והנואף היו נחבאים ביחד ופרץ הנואף הגדר שהיו נחבאי' בתוכו ועקר והיא הודית שנטמא' אפ\"ה אמרי' דאיתת' שריא ואף שנתן טעם שם בגמ' אם אית' דעבד איסור' היה מתחבא הנואף בבית שלא ירגיש בו בעל האש' מ\"מ מידי קול לא נפקא מכ\"ש ביצא מקצת קול בעלמא למה תהיה אסורה על בעלה ועיין בפסקי מהרא\"י סי' רכ\"ב והובאו דבריו לקמן בסי' קט\"ו סעיף ו' דהיכא דאיכא רגלים לדבר נאמנת באומרת טמאה אני לך היינו דוקא רגלים כהנהו עובדא דנדרים כי שם כתב זה ע\"פ דעת הרשב\"א דמפרש דאיתתא שריא לבועל ולא כדעת ר\"י אבל דעת הרא\"ש כדעת ר\"י וא\"כ ע\"כ מ\"ש כאן הרא\"ש בתשובה בשוייה נפשה חתיכה דאסורא היינו למצוה ולעצה טובה אך לא לאוסרה וכן פסק לקמן סי' קט\"ו סעיף ו' גבי טמאה אני לך שאם היה מאמין לדבריה חייב להוציאה:",
+        "בטור מביא תשובת הרא\"ש אף שמכח קול הברה אינה צריכה גט אם אירע שנתן לה גט מחמת קול הברה ונתארסה לאחר ומת אסורה לחזור לראשון דהעולם יסברו שהגט הראשון היה כדין ויאמר שמחזיר גרושתו אחר שנתארסה לאחר וכ\"ת יכריזו שלא היתה צריכה גט איכא דשמע בגט ולא שמע בהכרזה וכבר פסק הרב לעיל בסי' י' סעיף א' תשובה זו בקצרה ועיין מה שאכתוב ע\"ז בסי' מ\"ח סעיף ו':",
+        "עיין בב\"י בסי' מ\"ב שם הביא תשובת הרשב\"א מי שהוציא קול קדושין כופין אותו לברר דבריו או ליתן גט ע\"ש:"
+      ],
+      "en_segments": [
+        "However, if she later admits it. The plain wording implies that even where the original kol was never formally established before beit din, and even if the court later investigates and finds no legally sufficient kol, nevertheless her later admission that she had already been betrothed, together with the earlier partial report, makes her prohibited by her own statement. The Bach understands it this way. But one who studies the underlying responsum of the Rosh will see that there was no prior kol before the later kiddushin. A man named Yaakov spread a report only after Rabbi Moshe had already betrothed her, claiming that he had betrothed her earlier. The Rosh writes that even a full kol arising after the later marriage is disregarded, and indeed the incident did not even involve a legally valid kol. Nor do I think the Rosh intended to make her legally prohibited by her own admission in the sense that the husband would be forbidden to remain with her. When he writes that even if she explicitly admitted receiving kiddushin from Yaakov, she could not thereby prohibit herself to the man who had already betrothed her, he continues that we would merely tell the husband that since according to her own words she regards herself as a married woman, it would be proper to divorce her without a ketubah. This sounds like advice and a pious course, not a strict prohibition upon him. In the actual case she did not even make a full admission. She had written a false get in Yaakov's name because she feared he would procure false witnesses, and she wished to have a document with which to counter their plot. That conduct did not amount to an admission that she had ever accepted kiddushin from him. This understanding of the Rosh is also supported by his rulings in Yevamot and Ketubot, where he follows Ri that even a woman who says to her husband, \"I am defiled to you,\" is not automatically believed, because the Sages saw that later generations might use such claims to escape a husband. One of the Nedarim cases was especially ugly, involving a woman and an adulterer hiding together, yet she was still permitted to her husband under the stated reasoning. If so, a mere partial kol certainly should not make her forbidden. See Mahari's rulings, siman 222, cited below in siman 115:6, concerning circumstances that support her claim. According to the Rosh's approach, the phrase that she made herself a prohibited object means only a basis for proper conduct and advice, not a strict legal prohibition. The Tur further cites the Rosh that although a mere rumor does not require a get, if she nevertheless received a get because of such a rumor and later became betrothed to another man who died, she may not return to the first. People might assume the first get was valid and say that he is taking back his divorcee after she became betrothed to another. A public announcement would not fully cure the problem because some people may hear about the get and not the announcement. The Rama already cites this briefly above in siman 10:1. See also what I will write in siman 48:6. The Beit Yosef in siman 42 cites Rashba that one who spreads a report of kiddushin can be compelled either to substantiate his words or to give a get."
+      ]
+    },
+    {
+      "id": "cm1/siman46/seif-020/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 20,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואני עד. שם כ\"א על מנה כו':",
+        "(ליקוט) ואני עד בדבר זה. ל' הרמב\"ם ואזיל לשיטתו בס\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "And I am until. There is a name in the book, and I am witness to it. The Holy One, and then, is the same"
+      ]
+    },
+    {
+      "id": "cm1/siman48/seif-001/turei-zahav",
+      "volume": "cm1",
+      "siman": 48,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(בש\"ע ס\"א שנמחל שעבודו) הסמ\"ע חולק על רמ\"י לענין בני חורין וס\"ל לסמ\"ע דגובה מבני חורין ואני אף שאיני כדאי להכריע מ\"מ דעתי נוטה לדברי רמ\"י ומה שהביא סמ\"ע ראיי' מדברי הרא\"ש בב\"י סי' נ\"ה תמהני דמשם ראי' לרמ\"י לא מבעיא לתי' השני של הרא\"ש דפי' מ\"ש ר' יוסי היינו באומר תחלה שיהא המעות שנתן מתנה כו' פשיטא דבלא תנאי זה פסול אפי' לבני חורין ומנ\"ל לחלק ואפי' לתי' הראשון דלשם מפרש מה דאמר ר\"י היינו לגבות מבני חורין הא סיים שם הטעם דקניא לי' במסיר' השטר היינו למאן דס\"ל אותיות נקנות במסירה בלא כתיבה ומש\"ה חזר לתרץ שם בענין אחר מאחר דקי\"ל בעינן כתיבה ומסירה א\"כ מוכח אם אין שם מסירה חדשה מלוה למלוה או לשליש ליכא מ\"ד שיגבה מב\"ח והא דלא גבי במסירה ממשעבדי צ\"ל דאין על המסירה שני עדים אבל אם יש שני עדים ה\"נ דהוי שטר גמור כמ\"ש רמ\"א בסמוך וכל דברי הרא\"ש שזכרנו היינו לר' יוסי דס\"ל אסמכתא קני' ולמדין אנו מזה היכא דלא הוי אסמכתא כגון בב\"ד חשוב כן הוא ממש וכן הוא לשון רמב\"ם פכ\"ז מהלכות מלוה דשטר שנמחל שיעבודו הוי כחרס משמע דאין בו תועלת לגמרי וכ\"כ רמ\"א בהדיא סוף סי' נ\"ה ודוקא בהתנה תחלה שיהא מתנה גובה מב\"ח הא לאו הכי אינו גובה מב\"ח ועוד ראיה מפ' ח\"ה דף ל\"ב ההיא דא\"ל הב זוזי דפרעתי למלוה בשבילך והא שטרא ואמר הלוה לא פרעתיך ואמר הערב לאו הדרת ושקלת מנאי ואסיקנא שם דהוי שטר שנמחל שעבודו ולא גבי כלל ממלוה ע\"כ נלע\"ד דהדין עם רמ\"י בזה דאינו גובה כלל בשטר שנמחל שעבודו אפי' מב\"ח:",
+        "עוד חלק הסמ\"ע על רמ\"י ופסק דאין צריך שתהיה החתימה מכוונת נגד המשמעות הממרנ\"י נלע\"ד דיפה פסק רמ\"י לא מבעיא אם רוצה לכתוב המשמעות למטה מן החתימה פשיטא דפסול דיש חשש שיחתוך המשמעות ויכתוב למעלה מהחתימה בלשון זה אני ח\"מ חייב לפליני כך וכך פשיטא שלא יזיק לזה מה שהחתימה בסוף הנייר דהא אמרינן בגמרא לא לחזי אינש ח\"י אלא ברישא דמגילתא ולא אמרו או בסופו דמגילתא ש\"מ דכל שהוא למטה מריש מגילתא הוה יוכל להזדייף ולעשות כ\"י עליו בזויף ואפי' אם המשמעות למענה מהחתימה יש להקפיד דשמא יהי' לפעמים כשיעור ב' שורות ריוח ביניהם ויכול להזדייף שטר עליו ע\"כ יש להקפיד שיהיה המשמעות מכוון נגד החתימה כנלע\"ד:",
+        "ובענין ממרנ\"י שלא נכתב עליה שום משמעות רק החתימות לחוד נ\"ל שאינו גובה כלל בה כיון שהובאה כך לפני ב\"ד בפסול דהא יכול לעשות זיוף ולכתוב עלי' כפי מה שירצה ואף אם הלוה מאמינו מ\"מ לאו כל כמיניה שמא חייב גם לאחרים בממרנו\"ת ואין לו לשלם ומפסידו עי\"ז ואע\"ג דהי' יכול לתקנו קודם בואו לב\"ד מ\"מ אינו מועיל כאן כיון שבא לב\"ד בפסול כמ\"ש בסי' מ\"ה ס\"ד והארכתי בדבר זה סי' ק\"ד ס\"י וגם בלבוש כתב כאן לפסול אלא שנתן טעם אחר ועל אותו הטעם נחלק בסמ\"ע אבל לפי הטעם שכתבתי אין מחלוקת להכשירו נ\"ל:"
+      ],
+      "en_segments": [
+        "(Shulchan Aruch, seif 1: Its lien was forgiven.) The Sema disputes the Levush and holds that collection remains possible from unencumbered property. Though I am unworthy to decide, my view follows the Levush. The Rosh cited in siman 55 actually supports that view. Under his second answer, only a prior stipulation that the money given be a gift can preserve collection; without it the document is invalid even against unencumbered property. Even under the first answer, the creditor acquires by delivery only according to the opinion that documentary rights transfer by delivery without writing. Since we rule that writing and delivery are required, without a new transfer from the creditor or escrow holder there is no basis even for collection from unencumbered property. The Rambam calls a document whose lien was forgiven “like a shard,” implying that it has no use at all, and the Rama rules expressly at the end of siman 55 that only an original gift stipulation permits collection. Bava Batra likewise treats such a document as entirely ineffective. Therefore the Levush is correct. The Sema also disputes the Levush’s requirement that the signature be aligned with the amount written on a mamarni. Here too the Levush is correct. If the amount is written below the signature, the holder may cut it away and write above the signature, “I, the undersigned, owe so-and-so,” for a signature anywhere below the top of the sheet can be misused. Even when the amount is above the signature, two blank lines might remain between them and permit forgery. The amount must therefore be aligned directly with the signature. A mamarni containing signatures alone and no stated obligation cannot support collection once presented to beit din in that defective form, because the holder could write whatever he wishes above the signatures. Even if the borrower trusts him, he may owe others on similar instruments and prejudice them. Although the document could have been corrected before presentation, once it comes before beit din invalid it cannot be rehabilitated, as stated in siman 45."
+      ]
+    },
+    {
+      "id": "cm1/siman49/seif-003/turei-zahav",
+      "volume": "cm1",
+      "siman": 49,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(סעיף ח' אבל אם הם משולשים כו') כ\"כ הרמ\"א וטעמו דבעל השטר אומר מהיות טוב א\"ת רע כיון שראיתי ששלשתי בשטר זה היה לו להשליש גם בשובר ולכאורה קשה על הרמ\"ה מההיא דבסמוך מלוה א' שהלוה לשני יוסף בן שמעון והיו משולשין וכו' ש\"מ דמועיל כשהשובר אינו משולש וא\"ל דהתם שאני דמונח בין הקרועים דבסוף פ\"ק דב\"מ מוכח דלא בעי' בין הקרועים אלא כשהוא ביד המלו' אבל ביד לוה לא בעינן כן ולק\"מ דדוקא בלו' משני יוסף בן שמעון משולשין בשטרותיו ס\"ל להרמ\"ה דיש ריעותא אם אין שילוש גם בשובר כיון שידוע שיש לו שני מלוים שווים משא\"כ כאן שהלוה שמו יוסף בן שמעון ואין לו אלא מלוה אחד פשיטא דאין צריך לשלש את השובר דמה איכפת ליה במה שהלוה המלוה עוד ליב\"ש האחר דהא שני יב\"ש מוציאין אפי' שט\"ח על אחר וכ\"ש שאותו יוסף בן שמעון שהשובר בידו מועיל ומש\"ה אין כאן ריעותא אפילו להרמ\"ה וזה פשוט. והטור הקשה על זה מה יועיל שישליש שטרות לגבי שובר כלום דהלוה יאמר אתה שנצרכת ראייה להוציא אתה מוכרח לפרש בהדיא אבל אני שאיני צריך רק להחזיק בשלי סגי אפילו בלשון מסופק דהמוציא מחבירו עליו הראיה. ועוד הקשה הטור מה צורך שילוש שטרו' כו' פי' אפילו את\"ל דיכול לומר מהיות טוב אל תקרא רע והיה לך לשלש גם כן בשובר אכתי קשה מה צורך שישלש שטרות וכיון דאין בזה צורך יכול הלו' לומר לא ידעתי בזה ואפי' אם לפעמים רואה הלוה בשטר אפשר שלא הרגיש בשילוש דמילתא דלא רמיא עליה לאו אדעתיה והב\"י הקשה על קושיא ראשונ' של הטור ממ\"ש הטור אח\"כ שמועיל שילוש שטרות לענין שובר נראה שרמז על מ\"ש הטור בסעיף ט' בב' שטרות והיו משולשין כו' ואי מהא לא איריא דשם אין השילוש מועיל לענין שובר אלא דאם לא היה משולש לא הי' עליו שם שטר כלל ולא היה הלו' צריך לשובר דהא אחר אינו יכול להוציא שטר על יוסף ב\"ש וכבר כתבנו בסימן מ\"ב ס\"ט [ס\"ח] שראוי לקבוע הלכה כדעת הטור כאן דשובר שאינו משולש כשר ע\"ש:",
+        "שוב ראיתי בספר משאת בנימין סימן צ\"ה שכתב בגמרא מוכח כדברי הרמ\"ה והטו' לא הרגיש בזה דהיינו כיון שמפ' אביי דמתני' דנמצא לא' ששטרו של יוסף ב\"ש פריע דשניהם פרועים מיירו בשני יוסף ב\"ש שהלוה לא' וגם ע\"ז אמר בסיפא דמתני' כיצד יעשו ישלשו דהיינו שיש תקנה לשני יב\"ש המלוים שאם יפרע לאחד מהם ויתן לו שובר ממילא יפסיד היוסף ב\"ש השני שיפטור עצמו בשובר שקיבל ע\"כ ישלשו השטר ונמצא שלא יהיה כלום בשובר שנכתב סתם וכדעת הרמ\"ה ואני אומר שא\"א לפ' כן דתקשה לך אם תעשה תקנה למלוה מה תעשה להעני הלוה שישלם לאחד מהן במקום שהשטרות משולשים והוא יקח שובר סתם ולא יהיה בו ממש לפ\"ז מה אית לך למימר שהלוה חייב לשלש השובר מכח זה לא היה להם לתקן בזה אלא שיפסול השובר לחוד כיון שאתה בא לכופו שלא כדין מה לנו לעשות עוד תקנה נוספת בשילוש שטרות בשלמא בדברי הרמ\"ה לק\"מ דאיהו לא אמר דרך תקנ' שישלש המלוה השטר אלא אם אירע כך אז חייב גם הלוה לשלש השובר מכח מהיות טוב וגומר משא\"כ אם תפרש המשנה כן דכיצד יעשו ישלשו כו' קאי ע\"ז והיה זה דרך תקנה לשלש השטרות והוא ללא צורך:"
+      ],
+      "en_segments": [
+        "(Seif 8: But if they are distinguished by a third generation, etc.) The Ramah’s reason is that the holder may say, “Since I took the precaution of distinguishing the names in the document, you should have done the same in the receipt.” At first sight this conflicts with the later case of one lender who lent to two namesakes whose names were distinguished, where an unspecified receipt is effective. The difference is that where one borrower owes two lenders with identical names and the loan documents are distinguished, there is a defect in an undistinguished receipt because the borrower knows he has two such creditors. But where one lender lent to two borrowers with identical names, each borrower has only one creditor and an unspecified receipt plainly identifies the debt; the fact that the lender also dealt with the other namesake creates no defect. The Tur nevertheless objects that the lender, who seeks to extract money, must identify his right precisely, whereas the borrower needs only retain what he possesses and may rely on an ambiguous receipt. He further argues that distinguishing the loan documents serves no necessary purpose from the borrower’s perspective, so the borrower may not even have noticed it. The Beit Yosef’s proof from the later case is inconclusive, because there the distinction is what gave the documents legal validity in the first place. The correct practical ruling is therefore the Tur’s: an unspecified receipt is valid. The Masat Binyamin’s attempted proof from the Mishnah fails, because a rule requiring distinguished loan documents cannot justly render an ordinary borrower’s unspecified receipt worthless after payment. The Ramah’s doctrine operates, if at all, only where the documents happened already to be distinguished, not as a general corrective enactment."
+      ]
+    },
+    {
+      "id": "cm1/siman49/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 49,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בד\"א. וצ\"ע שהוא נגד הגמ' דשם וע' בטור וב\"ח ודו\"פ:",
+        "(ליקוט) בד\"א כו'. מדקאמר במתני' נמצא לאחד כו' ואח\"כ כיצד יעשו כו' מ' דקאי גם התקנה ע\"ז אע\"ג דלתי' דר' ירמי' קאי כיצד יעשו ישלשו על השובר דהא בשטר משולש קמיירי אבל לתי' דאביי א\"א לומר דקאי אשובר דהא של? (ע\"כ):"
+      ],
+      "en_segments": [
+        "In DNA. And he said that he was against the G-d, and that he was against the G-d, and that he was in prison. Madammar is in one of his sons, and then how will he be done by Dr. M. D.C. also installation by Dr. Jeremiah Kai, how will he be ashamed of the voucher in the square of a quarry triangle, but to J.A.A. to say Dr. A. A. Dea. (a)"
+      ]
+    },
+    {
+      "id": "cm1/siman51/seif-007/beur-hagra",
+      "volume": "cm1",
+      "siman": 51,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שטר שנמסר. כשמואל ופ' כוותיה משום דרב יוסף בעי למעבד כוותיה בדין ובעובדא ההיא דלמטה סנה' כ\"ח ב':",
+        "(ליקוט) לוה כו' עבה\"ג וכן סוגיא דגטין י\"א כר\"א ועתוס' שם ד' א' ד\"ה דק\"ל כו' וכן ר\"ן ס\"ל כר\"א בכתובות צ\"ד ב' כר\"א וקי\"ל שם כוותיה וכשמואל שם ע\"ש וכ\"ד רוב פוסקים (ע\"כ):"
+      ],
+      "en_segments": [
+        "Not provided. When Joseph and his wife were in the midst of his father, Joseph, and his son, and his father’s wife, and his father’s wife, and his father’s wife, and his father’s wife, and his father’s wife, and his father’s wife, and his father’s wife, and his father’s wife"
+      ]
+    },
+    {
+      "id": "cm1/siman60/seif-003/turei-zahav",
+      "volume": "cm1",
+      "siman": 60,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(שם ראובן שקבל עליו לזון שמעון ואשתו כו') ומבואר שם אפי' אותו סך שהגיע בחיי אשתו פטור דהוה כמלוה של אשתו כיון שלא הספיקה לגבות' ה\"ל ראוי ואין הבעל נוטל בראוי כבמוחזק:",
+        "ומעשה אירע במקומינו בא' שכתב לבנו ולכלתו שיתן להם מזונות ודירה סך קצוב ומת בנו אחר הנשואין ותובעת כלתו חלקה במזונות ודירה והיו בזה בעלי סברות לומר דפטור בזה דאנן סהדי שלא כתב לה מזונות ודירה אלא כ\"ז שהיתה כלתו וראייה מנדונית חתנים באה\"ע סי' נ\"ב כשמתה בתו דקי\"ל מספר אין מוציאין ממון נגד ר\"ת שכתבו התוס' בשמו פ' נערה שנתפתתה דאנן סהדי שלא כתב לה אלא כדי שתתנה בתו מזה ה\"נ כאן ולעד\"נ דאין זה דומה לזה כלל והדין שלכנינו הוא מפורש במשנ' ר\"פ הנושא דשנוי שם הנושא אשה ופסקה עמו לזון את בתה ה' שנים חייב לזונה אף שאשתו נתגרשה ממנו אפי' לאחר מיתתו חייבים היורשים לזונה ולא אמרי' שלא קיבל עליו אלא כ\"ז שתהיה בת אשתו ולא עוד אלא אפי' כ' בשטר בהדיא בל' שאני חייב לזון בת אשתו אין לו אח\"כ טענה מדכתב בת אשתו ש\"מ כ\"ז שאת אשתי דוקא דאל\"כ אמאי אמרי' בסיפא שם הפקחים היו כותבין כ\"ז שאת עמי כו' ש\"מ שאין מועיל פטור בזה אלא כתובת ל' זה דוקא אבל לא מהני מה שנזכר בת אשתו וה\"נ בדין זה אע\"פ שכ' בשטר שיתן להזוג אין לו' כ\"ז שהזוג קיים דלא עדיף ל' זה מל' בת אשתי שזכרנו ותו דאין יפוי כח בל' זה טפי מאומר פו\"פ בעלמא כמ\"ש רשב\"א סי' תתק\"ע והוא אותו הדין שזכר רמ\"א כאן ובא\"ע סי' קי\"ז בא' שקיבל עליו לזון שמעון ואשתו כו' דקאמר התם בא' שנתן לראובן מזונות אם ישא פלונית כו' ומתה האשה ורוצה הבעל לתבוע גם חלקה ופסק שם דהך קבלה שקיבל עליו לזון שמעון ואשתו ה\"ל כשנים דעלמא וממילא היה לכל אחד חוב על הנותן ה\"ל ראוי ואין הבעל נוטל בראוי כבמוחזק וכו' וזה טעם הדין שהביא רמ\"א כאן למדנו בבירור מזה דעכ\"פ חייב לתת לו חלקו ולא מהני כאן אומדנא דהא לא קיבל עליו לזונו אלא אם ישא פלונית דוקא וא\"ל מ\"ט באמת לא הוה כאן כמו בנדוניית חתנים דלעיל דאין זה דומה לזה כלל דכאן נתברר החיוב שלו על כל אחד מהם בפני עצמו בשעה שכתב שיתן מזונות לשניהם וכן קיבל עליו לזון את בת אשתו וכיון שנעשה מעשה הנשואין נעשה החיוב חוב גמור משא\"כ בנדוניית חתנים דהוה החיוב מדידה לדידיה שכותבין ודין נדוניא דהנעלת ליה (אמר המגיה קשה לי מההיא דכתבו התוספת פרק נערה שנתפתתה דר\"ת מוקי לברייתא דת\"כ ששנו בה ותם לריק כחכם זה הפוסק לבתו ממון הרבה ומתה בתוך שבעת ימי המשתה הרי הפסיד בתו והפסיד ממונו דמיירי שהחתן מוחזק בה ואם כדברי הרב ז\"ל טפי הוה ליה למימר דמיירי שלא כתב ל' זה שיבואו עמה מבית אביה אלא פסק סתם וכבר היה אפשר לדחוק ולומר דלישנא דבריית' משמע להו שכתב ל' זה מדתני' הפוסק לבתו אלא שראיתי להרב מהרא\"י בס\"ס שכ\"א דעדיפא מיניה דייק מהכא שאפי' אם זקף הנדוניא במלוה ולא הוזכר בשטר כלל שהוא ממון הנדוניא לא זכה בה הבעל דאזלינן בתר טעמא דאומדנא שלא כתב אלא ע\"מ שתהנה בתו ומוכח לה מדמשני התוספת לההיא ברייתא דת\"כ דמיירי כשהחתן מוחזק ולא מוקמי לה בזקפן עליו במלוה דהוי ניחא טפי דסתם פסיקא משמע שעדיין לא גבה ואי ס\"ד דלישנא דהפוסק לבתו לא משמע אלא בכותב שיבואו עמה מבית אביה לבית בעלה ע\"כ לא מוכח מידי א\"ו דגם זקיפא במלוה על שם החתן דהיינו נדון מהרא\"י מיקרי ג\"כ פסיקא לבתו א\"כ כ\"ש כשכ' סתם שנותן נדוניא להזוג דזה ג\"כ בכלל פסיקא לבתו וא\"ל דהתם מיירי בשכתב בשעת פסיקא שיבואו עמה מבית אביה אף שאח\"כ בשעת כניסה לחופה זקפן עליו במלוה לא מהני דבתר עיקר שעת פסיק' אזלינן שאף דשטרא אשתני גופיה לא אשתני דינא דהא לא הוזכר בדבריו ז\"ל שום משמעות היאך היה כתיב בשטר תנאים הראשונים גם מדכתב וז\"ל אבל בנ\"ד דבטעם תליא מילתא לפי' ר\"ת דלא זכה הבעל מכח אומדנא דדעתא דכל זמן שלא גבה אמרינן שלא זכה לו האב אלא על מנת שתהנה בתו משמע בבירור אע\"פ שכתובים בכל ל' לא זכה בהן הבעל וא\"כ טעמו של הרב בט\"ז צ\"ע וכן הרב רמ\"א כתב באה\"ע סי' כ\"ב הפוסק מעות לבתו או לחתנו ועל זה מייתי פלוגתייהו דרש\"י ור\"ת משמע דאפילו בפוסק לחתנו נמי ס\"ל לר\"ת דלא זכה והיינו מטעם אומדנא כאמור ולא מטעם דקדוק הל' ואפשר הי' לקיים דברי הר\"ב ז\"ל מצד הענין לא מצד הלשון דדוקא בנדוניא הוא דאמרי' לא זכה הבעל בדברים הללו שאין עיקרן מתנ' לבעל אלא להבת והוא מקבל עליו אחריות מש\"ה לא זכה בה כ\"ז שלא הגיעו לידו לאפוקי מזונות וכיוצא שעיקרן מתנה ומיד שכונס זכה אלא שמדברי הרב מוהר\"א מזרחי בראשונות סי' מ\"ז נ' קצת דאין לחלק בזה שהרי כמה יגיעות יגע להחזיק החתן במתנות שכבר באו לידו ומטעם מוחזק ואפשר דלרווחא דמילתא נקיט התם מוחזק כדי לסתום פי החולקים כנרא' מתשובתו וגם הוא ז\"ל גילה דעתו באותו התשו' לחלק בין מתנות לנדוניא מטעם האמור. אמנם לפי מה שכתב הרב רמ\"א שם דאף באב הפוסק לבנו נמי אמדינן דעתיה שלא כתב אלא על מנת שיהנה בנו אם כן אין לחלק בהכי שהרי האב הכותב לבנו מתנה גמור' היא וזוכה בה מיד בכל מכל וכבר תפס עליו הרב בעל חלקת מחוקק שם ובספר בית שמואל לא תיקן כלום כי מה שכתב דהרמ\"א מסברא דנפשיה קאמר היא גופיה קשיא דלא דמי להדדי כי עוכלא לדנא והנלע\"ד דמקום הגה' זו אח\"ז בענין דתקנת ר\"ת והקהלות ואיך שיהיה נלע\"ד דינו של הרב בט\"ז ז\"ל אמת מתרי טעמי חדא דהפרש גדול יש בין נדוניא למזונות דבנדוניא יש שינוי בין שעת הכתיבה לשעת מיתת הבת דבשעת כתיבה לא זכה בגוף הנכסים שהרי הוא חייב באחריותן וגם אינו יכול למכרם משום שבח ב\"א ובשעת מיתה הוא בא לירש את הכל בזה שייך למימר כיון שבשעה שהוא בא לזכות בנכסיה אינן ברשותו לא יזכה דאדעתי' דהכי לא כתבן האב לאפוקי במזונות ומתנות וכיוצא בהן שכבר משעת הכתיב' זכה בכל מכל מה\"ת להפקיע ממנו בשעת מיתת האש' ממון שכבר זכה בו זכייה גמורה ואף שבנדונית האב לבנו לא שייך האי טעמא דלעיל מ\"מ סברא גדולה ונכונה הוא לע\"ד ועוד דמתני' ר\"פ הנושא את האשה הויא סיעתן ועוד כיון דדינא דר\"ת חידוש הוא אף בנדוניא גופא אמרינן הבו דלא לוסיף עלה ודוקא בנדוניא אמרו דלכל יש נדוניא דאמדינן דעת כל אדם שוה לאפוקי זה יצא מן הכלל להוסיף אמרי' בעין יפה נתן וגם הוא הפסד מרובה משא\"כ במזונות ומתנות ובקל יש לחלק בדיני אומדנא כמ\"ש התו' בכמה דוכתי הנה כי כן תבנא לדינא והדין דין אמת כמ\"ש הרב בט\"ז זלה\"ה ע\"כ הגהה) וכן ל' הברייתא שם בפרק נערה שנתפתת' כתב לה האב כסות וכלים שתביא עמה מבית אביה לבית בעלה בזה דוקא אמרי' אומדנא הוא דוקא שתהנה היא מזה כיון שעיקר הנתינ' תתיחס על שמה ובשביל זה מקבל הבעל נצ\"ב שלה מה שא\"כ בחיוב מזונות ודיר' שהאב נותן במתנה לזוג או כדי שישא פלונית כיון שנשא חל החיוב. שוב כשזכיתי ללמוד השמעת' דנדוניית חתנים עיינתי בסוגיא אליבא דר\"ת שהעיקר לרבנן דר' נתן דס\"ל דלא זכה החתן בנדוניא היינו מטעם שכתב האב פסיקתו שיבאו הנכסים עם בתו מבית אביה לבית בעלה מש\"ה אף ע\"פ שכנס' כל זמן שמחוסר מעשה דהיינו ההבאה מבית אביה לבית בעל' לא זכה וע\"כ אזלי' בתר אומדנא דרבנן מדמי מחוסר זה המעש' לההיא מחוסר מעשה דר\"א בן עזרי' התם שמחוסר כניסה לחופ' ורבי נתן מחלק בין מעש' דההבאה למעשה דכניס' נמצא לפי ההלכ' דקי\"ל כרבנן דר' נתן דלא זכה החתן דוקא כשמחוסר דבר אחד ממה שהתנ' דהיינו הבאת הנכסים לרשות הבעל וע\"כ לענין מזונות בת אשתו דשם לא מחוסר מידי אף דנתגרשה האם אח\"כ מחוייב לזונה וזה ברור ואמת גמור וע\"כ נר' שצריך לשלם חלק כלתו במזונות ודיר' לפי הדין:"
+      ],
+      "en_segments": [
+        "(Ibid.: Reuven undertook to support Shimon and his wife.) Even the amount that accrued during the wife’s lifetime is not inherited by the husband if she died before collecting it, because it is a debt due to her and is considered expectant property; a husband does not inherit expectant property as he does property already possessed. A case arose where a father undertook to provide a fixed amount of food and housing for his son and daughter-in-law, and the son died after marriage. Some argued that the father was exempt from the daughter-in-law’s portion because he intended support only while she remained his daughter-in-law, comparing the matter to wedding dowry where an assessment may show that the father intended the gift only for his daughter’s benefit. This comparison is incorrect. The Mishnah states that one who undertakes to support his wife’s daughter for five years remains obligated even after divorcing the mother, and his heirs remain obligated after his death. Merely describing her as “my wife’s daughter” does not limit the term, since prudent people had to add expressly, “for as long as you are with me.” Likewise, writing that support is for “the couple” does not condition it on both spouses remaining alive. The Rashba’s ruling concerning support for Shimon and his wife likewise treats the undertaking as two separate debts. Once the marriage occurred, each acquired an independent right. This differs from dowry, whose language and purpose may make the daughter’s enjoyment central and where transfer may remain incomplete. Support and housing are direct gifts that vest upon marriage. Although the gloss discusses several challenges from Rabbenu Tam’s dowry doctrine, it concludes that support differs because the beneficiary acquired a complete right from the outset, the Mishnah directly supports this result, and one should not extend the exceptional dowry presumption to other gifts. The daughter-in-law therefore remains entitled to her share of support and housing."
+      ]
+    },
+    {
+      "id": "cm1/siman65/seif-010/turei-zahav",
+      "volume": "cm1",
+      "siman": 65,
+      "seif": 10,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(בטור ס\"ח והרמ\"ה כתב כו') הב\"י הניח דברים אלו בצ\"ע וראיתי רבים מפרשים זה בכה וזה בכה ואענה חלקי גם אני בס\"ד דפליגי בזה בפי' המתני' דתנן מצא תכריך של שטרות יכריז דמסיק בגמ' דמכריז שטרות מצאתי והבעל אבידה ואמר המנין וס\"ל להרא\"ש ורבינו דמ\"ה תנן שיהיו שטרות כרוכים כי היכא שיוכל הלה ליתן סימכין במנין דאי לא כרוכים שתא לא נפל אהדדי ומתייאש מש\"ה כתב רבינו יכריז שטרות מצאתי למי שיאמר מנינם כו' וגילה לנו שהכריכה הוא העיקר חיוב הכרזה משא\"כ בדברי הרמ\"ה דלא הוזכרו הכריכה רק לסימן וכמו שיתבאר והנלע\"ד בפי' דברי הרמ\"ה הוא בדרך זה שהוקשה לו במה דאמרו בברייתא תכריך של שטרות ג' שטרות כרוכין זה אצל זה ופרכי' מאי מכריז המוצא מנין א\"ה תרי נמי ומשני מכריז סתם ומפרש הרמ\"ה דבעל אבידה צריך שיאמר המנין וגם הכריכה והוקשה לו למה באמת שנה התנא ג' שטרות הלא סגי בב' כדפריך המקשן וה\"ה בג' למה צריך בעל אבידה לומר סי' המנין ותי' דמתני' מיירי בחד לוה ומלוה וע\"כ כשישנן ג' צריך שידע גם המנין דהנך תרי שטרי דחד לוה ומלו' אינון וא\"כ שניהם יודעים בסימנים הן במנין הן בכריכות ודוחה לזה מ\"ש בס\"ו נקב יש בצד אות פלונית וכו' אלא דכאן יש סברא לומר להחזיר למי שאמר הסימן כיון שהב' ידע ולא בא עז\"א אפשר דא' מכיר בדריכתן והר' אינו שם על לבו האיך היו כרוכים ע\"כ לא בא וגם סי' המנין אפשר שאינו יודע כי הוא חושב שנאבדו ממנו במפוזר וכמ\"ש בסמוך בשם הרא\"ש אלא דהרא\"ש ס\"ל דמשום הכי הוא מתייאש מן האבידה ולדעת הרמ\"ה עכ\"פ לא נתייאש עדיין אלא שלא רצה לבא עדיין בשביל סי' זה ע\"כ מצריכו שיאמר איתו שלפנינו סימן המנין וגם הכריכה ועי\"ז יודע שעכ\"פ מתחילה היו כן אלא שעיקר החשש שמא הוא נתנם כן ומן האחר נפלו בזה אמרי' כיון שעכ\"פ היו מקובצים במקום א' ומונחים בכונה ביחד לא דרך מקרה ודבר זה ידוע לכל א' מהם שקבלום בקיבוץ אחד אף שאינו יודע עיקר הכריכה היאך היתה מ\"מ יודע שהן מקובצים ביחד וא\"כ היה לו לבא ולהגיד סי' דמנין משא\"כ אם זה אינו אומר אלא הי' המנין אנו אומרים שמפוזרים היו וע\"כ לא בא השני וא\"ל למה הוצרך ליתן סימן הכריכה הלא די לומר שהיו מקובצים אף על פי שאינו יודע היאך היה השינוי די\"ל דבר זה אומר מסברא לכך צריך שיאמר סימן הכריכה ולא סגי במקובצים לחוד וגם אם אומר זה סימן כריכות ולא אמר מנין אנו אומרים שמא על ב' מהם אומר שכרוכין היו והשאר מפוזרים ואף שעכשיו הם כולם כרוכים שמא בנתיים נעשה כרך א' נמצא שגם בזה שייך לומר שהב' לא רצה לבא כי הכריכות אינו שם על לב ומנין אין כאן ע\"כ צריך שיאמר זה שני סי' המנין וכריכה ואם תאמר אכתי אמאי נותנין לזה ניחוש שמא האחר לא בא כי היה יודע שלא יחזירו לו בשביל סימן אחד י\"ל דמ\"מ היה לו לבא דשמא השני לא ידע כלל שום סימן ויהיה לו תועלת מזה שיתן לו:",
+        "(והמשך דברי הרמ\"ה בקצרה נ\"ל כן דאע\"פ דבעלמא סגי בא' או במנין או בכרוכים והכא בעינן דוקא מנין עם כריכה או קשירה וא\"כ צריך שיהא דוקא ג' יחד דאי לא הוה כאן מנין דהיינו שאין כאן אלא תרי איו להחזיר בשביל הסי' דכריכה או קשירה דמיירי בחד לוה ומלוה וא\"כ הנך תרי שטרי יש כאן חשש מאחר שמצד עצמו של הסימן שהוא נותן אין ראוי להחזיר לו כיון שכל אחד יודע סימן הכריכה או הקשר מאחר שהיה ביד כל א' אלא העיקר ההוכחה הוא מחמת שהא' בא לב\"ד והב' לא בא וע\"ז י\"ל שמא הא' שבא נתן על לבו ענין הכריכה והב' לא נתן על לבו ע\"כ לא בא לומר סימן הכריכה וא\"ל עכ\"פ אם ישנן ג' שטרות דשייך מנין למה צריך זה שבא לומר המנין וגם הכריכה ואמאי לא די בכריכה לחוד מאחר שהב' לא בא לומר סימן המנין י\"ל בזה דאימור לא היה בכרך א' ע\"כ הוא חושב שמא לא נפלו ביחד ומה לו להגיד סי' המנין ואחשוב כשקרן שתא לא יהיה כך משא\"כ אם זה שבא דמר סימן המנין עם סימן הכריכה הרי אנו רואין שעכ\"פ היו בכרך א' והיה לו לבא ולהגיד וא\"כ נהי שהב' אינו יודע האיך היתה הכריכה מ\"מ יודע שהיה בכרך א' והיה לו לבא ולהגיד סימן המנין. בד\"א שאין שניהם לפנינו אז אומרים בכל גוני שיש ספק בסימן לא בא הב' כי הוא חושב מה לי לילד' לב\"ד בסי' שאינו ברור כיון שאינו רואה שום מתנגד לפניו אבל אם שניהם לפנינו ואנו אומרים תנו סי' וא' אומר סימן הכריכ' לחוד והב' לא אמר כלום אז לא צריך זה שיאמר הסימן לומר ג\"כ המנין אע\"פ שהם ג' שטרות דיש הוכחה לפנינו כיון שהב' רואה שיש מתנגד לפניו והב\"ד יתנו לו השטרות היה לו לומר סימן כמנין אף שיהיה לו ספק אם היה בכרך א' או לא מ\"מ גם ספק זי' היה לו לומר כדי שלא יתנו לזה הב\"ד עכ\"פ אלא ודאי שזה שאומר הסימן הוא ניהו שאבד השטרות ושפיר מהדרינן ליה כנ\"ל ברור ונכון (אמר המגיה בביאור דברי הרמ\"ה ז\"ל המפרשים כ\"כ האריכו מענית וביחוד הרב בש\"ך ז\"ל והרבה להשיב על הרא\"ש ז\"ל ואני בעניי הכינותי את לבי ליישב דברי רבינו רבן של ישראל ז\"ל כי הדבר חובה על כל יודעי דת ודין ומצאתי שאין בהשגות הרב הש\"ך ממש ואגבן אפרש דברי הרמ\"ה ז\"ל כפי מה שתעלה מצודתי היום ונלע\"ד דההכרח שהזקיקו להרמ\"ה ז\"ל לפרש דהכא מיירי בחד לוה ומלוה מלבד מ\"ש המפרשים ז\"ל שהוא משום דחזינן דהוצרכו ב' סימנים דהיינו כריכה ומנין עוד נלע\"ד הכרח גדול מזה והוא דק\"ל ז\"ל מהא דאמר רבא בא\"מ סימנים ועדים ינתן לבעל העדים הנה אף את\"ל דהיכא דאנן סהדי שמען זה היה של פ' ובא אחר ונתן בו סי' ינתן לאותו האחר כיון שזה לא בא הדברים מוכיחים שאינו שלו אלא שמכרו לזה הנותן סי' מ\"מ היכא ששניהם באים ותובעים וזה שאנו יודעים בו שהיה שלו אינו נותן שום סימן עכ\"ז ונתן לו דהיינו הא דרבא ממש הימנים ועדים ינתן לבעל העדים ופי' הרא\"ש ז\"ל ורפי' לא ראו הנפילה אלא שמעידים שהיה שלו ואפילו סימן מובהק לא מהני והיינו דקשיא ליה להרמ\"ה ז\"ל אי ס\"ד דמתני' מיירי בג' לווין וג' מלוין היכא פסק ותני דמהדרי' בסימן גם שלשתן לאיש א' אף שהמלוים האחרים וגם הלוים אחרים צווחו כי כרוכיא כל א' אומ' שלי הוא שטרי ומידי נפל ואנן סהדי דכל שטר ושטר מהם הוא של אותו הלוה או המלו' שנכתב על שמם ואינו של זה הנותן בהם סי' אלא ע\"כ בחד לוה ומלוה עסקינן ולהכי מהני סימנים והנה לפ\"ד הש\"ך קושית הב\"י דא\"כ גם המנין ידע במקומה עומדת ומ\"ש הוא ז\"ל כיון דאמר כל הב' סי' תו לא חיישי' אינו אלא סברא חצונית דכיון דידע הכריכה מסתמא גם המנין יודע והנך תלתא כחד חשיבי כמ\"ש הוא ס\"ל בעצמו ועוד ק\"ל קושיא כללית וגדולה היא אלי לפ\"ד ז\"ל סברא הפוכה אני רואה כאן דכשלא בא אלא הא' ונתן סי' א' בין מנין בין כריכה לא מהני אף דאיכא למימר השני אודויי אודי ליה דאי ס\"ד מן אחר נפל היה לו לבא לפני ב\"ד ולתבוע את שלו ומדלא בא ש\"מ לאו ממנו נפל או שאין לו סימן כלל וכששנים לפנינו ותובעים והאחד יודע סימן הכריכה' אף שא\"י המנין והשני א\"י לא זה ולא זה נותנין להיודע אף דאל\"מ הכריכ' לא שם על לבו והמנין נשכח ממנו כאשר נשכח בהכרח מהאומר הכריכה נמצא כח ממון שאין לו תובעים מרובה מכח ממון שיש לו תובעים ונמצא ספק מוציא מידי ודאי וזו ודאי פליאה נשגבה מה תאמר זה שהוא לפנינו בודאי לא ידע אבל כשאין לפנינו אלא א' מהן אמרי' שמא גם האחר יודע מה לנו ולידיעתו אטו בידיעי תליא מילתא בתביעה תליא מלתא וכיון שאינו בא ותובע ודאי לאו ממנו נפל ותו שכתב דבשניהם לפנינו וא' אומר המנין והשני הכריכה נותנין להאומר המנין וא\"כ תמיה גדולה כשאין לפנינו אלא אחד וזה אומר המנין אמאי לא ינתן לו דלמאי ניחוש לה אי לשמא האחר יודע שני הסימנים או המנין לחוד א\"כ היה לו לבא כיון שהוא יודע שבסימן המנין לחוד נותנין וכל שכן אם זה שלפנינו הוא המלוה ע\"כ היה לו להאחר שהוא הלו' לבא ממ\"נ אם גם המלו' ידע סי' המנין א\"כ יהא מונח עד שיבא אליהו ונמצא משתכר בהליכתו וכל שכן אם המלוה לא ידע אלא סי' הכריכה דיתנו לזה הלוה וא\"כ ה\"ל לבא האי אמרת שמא אותו האחר א\"י אלא סי' הכריכ' ולכן לא בא א\"כ פשיטא שיש לנו ליתן לזה האומר סי' המנין דלא יהא אלא האחר לפנינו וצועק ככרוכיא בסי' הכריכה אין משגיחין בו מכ\"ש כשאין לפנינו ואינו תובע כלום ואלו דברי' שהדעת מחייבן והשכל גוזר עליהן והנרא' לע\"ד נכון בדברי הרמ\"ה הוא דק\"ל אמאי לא מכריזין בתרי שטרי נמי ויתן סי' בכריכה וכמ\"ש הרב בב\"ח ואחריו נמשכו הט\"ז והש\"ך וכן בג' אמאי לא מכריזין הכריכה ותיסגי במנין לסי' או איפכא דהא בחד סי' סגי ועל זה קאמר בעי' מנין עם כריכה או קשירה שיהיו שניהם נעלמים דכיון דהנך שטרי דחד לוה ומלוה אינון אתי לידי תקלה אם תכריז המנין או הכריכה שהרי אתה קורא לרמאי והוא בא שבהזכירך איזה מהשני סימנים בין המנין או הכריכה אתה מעורר את הרמאי דבשלמא אם תכריז סתם אין הרמאי שם על לב לבא לב\"ד דמי יימר דהנך נאבדו אבל כשאתה מזכיר איזה מהב' סימנים הרמאי נזכר ובא ותובע את שאינו שלו ויש בזה ב' מיני תקלות קטנה וגדול' הא' בג' שטרות שיבאו שניהם שאינו רמאי והרמאי כי ע\"כ צריך שידע גם הב' סי' המנין אלא שבחנם אתה מזקיקו להיות מונח עד שיבא אליהו והשני' והיא הגדולה בב' שטרות דכשאתה מכריז סתם שערי דהיינו תרי הרמאי נזכר ורץ ובא ונותן סי' הכריכה הידוע לו ונוטלן ואוחז שהם שלו באמת אינו בא כלל כי אין לו סימן והרמ\"ה הזכיר הגדולה והיא בב' שטרות שאם תכריז יבא אותו שאינו שלו ויתן סי' הכריכה ויקחם וא\"כ אזדא לה קושית הב\"י דאם יודע הכריכה גם המנין יודע דאה\"נ דהיודע הכריכה יודע המנין בהכרת אלא דאנן הכי קאמרי' אם תכריז כריכה אתה מעורר לרמאי לבא לב\"ד וכן בב' שטרות אם תכריז מנין לאפוקי אם תכריע סתם והיינו דקאמר וה\"מ שאין שניהם לפנינו רצה לומר בשעת הכרזה שאין שום אחד מהם לפנינו אלא המוצא בא להכריז אז צריך שיהיו שני הסימנים נעלמים אבל אם הם לפנינו רצה לומר שניהם או אחד מהם דין אחד להם דנותנין לזה הבא ונותן סימן בין שהוא סי' המנין או הכריכה כיון שהשני לא בא או בא ולא נתן סי' וחד מכללא דאידך נפקא מק\"ו דכתיבנא וקרובין דברי אלה להיות כדברי הרב בב\"ח והמעיין יבחין מאי בינייהו אמנם מ\"ש הרב בב\"ח דבתרי לווין וב' מלווין נותנין כאומר סימן דכריכה כו' אינו מוכרח לפי מה שכתבנו אדרבה הוכחנו שאין משגיחין בסימנים אם שכנגדו עומד וצווח שלי הוא ואנן סהדי דהאחד לא היה של זה הנותן סימן שהרי לא נכתב על שמו:"
+      ],
+      "en_segments": [
+        "(In the Tur, seif 8: The Ramah wrote, etc.) The Beit Yosef left these words unresolved. The dispute concerns the Mishnah’s rule that one who finds a bundle of documents must announce it. According to the Rosh and Tur, the documents must be bound so that the owner can identify their number; if loose, they may not have fallen together and the owner despairs. The finder therefore announces only that he found documents, and the claimant states their number. The Ramah, however, treats the binding itself as an identifying mark. Where the documents involve one borrower and one lender, both parties may know both their number and how they were bound. Therefore the claimant ordinarily must state both marks, especially when the competing party is absent, because absence may reflect ignorance of one detail rather than abandonment. If both parties are present and only one provides a valid sign, that sign may suffice because the other had an immediate opportunity to respond and failed. The form of the public announcement must not disclose either identifying detail, lest a fraudulent party be alerted and use information already known to him from prior possession. The core distinction is therefore between what the finder announces and what the claimant must supply, and between a case where the rival claimant is absent and one where he is present. This resolves the Beit Yosef’s objections and is close to the Bach’s explanation, though the Bach’s rule concerning two borrowers and two lenders is not compelled. When the opposing party stands and protests, a sign is not decisive if we know that one document could not belong to the person giving it."
+      ]
+    },
+    {
+      "id": "cm1/siman66/seif-007/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 66,
+      "seif": 7,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעי' מ אבל מפסידין שכרן. נ\"ב ע' בנתיבות המשפט וע' בחיבורי לחו\"מ מהדורא ג' סי' רי\"א מ\"ש להקשו' ע\"ז גם מה שהעלה הש\"ך דלשבועה ל\"מ קנין ע' בתשו' הנ\"ל מ\"ש בזה על דברי המח\"א ודו\"ק ומ\"ש כאן המחבר ויש מחייבי בפשיעה טעמם דס\"ל פושע מזיק הוא וע' בחיבורי לאהע\"ז בהשמטות שם הוכחתי מן הש\"ס דע\"ז דל\"א ע\"ב דפושע מזיק הוא ע\"ש ודו\"ק: שם סעי' מ' ויש מחייבין בפשיעה. נ\"ב הנה זה הוא דעת הרמב\"ם והנה ל' הרמב\"ם בה' מעה\"ק פי\"ד הל' ה' וז\"ל מה בין נדרים לנדבות שהנודר אם הפריש קרבנו ואבד או נגנב חייב באחריותו עד שיקריב כמו שנדר והמתנדב אם מת או שנגנב אינו חייב באחריותו עכ\"ל והנה יש לדייק למה נקט במתנדב מת או שנגנב הול\"ל רבותא יותר דאפי' פשע בו פטור מוכח מזה דס\"ל דעכ\"פ דין ש\"ח יש לו עליו לחייב בפשיעה דלשיטתו אזיל דפושע מזיק הוא ואף דמזיק הקדש פטור היינו רק מקרבן מעילה ומחומש אבל קרן חייב ומ\"ש אח\"כ גבי ע\"מ שאקרבנו בבית חוניו דיצא ידי נדרו דהוי כאילו התנה ע\"מ שלא אתחייב באחריות אף דשם הזיקו בידים שהקריבו בבית חוניו התם שאני כיון דאמר ע\"מ שאקרבנו בבית חוניו הוי כאילו התנה בפי' שאפי' כשיזיקו בידים יהי' פטור אבל בסתמא אף באומר ה\"ז בהזיקו בידים או בפשע בו חייב והנה יש לעיין עוד באומר הרי עלי עול' אם מת באונס אם חייב להביא אחר דהנה מל' הרמב\"ם שכ' ברישא אם נאבד או נגנב ולא נקט אם מת מוכח דבאונס פטור אבל בסיפא דכתב אם מת או נגנב משמע דברישא דבנודר אפי' אם מת חייב. ובאמת צ\"ע מ\"ט לא נקט גם ברישא מת ואפשר לישב דקמ\"ל הרמב\"ם דחייב באחריותו ומחויב להביא תיכף ומיד כאילו גוף הקרבן קיים ומחיוב להביאו ברגל הראשון ואם לאו עובר בב\"ת. לכך ברישא קמ\"ל רבותא דאפי' כגנב או נאבד וא\"כ י\"ל דיהיה נמצא עוד דלא יעבור על ב\"ת כאילו היה קיים לזה קמ\"ל דחייב באחריותו כאלו היה קיים ועובר על ב\"ת וא\"י לו' שימתין אולי יהי' נמצא ובסיפא קמ\"ל דאפי' מת שבודאי לא יהי' עוד נמי פטור מלהביאו אחר ומה שנקט ונגנב היינו לרמז דמת דומיא דנגנב דלא הוי באונס נמי פטור וקמ\"ל בזה דאם היה מת באונס גם ברישא הי' פטור ומוכח מזה דבאונס גם בנודר פטור ועדיין צ\"ע בכ\"ז ובפרט דהרמב\"ם שינה מל' המשנ' דהמשנ' נקטה ומה בין נדר לנדב' נדר מת או נגנב חייב באחריותו נדב' מת או נגנב אינו חייב וכו' הרי דנקט בשניהם מת והראב\"ד שינה ונקט ברישא נאבד ובסיפא מת ע\"כ בכוונ' שינ' לרמז דבאונס פטור גם בהרי עלי ודו\"ק:",
+        "שם באותו סעיף ואם קנו מידו שיתחייב כדין שומרים וכו' נ\"ב ע' בש\"ך בדין אם קנו מידו שישבע דל\"מ דהוי קנין דברים. והנה ראיתי בס' מחנה אפרים ה' שומרים סי' כ\"ב דהביא דברי ת' מוהרא\"ש בזה ודברי הש\"ך ותמה עליהם ממש\"ל סי' כ\"ב דאם קנו מידי שישבע דחייב לשבע מוכח דלא הוה קנין דברים והניח בצ\"ע. והנה מה שהביא דברי מוהרא\"ש וכתב עליו שכ\"כ הש\"ך צ\"ע. דהנה הש\"ך בסי' רצ\"א בסופו הביא דברי מוהרא\"ש ולא כתב עליו כלום. ולמה לא ציין לעיין בסי' ס\"ו ובסי' ס\"ו כאן לא הביא ת' מוהרא\"ש כלל. ולכך נראה דהם ענינים נפרדים דבסי' ס\"ו מיירי אם קנו מידו להדיא שישבע אם מהני ומוהרא\"ש שם. שהביא הש\"ך סי' רצ\"א היינו דמסופק אם קיבל ק\"ס סתם להיות דינו כש\"ש אם יכול לומר דלא כוון כלל על השבועה או לא. וכוונתו לדעת הד\"מ והסמ\"ע דמהני קנין על השבועה. אך עדיין קשה למה נא ציין הש\"ך כלל דלעיל סי' ס\"ו כתב דל\"מ כלל קנין על השבועה אך נראה דא\"ש ונתרץ תחלה בעזה\"י קו' המח\"א מלעיל סי' כ\"ב והוא דלפי השקפ' הראשונה הי' נראה לדחות דברי הסוברים דהוי קנין דברים דאין ראיות הש\"ך ראיה כלל דכל ראיותיו הוו על מה דהוי רק קנין דברים אבל בשבועה הרי אם לא נשבע חייב לשלם. וא\"כ הוי קנין על הממון ושיעבוד נכסיו וכך ראיתי אח\"כ באו\"ת ונתיבות שכתבו כן. אך נראה כוונת הב\"י והש\"ך דהרי באמת הוי זה אסמכתא והוי ראוי שלא יועיל בזה קנין רק דלכך מהני בי' קנין מכח ההוא הנאה דמהימן לי' גמר ומשעבד נפשי'. וכן ראיתי בתומים כאן כן וא\"כ יש חילוק בין חד מי יימר לתרי מי יימר כעין שאיתא בב\"מ בפ\"ג לחלק בין חד מי יימר לתרי גבי דשלב\"ל. וכן ה\"נ כן הוא אם משעבד נפשי' לשלם הוי רק חד מי יימר דילמא לא יהי' נגנב. וא\"כ בזה מהני הסברא דבההיא הנאה גמר ומשעבד נפשי' וזה מהני לחד מי יימר ולא לתרי. אבל אם משעבד נפשי' לשבע א\"כ אמרי' ממ\"נ למה יחול הקנין אם על השבועה הרי הוי קנין דברים ואם על מה שמוכח ממנו שאם לא ישבע ישלם ה\"ז הוי תרי מי יימר דילמא לא יהי' נגנב ואם יהי' נגנב אולי ישבע וא\"כ שוב להיות חל הקנין על הממון הוי אסמכתא ולא מהני סברת בההיא הנאה לדחות תרי מי יימר. וא\"כ אין כאן התחל' לקו' המח\"א מסי' כ\"ב דהתם מיירי שאמר אשבע על טענה שכבר יש לכשנגדו ואין שם שייכות אסמכתא. לכך ע\"ז לא הוי קנין דברים דהרי אם לא ישבע ישלם וא\"ש. ולכך לא סתרי דברי הש\"ך אהדדי דבסי' ס\"ו מיירי דקבלת קניין הוי שישבע אם ע\"ז הוי הקנין שייך ה\"א דהוי קנין דברים ומכח ממ\"נ אבל בסי' רצ\"א בתשו' מוהרא\"ש מיירי דהקנין הי' לשלם וע\"ז ודאי חל הקנין כנ\"ל ולא הוי אסמכתא ובזה ראוי לומר כיון דאם יודה חייב לשלם ממילא חייב בשבועה בלי קבלת קנין שלו כדין כל חייבי ממון שממילא אם כופר חייב לשלם רק דנסתפק די\"ל כיון דחיובו ממון הוי רק מרצונו ודעתו. אפשר י\"ל דלא הוי דעתו רק כשיוד' אבל לא להתחייב לשלם רק מכח אומדנא והי' נחשב כאלו התנה שאם יכפור לא יצטרך לשבע ואין זה ענין לסי' ס\"ו כלל ודו\"ק היטב:"
+      ],
+      "en_segments": [
+        "Seif 40. But they lose their wages. See Netivot HaMishpat and what I wrote in my third-edition responsum on Choshen Mishpat, siman 211, where I raised a difficulty with this ruling. See there also regarding the Shach’s conclusion that a kinyan cannot create an obligation to swear, and what I wrote concerning the words of Machaneh Ephraim. The Mechaber’s statement here that some authorities impose liability for negligence is based on the view that one who is negligent is treated as one who directly causes damage. In my addenda to Even HaEzer I proved from Avodah Zarah 71b that negligence can indeed be treated as damaging. There, seif 40: some authorities impose liability for negligence. This is the Rambam’s view. In Hilchot Maaseh HaKorbanot 14:5 he writes that one who vows a korban and designates it remains responsible if it is lost or stolen until it is offered, whereas one who merely dedicates a voluntary offering is not responsible if it dies or is stolen. It is noteworthy that with the voluntary offering the Rambam writes “dies or is stolen,” rather than stating the stronger case that even if he was negligent he is exempt. This suggests that the Rambam regards him at least as a shomer chinam, liable for negligence, consistent with the Rambam’s broader position that negligent custodianship is a form of damaging. Although one who damages consecrated property is exempt from the laws of meilah and the added fifth, he can remain liable for the principal loss. The later case of one who says, “I undertake to offer it in the temple of Chonyo,” and nevertheless fulfills his vow, is different because by expressly stipulating that condition he is treated as having stipulated that he will not bear ordinary responsibility even if he causes the loss through the specified act. Without such an express condition, one who says “this animal is an offering” can still be liable if he damages it directly or is negligent. There is also room to examine whether one who says, “I undertake to bring an olah,” remains liable if the designated animal dies through a complete accident. The Rambam’s initial phrase mentions loss or theft and does not mention death, which could imply exemption for a true accident. Yet in the second clause he says that a voluntary offering is exempt if it dies or is stolen, implying by contrast that a vowed offering remains liable even if it dies. One can reconcile the wording by saying that in the first clause the Rambam wished to teach that the vower must replace the animal immediately even when it was merely lost or stolen and might later be found. He cannot postpone until after the festival on the hope that it will reappear, because his personal responsibility remains and he may violate bal te’acher. In the second clause the Rambam adds the case of death to teach that even where the animal certainly will never return, the voluntary donor has no further liability. His choice of theft there hints that the death contemplated is not necessarily a total accident, and perhaps a genuinely unavoidable death would exempt even the one who said “harei alai.” The Rambam also deliberately departs from the Mishna’s wording, which uses death in both clauses. This requires further study. There, in the same seif: if they made a kinyan that he would be obligated like custodians. The Shach writes that a kinyan to impose an oath is ineffective because it is merely a kinyan on words. Machaneh Ephraim cites Mahara’sh and the Shach and asks from siman 22, where a kinyan to swear is treated as binding. The matters must be distinguished. At first one might answer, as Urim VeTumim and Netivot do, that an undertaking to swear is ultimately monetary because if he refuses the oath he must pay, so the kinyan is on money rather than mere words. Yet the deeper point is that in our case the monetary liability is itself an asmachta. A kinyan works because, in return for the trust placed in him, the custodian genuinely undertakes responsibility. That reasoning is sufficient where there is only one uncertainty, whether the item will be stolen. But if the undertaking is framed as “I will swear if it is stolen,” and one seeks to derive a monetary obligation from failure to swear, there are two contingencies: perhaps it will never be stolen, and even if it is, perhaps he will swear. The benefit of being trusted is not enough to overcome such a double asmachta. Thus the kinyan cannot be sustained as a monetary undertaking, while as an undertaking merely to perform an oath it is a kinyan on words. Siman 22 is different because the claim already exists when the kinyan is made. There is no future contingency and no asmachta of this sort. Therefore a kinyan to swear there can be effective because refusal to swear immediately entails payment. This also explains why the Shach’s discussion in siman 291 does not contradict his words here. There the kinyan was to assume monetary liability as a paid custodian, which can take effect. The remaining question is only whether, by voluntarily accepting that monetary status, he also accepted the ordinary oath that accompanies it. Perhaps he intended liability only upon admission and not liability based upon an evidentiary presumption. That is a separate issue from whether a direct kinyan on a future oath can take effect. Examine this carefully."
+      ]
+    },
+    {
+      "id": "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+      "volume": "cm1",
+      "siman": 66,
+      "seif": 33,
+      "slug": "netivot-hamishpat-hidushim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מזוייף ואפי' הדמים שנתן א\"צ המוכר להחזיר שלא נתברר שהוא מזוייף ואיהי דאפסיד אנפשי' שלקח שטר שאינו מקוים:",
+        "(עז) מדין אחריות. היינו כל דמי השטר לכ\"ע סמ\"ע. ואינו גובה ממשעבדי רק הדמים שנתן ומה שהשט\"ח שוה יותר דין שבח יש לו ואינו גובה רק מבנ\"ח ואם ידע הלוקח כשקנאו שאינו שלו אין לו רק דמים שנתן:"
+      ],
+      "en_segments": [
+        "Forged. Even the purchase price need not be returned by the seller, because it has not been established that the note was forged. The purchaser caused his own loss by buying an unvalidated note. Under responsibility, however, the seller must pay the full value of the note according to everyone. Sema. From encumbered property he may recover only the amount of the purchase price. Any additional amount reflecting the note's higher value has the law of appreciation and may be collected only from free property. If the purchaser knew at the time of purchase that the note was not actually the seller's, he receives only the money he paid."
+      ]
+    },
+    {
+      "id": "cm1/siman66/seif-036/beur-hagra",
+      "volume": "cm1",
+      "siman": 66,
+      "seif": 36,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יש. כיון דחיובו משום דינא דגרמי ולא משום אחריות:",
+        "(ליקוט) יש מי כו'. היינו לשיטתו בסל\"ב וכ\"כ ש\"ך דלא כסמ\"ע ודברי הסמ\"ע תמוהין מאד שלפ\"ד הנותן מתנה לחבירו ונתבטלה המתנה יהא חייב לשלם לו והם זרים מאד ועסי' רמ\"א ס\"ט ויחזיר כו' וש\"מ (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is. It is because of Dina Dasmer, and not because of responsibility: (Lycott) is one of them. We were in the United States, and so on, that Hashem’s promise is a gift to him and that the gift must be paid to him and they are very foreign and they will return to him"
+      ]
+    },
+    {
+      "id": "cm1/siman67/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי שיש לו. שם ק\"ד ב':",
+        "(ליקוט) מי שיש כו'. כמ\"ש בס\"ו (ע\"כ):",
+        "(ליקוט) מי כו'. דפקדון אינו משמט כמ\"ש בספרי שמוט כל בעל יכול אף בגזלה ובפקדון ת\"ל משה ידו כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Anyone who has. The name of K. B. is, who is. He is the one who is called, “Who is Caesar?” It is not a sign of Hashem’s name in the book that every man is in charge of Hashem’s name, and that he will be given to him"
+      ]
+    },
+    {
+      "id": "cm1/siman67/seif-028/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 28,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יתומים קטנים. דגדולים אין ב\"ד אביהם דהם ככל אדם. ריב\"ש:",
+        "(ליקוט) יתומים קטנים. ערש\"י בב\"מ ע' א' ד\"ה בדקנני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Small orphans. The great ones do not have their father’s blood as much as man. A small orphan. “And I am in the midst of Hashem.”"
+      ]
+    },
+    {
+      "id": "cm1/siman67/seif-030/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 30,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין שביעית. עבה\"ג ומתני' דפ\"י דשביעית השוחט כו':",
+        "(ליקוט) אין כו'. סנה' ל\"ב א' (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is no lawsuit. The thick and thickened, and there is no quaint. A. (A.)"
+      ]
+    },
+    {
+      "id": "cm1/siman71/seif-012/turei-zahav",
+      "volume": "cm1",
+      "siman": 71,
+      "seif": 12,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ע\"ש משלם המקצת שהודה בו) וכ' המגיד משנה שאין כאן ש\"ד שהרי האמינו והך היסת חייב בין בכופר הכל בין במודה במקצת ותמי' לרבים ע\"ז למה תהא האמנה זו עדיפא מתביע' בע\"פ דהא הנאמנות אינו עושה רק שיהא השטר בטל אבל לא האמינו לפטרו משבועה דאוריית' במודה מקצת ובספר ב\"ח תירץ דטעמא דש\"ד במודה מקצת משום דאין אדם מעיז פניו בבע\"ח כדאית' ריש בבא מציע' והכא שהאמינו מעיז ומעיז והלכך אפי' מודה מקצת נאמן בהיסת במגו בעי כפר כו' והוא תמוה דא\"כ היסת נמי לא ליבעי כדאי' בפ' הדיינים דף מ\"ב אבל בבנו מעיז ומעיז הילכך משיב אבידה הוא ומשיב אבידה פטור אפילו מהיסת:",
+        "(א\"ה אין הנדון דומה לראי' דשאני במוצא מציא' ממש מפני תיקון העולם וכן בבנו משום דמעיז אם אתה מצריכו שבועה לא יודה לו אף במקצת וה\"ל כמשיב אבידה לרש\"י או משום מגו לדברי התוס' ז\"ל ולעולם לא מיפטר אלא משבועה המתחדשת לו מחמת הודאתו במקצת אבל שיפטר מכח הודאתו במקצת מן אותה השבועה שהיה חייב בכופר בכל זה לא עלה על הדעת דבהדיא אמרי' רפ\"ק דב\"מ אי ס\"ד בשתים חייב בג' היכי פטר ליה ר\"ע האי איערומי קא מערים וכו' אימא ג' כי היכי דאיהוי כמשיב אבידה ומיפטר עכ\"ה) ולפע\"ד נראה כיון דבכלל הנאמנות של הלוה הוא בין שיאמר פרעתי כולו יבין פרעתו מקצתו דסתם נאמנות הוא כן כמ\"ש סי' פ\"ד ס\"ה וכי האי דבטוען כרעתי כולו דעתי שישבע היסת ה\"נ במקצת דהא בחדא מחתא מחתינהו ושוה הנאמנות בתרווייהו ואף על גב שכתב הטור והוה כתביע' בע\"פ מ\"מ לאו לגמרי אלא לענין שאין הנאמנות פוטר משבועה (א\"ה לעד\"נ טעם נכון משניהם דאם אתה מחייבו ש\"ד ממילא אינו יכול להפכ' על שכנגדו אם לא ירצה לישבע וע\"כ ישלם בלא שבועת המלוה ונמצא הנאמנות מגרע כחו לענין זה דאלו אין לו נאמנות אין המלוה נוטל בלא שבועה ועכשיו שיש לו נאמנות יצטרך לשלם בלא שבועת המלוה ולומר דתהא הבריר' ביד הלוה אם לישבע ש\"ד ולהיפטר או להשביע את המלוה אם רוצה לשלם ודאי לא מילתא היא דהא בהא תליא ודו\"ק עכ\"ה):"
+      ],
+      "en_segments": [
+        "(Ibid.: He pays the portion that he admits.) The Maggid Mishneh writes that no Torah oath applies because the debtor granted credibility, and that only a heset oath applies whether he denies everything or admits part. Many have wondered why this credibility should be stronger than an oral claim. Its effect is only to neutralize the document; it should not exempt a partial admitter from the Torah oath. The Bach answers that the Torah oath for partial admission rests on the presumption that a person does not brazenly deny his creditor. Here, because the creditor trusted him, he is willing to deny; therefore even on a partial admission he is believed with a heset oath through the migo that he could have denied all. This is difficult, for by that reasoning even a heset oath should not be required, as the Gemara says concerning a claim against one’s son: since a person is bold toward the son, a partial admitter is like one returning a lost object and is exempt even from heset. The glossator answers that the cases are not comparable. A finder is exempt for public policy, and a defendant against the son is exempt from the newly generated partial-admission oath, whether because of the lack of brazenness or because of a migo. But no one suggested that his partial admission should exempt him from the oath he would have owed had he denied everything. In my opinion, the ordinary credibility granted to the debtor includes both a claim that he paid all and a claim that he paid part, as explained in siman 84, seif 5. Just as one claiming full payment swears only heset, so too one claiming partial payment, for the clause treats both alike. Although the Tur says the matter becomes like an oral claim, he means only that the credibility clause does not exempt the debtor from an oath altogether. The glossator offers another sound reason. If the debtor were required to take a Torah oath, he could not reverse it onto the creditor. If he declined to swear, he would have to pay without any oath by the creditor. The credibility clause would thus worsen his position, because without it the creditor could not collect without swearing. It is untenable to make the debtor choose between a Torah oath and requiring the creditor to swear, since the two consequences are inseparable."
+      ]
+    }
+  ]
+}

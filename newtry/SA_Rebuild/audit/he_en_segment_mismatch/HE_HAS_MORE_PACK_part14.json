@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "HE_HAS_MORE_PACK",
+    "kind": "he_has_more_segments",
+    "purpose": "Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 395,
+      "by_volume": {
+        "oc1": 12,
+        "yd1": 229,
+        "cm1": 154
+      },
+      "by_volume_slug": {
+        "oc1/ateret-zekenim": 2,
+        "oc1/machatzit-hashekel": 4,
+        "oc1/kol-yaakov": 1,
+        "oc1/biur-halacha": 1,
+        "oc1/chok-yaakov": 4,
+        "yd1/beur-hagra": 119,
+        "yd1/turei-zahav": 25,
+        "yd1/yad-avraham": 1,
+        "yd1/siftei-kohen": 75,
+        "yd1/beer-hagolah": 6,
+        "yd1/baer-heitev": 3,
+        "cm1/urim-vetumim-tumim": 53,
+        "cm1/beur-hagra": 51,
+        "cm1/netivot-hamishpat-beurim": 3,
+        "cm1/meirat-einayim": 9,
+        "cm1/siftei-kohen": 3,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-urim": 1,
+        "cm1/beer-hagolah": 32,
+        "cm1/chokhmat-shlomo": 1
+      },
+      "prior_expected": 395,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE structure review. INPUT: one HE_HAS_MORE_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > enSegs after the same <br>-normalize/split used in corpus audits (formal kind he_has_more_segments).",
+      "- Both heSegs and enSegs are > 0. This is NOT he_missing (empty HE) and NOT en_truncated_vs_multi_he (single EN blob).",
+      "- Goal is STRUCTURE alignment: either split EN further OR rejoin HE segments so counts match. Do NOT invent missing English or Hebrew text in this pass.",
+      "",
+      "RULES",
+      "1) Prefer contiguous HE merge_groups: array of HE-index arrays, length === enSegs, partitioning 0..heSegs-1 in order. Only merge true HE continuations (same lemma/note body split across <br>); never glue distinct notes.",
+      "2) If EN looks under-split (clear delimiters / lemma markers / bold heads inside an EN segment), propose action split_en with split_hints (0-based EN indices + brief delimiter note). Do not output rewritten EN text here.",
+      "3) If unsafe / ambiguous: needs_editorial or needs_human; merge_groups/split_hints null.",
+      "4) skip only if out of scope / already fixed on live corpus.",
+      "",
+      "OUTPUT JSON array only, same ids/order as this part's cases:",
+      "[{\"id\":\"...\",\"action\":\"merge_groups\"|\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0,1],[2]],\"split_hints\":null|[{\"en_index\":0,\"note\":\"bold lemma\"}],\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No new case ids. No corpus edits. Do not invent HE or EN."
+    ],
+    "chunk_index": 14,
+    "chunk_total": 66,
+    "case_offset": 103,
+    "cases_in_chunk": 18,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "HE_HAS_MORE_PACK.json",
+    "parent_sha256": "fb746ae50fbe063ff337be6490c881d61888d7b3aeef7b0a2e185923d2cd0028"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman157/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 157,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 14,
+      "enSegs": 8,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "רשאי. והב\"ח פסק כהרמב\"ם דכל מי שדינו לעבור ואל יהרג ונהרג ולא עבר ה\"ז מתחייב בנפשו וכן דעת הב\"י וכן נראה דעת הרמב\"ן בס' תורת האדם ומביאו הר\"ן פ' יה\"כ ובהג\"א ממהרי\"ח רפ\"ק דכתובות כתבו אם רוצה להחמיר על עצמו וליהרג היכא דקי\"ל יעבור ואל יהרג צ\"ע אי שרי או לא ע\"כ וכתב בת\"ה סי' קצ\"ט והיה נראה דבפלוגתא דרבוותא אזלינן לקולא באיסור סכנת נפשות כדאמרינן בעלמא ספק נפשות להקל אמנם י\"ל הכא דלענין קדוש השם שלא הקפידה התורה על איבוד נפשות מישראל לא ילפינן לה משאר ספיקות דלית בהו משום קידוש השם ונראה דלפי הענין ושרואין אנו כוונתו מורין לו עכ\"ל. וכתוב בהגהת סמ\"ק סי' ג' דאותן קדושים ששחטו עצמן שלא סמכו דעתם לעמוד בנסיון קדושים גמורים הם וראיה משאול ומביאו ב\"ח וכ\"כ בב\"ה בשם א\"ח מיהו כ' הא\"ח שם שיש חולקים שאינו יכול להרוג את עצמו ע\"ש שהאריך:",
+        "אם העובד כוכבים מכוין כו'. אבל אם אינו מכוין אלא להנאת עצמו אסור להחמיר ונקרא חובל בעצמו וצריך לעבור ואל יהרג. ר' ירוחם סוף נתיב י\"ח. וכתב הב\"ח ס\"ב דאפילו בפרהסיא אינו רשאי למסור נפש כיון דאינו מתכוין אלא להנאת עצמו אבל מדברי הפרישה ס\"ג מבואר דבפרהסיא רשאין למסור נפש ונראה דאם השעה צריכה לכך וכה\"ג לכ\"ע רשאי למסור עצמו כדלקמן בהג\"ה גבי מצות עשה דהא הב\"י פסק כהרמב\"ם ואפ\"ה כתב דאם הוא אדם גדול וחסיד וירא שמים ורואה שהדור פרוץ בכך רשאי לקדש השם ולמסור עצמו אפילו על מצוה קלה כדי שיראו העם ליראה ה' ולאהבו בכל לבם ומביאו ב\"י וד\"מ:",
+        "ולא יעבור ל\"ת. אבל מצות עשה אפילו מצוה עוברת א\"צ לבזבז יותר מחומש כמ\"ש הרב בא\"ח ס\"ס תרנ\"ו וע\"ש: \",\" ואם יש סכנת אבר צ\"ע אי דמי לממון או לנפש עיין בריב\"ש סי' שכ\"ו ובא\"ח סימן שכ\"ח סי\"ז ונראה לקולא:",
+        "בפני י' מישראל. דוקא ואין ר\"ל בפניהם ממש אלא שיודעין מהעבירה והכי מוכח בש\"ס ופוסקים גבי והא אסתר פרהסיא הוה ע\"ש:",
+        "ערקתא דמסאנא. פירש רש\"י שדרך העובד כוכבים לקשור כך ודרך הישראל לקשור בענין אחר וכגון שיש צד יהודית בדבר ודרך ישראל להיות צנועים אפילו שנוי זה שאין כאן מצוה אלא מנהג בעלמא יקדש השם בפני חבריו והרי\"ף פי' שהעובד כוכבים שבאותו זמן היו רצועות מנעליהן אדומות והישראל היו עושים שחורות כדי שלא ילבשו מלבוש עובד כוכבים וכתב מהרי\"ק דהיינו כמ\"ש רש\"י שיש צד יהודית בדבר וב\"י כ' דהרמב\"ם מפרש דדוקא בכה\"ג שלא ילבוש מלבוש עובד כוכבים שהוא מצות ל\"ת ע\"ש:",
+        "על ישראל לבד. אבל אם הגזרה היא על כל מדינת מלכותו אע\"פ שהישראלים בכלל לאו שעת השמד מיקרי:",
+        "אפילו אערקתא כו'. כתב ב\"י דאדלעיל אפרהסיא נמי קאי דפרהסיא שוה לשעת הגזרה והב\"ח פסק דבשעת הגזרה אפי' לא מכוון להנאת עצמו יהרג ואל יעבור (משא\"כ בפרהסיא) ודעת רש\"י אינו כן וגם אין דבריו מוכרחים וגם בהג\"א ממהרי\"ח דפרק קמא דכתובות הניח זה בצ\"ע ולכן י\"ל דספק נפשות להקל ועיין בפסקי מהרא\"י סי' ר\"ג:",
+        "או שרוצים להשליכו כו'. ובעובד כוכבים כגון אם כפפו קומתו להשתחוות לעובד כוכבים. הרא\"ש רפ\"ק דכתובות:",
+        "א\"צ ליהרג. אלא א\"כ הוי בפרהסיא כ\"כ רבינו ירוחם סוף ני\"ח ומביאו בבדק הבית ותימה מנ\"ל הא דאע\"ג דכתבו התוספות והרא\"ש ס\"פ סורר ומורה ורפ\"ק דכתובות גבי הא דפריך והא אסתר בפרהסיא הוי ולא פריך דגילוי עריות הוי משום דקרקע עולם היא ולא עבדה מעשה הלכך לאו גילוי עריות הוא היינו לס\"ד דמקשה אבל למאי דמתרץ התם אסתר קרקע עולם היתה אפילו בפרהסיא א\"צ ליהרג מטעם קרקע עולם כדמוכח להדיא בתוס' והרא\"ש שם ואפשר סבירא ליה לרבינו ירוחם דרבא דמשני התם הנאת עצמו שאני פליג אאביי וסבירא ליה כדקס\"ד דש\"ס מעיקרא דמטעם קרקע עולם בפרהסיא יהרג ואל יעבור אבל לא ידעתי מנא לן הא דאפשר דלענין דינא רבא מודה לאביי וכן משמע בהרא\"ש וגם הרי\"ף הביא פירוקא דאביי ודרבא אלמא ס\"ל דתרוייהו קושטא נינהו לדינא וכן משמע בר\"ן פ' כ\"ש וכ\"נ דעת הרב:",
+        "רק לאו בעלמא כו'. דהא אמרינן בש\"ס (ס\"פ סורר ומורה) מעשה באדם אחד שנתן עיניו באשה אחת והעלה לבו טינא ואמרו הרופאים אין לו תקנה עד שתבעל לו אמרו חכמים ימות ואל תבעל לו תעמוד לפניו ערומה ימות ואל תעמוד לפניו ערומה תספר עמו מאחורי הגדר ימות כו' ובודאי שדברים אלו אינם ג\"ע ממש אלא שעובר בהן בלא תקרבו לגלות ערוה שהוא לאו דג\"ע כ\"כ הר\"ן פא\"מ והנ\"י ס\"פ סורר ומורה ולפי זה משמע דס\"ל כהרמב\"ם בס' מנין המצות מצוה שנ\"ג שכ' וז\"ל הזהיר הכתוב מהקרב אל א' מהעריות ואפילו בלא ביאה כגון חיבוק ונישוק והדומה להם מן הפעולות הזרות והוא אמרו באזהרה מזה איש איש אל כל שאר בשרו לא תקרבו לגלות ערוה כו' וכ\"כ הסמ\"ג לאוין קכ\"ו וכ\"כ הרא\"ה בספר החנוך מצוה קפ\"ח והכתר תורה בלאוין שכ\"ט אבל הרמב\"ן בהשגות שלו על ספר מנין המצות חלק על הרמב\"ם ואומר שאין מלקי' מן התורה אלא בביאה גמורה או בהעראה ע\"ש שהאריך והרב ר\"י ליאון בספר מגלת אסתר שלו דף קי\"ח סתר כל דברי הרמב\"ן והעלה כהרמב\"ם ע\"ש וכן נראה לי מהך עובדא דהעלה לבו טינא ומכל מקום משמע דאף הרמב\"ם לא קאמר אלא כשעושה חיבוק ונישוק דרך חיבת ביאה שהרי מצינו בש\"ס בכמה דוכתי שהאמוראים היו מחבקים ומנשקים לבנותיהם ואחיותיהם וכן כתב הר' יצחק ליאון שם בהדיא וכן משמע להדיא ממ\"ש הרמב\"ם ר\"פ כ\"א מהל' א\"ב וז\"ל כל הבא על העריות דרך אברים או שחבק ונשק דרך תאוה ונהנה בקירוב בשר ה\"ז לוקה מן התורה כו' וכן כתב הסמ\"ג והכתר תורה שם אלמא דאינו לוקה אלא בדרך תאוה וחיבת ביאה וזהו דלא כב\"י לקמן ס\"ס קצ\"ה גבי מישוש הדפק באשתו נדה חולה: \",\" וכתבו עוד הרב המגיד שם והר\"י ליאון דאף להרמב\"ם ליכא מלקות בקריבה אלא בחייבי כריתות ולא בחייבי לאוין ומכל מקום משמע דבערוה דרבנן לכ\"ע יעבור ואל יהרג ופשוט הוא וכן משמע בב\"י שם:",
+        "עובד כוכבים הבא כו'. אבל ישראל הבא על העובדת כוכבים בכלל ג\"ע הוא דיהרג ואל יעבור כ\"כ הרמב\"ן בספר ת\"ה והביאו הר\"ן פרק יה\"כ הובא בבית יוסף וכ\"כ הנ\"י וכ\"כ רבינו ירוחם וכ\"כ הב\"י בא\"ע סימן ט\"ז בשם א\"ח וכ\"כ הרב שם ס\"ב וכ' הא\"ח שם שנראה לו דהיינו דוקא בפרהסיא וכן נראה מדברי הרב שם וטעמם דלא הוי ג\"ע אלא מטעם דהבא על ארמית קנאים פוגעים בו והיינו בפרהסיא דוקא ולפי זה הא דהוי בכלל ג\"ע היינו דאפי' להנאת עצמו יהרג ואל יעבור מה שאין כן בשאר עבירות וכן מבואר בא\"ח שם וכן משמע בפוסקים שם מיהו בנ\"י ס\"פ סורר ומורה כתב דכיון דאפילו לא פגעו בו קנאים חייב כרת הלכך אפי' בצנעה יהרג ואל יעבור ועיין עוד בא\"ע סימן ט\"ו וט\"ז איזהו ג\"ע:",
+        "הבא כו'. כגון שהיא עושה מעשה שמביאה הערוה עליה כמ\"ש הרא\"ש רפ\"ק דכתובות והתוספות ס\"פ סורר ומורה דאם לא כן תיפוק ליה דלא עבדא מעשה וכמו שנתבאר:",
+        "על בת ישראל. דוקא פנויה אבל א\"א גילוי עריות ממש הוא שם וכ\"כ העט\"ז ואע\"ג דדעת ר\"ת דאפילו אשת איש נמי מכל מקום אין כך דעת כל הפוסקים:",
+        "אלא אם כן חייב מיתה. וכתב הרמב\"ם ומכל מקום אין מורין להם כן לכתחלה וכ' ד\"מ בשם הגה\"מ שצריך לחזור לכתחלה על כל צדי צדדים קודם שימסרוהו ועיין בב\"ח סעיף ד' שכתב כמה חילוקי דינים בזה והיה נראה לי שאין דבריו מוכרחים ולפי שהרחיק עדות וכ' שבתשובה בירר דבריו בראיה ברורה לא השגתי עליו:"
+      ],
+      "en_segments": [
+        "And he shall not transgress a negative commandment. But for a positive commandment, even a fleeting commandment, one need not spend more than a fifth, as the Rav wrote in Orach Chaim end of siman 656 — see there. And if there is danger of limb loss, requires study whether it is comparable to money or to life — see Rivash siman 326 and Orach Chaim siman 328 seif 17; and it appears we are lenient.",
+        "In the presence of ten Israelites. Specifically; and it does not mean literally before them but that they know of the transgression; and so is proven from the Gemara and poskim regarding \"but was not Esther in public\" — see there.",
+        "A shoe-strap. Rashi explained that the gentile's way was to tie it in such manner while Israel's way was to tie it differently — such as when there is a Jewish side to the matter and Israel's way is to be modest — even this change where there is no commandment here but merely a custom, he sanctifies God's name before his companions; and the Rif explained that in that time the gentiles' sandal straps were red while Israel made them black so as not to wear gentile garments; and Maharik wrote this is as Rashi said — there is a Jewish side to the matter; and Beit Yosef wrote that the Rambam explains specifically in such a case of not wearing gentile garments, which is a negative commandment — see there.",
+        "Upon Israel alone. But if the decree is upon the entire state of his kingdom — even if Israelites are included — it is not called a time of persecution.",
+        "Lifnei iver. Such as when they forced him to lend something to a gentile and the like.",
+        "Who comes etc. Such as when she performs an act that brings the forbidden relation upon her — as the Rosh wrote at the beginning of Ketubot and Tosafot at the end of Sorer u'Moreh — for otherwise it would be derivable that she did no act, as explained.",
+        "Upon a daughter of Israel. Specifically an unmarried woman; but with a married woman it is actual gilui arayot — there; and so the Magen Avraham wrote; and even though Rabbenu Tam held even a married woman — nevertheless that is not the view of all the poskim.",
+        "Unless he is liable to death. And the Rambam wrote: nevertheless we do not instruct them so initially; and Darkei Moshe wrote in the name of Hagahot Maimoniot that one must first try all possible avenues before handing him over; and see in the Bach seif 4 who wrote several distinctions of law in this; and it appeared to me that his words are not compelling, but since he distanced his proof and wrote that in a responsum he clarified his words with clear evidence, I did not challenge him."
+      ]
+    },
+    {
+      "id": "yd1/siman157/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 157,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואע\"ג שאמרו כל מקום כו'. כן צ\"ל:",
+        "אפילו על ערקתא. פירוש שישראלים היו נוהגים ברצועות מנעליהם שלא כדרך העובדי כוכבים בזה:",
+        "ואם הוא שעת הגזרה כו'. בטור מסיים על זה אפילו על מנהג בעלמא שנהגו אם באים להעביר עליו יהרג כו' עכ\"ל והך להעביר עליו ר\"ל שמכוין להעבירו על דת וכ\"ה ברמב\"ם פרק ה' דיסודי התורה בהדיא כגון שיעמוד רשע לבטל דתם כו' אבל אם לא נתכוין אלא להנאתו אפילו בשעת השמד שרי כיון שהוא בשאר מצות כמו שמותר בפרהסיא דפרהסיא ושמד שווין לכל דבר וכן הוא ברש\"י בגמר' בהדיא וכן בר\"ן ביומא ובנימוקי יוסף פר' בן סורר והוא פשוט אלא שמו\"ח ז\"ל רוצה לדקדק מסידור לשון הטור מדלא הזכיר חילוק של להעביר על דת או להנאתו אחר דין של שעת השמד ש\"מ דבשעת שמד אסור אפילו להנאתו ולא דק דבהדיא כתב הטור עצמו ברמזים פרק בן סורר החילוק הזה גם אשעת שמד:",
+        "שלא לקיים מצות עשה כו'. דהא גם העובדי כוכבים יכולים לבטלו ממנו כגון שישימוהו בתפיסה וממילא יבטל מההיא מצות עשה:",
+        "דלפני עור כו'. שהישראל אין עושה כלום רק שנותן לו דבר שהעובד כוכבים משתמש בו לאליל שלו:",
+        "ועובד כוכבים הבא על בת ישראלית. פי' והיא פנויה על כן אין בה ג\"ע דאי דרך זנות אין איסור רק מכח גזירות ב\"ד של שם אי דרך חתנות מלא תתחתן בם נפקא דהוי משאר עבירות ואין ג\"ע אלא באשת איש דישראל א\"נ ישראל הבא על העובדת כוכבים דמחייבי מיתות הם דקנאים פוגעים בו ומחייביכריתות חשבינן ליה כ\"כ ב\"י בשם הרמב\"ן וצ\"ל לפי זה דאסתר פנוי' היתה ולא ס\"ל דרשא דאל תקרי לבת אלא לבית כמ\"ש ב\"י וכ\"כ הר\"ן בההיא בפרק בן סורר בסי' קע\"ט סעיף ז' משמע דאם הצלת נפשות תלוי בשיעבור עבירה אחת מעצמו ע\"י זה תבוא לו הצלה מותר לעשות כן:",
+        "תנו לנו אחד כו'. הכי איתא בתוספתא ומסיים בה אא\"כ יחדוהו כשבע בן בכרי ובירושלמי פליגי בה ר\"ל ורבי יוחנן ר\"ל ס\"ל והוא שחייב מיתה כשבע בן בכרי ור\"י ס\"ל אע\"פ שאין חייב מיתה והרמב\"ם פרק ה' מהלכות יסודי התורה פסק כר\"ל ותמה ב\"י למה לא פסק כר\"י דקיימא לן כוותיה לגבי ר\"ל בכל דוכתי וראיתי בהג\"ה מיימונית שהקשה ג\"כ הכי וכ' שמהר\"מ הביא לו ראיה לרמב\"ם ממ\"ש בהג\"ה למעלה ונראה שהראיה היא ממה דאיתא בירושלמי עולא בר קשבי תבעתיה מלכא ערק ואזיל לגבי ריב\"ל והב\"י הביאו כאן והיינו שיש לדקדק בו מאי חטאו של ריב\"ל שנסתלק אליהו מעליו ומהיכן היה לו להרגיש ולראות שלא לסמוך על המתניתין שהיא מפורשת דאם כן בכל יום לא נדע על מה לסמוך ונראה שאליהו היה מגלה לו כאן שיש במתני' ב' פירושים דהיינו או כר\"ל או כר' יוחנן אם דוקא חייב מיתה או לאו וההוא גברא לא היה חטא כשבע בן בכרי והיה ריב\"ל פוסק כר\"י והוכיחו אליהו ז\"ל דההוא משנה כמשמעות' לאו משנת חסידים אלא כל חסיד יהיה מורא על ראשו שמא כריב\"ל דמספיקא אזלינן להקל בנפשות ולא מסרינן נפש על פי זה חש לה הרמב\"ם ופסק גם כן כר\"ל אלא דעדיין קשה למה פסק הרמב\"ם אפי' אם הוא חייב מיתה אפ\"ה אין מורין כן והיינו מכח ההיא דאליהו וצ\"ל דשם מיירי שההוא גברא היה חייב מיתה ואפ\"ה הוכיחו אליהו וכ\"פ בכסף משנה ואם כן הדרה קושיא שלי לדוכת' למה נענש ריב\"ל ותו מה היה לו לעשות חסידות וכי היה לו להניח להרוג כל ישראל ח\"ו מכח חסידות. ונראה לי שעיקר החטא היה במה שריב\"ל עצמו הלך ומסרו והיה לו להניח הדבר ביד המון העם שיעשו מה שירצו וממילא היו מוסרים אותו והוא לא היה לו לומר כלום ועל זה אמר אליהו לאו משנת חסידים היא כלומר שלא על החסידים נשנה כן שהם בעצמם יעשוה אלא יניחו הדבר כמות שהוא. ועל כן פסק הרמב\"ם שאין מורין כן לכתחלה אלא יניחו הדבר וכמו שירצו יעשו זהו נ\"ל נכון בפי' הירושלמי וברמב\"ם ולענין הלכה יש לנו לפסוק כן כר\"ל ולא ימסרוהו אא\"כ חייב מיתה כשבע בן בכרי כדעה השניה שהביא רמ\"א כאן וכן פסק מו\"ח ז\"ל:",
+        "חייב מיתה כשבע בן בכרי. נראה דלהכי נקטיה כשבע בן בכרי דאע\"פ דבדין תורה לא היה חייב מיתה אלא מצד חוק המלכות שמרד בדוד מ\"מ אוסרין אותו אם יחדוהו ומינה אף בזמנינו מי שפושע ומורד במלכות שלו מוסרין אותו וה\"ה בשאר עבירות שאחד מוחזק בהם כגון עוסק בזיופי' או שאר דברים שיש בהם סכנה פשיטא שמוסרין אותו ומן הראוי למסור אותו אפי' אם לא יחדוהו כיון שהוא כמו רודף לשאר ישראל ע\"י מעשיו הרעים שעושה בפשיעה כן נראה לי בזה ועוד נראה לי דבמקום שאין מוסרין אותו אין חילוק בין מסירה למיתה או לשאר יסורים או אפילו לממון דלענין יסורים פשיטא שהם גרועים ממיתה כדאמרינן באלו נערות (דף ל\"ג) אלמלא נגדוהו לחנניא מישאל ועזריה הוה פלחו לצלמא ויליף מזה דיסורים קשים ממיתה ויליף דמלקות חמור ממיתה וראיה דהא בירושלמי לא קאמר תבעיתיה מלכא להריגה אלא סתם תבעיתיה אפשר ליסורין לחוד (ואין) [ויש] לנו להחמיר מספק ואפי' לממון מצינו בפרק הגוזל בתרא דקאמר על זה קרא כתוא מכמר כיון שנפל בידי עובדי כוכבים שוב אין מרחמין עליו כן נראה לע\"ד:",
+        "וכן נשים כו'. ב\"י בשם הר\"ן כתב דגם בנשים אם יחדו אשה אחת מהם דימסרו ונראה דגם זה תלוי בפלוגתא דחייב מיתה כשבע בן בכרי שזכר רמ\"א דלדעה השניה לא מהני יחוד של אשה אלא דנ\"ל דאם יחדו אחת מהן ואמרו אם לא תתנוה לטמאה אותה אזי נהרוג כולכם דפשיטא דמהני בזה יחוד ומוסרין אותה דהא אין כאן מעשה מן האשה ואינו בכלל ג\"ע ואם כן היא עצמה אינה בכלל תהרג ואל תעבור ע\"כ מוסרין אותה אם יחדוה כן נראה לע\"ד:"
+      ],
+      "en_segments": [
+        "And they said everywhere. Yes, yes, C:",
+        "Even upon the shoe-strap. It means that Israelites practiced with their shoe-straps not in the manner of gentiles in this.",
+        "Not to fulfill a positive commandment, etc. Yoreh De'ah — also gentiles can remove it from him, such as if they place him in prison, and automatically he will be prevented from that positive commandment.",
+        "Lifnei iver, etc. The Israelite does nothing — only gives him something that the gentile uses for his idol.",
+        "Liable to death like Sheva ben Bichri. It seems that the reason Sheva ben Bichri was specified — although by Torah law he was not liable to death but only by royal law for rebelling against David — nevertheless they hand him over if they seize him; and from this, even in our time, one who sins and rebels against his kingdom they hand over; and the same for other transgressions such as engaging in forgeries or other matters that pose danger — plainly they hand him over, and it is proper to hand him over even if they did not seize him, since he is like a rodef to other Israelites through his evil deeds done negligently — so it seems to me. And further it seems to me that where they are not permitted to hand him over there is no distinction between handing him over for death or other suffering or even for money — they are clearly worse than death as we say in Aleh Ne'arot (folio 33): had they flogged Chananiah Mishael and Azariah they would have worshiped the image — learn from this that suffering is worse than death; and we find that lashes are more severe than death; and proof that in the Yerushalmi it does not say the king demanded him for killing but simply \"demanded him\" — perhaps only for suffering alone; and we should be stringent out of doubt; and even regarding money we find in the chapter HaGozel batra that the verse says \"like a wild ox in a net\" — once he fell into gentile hands they no longer have mercy on him — so it seems to me.",
+        "And likewise women, etc. Beit Yosef in the name of the Ran wrote that also regarding women, if they seized one of them they hand her over; and it seems this too depends on the dispute whether liable to death like Sheva ben Bichri that Rama mentions — according to the second opinion seizure of a woman does not avail; but it seems to me that if they seized one of them and said if you do not give her to us to defile her we will kill all of you — plainly seizure avails and they hand her over, since there is no act on the woman's part and it is not in the category of gilui arayot, and therefore she herself is not subject to \"be killed and do not transgress\" — therefore they hand her over if they seize her — so it seems to me."
+      ]
+    },
+    {
+      "id": "yd1/siman159/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 159,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כותיים יש להם דין מומר לעבודת כוכבי'. משמע דאסור להלוות מהן ברבית וכן משמע יותר בהעט\"ז וצ\"ע דהא קי\"ל בכמה דוכתי שגזרו על הכותים ועשאום כעובדי כוכבים גמורים [) ברית נכרת בישראל ע\"פ התורה שיהיו יחד לחברה גומלי חסד זה לזה חנם לבלי יקח איש מאת רעהו רבית ונשך והנכרי שאינו מבעלי החברה או מומר שפירש עצמו מהחברה. מובן שאין להם הזכות הזה שיש לאחד מבעלי החברה ומותר לקחת רבית מהם.] ודוחק לומר דוקא להחמיר שתהא שחיטתן אסורה ויינם יי\"נ אבל לא להקל דכיון שעשאום כעובדי כוכבים גמורים משמע דלגמרי עשאום כעובדי כוכבי' גמורים ועוד דודאי אף להחמיר חומרא דאתי לידי קולא הוא ממקום אחר וק\"ל וכן לקמן סי' רס\"ו סעיף מ\"ז כתבו הרי\"ף והרא\"ש והרמב\"ם והמחבר שגטי נשים ושחרורי עבדים פסולים בזמן הזה בעד כותי משום דקי\"ל פרק קמא דחולין דעשאום כעובדי כוכבי' גמורים אע\"פ שהוא קולא שאם יקדשה אחר לא תהא מקודשת לו ולא תצטרך ממנו גט וכן בשחרורי עבדים הוי עבדו ופטור מהמצות וכ\"כ שם סעיף פ' בשם הרמב\"ם ור\"ן וב\"י שכותי בזמן הזה דינו כעובד כוכבים לענין מוכר עבדו דיוצא לחירות וכתבתי שם שכן דעת הרב והוי קולא דמותר בבת חורין ואף להב\"ח שם דכתב דהוי ספק היינו כדמפרש התם טעמא דכיון דלא הוי אלא קנס לא קנסו בכותי משא\"כ בשאר דברים ע\"ש ודוק אלא ודאי הם עובדי כוכבים גמורים לכל דבר ואם כן מותר להלוות מהן גם כן ברבית:",
+        "הקראים כו'. ז\"ל ב\"י ולענין הקראים נ\"ל דלהרמב\"ם בפירוש מתניתין קמייתא דחולין דחשיב להו כתינוק שנשבה בין העובדי כוכבים אסור להלוותם ברבית ואע\"ג דמדברי נ\"י נראה דמותר להלוותן ברבית לא שבקינן דברי הרמב\"ם המפורשין בשביל דברי הנ\"י עכ\"ל ואני בעניותי עיינתי בדברי הרמב\"ם שם ולא מצאתי שום משמעות אדרבה כתב להיפך ובמומר למדו הפוסקים דמותר להלוותן ברבית וא\"כ ה\"ה הקראים וכ\"כ מהרש\"ל דקראים דינם כמומר ומותר להלוותן ברבית ומביאו הדרישה וכן משמע קצת בתשובת ר\"א ן' חיים ר\"ס קי\"ג דקראים דינם כישראל מומר ועיין בתשובת רבינו שמשון שהביא המבי\"ט ח\"ב סי' ל\"ח כו' וכן בתשובת רבי בצלאל סי' ג' וגם כתב שם שהקראים שבזמן הרמב\"ם היו בהם כמה מעלות טובות משא\"כ עכשיו:",
+        "ולכן מומרת כו'. אבל מומר שיש לו בן מן העובדת כוכבי' הבן כמוה מרדכי שם ומביאו ד\"מ וכ\"כ הרב בא\"ע סי' ט\"ז סעיף ב':",
+        "שהבן כו' אסור להלוות לו כו'. אפי' למאן דמתיר בהלוות למומר היינו דוקא למומר עצמו שיודע רבונו ומתכוין למרוד בו אבל זה שנתגדל בין העובדי כוכבים הוא כשוגג וכן משמע קצת במרדכי עכ\"ל ד\"מ. ובנ\"י פ' א\"נ כתב בשם ר\"ת דמותר להלוות לו כו' וכ' בד\"מ כיון דהב\"י כ' בקראים דלא כוותיה ה\"ה בהא וצ\"ע לפמ\"ש בסמוך דגם בקראים דברי הב\"י אינם מכוונים:"
+      ],
+      "en_segments": [
+        "Samaritans have the law of a mumar for idolatry. It implies forbidden to lend them at interest; and so it implies even more in the Eliyah Rabba; and it requires study, for we rule in many places that they decreed upon Samaritans and made them like complete idolaters [a covenant was made in Israel according to the Torah that they would form a mutual-aid society and no man would take interest from his fellow; and a gentile who is not a member of this society, or a mumar who separated himself from it — they do not have this right and it is permitted to take interest from them]; and it is forced to say specifically for stringency — that their slaughter is forbidden and their wine is yayin nesech — but not for leniency; but since they made them like complete idolaters, it implies they made them entirely like complete idolaters; and moreover, certainly even a stringency that leads to leniency from another source — and this is clear. And so below siman 266 seif 47, the Rif, Rosh, Rambam, and Mechaber wrote that bills of divorce and writs of manumission are invalid nowadays when witnessed by a Samaritan, since we rule in the first chapter of Chullin that they made them like complete idolaters — even though it is a leniency that if another betroths her she is not betrothed to him and does not need a get from him; and likewise regarding manumission the slave remains his slave and is exempt from the commandments; and so is written there seif 80 in the name of the Rambam, Ran, and Beit Yosef that a Samaritan nowadays has the law of a gentile regarding selling his slave who goes free; and I wrote there that so is the Rav’s opinion, and it is a leniency — permitted for a freewoman; and even for the Bach there who wrote it is uncertain — that is as he explained the reason there that since it is only a fine they did not penalize the Samaritan, unlike other matters — see there and examine. Rather, certainly they are complete idolaters in every matter, and if so it is permitted to lend them at interest as well.",
+        "And therefore a female apostate etc. But a male apostate who has a son from a gentile woman — the son follows her — Mordechai there; and Darkei Moshe brings it; and so the Rav wrote in Even HaEzer siman 16 seif 2.",
+        "That the son etc. it is forbidden to lend to him etc. Even according to one who permits lending to a mumar — that is specifically the mumar himself who knows his Master and intends to rebel against Him; but one who was raised among gentiles is like one who acts erroneously; and so somewhat implies in the Mordechai — end of Darkei Moshe. And Nekudot Yosef chapter Ein Nochri wrote in the name of Rabbenu Tam that it is permitted to lend to him etc.; and Darkei Moshe wrote since Beit Yosef wrote regarding Karaites unlike his view, the same applies here; and the matter requires study given what I wrote nearby that even regarding Karaites Beit Yosef’s words are not precise."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפילו כו'. ממש\"ש ע\"ה א' ת\"ח כו' ועתוס' שם ד\"ה מתנה כו' ואפילו כו':",
+        "(ליקוט) אפי' אם כו'. כמ\"ש במתני' ע\"ה ב' ולקמן בס\"ו כיצד כו' לו דורון בשביל מעותיו שהיו בטילות כו'. מרדכי (ע\"כ):",
+        "אבל כו'. ממ\"ש בב\"ק צ\"ד ב' ת\"ר הגזלנין ומלוי כו' ר\"ל אלא ימחלו להם משום נעילת דלת כמש\"ש אלמא מועיל. רמב\"ם ע\"ש:",
+        "(ליקוט) אבל אם כו'. ראיית הרמב\"ם מרפ\"ט דב\"ק הגזלנין כו' וסה\"ת והג\"מ סתרו ראייתו דשם משום דחכמים הפקיעו כו' ומ\"מ דברי הרמב\"ם נכונים ממש\"ש וכי מאחר שאין מקבלין כו' לצאת י\"ש אלמא יוצא י\"ש במה שנותן לו ואינו מקבל וע\"כ מחמת מחילה (ע\"כ):",
+        "(ליקוט) אפי' כו' אבל כו'. ערש\"י ס\"ו ב' ד\"ה הכא הלואה כו' ולא מהני מחילה וכן פי' הרא\"ש ומתרץ קושית תוס' דמיירי שניהם שם דידע ומחיל ע\"ש (ע\"כ):",
+        "כמו בכל גזל. שם במתני' ק\"ג א':",
+        "(ליקוט) מתנה כו'. דהוא מעות כמ\"ש בפ\"ק דקדושין (ו' ב') דבמכר קנה ובתרומה כו' ואף אשה כו' אם לא משום חליפין (ע\"כ):"
+      ],
+      "en_segments": [
+        "Even, etc. As stated 75a Torah scholar, etc.; and Tosafot there s.v. matanah, etc.; and even, etc.: (Extract) Even if, etc. As stated in mishnah 75b and below seif 6 how, etc. ; gift for his money that was idle, etc. Mordechai (end).",
+        "But, etc. From what is stated Bava Kamma 94b ; Rabbis taught robbers and lenders, etc. ; meaning they forgive them because of closing the door as stated ; evidently it helps. Rambam there: (Extract) But if, etc. Rambam's proof from end of Bava Kamma robbers, etc.; and Sefer HaTerumah and Hagahot Maimoniyot rejected his proof for there because sages annulled, etc.; nevertheless Rambam's words are correct from what is stated and since they do not accept, etc. to leave Israel ; evidently he gives in what he gives and does not accept and therefore because of forgiveness (end): (Extract) Even, etc. but, etc. Rashi 66b s.v. haka halvah, etc. and forgiveness does not help; and so Rosh explained and resolved Tosafot's difficulty that both deal where he knew and forgave ; see there (end).",
+        "Like every theft. Named in mishnah 103a.",
+        "(Extract) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale acquires; and in terumah, etc.; and even woman, etc. unless because of exchange (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-006/siftei-kohen",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 6,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ופירש כו'. ארבית מוקדמת ומאוחרת קאי וכתב בית יוסף דצ\"ע בפירש לו אי הוי רבית קצוצה או אבק רבית ומביאו ד\"מ והעט\"ז כ' דהוי אבק רבית ואינה יוצאת בדיינים וכן נראה עיקר כדלקמן סי' קס\"ו ס\"ק ז' ח':",
+        "או שהוא כו'. כתב ב\"י דאפשר אפילו היה רגיל מקודם במתנה מרובה אסור משום דהוי מילתא דפרהסיא דדמי לדירת חצירו ושימוש בעבדיו דלקמן סעיף ז' ומביאו בהגהת דרישה:",
+        "מתנה מרובה דמסתמא הוי כפירש לו. כצ\"ל אבל מתנה מועטת בסתמא מותר דל\"ד לדלעיל סעיף ד' דבסתם אסור דהתם בשעת פרעון הוא הרא\"ש ותלמידי רשב\"א ומשמע דהיכא דהלוה מתכוין לשם רבית אפילו בסתם אסור וכן כתב בה\"ת ומביאו ב\"י וד\"מ ועב\"ח וכתב ב\"י דוקא סמוך קצת להלואה אבל במופלגת הרבה אין לחוש כלל ואפי' מתנה מרובה נמי שרי כל שהוא סתם ונראה דבפירש אפי' מועטת אסור אפילו מופלגת הרבה. עוד כתב ב\"י בשם הגהת אשר\"י ורמב\"ם דאפילו בסתם אסור כשלא היה רגיל מקודם ע\"כ. וכתב בהגהת דרישה בשם מהרש\"ל דכל מה שידוע שבלאו הכי לא היה עושה לו כלל הוי כמתנה מרובה ואסור עד כאן ונראה לי דהכל לפי הענין ולפי מה שניכר בדעת משלח ועל פי זה יש לומר דלא פליגי הפוסקים:"
+      ],
+      "en_segments": [
+        "And he specified etc. This refers to advance interest and belated interest; and Beit Yosef wrote it requires study — if he specified, whether it is fixed interest or dust of interest; and Darkei Moshe brings it; and the Taz wrote it is dust of interest and cannot be extracted in court; and so appears to be the main ruling as below siman 166 s.k. 7-8.",
+        "Or he is etc. Beit Yosef wrote it is possible even if he was previously accustomed to a large gift — it is forbidden because it is a public matter comparable to dwelling in his courtyard and using his servants as below seif 7; and Hagahot Derishah brings it."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-012/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 12,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) לא יאמר כו'. כן פי' הטור והוא לגי' הירושלמי דע אם בא כו' והוא דברי המלוה והרמב\"ם פי' ג\"כ במלוה ופי' דע כו' שתכבדהו אבל לגי' שלנו וגי' הרי\"ף דע כי בא כו' וכן ברא\"ש דע שבא כו' י\"ל שהוא דברי הלוה וכמו ברישא ברבית מוקדמת ומאוחרת ואומר בשביל כו'. תי\"ט (ע\"כ):",
+        "וכן שאר כו'. מתני' וגמ' שם:",
+        "ואפי' כו'. עס\"ס זה:",
+        "(ליקוט) ואפילו טובת כו'. בירושלמי ספ\"ה רע\"א קשה הרבית שאף הטובה רבית הרי שאמר ליקח לו ירק מן השוק אע\"פ שנתן לו מעותיו ה\"ז רבית (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Extract) He shall not say, etc. So Tur explained ; it is Yerushalmi version da im ba, etc. ; lender's words; and Rambam also explained as lender and explained da, etc. that you honor him; but our version and Rif's version da ki ba, etc.; and so in Rosh da sheba, etc. ; one can say borrower's words like at beginning advanced and delayed interest saying for the sake of, etc. Tosefet Yom Tov (end).",
+        "And likewise the rest, etc. Mishnah and Gemara there.",
+        "and even so. This is the case; and (Likkut) And even benefit, etc. In Yerushalmi end of chapter 5, 161a: severe is the ribbit ; for even benefit is ribbit; for example if he said \"buy me a vegetable from the market\" ; even though he gave him his money ; this is ribbit (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-016/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והוא כו'. הרא\"ש וטור והביא הרא\"ש ראיה מפ\"ז צ' ב' וצ\"ע דהא פ' שם כמ\"זי דשרי וכן הקשה במע\"מ ולרמב\"ם וש\"ע שם ניחא אבל להרא\"ש שם קשה. וי\"ל דהתם אינו רק משום קנסא ולא קנסו רק לדידיה משא\"כ כאן דאסור מדאורייתא וראייתו מדאיבעיא להו בבנו קטן אם קנסו משום דכגופו דמי:",
+        "ואינו סומך כו'. דאל\"כ הוי כמש\"ש י\"ב ב' ומ\"מ בקטן לא כיון דמוטל עליו לפרנסו כמ\"ש בפ\"ד דכתובות (מ\"ט ב' נ' א') וכנ\"ל ס\"י ועב\"י וט\"ז אבל הרשב\"א ונ\"י כתבו דהכל תלוי בסומך על שלחנו או לא וכמו במציאה:",
+        "י\"א כו'. תוס' דקדושין הנ\"ל ד\"ה דארווח כו' דכי נמי אמרינן התם כו':",
+        "(ליקוט) י\"א דאסור כו'. הג\"א שם ד\"ה מיהו כו' (ע\"כ):",
+        "י\"א דמותר כו'. כמש\"ש דלא אסרה תורה כו'. והנה לא דמי לשם כמ\"ש תוס' דקדושין הנ\"ל שלא יחזור כו' וכנ\"ל וכמ\"ש בסי\"ג וכבר כתבו ב\"י ולבוש וט\"ז שהוא טעות גדול ואיזה תלמיד טועה כתבו ואף שד\"מ וב\"ח וש\"ך קיימוהו ל\"נ וטעות גמור הוא:",
+        "ומ\"מ אם כו'. מתני' ע\"ה ב' כיצד נתן כו':",
+        "אבל אם כו' דהשטר כו'. כמ\"ש ס\"ב א' דעל כתיבת השטר בלחוד חייבין. שם:",
+        "(ליקוט) אבל אם שליח כו'. ערש\"י נ\"ז ב' ד\"ה באבני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And it, etc. Rosh and Tur; and Rosh brought proof from chapter 7 90b ; requires study for there chapter implies permitted; and so challenged in Ma'amar Mordechai; and for Rambam and Shulchan Aruch there it works; but for Rosh there difficult. And one can say there it is only because of penalty and they penalized only him unlike here forbidden from Torah; and his proof from they asked regarding his minor son if they penalized because like his body.",
+        "And he does not rely, etc. For otherwise it is like what is stated 12b; nevertheless regarding minor not since obligated to support him as stated chapter 4 Ketubot (49b, 50a); and as stated seif 10 and Orach Chayyim and Taz; but Rashba and Nekudot Yosef wrote everything depends on relying on his table or not like found object.",
+        "Some say, etc. Tosafot Kiddushin cited s.v. darvach, etc. for even if we say there, etc.: (Extract) Some say forbidden, etc. Hagahot Ashri there s.v. mihu, etc. (end).",
+        "Some say permitted, etc. As stated Scripture did not forbid, etc. And behold it is not similar there as Tosafot Kiddushin cited that he should not return, etc.; and as stated and as below seif 13; and Beit Yosef Levush and Taz already wrote it is great error and which student erred wrote them; and even though it appears Bach and Shach upheld it ; in my opinion it is complete error.",
+        "And nevertheless if, etc. Mishnah 75b ; how did he give, etc.",
+        "But if, etc. the document, etc. As stated 62a regarding writing document alone they are liable. There: (Extract) But if agent, etc. Rashi 57b s.v. b'avnei, etc. (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-017/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 17,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דברים של כו' עד חומש. שם הלוני מאה פלפלין כו' ומפרש שלא התנה מתחלה ומ\"ש במאה ועשרים דברי גמ' הוא אבל לא משמע כן וז\"ש בהג\"ה וי\"מ כו' ודיוקו של הרמב\"ם דדוקא בלא פסק ממ\"ש ללות ול\"ק להלוות. מ\"מ:",
+        "ובלבד כו'. תוס' שם ד\"ה מתנה כו' וכ\"ד הרמב\"ן שהוא בעל סברא ראשונה וכמ\"ש המ\"מ בשמו וז\"ל המ\"מ ומדברי רבינו דוקא בלוה סתם והרמב\"ן ז\"ל הוסיף דדוקא בעסקי סעודה ובדבר מועט וה\"ה כבני חבורה שאין מקפידין זע\"ז ודוקא שלא קצץ ושמואל ה\"ק אפשר שבשעת פרעון אפרע לך ק\"ך שלא אקפיד למנותן ואריך שזהו כבודי אפילו הוספתי עד חומש אבל דברי הרמב\"ם שלא הזכיר לו כלל בשעת הלוואה צ\"ל כנ\"ל ודוחק ונראה שהרמב\"ם מפרש דמ\"ש בק\"ך דינא קמיגמר ליה דאף אם אחזיר לך ק\"ך שרי וז\"ש ואריך:",
+        "(ליקוט) ובלבד כו'. מעובדא דרב מרי ועתוס' ע\"ג ב' ד\"ה דסתם כו' ועסה\"ת (ע\"כ):",
+        "ומ\"מ כו'. סמ\"ג והג\"מ שם:"
+      ],
+      "en_segments": [
+        "Things of, etc. up to fifth. There the lender one hundred peppers, etc.; and he explains he did not stipulate initially; and what is stated one hundred twenty ; Gemara's words; but does not imply so; and this is what he wrote in Hagah; and some say, etc.; and Rambam's precision ; specifically without fixed amount from what is stated to lend; and no difficulty to borrow. Nevertheless.",
+        "Provided, etc. Tosafot there s.v. matanah, etc.; and so Rambban who holds first view; and as Maggid Mishneh wrote in his name ; Maggid Mishneh: and from our Rabbi's words specifically unspecified borrower; and Ramban added specifically feast matters and small matter; and likewise companions who are not particular with each other; and specifically he did not fix; and Shmuel said thus ; possibly at repayment I will pay you one hundred twenty without counting them and it is my honor even if I add up to fifth; but Rambam's words who did not mention at all at time of loan must be as stated ; strained; and it appears Rambam explains what is stated one hundred twenty law is decided for him that even if he returns one hundred twenty ; permitted; and this is what he wrote and extends: (Extract) Provided, etc. From incident of Rav Mari; and Tosafot 73b s.v. destam, etc.; and Sefer HaTerumah (end).",
+        "And nevertheless, etc. SeMaG and Hagahot Maimoniyot there."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-018/siftei-kohen",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 18,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן נוהגין. ובכל מקומות שהייתי לא ראיתי מנהג זה וגם חקרתי ודרשתי ולא שמעתי שנוהגין כן אע\"פ שלא נהגו להלוותן בב\"ד מ\"מ ברבית דרבנן גם כן אין מלוין אלא על דרך היתר כמו שאר מעות:",
+        "יש מקומות כו'. ג\"ז לא שמעתי בשום מקום אלא שמהרי\"ל כתב כן בזמנו ואחריו נמשך הרב:",
+        "שרי. ואף על פי כן אם טוען המקבל לא קבלתי אלא פלגא באגר ופלגא בהפסד (ולא קרוב לשכר ורחוק להפסד) כתב המרדכי בשם ראבי\"ה ור\"ב דהמקבל נאמן במיגו דלהד\"ם או החזרתיו לך וכן עיקר דלא כראב\"ן שם מיהו היכא דהיתום הוא מוחזק כגון שיש לו משכנות האפוטרופוס נאמן אי טעין קרוב לשכר ורחוק להפסד או אי ליתי' קמן טענינן אנן ליתמי עד כדי דמיהן כ\"כ בתשובת מהרי\"ל סי' ל\"ו והביאו ב\"י וד\"מ:",
+        "כל זמן שלא הגדיל היתום כו'. וה\"ה לגדול שמת אביו ואינו יודע להתעסק בשלו חשוב כיתום ומיהו מי שאין אביו רוצה לפרנסו ולהתעסק בצרכיו אין לו דין יתום ואסור להלוות מעותיו קרוב לשכר ורחוק להפסד ת\"ה שם ומביאו ב\"י וד\"מ וכתב ב\"י דאלמנות אע\"ג דסתמן אינן יודעין להתעסק בשלהן אין להן דין יתום שהן מתעסקות כשאר נשים ולא בעינן שיהיו מתעסקות כאנשים עד כאן ומביאו דרכי משה:",
+        "היתום נאמן. משמע לכאורה מדברי הרב דיתום יש לו שום מעלה יתירה משאר בני אדם דאמרי' לקמן סימן קס\"ט סכ\"ה דאם טוען לא לקחתי רבית צריך לישבע משא\"כ ביתום וצ\"ע דדין זה הוא מתשובת הרשב\"א שהביא ב\"י בסימן קע\"ז ושם לא כתב אלא במי שקבל עליו בשעת הלואה בשטר כו' וכשבא היתום לתבוע חובו טוען הלה שינכה לו מה שנתן לו מהמזונות והיתום טוען שלא קבל ממנו דבר שהיתום נאמן ואפי' א\"ל אשתבע לי לא משגחינן ביה עכ\"ל ור\"ל שהוא מלוה בשטר וא\"ל אשתבע לי קודם שתטול כדין מלוה בשטר דאם טוען הלוה אשתבע לי צריך לישבע קודם שיטול כדאיתא בח\"מ סי' פ\"ב ס\"ב (אבל אם אינו א\"ל אשתבע לי אע\"פ שמכחישו נוטל בלא שבועה ע\"ש) אפ\"ה הכא לא משגחינן ביה כמ\"ש הט\"ו בח\"מ שם ס\"י דבא\"ל אשתבע לי שבחוב זה אינו רבית והמלוה עומד בשטרו אין שומעין לו להשביעו אבל שיהא חילוק בין יתום לשאר בני אדם לא משמע מידי דהך דתשובת הרשב\"א מעשה שהיה ביתום כך היה וה\"ה בשאר ב\"א דאין טעם לחלק וכן בעט\"ז כ' מי שחייב ליתומים כו' והיתום טוען שלא קבל שום רבית של איסור היתום נאמן בלא שבועה דאחזוקי אינשי ברשיעי לא מחזקינן ובודאי כל מה שקבל בדרך היתר קבל עכ\"ל ומדלא פירש כפשוטו דמיירי שטוען שלא קבל כלל אלמא דס\"ל דדוקא כשטוען שלא קבל באיסור אלא בהיתר נאמן בלא שבועה כדלקמן סימן קס\"ט סכ\"ה בסתם בני אדם ואפשר לפרש גם דברי הרב כן כמו שפירש העט\"ז וק\"ל:"
+      ],
+      "en_segments": [
+        "And so they practice. In all places I have been I have not seen this practice; I also investigated and inquired and did not hear that they practice so; though they were not accustomed to lending through court — nevertheless even for rabbinic interest they lend only in the permitted manner like other money.",
+        "There are some places etc. This also I have not heard anywhere, but Maharil wrote so in his time and the Rav followed after him.",
+        "Permitted. Nevertheless if the recipient claims \"I received only half in profit and half in loss\" (and not close to profit and far from loss) — the Mordechai wrote in the name of Ra’avyah and R. Baruch that the recipient is believed by a migo of \"it never happened\" or \"I returned it to you\"; and so is the main ruling, unlike Ra’avan there; however where the orphan is in possession — such as he has collateral — the guardian is believed if he claims close to profit and far from loss; or if the guardian is not before us we argue the orphans’ claim up to their value — so in responsum Maharil siman 36; and Beit Yosef and Darkei Moshe bring it.",
+        "As long as the orphan has not come of age etc. And the same for an adult whose father died and who does not know how to manage his affairs — he is considered an orphan; however one whose father does not want to support him and manage his needs does not have the status of an orphan, and it is forbidden to invest his money close to profit and far from loss — Terumat HaDeshen there; and Beit Yosef and Darkei Moshe bring it; and Beit Yosef wrote that widows — even though generally they do not know how to manage their affairs — do not have the status of orphans, for they manage like other women and we do not require them to manage like men — end; and Darkei Moshe brings it."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-020/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 20,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם עבר כו'. דהוי כגוזל ומאכיל את בניו כו' אע\"ג דבגזילה קיימת או הניח אחריות נכסים חייבין לשלם דוקא בגזילה משא\"כ ברבית דמדעתיה דאין חייבין לו כלום אלא משום מ\"ע וחי אחיך ובכה\"ג פטירי וכמ\"ש (ס\"ב א' ורפ\"ט דב\"ק) הניח להם אביהם כו' אלמא אע\"ג שקיימת פטורין ועריב\"ש סי' תס\"ה אבל סה\"ת ומרדכי חולקין ע\"ז וכתבו דיוצאה בדיינין:",
+        "(ליקוט) אם עבר כו' והאכיל כו'. משמע דוקא האכיל ועריב\"ש וע' משנה למלך ספ\"ד (ע\"כ):",
+        "וגם האפוטרופוס כו'. שאינו בהשבון דלא לקח כלום רק סרסורא דעבירה הוא. שם:",
+        "ומיהו כו'. עש\"ך:"
+      ],
+      "en_segments": [
+        "If he transgressed, etc. For it is like robber and feeds his children, etc.; even though in robbery existing or left responsibility of property they must pay ; specifically robbery unlike interest from his consent they owe him nothing except positive commandment and your brother shall live; and in such case exempt; and as stated (62a and end Bava Kamma) their father left them, etc. ; evidently even though existing exempt; and Rivash siman 265; but Sefer HaTerumah and Mordechai disagree on this and wrote it comes out in court: (Extract) If he transgressed and fed, etc. Implies specifically he fed; and Rivash ; see Mishneh Lamelech chapter 4 (end).",
+        "And also the guardian, etc. He is not in the reckoning, for he took nothing ; only an intermediary of the sin. There.",
+        "However, etc. See Shach."
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-023/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המלוה כו'. כמש\"ש ס\"ד ב' דאפילו חצר דלא קיימא כו' וערא\"ש שם:",
+        "(ליקוט) המלוה כו'. טור ולמד מדברי הרא\"ש בשם הרמב\"ן בסי\"ז ה\"ז דומה לכהן כו' ופשוט ליה דאסור משום רבית כנ\"ל סי\"ב וכ\"מ בתוספתא וירושלמי המוכר שדה לחבירו וא\"ל ע\"מ שאהא בה אריס ע\"מ שאהא בה שותף ע\"מ שהמעשרות שלי כו' מותר ואם אף במלוה מותר מאי קמ\"ל במכר וז\"ש ע\"מ שכל כו' (ע\"כ):",
+        "ולמ\"ד כו'. כמ\"ש הרי\"ף שם שמחלק בין הלוני להלוהו כו' אבל למ\"ד אינה ממון לא כמ\"ש הרמב\"ן שם דבדלא קיימא לאגרא לא הוי הרבית קצוצה והוכיח שם ממש\"ש ס\"ה א' הדרי בי ולא מצינו ששילם לצאת ידי שמים אלא דכה\"ג אף לצאת י\"ש א\"צ ע\"ש (וע\"ל סי' קס\"ו ס\"ק ב') ועח\"מ סי' ר\"ג שפסק דאינה ממון:",
+        "וכן כל כו'. עתוס' ורא\"ש שם וכנ\"ל ס\"ז וז\"ש אבל כו':"
+      ],
+      "en_segments": [
+        "The lender, etc. As stated 64b even courtyard not standing, etc.; and Rosh there: (Extract) The lender, etc. Tur learned from Rosh in name of Ramban siman 17 halachah 7 similar to kohen, etc.; and plain to him forbidden because of interest as stated seif 12; and so in Tosefta and Yerushalmi one who sells field to fellow and said on condition I be sharecropper or partner or my tithes, etc. ; permitted; and if even in loan permitted what does it teach in sale; and this is what he wrote on condition all, etc. (end).",
+        "And for one who says, etc. As Rif stated there who distinguishes between the lender and one who lent him, etc.; but for one who says it is not money unlike Ramban there regarding not standing for rent is not fixed interest; and he proved there from what is stated 65a I will return and we do not find he paid to fulfill heaven except in such case also need not fulfill heaven ; see there (and see siman 166 s.k. 2); and in Choshen Mishpat siman 203 who ruled it is not money.",
+        "And likewise all, etc. Tosafot and Rosh there; and as stated seif 7; and this is what he wrote but, etc."
+      ]
+    },
+    {
+      "id": "yd1/siman161/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 161,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם בא כו'. דאבק רבית לר\"א הוא כמו רבית קצוצה לר' יוחנן ושם ודאי חייב לצאת י\"ש ממש\"ש למורא ניתן ר\"ל לצאת י\"ש וכן פי' ריב\"ן אבל תוס' ס\"ב א' ד\"ה תנאי כו' חולקין על ריב\"ן וכן בב\"ק צ\"ד א'. ועוד הביאו ראיה מתוספתא המלוה את חבירו ברבית ועשה תשובה חייב להחזיר ומדקאמר ועשה תשובה משמע דאתי כר' יוחנן:",
+        "(ליקוט) ואם בא כו'. אבל תוס' בב\"ק צ\"ד ב' ד\"ה אי כו' וד\"ה לצאת כו' חולקין ע\"ז אבל הם (הרמב\"ן וש\"פ) מפרשים בפי' ריב\"ן בתוס' שם (שפי') למורא ניתן כו' ועוד קשה להם קושית תוס' דמאי פריך גמ' מאי בעי גביה כיון שא\"צ להחזיר אף לצאת י\"ש בשלמא ההיא דב\"ק שם י\"ל כתירוץ ראשון של תוס' וי\"ל דאם החזיר כו' או כתי' השני א\"נ כו' ולא ניחא להם בתי' השלישי של תוס' ועי\"ל כו' דקושית הגמ' היתה אקרי כאן כו' אי עשה תשובה ואי כתירוצם אינו תולה בנשיא בעמך אבל תוס' ס\"ל כתי' השלישי כמ\"ש תוס' שם (ע\"כ):",
+        "(ליקוט) ואם בא כו'. וכ\"ד הרמב\"ן במלחמות והרא\"ש בשמו סי\"ז וכתב הרמב\"ן כו' וכ\"ש הלוהו כו' ואף לצאת כו'. וע\"ל סי' קס\"ו ס\"א (ע\"כ):",
+        "(ליקוט) הרשב\"א חולק ע\"ז וכתב בב\"ק ע\"ה א' מהא דאמרינן שם אין בדבריך כלום כר' דייקינן בירושלמי בעלמא דקנס כל שאין עדים אפילו לצאת י\"ש אינו חייב דאל\"כ יוציא ר\"ג לחירות כדי לצאת י\"ש וכתב וה\"ה לאבק רבית וכ\"מ בפ\"ה דב\"מ (ס\"ד ס\"ה) בעובדא דרב יוסף ב\"ה דקאמר הדרי בי ר\"ל מכאן ואילך ולא אשכחן דאהדר להו אגרי דעבדי (לפי דברי הרמב\"ן והרא\"ש סי' י\"ז אין ראיה מזה) (ע\"כ):",
+        "(ליקוט) ואם בא כו'. דאית נ\"י מתוספתא אינה מוכרחת דהכי תניא שם ספ\"ה המלוה את חבירו ברבית ועשה תשובה חייב להחזיר מת והניח לפני בניו לא יחזירו בניו ע\"ז נאמר יכין רשע וצדיק ילבש אבל הניח להן אביהם פרה שדה וטלית וכ\"ד שיש בו אחריות חייבין להחזיר ואמר עשה תשובה משום סיפא כמ\"ש בב\"ק רפ\"ט ובב\"מ שם (ע\"כ):",
+        "(ליקוט) מלבד רבית כו'. דהא במתנה יהבה כמש\"ש במתני' (ע\"ה ב') דורון כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And if he comes, etc. Avak ribbit for R. Eliezer is like fixed ribbit for R. Yochanan, and there certainly obligated to fulfill Heaven ; meaning to fulfill Heaven; and so Ribban explained; but Tosafot 62a s.v. tnai, etc. disagree with Ribban ; and so Bava Kamma 94a. And further they brought proof from Tosefta: one who lends at ribbit and repents is obligated to return ; and since it says \"and repented\" implies like R. Yochanan. (Extract) And if he comes, etc. But Tosafot Bava Kamma 94b s.v. i, etc. and s.v. letzet, etc. disagree on this; but they (Ramban and Shach) explain Ribban's explanation in Tosafot there (that he explained) \"for fear it was given,\" etc.; and further difficult for them Tosafot's question why does Gemara ask what does he want with him since he need not return even to fulfill Heaven ; unless first answer of Tosafot or second text, or third; and one can answer Gemara's question was on \"if he repented\" ; and if their answer does not depend on \"with your people\" but Tosafot holds third answer as Tosafot there (end). (Extract) And if he comes, etc. And so Ramban in Milchamot and Rosh in his name siman 17; and Ramban wrote, etc., and all the more one who lent him, etc., even to fulfill, etc.; and below siman 166 s.a. (end). (Extract) Rashba disagrees and wrote in Bava Kamma 75a from what we say there \"your words are nothing\" ; we infer in Yerushalmi generally a penalty: wherever there are no witnesses even to fulfill Heaven he is not obligated, for otherwise R. Gamliel would free for sake of Heaven; and wrote the same regarding avak ribbit ; and so Bava Metzia 64, 65 regarding Rav Yosef's case who said return from now on and we do not find he returned wages they did (per Ramban and Rosh siman 17 no proof from this) (end). (Extract) And if he comes, etc. For N.Y. from Tosefta is not necessary ; for thus it is taught there end ch. 5: one who lends at ribbit and repents must return; if he died and left before his sons they need not return ; on this it says \"the wicked prepares and the righteous wears\"; but if father left them a cow, field, and garment with liability they must return; and it says \"repented\" due to the end as stated Bava Kamma ch. 9 and Bava Metzia there (end).",
+        "(Extract) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75b) doron, etc. (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman161/seif-011/siftei-kohen",
+      "volume": "yd1",
+      "siman": 161,
+      "seif": 11,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הקרן בפני עצמו. והרבית בפני עצמו. וגבי אפילו ממשעבדי והעדים לא נפסלו אפילו ברבית דאורייתא דלא תשימון עליו נשך לא משמע לאינשי אלא בלוה ומלוה כן כתבו התוספות והרא\"ש ורוב הפוסקים וכן נראה דעת המחבר בח\"מ סי' ל\"ד ור\"ס נ\"ב:",
+        "וכל מי כו'. ארישא קאי אבל כשלא נכתב בשטר רק הקרן פשיטא דלא יקרענו:",
+        "דחיישינן שמא יגבה בו הרבית. בב\"י מסיק דאפי' מפורש בו רבית דאורייתא חיישינן לב\"ד טועין וכ\"כ בד\"מ:",
+        "אפי' הקרן. דגזרינן שמא יגבה הרבית בתורת קרן ומיהו היכא דהלוה מודה י\"א דגובה וכמ\"ש הרב בח\"מ סי' נ\"ב ע\"ש. וכתוב בתשובת משאת בנימין סי' ל\"ד דמ\"מ א\"צ הלוה ליתן שום דבר מהריוח שהרויח במעות של המלוה אפילו הרויח הרבה אלא שראוי לקנסו ליתן מהריוח לעניי העיר:"
+      ],
+      "en_segments": [
+        "The principal by itself. And the interest by itself; and we collect even from encumbered property; and the witnesses are not invalidated even for Torah-level interest — for \"do not place upon him interest\" is not understood by people except regarding borrower and lender; so wrote Tosafot, the Rosh, and most poskim; and so appears the view of the Mechaber in Choshen Mishpat siman 34 and beginning of siman 52.",
+        "And all who etc. This refers to the first clause; but when the document mentions only the principal, it is plainly not torn.",
+        "That we are concerned lest he collect the interest with it. In Beit Yosef he concludes that even if Torah-level interest is explicitly stated in it, we are concerned for an erring court; and so Darkei Moshe."
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) מאותו המין. דוקא ועבס\"ה בהג\"ה (ע\"כ):",
+        "ואם אין כו'. כמ\"ש ספ\"ד דגטין (ל\"ז א') ובפ' בתרא דשביעית:",
+        "או ילוהו כו'. ורשב\"א חולק ע\"ז:",
+        "(ליקוט) או ילוהו כו'. ב\"י דלא כרשב\"א ולכאורה ראיה לדבריו ממ\"ש ע\"ה טיפת יין כו' וכ' הטעם דטפה ראשונה שהלוה נחשבת כשלו כו' ועט\"ז סי' קס\"ג ס\"ק ב' והוא מדברי הרשב\"א וכאן לא ס\"ל ועט\"ז (ע\"כ):",
+        "היה ללוה כו' אבל כו'. ס\"ג ב' ל\"צ כו' קמ\"ל כיון כו' משא\"כ בפקדון ולכן אמר אשראי וכמ\"ש בפ' בתרא דפסחים (קי\"ג א') וע\"ל סי' רנ\"ח ס\"ז:",
+        "וכן אם כו'. כמש\"ש ע\"ג א' המוליך כו' באותו מקום דוקא:",
+        "לוה כו'. עסי' קס\"ג ס\"א (בס\"ק ה'):",
+        "(ליקוט) לוה שאמר כו'. כמ\"ש בפ\"ד דגטין (ל\"ז ב') בפרוזבול נאמן כו' לא שביק כו' וה\"ה כאן שיכול ליקח מעט במתנה או בהלואה כנ\"ל וע\"ל סי' קס\"ט סכ\"ה ראובן שאמר כו' וכן בשאר טענות כו' ע\"ש (ע\"כ):",
+        "(ליקוט) הא דמותר להלוות כו'. כמש\"ש ס\"ד א\"ל רב שרביא לאביי כו' ועתוס' שם ד\"ה אי תקפה כו' וי\"ל דלעולם כו' וז\"ש ג\"כ בס\"ג והא כו':"
+      ],
+      "en_segments": [
+        "And if there is none, etc. As stated end of chapter 4 of Gittin (37a) and in the last chapter of Shevi'it.",
+        "He had, etc. but, etc. 63b — no need, etc. — teaches us: since, etc. — unlike a deposit; and therefore he said credit, and as stated in the last chapter of Pesachim (113a) and see above siman 258 seif 7."
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-002/siftei-kohen",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 2,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מאותו המין דוקא. אבל מעות אפי' בכדי שיכול ליקח כל אותו המין אסור כן הסכמת הפוסקים וכ\"כ ב\"י:",
+        "לוה עליו כמה סאין. אפילו כולו ביחד ואצ\"ל קני בזה אח\"ז דבשביל כל סאה וסאה שלוה אנו רואין הסאה שלו כאלו היא נחלטת מיד למלוה ואם מתייקר ברשותו מתייקר טור והפוסקים:",
+        "לפרוע כו'. כב\"י ואין צריך שיהא דעתו להקנות כנגד אותו המעט דא\"כ בעם הארץ דלא ידע ליתסר אלא עיקר טעמא משום דכיון דמדרבנן הוא בטעמא כל דהו אקילו ביה והב\"ח כתב דדוקא שיהא דעתו לכך דאל\"כ נתכוין א' מהן לשם רבית ואסור (ונ\"ל שגם דעת ב\"י כן) ונ\"ל דאף לדבריו היינו לכתחלה אבל אם לוה והיה לו מעט מאותו המין אע\"פ שלא היה דעתו לכך שרי וחייב לשלם וכן משמע לכאורה מדברי הרא\"ש וט\"ו בסעיף ה':",
+        "או ילוהו לו כו'. והב\"ח פסק כתלמידי רשב\"א דדוקא בנותן לו במתנה או מקנה לו מותר אחר כך ללוות ממנו אבל בהלואה כיון דתחלת ההלואה להוצאה ניתנה אסור ע\"ש וכן העט\"ז השמיט הך דילוהו כו':"
+      ],
+      "en_segments": [
+        "Specifically from that same species. But money, even if it is enough that he could purchase all of that species — is forbidden; so is the consensus of the poskim; and so Beit Yosef.",
+        "He borrows on it several seahs. Even all together; and needless to say one who acquires in succession — for regarding each and every seah he borrows, we view his seah as if it is immediately acquired by the lender; and if it appreciates, it appreciates in his domain — Tur and the poskim.",
+        "To repay etc. Per Beit Yosef — it is not required that he intend to transfer against that small amount, for if so an ignorant person who does not know would be forbidden; rather the main reason is that since it is rabbinic, with any small reason they were lenient about it; and the Bach wrote specifically that he must intend thus, for otherwise one of them intended for the sake of interest and it is forbidden (and it seems to me Beit Yosef's view is also so); and it seems to me even per his words this is only lechatchilah — but if he borrowed and had a small amount of that species even if he did not intend thus, it is permitted and he is obligated to pay; and so it implies from the Rosh and the Tur in seif 5."
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וידוע לשניהם. כב\"י דסגי כשידעו דיצא השער אע\"פ שלא ידעו בכמה יצא וכתב עוד אבל מתשובת הרא\"ש שבסוף סי' זה (סעיף ה') משמע דלא בעי ידיעה כלל שהרי לא הצריך אלא שיברר שיצא השער או שהיה ללוה סאה אחת ואלו ידיעת השער לא נזכר כלל בדבריו ע\"כ והב\"ח כתב דהתם מיירי שמלוה טוען שהיה לו ידיעה שיצא השער ולי נראה דאע\"ג דלכתחלה אין להלות עד [שידע] שיצא השער מכל מקום אם לוה ויצא השער אע\"ג דלא ידע מכל מקום הרי לא נעשה כאן איסור בהלואה זו וחייב לשלם לו וכ\"כ בס\"ק ז':",
+        "מותר. אפי' אין מעות ללוה כדעת ר\"י ורוב הפוסקים וכ\"פ ב\"י וב\"ח:",
+        "אימת שירצה. ואז שרי אפילו בקבע לו זמן כן הסכמת הפוסקים והאחרונים ודלא כהרמב\"ם וכתב הרא\"ש מיהו באומר לא אקבל הפרעון קודם הזמן אסור ללוות על שער שבשוק אבל אם יש לו חטין אפי' בהא אין לאסור ע\"כ ומביאו ב\"י וד\"מ ומשמע מדבריו שם להדיא דאפילו אינו אומר לא אקבל הפרעון עד שעת היוקר אלא אומר לא אקבל עד הזמן אע\"פ שאין ידוע שיתייקר השער אז אסור משום דדמי להלויני כור חטים עד הגורן ולפ\"ז מ\"ש הרב עד שעת היוקר הוא ל\"ד אלא לישנא דסמ\"ק וכל בו נקט אי נמי אשמועינן דהיכא דנתייקר השער אין חייב לשלם לו ונ\"ל דהיכא דקבע לו זמן מחמת שיש לחוש שיוזל אחר ההלואה קודם הזמן אסור לכ\"ע בקבע לו זמן אף בלא אמר ליה לא אקבל עד זמן הפרעון דהא הפוסקים לא השיגו על הרמב\"ם אלא מטעם שקביעת הזמן היא לתועלת הלוה שאין המלוה יכול לכופו בינתיים אבל אם בא לפרוע תוך זמנו פורע ובכי האי גוונא יכול המלוה לומר לא אקבל חובי קודם זמני כמ\"ש בה\"ת בשער ל' והט\"ו בח\"מ סי' ע\"ד ס\"ב דאם קבע ללוה זמן ורוצה לפרעו תוך הזמן כי מתיירא מפני חילוק המטבעות וגזרת המסים ותשחורת דאינו יכול לכופו ליקח חובו קודם זמנו שאינו יכול לפרוע קודם זמנו לקלקלתו ולהפסדו של מלוה:"
+      ],
+      "en_segments": [
+        "Permitted. Even if the borrower has no money — per the view of Ri and most poskim; and so ruled Beit Yosef and Bach.",
+        "Whenever he wishes. And then it is permitted even if he set a time — so is the consensus of the poskim and later authorities, unlike the Rambam; and the Rosh wrote: however if he says “I will not accept payment before the time” — it is forbidden to borrow at the market price, but if he has wheat even in this case one should not forbid — end; and Beit Yosef and Darkei Moshe bring it; and it clearly implies from his words there that even if he does not say “I will not accept payment until the time of the price rise” but only “I will not accept until the time” — even if it is not known the price will rise then — it is forbidden, as it resembles “lend me a kor of wheat until the threshing floor”; and according to this what the Rav wrote “until the time of price rise” is not precise, rather it takes the language of Semak and the Kol Bo; or alternatively it teaches us that where the price rose, he is not obligated to pay more; and it seems to me that where he set a time because of concern the price may fall after the loan before the time — it is forbidden for all when he set a time even without saying “I will not accept until the repayment time,” since the poskim challenged the Rambam only on the grounds that setting the time is for the borrower’s benefit in that the lender cannot force him meanwhile — but if he comes to repay within his time, he repays; and in such a case the lender may say “I will not accept my debt before my time” — as Beit HaTerumah wrote in shaar 30, and the Tur in CM siman 74 seif 2, that if he set a time for the borrower and wants to repay within the time out of fear of currency devaluation, tax decrees, or embargoes — he cannot be forced to take his debt before his time, since one cannot be compelled to repay before time to the lender’s detriment and loss."
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הלוה כו'. דקי\"ל יד בעל השטר על התחתונה:",
+        "ואין המלוה כו'. עח\"מ סי' ס\"ז סכ\"ב וצ\"ע וכן הקשה בט\"ז:",
+        "לא התירו כו'. ממש\"ש (ע\"ה א' במתני') לא יאמר נכוש ואעדור כו' אע\"ג דכמי שי\"ל דמי. סה\"ת:"
+      ],
+      "en_segments": [
+        "The borrower, etc. For we rule that the hand of the document-holder is on the lower side.",
+        "And the lender may not, etc. See Choshen Mishpat siman 67 seif 22 — requires study; and so challenged the Taz."
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-005/siftei-kohen",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 5,
+      "slug": "siftei-kohen",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם לא יברר כו'. ואם כתוב בשטר שיהא המלוה נאמן על כל עניני החוב המלוה נאמן הגה' פריש':",
+        "בשעת הלוואה כו'. נראה דוקא אם ידוע שהלוה לו בזמן הזול או שנזכר זמן ההלואה בשטר דהשתא כיון שיש צד רבית לפנינו וצריך לברר היתר המע\"ה וכן משמע בתשובת הרא\"ש שם כלל ק\"ח סי' ט\"ו אבל אם המלוה טוען עתה הלויתיך או שלא נזכר בשטר רק פלוני חייב לפלוני כך וכך סאין לשלם לו לזמן פלוני וטוען המלוה אתה חייב לי סאין אלו כי קניתים ממך בק\"ג ונתתי לך בעדם כפי שהן שוין עכשיו או שטוען שלא נתייקר מעולם אלא כך היה ג\"כ השער בשעת ההלואה אע\"ג דאז הלוה באיסור דשמא יתייקר השער מ\"מ השתא לאו רבית קא שקיל הלכך המלוה נאמן וע\"ל סי' קס\"ט ס\"ק ע\"ח:",
+        "ואין המלוה כו'. דהא דיכול להקנות ללוה היינו דוקא אם דעת הלוה מרוצה אבל אם דעת הלוה אינה מרוצה כגון זו שהלוה אומר שלא היה לו חטים והלוה לו באיסור לא מהני דאין מקנים לו לאדם בע\"כ. שם:",
+        "אבל סאה חטין כו'. וה\"ה לכל שאר ב' מינים וכ\"כ בדרישה ופשוט הוא:",
+        "אף על פי שהן בשער אחד כו'. כתב העט\"ז אפי' יצא שער של שניהם דאע\"ג דאמרינן לעיל ס\"ג דביצא השער של חטים לבדו מותר הכא שמלוה על דוחן גרע טפי כו' וכן משמע בבה\"ת שער מ\"ו ח\"ה דף ע\"ב ע\"ב אע\"פ דכ' וראייה מדתנן לא יאמר אדם לחבירו נכוש עמי ואעדור עמך שהרי ניכוש ועידור כמי שיש לו הן והם עכשיו בשער אחד ואפילו הכי אסור כיון שהם שתי מלאכות ופעמים שאינן שוות ואסור ע\"כ וע\"ל סימן קע\"ג ס\"ק י\"ז. כתב הריב\"ש סי' שצ\"ו ראובן שלוה משמעון כור חטים כו' עד וזה גובה מעותיו ע\"כ ומביאו ב\"י וכ\"כ העט\"ז:"
+      ],
+      "en_segments": [
+        "If he does not clarify etc. And if it is written in the document that the lender shall be believed regarding all matters of the debt — the lender is believed — Hagahah Perishah.",
+        "At the time of the loan etc. It appears specifically if it is known that he lent him during cheap time, or the time of the loan is mentioned in the document — for then since there is a side of interest before us we must clarify the heter; and so it implies in the Rosh's responsum there, klal 108 siman 15; but if the lender claims “I lent it to you now,” or the document only states so-and-so owes so-and-so such-and-such seahs to be paid at such-and-such time, and the lender claims “you owe me these seahs because I acquired them from you by purchase and gave you their current value” — or he claims the price never rose, it was the same at the time of the loan — even though he then lent in prohibition since perhaps the price would rise — nevertheless now he is not taking interest; therefore the lender is believed; and see above siman 169 s.k. 78.",
+        "And the lender cannot etc. For the ability to transfer ownership to the borrower applies specifically if the borrower's mind is satisfied; but if the borrower's mind is not satisfied — such as when the borrower says he had no wheat and lent him in prohibition — it is of no avail, for one does not transfer ownership to a person against his will — there.",
+        "But a seah of wheat etc. And the same for all other two species — and so in Derishah; and it is obvious."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 7,
+    "chunk_total": 12,
+    "case_offset": 112,
+    "cases_in_chunk": 45,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman262/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 262,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שתנץ החמה. הטעם שאז יצא ודאי מספק לילה ובטור לא זכר הנץ החמה והוא מטעם דכתיב וביום ולא בלילה כלומר בשעה שהוא בבירור יום ולא לילה:",
+        "צריך לחזור ולהטיף כו'. תמוה הג\"ה זאת בתרתי חדא דמשמע דחיוב הוא ואם כן אפילו בשבת יחזור ויטיף כו' וזה אינו דלא מצינו שסובר שיחזור ויטיף כו' אלא הגה' מיימוני' ושאר פוסקים לא ס\"ל הכי כמ\"ש הב\"י ות\"כ פשוט שאין כאן אלא חומרא ובשבת לא יעשה כן ותו במ\"ש כאן בסיפא מל תוך ח' וביום יצא משמע שאין צריך לחזור ולהטיף כו' מאי שנא מרישא דודאי לא עדיף תוך ח' מבלילה וכן מוכח בסי' רס\"ד דתוך ח' לא הוה מילה כלל:"
+      ],
+      "en_segments": [
+        "The warm cut. The taste that then comes out certainly provides a night and a column that is not the memory of the warm hawk and is due to the dictate and day, and not at night, i.e. when it is clear day and not night:"
+      ]
+    },
+    {
+      "id": "yd1/siman262/seif-002/siftei-kohen",
+      "volume": "yd1",
+      "siman": 262,
+      "seif": 2,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ממתינים לו עד שיבריא. דמשום צער וחולי כל שהוא משהין אותו למול עד שיבריא כדי שלא יבא לידי סכנה וכ\"כ הגאון דכל תינוק שהוא מצטער בין מחמת חולי בין מחמת ד\"א אין מוהלין אותו עד שיבריא עכ\"ל נ\"י והביאו ב\"י וד\"מ:",
+        "כאב גדול כו'. נראה דהיינו באופן שנתבאר בא\"ח סימן שכ\"ח ס\"ט וכן משמע בנ\"י ע\"ש ובראיה שהביא ודוק:"
+      ],
+      "en_segments": [
+        "They wait until they get healthy. It is all sorrowful and sick that he is fed up to him until he is healed so that he will not be brought to danger and that he will eat a baby who is sorry for a patient’s protest between the death of the D-NH and He will not be cursed until he is healed"
+      ]
+    },
+    {
+      "id": "yd1/siman263/seif-004/turei-zahav",
+      "volume": "yd1",
+      "siman": 263,
+      "seif": 4,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "למבדקה יפה. פי' שמא יש שם ערלה כבושה דהיינו שהעור נדבק מאד בבשר:",
+        "ומ\"ש ולא בפרזלא כתוב בפרישה אבדיקה קאי שלא תהיה בברזל ולא כי\"מ שאמילה קאי שיעשה חריץ בצפורן:"
+      ],
+      "en_segments": [
+        "Beautiful testing. P. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-030/beer-hagolah",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 30,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ל' הרמב\"ם בפ\"א מהל' עבדים מהא דאמר רב פפא לרבא חזי מר הני רבנן וכו' שם וכפירושו במ\"ש ומשעבדי בהו טפי:",
+        "(°) פי' כעבד כנעני:"
+      ],
+      "en_segments": [
+        "The wording of Rambam, chapter 1 of Hilchot Avadim, from Rav Pappa's statement to Rava, 'Master, see these sages,' and so forth. He explains 'they enslave them excessively' as meaning like a Canaanite slave."
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-034/beer-hagolah",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 34,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פשוט בכמה מקומות בתלמוד:",
+        "(°) פי' דלא נאמר לא תרדה בו בפרך אלא בעבד עברי:"
+      ],
+      "en_segments": [
+        "This is obvious from many places in the Talmud. The prohibition, 'You shall not rule over him with rigor,' was stated only regarding a Hebrew slave."
+      ]
+    },
+    {
+      "id": "yd1/siman267/seif-063/turei-zahav",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 63,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ושם את העבד בדמים. כי העבד חייב ליתן שטר חוב על עצמו כמ\"ש סעיף ס\"ב שם:",
+        "ומ\"ש שיתרצה בשחרורו פירוש דבאמת הוא משוחרר מחמת הכסף דכסף גומר בלא שטר וכיון שהאפוטרופוס משחררו ע\"י כסף זה הוי כמכירה והאפוטרופוס יכול למכרו והא דצריך ריצוי הקטן הוא מדרבנן כיון שהאב לומד בנו לצוות עליו שהוא עבדו איכא לזות שפתים:"
+      ],
+      "en_segments": [
+        "And they assess the slave's value. The slave gives a promissory note for his value. The guardian's emancipation through payment is treated like a sale, which a guardian has authority to make. The minor's consent is required only rabbinically, to avoid public criticism where the father had raised the child to regard the slave as his own."
+      ]
+    },
+    {
+      "id": "yd1/siman269/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 269,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויש אוסרים כו'. כפירש\"י הנ\"ל דגם מאשת אב פריך ומשני הא ר\"מ כו' ועתוס' דיבמות שם ד\"ה אשת אביו כו' ומיהו כו' וכ\"כ הטור וטוב להחמיר כדברי שניהם ובכ\"ז אין חילוק בין הורתו שלא בקדושה ולידתו בקדושה או הורתו ולידתו שלא בקדושה ובן א' הורתו שלא בקדושה כו' כן הסכים הרמב\"ן וכן סתם הרמב\"ם וש\"ע ועתוס' שם ד\"ה נשא כו':",
+        "(ליקוט) ויש אוסרים בא\"א. הוא מדברי הטור וכמש\"ש אבל הרב לא עיין כאן דהטור פליג הרבה על הרמב\"ם דלדידיה שפסק גם כר\"א אסור גם באחותו ואחות אב ואחות האם מן האב כמ\"ש בברייתא דשם ואין קולא בצד אב אלא מצד אישות כגון אשת אחיו מאביו ובן בדידה אחות אשה הגיורת מאב כמ\"ש תוס' וכנ\"ל ועוד דאחותו ואחות אביו ואחות אמו מן האם יוציא כמש\"ש וכן באשת אביו יוציא שהוא פסק כדברי שניהם ועוד דפסק כר\"ש דמן האב ומן האם אסור כמו מן האם לבד דלא כהרמב\"ם שכתב שני אחין תאומים כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "**(Collection) And some forbid regarding a brother's wife.** This is from the words of the Tur, and as written there; but the Rav did not examine carefully here, for the Tur disputes the Rambam a great deal — for according to him, who also ruled like Rabbi Eliezer, it is forbidden also with his sister, and the father's sister, and the mother's sister from the father, as written in the baraita there; and there is no kula on the father's side except from the aspect of marriage, such as the wife of his brother from his father; and likewise regarding her — the sister of a convert-woman from the father, as Tosafot wrote, and as it appears to me. And further: his sister, and his father's sister, and his mother's sister from the mother — he must divorce, as written there; and likewise with his father's wife he must divorce, for he ruled according to both of them. And further: he ruled like Rabbi Shimon that from the father and from the mother it is forbidden like from the mother alone — unlike the Rambam who wrote “two twin brothers” etc. (end of quote)."
+      ]
+    },
+    {
+      "id": "yd1/siman272/seif-003/turei-zahav",
+      "volume": "yd1",
+      "siman": 272,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פחות מג'. בטור כתוב ושיעור אורך היריעה כדי שתכיל ג' מאלו הדפין הא דאמר אורך פירושו רוחב היריעה שהרי השיעור הוא בג' דפין זה אצל זה וקראו אורך לפי שהשורות הם באורך הדף נקראים. רש\"ל:",
+        "ולא יותר על שמונה. כצ\"ל ומבואר בטור שעיקר הנוי הוא משל ד' או חמשה אלא שאין איסור אלא בשנים או תשעה. ובסמ\"ג הלכות ספר תורה כתב הך דינא דעושה יריעה בת שלש כו' וכל מה שזכר כאן וסיים עלה וכל זה למצוה אבל לא לעכב ע\"כ וכ\"כ במרדכי הלכות קטנות. א\"כ אם לא נכתב רק שני דפין ביריעה כשר בדיעבד וכן משמע ברמב\"ם פ' י' דהלכות ס\"ת דלא חשיב זה בין הפסולים ותימה על ב\"י ורמ\"א שלא הביאו זה ונראה דמה שכ' השו\"ע בסי' רע\"ג סעיף ה' כל אלו הדברים כו' קאי גם על סי' זה:"
+      ],
+      "en_segments": [
+        "less than G. In a written column and the length of the rash to contain G-d from the length of the ad penis means the width of the rash because the rate is in this pelvic and read length as the rows are the length of the page. Filed to:"
+      ]
+    },
+    {
+      "id": "yd1/siman274/seif-007/beur-hagra",
+      "volume": "yd1",
+      "siman": 274,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ספר כו' ואפי' כו' וכן כו'. במ\"ס פ\"ג הלכה ז' ספר כו' גרפו כו':",
+        "ודוקא כו'. כיון שאין בו שיעור סתומה ובמ\"ס פ\"א הלכה י' רצוף שעשאה מסורג כו' היינו כשיעור סתומה:",
+        "(ליקוט) ודוקא כו' כל כו'. ממ\"ש בפי\"ב דשבת (ק\"ג ב') עשאה כשירה ובשירה אמרינן במ\"ס שצריך שיניח כשיעור סתומה כמ\"ש הרא\"ש בשמם בסי\"ד וכ\"כ הריב\"ש בסי' רפ\"ו מדברי הרמב\"ם ואמר עשאה כשירה משמע דוקא כשיעור סתומה וע\"ל סי' רע\"ג ס\"ג ואם אין כו' יניח חלק כו' ושם ס\"ד נזדמנה כו' ואם לאו מניח כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Sefer Torah, etc., and even, etc., and likewise, etc. In Masechet Soferim chapter 3 halacha 7 — sefer Torah, etc.; they scraped, etc."
+      ]
+    },
+    {
+      "id": "yd1/siman282/seif-002/baer-heitev",
+      "volume": "yd1",
+      "siman": 282,
+      "seif": 2,
+      "slug": "baer-heitev",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שיעמוד. ואם עומד לפוש דינו כמהלך מאחר שאינו עומד דרך קבע. כ\"כ הכסף משנה וע\"ל סימן רמ\"ב סי\"ח:",
+        "השומע. כתב הש\"ך כן הוא בכל הספרים אבל אין נוהגין כן וכ\"כ הב\"י שנהגו שלא לעמוד מפניהם ומעולם לא נשמע פוצה פה לערער בדבר שיהיו צריכים לעמוד לפני חומש ונראה שכצ\"ל יש מחמירים ואומרים השומע קול הנושא וכו' ואלמטה קאי וכן גרס בלבוש עכ\"ל וכתב הט\"ז דבב\"י מביא בשם ה\"ר מנוח שע\"כ נהגו לעשות פעמונים ולא נראה לע\"ד דא\"כ בשבת אין להוציא ספר תורה הזאת דמשמיע קול לכך נראה לי שאין לעשות אותן פעמונים ומש\"ה לא הביאו רמ\"א וכבר ראינו שהיה כן באיזה בהכ\"נ ומיחו בהם וסלקום עכ\"ל:"
+      ],
+      "en_segments": [
+        "He shall stand. If he stands to rest, his law is as one walking since he is not standing permanently — so writes Kesef Mishneh; and see above siman 242 seif 18."
+      ]
+    },
+    {
+      "id": "yd1/siman282/seif-019/turei-zahav",
+      "volume": "yd1",
+      "siman": 282,
+      "seif": 19,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אבל כתובים ע\"ג נביאים או איפכא שרי. כצ\"ל:",
+        "נראה לי דאותן אנשים שנוהגים בשעת לימודם בספר ורוצה להגביה הספר שלומד פושט ידו ולוקח ספר אחר ומניח תחת זה שלומד דאיסורא איכא משום בזיון וגרע טפי ממניח הספר על ברכיו דסעיף ז' כי בזה מבזה הספר להיות לתשמיש מה שיוכל לעשות בעץ או באבן ולכאורה היה נראה להביא ראיה להתיר ממ\"ש בטור וש\"ע בא\"ח בסי' שט\"ו דמותר להניח בשבת ספר אחד מכאן וספר אחד מכאן וספר אחד על גביהן ולא חשיב אוהל כיון שא\"צ לאויר שתחתיו עכ\"ל. נ\"ל דהתם מיירי שצריך לכל הג' ספרים וללמוד מכולן שיהיו מוכנים לפניו וקמ\"ל דלית בה משום אוהל משא\"כ כאן דמעשה עץ בעלמא שימש בספר והוי בזיון גדול כל שהוא מביאו ממקום למקום אפילו בשלחן אחד אם לא שהספר התחתון מונח כבר ודאי שרי להניח השני עליו:",
+        "בתשובת מהרי\"ל סי' קי\"ד מביא משם ספר אגודה פרק הקומץ דאין לו לעשות תשמישי ספר תורה מבגד שנשתמש בו הדיוט ויליף לה מדדרשינן מה מזבח שלא נשתמש בה הדיוט אף עצים כו' ואותן שנוהגים כן יש למחות ומכל מקום נראה דהיינו דוקא בדבר שהוא תשמיש קדושה עצמו כגון אותן הנזכרים בא\"ח סימן קנ\"ד אבל תשמיש דתשמיש כגון אותן הנזכרים שם מותר לעשות מבגד ואם נעשה כבר תשמיש קדושה ממנו אסור לעשות אח\"כ ממנו תשמיש דתשמיש דאין מורידין אע\"פ שאנו מחמירין שלא לעשות ממנו תשמיש דקדושה מכל מקום להקל לא אמרינן דלא נתפס ביה הקדושה כן נראה לי:"
+      ],
+      "en_segments": [
+        "But Kesuvim may be placed upon Neviim, or the reverse. This is the correct reading. It appears that people who, while studying, wish to raise the book before them by taking another sacred book and placing it underneath act improperly. The lower book is being used merely as a support. One should instead place a wooden board or another non-sacred object beneath the book."
+      ]
+    },
+    {
+      "id": "yd1/siman285/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 285,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "י\"א כו'. עבודת כוכבים י\"א א':",
+        "ויאמר כו'. כמש\"ש ומנחות ל\"ג ב':"
+      ],
+      "en_segments": [
+        "A.S. The Work of the Stars:"
+      ]
+    },
+    {
+      "id": "yd1/siman286/seif-005/turei-zahav",
+      "volume": "yd1",
+      "siman": 286,
+      "seif": 5,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כגון שתינוקות מצויים שם. בבית יוסף בשם סמ\"ג כתב ואפילו בפתח הבית במקום שתחילת שליש עליון הוא למעלה מי' טפחים יכול להניחה ואע\"פ שהחזירים מצויים שם עכ\"ל ומדכתב טוב לכסותה ש\"מ שאין עיקר המצוה להיות נראית מזה למדתי שאותן האנשים שאין עושין מזוזה מחמת שאומרים שגונבין משם ונוהגין בהם בזיון שאין זה מציל עליהם שיכולים ליתן המזוזה שם באופן שלא תהיה מגולה כלל מבחוץ אפילו נגד השם של שדי דזה על כל פנים טוב יותר מלבטל המצוה לגמרי:",
+        "טוב להיות נראית. נראה לי דאין לעשות שתהיה נראה בלי כיסוי כלל דנמשך מזה עבירה דבכל פעם שממשמשין בה בכניסה ויציאה מוחק מעט משם שדי עד שנמחק לגמרי אחר זמן רב כמו שאנו רואין ברוב בתים אלא יכניס שם חתיכת זכוכית ממילא יהי' השם נראה ובזה בטלה ג\"כ טענת המקילים בעשיית מזוזה מחמת שמצוי שם טינופת סביבות המקום ההוא לפעמים או שנשים רוחצות שם דרך עראי דבזה הוה מכוסה אע\"ג שנראה וראיה מדאיתא בא\"ח סי' ע\"ו צואה בעששית מותר לקרות ק\"ש כנגדה אע\"פ שרואה אותה דרך דופנותיה משום דבכיסוי תליא רחמנא והא מתכסיא וה\"ה נמי כאן שהוא להיפך כיון דמתכסיא השם אין כאן איסור דלאו בראיה תליא מילתא וק\"ו במה שהיא למעלה מי' טפחים דהוה כרשות אחרת כמו שכ' הסמ\"ג הביאו ב\"י ולא היה צריך אפי' לכיסוי זכוכית אלא דזהו צד היותר טוב ובחדר שאיש ואשתו שם יכסה המזוזה בשעוה כמ\"ש ב\"י בשם סמ\"ג בשם ריב\"א לענין אם טינופת מצוי שם וכן יש לעשות בחדר הנ\"ל כי בזה לא די כיסוי זכוכית כיון דיש שם תשמיש וכתיב לא יראה בך ערות דבר כמו דאמרינן ערוה בעששית אסור לקרות ק\"ש כנגדה כן נ\"ל ועיין מ\"ש בסימן רפ\"ז סעיף ב':"
+      ],
+      "en_segments": [
+        "Such as where children are found. Beit Yosef, in the name of Semag, wrote: even at the house entrance in a place where the beginning of the upper third is above ten handbreadths, one may place it, and even though pigs are found there — end quote; and from what he wrote \"it is good to cover it\" — we derive that the essential mitzvah is not for it to be visible. From this I derived that those people who do not make a mezuzah on account of saying that thieves steal it from there and treat it with contempt — this does not save them, for they can place the mezuzah there in a manner that it will not be exposed at all from the outside, even against the name of Sha-dai — for that is at any rate better than nullifying the mitzvah entirely."
+      ]
+    },
+    {
+      "id": "yd1/siman286/seif-007/turei-zahav",
+      "volume": "yd1",
+      "siman": 286,
+      "seif": 7,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פטורים. דכתיב ביתך מה בית שהוא מיוחד לדירה אף כל שהוא לדירה יצאו אלו שאינן לדירה:",
+        "ומ\"ש בית שער הוא בית קטן אצל שער החצר שהשומר יושב שם:",
+        "ומ\"ש וי\"א שבית שער כו' הוא דעת ר\"י בטור שהוקשה לו תרי ברייתות אהדדי דביומא תנן באלו אכסדרה בית שער ומרפסת דפטורין ובהקומץ תניא דחייבין ותירץ ר\"י דבהקומץ מיירי מדרבנן. וא\"כ הך י\"א קאי גם כן אמרפסת ואכסדרה והטור וש\"ע חדא מנייהו נקטו אלא דלפי זה גם בגינה הוה חיוב מדרבנן ואע\"פ שבגמרא לא הוזכר גינה אצל אלו מ\"מ ס\"ל לטור דכחדא נינהו כיון שאין בהם דירה ואינם דומין לבית ואפ\"ה חייבו בהן רבנן:"
+      ],
+      "en_segments": [
+        "Exempt. “Your house” — just as a house is designated for dwelling, so too whatever is designated for dwelling — to exclude these that are not for dwelling. And as for what is written “gatehouse” — it is a small house at the courtyard gate where the watchman sits. And as for “some say a gatehouse, etc.” — it is the view of Rabbi Yitzchak in the Tur, who found two baraitot contradicting each other: in Yoma we learned — in those: exedra, gatehouse, and porch — they are exempt; and in Hakomeitz it is taught that they are obligated. Rabbi Yitzchak resolved this: Hakomeitz speaks of rabbinically. If so, those “some say” also apply to porch and exedra; and Tur and Shulchan Aruch mentioned only one of them. But according to this, also in a garden there would be rabbinic obligation, and even though a garden is not mentioned in the Talmud alongside these — nevertheless Tur holds they are as one since they have no dwelling and are not comparable to a house, yet the rabbis obligated them."
+      ]
+    },
+    {
+      "id": "yd1/siman286/seif-022/beur-hagra",
+      "volume": "yd1",
+      "siman": 286,
+      "seif": 22,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וה\"ה כו'. ממש\"ש תנ\"ה כו':",
+        "(ליקוט) וה\"ה כו'. כמ\"ש בשבת קל\"א ב' הואיל ובידו להפקירן ור\"ל אפילו לדור בהן ודר בהן פטור דטלית שאולה פטור וכן בית שאולה וא\"צ לדחוק שס\"ל דכלי קופסא חייבין בציצית דהא לטליתו ופתחו סתמא קאמר דמשמע בכ\"ע אסור (עברשב\"א בשבת שם ובתוס' דמנחות מ\"ד א' סד\"ה טלית וצ\"ע) והא דאמרינן ר\"פ ראשית הגז אלא ביתך ל\"ל ה\"מ למימר למעוטי דר בבית שאינו שלו וכמ\"ש שם בציצית אלא כסותך ל\"ל כו' אלא חדא מתרי טעמי נקט (רשב\"א בשבת שם ועתוס' דעבודת כוכבים כ\"א סד\"ה הא. ואע\"ג דדרשינן כו'. ובמנחות מ\"ד א' בד\"ה טלית כו') (ע\"כ):"
+      ],
+      "en_segments": [
+        "And likewise, etc. — as written in Tanhuma, etc.; (Addition) And likewise, etc. — as in Shabbat 131b: since he can renounce them, meaning even to dwell in them and he dwells in them he is exempt, for a borrowed cloak is exempt, and so a borrowed house; and one need not force that he holds vessels in a box are obligated in tzitzit, for regarding his cloak and doorway he spoke unspecifiedly implying in all cases forbidden (see Rashba in Shabbat there and Tosafot Menachot 44a dh \"cloak\" — requires study); and that which we say in the first chapter of Rosh Hashanah \"but your house\" — why? It is to exclude one who dwells in a house that is not his, as written there regarding tzitzit \"but your garment\" — why? etc.; rather one of two reasons he cited (Rashba in Shabbat there and Tosafot Avodah Zarah 21a dh \"Ha.\" And even though we expound, etc.; and in Menachot 44a dh \"cloak,\" etc.) (end)."
+      ]
+    },
+    {
+      "id": "yd1/siman288/seif-005/baer-heitev",
+      "volume": "yd1",
+      "siman": 288,
+      "seif": 5,
+      "slug": "baer-heitev",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לכתחלה. ודעת רוב הפוסקים נראה דאפי' דיעבד פסולה בעור שאינו מעובד לשמה. כ\"כ הט\"ז וש\"ך:",
+        "ויקיים. כתב הש\"ך דיקבענה בלא ברכה דכדאי הם הרמב\"ם וסייעתו לסמוך עליהם בשעת הדחק דלא כמ\"ש הב\"ח דלא יקבענה כלל אלא יקבענה שם וישתדל להמציא אחרת כשירה עכ\"ל:"
+      ],
+      "en_segments": [
+        "Initially. And the view of most authorities appears to be that even after the fact it is invalid on hide that is not tanned for its sake. So write Taz and Shach."
+      ]
+    },
+    {
+      "id": "yd1/siman289/seif-003/turei-zahav",
+      "volume": "yd1",
+      "siman": 289,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גובה השער. דכתיב וקשרתם וכתבתם מה קשירה בגובה אף כתיבה בגובה ומה קשירה אינו בגובה ממש למעלה אף כתיבה צריכ' להרחיק טפח ממשקוף וזהו לכתחלה אבל בדיעבד כשר בלא הרחקה מלמעלה כ\"כ ב\"י אבל בהרחיקה מלמעלה יותר משליש כתב ב\"י בשם הרמב\"ם דאפי' דיעבד פסול ולא כהטור שכתב דאם שינה גם בזה אין מעכב בדיעבד ומש\"ה כתב רמ\"א דקאי אסעיף ב' דכשר בדיעבד דמשמע דבזה אפילו דיעבד פסול. ומה שמבואר בטור דאף אם עשאה אחורי הדלת אינו מעכב בדיעבד לא אשכחן מאן דפליג על זה כיון שבימין הוא ומבואר בב\"י בשם המרדכי דאם היא גבוה הרבה אין לעשות המזוזה גבוה מכתיפיו דאז אינה נראה לעיניו בכניסה ויציאה וסמך לדבר נ\"ל בפסוק ולבנימין וגו' ובין כתיפיו שכן להורות שארצו ישכון לבטח טפי משאר ארצות דאילו בשאר אין השראת השכינה אלא במקום מזוזה שהיא בין כתפיו של אדם אבל בנימין חופף עליו כל היום מלבד ובין כתפיו שכן:",
+        "ומ\"ש על ימין הנכנס דכתיב ביתך היינו דרך ביאתך וסתם אדם עקר כרעא ימינא ברישא ואף אם הוא איטר מ\"מ אחר רוב בני הבית אזלינן:"
+      ],
+      "en_segments": [
+        "The height of the gate. For it is written \"and you shall bind them\" and \"you shall write them\" — just as binding is at height, so writing is at height; and just as binding is not at an exact height at the top, so too writing must be distanced a handbreadth from the lintel — and this is initially; but after the fact, it is valid without distancing from above. But if it was distanced from above by more than a third — Beit Yosef wrote in the name of Rambam: even after the fact it is invalid; and not like the Tur who wrote that if he changed this as well, it does not invalidate after the fact. And therefore Rama wrote regarding seif 2 — that it is valid after the fact — implying that in this case even after the fact it is invalid. And what is explained in the Tur that even if he placed it behind the door it does not invalidate after the fact — I find no one who disputes this since it is on the right. And it is explained in Beit Yosef in the name of Mordechai: if it is very high, one should not make the mezuzah higher than his shoulders, for then it is not visible to his eyes at entrance and exit. The support for this seems to me in the verse \"and to Benjamin,\" etc., \"and between his shoulders he dwells\" — to indicate that his land would dwell in safety more than other lands; for in other lands the Divine Presence rests only at the level of the mezuzah, which is between a person's shoulders; but for Benjamin, He hovers over him all day. And as for what is written \"on the right of the one who enters\" — for it is written \"your house,\" meaning the way of your entering; and a person normally lifts his right foot first; and even if he is left-handed, nevertheless we follow the majority of household members."
+      ]
+    },
+    {
+      "id": "yd1/siman289/seif-005/beer-hagolah",
+      "volume": "yd1",
+      "siman": 289,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרב זירא א\"ר מתנא וכו' שם דף ל\"ג ע\"א וכדמפרש שם ריש ע\"ב:",
+        "(°) ואם הפתח גבוה מאוד לא יניתנו למעלה מכתיפיו דאינו נראה שם מרדכי:"
+      ],
+      "en_segments": [
+        "M.M. Dr. M. M. M. M. M. D. A. D. A.D., and if the opening is very high, we will not give up our mouths, we will see Mordechai:"
+      ]
+    },
+    {
+      "id": "yd1/siman292/seif-009/beur-hagra",
+      "volume": "yd1",
+      "siman": 292,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מעוף אחר. רמב\"ם אבל לפירש\"י א\"צ לזה שפי' כנפים נוצה תלושה:",
+        "או שהיתה אם ע\"ג אם. עבה\"ג וכ\"כ הר\"נ ול\"נ שגירסתו בגמ' היתה כן:"
+      ],
+      "en_segments": [
+        "Another chicken. The Holy One, however, is Hashem’s promise to Hashem’s mercy:"
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הא דאמרינן כו'. רמב\"ם וביאר שם שאם נטען מט\"ו בשבט ואילך עד מ\"ד יום קודם ר\"ה חשבינן עד ט\"ו בשבט של רביעית ומי\"ו באב עד ר\"ה אסור ער ר\"ה של רביעית ומאחר ר\"ה עד ט\"ו בשבט חשבינן ג' שנים מיום ליום והראב\"ד כתב שם דכ\"ז לבד י\"ד יום של קליטה אבל דעת הרמב\"ם דג' שנים חשבינן מעת הנטיעה דוקא לחושבן שנה חשבינן ימי קליטה דלא ככ\"מ שם וכ\"ה בת\"כ הנ\"ל ובירושלמי פ\"ק דערלה מאימתי כו' משעת נטיעה. והר\"נ והרא\"ש כתבו שהוא פלוגתא בירושלמי פ\"ק דר\"ה (ופ\"ב דשביעית) והמסקנא בירושלמי דלעולם אסור עד ט\"ו בשבט וז\"ש. וי\"א דל\"ש אבל הראב\"ד כתב מהירושלמי ראיה לדברי הרמב\"ם וז\"ל הירושלמי א\"ר אבא בר ממל קמיה דר' זעירא נראין הדברים כשנטעו שלשים יום לפני ר\"ה אבל כשנטעו פחות משלשים יום לפני ר\"ה את חמי שנה שלימה לא עלתה לו ותימר הכין א\"ל כיני אפי' אם נטען פחות משלשים יום לפני ר\"ה יהא אסור מאי כדון א\"ר מני מכיון שעומד בתוך שנתו של אילן הוא משלים שנתו. כ\"ה גירסת הר\"נ והרא\"ש. והראב\"ד גורס שנה שלימה מונין לו ותימר הכין והיא מיושבת יותר ואין נ\"מ בזה ופי' הר\"נ שר\"ז חלק עליו ואמר כיני אפי' כו' ואמר מאי כדון ר\"ל מ\"מ וא\"ר מני דלאו משום חומרא הוא אלא טעמא דמילתא כיון דאילן גדל על רוב מים ועד ט\"ו בשבט מחמת מים שעברה והוי כאלו חנטו קודם תשרי וכיון דמש\"ה ליכא לאפלוגי בין שלשים יום לפחות מכאן אבל הראב\"ד גורס בירושלמי א\"ל כיני אפי' נטען שלשים יום לפני ר\"ה יהא אסור ופי' כיון דקפדינן על ג' שנים שלימות למה אסורה רק עד ט\"ו בשבט יהא אסור ג' שנים שלימות ומשני א\"ר מני מכיון כו' ר\"ל משלים שנתו עד ט\"ו בשבט ודי בכך כיון שהוא ר\"ה לאילנות משא\"כ בפחות כיון שיש ג\"ש שלימות וכתב ועוד ראיה ממ\"ש בר\"ה שם ופירות נטיעה זו כו' משמע דוקא כגון זו ועוד מדאמרינן פעמים שברביעית כו' משמע פעמים דוקא והם דחו ראיותיו ע\"ש ושם וערש\"י שם סד\"ה ופירות כו' לכך הועילו כו' והוא כסברא ראשונה והר\"נ כתב דגם לסברא אחרונה נ\"מ במ\"ש שתשרי ר\"ה לאילן דאל\"כ ה\"א שאלו נטעו מ\"ד יום קודם ט\"ו בשבט עלתה לו שנה:",
+        "(ליקוט) הא דאמרינן כו'. וכ\"מ בירושלמי הנ\"ל (בליקוט שבס\"ק מ\"ח) דקאמר אבל אמרו פירות נטיעה כו' משמע דוקא כה\"ג (ע\"כ):"
+      ],
+      "en_segments": [
+        "That which we say, etc. Rambam explained there that if it was planted from the 15th of Shevat onward until 44 days before Rosh Hashanah, we count until the 15th of Shevat of the fourth year; and from the 15th of Av until Rosh Hashanah it is forbidden until Rosh Hashanah of the fourth year; and from after Rosh Hashanah until the 15th of Shevat we count three years day for day. Raavad wrote there that all this is only the 14 days of absorption, but Rambam's opinion is that we count three years from the time of planting specifically; for year calculation we count the days of absorption, unlike Kesef Mishneh there; and so in the Torat Kohanim cited and Yerushalmi chapter 1 of Orlah “from when”; from the time of planting. Ran and Rosh wrote this is a dispute in Yerushalmi chapter 1 of Rosh Hashanah (and chapter 2 of Sheviit), and the conclusion in Yerushalmi is forever forbidden until 15 Shevat; and so is his opinion. Yeish Omrim disagree, but Raavad wrote from Yerushalmi proof for Rambam's words, and this is its language: Yerushalmi; R' Abba bar Mamal before R' Zeira: it appears correct when planted 30 days before Rosh Hashanah, but when planted less than 30 days before Rosh Hashanah; you see a complete year did not count for him. Say thus. He said to him: yes, even if planted less than 30 days before Rosh Hashanah it shall be forbidden. What is the reason. R' Mani: since it stands within its tree's year, it completes its year. So is Ran and Rosh's text. Raavad's text: a complete year we count for him. Say thus. And it is more settled and there is no practical difference. Ran explained R' Zeira disagreed and said yes, even if planted less than 30 days before Rosh Hashanah it shall be forbidden; and said what is the reason; meaning nevertheless; and R' Mani; not due to stringency but the reason of the matter: since the tree grows on majority water until 15 Shevat from rainwater that passed, and it is as if it ripened before Tishrei; and since so there is no dispute between 30 days and less. But Raavad's Yerushalmi text: he said to him yes, even if planted 30 days before Rosh Hashanah it shall be forbidden; explanation: since we are strict about three complete years, why is it forbidden only until 15 Shevat; let three complete years be forbidden; and R' Mani answers: since etc., meaning it completes its year until 15 Shevat and that suffices, since Rosh Hashanah is for trees; unlike when less, since there is weighing of a complete year; and he wrote further proof from what is written in Rosh Hashanah there “fruits of this planting,” etc., implies specifically such a case; and further from “sometimes in the fourth year” implies only sometimes; they rejected his proofs, see there and there; and Rashi there s.v. ufeiros, etc.; therefore they were helped, etc., and it is like the first reasoning; Ran wrote that also for the latter reasoning there is a difference in what he wrote that Tishrei is Rosh Hashanah for a tree, for otherwise if planted 44 days before 15 Shevat a year would count for him. (Likut) That which we say, etc. And so in the Yerushalmi cited (in Likut in note 48) that says but they said fruits of planting, etc., implies specifically such a case (end of comment)."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-007/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דין נ\"ר כו' וי\"א כו' וי\"א כו'. סברא השלישית עיקר והיא סברת הגאונים וכן סתם לקמן בסי\"ז וכ\"כ תוס' בברכות ל\"ה א' ד\"ה ולמאן כו' וה\"ר יונה הקשה ע\"ז דא\"כ ל\"ל למימר בקדושין ל\"ט א' לא צהריתו לא קי\"ל כו' הא בלא\"ה כל המיקל כו' אלא דלא אמרינן אלא בצלף דוקא וזהו סברא ראשונה ודבריו תמוהין דהא אמרינן בשבת קל\"ט א' וקי\"ל כו' [וכן אמרינן בירושלמי ספ\"ד דכלאים דברי חכמים ר' יעקב בר אידי בשם ריב\"ל הלכה כדברי מי שהוא מיקל בח\"ל א\"ר יעקב בר אחא ותני תמן הלכה כדברי מי שהוא מיקל בח\"ל וכ\"ה שם פ\"ו סוף מתני' א' ומשמע שם בכ\"מ]. וקושייתו שהקשה קשה שם יותר ל\"ל למימר כדר\"ט הל\"ל כדר' יאשיה משום ה\"ט אלא צ\"ל כמ\"ש תוס' שם סד\"ה ולישלח כו' ע\"ש. וסברא שניה הוא סברת הרמב\"ם וז\"ל בפ\"י מהמ\"א יראה לי שאין נ\"ר נוהג בח\"ל וק\"ו מה סוריא אינו נוהג כמ\"ש בהמ\"ש ק\"ו לח\"ל כו' וז\"ל בפ\"ט מהמ\"ש וכשם שאין מ\"ש בסוריא כך אין נטע רבעי בסוריא ודבריו לקוחין מהירושלמי פ\"ה דמ\"ש אבל הוא תמוה מאד דמשם ראיה להיפך [וכן מצאתי ברשב\"א בב\"ק ס\"ט א' שכתב שהרמב\"ם למד מהירושלמי הזה ותמה ג\"כ עליו ע\"ש שהאריך בפי' הירושלמי] וז\"ל הירושלמי שם תמן תנינן רי\"א אין לעובד כוכבים כרם רבעי וחכ\"א יש לו כו' רב ביבי אמר קומי ר\"ז בשם ר\"א אתיא דר\"י כב\"ש כמה דב\"ש אמרו לא למדו לנ\"ר אלא ממ\"ש כמ\"ד אין מ\"ש בשביעית ודכוותיה אין נ\"ר בשביעית כן רי\"א לא למדו לנ\"ר אלא ממ\"ש כמ\"ד אין מ\"ש בסוריא ודכוותיה אין נ\"ר בסוריא כו' רי\"א אין לעובד כוכבים נ\"ר בסוריא ור\"ל כמו שאין חייב בשל עובד כוכבים בסוריא במ\"ש שבסוריא יש קנין לעובד כוכבים להפקיע מידי תרומות ומעשרות כמ\"ש במתני' פ\"ו דדמאי המוכר פירות כו' וסוף מעשרות הלוקח שדה כו' ופ\"ד דחלה ישראל שהיו כו' וכמ\"ש בר\"ס של\"א ע\"ש מס\"ג עד סי\"א. וז\"ש רי\"א אין לעובד כוכבים כרם דבעי דוקא בסוריא ודוקא עובד כוכבים ולרבנן אפי' עובד כוכבים בסוריא וכן מבואר להדיא בתוספתא וער\"ש בפ\"ג דתרומות שם ד\"ה אין לעובד כוכבים כו' כדתניא כו':",
+        "(ליקוט) דין נטע כו'. עמש\"ש אבל יש לקיים זה הסברא מצד אחר שי\"א דוקא מן התורה פליגי ממ\"ש אתרוג שוה לאילן כו'. תוס' בקדושין ב' ב' בד\"ה אתרוג. וי\"מ כו' ויש כו' (ע\"כ):",
+        "(ליקוט) דין כו'. בתוס' דקדושין ב' ב' בד\"ה אתרוג כ' וי\"מ שמדרבנן מודה אף מאן דתני כרם שנוהג בכל אילנות וראיה דתנן אתרוג שוה לאילן כו' וברבעי ולפ\"ז נוהג בח\"ל מדרבנן לד\"ה. שם. אבל בתוס' דר\"ה י\"ד ב' ד\"ה לרבעי ובסוכה ל\"ט ב' ד\"ה לרבעי כ' כסברא ראשונה שם בתוס' דהך מתני' אתי כמ\"ד נטע רבעי (ע\"כ):"
+      ],
+      "en_segments": [
+        "The law of neta revai, etc., and some say, etc., and some say, etc. ; the third reasoning is primary, and it is the Geonim's reasoning, and so unspecified below in siman 17; and so Tosafot in Berakhot 35a s.v. uleman, etc.; and R' Yona wondered on this; if so, why need we say in Kedushin 39a “you did not include,” we do not hold, etc.; for in any case whoever is lenient, etc., only we do not say except regarding caper specifically; and this is the first reasoning, and his words are astounding, for we say in Shabbat 139a and we hold, etc. [and likewise in Yerushalmi end ch 4 of Kilayim: words of Sages; R' Yaakov bar Iddi in the name of R' Yehoshua ben Levi: halacha follows one who is lenient abroad; R' Yaakov bar Acha; and it teaches there: halacha follows one who is lenient abroad, and so there chapter 6 end of mishnah 1, and it implies there in all places]. And his difficulty that he asked is harder there; why need we say like R' Tarfon, it should say like R' Yoshiah because of the reason; rather it must be said as Tosafot there s.v. velishlach, etc., see there. The second reasoning is Rambam's reasoning, and this is his wording in chapter 10 of Maaser Sheni: it appears to me neta revai does not apply abroad, and a fortiori from Syria that does not apply, as in Maaser Sheni; a fortiori to abroad, etc.; and this is his wording in chapter 9 of Maaser Sheni: and just as there is no maaser sheni in Syria, so there is no nets revai in Syria, and his words are taken from Yerushalmi chapter 5 of Maaser Sheni; but it is very astounding, for from there is proof to the contrary [and I found in Rashba in Bava Kama 69a that he wrote Rambam learned from this Yerushalmi, and he too wondered on him; see there where he elaborated on the Yerushalmi]. And this is its Yerushalmi language there: we learned; R' Yishmael: a gentile has no fourth-year vineyard, and the Sages say he has, etc.; Rav Beivai said before R' Zeira in the name of R' Eliezer: R' Yishmael's reasoning follows Beit Shammai; just as Beit Shammai said they did not learn neta revai except from maaser sheni, as one who says there is no maaser sheni in sheviit and likewise no neta revai in sheviit, so R' Yishmael did not learn neta revai except from maaser sheni, as one who says there is no maaser sheni in Syria and likewise no neta revai in Syria, etc.; R' Yishmael: a gentile has no neta revai in Syria; meaning: just as he is not obligated in a gentile's [produce] in Syria in maaser sheni, for in Syria a gentile has acquisition to remove from tithes, as in mishnah chapter 6 of Demai “one who sells produce,” etc., and end of Maasrot “one who buys a field,” etc., and chapter 4 of Challah “Israel who were,” etc., and as written in siman 331 see there from siman 173 until siman 181. And this is R' Yishmael's wording: a gentile has no vineyard; it requires specifically Syria and specifically a gentile; and for the Sages, even a gentile in Syria; and so explained explicitly in Tosefta and Rosh in chapter 3 of Terumot there s.v. ein le'oved kochavim, etc., as the braita teaches, etc. (Likut) The law of planting, etc.; from what he wrote; but one can establish this reasoning from another side, that Yeish Omrim they argue only from Torah regarding maaser sheni, etrog is equivalent to a tree, etc.; Tosafot Kedushin 2b s.v. etrog. And Yeish Omrim, etc., and there is, etc. (end of comment). (Likut) The law, etc.; in Tosafot Kedushin 2b s.v. etrog they wrote: Yeish Omrim that d'rabbanan he admits; even one who teaches “vineyard applies to all trees,” and proof; we learned etrog is equivalent to a tree, etc., and revai; and accordingly it applies abroad d'rabbanan according to R' Yehudah; there. But in Tosafot Rosh Hashanah 14b s.v. lerevai and Sukkah 39b s.v. lerevai they wrote like the first reasoning there in Tosafot on that mishnah; it follows one who says nets revai (end of comment)."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-010/beur-hagra",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כרם כו'. כמ\"ש בברכות ל\"ו א' ואפי' לוקט ביד מותר כנ\"ל וכ\"כ כ\"מ:",
+        "(ליקוט) כרם כו'. ואפי' לוקט ביד מותר וכ\"כ כ\"מ והטעם דוקא ביש בו נטיעות של ערלה ודאי אתחזק איסורא משא\"כ כה\"ג וכמ\"ש (כריתות י\"ח א') באשם תלו דאינו חייב אלא בחתיכה מב' חתיכות. והוא לקוח מתוספתא סוף ערלה הרי שנמצא נטיעה קטנה בתוך שדהו ספיקו בא\"י אסור בסוריא ובח\"ל מותר:"
+      ],
+      "en_segments": [
+        "A vineyard, etc. ; as written in Berakhot 36a, and even if he picks by hand it is permitted as above, and so Kesef Mishneh writes. (Likut) Vineyard, etc. And even picking by hand is permitted, and so Kesef Mishneh writes; the reason is specifically when there are orlah plantings in it; certainly presumption of prohibition applies, unlike such a case, as written (Keritot 18a) in asham talui one is liable only for a piece of two pieces; and this is taken from Tosefta at the end of Orlah: if a small planting was found in his field; its doubt in Eretz Yisrael is forbidden, in Syria and abroad permitted."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-024/beer-hagolah",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 24,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרבי אמי אמר ר' יוחנן קדושין דף ל\"ט ע\"א",
+        "(°) כ\"כ התוס' שם וש\"פ:"
+      ],
+      "en_segments": [
+        "The statement of Rabbi Ami in the name of Rabbi Yochanan, Kiddushin 39a. Tosafot there and the other authorities write likewise."
+      ]
+    },
+    {
+      "id": "yd1/siman294/seif-026/beer-hagolah",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 26,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מד' הרמב\"ם בפ\"י מהמ\"א ממשנה סוף מס' ערלה וכמ\"ש בכ\"מ ובבית יוסף:",
+        "(°) משום דמוכחא מילתא דמפירות הגן הם וליכא אלא חד ספיקא הר\"ן:",
+        "(°) פי' אפילו ללקוט ביד וכמ\"ש בכ\"מ ובבית יוסף לדעת הרמב\"ם בסעיף שאחריו:"
+      ],
+      "en_segments": [
+        "From Rambam, chapter 10 of Hilchot Maachalot Assurot, based upon the Mishnah at the end of tractate Orlah, as Kesef Mishneh and Beit Yosef explain. Since it is evident that the fruits came from the garden, there is only one uncertainty. The Ran. Meaning, even to gather them by hand, as Kesef Mishneh and Beit Yosef explain according to Rambam in the following seif."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(°) מסעיף א' עד סעיף י\"ט הוא לשון הרמב\"ם בפ\"ה מהל' כלאים:",
+        "מסקנת הגמ' ברכות דף כ\"ב ע\"א ובכמה דוכתי דקי\"ל כרבי יאשיה דאינו לוקה עד שיזרע וכו':"
+      ],
+      "en_segments": [
+        "From seif 1 through seif 19, this is the wording of Rambam in chapter 5 of Hilchot Kilayim. The Gemara concludes in Berakhot 22a and in several places that the halachah follows Rabbi Yoshiyah, who holds that one is not liable to lashes until he sows, and so forth."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-005/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מנחות דף ט\"ו ע\"ב:",
+        "(°) פירש הכ\"מ שם הייינו שאינם עושים אלא לג' שנים כדתנן בפ\"ב דכלאים משנה ה' כמו שתבואת הכרם אינו ניתר עד ג' שנים והר\"ן כתב לפי שגדלים הרבה איכא ערבוביא ועושים אשכולות כגפנים אסורים משום כלאי הכרם ובא לאפוקי שאר זרעים שאינם נאכלים אבל תבואה וקטניות וירקות אסורים מן התורה:"
+      ],
+      "en_segments": [
+        "Menachot 15b. Kesef Mishneh explains that these are species that endure for three years, as taught in Mishnah 5, chapter 2 of Kilayim, just as vineyard produce is not permitted until three years. The Ran writes that because they grow extensively, create intermingling, and form clusters like vines, they are forbidden as diverse species in a vineyard. This excludes other inedible seeds, but grain, legumes, and vegetables are forbidden by Torah law."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-019/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 19,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ז' פ\"ז דכלאים:",
+        "(°) פי' יחתוך מלשון גודו אילנא:"
+      ],
+      "en_segments": [
+        "Mishnah 7, chapter 7 of Kilayim. 'He shall cut' is an expression meaning to sever, like 'cut down the tree.'"
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-039/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 39,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ו' פרק ה'",
+        "(°) וכ' הרמב\"ם ע\"פ הירושל' שמשערין אם תיבש עד שלא תשאר בו ליחה במאה שעה אם נשתהה בארץ משהגיע לו חצי שעה הרי הוסיף במאתים לאסור והראב\"ד כתב בחצי שעה יכול לדעת כיצד עוקר שבלים כמה שירצה ושוקל אותם בשעת עקירה ולחצי שעה ישקול אותם ואם היו ב' אוקיות ועכשיו פחתו אוקיא הרי שבחצי שעה הוסיפו הנטיעות אוקיא:"
+      ],
+      "en_segments": [
+        "Mishnah 6, chapter 5. Rambam writes, based upon the Yerushalmi, that we estimate whether it would dry out in one hundred hours until no moisture remains. If it remained in the ground for half an hour after reaching this stage, it added one two-hundredth and prohibits. Raavad writes that one may determine this by uprooting stalks, weighing them immediately, and weighing them again after half an hour; if two ounces became one, the plants added one ounce during that half hour."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-042/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 42,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(°) מכאן עד סוף סעיף ל' הוא ל' הרמב\"ם ריש פ\"ו מהלכות כלאים:",
+        "ממשנה ה' פ\"ה דכלאים:"
+      ],
+      "en_segments": [
+        "From here through the end of seif 30, this is the wording of Rambam at the beginning of chapter 6 of Hilchot Kilayim. It is based upon Mishnah 5, chapter 5 of Kilayim."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-045/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 45,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גדר כו'. מתני' הנ\"ל ובעירובין שם יש כו':",
+        "(ליקוט) גדר כו'. ע\"ל סמ\"ז מחיצת כו' וערש\"י בב\"ק שם ובב\"ב שם (ע\"כ):",
+        "(ליקוט) גדר כו'. הביאו הרא\"ש ראיה ממ\"ש בב\"ב כ\"ו א' היה גדר בינתים כו' והן דברי רש\"י שם (ב') א' בד\"ה אומר לו כו' ועתוס' כ\"ו א' ד\"ה אחד כו' שהקשו עליו דמתני' לא בזרעים וכ\"כ הרא\"ש והג\"א שם דבזרעים בעינן טפי כפי אומד כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "A fence etc. ; that mishnah and in Eruvin there is etc. Likut: fence etc. ; see Semag partition etc. and Rashi Bava Kamma there and Bava Batra there ; end. Likut: fence etc. ; Rosh brought proof from Bava Batra 26a ; there was a fence between them etc., and these are Rashi's words there (2) s.v. omer lo etc.; Tosafot 26a s.v. echad challenged him that the mishnah is not about seeds; so Rosh and Hagahot there ; for seeds we need more per estimation etc. ; end."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-053/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 53,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם במשנה ב' פ\"ז וכר\"א בן צדוק ופי' שהבריך את הגפנים ולא כיסה כלום מן העיקר כדרך הברכה וכו':",
+        "(°) הטעם לפי שהוא מקפיד על הג' לצרפן לכרם ולא הב':"
+      ],
+      "en_segments": [
+        "There, Mishnah 2, chapter 7, following Rabbi Elazar bar Tzadok. He layered the vines without covering any part of the original trunk, in the ordinary manner of layering. The reason is that he is particular to combine the three with the vineyard, but not the other two."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-059/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 59,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם משנה ט'",
+        "(°) ומכאן עד סוף סעיף נ\"ה הוא לשון הרמב\"ם בפ\"ז:"
+      ],
+      "en_segments": [
+        "There, Mishnah 9. From here through the end of seif 55, this is the wording of Rambam in chapter 7."
+      ]
+    },
+    {
+      "id": "yd1/siman296/seif-069/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 69,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ז' פ\"ד:",
+        "(°) פי' לא ט\"ז אמה כדרך הרבים אלא שביל הדרכים לרבים וכמו שכתב הראב\"ד שם וכמו שאמר רבינו בעצמו בסוף הסעיף:"
+      ],
+      "en_segments": [
+        "Mishnah 7, chapter 4. This does not mean a sixteen-cubit public thoroughfare, but a path used by the public, as Raavad writes there and as Rambam himself states at the end of the seif."
+      ]
+    },
+    {
+      "id": "yd1/siman297/seif-010/beer-hagolah",
+      "volume": "yd1",
+      "siman": 297,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מהירושלמי ריש כלאים גבי זינין:",
+        "(°) לאו דוקא אלא אפילו רוצה בקיומו למאכל בהמה כמו שנתבאר לעיל בהלכות כלאי הכרם סעיף י\"ד:"
+      ],
+      "en_segments": [
+        "From the Yerushalmi at the beginning of Kilayim concerning distinct species. This is not literal. Even if he desires their continued existence as animal food, the prohibition applies, as explained above in the laws of diverse species in a vineyard, seif 14."
+      ]
+    },
+    {
+      "id": "yd1/siman297/seif-042/turei-zahav",
+      "volume": "yd1",
+      "siman": 297,
+      "seif": 42,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "רצז II",
+        "א היו מכין אותו מכת מרדות. משמע דמדרבנן עביד איסורא וזהו שכתב הטור אבל איסורא איכא ולא כמ\"ש בפרישה דאיסור דאורייתא הוא שהוקשה לו אי מדרבנן הא בלאו הכי יש איסור לראות כשנזקקין בהמות זה לזה וזה לאו קושיא כלל דמפני איסור הרהור אין כאן מכת מרדות דאין בזה איסור כלל רק גדר קדושה מי שרוצה להתקדש עצמו וראיה שלבעל תשובה שעבר על ניאוף הזהירו בזה שלא יסתכל בשעה שבהמות או עופות נזקקין זה לזה:"
+      ],
+      "en_segments": [
+        "They administered lashes for rebellious conduct. This indicates only a rabbinic prohibition. The concern is not an actual prohibition against seeing animals mate. Avoiding such a sight is a personal safeguard of holiness, especially advised to a penitent for sexual sin, but it does not itself warrant lashes for rebellious conduct."
+      ]
+    },
+    {
+      "id": "yd1/siman314/seif-005/beer-hagolah",
+      "volume": "yd1",
+      "siman": 314,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כרב אשי וכרב יימר ומסקנת הגמרא שם דף ל\"ו ע\"א:",
+        "מדאמרי שם דף ל\"ה ע\"ב אשתו כגופו הא אשה דעלמא מהימנא:"
+      ],
+      "en_segments": [
+        "From the statement there on 35b that one's wife is like oneself, implying that another woman is believed."
+      ]
+    },
+    {
+      "id": "yd1/siman390/seif-006/siftei-kohen",
+      "volume": "yd1",
+      "siman": 390,
+      "seif": 6,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לסרוק כו'. כאן חסר סעיף א' שהרי נרשם סעיף ד' סעיף ו' ולא נרשם סעיף ה' ולא כעט\"ז שחלק סעיף ה' לב' סעיפים ע\"ש אלא צ\"ל סעיף חדש כמו שהוא במקצת ספרי הש\"ע וכך צ\"ל אשה מותרת בנטילת שער אחר ז'. הג\"ה ויש אוסרים אף לאשה וכן עיקר ע\"כ. וכן הוא בהקדמת סמ\"ק ע\"ש ועיין בב\"י ב' הדעות והב\"ח פסק דבמקום שדרכה של אשה לגלח שערות אלו כגון רבוי שערות דצידעא ובת צידעא מותרת ליטלם אחר ז' ע\"ש:",
+        "האשה כו'. ובב\"י משמע דאפי' לאיש מותר שאין כאן לא תענוג ולא שמחה ונ\"ל דל\"ד נקט אשה ובב\"ח כתב שמצא שט\"ס הוא וצריך להגיה לסרוק ראשו כו' וכן הוא בעט\"ז אך בהגה' סמ\"ק בשם א\"ז מתיר דוקא לאשה ולא לאיש ומביאו הב\"ח:"
+      ],
+      "en_segments": [
+        "To comb, etc. A seif is missing here, since the text marks seif 4 and seif 6 but not seif 5. The Levush's division of seif 5 into two is not correct. A new seif should be inserted, as in some editions: 'A woman may remove hair after seven days. Gloss: Some prohibit this even for a woman, and this is the primary ruling.' This appears in the introduction to Semak. The laws of haircutting and combing must be distinguished, and the readings of the editions and later authorities should be consulted."
+      ]
+    },
+    {
+      "id": "cm1/siman3/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 3,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אע\"פ. עתוס' סנה' ה' א' ד\"ה כגון כו':",
+        "(ליקוט) אע\"פ כו'. אבל קבלוהו אף בהדיו' מותר לכתחל' כמ\"ש בירו' ריש סנה' ר' אבהו היה יתיב דיין בכנישתא מדרתא דקיסרין לגרמיה א\"ל תלמידוי ולא כן אלפין רבי אל תהי דן יחידי אמר לון כיון דאתון חמי לי יתיב דיין לגרמי ואתון לגבי כמי שקיבלו עליהן ותני כן בד\"א שלא קיבלו עליהן אבל כו' קיבלו עליהן דן אפי' יחידי (ע\"כ):"
+      ],
+      "en_segments": [
+        "AJ. A.D. A. A.D., such as “Luke”: But Hashem’s promise to Abraham was given to him that he would not be able to worship him as a prophet, and that he would not be given to him, and that he would not give him a single one of them"
+      ]
+    },
+    {
+      "id": "cm1/siman7/seif-008/chelkat-mechokek",
+      "volume": "cm1",
+      "siman": 7,
+      "seif": 8,
+      "slug": "chelkat-mechokek",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או שנשאת לפני ב\"ד ולא מיחו בה . מל' זה משמע שאם נשאת בצנעה בלא ידיעת ב\"ד ובאו עדי שביה תצא כשם שנשואה שבאו עליה עדי שביה תצא ה\"ה שבויה שנשאת תצא ואין לה היתר אלא שנשאת ע\"פ ב\"ד או לפני ב\"ד ולא מיחו בידה ובאמת יש לחלק בשלמ' נשואה אין מאמינים לה דהיא נוגעת בדעת אבל אשה שבויה שנשאת לא שבקת היתיר' ואכל' איסור' הלא הרשות בידה להנשא לישראל למי שתרצה ועי' בתשובת רד\"ך בית ח' שם כתב דאפילו נשאת בצנעה בלא ידיעת ב\"ד לא תצא:",
+        "בתשובות הרד\"ך כתב בסוף בית שמיני אעפ\"י שבעלה ידע בה שהיתה שבויה קודם שנשאת מאחר שלא היה ידוע הדבר לב\"ד בעדים מותרת לו דמ\"מ יש לה מיגו שהית' נשאת לאחר עיין עליו. ונראה אם נשואה נשבית ובעלה ידע שהיא שבויה אינה נאמנת לו' טהור' אני דהא ליכ' מיגו דאיבעי אמרה לא נשביתי דהא בעלה ידע שהיא שבויה וכן משמע מל' תשובת הרא\"ש כלל ל\"ב סי' ה' כיון שידוע לבעל שהית' בין הכותים אין לך עדי שבויה גדול מזה:"
+      ],
+      "en_segments": [
+        "Or she married before beit din and they did not object. This wording implies that if she married privately without beit din's knowledge and afterward witnesses came that she had been taken captive, she must leave the marriage. Just as a married woman against whom witnesses of captivity later appear must leave, so too a captive woman who married must leave unless she married by authorization of beit din or in their presence without objection. In truth, however, there is room to distinguish. A married woman is not believed because she is personally interested in remaining with her husband. A captive woman who has already married does not abandon a permitted option and deliberately choose a prohibited one, for she was free to marry any Israelite she wished. Responsa Radach, house 8, writes that even if she married privately without beit din's knowledge she need not leave. The Radach also writes that even if her husband knew before marriage that she had been captive, so long as the fact was not established before beit din by witnesses she remains permitted to him, because she had a migo that she could have married another man. It appears, however, that if a married woman was taken captive and her husband knew that fact, she is not believed to say she remained pure, because she has no migo to say she was never captive. This is also implied by Responsa Rosh, rule 32, siman 5: once the husband knows that she was among the gentiles, there can be no greater testimony of captivity than that."
+      ]
+    },
+    {
+      "id": "cm1/siman11/seif-002/beur-hagra",
+      "volume": "cm1",
+      "siman": 11,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם יש. ע\"ק שם לפני גברא רבא שנא' כו':",
+        "(ליקוט) ואם כו'. עסמ\"ע (ע\"כ):"
+      ],
+      "en_segments": [
+        "If there is. “And I shall say to him, ‘I shall be done,’ and if he is. (a)"
+      ]
+    },
+    {
+      "id": "cm1/siman30/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 30,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן דיני עדות. ירו' ריש פ\"א דסוטה:",
+        "(ליקוט) וכן כו'. ירו' ריש סוטה נסתרה בעד אחד בשחרית ובע\"א בין הערביים זה היה מעשה ושאל ר\"א בן תדאי לחכמים אם זה ייחוד ואמרו אין מקבלין עדות אא\"כ ראו שניהם כאחד ריב\"ק אומר אפי' ראו שניהם זא\"ז וקי\"ל כריב\"ק כנ\"ל (ע\"כ):",
+        "(ליקוט) וכן דיני כו'. עמ\"ש בא\"ע סי\"א סס\"א בהג\"ה (ע\"כ):"
+      ],
+      "en_segments": [
+        "The law of testimony. \"And he shall be called,\" he said. Joshua Rashi was hidden in favor of one of the Arabs in the Middle East and said, “This is an act, and it is the case of the Sages, if it is unique, and it is said that they are not given testimony as one of them, as one of them, and that they shall see them as one of them.” And then, in the midst of Hashem’s covenant with the Holy Spirit"
+      ]
+    },
+    {
+      "id": "cm1/siman33/seif-009/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 33,
+      "seif": 9,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[שו\"ע] כשהי' חתנו. נ\"ב אם חתם בשטר עד שלא נעשה חתנו ואח\"כ נעשה חתנו דנין על חתימתו ולא הוי תחילתו בכשרות וסופו בפסול דעדים החתומים על השטר נעשה כמי שנחקרה עידותן בב\"ד והוי סופן ג\"כ בכשרות:",
+        "כשהי' חתנו ומתה. נ\"ב אף אם אז היתה בתו גוססת מ\"מ כיון דעוד לא שכיבא לא מקרי תחלתן בכשרות הגהת אשר\"י פ\"ד דשבועות:"
+      ],
+      "en_segments": [
+        "And when I got married. If he had signed a bill until he was not cut and then he was cut off by Danin on his signature and did not begin with training and was annexed by the unknowns on the bill, he was made as if he had been injured in B.D. and had been provided with the talent: ‘He was cut and died.’ Even if his daughter had been dying from the High Court, he would not have brought any chance of their replacement in the G-d's training:"
+      ]
+    },
+    {
+      "id": "cm1/siman43/seif-011/beur-hagra",
+      "volume": "cm1",
+      "siman": 43,
+      "seif": 11,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' ראו. ב\"מ י\"ב ב' י\"ט א':",
+        "(ליקוט) אפי' ראו כו'. כמ\"ש אייתי ראיה אימתי מטא כו' וכנ\"ל סי' ל\"ט סי\"ג (ע\"כ):"
+      ],
+      "en_segments": [
+        "My nose saw. In the U.S. . . . As a result, I have seen before I uttered my name, and I have been called the S.C. and I have been appointed to “T"
+      ]
+    },
+    {
+      "id": "cm1/siman46/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם קיימי. שם כי אתו לקמן כו' וע\"כ שכבר טען פרעתי דאל\"כ היה מעורכי הדיינים:",
+        "(ליקוט) ואם קיימו כו'. ר\"ל אפי' אחר שנשבע וכמ\"ש בפ\"ט דב\"ק (ע\"כ):"
+      ],
+      "en_segments": [
+        "What if Jamie. It is there that he is with him as a writer and as he has already claimed, I have been appointed as a lawyer, and if he had done so. He said, “I swear to you, and I swear to you.”"
+      ]
+    },
+    {
+      "id": "cm1/siman46/seif-009/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי'. סנה' ב' ב':",
+        "(ליקוט) ואפי' כו'. כמש\"ש כי אתו לקמן לדינא כו'. ואין מומחים בבבל (ע\"כ):"
+      ],
+      "en_segments": [
+        "epic. Sana B. B. (Lycott) and Affi. As a result, you will be able to make a mistake. There are no experts in the Babylonians"
+      ]
+    }
+  ]
+}

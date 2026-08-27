@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "created": "2026-08-27T20:51:09.706Z",
+    "kit": "EN_TRUNC_PACK",
+    "kind": "en_truncated_vs_multi_he",
+    "purpose": "Split single EN blob vs multi HE, or escalate to editorial/human",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
+    "counts": {
+      "total": 215,
+      "by_volume": {
+        "oc1": 14,
+        "yd1": 135,
+        "cm1": 66
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 2,
+        "oc1/ateret-zekenim": 5,
+        "oc1/shaarei-teshuvah": 2,
+        "oc1/peri-megadim": 3,
+        "oc1/machatzit-hashekel": 1,
+        "oc1/chok-yaakov": 1,
+        "yd1/beur-hagra": 39,
+        "yd1/beer-hagolah": 46,
+        "yd1/siftei-kohen": 19,
+        "yd1/turei-zahav": 19,
+        "yd1/baer-heitev": 7,
+        "yd1/tiferet-yisrael": 3,
+        "yd1/torat-hashlamim": 1,
+        "yd1/chiddushei-hilkhot-niddah": 1,
+        "cm1/beur-hagra": 31,
+        "cm1/chelkat-mechokek": 4,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/turei-zahav": 8,
+        "cm1/chokhmat-shlomo": 4,
+        "cm1/netivot-hamishpat-hidushim": 1,
+        "cm1/urim-vetumim-tumim": 2,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 2,
+        "cm1/netivot-hamishpat-beurim": 2,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      },
+      "prior_expected": 215,
+      "prior_delta": 0
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC (en_truncated_vs_multi_he) review. INPUT: one EN_TRUNC_PACK_partNN.json (this chunk only).",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Goal: split EN into heSegs aligned segments IF clear delimiters exist; else escalate. Do NOT invent English. Do NOT invent Hebrew.",
+      "",
+      "RULES",
+      "1) If EN contains clear delimiters matching HE structure (bold lemma heads, numbered markers, <br>-like breaks lost in ingest, parallel note markers): action split_en with proposed_split_count === heSegs and split_plan describing 0-based cut points / delimiter cues. Do not paste full rewritten EN here unless a cut is trivial index-only.",
+      "2) If no safe delimiter map: needs_editorial or needs_human.",
+      "3) Never propose merging HE down to 1 just to match a glued EN blob unless notes explicitly say HE was wrongly oversplit AND evidence is strong — default is split EN or escalate.",
+      "4) skip only if already fixed.",
+      "",
+      "OUTPUT JSON array only, same ids/order:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"proposed_split_count\":null|N,\"split_plan\":null|\"brief\",\"notes\":\"short\"}]",
+      "",
+      "Conservative when unsure. No corpus edits."
+    ],
+    "chunk_index": 12,
+    "chunk_total": 12,
+    "case_offset": 205,
+    "cases_in_chunk": 10,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_PACK.json",
+    "parent_sha256": "b353a7cae8efdc06e26ea1c1fc8427aaf8e44aa9801f9b153545eb6fd416588c"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman355/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 355,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הגונב כו'. כר' יוחנן דקי\"ל דכל רב ושמואל ור\"י הלכה כר\"י ור\"ח ל\"פ עליה דר\"י אלא בבע\"ח. אבל בכמה מקומות כ' הרי\"ף בכה\"ג דהלכה כשמואל דאין הלכה כר\"י במקום ששניהם פליגי עליה ובלדעת ס\"ל ר\"י כשמואל ובשלא לדעת ס\"ל רב כוותיה וכן דר\"ח י\"ל כשמואל אח\"כ מצאתי במלחמות שהקשה ג\"כ על הרי\"ף כן. עוד הקשו הרז\"ה וש\"פ על הרי\"ף הא אמרינן לימא כתנאי הגונב כו' א\"ר זביד כו' אבל בסלע א\"א לאוקמי לר\"ע אלא כרב והרי\"ף פ' בעצמו בפ\"ג דב\"מ כר\"ע א\"כ הלכה כרב ולכן פ' הרז\"ה כרב ואף בבע\"ח ע\"ש ותי' נ\"י בשם הרמב\"ן דלא אמרינן א\"צ דעת אלא בשהחזיר למקום שגנב משא\"כ כאן דכלתה שמירתו וצריך להחזיר לרשות בעלים כו' ע\"ש וז\"ש בס\"ג כיס או טלה וראיה שהרי ר' יוחנן גופא פסק כר\"ע בב\"מ מ\"ג ב' וע' במאור ומלחמות וכ' שם וכן הני תנאי דהגוזל והבליע כו' ע\"כ ס\"ל דלא כרב מדקא' הגוזל ול\"ק הגונב מ' לדעת וההיא ברייתא הלכתא היא מסוגיא דב\"מ ס\"ד א' כמ\"ש הרי\"ף ע\"ש וז\"ש לפיכך כו' וכתי' בתרא שם וערש\"י שם ד\"ה אית ליה כו' וכ\"כ רא\"ש וטור. והרי\"ף פי' להיפך באית ליה יצא דאדם עשוי למשמש ובל\"ל לא יצא דכיון דל\"ל לא ממשמש ביה והמחבר הרכיב ב' הפירושים וכ\"כ הרשב\"א דס\"ל דגם הרי\"ף מודה לרש\"י אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע המנין מאותו טעם דאדם עשוי למשמש:",
+        "(ליקוט) הגונב חפץ כו' עד שאדם עשוי הוא לשון הטור וכפירש\"י שאדם כו' והרי מצא כו' הוא ג\"כ ע\"ד פרש\"י והטור אבל לפי' הרי\"ף שאדם כו' קאי ג\"כ על קודם שהחזיר וידע מנין המעות וז\"ש אבל אם כו' והוא לשון הרמב\"ם וכפי הרי\"ף וכמ\"ש הרשב\"א דגם הרי\"ף מודה לרש\"י אם לא ידע המנין מקודם אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע שאדם כו' וערשב\"א ומ\"מ פליגי דלהרי\"ף מסתמא יודע ולרש\"י והטור מסתמא לא ידע ופ' המחבר בזה כרש\"י אבל הרשב\"א הכריע כהרי\"ף ממ\"ש בב\"מ כ\"א ב' ת\"ש מעות כדר' יצחק כו' ובאין בו כלום נמי פליגי רש\"י והרי\"ף לכאורה אבל ליתא דרי\"ף מפ' שהגזלן החזיר הגניבה לכיס שלו ובזה ל\"פ רש\"י דרש\"י מפ' שהבליע לו במעותיו והבעלים החזירו הכל לכיס ובזה מודה הרי\"ף שהרי עשוי למשמש בשביל המעות שהחזיר ולפיכך כ' המחבר ב' הפי' על הא דל\"ל כו' פירש\"י אם יודע מנין כו' כמ\"ש הטור ופי' הרי\"ף אבל אם כו' ששניהם אמת לפרש\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who steals, etc. The ruling follows Rabbi Yochanan. Although Rav and Shmuel generally prevail jointly against Rabbi Yochanan, their views divide depending on whether the owner knew, and Rabbi Chisda's position is not decisive. Raza rules like Rav, but Ramban reconciles the sugyot by distinguishing return to the place from which it was stolen from return after the original guarding arrangement ended. The Shulchan Aruch combines Rashi's and Rif's explanations: ordinarily a person checks his purse and notices the return, but where he did not previously know the count, mere replacement is insufficient. The phrase, 'therefore,' follows the latter answer in the Gemara."
+      ]
+    },
+    {
+      "id": "cm1/siman358/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 358,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן אם כו'. דברי המ\"מ כאן והביאו בה\"ג תמוהין דהא בפ\"ה מה' גזילה ולקמן בסי' שס\"ט ס\"ג פ' כשמואל וכן הקשה המ\"מ שם וכבר ישבו הכ\"מ וכמ\"ש בסמ\"ע ס\"ק ב' ולמד הרמב\"ם ממה דאתמר פלוגתייהו אגזלן ולא אכה\"ג ש\"מ דבהא ל\"פ:",
+        "(ליקוט) וכן כו'. למד ממש\"ש קי\"ג ב' הני דדיירי כו' וערשב\"א שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Likewise if, etc. Maggid Mishneh's explanation is difficult because Rambam elsewhere rules like Shmuel. Kesef Mishneh and Sema resolve the contradiction: the dispute was stated specifically regarding an established robber, implying that the authorities do not dispute this case. Rambam also derives the ruling from Bava Kamma 113b concerning those who dwell, etc. See siman 369."
+      ]
+    },
+    {
+      "id": "cm1/siman358/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 358,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. תוס' דב\"מ שם ד\"ה מר כו':",
+        "(ליקוט) וי\"א כו'. עתוס' שם דכשמביא מביתו מותר דמסתמא חלקו בזה ועב\"ח (ע\"כ):",
+        "(ליקוט) וי\"א כו'. וס' ראשונה פ' כאמימר ור\"א ועתוס' דב\"מ ך\"ב א' ד\"ה מ\"ז כו' ורב אשי כו' (ע\"כ) ."
+      ],
+      "en_segments": [
+        "And some say, etc. Tosafot in Bava Metzia explain that when he brings the produce from his own house, it is permitted, because the partners presumably divided it. The first opinion follows Ameimar and Rav Ashi. (End of supplement.)"
+      ]
+    },
+    {
+      "id": "cm1/siman359/seif-002/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 2,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[ש\"ך בא\"ד] דאינו אלא מדרבנן. נ\"ב ורע\"ק דאף אחרי נמכר גאולה תהי' לו הוי אסמכתא כ\"כ היש\"ש שם ותמוה לי הא אמרי' בבכורות דף יג הניח' למ\"ד גזל נכרי אסור וכו' וכן בפ' המקבל גבי כרם רעיך הניח' למ\"ד גזל נכרי הרי מדמצרכי' קרא באונאה ובכרם מוכח דמ\"ד גזל נכרי אסור היינו מדאו' וצע\"ג:",
+        "גם ראיתי בדפוס ש\"ס הישנים (כי בדפוס החדשים השמיטו) דאית' שם בב\"ק ישראל ונכרי שבאו לדון באי' עליו בעקיפין דברי ר\"י רע\"ק אומר אין באי' מפני קידוש השם טעמא דאיכא קידוש השם הא ליכא ק\"ה באי' וכו' כאן בגזילה כאן בהפקעת הלואה הרי מפורש דלרע\"ק דאוריית' אסור:"
+      ],
+      "en_segments": [
+        "[Shach, continuation of his words] That it is only rabbinically prohibited. Note: Regarding Rabbi Akiva, that even after he has been sold, the verse, “he shall have redemption,” is merely an asmachta, so writes the Yam Shel Shlomo there. This is astonishing to me, for in Bechorot 13a the Gemara says: This is satisfactory according to the one who holds that robbing a non-Jew is prohibited, etc. Likewise, in Perek HaMekabel, regarding “your fellow’s vineyard,” it says: This is satisfactory according to the one who holds that robbing a non-Jew is prohibited. Since Scripture is required regarding overreaching and regarding a vineyard, it is evident that according to the view that robbing a non-Jew is prohibited, the prohibition is by Torah law. This requires great study. I also saw in the old printings of the Talmud, for it was omitted in the newer printings, that in Bava Kamma it states: If a Jew and a non-Jew came for judgment, one may circumvent him, according to Rabbi Yishmael; Rabbi Akiva says that one may not circumvent him because of sanctification of Hashem’s Name. The implication is that only where there is sanctification of Hashem’s Name is it prohibited, but where there is no sanctification of Hashem’s Name it is permitted, etc. The Gemara distinguishes: here it concerns robbery, and there it concerns evasion of a debt. Thus it is explicit that according to Rabbi Akiva, robbery is prohibited by Torah law."
+      ]
+    },
+    {
+      "id": "cm1/siman359/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אלא כו'. וכ\"כ תוס שם ועבה\"ג:",
+        "(ליקוט) אפי' כו' אלא כו'. עבה\"ג וערש\"י ביומא פ\"ג ב' ד\"ה חפתיה כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Only, etc. Tosafot likewise write this. See Be'er HaGolah and Rashi, Yoma 83b."
+      ]
+    },
+    {
+      "id": "cm1/siman361/seif-002/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 2,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[שו\"ע] מהראשון או מהשני. נ\"ב ראובן ראה שנכנס שמעון לבית לוי וגנב חפץ ובא אותו חפץ ליד ראובן והחזירו לשמעון אין לוי יכול להוציא ממנו בדין כיון ששמעון אמר שבדין נטלו מבית לוי מחמת תביעה שיש לו עליו תשו' הרא\"ש כלל סד:",
+        "עוד שם ראובן גנב ואחר שהגביהו סייעו שמעון להביא הגניבה לבית שמעון פטור ע\"ש:"
+      ],
+      "en_segments": [
+        "[Shulchan Aruch] From the first or from the second. Note: Reuven saw Shimon enter Levi’s house and steal an article. That article later came into Reuven’s possession, and Reuven returned it to Shimon. Levi cannot recover it from Reuven in beit din, since Shimon said that he lawfully took it from Levi’s house on account of a claim he had against him. Responsa Rosh, rule 64. It is further stated there: Reuven stole an item, and after he had lifted it, Shimon assisted him in bringing the stolen item into Shimon’s house. Shimon is exempt. See there."
+      ]
+    },
+    {
+      "id": "cm1/siman361/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. מנסכא דר\"א ועסי' ע\"ה סי\"ג בהג\"ה ממ\"ש ה\"ל כגזלן וס' ראשונה מפרשים שם בעדי ראיה. וראיה ממ\"ש בכתובות י\"ח א' וליתני כו' והא קי\"ל כו' ואם איתא ליתני בגזלן. וס' האחרונה דקדק המ\"מ מדברי רמב\"ם שהביא ש\"ע בסי' שס\"ד ס\"ד ועבה\"ג שם ור\"ל מדלא כ' בעדי ראיה ואין הכרח שהרמב\"ם נקט לשון הגמ' ס\"ה ועמ\"ש בסי' שנ\"ז ס\"א ועש\"ך:",
+        "(ליקוט) וי\"א שצריך. וכ\"כ הרא\"ש שם ואם אמרו גדולים יודעים אנו כו' ומיירי כו' כיון שידוע כו' ועודה בידו דאב כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say, etc. This is derived from the case of Rabbi Abba's ingot. See siman 75, seif 13. The first opinion limits the case to witnesses who saw the object. Maggid Mishneh infers the latter opinion from Rambam, but the inference is not compelling because Rambam merely uses the Gemara's wording. See simanim 3, 75, 357, and 364."
+      ]
+    },
+    {
+      "id": "cm1/siman380/seif-003/beer-hagolah",
+      "volume": "cm1",
+      "siman": 380,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ה) ל' הטור ס\"ד וכ\"כ הרמב\"ם בפ\"ח מה' חובל ומזיק דין י\"ב י\"ג וי\"ד מימרא דרבה פרק הגוזל בתרא דף י\"ז ע\"ב ובפ\"ח דסנה' דף ע\"ד ע\"א",
+        "פי' שהרי ניתן להציל הנרדף בנפשו של רודף"
+      ],
+      "en_segments": [
+        "heh) The language of the Tur, seif 4, and so writes the Rambam in chapter 8 of Hilkhot Chovel uMazik, laws 12, 13, and 14, from Rabba's statement in the latter chapter HaGozel, Bava Kamma 117b, and in Sanhedrin 74a. The explanation is that the pursued person could have been saved by taking the pursuer's life."
+      ]
+    },
+    {
+      "id": "cm1/siman389/seif-008/beer-hagolah",
+      "volume": "cm1",
+      "siman": 389,
+      "seif": 8,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פ) ל הרמב\"ם ד\"ו וכתב ה\"ה משנה שם (דף טו ע\"ב) כת\"ק והנחש גם כן מפורש במשנה וכל אלו אם עשו מעשה שן ורגל דינן כדין שן ורגל ואם עשו מעשה קרן והן ה' מעשים הנזכרים למעלה דינן כדין קרן לענין חילוק הרשיות כמבואר בסמוך (ולקמן סימן ש\"ץ ושצ\"א) אלא שהן מועדין מתחלתן",
+        "פי' אילטיס בל\"א"
+      ],
+      "en_segments": [
+        "peh) The language of the Rambam, law 6. The Maggid Mishneh writes that this is the Mishnah on 15b, following the first Tanna; the snake is likewise explicitly mentioned in the Mishnah. If any of these animals causes damage in the manner of tooth or foot, its law is that of tooth or foot. If it causes damage in the manner of horn, namely one of the five acts listed above, its law is that of horn regarding the distinction between domains, as explained below in simanim 390 and 391, except that these animals are deemed forewarned from the outset. The foreign-language term means a polecat."
+      ]
+    },
+    {
+      "id": "cm1/siman427/seif-001/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 427,
+      "seif": 1,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[שו\"ע] מעקה לגגו. נ\"ב ומברך אקב\"ו לעשות מעקה. ואם אחר עושה המעקה מברך העושה על עשיית מעקה. רמב\"ם פי\"א מהל' ברכות. ואם עושה מעקה ע\"י פועל נכרי אם יכול לברך. ע' מחנה אפרים הל' שלוחין סי' יא:",
+        "סליק"
+      ],
+      "en_segments": [
+        "[Shulchan Aruch] A parapet for his roof. Note: He recites the blessing, “Who sanctified us with His commandments and commanded us to make a parapet.” If another person makes the parapet, the one who performs the work recites, “concerning the making of a parapet.” Rambam, chapter 11 of Hilchot Berachot. If he has the parapet made by a non-Jewish worker, whether he may recite a blessing requires consideration. See Machaneh Ephraim, Laws of Agency, siman 11. End."
+      ]
+    }
+  ]
+}
