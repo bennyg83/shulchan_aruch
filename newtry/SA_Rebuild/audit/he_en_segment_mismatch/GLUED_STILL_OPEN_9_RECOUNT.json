@@ -1,0 +1,38 @@
+{
+  "scannedAt": "2026-08-27T20:32:17.368Z",
+  "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "pairsBothFiles": 118852,
+  "light": {
+    "enHasMore": 68,
+    "enHasMoreHe0": 59,
+    "enHasMoreNonZeroHe": 9,
+    "heHasMore": 610,
+    "enTruncatedHeuristic": 215,
+    "matched": 118174
+  },
+  "formalStyleKinds": {
+    "he_missing": 59,
+    "en_has_more_segments": 9,
+    "en_truncated_vs_multi_he": 215,
+    "he_has_more_segments": 395,
+    "en_missing": 20,
+    "totalIssueCells": 698
+  },
+  "note": "en_has_moreNonZeroHe (9) === glued OPEN 9. he_missing uses heSegs===0 with EN present (formal visually-empty HE). en_missing=20 yd1 from file-absent / prior ALL_volumes. Do not count oc1/cm1 slug dirs without en.html as issues when HE is also empty.",
+  "open9": [
+    { "id": "yd1/siman106/seif-002/baer-heitev", "heSegs": 3, "enSegs": 6, "stillOpen": true },
+    { "id": "yd1/siman245/seif-006/beur-hagra", "heSegs": 4, "enSegs": 8, "stillOpen": true },
+    { "id": "yd1/siman263/seif-005/baer-heitev", "heSegs": 2, "enSegs": 4, "stillOpen": true },
+    { "id": "yd1/siman308/seif-003/beur-hagra", "heSegs": 2, "enSegs": 4, "stillOpen": true },
+    { "id": "yd1/siman331/seif-034/beur-hagra", "heSegs": 2, "enSegs": 4, "stillOpen": true },
+    { "id": "yd1/siman334/seif-042/beur-hagra", "heSegs": 5, "enSegs": 10, "stillOpen": true },
+    { "id": "yd1/siman334/seif-045/beur-hagra", "heSegs": 2, "enSegs": 4, "stillOpen": true },
+    { "id": "yd1/siman269/seif-003/beur-hagra", "heSegs": 2, "enSegs": 6, "stillOpen": true },
+    { "id": "cm1/siman275/seif-003/ketzot-hachoshen", "heSegs": 13, "enSegs": 17, "stillOpen": true }
+  ],
+  "kit": {
+    "file": "GLUED_STILL_OPEN_9_KIT.json",
+    "bytes": 69557,
+    "sha256": "a51a8c4c8b6293cb02430ad7406aed188083f50a5a609f750f2c989456efb051"
+  }
+}

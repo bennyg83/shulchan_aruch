@@ -1,0 +1,576 @@
+{
+  "meta": {
+    "purpose": "Still-open glued pack leftovers (9): rewrite EN per HE slot where pair_map known, else needs_human.",
+    "kit": "GLUED_STILL_OPEN_9",
+    "created": "2026-08-27",
+    "case_count": 9,
+    "hard_cap_utf8_bytes": 85000,
+    "corpus_apply": "none",
+    "prompt": "SA_Rebuild GLUED STILL-OPEN 9 — rewrite-focused editorial kit (ChatGPT direct).\n\nCONTEXT\n- These 9 are the remaining OPEN cases from the glued EN-oversplit pack (started 58; 44 curated rejoin + 1 prior yad-ephraim + 5 high-confidence drops = 50 structurally fixed; 9 remain).\n- Structure (pair_map) is already known for 7 of 9. You MAY rewrite English now so each HE slot has one correct EN segment.\n- Never modify Hebrew. Output corrected EN text per HE slot, OR confirm needs_human.\n\nINPUT: GLUED_STILL_OPEN_9_KIT.json only (this file's cases array).\n\nFOR EACH CASE\n1. Confirm heSegs / enSegs from the kit.\n2. If category is rewrite_skip (or suggested_action propose_en_rewrite_skip):\n   - Use pair_map_hint (EN indices → HE slots; non-contiguous OK).\n   - For each HE slot i, produce corrected_en[i]: one English segment translating he_segments[i].\n   - You may join the paired EN stubs+bodies as draft material, then rewrite into clean halachic English (dictionary terms, expand abbreviations, no MT garbage).\n   - Do NOT invent HE content. Do not drop a HE slot.\n3. If category is needs_human:\n   - Prefer action needs_human unless you can give a high-confidence pair_map AND corrected_en.\n   - If still unclear, return needs_human with short notes (no fabricated EN).\n\nAllowed actions (pick one primary):\n- rewrite_en_by_he_slot: provide corrected_en length === heSegs (preferred when pair_map known).\n- propose_en_rewrite_skip: structure only (pair_map) but you decline to rewrite text.\n- needs_human: cannot safely decide structure or rewrite.\n- pair_then_merge: structure-only confirm of pair_map without new EN text (discouraged here — prefer rewrite).\n\nOUTPUT JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"rewrite_en_by_he_slot\" | \"propose_en_rewrite_skip\" | \"needs_human\" | \"pair_then_merge\",\n  \"pair_map\": null | [[0,3],[1,4]],\n  \"corrected_en\": null | [\"EN for HE0\", \"EN for HE1\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\" | \"medium\" | \"low\"\n}]\n\nRules: Never modify HE. corrected_en[i] must correspond 1:1 to he_segments[i]. Conservative on needs_human cases (269 Gra, 275 Ketzot). No corpus writes from this review.",
+    "allowed_actions": [
+      "rewrite_en_by_he_slot",
+      "propose_en_rewrite_skip",
+      "needs_human",
+      "pair_then_merge"
+    ],
+    "track_note": "Glued pack: 58 start → 50 structurally fixed (44 curated + 1 prior + 5 drops) → 9 OPEN. Broader en_has_more is a separate metric."
+  },
+  "cases": [
+    {
+      "id": "yd1/siman106/seif-002/baer-heitev",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 106,
+      "seif": 2,
+      "slug": "baer-heitev",
+      "heSegs": 3,
+      "enSegs": 6,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>לבטל. </b> ולדידן דקי\"ל חנ\"נ בכל האיסורים וכן באיסור דבוק צריך ס' נגד כל החתיכה ה\"ה הכא צריך ס' נגד כל החתיכה שהחלב דבוק בה ואפ\"ה החתיכה עצמה אסורה. ש\"ך:",
+        "<b>שתצטנן. </b> פי' כשיוציאה ותהיה חמה א\"כ יאסר החתיכה מחמת החלב שבה שאין בה ס' לבטלו אבל כשמניחה בקדרה הטעם הולך בכולו בשוה וא\"ל דהא ע\"כ החתיכה נמלחה תחלה דאל\"ה היתה אסורה משום דם והיה צריך ס' בתבשיל נגד כולה וא\"כ נאסרה תחלה מפני שנמלחה עם החלב שבה ושוב אינה חוזרת להיתרה י\"ל דמיירי שהוא חלב דרבנן או חלב של בהמה כחושה דאינו אוסר במליחה אלא כ\"ק א\"נ מיירי שהיה בחתיכה ס' נגד החלב ואח\"כ קודם בישול נחתך ממנה עכ\"ל הש\"ך:",
+        "<b>נבלה. </b> וא\"כ החתיכה זו עכ\"פ אסורה משום איסור דבוק א\"כ מסיר החתיכה וכו' שהרי אינו מזיק כלום במה שמסירה וא\"כ לא יניחנה בחנם בקדרה. ש\"ך:"
+      ],
+      "en_segments": [
+        "<b>To nullify.</b>",
+        "<b>Until it cools.</b>",
+        "<b>Rendered forbidden.</b>",
+        "Cancel. And according to Dakiyil Hanan, in all prohibitions, as well as in the prohibition of sticking, one needs a S against the entire piece, Hashem Hashem, here, one needs a S against the entire piece to which the milk sticks, and even the piece itself is forbidden. So:",
+        "Let it cool. When you take it out and it is hot, then the piece will be forbidden because of the milk in it, which does not have a S to cancel it, but when you put it in a pot, the taste goes all the way to the vat, and so the piece was salted first, but it was forbidden because of blood, and S was needed in the dish against the whole thing, and so the piece was salted first because it was salted with the milk in it and does not return to the permit. The rabbinic law, which is the milk of a rabbinic priest or the milk of a weakened animal, does not prohibit salting, but the rabbinic law, which was in the piece S against the milk, and then before cooking, it was cut from it, according to the Shachak:",
+        "It is rotten. However, this piece is still forbidden because of the prohibition of sticking, so the one who removes the piece, etc., does not harm anything in what is removed, and yet he does not place it in a cauldron. Thus: Reference 200. Reference 205."
+      ],
+      "prior_notes": "Classic stub-then-body: EN0–2 are short lemma stubs (\"To nullify\" / \"Until it cools\" / \"Rendered forbidden\"); EN3–5 are body expansions of those same three HE notes. Contiguous merge of stubs together is wrong. Prefer pair_map [[0,3],[1,4],[2,5]] or reorder_en_then_merge.",
+      "prior_hint": "pair_map:[[0,3],[1,4],[2,5]]",
+      "pack_meta": {
+        "unsafe_reason": "greedy_or_unaligned_strong_heads",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2,
+            3,
+            4,
+            5
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 5
+      }
+    },
+    {
+      "id": "yd1/siman245/seif-006/beur-hagra",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 245,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "heSegs": 4,
+      "enSegs": 8,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>היה מנהג כו'. </b>ר\"ל כמש\"ו בנדרים ל\"ו ל\"ז:",
+        "<b>חייב כו'. </b>קדושין ל' א' וכמ\"ש בס\"ד:",
+        "<b>תורה כו'. </b>דלא כפירש\"י שם חומש לבד ומש\"ש תורה זו מקרא ר\"ל דל\"ת מדרש תורה כמ\"ש בפ\"ב <small>(מ\"ט ב') </small>שם:",
+        "<b>וה\"מ כו'. </b>כמו שמחוייב עצמו כמ\"ש בבכורות כ\"ט א':"
+      ],
+      "en_segments": [
+        "<b>If there was a custom, etc.</b>",
+        "<b>He is obligated, etc.</b>",
+        "<b>Torah, etc.</b>",
+        "<b>This applies specifically, etc.</b>",
+        "If the custom was, etc. ; meaning as explained in Nedarim 36-37.",
+        "Liable, etc. ; Kedushin 40 side a, and as written in Shulchan Aruch.",
+        "Torah, etc. ; not like Rashi there who explains chumash alone; and as explained there \"Torah\" means mikra ; meaning not midrash Torah, as written in chapter 2 (49 side b) there.",
+        "And the “Ps.” It is like Hashem Himself as a “t"
+      ],
+      "prior_notes": "Spot REJECT: lemmas E0–E3 then bodies E4–E7 (non-contiguous lemma/body). Contiguous rejoin cannot align. Likely pair_map [[0,4],[1,5],[2,6],[3,7]].",
+      "prior_hint": "pair_map:[[0,4],[1,5],[2,6],[3,7]]",
+      "pack_meta": {
+        "unsafe_reason": null,
+        "spot_verdict": "REJECT",
+        "spot_reason": "Non-contiguous lemma stubs then bodies; contiguous rejoin cannot align.",
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "alignHint": null,
+        "strongEnHeads": null
+      }
+    },
+    {
+      "id": "yd1/siman263/seif-005/baer-heitev",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 263,
+      "seif": 5,
+      "slug": "baer-heitev",
+      "heSegs": 2,
+      "enSegs": 4,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>קודם. </b> וה\"ה הגיע לבן ח' אלא שלא נימול בחיים מחמת איזה סיבה. ש\"ך. <small>(ואם קברו התינוק תוך שמונה ימים בלתי נימול בצור מותר לחטט ולמולו בצור. ת' כנסת יחזקאל שאלה מ\"ד)</small>:",
+        "<b>גרות. </b> כתב הט\"ז נ\"ל הטעם כיון דאמרינן שאברהם אבינו עומד ומבחין מי שהוא נימול אינו מניחו לגיהנם וזה שמל את העובד כוכבים מבטל סימן המילה מישראל עכ\"ל אבל הש\"ך פירש דעושה כן משום רפואה כגון שצריך העובד כוכבים לחתוך ערלתו מפני מכה וכיוצא בו ואסור לרפאותו בחנם אבל בשכר שרי ע\"ש:"
+      ],
+      "en_segments": [
+        "<b>Previously.</b>",
+        "<b>Conversion.</b>",
+        "First. And Hashem came to Ben, but we did not face any reason in life. “Third. (And if the baby was buried in eight days, it is not possible to snort and complete in the siege. “Arise a question from Hashem.”",
+        "Conversion ; Taz wrote: it appears the reason is since we say Avraham our father stands and examines whoever is circumcised ; he does not let him go to Gehenna; and this one who circumcised the gentile removes the sign of circumcision from Israel ; end. But Shach explained he does so for healing, e.g., the gentile needs to cut his foreskin because of a wound and the like, and it is forbidden to heal him for free but for payment it is permitted ; see there. Reference 7. Reference 90."
+      ],
+      "prior_notes": "Stub/body interleave: EN0 \"Previously.\" and EN1 \"Conversion.\" are stubs; EN2–3 look like bodies (EN3 begins \"Conversion ;\"). Prefer pair_map [[0,2],[1,3]] after confirming EN2 body belongs with HE0 קודם.",
+      "prior_hint": "pair_map:[[0,2],[1,3]] (verify EN2↔HE0)",
+      "pack_meta": {
+        "unsafe_reason": "greedy_or_unaligned_strong_heads",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 4
+      }
+    },
+    {
+      "id": "yd1/siman308/seif-003/beur-hagra",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 308,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "enSegs": 4,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>(ליקוט) או כו' מותר כו'. </b>שם כ\"ה א' איבעיא להו כו' (ע\"כ):",
+        "<b>והצמר כו'. </b>כנ\"ל בס\"ב:"
+      ],
+      "en_segments": [
+        "<b>Collected note: Or, etc., is permitted, etc.</b>",
+        "<b>And the wool, etc.</b>",
+        "(Luke) or P. is permitted. It's called \"Hashem of hosts,\" and he said",
+        "And he's called 'W'. Same in the US:"
+      ],
+      "prior_notes": "Garbled MT on EN2–3 (\"Luke\"/\"Hashem of hosts\"/\"US\"). EN0–1 look like lemma stubs for two HE notes. May need pair_map [[0,2],[1,3]] plus propose_en_rewrite_skip, or needs_human.",
+      "prior_hint": "possible pair_map:[[0,2],[1,3]]; EN body garbled",
+      "pack_meta": {
+        "unsafe_reason": "under_grouped_cannot_split",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 1
+      }
+    },
+    {
+      "id": "yd1/siman331/seif-034/beur-hagra",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 331,
+      "seif": 34,
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "enSegs": 4,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>האומר כו'. </b>עבתוס' דעירובין ל\"ב א' ד\"ה ר\"ש. ולר\"ת כו':",
+        "<b>וי\"א כו'. </b>טור והוא מדברי תוס' שם ואור\"י כו' וכ\"כ הרא\"ש שם וכהר\"ש מפוליזא שם. אבל דברי הטור והרב א\"א להולמן דהא בחולין שם אמרינן ומצא תרום וגם דבריהם אינן מובנים וכן מצאתי במש\"ל שגם הוא תמה עליהם:"
+      ],
+      "en_segments": [
+        "<b>One who says, etc.</b>",
+        "<b>And some say, etc.</b>",
+        "They say so. Absolutely, he is called “Ah.” And to Hashem:",
+        "Oh, yes. He says, “Go forth there and the light of Hashem.” But the words of the column and Rabbi A. for the sake of the people of Dea in Berlin, where they were told, and they were not understood as well as found in the IDF that they also discussed:"
+      ],
+      "prior_notes": "Spot REJECT: gluing האומר (E0) with וי\"א (E1) is wrong; E2–E3 are broken MT. Distinct notes — likely pair_map [[0,2],[1,3]] with rewrite, or needs_human / propose_en_rewrite_skip.",
+      "prior_hint": "possible pair_map:[[0,2],[1,3]]; EN2–3 broken MT",
+      "pack_meta": {
+        "unsafe_reason": null,
+        "spot_verdict": "REJECT",
+        "spot_reason": "Glues distinct האומר / וי״א notes; E2-E3 broken MT.",
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "alignHint": null,
+        "strongEnHeads": null
+      }
+    },
+    {
+      "id": "yd1/siman334/seif-042/beur-hagra",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 42,
+      "slug": "beur-hagra",
+      "heSegs": 5,
+      "enSegs": 10,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>ואע\"פ שנמנים כו'. </b>פ\"ד דפסחים <small>(נ\"ב א'):</small>",
+        "<b>ואי סני כו'. </b>מ\"ק י\"ז א':",
+        "<b>כגון כו'. </b>הרא\"ש שם:",
+        "<b>שמתעסק כו'. </b>בפ\"ב דחגיגה <small>(ט\"ו ב'):</small>",
+        "<b>או כו'. </b>פ' בתרא דיומא <small>(פ\"ו א'):</small>"
+      ],
+      "en_segments": [
+        "<b>Although they are counted, etc.</b>",
+        "<b>If he is hated, etc.</b>",
+        "<b>For example, etc.</b>",
+        "<b>One who occupies himself, etc.</b>",
+        "<b>Or, etc.</b>",
+        "“And I am Hashem of hosts.”",
+        "And I'm not Sani Cho. M.J.:",
+        "Like a qua. The fire there:",
+        "employed as a. In the United States of America",
+        "Or a qua. P. B. A.D.:"
+      ],
+      "prior_notes": "Five Gra lemma stubs EN0–4 then five garbled bodies EN5–9. Prefer pair_map [[0,5],[1,6],[2,7],[3,8],[4,9]]; bodies may need rewrite.",
+      "prior_hint": "pair_map:[[0,5],[1,6],[2,7],[3,8],[4,9]]",
+      "pack_meta": {
+        "unsafe_reason": "under_grouped_cannot_split",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4,
+            5,
+            6
+          ],
+          [
+            7,
+            8,
+            9
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 4
+      }
+    },
+    {
+      "id": "yd1/siman334/seif-045/beur-hagra",
+      "category": "rewrite_skip",
+      "suggested_action": "propose_en_rewrite_skip",
+      "pair_map_hint": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 45,
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "enSegs": 4,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>ואם דינו כו'. </b>שם לפי' הרא\"ש בשם ר\"ת:",
+        "<b>ואפי' לא כו'. </b>נדרים נ' ב':"
+      ],
+      "en_segments": [
+        "<b>If his judgment, etc.</b>",
+        "<b>Even if he did not, etc.</b>",
+        "If he is a . . This is the name of Hashem:",
+        "\"No,\" he did. Let's say, \""
+      ],
+      "prior_notes": "AI proposed contiguous [[0],[1,2,3]]; evaluator: EN2 belongs with HE0 → true fix likely non-contiguous pair_map [[0,2],[1,3]]. Do not space-rejoin as contiguous.",
+      "prior_hint": "pair_map:[[0,2],[1,3]]",
+      "pack_meta": {
+        "unsafe_reason": "under_grouped_cannot_split",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 1
+      }
+    },
+    {
+      "id": "yd1/siman269/seif-003/beur-hagra",
+      "category": "needs_human",
+      "suggested_action": "needs_human",
+      "pair_map_hint": null,
+      "volume": "yd1",
+      "siman": 269,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "enSegs": 6,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>כיצד כו'. </b>הנה בפ\"ט מה' מלכים כתב שש עריות אסורות על ב\"נ האם ואשת אב ואשת איש ואחותו מאמו וזכור ובהמה שנאמר על כן יעזב איש את אביו זו אשת אביו ואת אמו כמשמעה ודבק ולא בזכור <small>(כצ\"ל ברמב\"ם שם) </small>באשתו ולא באשת חבירו והיו לבשר כו' להוציא בהמה כו' ונאמר אחותי בת אבי אך לא בת אמי ותהי לי לאשה. והוא דברי ר\"ע בסנהדרין נ\"ה א' אך אחותו לר\"ע שרי כמש\"ש ב' וערש\"י שם ד\"ה ת\"ש וגם כו' אלא שהוא פסק כרבנן שם נ\"ז ב' ת\"כ דר\"י כל ערוה כו' וחכ\"א הרבה כו' ונראה דל\"ג הרבה אלא יש שאין ב\"ד של ישראל כו' והיינו ההיא דמפרש בסיפא בא כו' והן אחותו לבד ונערה המאורסה <small>(צ\"ע מהו בנערה המאורסה) </small>אחותו מקרא דע\"כ יעזב כו' דלר\"ע צריך לדחוקי ורבנן מוקי כפשטיה ובת\"כ פ' קדושים ואיש כו' חסד הוא ושמא תאמר קין נשא אחותו ת\"ל חסד הוא ועולם מתחלתו לא נברא אלא בחסד וכמש\"ש נ\"ה ב' ת\"ש מפני מה כו' ולא כדיחוייא דהתם ודלא כפירש\"י שם נ\"ז ב' ד\"ה הרבה כו' וכ\"כ הרמב\"ן אלא שכתב דכל אותן שמאם אסורות לרבנן ואין בינו לבין הרמב\"ם אלא אחות האם מן האם וכמ\"ש ברמב\"ן. דכ\"ב עריות הן ד' שאינן מצד קורבה זכר ובהמה ואשת איש ונדה וכולן אסורות לעובד כוכבים חוץ נדה דלית להו וח\"י עריות מצד קורבה כמ\"ש בפ\"א דיבמות ט\"ו נשים כו' שש עריות כו' הרי כ\"א ואשת אחיו חשיב שם ג' פעמים מאביו ומאמו ושלא היה בעולמו ואחותו ב\"פ מאביו ומאמו והנה שבע הן קורבת עצמו ושבע מצד אשתו וד' אשת קרובים שבעל אוסר על אשתו והנה בב\"נ שבע שמצד אשתו כולן מותרים דאין אישות לעובר כוכבים וכן ד' של אשת קרובים כולן מותרים לבד אשת אביו דאתרבאי מקרא לר\"ע אבל לר\"א כולן מותרים וז' שמצד עצמו אותן שמצד אב כולן מותרים כמ\"ש ביבמות פי\"א <small>(צ\"ח א') </small>דאין אב לעובד כוכבים לכן אמרו שם נ\"ח ב' דעובד כוכבים מותר בבתו וכ\"ש בבת בתו ובת בנו וכן אחות האב לר\"ע מה\"ט אלא לר\"א אתרבאי מקרא אבל אחות האם ס\"ל לרמב\"ן דאסור אף לר\"ע וכתב משום דכתיב לאמר אתרבאי כל שמצד אם אבל הרמב\"ם ס\"ל דאינן אסורין אף לרבנן אלא אמו ואחותו שמפורשין וכמו לר\"מ אליבא דר\"ע ול\"פ ר\"מ וחכמים אלא באחותו ובפי' דקרא כמ\"ש בגמ' הנ\"ל ופריך שם נ\"ז ב' וסבר ר\"מ כל כו' ופי' הרמב\"ן דקושיא לא קאי אלא אסיפא דמילתא דאמר אין ב\"נ מוזהר כו' וכאן תני אחותו כו' אבל מאשת אביו לא פריך דלא גזרו שאר אב בגרים דלא כפירש\"י שם ד\"ה ואיכא דתני כו' וראיה ממה דפריך לר\"מ דוקא ואי כפירש\"י גם לרבנן קשה דהא רבנן ל\"פ בזה ומשני ל\"ק הא ר\"מ כו' וה\"ה דלא אתי הברייתא כרבנן דל\"פ אלא באחותו דהא ע\"כ כר\"ע ס\"ל מדמודי בחייבי מיתות ב\"ד לר\"מ ובפלוגתא דראב\"י ור\"ש ביבמות צ\"ז ב' פסק כרב אחא בר יעקב וכלישנא קמא דלא כרי\"ף וטעמו ממש\"ש צ\"ח א' אמר רבא הא דאמור רבנן כו' משמע דאף מדרבנן אין אב לגר וקאמר דהא שני אחין תאומים כו' וכן כל שאר שיש בו צד אב מותר לכתחלה אחות האב מן האם ואחות האם מן האב ואחותו מן האב ואע\"ג דבברייתא שם כולן אסורין כבר אוקמוה כר\"א משום דאחות האב אסור לב\"נ אליביה אבל לר\"ע ורבנן כל שיש בו צד האב מותר לגמרי וכ\"כ הרמב\"ן ורשב\"א אבל אחות האם מן האם אסור לגר מד\"ס אע\"ג דמותר לב\"נ מדקאמר אין אב לעובד כוכבים כו' משמע דאם יש לו וכן באחין מן האם דאסור כנ\"ל וכן צד האב שמצד אישות מותר אפי' אשת אב לד\"ה רק אחיו מאמו כנ\"ל וכמו בקורבי עצמו וכמש\"ש מאי לאו כו' לא כו' ולא קאי רק אאשת אחיו לבד דלא בפי' הראב\"ד שקאי אכל האסורין מאישות דהא חשיב שם אשת אחי אביו והיא ודאי אפי' נשאה כשהוא גר. רמב\"ן. ועוד חילוק בין ברייתא לרבנן דלהברייתא אחות אם מן האם יוציא אבל לרבנן יקיים כמו אחות אב מן האב לר\"מ דאינו אלא משום אחלופי וה\"ה לאחות האם מן האם לר\"ע ורבנן וכ\"ש באשת אחיו מאמו זהו שיטת הרמב\"ם וז\"ש אם היה נשוי כו' לשאר כו':",
+        "(ליקוט) עמש\"ש והכלל להרמב\"ם לב\"נ אסור אמו ואחותו מאמו ואשת אביו ושאר מותר לגמרי וכרבנן דר\"מ. ובגר צד אביו מותר לגמרי בין שמצד עצמו בין מצד אישות הלכך מותר אף באשת אב ובזה קל מעובד כוכבים אבל בזה חמור ממנו שכל מצד האם אסור לו בין מצד עצמו או מצד אישות הלכך אסור באמו ואחות אמו מן האם זהו מצד עצמו ומצד אשתו אסור אחות אשתו מאמה ובת אשתו ובת בתה וחמותו ואם חמותו וכמ\"ש בס\"ה הנושא כו' וה\"ה כו' וה\"ה להנך וכמ\"ש בתוס' ורמב\"ן ומצד אישות אסור באשת אחיו מאמו כולם ט' עריות. ושיטת הרמב\"ן בגר כדברי הרמב\"ם אלא בעובד כוכבים כתב דלד\"ה אסור בכל העריות מצד אם ומותר מצד אב ומצד אישות ל\"ל כלל רק אותן שפרטן אחות האב מן האם לר\"א ואשת אב לר\"ע אלא דלר\"מ אליבא דר\"ע אין אסור קרובי אם אלא מיתת ב\"ד ולר\"א ורבנן אף חייבי כריתות. ושיטה אחרת לרש\"י וע' בדברי הרמב\"ן (ע\"כ):"
+      ],
+      "en_segments": [
+        "<b>A non-Jew is forbidden, etc.</b> As Rava states there: “That which the Sages said,” etc. This applies both to his own relatives and to relatives connected through the wife of a relative, as the Mechaber proceeds to explain.",
+        "<b>Even though, etc., such as, etc.</b> This follows Rabbi Eliezer ben Yaakov and the first version of the Gemara.",
+        "<b>Therefore, etc.</b> This is stated in the baraisa there.",
+        "<b>And likewise a sister, etc.</b> This does not follow the baraisa, but rather the Sages, as explained above.",
+        "<b>And some prohibit, etc.</b> This follows Rashi's explanation cited above, according to which the Gemara also challenges from the case of a father's wife and answers, “This is Rabbi Meir,” etc. See Tosafos in Yevamos there, s.v. “His father's wife,” etc.; “However,” etc. The Tur likewise rules this way, and it is proper to be stringent in accordance with both opinions. In all of this, there is no distinction between one who was conceived before conversion and born after conversion, one who was both conceived and born before conversion, or one son who was conceived before conversion, etc. Ramban agrees with this, and Rambam and Shulchan Aruch likewise state the law without qualification. See Tosafos there, s.v. “He married,” etc.\n\n<b><small>(Collected note)</small> And some prohibit a father's wife.</b> This is taken from the Tur, as stated above. The Rav, however, did not examine the matter carefully here, for the Tur disagrees extensively with Rambam. Since the Tur also rules like Rabbi Eliezer, he prohibits one's sister, father's sister, and mother's paternal sister, as stated in the baraisa there. The paternal side is lenient only in relationships created through marriage, such as the wife of a paternal brother, and similarly the paternal sister of a female convert's husband, as Tosafos write and as explained above. Furthermore, one who married his sister, father's sister, or mother's maternal sister must divorce her, as stated there. He must likewise divorce his father's wife, because the Tur rules in accordance with both opinions. In addition, he rules like Rabbi Shimon that a relative connected through both the father and the mother is forbidden just like one connected through the mother alone, unlike Rambam, who writes concerning two twin brothers, etc. <small>(End of collected note.)</small>",
+        "<b>But, etc.</b> Every relation based exclusively on the maternal side is forbidden, just as the wife of his maternal brother is forbidden, as explained above. Nevertheless, it appears that his sister is forbidden even when she shares both his father and mother, for she is already forbidden to a ben Noach. This is derived from the verse, “And indeed she is my sister,” etc.; “but,” etc."
+      ],
+      "prior_notes": "AI said needs_editorial; human marked UNCERTAIN. HE is two long notes (incl. ליקוט); EN has 6 short Gra-style heads. Unclear pairing — prefer needs_human unless high-confidence pair_map emerges.",
+      "prior_hint": "uncertain — default needs_human",
+      "pack_meta": {
+        "unsafe_reason": "greedy_or_unaligned_strong_heads",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            4,
+            5
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 3
+      }
+    },
+    {
+      "id": "cm1/siman275/seif-003/ketzot-hachoshen",
+      "category": "needs_human",
+      "suggested_action": "needs_human",
+      "pair_map_hint": null,
+      "volume": "cm1",
+      "siman": 275,
+      "seif": 3,
+      "slug": "ketzot-hachoshen",
+      "heSegs": 13,
+      "enSegs": 17,
+      "still_en_has_more": true,
+      "he_segments": [
+        "<b>כיון שהכיש בה מכוש אחד קנה את כולה. </b> נסתפקתי מחזיק בנכסי הגר והיו בתוכ' מטלטלין אם קנה בתורת אגב דאפשר קנין אגב לא מהני אלא בדעת אחרת מקנ' ומעצמו אינו זוכ' בתורת אגב ונ\"מ היכא דלית ביה משום תורת חצר וכגון שאינו משתמר ולא אמר זכת' לי שדי והנה לכאור' נרא' מהא דמשמע דקונין בתים בחזק' בנכסי הגר וכדאמרו פ' חז\"ה דף ל\"ג שני בתים זה לפנים מזה ולדעת הפוסקים דבית ה\"ל דין תלוש ולבסוף חיברו דהוי דינו כתלוש כמבואר בסי' צ\"ה ע\"ש מ\"ש בסק\"ג בשם מגן אברהם סי' תרל\"ז דלשיט' זו הא דבתים נקנ' היינו בתורת אגב וע\"ש וא\"כ מוכח דהפקר נמי נקנ' בתורת אגב כיון דמוכח בש\"ס דבתים נקנ' בחזק' מנכסי הגר אלא דמצינו למימר דהבית נקנ' בתורת חצר כיון דקונ' הקרקע שתחתיו בחזק' לפמ\"ש בסי' ר\"ב דמהני חצירו ומתנתו באין כאחד ע\"ש סק\"ג:",
+        "אמנם נרא' ראי' ברור' דקונ' מעצמו בנכסי הפקר בתורת אגב מהא דאמרי' פרק הגוזל (בבא קמא דף קי\"ז) בפלוגתא דר' אליעזר ורבנן בגוזל קרקע ושטפ' נהר אם קרקע נגזלת כו' וכדתניא הגוזל את הפר' ושטפ' נהר חייב להעמיד לו פרה דברי ר' אליעזר וחכמים אומרים אומר לו הרי שלך לפניך התם במאי קמפלגי אמר רב פפא הבמ\"ע כגון שגזל שדה מחבירו והית' פרה רבוצ' בו ושטפ' נהר ר' אליעזר לטעמי' ורבנן לטעמייהו וכת' רש\"י ז\"ל פרה רבוצ' כו' וגזלן לא משכ' והוי כקרקעות ולר' אליעזר דאמר שדה נגזלת קונ' פרה עמה וחייב לשלם דמטלטלין נקנין אגב קרקע ולרבנן לא קנה שדה ולא פרה שבה עכ\"ל והתם גבי גזלן דליכא דעת אחרת מקנ' וצריך קנין להתחייב באונסין כמו קנין לקנות וקונ' בקנין אגב לחיוב דידיה א\"כ מוכח דמהני קנין אגב אפי' בנכסי הפקר. והא דכת' רש\"י משום קנין אגב ולא מפרש לה בתורת חצר כיון שקונ' הקרקע קונ' הפר' שבה דחצר אינו קונ' אלא משום רשות וגזלן לא קנה אלא להתחייב באונסין אבל בגוף החצר אין לו כלום דאע\"ג דבכל הני דנגזלין אינו משלם אלא כשעת הגזיל' ואינו צריך לשלם במה שנשתמש בה וכמבואר בש\"ע בסי' שס\"ג וברמ\"א סי' שע\"א ע\"ש אין זה כמו חצר השכור' דברשות בעל החצר ירד ה\"ל רשותו אבל גזלן שלא ברשות ירד וא\"ז חצירו כלל לקנות ע\"י חצירו אע\"ג דלר' אליעזר אינו משלם אלא כשעת הגזיל' ומש\"ה מפרש לה בקנין אגב ואם כן מוכח ברור דמהני קנין אגב בנכסי הגר:",
+        "אמנם חלוקין הם נכסי הפקר מנכסי מתנ' בזה היינו דבנכסי מתנ' קי\"ל דאגב לא בעי צבורין וכמבואר בש\"ע סי' ר\"ב אבל בנכסי הפקר ודאי בעי צבורין ואם אחד מחזיק בנכסי הגר וירצ' לקנות אגב כל המציאות שבעולם ודאי לא מהני וטעמא דהך מלתא נרא' והרי דתורת אגב כיון דצ\"ל הנותן קני אגב קרקע א\"כ בנכסי הפקר לא שייך זה ואפי' יאמר המחזיק בקרקע אני רוצ' לקנות אגבי' לא מהני זיל קני אלא היכא דאי' דעת אחרת מקנ' ולא דהיכא דצבורין בתוכו דאינו צ\"ל קני אגב קרקע כמ\"ש הרמב\"ם פ' כ\"ב מה' מכיר' ובש\"ע סי' ר\"ב סעיף ב' ומפרש לה דהא דאמר בש\"ס דאגב לא בעי צבורין והיינו היכא דאומר לו זיל קני אגב קרקע אבל אם לא אמר קני אגב קרקע בעי צבורין ע\"ש בדברי הרב המגיד ומשום דכל שבתוך הקרקע המה צבורין הרי הוא כמו הקרקע ממש וכמ\"ש בסמ\"ע סי' ר\"ב ע\"ש. ומש\"ה מהני נמי בנכסי הפקר כל שצבורין כיון דהוא כמו קרקע ממש וכיון דקנ' הקרקע קונ' המטלטלין שבתוכ' אבל כל שאינו צבורין דצ\"ל קני אגב והך אמיר' דזיל קני אגב צריך דעת אחרת ומש\"ה לא מהני בהפקר לזכות בתורת אגב אלא המטלטלין שצבורין בתוכם. ומה\"ט אמרו בש\"ס פ' הגוזל שם הבמ\"ע שגזל שדה מחבירו והית' פרה רבוצ' בתוכ' ולמה אמרו רבוצ' בתוכ' כיון דהוא בתורת אגב וכמ\"ש רש\"י ואגב לא בעי צבורין אלא הוא מה\"ט שכתבנו דהך אמיר' זיל קני אגב צריך דעת אחרת ובגזלן ליכא דעת אחרת אבל פרה רבוצה בתוכ' לא בעי אמיר' אלא שנקנ' אג\"ק משום דה\"ל כמו הקרקע ומש\"ה מהני אפילו בלא דעת אחרת. ומזה נרא' לענ\"ד ראי' ברור' לדברי הרמב\"ם במ\"ש לחלק באגב בין צבורין לאינן צבורין לענין אמיר' דזיל קני אגב וכבר הקש' עליו הרב המגיד שם והר\"ן והרא\"ש במ\"ש הרמב\"ם דצבורין לא בעי למימר זיל קני אג\"ק. ולפמ\"ש ראי' ברור' להרמב\"ם מהא דאמרו בפ' הגוזל כגון שהית' פרה רבוצ' בתוכו והוא מטעם אג\"ק וכמ\"ש רש\"י וא\"כ מי אמר הגזלן בשע' שגזל' הנני קונ' לגזיל' את הפר' אג\"ק אע\"כ דלא בעי למימר בצבורין זיל קני אג\"ק אלא הרי הוא כמו הקרקע ומש\"ה אמרו כגון שהית' פרה רבוצ' בתוכ' וכמ\"ש ודו\"ק וזה נכון:",
+        "אמנם לפי זה קשה בהא דאמרו פ\"ק דמציע' ד' י\"א והוא שעומד בצד שדהו איתבי' ר' אבא לעולא מעש' בר\"ג וזקנים אמר ר\"ג עשור שאני עתיד למוד נתון ליהושע ומקומו מושכ' לו וכו' וכי ר' יהושע ור' עקיבא בצד שדהו של ר\"ג היו עומדין א\"ל דמי האי מדרבנן כדלא גמירי אינשי שמעתא ר\"ג מטלטלין אג\"ק הקנ' להם ר' זירא קיבלה רב אבא לא קיבלה אמר רבא שפיר עביד דלא קבלה וכי לא הי' להם סודר לקנות ממנו בחליפין אלא טובת הנא' אינה ממון לקנות ממנו בחליפין הכי נמי טובת הנאה אינה ממון לקנות עג\"ק ופירש\"י אינה ממון לקנות ע\"ג קרקע בקנין שהקרקע נקנית אלא אפקורי בעלמא אפקורי גבייהו וכי אוגר להו מקומו קנת' לו חצירו כשאר הפקר וע\"ש:",
+        "ולפי מ\"ש דהפקר נקנה אג\"ק כל שצבורין בתוכו א\"כ מאי פריך רבא מחליפין הא בחליפין ודאי לא נקנה כיון דטובת הנאה אינה ממון והפקר הוא וא\"כ לא מצי בעלים להקנותו בחליפי סודר כיון דלאו דבעלים נינהו אבל אג\"ק שפיר נקנה כיון דטובת הנאה אינ' ממון ולאפקורי בעלמא הוא שפיר קונין מנפשייהו אג\"ק כמו שזוכה הפקר בתורת חצר:",
+        "ונראה ליישב לפמ\"ש בשטה מקובצת שם ז\"ל טובת הנאה אינה ממון נ\"ל דאפי' תימא ממון אינו ממון חשוב לקנות ע\"י חליפין ואתיין סוגיא בין למ\"ד טובת הנאה אינו ממון ובין למ\"ד ט\"ה ממון ואע\"ג דאינו נקנה בחליפין ולא אג\"ק הני מילי מפני שאין קנינים אלו חשיבי אלא גריעי אבל אם אמר אדם לחבירו הרי לך מנה ונתן לו והקנה ט\"ה שיש לך בפירות אלו קנה דאלת\"ה ה\"ל למימר ט\"ה אינה ממון ואינ' נקנית ומדקאמר אינה ממון לקנות בחליפין משמע דאין גווני דנקנה טובת הנאה עכ\"ל ודבריו מוכרחין דהא אשכחן רבא דס\"ל בהדיא טובת הנאה ממון בנדרים דף פ\"ה ע\"ש. אלא ודאי דהכי קאמר רבא וכי לא היה להם סודר לקנות בחליפין אלא טובת הנאה אינו ממון לקנות בחליפין והיינו משום דקנין חליפין הוא קנין גרוע ואינו נתפס בטובת הנאה שהיא ממון קל ה\"נ ט\"ה אינה ממון לקנות אג\"ק דהוא נמי קנין גרוע וע' שו\"ת מוהרי\"ט חלק י\"ד סי' ה' ועמ\"ש בסי' ש\"ן סק\"א. ולפ\"ז ר' יושיע ור' עקיבא מעצמן לא מצי זכי בתורת הפקר דנקנה אג\"ק כיון דס\"ל לרבא טובת הנאה ממון ויש לו בעלים והבעלים לא מצי להקנותן בקנינים הגרועי' שהוא חליפין ואג\"ק וא\"כ אכתי דבעלים נינהו ולאו הפקר הוא:",
+        "ובזה ניחא ליישב דברי הרי\"ף בפ\"ק דמציעא דכת' דבעינן עומד בצידו ואפי' בדעת אחרת מקנה ודלא כר\"פ שם דאמר דעת אחרת מקנה שאני וכן דעת הרמב\"ם והש\"ע סי' י' ע\"ש והקשו עליו דא\"כ האי עובדא דר\"ג וזקנים משום תורת אגב הוא וכיון דאנן קי\"ל ט\"ה אינה ממון ודאי הבעלים לא מצי להקנותו ובתורת חצר לא הוי כיון דלא היו עומדין בצד שדהו ובש\"ך סי' ר\"ג כתב להקשות על דברי הרמ\"א שכת' טובת הנאה אינו ממון לקנות בחליפין והוא מדברי הגהת מיי' בשם בעל העיטור והקשה על בעל העיטור שכת' באות שכירות דבשכירות לחודי' לא קנה בלא אגב וכיון דע\"כ מפרש להך עובדא דר\"ג וזקנים בתורת אגב דהא בחצר לא זכה כיון דחצר שכורה ס\"ל דלא קנה וא\"כ מוכח דטובת הנא' נקנה באגב ובחליפין וע\"ש: ולפי מ\"ש יתיישב דברי הרי\"ף דכיון דהרי\"ף והרמב\"ם ס\"ל טובת הנאה אינה ממון וא\"כ אפקורי בעלמא הוי ומצי זכי ר' יושיע ור\"ע מדנפשייהו בתורת אג\"ק כיון דהפקר נקנ' אג\"ק ורבא דס\"ל טובת הנא' ממון בנדרים דף פ' הוא דלא מצי קני רבי יושיע ור\"ע מנפשייהו כיון דאית להו בעלים והבעלים לא מצי להקנותו בקנין חליפין ואגב משום דהוא קנין גרוע וכמ\"ש אבל לדעת הרי\"ף והרמב\"ם דטובת הנאה אינה ממון ולית ליה בעלים כלל מצי זכי מנפשייהו בתורת הפקר ואג\"ק כל שצבורין בתוכו וכמ\"ש. ודברי בעל העיטור נמי ניחא דודאי ס\"ל טובת הנאה אינה ממון ואין הבעלים יכולין להקנותו ואפילו להוריש איכו יכול וכמ\"ש הרמ\"א בסי' רע\"ו ע\"ש אלא דכת' הש\"ך שם דהיינו דוקא כשהוא ביד אחר לא מצי בעלים כלל להקנותו כיון דלאו דידהו נינהו אבל כשהוא בידו זוכה בו ע\"ש וא\"כ שפיר זכו ר' יושיע ור\"ע כיון שהוא תחת ידם בתורת אגב כמו בהפקר וכמ\"ש. ובמרדכי שם פ\"ק דמציעא הקש' בהא דמשני רב פפא ושם דעת אחרת מקנה שאני דהא כיון דטובת הנאה אינ' ממון ליכא דעת אחרת מקנה אלא מעצמו זוכין בו וע\"ש שכת' כיון דהקנה להם את החצר גם כן ובחצר ה\"ל דעת אחרת עיין שם:",
+        "ולפי מ\"ש ניחא כיון דקושיות רבא אינו אלא משום דס\"ל ט\"ה ממון וכמ\"ש ומש\"ה רב פפא שפיר משני דעת אחרת מקנה שאני דהא אגב וחליפין חשיבי קנינים גרועים ואינם נתפשים בטובת הנאה אבל חצר דהוא קנין טוב שפיר נקנה להם בתורת חצר דעת אחרת מקנה כיון דטובת הנאה ממון. ולכן נראה דהרי\"ף והרמב\"ם לטעמייהו במה דלא ס\"ל הא דרב פפא וכן דעת הש\"ע בסי' ר' אלא אפי' בדעת אחרת בעינן עומד בצדו דהא ליכא למימר טעמא דר\"ג וזקנים משום דעת אחרת מקנה וכדרב פפא כיון דס\"ל ט\"ה אינה ממון אם כן ליכא דעת אחרת כלל וכמו שהקשה במרדכי אבל הרא\"ש דפסק כדר' פפא שם בפ\"א דמציעא משום דאזל לטעמיה שכת' דטובת הנאה ממון כמבואר ברא\"ש פרק האיש מקדש דס\"ל כר' חננאל דט\"ה ממון א\"כ שפיר אתיא כדרב פפא משום דקונה בתורת חצר שהוא קנין טוב:",
+        "אמנם אכתי איכא למידק כיון דהתם בעובדא דר\"ג וזקנים הי' שנת הביעור דצריך להוציא מתחת ידו המתנות לכהן וללוי ולעני כמ\"ש תו' שם בעובדא דר\"ג וזקנים. וכיון דאפי' למ\"ד טובת הנאה ממון אינו אלא בערך טובת הנאה הוא דאית להו לבעלים חלק וכמ\"ש תוס' פ\"ק דמציעא דף ז' בהא דאמרו שם תקפו כהן אין מוציאין אותו מידו והקשה אמאי אין מוציאין יאמרו הבעלים ליתן לכהן אחר ותירצו דאינו יכול לתובעו רק טובת הנאה שיש לו בו למ\"ד ט\"ה ממון עכ\"ל ואם כן אכתי תיקשי נהי דט\"ה ממון אכתי היכי מצי זכי בתורת חצר ובדעת אחרת מקנה לרב פפא נהי דזכה בערך טובת הנא' ע\"י דעת אחרת מקנ' אבל גוף המתנות היכי מצי זכי כיון דאין להם לבעלים כלום בגוף המתנות וליכא דעת אחרת בגוף התבוא':",
+        "והנה לדעת הריטב\"א ס\"פ האיש מקדש דכת' בגונב תרומ' למ\"ד ט\"ה ממון הוי כל התרומ' שלו וצריך הגנב לשלם כפל כפי ערך כל התרומ' ע\"ש א\"כ ניחא לרב פפא משום דט\"ה ממון הוי כל התבוא' של ר' גמליאל ע\"י טובת הנא' ממון ושפיר נקנ' להם ע\"י חצר ובדעת אחרת מקנ' אבל לפי מה שמבואר מדברי תוס' פ\"ק דמציעא דאפי' למ\"ד טובת הנא' ממון אינו אלא בערך ט\"ה אם כן קשיא היכי זכו בגוף התבוא' ע\"י חצר ודעת אחרת וכמ\"ש. ולדברי ריטב\"א יתעורר קושיות תוס' פ\"ק דמציעא בהא דתקפו כהן אין מוציאין יאמרו הבעלים ליתן לכהן אחר וצ\"ע. ולכן נרא' דלתירוצא דר' פפא הוי זכיית רבי יושיע ור\"ע בתורת חצר וגם בתורת אגב דהיינו גוף התבוא' כיון דלית להו בעלים זכו בתורת אגב כמו שאר דבר הפקר ובערך ט\"ה דהוי ממון ויש לו בעלים וקנין אגב אינו נתפס בו משום דה\"ל קנין גרוע נקנ' בתורת חצר ודעת אחרת מקנ' כיון דבערך טובת הנא' ממון יש לו בעלים שפיר מהני בהו חצר ודעת אחרת מקנ'. ובזה ניחא ליישב מה דהקש' בש\"ך בסי' ר' לדעת הרא\"ש דפסק כר' פפא דחצר ודעת אחרת הי' הקנין א\"כ הא דבעיא בש\"ס פ\"ק דקידושין דף כ\"ו שדה במכר ומטלטלין במתנ' ופשוט לה מעובדא דר\"ג וזקנים דהא לר' פפא ה\"ל בתורת חצר ואם כן היכי פשיט מיניה קנין אגב. ולפמ\"ש דלר' פפא נמי צריך קנין אגב דע\"י חצר ודעת אחרת לא הי' נקנ' להם גוף התבוא' אלא בערך ט\"ה שהוא ממון לבעלים ואינו נקנ' גוף התבוא' אלא בתורת אגב א\"כ שפיר פשיט מינה קנין אגב והא דבעי למיפשט שם דבעי צבורין מדהקנ' להם מקומו דוקא. ולפי מ\"ש בהפקר ודאי בעי צבורין אין זה קושיא דכבר דחו לה שם בטעם אחר שאמרו כי היכי דלא לטרחינהו אלא הא דפשיט שכירות בקרקע קשיא ולפמ\"ש ניחא דגם לר' פפא צ\"ל קנין אגב. ובזה נכון שיטת הרי\"ף והרמב\"ם ובעל העיטור ושטת הרא\"ש הכל מיושב כהוגן ותן לחכם וגו':",
+        "וכאשר כתבתי הדברים לגדול אחד השיב וז\"ל ונ\"ל ראי' ברור' מש\"ס פ\"ק דקידושין דף כ\"ז דבעי שדה לא' ומטלטלין לאחד מאי ואמאי לא בעי בש\"ס איפכא שאם קנה קרקע אצל א' ומטלטלין אצל אחד ואמר הקונ' שיקנ' המטלטלין אלו אג\"ק של זה אלא ודאי דלא אזלינן כלל בתר דעת הקונ' רק בתר דעת המקנ' א\"כ בהפקר לא קנה המטלטלין אג\"ק ועוד ראי' מתוס' פ' אלו מציאות (בבא מציעא דף כ\"ו) ד\"ה בדשתיק וא\"ת וליקנ' ליה חצירו לבעל הגל ע\"ש ואמאי לא הקש' דליקני ליה לבעל הגל בתורת אגב אלא ודאי לא שייך אגב בהפקר וגם תירוצם לא הוי שייך על קושיות אגב עכ\"ל. אין זו השג' דמ\"ש דאמאי דלא בעי בקנ' קרקע אצל א' ומטלטלין אצל אחר ודאי מודינא בשני בני אדם דהבעלים מחלקין דהא בקונ' מאדם אחד וליכא מצר מפסיק קנה בחזקה אחת כולה ואילו קנה משני בני אדם אע\"ג דליכא מצר מפסיק צריך חזק' לכל א' וא' דרשות המוכרין מחלקן. וכיון דטעמא דקונ' הפקר בתורת אגב כל שצבורין בתוכו היינו משום דה\"ל כמו גוף הקרקע ובשני בני אדם אפי' הן מחוברין רשות המוכרין מפסקת ביניהם:",
+        "ומה שהביא ראי' מדברי ר\"י פ' א\"מ במה דלא הקשו מתורת אגב אינ' ראי' כלל דודאי כל הקנינים משיכ' ומסיר' וחזק' צריך דעת לקנין אלא חצירו של אדם הוא דזוכ' שלא מדעתו ומש\"ה לא קשיא להו דליקני בתורת חצר דקונ' שלא מדעת אבל אגב צריך דעת לקנין ועיין שו\"ת מוהרי\"ט ח\"א סי' ק\"נ וז\"ל מיהו י\"ל דידו עדיף מעודר דאשכחן חצירו של אדם קונ' שלא מדעתו כו' וכיון דחצירו קונ' שלא מדעתו כ\"ש ידו וכו' ועודר שאני דמדין חזק' היא ולא מתורת זכי' ע\"ש. וא\"כ אגב הרי הוא כמו כל הקנינים דצריך דעת ועמ\"ש בסי' רס\"א סק\"ב:",
+        "ושוב מצאתי להדיא בחידושי הרשב\"א כדברינו דהפקר נמי נקנ' בתורת אגב ע\"ש פ' הפר' דף נ\"ב וז\"ל ושטרא נמי לא קנה דלאו אדעתא דשטרא מחזיק כלומר וכל שהחזיק בקרקע יכול להוציא השטר מידו דהמחזיק בקרקע קנה השטר בכל מקום שהוא דשטרא אפסרא דארעא עכ\"ל. וזה שהחזיק בקרקע דקונ' השטר בכל מקום שהוא אינו אלא בתורת אגב וכמבואר בפ' הספינ' דף פ\"ו בהא דתני שם שלש' שטרות כו' ע\"ש והתם פ' הפר' מיירי בנכסי הגר א\"כ מוכח דקונ' אג\"ק בהפקר ואע\"ג דכתבנו דהפקר בעי צבורין היינו משום דשטרא אפסרא דארעא ה\"ל כמו קרקע ואינו צ\"ל קני השטר אג\"ק וזה ברור:"
+      ],
+      "en_segments": [
+        "<b>Once he struck it with one blow of a hoe, he acquires the whole.</b> I was uncertain whether one who takes possession of ownerless property of a deceased convert and movable property is located within it acquires the movables through agav. Perhaps acquisition by agav works only where another person consciously transfers ownership, while one who acquires on his own cannot use agav. The practical difference arises where courtyard acquisition is unavailable, such as an unguarded area where the acquirer does not stand nearby and did not say, 'My field shall acquire for me.'",
+        "At first glance there is proof from houses acquired by chazakah in the estate of a convert, as indicated in Bava Batra 33 concerning two houses, one inside the other. According to authorities who treat a house as an item detached and then affixed, with the law of movable property as explained in siman 95, and according to what I wrote there in seif katan 3 citing Magen Avraham, siman 637, such a house must be acquired through agav. This would prove that ownerless property can be acquired through agav. Yet one can answer that the house is acquired through courtyard acquisition once the person acquires the ground beneath it, in accordance with what I wrote in siman 202 that acquisition of the courtyard and of the gift can arrive simultaneously.",
+        "There is, however, a clear proof that ownerless property can be acquired by agav from Bava Kamma 117. Rabbi Eliezer and the Sages dispute whether one who stole land that was then swept away by a river must replace it, depending on whether land can be stolen. Rav Pappa explains the baraita about one who stole a cow that was swept away by a river as a case where he stole a field containing a cow lying in it. Rabbi Eliezer follows his view that land can be stolen, while the Sages follow theirs. Rashi explains that the robber did not physically pull the cow. According to Rabbi Eliezer, because the field is acquired to the robber for purposes of liability, the cow lying in it is acquired together with the field through agav, and the robber must pay. According to the Sages, he acquires neither the field nor the cow. In a robber's case there is no conscious transferor. The robber nevertheless needs an acquisition to become liable for accidents just as a purchaser needs an acquisition to acquire. Rashi says he acquires the cow through agav. This proves that agav works even in self-acquisition from ownerless-like property.",
+        "Rashi did not explain that the cow was acquired through the courtyard, even though the robber acquires the field for purposes of liability, because courtyard acquisition depends on a person's legal domain. A robber acquires the land only for liability for unavoidable loss and has no legitimate proprietary domain in it. Although in cases of property susceptible to theft the robber pays according to the time of theft and need not pay for use, as explained in simanim 363 and 371, that does not make the unlawfully occupied courtyard his domain. He entered without permission. Hence Rashi correctly uses agav rather than courtyard acquisition.",
+        "There is nevertheless an important distinction between ownerless property and a gift. For a gift, we rule that movables need not be physically gathered upon the land for agav acquisition, as stated in siman 202. For ownerless property they certainly must be gathered there. If one acquired the estate of a convert, he clearly cannot say that by agav he intends to acquire every ownerless object in the world. The reason is that ordinary agav without physical presence requires the transferor to say, 'Acquire it together with the land.' With ownerless property there is no transferor who can say this. Even if the acquirer himself says, 'I wish to acquire it through agav,' that cannot substitute for another person's instruction. But where the movables are physically gathered upon the land, Rambam, chapter 22 of Hilchot Mechirah, holds that no statement of 'acquire through agav' is necessary. Maggid Mishneh explains that the Gemara's rule that agav does not require the movables to be gathered applies where the transferor expressly says, 'Acquire them together with the land,' whereas without that formula the movables must be physically there. When the movables are gathered upon the land they are treated as part of the land itself. Therefore self-acquisition from ownerless property works in that form as well. This also explains why Bava Kamma specifically says the cow was lying within the field. If agav never required physical presence, that detail would be unnecessary. But because no transferor exists to say, 'Acquire through agav,' the cow must be gathered there. This is strong proof for Rambam's distinction between agav with and without physical presence, despite Maggid Mishneh, Ran, and Rosh questioning Rambam's rule that gathered movables do not require an express agav formula.",
+        "A difficulty arises from Bava Metzia 11. The Gemara requires a person to stand next to his field for courtyard acquisition. Rabbi Abba challenges Ulla from Rabban Gamliel's tithe distribution, where Rabban Gamliel said, 'The tithe that I will measure is given to Yehoshua, and its place is rented to him,' and similarly concerning Rabbi Akiva. They were not standing beside Rabban Gamliel's field. Ulla answered sharply that the transaction there was through agav. Rabbi Zeira accepted this, but Rabbi Abba did not. Rava said Rabbi Abba was correct not to accept it: did they have no sudar with which to acquire by chalipin? Rather, the benefit of choosing the recipient of tithes is not monetary property that can be acquired by chalipin, and similarly is not monetary property that can be acquired through agav. Rashi explains that the entitlement was not Rabban Gamliel's property. He merely rendered it ownerless toward the recipients, and by renting them its location the courtyard acquired it for them like other hefker.",
+        "According to what I have written, if hefker can be acquired through agav when physically gathered upon the land, why does Rava compare agav to chalipin? Chalipin certainly fails because the right of choosing the recipient is not money and therefore is not the owner's transferable property. But agav could still work through the recipients' self-acquisition of the hefker, just as a courtyard can acquire hefker.",
+        "This can be answered from Shitah Mekubetzet there. It writes that even if one holds that the benefit of choosing the recipient is monetary, it is not sufficiently substantial money to be acquired by chalipin. The sugya can therefore fit both the view that it is not money and the view that it is money. Although it cannot be acquired by chalipin or agav because those are relatively weak modes of acquisition, if one gave a person a maneh and transferred his entitlement in the produce, the recipient could acquire it. Otherwise the Gemara would have said simply that the entitlement is not money and cannot be acquired at all. The formulation, 'not money to acquire by chalipin,' implies that there are modes through which it can be acquired. This is necessary because Rava explicitly holds in Nedarim 85 that the right of choosing the recipient is money. Rava therefore means: even if it is money, it is too slight a proprietary interest for the weaker kinyanim of chalipin and agav.",
+        "Accordingly, Rabbi Yehoshua and Rabbi Akiva could not acquire the property on their own as hefker according to Rava, because Rava holds that Rabban Gamliel retained a monetary proprietary interest in the selection right. The property therefore still had an owner. Rabban Gamliel, however, could not transfer that slight proprietary interest through the weaker acquisitions of chalipin or agav. This also reconciles Rif's position. Rif requires standing beside one's field even when another person consciously transfers ownership, rejecting Rav Pappa's distinction that a conscious transferor is different. Commentators asked: if so, how can the Rabban Gamliel episode be explained through agav, when we rule that the choice benefit is not money and the owner cannot transfer it, while courtyard acquisition should fail because the recipients were not beside the field? According to what I wrote, Rif and Rambam hold that the benefit of choosing the recipient is not money at all. It is therefore ownerless with respect to the recipients, who can acquire it themselves through agav when the produce is gathered on the rented land. Rava himself, who holds that the benefit is money, cannot use that explanation, because the property still belongs to Rabban Gamliel and the slight proprietary interest cannot be transferred by weak modes of acquisition.",
+        "The same resolves Baal HaItur's view. Shach in siman 203 challenges Rama's ruling, from Hagahot Maimoniyot in the name of Baal HaItur, that the choice benefit cannot be acquired through chalipin. Baal HaItur elsewhere writes that mere rental of the place would not have acquired in the Rabban Gamliel case without agav. Thus he evidently explains that episode as agav. How then can he say the choice benefit is not acquired by chalipin but is acquired by agav? According to what I wrote, Baal HaItur can hold that the choice benefit is not money and cannot be transferred by the owner at all. Rama similarly rules in siman 276 that it cannot even be inherited. But when the produce itself is physically in the recipients' possession, they can acquire it on their own through agav as ownerless property. Shach himself distinguishes that although the owner cannot transfer a nonproprietary choice right when it is in another person's hands, a person may obtain it when it is physically in his own control.",
+        "Mordechai in the first chapter of Bava Metzia asks against Rav Pappa's answer, 'a conscious transferor is different': if the choice benefit is not money, there is no conscious transferor at all and the recipients should be acquiring on their own. Mordechai answers that because Rabban Gamliel transferred the courtyard to them as well, with respect to the courtyard there was a conscious transferor. According to what I wrote, Rav Pappa's answer works particularly well if, like Rava, he holds the choice benefit is money. Agav and chalipin are weak and cannot transfer that slight interest, but courtyard acquisition is a stronger kinyan and can work through a conscious transferor. Therefore, if the right is monetary, Rabban Gamliel's conscious transfer through the rented courtyard is effective. Rif and Rambam, who hold the right is not money, cannot explain the episode that way and accordingly reject Rav Pappa's distinction, requiring the recipient to stand beside the courtyard even when there is a conscious transferor. Rosh, who rules like Rav Pappa, follows his own view in chapter HaIsh Mekadesh that the choice benefit is money, in accordance with Rabbeinu Chananel. Thus all the approaches fit their broader positions.",
+        "There remains another difficulty. The Rabban Gamliel episode occurred in the year of removal, when he had to remove the priestly, Levite, and poor tithes from his possession. Even according to the view that the choice benefit is money, the owner has only the economic value of that choice, not ownership of the entire produce. Tosafos in Bava Metzia 7, regarding a Kohen who seizes a doubtful firstborn animal, explain that even according to the view that the owner's choice right is money, the owner can claim only the value of his choice, not the whole gift. If so, how could Rabbi Yehoshua and Rabbi Akiva acquire the body of the produce through a courtyard and conscious transferor under Rav Pappa? Rabban Gamliel had conscious transferable ownership only in the value of the choice right, not in the body of the gifts.",
+        "Ritva at the end of HaIsh Mekadesh writes that according to the view that the choice benefit is money, a thief who steals terumah must pay double according to the full value of the terumah, because the entire terumah is considered the owner's property through the monetary value of his choice. According to Ritva, Rav Pappa's explanation is straightforward: if the choice right is money, all the produce is treated as Rabban Gamliel's and can be transferred through courtyard acquisition with a conscious transferor. Yet this creates a difficulty with Tosafos in Bava Metzia 7, who hold that even according to the view that choice benefit is money the owner can claim only its limited value.",
+        "It therefore appears that according to Rav Pappa the acquisition in Rabban Gamliel's episode operated through both courtyard and agav. The body of the produce, insofar as it had no owner, was acquired through agav like other hefker, because it was physically gathered on the transferred ground. The monetary value of the choice right, which belonged to Rabban Gamliel and cannot be acquired through the weak kinyan of agav, was acquired through the courtyard with a conscious transferor, which is a strong acquisition. This also resolves Shach's question in siman 200 against Rosh. Rosh rules like Rav Pappa that the Rabban Gamliel episode worked through courtyard acquisition with a conscious transferor. Yet Kiddushin 26 asks whether land in a sale can carry movable property given as a gift through agav and resolves it from the Rabban Gamliel episode. If Rav Pappa explains the episode only through courtyard acquisition, how can it prove agav? According to what I wrote, even Rav Pappa must use agav for the body of the produce. The courtyard acquisition with a conscious transferor transfers only the monetary value of the owner's choice right. Thus the episode remains a proof for agav. As for the Gemara's attempt to prove that the movables must be physically gathered there from Rabban Gamliel's renting their exact location, our approach indeed requires physical presence for hefker. But the Gemara rejects that proof on another ground, namely that the exact location was rented merely to spare the recipients inconvenience. The remaining agav proof is still valid.",
+        "After I wrote this, a distinguished scholar responded that there is a clear proof against me from Kiddushin 27, which asks whether land can be given to one person and movables to another through agav. Why does it not ask the reverse, where one acquires land from one owner and movables from another and the acquirer says he wishes to acquire the movables through agav of the first owner's land? This shows, he argued, that agav depends entirely on the transferor's intent, and therefore cannot acquire hefker. He further cited Tosafos, Bava Metzia 26, s.v. 'where he remained silent,' who ask why a courtyard should not acquire a found object for the owner of a heap. Why did they not ask that he acquire it through agav? Their answer concerning courtyard acquisition would not address agav.",
+        "This is not a refutation. Regarding land and movables owned by two different people, I agree that the distinct owners divide the acquisitions. Where one buys adjoining fields from one person, one act of chazakah can acquire all when no boundary separates them, whereas fields bought from two different owners require a separate chazakah for each even without a physical boundary, because the distinct ownerships divide them. My claim about hefker is only that where movables are physically gathered on the land, they are treated as part of the land itself. With two owners, the distinct ownerships prevent that unity. As for Tosafos in Bava Metzia 26, ordinary modes of acquisition such as meshichah, mesirah, chazakah, and agav require intent to acquire. A person's courtyard is exceptional in that it acquires without his knowledge. Hence Tosafos ask only about the courtyard, which could acquire automatically. Agav would require the owner's intent, and therefore their failure to ask about agav proves nothing. Maharit, part 1 siman 150, likewise distinguishes the hand and courtyard, which acquire without awareness, from ordinary chazakah. See what I wrote in siman 261, seif katan 2.",
+        "I later found Rashba's novellae explicitly supporting my position that hefker can be acquired through agav. In Bava Kamma 52 he writes that where one took possession of the land but not the document, the document is nonetheless acquired wherever it is, because the document is the tether of the land. A document attached to land in this way is acquired through agav, as is clear from Bava Batra 86 concerning the three types of documents. The Bava Kamma passage concerns the estate of a deceased convert. Thus Rashba explicitly recognizes agav acquisition in hefker. Although I have written that ordinary hefker agav requires the movables to be physically gathered upon the land, a document evidencing title to the land is itself considered like the land because it is the land's tether. Therefore no express agav statement is needed. This is clear."
+      ],
+      "prior_notes": "Parts 8–10 AI: contiguous rejoin unsafe (13 HE / 17 EN). Do not invent contiguous merge_groups without strong HE lemma alignment. Prefer needs_human or careful pair_map; avoid over-merge.",
+      "prior_hint": "contiguous unsafe; needs_human unless clear non-contig map",
+      "pack_meta": {
+        "unsafe_reason": "under_grouped_cannot_split",
+        "spot_verdict": null,
+        "spot_reason": null,
+        "prior_auto_merge_groups": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14,
+            15
+          ],
+          [
+            16
+          ]
+        ],
+        "alignHint": "no_head_align",
+        "strongEnHeads": 9
+      }
+    }
+  ]
+}
