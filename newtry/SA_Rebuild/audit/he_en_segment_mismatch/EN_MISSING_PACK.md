@@ -31,6 +31,7 @@
   - SHA-256: `b3c99c12f3861fdb77eac6022abb10400986376f56d9fff9ca92827eaa29352e`
   - Cases: 20
 - Parts: each ≤ 85,000 UTF-8 bytes (hard cap)
+- Dictionary (user attaches): **`full_dictionary.md`** — see [`DICTIONARY_REF.md`](./DICTIONARY_REF.md)
 - Corpus: `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/{oc1,yd1,eh1,cm1}/`
 - Split: normalize consecutive `<br>` then split on `<br>`; strip tags for segment text
 - Mode: **fresh_translate** (EN missing; translate from HE — not needs_en_source / not old MT)
@@ -44,10 +45,22 @@
 
 ## ChatGPT prompt (fresh translate)
 
-Paste this prompt together with **one** `EN_MISSING_PACK.json` / `EN_MISSING_PACK_partNN.json` file. Return a JSON array for **only** the case ids in that pack.
+Paste this prompt together with **both** attachments: (1) one `EN_MISSING_PACK.json` / `EN_MISSING_PACK_partNN.json` file, and (2) **`full_dictionary.md`**. Return a JSON array for **only** the case ids in that pack.
 
 ```
-SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW. INPUT: EN_MISSING_PACK.json (or one part; this chunk only).
+SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW.
+
+INPUTS (both required)
+1) EN_MISSING_PACK.json (or one part; this chunk only)
+2) full_dictionary.md (attached by the user — follow it without exception)
+
+DICTIONARY (mandatory — full_dictionary.md)
+- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.
+- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).
+- Part 3 — commentator names: use names exactly as listed (never anglicize).
+- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).
+- Part 5 — connectives: render logical connectives per the dictionary.
+- Never invent alternate glosses when the dictionary specifies a term.
 
 CONTEXT
 - Each case has Hebrew present in he_segments and English absent/empty (enSegs === 0, en_segments is []).
@@ -58,11 +71,9 @@ CONTEXT
 TRANSLATION NORMS (brief)
 - Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.
 - No additions: no introductions, notes, "Note:", or explanations beyond the source.
-- Halachic terms: use standard transliteration where customary (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).
-- Expand Hebrew abbreviations in English (Taz, Magen Avraham, Beit Yosef, Shulchan Aruch, etc.); no raw Hebrew abbreviations in EN.
-- Convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf citations).
 - Rama glosses introduced by הגה → {Rama: ...} (curly braces).
 - Plain English only — no "Translation:" label, no markdown wrappers around the segment text itself.
+- Where norms and full_dictionary.md conflict, full_dictionary.md wins.
 
 ACTIONS
 1) fresh_translate — default. HE is usable; return en_segments with length === heSegs (same order as he_segments).
@@ -86,4 +97,5 @@ CONSTRAINTS
 ## Notes
 
 - Mode is fresh_translate from HE in-pack. Not needs_en_source; not old MT .txt.
+- Must use attached `full_dictionary.md` (Parts 1–5) without exception.
 - No corpus apply from this pack.

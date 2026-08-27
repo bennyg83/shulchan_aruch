@@ -9,7 +9,7 @@ Scan: live (122853ms), pairs=197,982, both-files=118,852
 ## Run order (recommended)
 
 1. **HE_MISSING_MISALIGN_PACK** — empty HE + EN present (misalignment / wrong-seif / missing HE). Do **not** mix with structure rejoin.
-2. **EN_MISSING_PACK** — HE present, EN absent — fresh translate from HE (1:1); not needs_en_source / not old MT.
+2. **EN_MISSING_PACK** — HE present, EN absent — fresh translate from HE (1:1) with attached `full_dictionary.md`; not needs_en_source / not old MT.
 3. **EN_TRUNC_PACK** — single EN blob vs multi HE (split EN or escalate).
 4. **HE_HAS_MORE_PACK** — heSegs > enSegs with both > 0 (HE rejoin or EN split).
 5. **GLUED_STILL_OPEN_9_KIT** / existing en_has_more packs — remaining non-zero EN overs (already packed; do not rebuild here).
@@ -28,7 +28,7 @@ Scan: live (122853ms), pairs=197,982, both-files=118,852
 - **HE_HAS_MORE_PACK**: Structure review when HE has more <br>-segments than EN (rejoin HE or split EN)
 - **EN_TRUNC_PACK**: Split single EN blob vs multi HE, or escalate to editorial/human
 - **HE_MISSING_MISALIGN_PACK**: Misalignment kit: empty/absent HE with EN present — restore HE or flag wrong-seif (NOT structure rejoin)
-- **EN_MISSING_PACK**: HE present, EN absent — fresh accurate EN from he_segments (1:1); not needs_en_source / not old MT
+- **EN_MISSING_PACK**: HE present, EN absent — fresh EN from HE using attached `full_dictionary.md` (Parts 1–5); not needs_en_source / not old MT
 
 ## Counts vs prior (395 / 215 / 59 / 20)
 

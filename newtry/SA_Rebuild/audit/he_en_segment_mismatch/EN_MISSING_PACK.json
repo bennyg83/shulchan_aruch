@@ -3,7 +3,7 @@
     "created": "2026-08-27T20:51:09.706Z",
     "kit": "EN_MISSING_PACK",
     "kind": "en_missing",
-    "purpose": "HE present, EN absent — fresh accurate EN from he_segments (1:1); not needs_en_source / not old MT",
+    "purpose": "HE present, EN absent — fresh accurate EN from he_segments (1:1) using attached full_dictionary.md Parts 1–5; not needs_en_source / not old MT",
     "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
     "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
     "classification": "same formal kinds as scan_corpus_he_en_segment_mismatch.mjs",
@@ -21,7 +21,19 @@
       "prior_delta": 0
     },
     "instructions_for_reviewer": [
-      "SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW. INPUT: EN_MISSING_PACK.json (or one part; this chunk only).",
+      "SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_MISSING_PACK.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
       "",
       "CONTEXT",
       "- Each case has Hebrew present in he_segments and English absent/empty (enSegs === 0, en_segments is []).",
@@ -32,11 +44,9 @@
       "TRANSLATION NORMS (brief)",
       "- Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.",
       "- No additions: no introductions, notes, \"Note:\", or explanations beyond the source.",
-      "- Halachic terms: use standard transliteration where customary (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).",
-      "- Expand Hebrew abbreviations in English (Taz, Magen Avraham, Beit Yosef, Shulchan Aruch, etc.); no raw Hebrew abbreviations in EN.",
-      "- Convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf citations).",
       "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
       "- Plain English only — no \"Translation:\" label, no markdown wrappers around the segment text itself.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
       "",
       "ACTIONS",
       "1) fresh_translate — default. HE is usable; return en_segments with length === heSegs (same order as he_segments).",
@@ -52,7 +62,8 @@
     ],
     "hard_cap_utf8_bytes": 85000,
     "mode": "fresh_translate",
-    "prompt": "SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW. INPUT: EN_MISSING_PACK.json (or one part; this chunk only).\n\nCONTEXT\n- Each case has Hebrew present in he_segments and English absent/empty (enSegs === 0, en_segments is []).\n- Your job is to produce a fresh, accurate English translation for each Hebrew segment (1:1).\n- Do NOT copy from editorial .txt dumps, old machine-translation pipelines, or any prior EN MT output.\n- Do NOT use action needs_en_source. This kit is authorized for fresh translation from the HE text in the pack.\n\nTRANSLATION NORMS (brief)\n- Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.\n- No additions: no introductions, notes, \"Note:\", or explanations beyond the source.\n- Halachic terms: use standard transliteration where customary (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).\n- Expand Hebrew abbreviations in English (Taz, Magen Avraham, Beit Yosef, Shulchan Aruch, etc.); no raw Hebrew abbreviations in EN.\n- Convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf citations).\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label, no markdown wrappers around the segment text itself.\n\nACTIONS\n1) fresh_translate — default. HE is usable; return en_segments with length === heSegs (same order as he_segments).\n2) needs_human — ONLY if HE is empty, corrupt, or clearly unusable. Do not use this merely because the passage is hard.\n\nOUTPUT — JSON array only, same ids/order as input cases:\n[{\"id\":\"...\",\"action\":\"fresh_translate\",\"en_segments\":[\"...\",\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\n\nCONSTRAINTS\n- en_segments.length MUST equal that case's heSegs (and match he_segments 1:1).\n- For needs_human, still include id/action/notes/confidence; en_segments may be [].\n- No corpus edits. Return JSON only."
+    "prompt": "SA_Rebuild EN_MISSING — FRESH TRANSLATE FROM HEBREW.\n\nINPUTS (both required)\n1) EN_MISSING_PACK.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Each case has Hebrew present in he_segments and English absent/empty (enSegs === 0, en_segments is []).\n- Your job is to produce a fresh, accurate English translation for each Hebrew segment (1:1).\n- Do NOT copy from editorial .txt dumps, old machine-translation pipelines, or any prior EN MT output.\n- Do NOT use action needs_en_source. This kit is authorized for fresh translation from the HE text in the pack.\n\nTRANSLATION NORMS (brief)\n- Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.\n- No additions: no introductions, notes, \"Note:\", or explanations beyond the source.\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label, no markdown wrappers around the segment text itself.\n- Where norms and full_dictionary.md conflict, full_dictionary.md wins.\n\nACTIONS\n1) fresh_translate — default. HE is usable; return en_segments with length === heSegs (same order as he_segments).\n2) needs_human — ONLY if HE is empty, corrupt, or clearly unusable. Do not use this merely because the passage is hard.\n\nOUTPUT — JSON array only, same ids/order as input cases:\n[{\"id\":\"...\",\"action\":\"fresh_translate\",\"en_segments\":[\"...\",\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\n\nCONSTRAINTS\n- en_segments.length MUST equal that case's heSegs (and match he_segments 1:1).\n- For needs_human, still include id/action/notes/confidence; en_segments may be [].\n- No corpus edits. Return JSON only.",
+    "dictionary_file": "full_dictionary.md"
   },
   "cases": [
     {
