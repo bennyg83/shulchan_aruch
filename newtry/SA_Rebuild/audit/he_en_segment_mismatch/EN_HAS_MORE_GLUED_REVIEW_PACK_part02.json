@@ -1,0 +1,587 @@
+{
+  "meta": {
+    "created": "2026-08-27T18:39:43.547Z",
+    "purpose": "External AI: propose correct EN merge groups so enSegs===heSegs without gluing distinct notes",
+    "applied_excluded": [
+      "oc1/siman32/seif-005/yad-ephraim"
+    ],
+    "sources": {
+      "spot_review": "en_rejoin_11_spot_review.json",
+      "dry_run": "en_rejoin_continuations_dry_run.json",
+      "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+      "split": "normalize consecutive <br> then split on <br>; strip tags for segment text"
+    },
+    "counts": {
+      "reject_spot_review": 10,
+      "unsafe_dry_run": 48,
+      "deduped_total": 58,
+      "expected": 58,
+      "by_bucket": {
+        "unsafe_dry_run": 48,
+        "reject_spot_review": 10
+      }
+    },
+    "instructions_for_reviewer": [
+      "For each case, read he_segments and en_segments.",
+      "Propose merge_groups: array of arrays of EN indices, length === heSegs.",
+      "Only merge true continuations; never glue distinct HE lemmas/notes.",
+      "If not safely fixable by contiguous EN rejoin, set verdict: \"needs_editorial\" and explain.",
+      "Return same case id; do not invent content.",
+      "Output a JSON array of objects matching reviewer_output_template for every case."
+    ],
+    "chunk_index": 2,
+    "chunk_total": 7,
+    "case_offset": 11,
+    "cases_in_chunk": 11
+  },
+  "cases": [
+    {
+      "id": "oc1/siman467/seif-016/beur-hagra",
+      "volume": "oc1",
+      "siman": 467,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "ס\"טז העוף מותר. עט\"ז ומ\"א:",
+        "והחטה כו' דלא כו'. דאין ללמוד איסור מטומאה. טור. ולכן אין חילוק בין שלימה או שבורה ועתוס' דבכורות ז' ב' ובחולין צ\"ד ד\"ה אמר רבא ונקט זה התי' דתוס' דכל התירוצים האחרים הם דחוקים מה שמחלקים בין שלימה לשבורה דא\"כ מאי מקשי שם מעצמות דילמא שלימין היו דבלעום ואף שדחקו שם בתוס' וכן תי' הראב\"ן דכדי שיפול לאור הוא דבר מועט וכן בתוספתא שם אמר בעופות כו' מיד רק תי' דיש להחמיר כריב\"ב דבשל תורה הלך אחר המחמיר כמ\"ש תוס' בחולין שם והג\"א שם כיון דנוקשה הוא אינו רק מדרבנן וכ\"ש לאסור הצלי כמו שמ' בטור אבל ל\"ל דס' לחלק בין איסור לטומאה אינו דגם תוס' לא ס\"ל במסקנא במנחות. וראיה שאמרו בחולין קיו ב' אבל מעמידין כו' ובקיבת כשירה כו' וערי\"ף שם ותוס' שרצו לחלק בין איסור לטומאה אזלי לשיטתייהו שמחלקים שם בין צלול לקרוש והעיקר כתי' שמחלקין בין קשין לרכים וכמ\"ש שם בגמ' בהדיא ולכן דג אסור וכ\"ש חיטים דשרירן וז\"ש שם חיטין כו' לקטן כו':"
+      ],
+      "en_segments": [
+        "Seif 16: The bird is permitted. See Taz and Magen Avraham.",
+        "And the wheat, etc., unlike, etc. Prohibition cannot be derived from the laws of impurity. This is Tur’s ruling. There is therefore no distinction between a whole kernel and a broken one. See Tosafos, Bechoros 7b, and Chullin 94a, in the passage beginning “Rava said.” The ruling adopts this answer of Tosafos because all their other answers are strained. They distinguish between whole and broken kernels, but if so, why does the Gemara challenge from bones? Perhaps the bones were whole and were swallowed. Tosafos force an answer there, and Raavan likewise answers that the time needed for the item to fall into the fire is brief. The Tosefta there similarly says concerning birds, etc., “immediately.”",
+        "The correct answer is that one should be stringent in accordance with Rabbi Yehudah ben Beseira, because in a Torah matter one follows the stringent opinion, as Tosafos in Chullin and Hagahos Ashri write. Since hardened chametz is prohibited only by Rabbinic law, one need not follow that stringency. Certainly one should not forbid the roasted bird, as is implied by Tur.",
+        "One cannot say that Tosafos distinguish between prohibition and impurity, because even Tosafos do not retain that distinction in their conclusion in Menachos. A proof is the statement in Chullin 116b, “but one may use as a setting agent, etc.,” and the discussion of the stomach of a kosher animal. See Rif there. Tosafos, who wished to distinguish between prohibition and impurity, follow their own view that distinguishes between liquid and congealed material. The primary answer, however, distinguishes between hard and soft material, as the Gemara states explicitly. Therefore a fish is forbidden, and certainly wheat kernels, which are firm. This is the meaning of the statement there concerning wheat, etc., “to the small one,” etc."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman467/seif-016/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman484/seif-001/turei-zahav",
+      "volume": "oc1",
+      "siman": 484,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 11,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "והדר מברך לכל חד. אע\"ג דברכת הנהנין קי\"ל שאינו יכול לברך לאחרי' אא\"כ יהנה עמהם שאני ברכת הלחם של מצה וקידוש היום שהם חובה הלכך יכול לברך להוציא אחרים אע\"פ שאינו נהנה וכן ברכת הירקות חשוב ג\"כ מצוה ויכול להוציא אחרים וכתב הרא\"ש ז\"ל כיון דתקנת חכמים היא משום היכר לתינוקות הוה כברכת מצוה והקשה מו\"ח ז\"ל דהא אמרי' בפ' ע\"פ וכיון דאינו אלא משום היכרא לא הוה מצו' ולק\"מ דלא קאמר הרא\"ש דהוה באמת מצו' אלא דכיון שתקנו חכמי' משום היכר יש כאן חיוב ולא חשיב כברכת הנהנין ודינו כמו בברכת המצות:",
+        "ומברכי אינהו ב\"ה. פי' ולא יצטרף עמהם לזימון דהא לא אכיל עמהם:",
+        "יקרא מלה במלה. ואין כאן מוציא שם לבטלה דהוה כקטן שמקרא את ההלל שעונין אחריו מה שהוא אומר וכ\"כ בטור בשם הרא\"ש וא\"ל הא ס\"ל להרא\"ש בפ' ג' שאכלו דמי שלא אכל יכול להוציא בברכת המזון את מי שאכל מטעם ערבות וא\"כ למה הצריך כאן להקרות מלה במלה הא לא קשיא דהא כתב שם הרא\"ש דמדרבנן אינו יכול להוציא אלא שהסמ\"ק כ' סתם יכול להוציא משמע אפי' מדרבנן וע\"ז חולק הטור בססי' קפ\"ו: כתב (בטור) ומ\"ש רב אלפ' ומברכי אינהו ב\"ה כו' ורב עמרם כתב שאין תקנה להוציאם שאם מברך עליהם ברכת המזון תו לא מצי למישתי בביתיה ברכת המזון עכ\"ל ופי' ב\"י כיון שמברך להם ב\"ה ע\"כ צריך לאכול עמהם כזית תו לא מצי למישתי בביתי' ברכת המזון כלומר שוב אינו יכול לאכול ולשתות בביתו דאסור לאכול בליל פסח ב' סעודות דמיחזי כאוכל ב' פסחים ורב עמרם מיירי שהקדים לעשו' הסדר בשאר בתים ואין מקום לפי זה במה דנקט תו לא מצי למישתי בביתי' ב\"ה ולפעד\"נ דרע\"מ ס\"ל שאין איסור כשאוכל ב' פעמים ומברך עליהם מצד איסור אכיל' דמיחזי כב' פסחים דמה ענין זה לזה דאכילת אפיקומן הוא במקום פסח ואותו אינו אוכל כי אם פעם א' אלא האיסור הוא דלא יוכל לשתות הכוס הד' שהוא אומר עליו ההלל דיוסיף על הכוסות כיון דמברך ב\"פ ה\"ל ד' כוסו' וע\"כ אמר רב עמרם כיון שיברך כאן על כוס היאך ישתה בביתו כוס של ב\"ה שמברך בביתו דיהיה בזה ד' כוסות ומה יעש' בהלל ששייך על כוס הד' כנ\"ל נכון ומ\"ש הטור אח\"ז וכ\"כ רב כהן צדק כו' פי' בעיקר הדין מסכים עם רע\"מ שאין תקנ' לברך ב\"ה ב\"פ אלא שהוא נותן טעם אחר דהיינו דאסור למיכל ב\"פ בליל' דכיון שהוא מברך פעם הא' נסתלק ממנו אכילת מצה ואע\"ג דלא אכיל אפיקומן דחשבי' הכזית מצה שאכל כבר לחיוב שלו כדלעיל סי' תע\"ז בשם אבי העזרי ועיטור וא\"כ מה מועיל לו שיאכל בפעם השנית כזית מצה באחרונ' לשם אפיקומן והוא כבר יצא אבל רע\"מ לא נתן טעם זה דרב כ\"צ דכיון שהוא מכוין בשע' ב\"ה של פ\"א שלא לסמוך על כזית מצה שאכל בראשונ' אלא יחזור ויאכל פעם אחרת ואז יאכל אפיקומן ש\"ד ע\"כ נותן טעם מכח איסור שתיה שאחר ארבע כוסות וכל זה לא מיירי אלא במברך ב\"פ ב\"ה דאסור לר\"עמ מטעם שלו ולרב כ\"צ מטעם שלו אבל אם מפסיק באכילתו והולך לבית אחר ויאכל שם אפיקומן ויברך שם ב\"ה אין כאן איסור כלל אפי' לרב כ\"צ דבזה ודאי אכילה חדא היא כמ\"ש סי' קפ\"ד וכמ\"ש סי' תע\"ט כנלע\"ד: כתב עוד הטור ואפשר דאף ב\"ה יכול לברך כדי להוציאם כיון שהוא חוב' כו' כמו בטיבול ירקו' ע\"כ וב\"י הבין שהטור כתב זה דרך פי' לדברי רי\"ף ואינו כן אלא זהו דעת עצמו עכ\"פ שלא כדעת הרא\"ש ורב כ\"צ ורע\"מ שלא מצאו תקנ' בזה וא\"כ אמאי לא נימא דגם הרי\"ף לא ס\"ל כן שהרי כתב ומברכי אינהו היינו ולא הוא טעמם שלא הסכימו לזה הוא כמ\"ש ב\"י בשם אבודרהם שחולק ג\"כ על הטור מכח הירוש' ואמר כל מצוה שאדם פטור מהם מוציא את הרבים י\"ח חוץ מב\"ה מדכתיב ואכלת ושבעת מי שאכל הוא מברך אלא שהב\"י דחה זה דכיון שהיא חוב' בליל' זו דומה לברכת המוציא שמוציא אחרים בליל' זו אע\"פ שאינו נהנה אבל נרא' טעם אחר שלא הסכימו רי\"ף והרא\"ש ושאר גאונים לזה דבודאי יש חילוק גדול בין ברכת המזון לשאר ברכות שחייבים בלילה זה דאין שייך לו' שיוציא את אחר ויברך בשבילו אלא במידי דהוא הכשר מצוה דהיינו שהאחר יעשה מצוה אחר שיעשה זה הברכה השייך לה מ\"ה בענין המוציא ואכילת מצה וטיבול ירק שפיר מברך זה והאחר יאכל אכילת המצות ההיא משא\"כ בב\"ה שאינה הכשר מצוה שתוכל לומר שעי\"ז יקיים זה המצוה דהא כבר עשה זה מה שעש' אלא שנתחייב להש\"י לתת שבח והודי' על העבר במה שאכל כבר ואין לאחר ליתן שבח בשבילו כיון שזה לא יעשה מצוה בשבילו אח\"כ ודבר זה דומה ממש להרוא' מלכי ישראל חייב לברך וכי ס\"ד שמי שכבר בירך על ראייתו ובא א' שאינו יודע הברכ' ורואה ג\"כ את המלך יצטרך זה שכבר בירך לברך שנית בשבילו ודאי זה אינו וא\"צ ראיי' לסתור דבר זה ה\"נ ממש כן הוא כיון שאין קיום מצו' לזה שאינו בקי אחר שבירך זה הבקי ב\"ה ודאי הוה ברכה לבטלה ונרא' שהטור עצמו נזהר בזה שכ' ז\"ל כיון שתיקנו ד' כוסו' ותקנו א' מהם על ב\"ה היא חוב' כמו בטיבול ירקות הרי שתיקן מה שהוקש' לי באומרו שגם כאן יש קיום מצוה אחר ב\"ה שישתה כוס ד' ולא אמר הטעם כיון שיש חיוב עליו לברך על מה שאכל אלא ודאי שצריך דוקא אחר כך תיקון מצוה אבל אין זה תיקון באמת דהא ב\"ה אין לו חיוב ושייכות להכוס שישת' אח\"כ אלא שבח על אכילה שעבר' אלא בפה\"ג שייך למה שישתה אח\"כ ואגב זה סמכו לו חכמים שיהי' כוס הג' סמוך לו לענין חשבון ד' כוסות אבל אין ב\"ה ניתקן בשביל הכוס משא\"כ בהמוציא וירקות דהברכה בא בשביל' ודבר זה נלע\"ד ברור ותמהתי על רבינו הטור דלא נחית לזה והוא דבר מתקבל ומסתבר:"
+      ],
+      "en_segments": [
+        "Afterward he recites the blessing for each person. Although we rule that one cannot recite a blessing over enjoyment for others unless he partakes together with them, the blessing over the matzah and Kiddush are different, because they are obligatory. He may therefore recite them to discharge others even though he does not partake. The blessing over the vegetable is likewise considered connected to a mitzvah, and he may discharge others. The Rosh writes that since the Sages instituted the dipping as a means of arousing the children's attention, its blessing has the status of a blessing over a mitzvah. My revered father-in-law, of blessed memory, asks that the Gemara in the chapter Arvei Pesachim states that since the dipping serves only as a recognition, it is not a mitzvah. This is no difficulty. The Rosh does not mean that the dipping is truly a mitzvah. Rather, since the Sages instituted it as a means of recognition, it is obligatory and is therefore not treated like an ordinary blessing over enjoyment. Its law is consequently like that of a blessing over a mitzvah.",
+        "They themselves recite Birkat Hamazon. This means that he does not join them for a zimmun, since he did not eat together with them.",
+        "He should prompt them word by word. There is no concern here of uttering Hashem's Name in vain, because this is comparable to a minor who reads Hallel and the listeners repeat after him what he says. The Tur writes likewise in the name of the Rosh. One might ask that the Rosh rules in the chapter Sheloshah She'achlu that one who did not eat may discharge one who ate in Birkat Hamazon, because all Jews are responsible for one another. Why, then, is it necessary here to prompt them word by word? This is not difficult, because the Rosh writes there that by rabbinic law he cannot discharge them. The Semag, however, writes without qualification that he may discharge them, which implies that this applies even by rabbinic law. The Tur disputes this in siman 186.",
+        "The Tur writes that the Rif states, “He recites Birkat Hamazon for them,” but Rav Amram writes that there is no such institution, because if he recites Birkat Hamazon for them he will be unable to drink the cup associated with Birkat Hamazon in his own home. End quote. The Beit Yosef explains that since he recites Birkat Hamazon for them, he must eat a kezayis with them, and he will then be unable to eat and drink again in his own home. This is because it is forbidden to eat two meals on Pesach night, lest it appear that one is eating from two Pesach offerings. Rav Amram is discussing one who first conducts the Seder in other homes. According to this explanation, however, his statement that the person will be unable to drink the cup of Birkat Hamazon in his own home is not precise.",
+        "It appears that the Ra'avad holds there is no prohibition against eating twice and reciting Birkat Hamazon for them because it appears that one is eating from two Pesach offerings. The afikoman is eaten in place of the Pesach offering, and one eats it only once. Rather, the concern is that he will be unable to drink the fourth cup, over which Hallel is recited, because he would thereby add to the prescribed cups. Once he recites Birkat Hamazon a second time, he will already have four cups. Rav Amram therefore means that since he will recite Birkat Hamazon here over a cup, how can he later drink the cup of Birkat Hamazon in his own home? It would then constitute the fourth cup, leaving no cup for Hallel, which belongs over the fourth cup. This explanation is correct.",
+        "When the Tur later writes, “Rav Kohen Tzedek likewise says,” he means that Rav Kohen Tzedek agrees with the Ra'avad concerning the principal ruling, that there is no institution to recite Birkat Hamazon twice, although he gives a different reason. According to Rav Kohen Tzedek, it is forbidden to eat twice that night. Once the person has recited Birkat Hamazon the first time, his initial eating of matzah is concluded. Although he did not eat afikoman, the kezayis of matzah he already ate counts toward his obligation, as stated above in siman 477 in the name of Avi Ezri and the Ittur. What, then, is gained by eating a second kezayis of matzah later as afikoman, since he has already fulfilled his obligation? The Ra'avad does not give Rav Kohen Tzedek's reason, because when the person recites the first Birkat Hamazon he intends not to rely upon the first kezayis of matzah, but to return and eat again, and the later eating will constitute afikoman. The Ra'avad therefore gives the reason that he may not drink after four cups.",
+        "All this applies only when he recites Birkat Hamazon twice, whether according to the Ra'avad's reason or Rav Kohen Tzedek's reason. If he interrupts his meal, goes to another house, eats afikoman there, and recites Birkat Hamazon there, there is no prohibition at all, even according to Rav Kohen Tzedek, because this is certainly regarded as one continuous eating, as stated in siman 484 and as I wrote in siman 479.",
+        "The Tur further writes that perhaps one may even recite Birkat Hamazon to discharge them, since it is obligatory, just as with dipping the vegetable. The Beit Yosef understands that the Tur wrote this to explain the Rif. This is not so. Rather, it is the Tur's own view, at least in opposition to the Rosh, Rav Kohen Tzedek, and the Ra'avad, who recognized no such institution. If so, why not say that the Rif likewise does not hold this view, since his words, “He recites Birkat Hamazon for them,” may mean that they, and not he, recite it? The reason the other authorities did not agree with the Tur is explained by the Beit Yosef in the name of the Abudraham, who cites the Yerushalmi: Regarding every mitzvah from which a person is exempt, he may discharge the public, except for Birkat Hamazon, because Scripture states, “You shall eat and be satisfied,” teaching that the one who ate must recite the blessing. The Beit Yosef rejects this proof, reasoning that since Birkat Hamazon is obligatory on this night, it resembles the blessing of Hamotzi, through which one may discharge others on this night even though he does not partake.",
+        "There appears, however, to be another reason why the Rif, the Rosh, and the other Geonim did not agree with the Tur. There is a fundamental difference between Birkat Hamazon and the other blessings required on this night. One person may recite a blessing for another only when the blessing prepares for a mitzvah that the other person will subsequently perform. Thus, with Hamotzi, eating matzah, and dipping the vegetable, one person may properly recite the blessing and the other then performs the associated act. Birkat Hamazon, however, does not prepare for a mitzvah. The person has already eaten, and is now obligated to offer praise and thanks to Hashem for what he has already received. Another person cannot offer that praise on his behalf when no mitzvah will subsequently be performed through the blessing.",
+        "This is exactly comparable to the blessing recited upon seeing Jewish kings. Could one imagine that after a person has already recited the blessing upon seeing the king, another person who does not know the blessing may require him to recite it again on the second person's behalf? Certainly not. No proof is needed to reject such an idea. The same applies here. Since the person who is not proficient does not perform any mitzvah after the proficient person recites Birkat Hamazon, the latter's blessing would certainly be in vain.",
+        "It appears that the Tur himself was sensitive to this difficulty. He writes that since the Sages instituted four cups and designated one of them for Birkat Hamazon, it is obligatory like the dipping of the vegetable. He thereby attempts to answer the difficulty by identifying a mitzvah performed after Birkat Hamazon, namely, drinking the fourth cup. He does not base his ruling merely on the obligation to recite Birkat Hamazon for what was eaten. This proposed answer, however, is not valid. Birkat Hamazon has no inherent connection to the cup that will be drunk afterward. It is praise for the meal that has already been eaten. Only the blessing of Borei Pri HaGafen relates to what will be drunk afterward. The Sages merely arranged that the third cup be associated with Birkat Hamazon as part of the count of four cups. Birkat Hamazon was not instituted for the cup, unlike Hamotzi and the blessing over the vegetable, which are recited for the foods that follow. This matter appears clear to me, and I am astonished that our master the Tur did not address it, for it is reasonable and compelling."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman484/seif-001/turei-zahav",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman486/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 486,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 18,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 12,
+      "he_segments": [
+        "ס\"א שיעור כזית כו'. תליא בשיטת התוס' והרמב\"ם לענין עירוב. דהרמב\"ם פסק בפ\"א מה\"ע ה\"ט דשיעור עירוב הוא ב' סעודות שהן י\"ח גרוגרות והן כששה ביצים. והוא כריב\"ב בעירובין פ\"ב ב' וכמסקנא דגמרא שם דמחצה לחנוני. וראייתו משום דסתמא דמתני' דפ' בתרא דפאה כריב\"ב דתני שם אין פוחתין כו' מככר כו' והוא ב\"ס כמש\"ש במתני' ח' מי שיש לו מזון ב' סעודות כו'. והתוס' שם פ' ב' ד\"ה אגב כו' פסקו כר\"ש. ומביאים ראיה לדבריהם משום דסוגיא דגמ' בכ\"מ כוותיה דקאמר כביצה לטמא כו' ע\"ש. ואינה ראיה דהרמב\"ם מפרש מ\"ש בכ\"מ כביצה לטמא כו' היינו בלא קליפתה ול\"ד חצי חציה ממש כמש\"ש פ\"ג א' דלא שוו שיעורייהו להדדי. ולפ\"ז תמוה מה שפ' התוס' כר\"ש יהוא נגד סתמא דפ\"ב דפאה הנ\"ל דאתיא כריב\"ב כנ\"ל. ונראה דמסתמא דפאה אין ראיה להרמב\"ם ואדרבא משם ראיה להתוס' שפסקו כר\"ש דלכאורה י\"ל שם בלישנא דמתני' רש\"א ב' ידות כו'. דלמה לא תני שיעוריה בהדיא ככר של ה' ביצים ושליש אלא האמת בזה נראה דשיעורא דב' ידות דקאמר ר\"ש אינם שיעור ב\"ס לכ\"ד אלא דהככר עצמו הוא שיעור לדאורייתא לבית המנוגע משום דכתי' והאוכל בבית וגו' ובעינן שיעור אכילה וחצי הככר הוא שיעור סעודה א' וזה פרס האמור בכ\"מ דהיינו פרס הככר שכולו הוא ב' סעודות. אלא דבערובין נתכוונו כולם להקל ולכן קאמר ר\"ש שיהיה ב' ידות ממנו ב' סעודות וכ\"כ רש\"י שם פ\"ב ב' ד\"ה חציה אע\"ג כו' דבשיעור כו' ע\"ש. וז\"ש חציה לבית המנוגע כו' ר\"ל דל\"ת למה לא תני שיעוריה בהדיא כנ\"ל לכן קאמר חציה כו' כלומר דעיקר שיעוריה הוא חציה לבית כו'. ובזה מיושב לישנא דמתני' י\"א דפי\"ז דכלים דאקדמיה שם ר\"ש לריב\"ב. והיינו משום דכאן הוצרך למיתני חציה כו' לאורויי דעיקר שיעורא דככר הוא לבית המנוגע ובעירובין הוא דאקיל ר\"ש ושמפני זה נקט לישנא דב' ידות כנ\"ל להכי אקדמיה ריב\"ב לר\"ש דלא נטעי למימר דקאי האי חציה כו' אריב\"ב לחוד אי הוי תני לדריב\"ב נבסוף. (משא\"כ בפי\"ז דכלים דלא מיתנייא שם פלוגתא דמתני' אלא אגב לא איצטריך למתני שם עוד פעם להאי חציה כו' ולכן אקדמיה שם ר\"ש לריב\"ב ואתנייה אצל ר\"י בר פלוגתיה). ובהכי מתישבת שיטת הטוש\"ע סי' ת\"ט שכ' דשיעור ב\"ס הוא כשמנה ביצים יהוא תמוה שפסקו דלא כמאן ועמש\"ש. אבל לפ\"ז ניחא דשיטתם שפסקו כר' יהושע דריש מס' פרה דאמר שם האוכל בבית כי' פרס מג' לקב דס\"ל כר\"ש לענין בית המנוגע דהחצי ככר הוא סעודה א' אלא דר\"ש הקיל לענין עירוב ולא הצריך אלא ב' ידות כנ\"ל. ור' יהושע ס\"ל דלעולם פרס הוא חצי ככר הנ\"ל. והכי משמע להו להטוש\"ע כיון דר' יהושע סתמא קאמר שם ולא שמעינן ליה בעירובין להקל וא\"כ הוא ח' ביצים כנ\"ל. והנה לכאורה י\"ל בסוגיא דעירובין שם דקאמר קשיא דר\"ח אדר\"ח כו' הא דיהיב כו' דמאי פריך דר\"ח אדר\"ח נימא דהדר מתירוצא קמא דר\"ח מחמת קושיא דאכתי למר תשע כו' ולהכי תי' צא מהן מחצה כו' כמו בכ\"מ ועוד מאי קמ\"ל בהני תר' שינויי דהיכא דיהיב ציבי אינו מנכה אלא שליש והיכא דלא יהיב כו'. והענין בזה נראה דר\"ח אמר מתחלה תירוצא קמא דצא מהן שליש לפי שהיה קשה לו רומיא דהני תרין מתני' דפ' בתרא דפאה שם וכמו שהקשה בירושלמי שם וז\"ל הירושלמי שם פ\"ב הלכה ז'. הכא את אמר אין פוחתין לעניים בגורן והא את אמר אין פוחתין לעני העובר ממקום למקום. ר\"ל כיון דתני מככר בפונדיון שהוא חצי קב כמש\"ש מד' סאין בסלע א\"כ בתבואה שא\"צ הוצאת האפיה היה צריך ליתן יותר ומשני. ר\"ה אמר צא מהן שליש ליציאה. ר\"ל דמ\"ש מככר בפונדיון הוא חצי קב פחות שליש שהחנוני משתכר על הוצאת האפיה דכיון שהחצי קב חטים נמכרים בפונדיו' מסתמא כשהחנוני מוכר הככר מנכה הוצאתו ולפ\"ז מש\"ש בתבואה חצי קב הוא באמת שליש יותר על שיעורא דככר בפונדיון הנ\"ל וזהו תירוצא קמא דר\"ח ממש והא דלא תי' צא מהן מחצה היינו משום דר\"ח פסק כר\"ש ומפרש סתמא דפאה הנ\"ל אליבא דר\"ש ולכן תי' צא מהן שליש דלפ\"ז ב' שלישי חצי קב שיעורא דככר הנ\"ל הם ח' ביצים והוא ממש כר\"ש אך דבתר הכי היה קשה לר\"ח עדיין הא ברייתא דתני וקרובין כו' דלא מיתרצא בתירוצא קמא דצא מהן שליש כמו שהקשו בגמ' שם אכתי למר תשע כו' ותי' צא מהן מחצה ולפ\"ז ניחא סוגיא דגמרא שם דמתחלה רצו לתרץ האי ברייתא דתני וקרובין כו' בתירוצא קמא ומחמת קושיית הגמרא אכתי כו' תירץ בתירוצא בתרא צא מהן מחצה. ושפיר פריך הני תרי שינויי דר\"ח אהדדי ותי' הא דיהיב כו' ר\"ל דכשנותן לעני א\"צ לחשוב הוצאת העצים לכן שיערו שם באותו ככר בפונדיון ובכה\"ג דיהיב בעה\"ב ציבי דאינו מנכה רק שליש והא דלא יהיב כו'. ולפ\"ז אתי סתמא דפאה הנ\"ל כר\"ש ור\"ח ס\"ל כוותיה וכן ר\"ה בירושלמי ס\"ל כוותיה שלכן תירץ צא מהם שליש כנ\"ל לאוקומיה סתמא הנ\"ל כר\"ש וכמש\"ש בגמ' הא דיהיב כו' ולכן פסקו התוס' שפיר כר\"ש. ומה שהביא הרמב\"ם ראיה מלישנא דגמ' שם מאן חכמים ריב\"ב כו' דמשמע דהלכה כריב\"ב לא מכרעא להתוס' משום דסתמא דפאה כר\"ש והלכה כסתם משנה וכנ\"ל. אבל עדיין צ\"ע ממ\"ש בעירובין פ' ב' קמ\"ל דב' סעודות כו' ולריב\"ב הוי גרוגרות שליש ביצה ופסק הרמב\"ם כוותיה וכ\"ש לתוס' דפסקו כר\"ש וכזית פחות מכגרוגרת כמ\"ש בשבת צ\"א א' לאפוקי מגרוגרות כו'. וביומא פ' א' אמרו אין בית הבליעה כו'. ובכריתות י\"ד א' אמרו אין בית הבליעה מחזיק יותר מב' זיתים ועמ\"א ועתוס' שם ד\"ה אגב כו'. ומחמת זה כ' התוס' דלגבי עירוב קי\"ל כר\"מ ובגמ' נמי כו' אבוך כמאן עביד כר\"מ כו' ע\"ש. ושיעורא דר\"מ אינו ידוע דבגמרא קאמר שם תרתי ריפתא כו' דנהר פפיתא. ואפשר לומר לשיטת התוספות דשיעורא דר\"מ ור\"י הנ\"ל הוא י\"ב ביצים וא\"כ הוי גרוגרות ב' שלישי ביצה וכזית שהוא פחות מכגרוגרות הוי חצי ביצה וניחא הכל. אך שיטת הרמב\"ם עדיין תמוה שכ' בהדיא דגרוגרות הוא שליש ביצה כנ\"ל ונראה דמה שפסק הרמב\"ם ששה ביצים שהם י\"ח גרוגרות כדאמרינן בגמ' שם היינו עם הקליפות והוי גרוגרות לדידיה שליש ביצה שעם הקליפה ומ\"ש ביומא שם אין בית הבליעה כו' יותר מכביצה כו' היינו בלא קליפה כמ\"ש שם בעירובין כמוה בלא קליפתה וע\"ז אמרו שזית הוא חצי ביצה דהיינו בלא קליפתה ושיעור א' הוא אלא דלא הוי ח\"ב ממש ולכן פסק גבי עירוב דב' סעודות הוא ששה ביצים דלפ\"ז הוי כזית פחות משליש ביצה כנ\"ל וגבי שיעורא דכזית כ' שהוא חצי ביצה והיינו כמ\"ש וכן הש\"ע לענין עירוב כ' כהרמב\"ם ולענין פסח כ' שכזית הוא חצי ביצה ולפמ\"ש אתיא דברי הש\"ע כאן על נכון בין לשיטת התוספות ואליבא דר\"מ וכנ\"ל ובין לשיטת הרמב\"ם:",
+        "ויאכלנו. כמש\"ל בסי' תע\"ה ס\"א:",
+        "ובירקות כו'. כמ\"ש תוס' ביומא ע\"ט א' ד\"ה כותבת בשם הירושלמי צריך למעך חללה וכמ\"ש בפ\"ב דעוקצין עלי בצלים כו' אם יש בהן חלל כו' כמו פת סופגנין כו' ע\"ש. ושם בשר העגל כו'. אבל במנחות נ\"ד מסקינן דבשר העגל שנתפח מדרבנן וכן פסק הרמב\"ם בפ\"ד מהל' אבות הטומאה ובפי\"ד מהל' מ\"א ולכאורה נראה לי דהא דרבה שם שינוייא הוא לשנויי דלא תיקשי על ר\"ל אבל למסקנא כיון דסלקא ר\"ל באל\"ה בתיובתא לא צריך לדחוקי ולומר מדרבנן וגם לומר דאין דיחוי באיסורין ובר\"פ המצניע סלקא באבעיא אם יש דיחוי או לא ואף שהכ\"מ בשם הרי\"ק נדחק וגם מתורץ קושיית תוס' דמנחות שם ד\"ה דמעיקרא כו' וגם לכאורה נראה הסוגיא בכמה מקומות דיש דיחוי ברפ\"ג דטהרות הרוטב כו' וש\"מ אבל הר\"ש והרע\"ב כת' בפ\"ג דטהרות מתני' ד' דאין דיחוי ונקטו השמעתין כפשטיה וגם הרמב\"ן והרשב\"א בר\"פ המצניע דחקו לתרץ קושיית תוס' דמנחות הנ\"ל ולא דחו אותה מהלכה אין בידי להקל נגדם למעשה:"
+      ],
+      "en_segments": [
+        "Seif 1: The measure of a kezayis, etc. This depends upon the disagreement between Tosafos and Rambam concerning eruv. Rambam rules in chapter 1 of Hilchos Eruvin, halachah 9, that the measure for an eruv is two meals, equal to eighteen dried figs, which are approximately six eggs. This follows Rabbi Yochanan ben Berokah in Eruvin 82b and the Gemara’s conclusion there that half is deducted for the shopkeeper. His proof is the anonymous Mishnah at the end of Peah, which follows Rabbi Yochanan ben Berokah. It teaches that one may not give a poor person less than a loaf purchased for a pundeyon when four seah of wheat sell for a sela. That loaf constitutes two meals, as the Mishnah there later states concerning one who possesses food for two meals.",
+        "Tosafos in Eruvin 82b, in the passage beginning “incidentally,” rule like Rabbi Shimon. They bring proof because the Gemara’s discussion elsewhere follows his view, saying that an egg sized amount conveys impurity, etc. This proof is not conclusive. Rambam explains that the egg mentioned elsewhere regarding impurity means an egg without its shell, and that the measures are not mathematically identical, as stated in Eruvin 83a.",
+        "Accordingly, Tosafos’ ruling like Rabbi Shimon appears difficult, since it conflicts with the anonymous Mishnah in Peah, which follows Rabbi Yochanan ben Berokah. It seems, however, that the Mishnah in Peah provides no proof for Rambam. On the contrary, it supports Tosafos. The Mishnah says that Rabbi Shimon gives “two thirds,” rather than stating explicitly that the loaf is five and one third eggs. The reason is that Rabbi Shimon’s measure of two thirds is not the universal measure of two meals. Rather, the entire loaf is the Torah measure concerning a house afflicted with tzaraas, because the verse says, “one who eats in the house,” requiring the measure of an eating. Half the loaf is one meal. This is the pras stated everywhere, meaning half of a loaf that consists of two meals. Regarding eruv, however, all the authorities intended to be lenient. Rabbi Shimon therefore says that two thirds of that loaf suffice for two meals. Rashi writes similarly there, 82b, in the passage beginning “half of it.”",
+        "This explains the continuation, “half of it for a house afflicted with tzaraas.” One should not ask why the Mishnah failed to give the measure explicitly. It tells us that the principal measure of the loaf is half of it for the afflicted house. This also explains the order of the Mishnah in Kelim, chapter 17, mishnah 11, which lists Rabbi Shimon before Rabbi Yochanan ben Berokah. Here it was necessary to mention “half of it,” teaching that the primary measure of the loaf concerns the afflicted house and that Rabbi Shimon was lenient only for eruv. Therefore Rabbi Yochanan ben Berokah is listed before Rabbi Shimon in Peah, so that one not mistakenly think the clause “half of it” applies only to Rabbi Yochanan ben Berokah if he had been listed last. In Kelim, however, the dispute is quoted incidentally, so it was unnecessary to repeat the clause concerning half of it, and Rabbi Shimon is listed first beside Rabbi Yehudah, his disputant.",
+        "This resolves the ruling of Tur and Shulchan Aruch, siman 409, who write that two meals equal approximately eight eggs, an apparently unsupported ruling. They follow Rabbi Yehoshua at the beginning of Maseches Parah, who says that the pras mentioned regarding one who eats in an afflicted house is one third of a kav. He agrees with Rabbi Shimon that half the loaf is one meal regarding the afflicted house, but Rabbi Shimon was lenient for eruv and required only two thirds. Rabbi Yehoshua maintains that the pras always means half that loaf. Since Rabbi Yehoshua states his opinion without qualification and we do not find that he adopts the leniency regarding eruv, Tur and Shulchan Aruch understand the measure as eight eggs.",
+        "At first glance one might explain the discussion in Eruvin differently. The Gemara asks that one statement of Rabbi Chisda contradicts another, and answers by distinguishing between a case where the householder provides wood and one where he does not. Why not say that Rabbi Chisda retracted his first answer, deduct one third, because of the Gemara’s question that according to one view nine measures remain, and therefore answered instead to deduct one half? What new principle is taught by the two answers, that when wood is supplied only one third is deducted, and when it is not supplied, etc.?",
+        "The explanation is that Rabbi Chisda initially answered, “deduct one third,” because he was troubled by the contradiction between the two Mishnayos at the end of Peah, just as the Jerusalem Talmud asks. There it says: Here you say that one may not give less to the poor at the threshing floor, while elsewhere you say that one may not give less to a poor traveler. Since the loaf purchased for a pundeyon equals half a kav of wheat, when grain requiring no baking expense is distributed, one should give more. Rabbi Huna answers: Deduct one third for expenses. The loaf purchased for a pundeyon is made from half a kav minus the one third earned by the shopkeeper for the expense of baking. Since half a kav of wheat sells for a pundeyon, the shopkeeper deducts his expense when selling the loaf. The half kav of grain distributed at the threshing floor is therefore actually one third more than the measure of the loaf purchased for a pundeyon.",
+        "This is precisely Rabbi Chisda’s first answer. He did not answer to deduct one half because he rules like Rabbi Shimon and interprets the anonymous Mishnah in Peah according to Rabbi Shimon. Deducting one third leaves two thirds of half a kav, namely eight eggs, exactly Rabbi Shimon’s measure. Rabbi Chisda was later still troubled by the baraisa concerning the neighboring measures, which could not be resolved by deducting one third, as the Gemara asks, “According to one authority there are still nine,” etc. He then answered to deduct one half.",
+        "The Gemara’s sequence is thus clear. Initially it attempted to resolve the baraisa with Rabbi Chisda’s first answer. Because of the remaining difficulty, he gave the second answer, deduct one half. The Gemara then properly asks that Rabbi Chisda’s two answers contradict one another, and resolves that one case concerns where wood is provided, while the other does not. When food is given to a poor person, the cost of wood need not be calculated, and the loaf purchased for a pundeyon is measured in a case where the householder supplies the wood, so the shopkeeper deducts only one third. Where he does not supply the wood, a larger deduction is made.",
+        "Accordingly, the anonymous Mishnah in Peah follows Rabbi Shimon, and Rabbi Chisda agrees with him. Rabbi Huna in the Jerusalem Talmud likewise agrees, since he answers to deduct one third in order to establish the anonymous Mishnah like Rabbi Shimon. Tosafos therefore rule correctly like Rabbi Shimon. Rambam’s proof from the Gemara’s phrase, “Who are the Sages? Rabbi Yochanan ben Berokah,” which suggests that the halachah follows him, is not decisive for Tosafos, because the anonymous Mishnah in Peah follows Rabbi Shimon, and the halachah follows an anonymous Mishnah.",
+        "A difficulty nevertheless remains from Eruvin 82b, which teaches that two meals equal eighteen dried figs. According to Rabbi Yochanan ben Berokah, a dried fig is one third of an egg, and Rambam rules accordingly. The difficulty is even greater according to Tosafos, who rule like Rabbi Shimon, since a kezayis is smaller than a dried fig, as stated in Shabbos 91a. Yoma 80a states that the throat cannot hold more than an egg, while Kerisos 14a states that it cannot hold more than two olive sized amounts. See Magen Avraham and Tosafos there, in the passage beginning “incidentally.” Because of this, Tosafos write that regarding eruv we rule like Rabbi Meir. The Gemara likewise asks, “According to whom did your father act? According to Rabbi Meir.” See there.",
+        "Rabbi Meir’s precise measure is not stated. The Gemara says that it equals two loaves of the type made in Nehar Pafis. It is possible, according to Tosafos, that the measure of Rabbi Meir and Rabbi Yehudah is twelve eggs. A dried fig would then equal two thirds of an egg, and a kezayis, which is smaller than a dried fig, would equal half an egg. All the passages would then be reconciled.",
+        "Rambam’s view remains difficult, since he explicitly writes that a dried fig equals one third of an egg. It appears that Rambam’s ruling that six eggs equal eighteen dried figs, as the Gemara states, refers to eggs with their shells. A dried fig is one third of an egg with its shell. The statement in Yoma that the throat cannot hold more than an egg refers to an egg without its shell, as Eruvin says, “like it without its shell.” When the Gemara says that an olive is half an egg, it means half an egg without its shell. These are effectively the same measure, although they are not mathematically exact.",
+        "Rambam therefore rules regarding eruv that two meals equal six eggs. According to this, a kezayis is less than one third of an egg with its shell. Regarding the measure of a kezayis, however, he writes that it is half an egg, meaning without its shell. Shulchan Aruch likewise follows Rambam regarding eruv, while regarding Pesach it writes that a kezayis is half an egg. According to what I have explained, the words of Shulchan Aruch are correct both according to Tosafos, following Rabbi Meir, and according to Rambam.",
+        "And he should eat it. As explained above, siman 475, seif 1.",
+        "And with vegetables, etc. Tosafos, Yoma 79a, in the passage beginning “a date,” cite the Jerusalem Talmud that an empty cavity must be compressed. This is similar to the Mishnah in Uktzin, chapter 2, concerning onion leaves when they contain a cavity, and to spongy bread. See there. The same passage discusses veal.",
+        "Menachos 54a, however, concludes that swollen veal is included only by Rabbinic law, and Rambam rules this way in chapter 4 of Hilchos Avos HaTumah and chapter 14 of Hilchos Maachalos Asuros. At first glance, Rabbah’s answer there appears intended only to prevent a difficulty against Reish Lakish. Once Reish Lakish is rejected for another reason, there is no need to force the explanation that the law is only Rabbinic, nor to say that rejection does not apply to prohibitions. At the beginning of HaMatznia, the Gemara leaves unresolved whether rejection applies. Although Kesef Mishneh in the name of Maharik gives a forced explanation, and this also resolves Tosafos’ question in Menachos, several passages appear to indicate that rejection does apply, including the beginning of chapter 3 of Taharos concerning gravy, etc.",
+        "Nevertheless, Rash and Rabbi Ovadiah of Bartenura write in Taharos, chapter 3, mishnah 4, that there is no rejection, and they understand the discussion straightforwardly. Ramban and Rashba at the beginning of HaMatznia likewise struggle to answer Tosafos’ question in Menachos and do not reject that ruling from halachah. I therefore cannot be lenient against them in practice."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman486/seif-001/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman490/seif-009/beur-hagra",
+      "volume": "oc1",
+      "siman": 490,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 7,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "ס\"ט ומפטירים. מגילה שם:",
+        "ואין. כמ\"ש תוס' בשבת כ\"ד ב' ד\"ה ולית כו'. דקי\"ל כרב גידל:",
+        "לא כו'. דאף לרש\"י ורב אלפס דפ' דלא כרב גידל מ\"מ אין חותמין בשל פסח כמ\"ש הרא\"ש שם וז\"ש לא באמצע וע' רא\"ש שם:",
+        "ונוהגין. שמדבר בגאולת מצרים. וז\"ל ד\"מ כת' אבודרה\"ם נהגו העולם לקרות בחג המצות שיר כו' שמדבר כו' ובשבועות רות שכתוב בו תחלת קציר ועוד שאבותינו שקיבלו התורה נתגיירו וכן רות נתגיירה ובסוכות קהלת מפני שכתוב בו תן חלק לז' וגם לח' כו' ואמרי' במ\"ס הקורא בחמש מגילות מברך על מקרא מגילה ואפי' היא כתובה בין הכתובים עכ\"ל וכ\"כ מהרי\"ל לברך כנ\"ל אף אם אינה כתובה בגליון וכ\"כ בהג\"מ הלכות ט' באב וכן המנהג דלא כמרדכי שכ' בפ\"ק דמגילה לברך על מקרא כתובים עכ\"ל ד\"מ. וכ\"כ ב\"ח ולבוש ומנהגים ומט\"מ לברך אף שאינם כתובים בגליון וכ\"ש כשהם כתובים בגליון כס\"ת וכן מנהג כל הראשונים וכ\"כ מ\"א. ומ\"ש חוץ מקהלת ליתא דבספ\"ג דידים מסקנת מתני' שם דכן נחלקו וכן גמרו ששיר השירים וקהלת שוין לטמא את הידים וכ\"פ הרמב\"ם בפ\"ט מהל' אה\"ט ה\"ח שכל ה' מגילות מטמאין את הידים כס\"ת וכ\"כ הגמ\"ר פ\"ק דמגילה שכולן שוין לברכה זו וכן עיקר:",
+        "בשבת. שהוא יום כינופיא דאף בי\"ט הוו בשדות כמ\"ש בסוף ר\"ה נ\"ה א':"
+      ],
+      "en_segments": [
+        "Seif 9: And they read the haftarah. Megillah there.",
+        "And they do not. As Tosafos write in Shabbos 24b, in the passage beginning “and is there not,” because we rule like Rav Gidal.",
+        "Not, etc. Even according to Rashi and Rif, who rule not like Rav Gidal, one nevertheless does not conclude with the Pesach theme, as Rosh writes there. This is the meaning of “not in the middle.” See Rosh there.",
+        "And the custom is. Shir HaShirim is read because it speaks of the redemption from Egypt. Darkei Moshe writes: Avudraham states that the universal custom is to read Shir HaShirim on the festival of matzah because it discusses the redemption. On Shavuos one reads Rus, because it contains the beginning of the harvest, and because our ancestors who received the Torah underwent conversion, as did Rus. On Sukkos one reads Koheles, because it states, “Give a portion to seven, and also to eight,” etc. Maseches Soferim states that one who reads any of the five Megillos recites the blessing “concerning the reading of a scroll,” even when it is written among Kesuvim. Maharil likewise requires this blessing even when the Megillah is not written upon a separate scroll. Hagahos Maimoniyos, Hilchos Tisha B’Av, rules similarly. This is the custom, unlike Mordechai, who writes in the first chapter of Megillah that one recites “concerning the reading of Kesuvim.” So writes Darkei Moshe.",
+        "Bach, Levush, Minhagim, and Mateh Moshe likewise require the blessing even when the Megillos are not written upon separate scrolls. Certainly the blessing is recited when they are written upon a scroll like a Sefer Torah. This was also the practice of all the early authorities, and Magen Avraham writes accordingly.",
+        "The statement that Koheles is excluded is incorrect. At the end of chapter 3 of Yadayim, the Mishnah concludes that although there was a dispute, the final ruling is that Shir HaShirim and Koheles are equal in rendering the hands impure. Rambam rules in chapter 9 of Hilchos Avos HaTumah, halachah 8, that all five Megillos render the hands impure like a Sefer Torah. Hagahos Mordechai, first chapter of Megillah, likewise writes that all are equal concerning this blessing. This is the primary ruling.",
+        "On Shabbos. Because it is the day on which people assemble. Even on Yom Tov they would be in the fields, as stated at the end of Rosh Hashanah 55a."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman490/seif-009/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman524/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 524,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 3,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "אין עט״ז (אמרתי לרשום כאן דבר פלא אע״ג שאין ענינו לכאן. תהלים ק״ד. ישברו פראים צמאם בקצת דפוסין בסי״ן וטעות בשי״ן ימנית דוקא ובתרגום יתברון צחותהון יע״ש עיין רד״ק. עפאים ענפים או עלין וברד״ק אלף נחה ויו״ד בחירק וברוב נוסחאות ט״ס אלף בחירק והטעם א״י דהוא על משקל פראים עיין במ״נ בשרש עפ״א ואמנם הראה לי חידוש פה ק״ק פפד״א במכלל של הר״ש בן מלך ז״ל תהלים ק״ד אלף נחה והיו״ד נעה למ״ד הפועל ובארמית עפיה שפיר יע״ש. אבל למ״ש הקונקירדנסיוס עפ״א אלף שורש למ״ד הפועל קשה ובארמית כתב דניאל ג׳ עפה הה״א למד הפועל וא״כ יש גירסאות אלף חרוקה כמ״נ ומ״ד יו״ד חרוקה כאמור והוא פלא בעיני ואם נאמר יו״ד במקום א׳ כעי״ן צבי״ם שמואל ב׳ ב׳ א״ש והבחינה היא היו״ד ובארמית עפה בה״א ע״ד מרת״ה. בצבאות ש״ה הומרה האל״ף ביוד ומיהו התם שורשו ב״ה עיין מכלל הנ״ל ועיין בתנ״ך אותיות חלולים ולפי שאין לי דיעה בחכמה הזו כ״א מעט מההתחלות ראשונות לא ראיתי להאריך בזה:",
+        "אין רוכבין שמא יחתוך זמורה עסי׳ של״ט וש״ה סי״ח. בספר המגיד שלי כתבתי מלת רוכב ומנהיג ואזלא מחמתיה רוכב בקרון נמי יושב בקרון ואחר מנהיג ערש״י חולין ע״ט א׳ בריספ״ק עגלה שהיה רוכב בה לא יושב י״ל כוונה במציעא יו״ד ב׳ היוש״ב בקרון י״א שהלכה דפטו׳ ומדרבנן אסור א״כ מנלן סימנים ד״ת (עי״ד מזה) לכן פירש רוכב ומנהיג ודאי חייב ובזה וירכיבו ארון ה׳ שמואל ב׳ ו׳ היינו נושא נושאיו ומש״ה פרץ ה׳ בעוזא ד״ה א׳ י״ג יע״ש והבן. ואין מקדשין עט״ז ובשל״ט במ״א ד״ה ועא״ר ב״ג. ומ״ש לענין מקח בשבת עיין באות ב׳ אי״ה מזה:"
+      ],
+      "en_segments": [
+        "One may not. See Taz. I record here a noteworthy textual point, although it is not directly relevant. In Tehillim 104, the word describing the wild animals quenching their thirst is printed in some editions with the wrong form of the letter shin. The correct reading uses a right shin. Targum, Radak, Minchas Shai, and the grammatical works discuss the word describing the branches or leaves and whether its alef or yud is vocalized and which letter belongs to the root. Rabbi Shmuel ben Melech, in his grammatical work on Tehillim, explains the alef as quiescent and the yud as part of the verbal root, supported by the Aramaic form. The concordance appears to treat the alef as a root letter, while the Aramaic in Daniel uses a final hei. Several variant readings can therefore be accounted for, though the matter remains difficult. Since I possess only elementary knowledge of this discipline, I will not elaborate further.",
+        "The prohibition against riding on Yom Tov is a decree lest one cut a branch in order to guide the animal. See simanim 339 and 305, seif 18. In my work Maggid Mishneh I discussed the expressions “rider” and “leader.” The same concern applies to riding in a wagon when another person guides the animal. Rashi to Chullin 79a explains the case of one riding in a wagon. Bava Metzia 10b may indicate that sitting in a wagon is exempt by Torah law but forbidden D’Rabbanan. If so, the language of Scripture concerning riding requires explanation. It may be that “rider and leader” are certainly liable because they actively cause the animal to proceed. Thus the verse concerning bringing up the Ark may mean that those guiding it are treated as carrying it, which explains the punishment of Uzzah. See there and consider the matter.",
+        "The prohibition against performing kiddushin on Yom Tov should be compared with Taz and with siman 339, Magen Avraham, where Rambam’s view is discussed. What is written there regarding acquisition on Shabbos should also be consulted."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman524/seif-001/peri-megadim",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman581/seif-001/turei-zahav",
+      "volume": "oc1",
+      "siman": 581,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 4,
+      "enSegs": 7,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "בטור הביא המדרש וכי ראשון הוא איכא למידק דהא שפיר ר\"ל דראשון של חג קאמר כמו ביום ראשון שבתון ואי קשיא ליה גם שם כן לא מיתרץ בתירוצו שתי' בזה וב\"י הביא בשם מהר\"י דילאון שהל\"ל בט\"ו לחדש כיון שהיא מצו' זמנית ולענד\"נ דלק\"מ דכל מקום שנאמר ראשון היינו שיש אחריו שני או חשבון אחר כמ\"ש רש\"י בפ' בראשי' לפי סדר הפ' הל\"ל ראשון וכן כאן בפסוק ביום הראשון שבתון הוי שפיר כיון שכתב אחריו וביום השמיני שבתון וכן בפ' בא ביום הראשון מקרא קודש וביום השביעי כו' וכן בראשון בארבעה עשר כו עד יום הא' ועשרי' כו' משא\"כ כאן בפסוק ולקחת' לכם ביום הראשון כו' שאין שייכות לשום יום מהימי' שאחריו בעסק זה דמן התורה אין חיוב אלא ביום זה לבד ע\"כ הוכרח לו' ראשון לחשבון עונו' ויש שייכות מצו' לולב לחשבון עונו' כדאי' במ\"ר פ' אמור דאם גזל א' לולב ומברך עליו סניגור שלו נעש' קטיגור ע\"כ שפיר קאמר ראשון לחשבון עונו' סמוך לתיבת לכם דדרשי' ולא גזול וא\"כ מתישב שפיר ראשון שיש אחריו שני בעסק זה. עוד שם במוצאי יה\"כ עוסקים במצות סוכה ולולב ואין עושין עונות לכך קורא י\"ט ראשון ראשון לחשבון עונות. ק\"ל טובא חדא ל\"ל כל מה שזכר מענין המחילות שקודם י\"כ ה\"ל לתרץ בקיצור כיון שבי\"כ נמחלו כל העונו' הוה ראשון לחשבון עונות ביום ט\"ו. שנית כיון שאין עושין עונות מה היה לו להקב\"ה לחשב דגם בראשון אין שייך חשבון אם אין עושין עונות ובמדרש עצמו אין שם באמת האי ואין עושין עונות וא\"כ י\"ל דה\"ק אע\"פ שעושין עונות אינם בכלל החשבון כיון שעוסקים בסוכ' כו' אלא דקשה לפ\"ז למה באמת יהיה עדיף ההכנ' להמצו' של סוכה מן היום עצמו שמקיימין המצו' ועל הטור קשה טפי ממ\"ש ונ\"ל לתרץ אחר שנדקדק עוד במ\"ש בי' ימים בינונים מתענים ומוותר להם ב' שלישי' למה אמר ב' שלישים והלא אינו מוותר כ\"א שליש א' דהא כבר וויתר השליש הא' וכן במ\"ש אח\"כ מוותר להם הכל קשה טפי ונלע\"ד דה\"פ דבער\"ה מוותר להם שליש א' דהיינו שאינו נמחל לגמרי אלא מעבירו מן החשבון ע\"ד שאמר הכתוב גם ה' העביר חטאתך לא תמות שפי' לא נמחל רק העבירו גם בגמ' דיומא אי' ועון עצמו אינו נמחק והיינו בתנאי דאם לא יזכו אח\"כ לוותר השליש השני דהיינו שיעשו איזה עונו' ולא יבקשו תשובה גמורה יהי' נחשב גם השליש הא' מה שהעביר כבר והיה תלוי ועומד ובי' ימי תשובה נחשב גם השליש הא' עם השני ששניהם בהעברה עדיין ואינם נמחלי' לגמרי עד שבי\"הכ נחשבים גם הב' שלישים הראשונים עם השליש האחרון וכדי שלא תטעה שבאותו פעם יהיה ה\"ל בכלל העבר' ולא מחיל' לגמרי כמו בראשונים קמ\"ל קרא דביום הראשון היינו ראשון לחשבון עונות כלומר שהראשונות נמחלו לגמרי לא דרך העברה ותלי' וזה נדע מדקרי לראשון חשבון עונות ולא בא למעט הימים שבין יה\"כ לסוכות דהם א\"צ מיעוט דמסתמא כיון שהם טרודים במצות כל היום אינם עושים עונו' משא\"כ בראשון שאין שם טירדא כל היום בעשיית עסק מצות אלא אדרב' אוכלים ושותים ושמחים ושייך שם חטאים וחסדו של הש\"י גבר עלינו שאז אין מתעורר מה שהי' תחל' כמו שהי' בשני חלקי' הראשוני' עם הקודמי' להם אלא בי\"כ נמחל הכל לגמרי נמצ' ששפיר אמר המדרש מאי דאזל אזיל כו' כלומר שאין כאן העבר' על הראשונות אלא מחילה לגמרי ובזה מתורץ מ\"ש ב\"י דא\"כ ער\"ה חשוב כי\"הכ שהרי בו מתכפר שליש כמו בי\"הכ ודחק לתרץ דשליש הראשון קל להתכפר והשני קשה יותר ולפי מ\"ש הכל ניחא דודאי יש ליה\"כ מעלה יתירה מצד המחיל' כמ\"ש וזה מפורש בפסוק כי ביום הזה יכפר עליכם לטהר אתכם מכל חטאתיכם לפני ה' תטהרו הורה בזה מעלת יה\"כ טפי מכפרות הראשונו' דלא היו רק דרך העבר' ותלי' משא\"כ ביום הזה לפני ה' תטהרו לגמרי מהראשונו' ומזה מוכח דאיכא כפרו' טפי מן י\"כ אלא שי\"כ הוא מעול' יותר מדאמר ביום הזה דוקא ובזה מתורץ קושי' הלבוש מנ\"ל דאיכא כפרות טפי ופי' זה נ\"ל כפתור ופרח לפע\"ד:",
+        "(א) מר\"ח אלול. לפי דעת רש\"י ותו' עלה משה ביום הראשון דר\"ח שהוא ל' אב. וכתב רש\"ל ומ\"ה תוקעין ביום ראשון דר\"ח עסי' תקס\"ה מדין יחיד אם יאמר סליחו':",
+        "ואם חל ר\"ה ב' ג' כו'. בלבוש נתן טעם שנוהגים להתענו' עשרה ימים עם י\"כ ולעולם יחסרו ד' ימים מר\"ה עד יה\"כ שלא יוכלו להתענו' דהיינו ב' ימים ר\"ה ושבת שובה ועי\"כ לכך צריך להשלים ד' ימים קודם ר\"ה וכדי שיהיה יום מסויים להתחלה תקנו ביום א' בכל פעם. וכתב בלבוש שהש\"ץ שמתפלל סליחות מתעטף בטלית ואינו מברך כדאיתא סי' י\"ח בענין כסות לילה ול\"נ תמוה דכיון דלהרא\"ש חייב בברכה בכסות המיוחד ליום אפי' לבשו בלילה כמ\"ש סי' י\"ח למה יכניס עצמו תחלה לזה שילבש דבר שיש בו ספק ברכה ולא יברך לכך נ\"ל דודאי בלא עטיפה כלל א\"א משום כבוד השכינה ובפרט בסליחות שאומר ויעבור ואי' בגמ' שנתעטף הקב\"ה כש\"ץ כו' אלא יקח טלית חבירו ובזה לא יעבור כלום כי כבר הוכחנו בהל' ציצית דאין לברך על טלית שאולה ואפי' למאן דפסק לברך שם היינו כששאלו כדי לצאת בו אבל כאן לא נתכוין אלא משום צניעות בעלמא כ\"ע מודים דא\"צ לברך כנ\"ל נכון. עוד כתוב בלבוש כיון שאנו נוהגין בכל השנה בברכת התורה קודם שיאמר שום פסוק יש לנהוג כן גם באלו הימים שאומרים הרבה פסוקים קודם הסליחו' ולדלגו אח\"כ כו' ועמ\"ש ע\"ז בסי' ו' שא\"צ לדלגו אח\"כ וע\"כ לומר כן דאל\"כ לא ימצא יום ש\"ץ שיאמר אותם אחר הסליחות דהא על כל אחד מוטל לברך קודם הסליחות:",
+        "מרוצה לקהל. כתב בס\"ח סי' תשנ\"ח דכל מצוה שאדם רגיל לעשותה ואינו עושה אותם נענש ע\"ז מ\"ה נוהגים להדר להתפלל התפלו' שהוא רגיל בה רק שלא יתפללו בחזק' וכ' בדינים הנזכר סוף תשוב' מהרי\"ו אם א' אבל ב\"מ וליכא דעדיף מיני' מותר להתפלל: כתוב בלבוש מי שמתענ' ג' ימים רצופים מן מ\"ש שלא יוכל להבדיל עד יום ד' יש לו לשמוע הבדלה ממי שמבדיל במ\"ש אע\"פ שהוא לא יטעום ול\"נ אפי' מי שמתענה ב' ימים רצופים יעשה כן דמוטב לקיים המצו' בזמנה הראוי והטעימ' אינה מעכבת:"
+      ],
+      "en_segments": [
+        "The Tur cites the Midrash, 'Is it then the first?' One may ask why this is difficult, for the verse can readily mean the first day of the festival, just as it says, 'On the first day shall be a rest day.' If the same difficulty applies there, the answer given here does not resolve it. The Beit Yosef cites Mahari de Leon, who explains that since this is a time bound mitzvah, the verse should have said, 'on the fifteenth day of the month.' In my humble opinion, there is no difficulty. Wherever Scripture uses the term 'first,' it implies that a second day or some further count follows it, as Rashi writes regarding the opening of Bereishis, that according to the sequence of the passage it should have said 'first.' Thus, in the verse 'On the first day shall be a rest day,' the wording is appropriate because it later says, 'and on the eighth day shall be a rest day.' Likewise, in Parashas Bo it says, 'On the first day shall be a holy convocation, and on the seventh day,' and also, 'On the first, on the fourteenth day,' continuing until 'the twenty first day.' Here, however, in the verse 'You shall take for yourselves on the first day,' none of the following days has any connection to this matter, since according to the Torah the obligation applies only on that day. The Midrash was therefore compelled to explain 'first in the accounting of sins.' The mitzvah of lulav is indeed connected to the accounting of sins, as stated in Midrash Rabbah, Parashas Emor, that if one steals a lulav and recites a blessing over it, his defender becomes his accuser. The Midrash therefore properly interprets 'first in the accounting of sins' adjacent to the word 'for yourselves,' which the Sages interpret to exclude a stolen lulav. In this manner the word 'first' is appropriately followed by a second matter within the same subject.",
+        "The Midrash further states that after Yom Kippur the people occupy themselves with the mitzvos of sukkah and lulav and do not commit sins, and therefore the first day of Yom Tov is called the first day in the accounting of sins. I find this very difficult. First, why was it necessary to mention all the forgiveness that occurs before Yom Kippur? It could have answered briefly that since all sins are forgiven on Yom Kippur, the fifteenth day is first in the accounting of sins. Second, if they commit no sins, what is there for the Holy One, blessed be He, to reckon? Even on the first day there should be no accounting if they commit no sins. In the Midrash itself, the phrase 'and they do not commit sins' does not actually appear. It can therefore be explained that although they do commit sins, those sins are not included in the accounting because they are occupied with preparing the sukkah, etc. Yet according to this, why should preparation for the mitzvah of sukkah be superior to the day on which the mitzvah itself is fulfilled? The Tur's wording presents an even greater difficulty.",
+        "It appears to me that this can be resolved after examining another point. The Midrash says that during the Ten Days of Repentance the intermediate people fast and He waives two thirds for them. Why does it say two thirds? He waives only one third, since the first third was already waived. The later statement that He waives everything is even more difficult. It appears to me that the explanation is as follows. On erev Rosh Hashanah He waives one third, meaning that it is not completely forgiven, but is merely removed from the accounting, as the verse says, 'Hashem has also removed your sin, you shall not die.' This means that it was not forgiven, but only removed. The Gemara in Yoma similarly states that the sin itself is not erased. This is conditional. If they do not later merit the waiver of the second third, because they commit further sins and do not seek complete repentance, the first third that had already been removed and remained suspended will also be counted. During the Ten Days of Repentance, the first third is counted together with the second, while both remain merely removed and are not completely forgiven. On Yom Kippur, the first two thirds are counted together with the final third. Lest one think that even then the sins are merely removed and not fully forgiven, as in the earlier stages, Scripture teaches, 'on the first day,' meaning first in the accounting of sins. The earlier sins were entirely forgiven, not merely removed and suspended. This is known from the fact that the day is called first in the accounting of sins.",
+        "The verse does not come to exclude the days between Yom Kippur and Sukkos, because no exclusion is needed for those days. Presumably, since the people are occupied with mitzvos throughout the day, they do not commit sins. On the first day, however, they are not occupied throughout the day with preparing mitzvos, but instead eat, drink, and rejoice, so sins can occur. Nevertheless, the kindness of the blessed God prevails for us, and what existed previously is not reawakened as it was when each of the first two portions was joined to what preceded it. Rather, on Yom Kippur everything is fully forgiven. The Midrash therefore properly says, 'What has gone has gone,' meaning that the earlier sins are not merely removed, but are entirely forgiven. This resolves the Beit Yosef's question that, according to this, erev Rosh Hashanah is as significant as Yom Kippur, since one third is atoned on each. He was forced to answer that the first third is easier to atone than the second. According to my explanation, everything is settled. Yom Kippur certainly has a unique superiority because it grants complete forgiveness, as I have written. This is explicit in the verse, 'For on this day He shall atone for you, to purify you; from all your sins, before Hashem, you shall be purified.' This teaches the superiority of Yom Kippur over the earlier atonements, which were only by way of removal and suspension. On this day, however, 'before Hashem, you shall be purified' completely from the earlier sins. This also proves that there are atonements before Yom Kippur, but that Yom Kippur is greater, since the verse says specifically, 'on this day.' This resolves the Levush's difficulty as to the source for earlier atonements. In my humble opinion, this explanation is perfect and beautiful.",
+        "(1) From Rosh Chodesh Elul. According to Rashi and Tosafos, Moshe ascended on the first day of Rosh Chodesh, which was the thirtieth of Av. The Maharshal writes that for this reason the shofar is sounded on the first day of Rosh Chodesh. See siman 565 regarding whether an individual recites Selichos.",
+        "And if Rosh Hashanah falls on Monday or Tuesday, etc. The Levush explains that the custom is to fast ten days together with Yom Kippur. Four days between Rosh Hashanah and Yom Kippur are always unavailable for fasting, namely the two days of Rosh Hashanah, Shabbos Shuvah, and erev Yom Kippur. Four days must therefore be made up before Rosh Hashanah. To establish a fixed day for beginning, the custom was instituted to begin on Sunday each time. The Levush writes that the chazzan who leads Selichos wraps himself in a tallis and does not recite a blessing, as stated in siman 18 regarding a garment worn at night. This appears astonishing to me. According to the Rosh, one is obligated to recite a blessing over a garment designated for daytime even when wearing it at night, as stated in siman 18. Why should he deliberately place himself in a situation of doubtful obligation to recite a blessing by wearing such a garment without reciting one? It therefore appears to me that it is certainly impossible to lead without any wrapping at all, because of the honor of the Shechinah, especially during Selichos when he recites the Thirteen Attributes. The Gemara states that the Holy One, blessed be He, wrapped Himself like a chazzan, etc. Rather, he should use another person's tallis. He thereby violates nothing, because we have already demonstrated in the laws of tzitzis that no blessing is recited over a borrowed tallis. Even according to the authority who rules there that one does recite a blessing, that applies when one borrowed it in order to fulfill the mitzvah. Here, his intent is only ordinary modesty, and everyone agrees that no blessing is required. This appears correct. The Levush further writes that since throughout the year our custom is to recite birkas haTorah before saying any verse, the same should be done on these days when many verses are recited before Selichos, and those verses should then be omitted afterward, etc. See what I wrote concerning this in siman 6, that they need not be omitted afterward. This must be so, for otherwise there would never be a day on which the chazzan could recite them after Selichos, since every individual is obligated to recite birkas haTorah before Selichos.",
+        "Acceptable to the congregation. Sefer Chasidim, siman 758, writes that a person who is accustomed to perform a particular mitzvah and then fails to perform it is punished for this. For this reason, people make an effort to lead the prayers that they are accustomed to lead, but they should not seize the prayer by force. The laws cited at the end of Responsa Mahariv state that if a person is a mourner, may the Merciful One protect us, and no one more qualified is present, he may lead the prayer. The Levush writes that one who fasts for three consecutive days beginning on Motzei Shabbos and cannot make Havdalah until Wednesday should hear Havdalah from someone who recites it on Motzei Shabbos, even though he himself will not taste the wine. It appears to me that even one who fasts for two consecutive days should do so, because it is preferable to fulfill the mitzvah at its proper time, and tasting is not indispensable."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman581/seif-001/turei-zahav",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman585/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 585,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 5,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "ס\"א צריך. ע' רא\"ש סוף פסחים סמ\"א וע' בה\"ג:",
+        "ונוהגין כו'. מ\"ר ריש פ' שופטים רכ\"ג א\"ר יצחק שני דברים בימינו של הקב\"ה צדקה ותורה צדקה דכתי' צדק מלאה ימינך תורה דכתי' מימינו אש דת למו שני דברים בידו ואלו הן הנפש והדין הנפש דכתי' אשר בידו נפש כל חי והדין דכתי' ותאחז במשפט ידי כו'. לשון הרוקח ויזכור צדקתו בקריאת התורה ששניהם בימין להטיב לנפש בעת משפט וזהו שאמר בתהלים פ\"ט צדק ימשפט כו' אשרי העם יודעי תרועה כו' ובפסיקתא ר\"י בר נחמני בשם רשב\"ל פתח עלה אלהים בתרועה בשעה שהקב\"ה עולה ויושב על כסא הדין בדין הוא עולה ובשעה שישראל נוטלין שופר ותוקעין הקב\"ה עומד מכסא הדין ויושב על כסא רחמים כו' ע\"ש ברוקח וז\"ש צדק ומשפט כו' ששמאל נכלל עם ימין וז\"ש נרי בידך ונרך בידי כו' ג\"כ כנ\"ל ע\"כ רואין לכלול הדין במקום התורה:"
+      ],
+      "en_segments": [
+        "Seif 1: He must. See Rosh at the end of Pesachim, siman 41, and see Baal Halachos Gedolos.",
+        "And the custom is, etc. Midrash Rabbah at the beginning of parashas Shoftim states: Rabbi Yitzchak said that two things are at the right hand of the Holy One, blessed be He, righteousness and Torah. Righteousness, as it is written, “Your right hand is filled with righteousness.” Torah, as it is written, “From His right hand came a fiery law for them.” Two things are in His hand, the soul and judgment. The soul, as it is written, “In Whose hand is the soul of every living thing.” Judgment, as it is written, “My hand takes hold of judgment,” etc.",
+        "Rokeach writes that one should mention His righteousness during the Torah reading, because both righteousness and Torah are associated with the right hand, in order to benefit the soul at the time of judgment. This is the meaning of the verses in Tehillim 89, “Righteousness and justice,” etc., followed by, “Praiseworthy is the people who know the shofar blast,” etc.",
+        "Pesikta relates that Rabbi Yoshiyah bar Nachmani said in the name of Rabbi Shimon ben Lakish: The verse states, “God ascends with a blast.” When the Holy One, blessed be He, ascends and sits upon the throne of judgment, He ascends with judgment. When Israel take the shofar and sound it, the Holy One, blessed be He, rises from the throne of judgment and sits upon the throne of mercy, etc. See Rokeach there.",
+        "This is the meaning of “righteousness and justice,” etc., for the left side is included within the right. This is also the meaning of, “My lamp is in your hand, and your lamp is in My hand,” etc., as explained above. Therefore, judgment is placed together with the Torah."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman585/seif-001/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman638/seif-002/beur-hagra",
+      "volume": "oc1",
+      "siman": 638,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 10,
+      "enSegs": 11,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8,
+          9,
+          10
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "ס\"ב אפי' נפלו. דלכן אמרו שם משום דאתקצאי כו' ולא סגי מ\"ש בפ\"ב דשבת משום ביזוי דמשום ביזוי אין אסור אלא בעודן תלוים ואי לאו טעמא דביזוי הוי מותר בח\"ה אפילו בעודן תלויין והשתא דאסור בעודן תלויין משום ביזוי אסור אף כשנפלו בח\"ה. תוס' בפ\"ב דשבת כ\"ב א' ד\"ה סוכה וכמ\"ש הרא\"ש בתשובה דלא כהג\"א ורש\"א שכתבו דנפלו בח\"ה מותר וכ' בתשובה שם אע\"ג דבעצי סוכה אמרינן פ\"ד די\"ט שם דאתקצאי לשבעה ובנפלה מיירי כמ\"ש ר\"י שם אלמא אמרינן מוקצה אף בח\"ה דוקא בעצי סוכה אמרינן דהוקצה לפי שצריך לתזור ולבנותה משא\"כ בנויין:",
+        "ובי\"ט כו'. שכל שאסור באכילה אסור בטלטול אפי' אינו אסור רק מדרבנן כמ\"ש בפי\"ח דשבת טבל פשיטא כו' וכמ\"ש שם מ\"ה א' אין מוקצה לר\"ש אלא שמן כו'. הואיל והוקצה למצותו כו' אלמא דאף בטלטול אסור כמש\"ש במתני' רש\"א כל הנרות מטלטלין חוץ כו' ומדמה שם בגמרא לנויי סוכה ובירושל' פ\"ג גבי לולב ביום טוב הראשון הניחו בארץ אסור לטלטלו א\"ר אבין זאת אומרת דאסור בהנייה ולכך הוא מוקצה:",
+        "של ח' ימים. רמב\"ן דלא כרש\"י שם דאף אם אינו בודל יום ראשון מ\"מ בה\"ש של שאר ימים חיילא כמו בהפריש שבעה אתרוגים לשבעה ימים בפ\"ד דסוכה:",
+        "ודוקא שמתנה כו'. ממש\"ש אבל עצי סוכה דחלה כו' וערש\"י שם ואם איתא אפי' בעצי סוכה היה מהני:",
+        "ואם אמר כו'. תוספתא בפ\"א דסוכה תלה בה אגוזים כו' ואם התנה עליהן שיאכל מהן בחג ה\"ז מותר ושם בפ\"ג דיום טוב אין נוטלין עצים מן הסוכה אפי' בי\"ט האחרון של חג אם אמר לכשארצה אטול ה\"ז מותר:",
+        "וצריך לעשות כו'. רש\"י דניון שנכנס בה\"ש איתקצאי כמ\"ש דמגו דאיתקצאי בה\"ש איתקצאי כו':",
+        "הראשון. אבל אח\"כ לא מהני כיון דאיתקצאי בה\"ש ראשון וכמ\"ש בפ\"ד דסוכה אתרוג שנפסלה אסור לאוכלה כל שבעה אע\"ג שנפסלה ביום הראשון ולא איתקצאי בה\"ש השני:",
+        "יש מן כו'. עט\"ז:",
+        "די\"א שאין כו'. הוא דעת הרא\"ש וצ\"ל לסברא זו דמ\"ש דילמא מן הצד דחיה בעלמא ולא קיימא במסקנא ועמ\"א:",
+        "אם סיכך. כו' וי\"א כו'. כמש\"ש ל\"ז ב' וסברא ראשונה ס\"ל דל\"ד לשם דשם אינו יוצא אלא בו אבל כאן דאפשר בעצים דעלמא אקציה ממעשה עץ בעלמא משימוש והבערה וז\"ש הדס של מצוה כו':"
+      ],
+      "en_segments": [
+        "Seif 2: Even if they fell. This is why the Gemara there gives the reason that they were set aside for the mitzvah. The reason stated in the second chapter of Shabbos, that using them is degrading to the mitzvah, is insufficient. Degradation applies only while the decorations remain suspended. Were it not for that reason, they would be permitted on Chol HaMoed even while suspended. Now that they are forbidden while suspended because of degradation, the additional reason of being set aside for the mitzvah makes them forbidden even if they fall during Chol HaMoed. This is the view of Tosafos, Shabbos 22a, in the passage beginning “Sukkah,” and of Rosh in a responsum, unlike Hagahos Ashri and Rabbi Shimon of Sens, who write that if they fell during Chol HaMoed they are permitted.",
+        "Rosh writes there that although regarding the wood of a sukkah the fourth chapter of Beitzah says that it is set aside for all seven days, and that discussion concerns a sukkah that fell, as Ri explains there, proving that muktzeh applies even during Chol HaMoed, this applies specifically to the wood of the sukkah. It was set aside because it may be needed to rebuild the sukkah. Decorations are different.",
+        "And on Yom Tov, etc. Anything forbidden for eating is also forbidden to move, even where the prohibition is only Rabbinic. Thus the eighteenth chapter of Shabbos states, “Untithed produce is obvious,” etc. Shabbos 45a likewise states that according to Rabbi Shimon the only muktzeh items are oil, etc., because they were set aside for their mitzvah. This shows that they are forbidden even to move. The Mishnah there states that Rabbi Shimon permits moving all lamps except, etc., and the Gemara compares this to sukkah decorations. The Jerusalem Talmud, chapter 3, similarly states regarding a lulav on the first day of Yom Tov that once one places it upon the ground it is forbidden to move. Rabbi Avin said that this teaches that it is forbidden for benefit, and for that reason it is muktzeh.",
+        "For all eight days. This is Ramban’s view, unlike Rashi there. Even if one did not separate himself from them on the first day, the restriction nevertheless takes effect during twilight of each later day, just as when one designates seven esrogim for seven days, as stated in the fourth chapter of Sukkah.",
+        "And this applies specifically when he stipulates, etc. This follows from the statement there, “but regarding the wood of the sukkah, upon which sanctity took effect,” etc. See Rashi there. Were a stipulation effective in every case, it would work even for the wood of the sukkah.",
+        "And if he said, etc. The Tosefta, chapter 1 of Sukkah, states: If one hung nuts, etc., in the sukkah, and stipulated that he may eat from them during the festival, they are permitted. The Tosefta, chapter 3 of Yom Tov, likewise states: One may not take wood from the sukkah, even on the final Yom Tov of the festival. If he said, “Whenever I wish, I will take,” it is permitted.",
+        "And he must make, etc. Rashi explains that once twilight begins, the item becomes set aside, in accordance with the principle that because it was set aside during twilight, it remains set aside, etc.",
+        "The first. A stipulation made afterward is ineffective, because the item was already set aside during the first twilight period. This resembles the law in the fourth chapter of Sukkah that an esrog that became invalid is forbidden for eating throughout all seven days, although it became invalid on the first day and was not set aside during the second twilight period.",
+        "Some authorities, etc. See Taz.",
+        "Because some say that there is no, etc. This is Rosh’s view. According to this position, the Gemara’s suggestion, “perhaps he took it from the side,” was merely a rejection and was not retained in the conclusion. See Magen Avraham.",
+        "If he used it as s’chach, etc.; and some say, etc. This follows the discussion in Sukkah 37b. The first opinion holds that the case here is unlike the case there. There, one cannot fulfill the mitzvah except with that very item. Here, since ordinary wood could have been used, he set it aside only from ordinary use of wood and from burning it. This is the meaning of the comparison to a myrtle used for a mitzvah, etc."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman638/seif-002/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman668/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 668,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 3,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "ס\"א שמיני חג כו'. כן הגירסא ברש\"י ותוס' וכל הספרים דלא כרש\"ל:",
+        "ואנו כו'. דלענין החגיגה תשלומין דראשון הוא ובמ\"ס פי\"ט כ' כן על ז' של פסח ולא נהנינן כן הואיל והוא בתשלומין מידי דהוי אחה\"מ כ\"ש כאן דהוא רגל בפ\"ע ומ\"ש דלא מצינו כו' בסוכה מ\"ח אמרינן י\"ט האחרון של חג וכן בהרבה מקומות ואמרינן בערכין ובסוף תענית שמנה ימי החג כו':"
+      ],
+      "en_segments": [
+        "Seif 1: The eighth day of the festival, etc. This is the reading in Rashi, Tosafos, and all the texts, unlike Maharshal.",
+        "And we, etc. Regarding the festival offering, it serves as a compensatory day for the first day. Maseches Soferim, chapter 19, similarly uses this expression regarding the seventh day of Pesach, yet we do not follow that custom there, since it is merely a compensatory day, just like Chol HaMoed. All the more so here, where Shemini Atzeres is a festival unto itself.",
+        "As for the statement that this expression is not found, Sukkah 48 speaks of “the final Yom Tov of the festival,” and the expression appears in many other places. Arachin and the end of Taanis likewise speak of “the eight days of the festival,” etc."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman668/seif-001/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman687/seif-002/turei-zahav",
+      "volume": "oc1",
+      "siman": 687,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 6,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "חוץ ממת מצוה כו'. ברמב\"ם כתוב בל' זה שהפוגע בו קוברו תחלה ואח\"כ קורא. ודקדק המזרחי דזה ואח\"כ קורא הוא יתור ל' אלא דקמ\"ל אי איכא שהות לקרות אח\"כ אין אי לא לא. וק\"ל דהא פשטי' בגמ' דמת מצוה עדיף ממגילה דאמר מר גדול כבוד הבריות שדוחה את ל\"ת שבתור' והדחיי' היא שהלא תעשה נדחה לגמרי דהיינו כדפרש\"י דכתיב לא תוכל להתעלם וכתיב והתעלמת פעמים שאתה מתעלם כגון זקן ואינו לפי כבודו א\"כ בקריאת מגילה נמי ידחה גדול כבוד הבריות את המגיל' לגמרי וק\"ו הוא דהא המגיל' אינה אלא מדברי סופרים ולישנא יתירא דדייק המזרחי נרא' דאינו בא על כוונה זו אלא הוא ע\"פ מ\"ש התוס' וא\"ת יעשו עבודתן מיד ואח\"כ יקראו את המגילה לבדם וי\"ל דטוב לקרות עם הצבור משום דהוה פרסומי ניסא טפי עכ\"ל ולכוונה זו כ' הרמב\"ם דמ\"מ כל שיש שניהם לפניו ולשניהם יש שהות טובא דל\"ת דמשום פרסום הנס בציבור יקדים המגילה קמ\"ל דבזה לא איכפת לן בפרסום טפי אלא קורא אותה ביחידות אח\"כ אבל אם אין שעות אח\"כ מזה לא מיירי הרמב\"ם והדין הוא דמבטלין המגילה לגמרי דכבוד הבריות דוחה אות' ותדע לך זה דאטו המוצא מת מצוה בשדה ואין מגילה עמו וכי ישליך את המת וילך לעיר לקרות המגילה ואפשר דמתוך כך יאכלוהו הכלבים וכי נאמר שיעשה כן ודאי דבר בטל לומר כן ומלבד זה אין קיום לדברי ש\"ע כאן שדבריו סותרים זא\"ז דתחלה כ' רמ\"א אבל אם אי אפשר לעשו' שתיהן כו' משמע דשאר מצות קודמת למגילה. ובסוף כ' דוקא בדאפשר לקרות אח\"כ משמע באין אפשר לקרות אח\"כ מגילה קודמת למ\"מ כ\"ש דקודמת לשאר מצות. ולענין מגילה ועבודה דאמרי' בגמ' דמגילה עדיף וילפינן לה מדכתיב משפחה ומשפחה להביא משפחות כהנים ולוים שמבטלין עבודתן ובאים לשמוע מקרא מגילה וכ' הר\"ן ומיהו דוקא בשיכולים אח\"כ להשלים העבודה הא לאו הכי ודאי אין מבטלין העבודה מדאורייתא משום מגילה דרבנן וק\"ל על זה דהא אמרי' מגילה עדיף מתלמוד תורה והתם בת\"ת נדחית לגמרי מפניה דהיינו הלימוד שיש עכשיו עליו חיוב בשעה זו א\"א בתשלומין שמה שילמוד אח\"כ היא מצוה בפני עצמה ואפ\"ה נדחה מפני המגיל' ה\"ה נמי לענין עבוד' וק\"ו הוא דהא אמרי' בגמ' דת\"ת עדיף מעבודה. גם ל' הרמב\"ם שהעתיק כאן מורה כן שכ' ק\"ו לשאר מצות שנדחים כולם מפניה ובכלל זה ודאי גם הם נדחים לגמרי וזה ודאי דתמצא מצות שתלויין בזמן ההוא ואפ\"ה כשהם נדחים נדחים לגמרי ומ\"ש הר\"ן דעבודה דאורייתא ומגילה מדרבנן י\"ל דהיא דברי קבלה שקי\"ל דברי קבלה כד\"ת כמ\"ש ב\"י בסי' תקנ\"ד בשם ר\"ת לענין צ\"ג וע\"כ שפיר אמרי' תדחה העבודה והב\"י כ' דדעת התוס' כדעת הר\"ן דכתבו וז\"ל כהנים מבטלין מעבודתן לשמוע מגילה וק' אמאי מבטלין והלא אחר הקריאה יש שהות הרבה לעבודה וי\"ל כיון דמשהאיר היום הוה זמן העבודה והן מניחין אותה בשביל הקריאה קרי ליה ביטול עכ\"ל ואני איני רואה הוכחה מזה להסכים להר\"ן דהתוס' קאי על לשון התלמוד שאמר מבטלין מעבודתן דהיינו בזמן עבודתן בכל יום שהוא משהאיר היום וע\"ז מקשים הא יש שהות אח\"כ כל היום אבל אי מקרי דלא נעשית העבודה עד שעה קטנה קודם כלות שיעור שלה ויש לפניו מקרא מגילה אה\"נ דמגילה דוחה העבודה לגמרי כיון שא\"א לקיים שניהם פרסומי ניסא עדיף כנלע\"ד:",
+        "וכל זה לא מיירי כו'. הג\"ה זו כולה מדברי הר\"ן והמזרחי וכבר כתבתי מה שיש להקשות ע\"ז וגם מו\"ח ז\"ל פי' דברי הטור ע\"פ הדרך שזכרתי בסמוך וכ\"כ בשם רש\"ל דבמקום שאמרו בזה עדיף טפי היינו לדחות את הנדחה לגמרי אפי' ליכא שהות אח\"כ:"
+      ],
+      "en_segments": [
+        "Except for a meis mitzvah, etc. The Rambam writes in this language: “One who encounters it buries it first, and afterward reads the Megillah.” The Mizrachi infers that the words “and afterward reads” are superfluous, and therefore teach that if there remains time to read afterward, he does so, but if not, he does not bury first. This is difficult for me. The plain conclusion of the Gemara is that a meis mitzvah takes precedence over Megillah, for the Master said, “Great is human dignity, for it overrides a negative commandment in the Torah.” The negative commandment is entirely set aside, as Rashi explains regarding the verses “You may not ignore it” and “you shall ignore,” which teach that there are times when one may ignore it, such as an elderly person for whom the act is beneath his dignity. Accordingly, regarding the reading of the Megillah as well, human dignity should entirely override the Megillah. This is all the more so, since Megillah is only from the words of the Sages. The extra wording noted by the Mizrachi does not appear to teach his conclusion. Rather, it follows what Tosafos wrote: “One might ask, let them perform their Temple service immediately and afterward read the Megillah by themselves. One can answer that it is preferable to read with the congregation because this provides greater publicizing of the miracle.” End quote. With this intent, the Rambam wrote that when both obligations are before him and there is ample time for both, one should not think that Megillah should come first because of the publicizing of the miracle with the congregation. He therefore teaches that we are not concerned with the greater publicizing in this case. Rather, he first buries the meis mitzvah and afterward reads the Megillah privately. However, the Rambam does not discuss a case in which there will be no time afterward. The law in that case is that the reading of the Megillah is entirely canceled, because human dignity overrides it. You can know this to be true. If one finds a meis mitzvah in a field and does not have a Megillah with him, would he abandon the body and go to the city to read the Megillah, although dogs might consume the body in the meantime? Could one possibly say that he should do so? This is certainly an untenable position.",
+        "Apart from this, the words of the Shulchan Aruch here cannot stand, because they contradict one another. At first the Rama writes, “But if it is impossible to perform both,” which implies that the other mitzvah takes precedence over Megillah. At the end, however, he writes that this is only when it is possible to read afterward, which implies that when it is impossible to read afterward, Megillah takes precedence over a meis mitzvah, and all the more so over other mitzvos.",
+        "Regarding Megillah and the Temple service, the Gemara states that Megillah takes precedence. It derives this from the words “family by family,” which include the families of kohanim and leviim, who suspend their service and come to hear the reading of the Megillah. The Ran writes that this applies only when they can complete the service afterward. If they cannot, they certainly do not suspend a Torah obligation because of the rabbinic obligation of Megillah. This is difficult for me. The Gemara also states that Megillah takes precedence over Torah study, and there the Torah study is entirely displaced. The study that one is obligated to undertake at that moment cannot be made up, because whatever he studies afterward is a separate mitzvah. Nevertheless, it is displaced by Megillah. The same should apply to the Temple service, and this follows all the more so because the Gemara states that Torah study is greater than the Temple service.",
+        "The language of the Rambam copied here also indicates this, for he writes that all other mitzvos are certainly displaced by Megillah. This surely includes cases in which they are displaced entirely. There are certainly mitzvos whose fulfillment depends upon that specific time, and nevertheless, when they are displaced, they are displaced entirely. As for the Ran’s argument that the Temple service is according to the Torah whereas Megillah is rabbinic, one can answer that Megillah is among the words of the Prophets, and we rule that words of the Prophets have the status of words of Torah, as the Beit Yosef writes in siman 554 in the name of Rabbeinu Tam regarding Tzom Gedaliah. It is therefore proper to say that the Temple service is displaced.",
+        "The Beit Yosef writes that Tosafos agrees with the Ran, because Tosafos states: “The kohanim suspend their service to hear the Megillah. One might ask, why is this considered suspending the service, since there remains much time after the reading in which to perform it? One can answer that once daylight has appeared, the time for the service has arrived, and because they set it aside for the reading, this is called suspension.” End quote. I do not see any proof from this that Tosafos agrees with the Ran. Tosafos addresses the language of the Gemara, which says that they suspend their service, meaning the ordinary daily time of service, which begins when daylight appears. Tosafos therefore asks that there remains time afterward throughout the day. However, if the service had not been performed until shortly before its final time and the reading of the Megillah was before them, it may indeed be that Megillah entirely displaces the service, since both cannot be fulfilled. The publicizing of the miracle takes precedence. This appears correct in my humble opinion.",
+        "And all this does not discuss, etc. This entire gloss is based on the words of the Ran and the Mizrachi. I have already written the difficulties with their position. My revered father in law, of blessed memory, also explained the words of the Tur according to the approach I stated above, and he wrote similarly in the name of the Maharshal: whenever the Sages state that one matter takes greater precedence, their intent is that the displaced obligation is entirely displaced, even when there will be no time to perform it afterward."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman687/seif-002/turei-zahav",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman4/seif-004/yad-avraham",
+      "volume": "yd1",
+      "siman": 4,
+      "seif": 4,
+      "slug": "yad-avraham",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 3,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "(סימן ד סעיף ד) ישראל ששחט בהמת חבירו לעבודת כוכבים לא אסרה. שאין אדם מישראל אוסר דבר שאין שלו שאין כוונתו אלא לצערו לשון הרמב\"ם. ומוכח להדיא בתוס' פרק מרובה (דף ע\"א) ד\"ה בשלמא ע\"ז כו' דכשנתן רשות לשליח לשחוט כרצונו ואפילו לעבודת כוכבים דאז אוסר השליח שהרי אין לומר לצעורי קמכוין כיון שהבעלים רוצין בזה. וכן מוכח בש\"ס פר' כל הצלמים (דף מו) ופ' ר' ישמעאל (דף נג ב) גבי ישראל שזקף לבינה ומביאו הרב בהג\"ה לקמן ר\"ס קל\"ט ע\"ש. והטעם דכיון דגלי דעתייהו דאין מקפידין לא שייך לומר ש\"א כו' אין שלו. ולא משום שליחות דהא א\"ש לד\"ע וכיון דאין צריך שליחות רק גלוי דעת ונתינת רשות מהני אף בדבר עבירה. וכה\"ג כתב הנו\"ב חלק אה\"ע סי' ע\"ז. וכ\"כ בס' ברכי יוסף בא\"ה סי' ה' ויישב בזה הא דהקשה בס' ג\"ו בסוגיא דעבודת כוכבים הא אין שליחות לעובד כוכבים. ודחה הא דכתב בס' מחנה אפרים דמוכח מסוגיא הנ\"ל דעובד כוכבים לעובד כוכבים יש שליחות ואף לדבר עבירה דהתם לאו מטעם שליחות הוא רק גלוי מילתא דניחא להו דהא לא בעי התם שליחות רק בגלוי דעת דניחא לי' סגי דליכא למימר א\"א אוסר דבר שאינו שלו. ובחר\"ש לב\"ק (דף נ\"א) אי' בהיפך ממ\"ש בעל מח\"א ובלא\"ה י\"ל לפמ\"ש בשו\"ת טור האבן סי' ל\"ה דלא אמרי' א\"ש לדבר עבירה אלא היכא שא\"א בלא עבירה אבל היכא דאפשר בלא עבירה לא שלחו לעשות בעבירה דוקא הוי שליח אעפ\"י שעשה בעבירה ובס' שושנת העמקים כלל כ\"א כ\"כ בכוונת התוס' דב\"ק. ומיהו התוס' לא כ\"כ רק למ\"ד אדם אוסר דבר שאינו שלו. והפ\"י הקשה מעבודת כוכבים שם דאמר שליחותי' קעבד לכ\"ע אוסר ובס' שושה\"ע תי' דמ\"מ הבעלים הראשונים לא עשאו שליח.",
+        "וע\"ש בתוספות דיש להוכיח מדבריהם דאלו נתן לשליח לשחוט סתם ושחט השליח לעבודת כוכבים בשוגג דלא אסרה דאל\"כ ה\"ל לשנויי הכי ע\"ש. וכ\"כ בשו\"ת הרדב\"ז ח\"ג סי' תר\"ג ע\"ש שהוכיח כן מפ\"ג דנדרים (דף ל\"ו) דמצ\"ל לתקוני שדרתיך ולא לעותתי גבי פגול. ומיהו לפמ\"ש הרשב\"א בחי' שם אינו ראיה שהקשה דהא קיי\"ל דאדם אוסר דבר שא\"ש במעשה רבה מיהת. ותי' דה\"מ בשאר איסורין אבל גבי פגול דקרבן. כשמשנה שליחותו לעוות נמצא שאינו שליח לכך ולא הוי כשוחט קרבן אלא כנוחר ולא הוי פגול וכשר נמי לא הוי. אלא דקשיא ליה אמאי הוי פגול ול\"ק דלהוי כשר:"
+      ],
+      "en_segments": [
+        "**(siman 4 seif 4) An Israelite who slaughtered his friend's animal for idol worship—he did not forbid it.** For no Israelite forbids what is not his—he does not intend except to pain him—Rambam's language. Proven explicitly in Tosafot chapter Merubah (71) s.v. bishlema regarding idol worship, etc.: when he gave agent permission to slaughter as he wishes, even for idol worship—then agent forbids, for cannot say “to pain him” since owners want this. And proven in Shas chapter Kol HaTzlamim (46) and chapter R. Yishmael (53b) regarding Israel who set up a brick—and Rav brought in gloss below siman 139—see there. Reason: since they revealed their da'at they are not stringent—not applicable to say “person does not forbid what is not his.” Not because of agency—for we do not hold agency for sin per one opinion; and since agency not required, only revelation of da'at and granting permission helps even for transgression. And such case Noda BiYehudah wrote part Even HaEzer siman 77. And so Birkei Yosef Orach Chayyim siman 5; and he settled that which Mahaneh Efrayim challenged from sugya Avodah Zarah—there is no agency for gentile. And he rejected that which Mahaneh Efrayim wrote proof from that sugya gentile has agency for gentile even for transgression—for there it is not because of agency but revelation that it pleases them—for there agency not required, only revelation of da'at that pleases him suffices—cannot say person forbids what is not his. And in Chiddushei R. Shmuel Bava Kamma (91) opposite from Mahaneh Efrayim; and in any case one may say per Maharshal in responsum Tur Even HaEtz siman 35 we do not say agency for transgression except where impossible without transgression, but where possible without transgression they did not send him to do specifically transgression—he is agent even though he did in transgression; and in Shushanat HaAmakim kelal 21 likewise Tosafot Bava Kamma's intent. However Tosafot not so much—only per view person forbids what is not his. And Perishah challenged from Avodah Zarah there who said his agency performed—for all forbids; and in Shushanat HaAmakim explain nevertheless first owners did not make him agent.",
+        "**And see there** in Tosafot one can prove from their words: if he gave agent to slaughter stam and agent slaughtered for idol worship b'shogeg—he did not forbid it—for otherwise should have taught thus—see there. And so responsa Radbaz vol. 3 siman 483—see there—proved from chapter Nedarim (36) must say “for your benefit I sent you not for detriment” regarding pigul. However per Rashba's comment there it is not proof—he challenged for we hold person forbids what is not his in great act at least. And answer: that applies to other issurim; but regarding pigul of offering—when he changes his agency to detriment he is found not to be agent, therefore not like slaughtering offering but like piercing—not pigul and not kosher either. Rather difficulty: why is it pigul and not kosher.",
+        "**(siman 4 seif 4) An Israelite who slaughtered his friend's animal for idol worship—he did not forbid it.** For no Israelite forbids what is not his—he does not intend except to pain him—Rambam's language. Proven explicitly in Tosafot chapter Merubah (71) s.v. bishlema regarding idol worship, etc.: when he gave agent permission to slaughter as he wishes, even for idol worship—then agent forbids, for cannot say “to pain him” since owners want this. And proven in Shas chapter Kol HaTzlamim (46) and chapter R. Yishmael (53b) regarding Israel who set up a brick—and Rav brought in gloss below siman 139—see there. Reason: since they revealed their da'at they are not stringent—not applicable to say “person does not forbid what is not his.” Not because of agency—for we do not hold agency for sin per one opinion; and since agency not required, only revelation of da'at and granting permission helps even for transgression. And such case Noda BiYehudah wrote part Even HaEzer siman 77. And so Birkei Yosef Orach Chayyim siman 5; and he settled that which Mahaneh Efrayim challenged from sugya Avodah Zarah—there is no agency for gentile. And he rejected that which Mahaneh Efrayim wrote proof from that sugya gentile has agency for gentile even for transgression—for there it is not because of agency but revelation that it pleases them—for there agency not required, only revelation of da'at that pleases him suffices—cannot say person forbids what is not his. And in Chiddushei R. Shmuel Bava Kamma (91) opposite from Mahaneh Efrayim; and in any case one may say per Maharshal in responsum Tur Even HaEtz siman 35 we do not say agency for transgression except where impossible without transgression, but where possible without transgression they did not send him to do specifically transgression—he is agent even though he did in transgression; and in Shushanat HaAmakim kelal 21 likewise Tosafot Bava Kamma's intent. However Tosafot not so much—only per view person forbids what is not his. And Perishah challenged from Avodah Zarah there who said his agency performed—for all forbids; and in Shushanat HaAmakim explain nevertheless first owners did not make him agent. **And see there** in Tosafot one can prove from their words: if he gave agent to slaughter stam and agent slaughtered for idol worship b'shogeg—he did not forbid it—for otherwise should have taught thus—see there. And so responsa Radbaz vol. 3 siman 483—see there—proved from chapter Nedarim (36) must say “for your benefit I sent you not for detriment” regarding pigul. However per Rashba's comment there it is not proof—he challenged for we hold person forbids what is not his in great act at least. And answer: that applies to other issurim; but regarding pigul of offering—when he changes his agency to detriment he is found not to be agent, therefore not like slaughtering offering but like piercing—not pigul and not kosher either. Rather difficulty: why is it pigul and not kosher."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman4/seif-004/yad-avraham",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    }
+  ]
+}

@@ -1,40 +1,51 @@
-# EN has_more glued — review pack
+# EN_HAS_MORE_GLUED_REVIEW_PACK — chunked for AI review
 
-**For external AI review only. Do not apply to corpus until after human/parent check.**
+Original file: `EN_HAS_MORE_GLUED_REVIEW_PACK.json`
+- Total characters: 554,403
+- Total bytes (UTF-8): 690,050
+- Total cases: 58
+- Parts: 7 (each body ≤ 95,000 characters, pretty JSON)
 
-## Files
+## How to use
 
-- JSON (full HE/EN segments): [`EN_HAS_MORE_GLUED_REVIEW_PACK.json`](./EN_HAS_MORE_GLUED_REVIEW_PACK.json)
-- Audit folder: `newtry/SA_Rebuild/audit/he_en_segment_mismatch/`
+Paste **one part file** + the shortened review prompt per session (100k context limit). Do not paste the full original pack.
 
-## Scope
+## Parts
 
-| Bucket | Count |
-|--------|------:|
-| REJECT from spot review (excl. applied APPROVE) | 10 |
-| unsafe from continuations dry-run | 48 |
-| **Deduped total** | **58** |
+| Part | File | Cases | Case offset | Characters |
+|------|------|------:|------------:|-----------:|
+| 1 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part01.json` | 11 | 0 | 91,802 |
+| 2 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part02.json` | 11 | 11 | 93,254 |
+| 3 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part03.json` | 16 | 22 | 92,029 |
+| 4 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part04.json` | 6 | 38 | 87,546 |
+| 5 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part05.json` | 8 | 44 | 85,184 |
+| 6 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part06.json` | 4 | 52 | 78,687 |
+| 7 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part07.json` | 2 | 56 | 31,526 |
 
-Excluded (already applied): `oc1/siman32/seif-005/yad-ephraim`
+## Shortened prompt (use with each part)
 
-## Ask the other AI to return
+Paste this prompt together with **one** `EN_HAS_MORE_GLUED_REVIEW_PACK_partNN.json` file. Return a JSON array for **only** the case ids in that part.
 
-A **JSON array** (only), one object per case:
+```
+You are reviewing EN-has-more / glued segment mismatches for Shulchan Aruch (SA_Rebuild).
 
-```json
+INPUT: one chunk of EN_HAS_MORE_GLUED_REVIEW_PACK (meta.chunk_index / chunk_total / case_offset + cases[]).
+
+For EACH case in this chunk only:
+1. Compare he_segments vs en_segments (and any glued/extra EN text).
+2. Decide if EN is wrongly glued/extra, correctly longer (legitimate gloss/expansion), or uncertain.
+3. Propose a fix when EN is wrong: which EN segment(s) to split/trim/drop, and the corrected en_segments list if clear.
+
+OUTPUT: a single JSON array (no markdown fence unless needed). One object per case id in this part, same order as cases[]. Schema:
 [
   {
-    "id": "oc1/siman128/seif-003/turei-zahav",
-    "merge_groups": [[0,1],[2]],
-    "verdict": "ok_rejoin",
-    "notes": "brief reason"
+    "id": "<exact case id from input>",
+    "verdict": "glued_error" | "legitimate_en_longer" | "uncertain" | "other",
+    "note": "<one short sentence>",
+    "fix_en_segments": null | ["..."],
+    "confidence": "high" | "medium" | "low"
   }
 ]
+
+Rules: only ids present in this part; no new cases; no corpus edits; plain JSON array only.
 ```
-
-- `merge_groups`: array of EN-index arrays; `merge_groups.length === heSegs`; indices must partition `0..enSegs-1` contiguously.
-- `verdict`: `ok_rejoin` | `needs_editorial` | `skip`
-- If `needs_editorial` / `skip`, `merge_groups` may be `null`.
-- Do not invent HE/EN text; only propose regrouping.
-
-Created: 2026-08-27T18:39:43.547Z

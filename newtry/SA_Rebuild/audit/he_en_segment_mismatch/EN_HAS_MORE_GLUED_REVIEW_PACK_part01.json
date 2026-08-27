@@ -1,0 +1,587 @@
+{
+  "meta": {
+    "created": "2026-08-27T18:39:43.547Z",
+    "purpose": "External AI: propose correct EN merge groups so enSegs===heSegs without gluing distinct notes",
+    "applied_excluded": [
+      "oc1/siman32/seif-005/yad-ephraim"
+    ],
+    "sources": {
+      "spot_review": "en_rejoin_11_spot_review.json",
+      "dry_run": "en_rejoin_continuations_dry_run.json",
+      "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+      "split": "normalize consecutive <br> then split on <br>; strip tags for segment text"
+    },
+    "counts": {
+      "reject_spot_review": 10,
+      "unsafe_dry_run": 48,
+      "deduped_total": 58,
+      "expected": 58,
+      "by_bucket": {
+        "unsafe_dry_run": 48,
+        "reject_spot_review": 10
+      }
+    },
+    "instructions_for_reviewer": [
+      "For each case, read he_segments and en_segments.",
+      "Propose merge_groups: array of arrays of EN indices, length === heSegs.",
+      "Only merge true continuations; never glue distinct HE lemmas/notes.",
+      "If not safely fixable by contiguous EN rejoin, set verdict: \"needs_editorial\" and explain.",
+      "Return same case id; do not invent content.",
+      "Output a JSON array of objects matching reviewer_output_template for every case."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 7,
+    "case_offset": 0,
+    "cases_in_chunk": 11
+  },
+  "cases": [
+    {
+      "id": "oc1/siman1/seif-001/biur-halacha",
+      "volume": "oc1",
+      "siman": 1,
+      "seif": 1,
+      "slug": "biur-halacha",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 10,
+      "unsafe_reason": "would_glue_distinct_numbered_notes",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 8,
+      "he_segments": [
+        "שיהא הוא מעורר השחר - נכון מאד ליזהר לומר קודם כל ג' תפלות הודאת היה\"ר המבואר בירושלמי פ' תפלת השחר דהיינו בשחרית מודה אני לפניך ד' או\"א שהוצאתני מאפלה לאורה. ובמנחה מודה אני וכו' שכשם שזיכיתני לראות כשהחמה במזרח כך זכיתי לראותה במערב. בערבית יה\"ר כו' כשם שהייתי באפילה והוצאתני לאורה כן תוציאני מאפילה לאורה:",
+        "הוא כלל גדול בתורה וכו' - הרוצה לקיים שויתי כראוי יזדרז לקיים מה שנכתוב בשם ספר החינוך ומפני גודל חביבותם העתיקום כמה גדולים בספריהם וז\"ל החינוך [בהקדמתו ובסימן כ\"ה כ\"ו תי\"ז תי\"ח תל\"ב שפ\"ז] שש מצות חיובן תמידי לא יפסקו מעל האדם אפילו רגע אחד כל ימיו וכל זמן וכל רגע שיחשוב בהן קיים מ\"ע ואין קץ למתן שכר המצות ואלו הם.",
+        "א) להאמין שיש אלוה אחד בעולם שהמציא כל הנמצאות ומחפצו ורצונו הוא כל מה שהוא עכשיו ושהיה ושיהיה לעדי עד ושהוא הוציאנו ממצרים ונתן לנו התורה וזהו מ\"ע דכתיב אנכי ה' אלהיך אשר הוצאתיך וגו' ופירושו תדעו ותאמינו שיש לעולם אלוה המשגיח שהרי הוצאתיך מארץ מצרים. ב) שלא נאמין בשום אלהים זולתו שנאמר לא יהיה לך אלהים אחרים על פני ואפילו מודה שהקב\"ה שולט על הכל רק שידמה בדעתו שמסר הנהגת העולם למלאך או לכוכב ה\"ז מודה בע\"ז ועובר על לא יהיה לך אלהים אחרים על פני אלא יאמין שהקב\"ה בעצמו ובכבודו משגיח בכל העולמות ואין לשום נברא כח לעשות דבר בלתי רצונו ולכן נקרא הקב\"ה אלהי האלהים. ג) לייחדו שנא' שמע ישראל ה' אלהינו ה' אחד ופירושו שמע ישראל ודע כי ה' שהווה את הכל ברצונו והוא אלהינו המשגיח בכל העולמות הוא ה' אחד בלי שום שיתוף. ד). לאהוב המקום ב\"ה שנאמר ואהבת את ה' אלהיך וגו' וכיצד יגיע האדם לאהבה הוא ע\"י התורה וכדאיתא בספרי לפי שנאמר ואהבת איני יודע כיצד לאהוב את המקום ת\"ל והיו הדברים האלה אשר אנכי מצוך היום על לבבך שמתוך כך אתה מכיר את מי שאמר והיה העולם כלומר שע\"י ההתבוננות בתורה יכיר את גדולתו של הקב\"ה שאין לו ערך ולא קץ ותתיישב האהבה בלבו בהכרח. וענין המצוה שיראה האדם להשים כל מגמתו וכל מחשבתו אחר אהבת הש\"י ויעריך בלבו כי כל מה שיש בעולם מעושר ובנים וכבוד הכל הוא כאין נגד אהבתו ית' וייגע תמיד בבקשת חכמת התורה למען ישיג ידיעה בה'. והקובע את מחשבתו בעניינים הגשמיים ובהבלי העולם שלא לש\"ש רק להתענג ולהשיג כבוד ביטל עשה זו ועונשו גדול. ה). להיות יראת הש\"י על פניו תמיד לבלתי יחטא וע\"ז נאמר את ה' אלהיך תירא ומי שבא דבר עבירה לידו חייב להעיר רוחו ולתת אל לבו באותו הפרק שהקב\"ה משגיח בכל מעשי בני אדם אף אם יהיו במחשך מעשיהם וישיב להם נקם לפי רוע המעשה וכדכתיב אם יסתר איש במסתרים ואני לא אראנו נאום ה' וגו'. ו). שלא נתור אחר מחשבת הלב וראיית העינים שנאמר ולא תתורו אחרי לבבכם וגו' ואמרו חכמים אחרי לבבכם זו אפיקורסות ואחרי עיניכם זו זנות ובכלל אפיקורסות הוא כל מחשבות זרות שהם היפך דעת התורה ובכלל זנות הוא מי שהוא רודף אחר תאות העולם מבלי שיכוין בהם כלל לכוונה טובה כלומר שלא יעשה אותם כדי שיעמוד בריא ויוכל להשתדל בעבודת בוראו רק כוונתו תמיד להרבות תענוגים גדולים לנפשו.",
+        "כ\"ז לקטתי מלשונו הנחמד בקצרה וקילורין הם לעינים ואשרי המקיימם כראוי ועיין בח\"א כלל א' שהאריך ג\"כ בהם:",
+        "ולא יתבייש וכו' - עיין במ\"ב בשם הב\"י. דע דהב\"י לא איירי כ\"א במצוה שהוא עושה לעצמו ובני אדם מלעיגים עליו אז בודאי אין לו לחוש כלל ללעגם ולא יתקוטט עמהם אבל אם הוא עומד במקום שיש אפיקורסים המתקוממים על התורה ורוצים לעשות איזה תקנות בעניני העיר ועי\"ז יעבירו את העם מרצון ה' ופתח בשלום ולא נשמעו דבריו בכגון זה לא דיבר הב\"י מאומה ומצוה לשנאתם ולהתקוטט עמהם ולהפר עצתם בכל מה שיוכל ודהמע\"ה אמר הלא משנאיך ד' אשנא ובתקוממיך אתקוטט תכלית שנאה שנאתים וגו':"
+      ],
+      "en_segments": [
+        "That he should awaken the dawn. It is very proper to take care to recite before each of the three prayers the acknowledgment and Yehi Ratzon explained in the Yerushalmi, in the chapter Tefillat HaShachar. At Shacharit: “I thank You, O Omnipresent, my God and God of my fathers, that You brought me out from darkness to light.” At Minchah: “I thank You,” etc., “that just as You privileged me to behold the sun in the east, so You privileged me to behold it in the west.” At Ma'ariv: “May it be Your will,” etc., “that just as I was in darkness and You brought me out to light, so shall You bring me out from darkness to light.”",
+        "It is a great principle in the Torah, etc. One who wishes to fulfill “I have set Hashem before me always” properly should be diligent to observe what we shall write in the name of Sefer HaChinuch. Because of their great preciousness, many leading authorities copied these matters into their works. These are the words of Sefer HaChinuch, in its introduction and in mitzvos 25, 26, 417, 418, 432, and 387: Six mitzvos are constantly obligatory. Their obligation never departs from a person for even a single moment throughout his life. At every time and every moment that he reflects upon them, he fulfills a positive commandment, and there is no limit to the reward for these mitzvos. They are as follows.",
+        "1. To believe that there is one God in the world, Who brought all beings into existence, and that everything that presently exists, that existed, and that will exist forever is through His desire and will. He brought us out of Egypt and gave us the Torah. This is the positive commandment expressed in the verse, “I am Hashem your God, Who brought you out, etc.” Its meaning is: Know and believe that the world has a God Who exercises providence over it, as demonstrated by the fact that He brought you out of the land of Egypt.",
+        "2. Not to believe in any deity other than Him, as it is stated, “You shall have no other gods before Me.” Even if one acknowledges that the Holy One, blessed is He, rules over everything, but imagines that He entrusted the governance of the world to an angel or star, he thereby acknowledges idolatry and transgresses “You shall have no other gods before Me.” Rather, one must believe that the Holy One, blessed is He, Himself, in His glory, exercises providence over all the worlds, and that no created being has power to do anything contrary to His will. He is therefore called the God of gods.",
+        "3. To affirm His unity, as it is stated, “Hear, O Israel, Hashem is our God, Hashem is One.” Its meaning is: Hear, O Israel, and know that Hashem, Who brought everything into being through His will, and Who is our God exercising providence over all the worlds, is one Hashem, without any partnership whatsoever.",
+        "4. To love the Omnipresent, blessed is He, as it is stated, “You shall love Hashem your God, etc.” How does a person attain this love? Through the Torah. Thus it is taught in Sifrei: Since it says, “You shall love,” I do not know how one is to love the Omnipresent. The verse therefore states, “These words that I command you today shall be upon your heart,” for through this you come to recognize the One Who spoke and the world came into being. Meaning, through contemplation of the Torah, one recognizes the greatness of the Holy One, blessed is He, which is beyond measure and without end, and love will necessarily become established in his heart. The mitzvah requires a person to direct all his aspirations and thoughts toward love of Hashem. He should assess in his heart that all that exists in the world, including wealth, children, and honor, is as nothing compared with love of Him, blessed is He. He should constantly exert himself in seeking the wisdom of Torah so that he may attain knowledge of Hashem. One who fixes his thoughts upon physical matters and the vanities of the world, not for the sake of Heaven but merely to indulge himself and attain honor, has neglected this positive commandment, and his punishment is severe.",
+        "5. To have fear of Hashem constantly before him so that he will not sin. Concerning this it is stated, “You shall fear Hashem your God.” When an opportunity to sin comes before a person, he must awaken his spirit and take to heart at that moment that the Holy One, blessed is He, watches all human deeds, even if their acts are performed in darkness, and that He will exact punishment from them in accordance with the evil of their conduct. Thus it is written, “Can a person hide in concealed places and I not see him? says Hashem, etc.”",
+        "6. Not to stray after the thoughts of the heart and the sight of the eyes, as it is stated, “You shall not stray after your hearts, etc.” The Sages said: “After your hearts” refers to heresy, and “after your eyes” refers to immorality. Heresy includes all alien thoughts that contradict the Torah’s outlook. Immorality includes one who pursues the desires of the world without directing them toward any proper purpose, meaning that he does not engage in them so that he will remain healthy and be able to apply himself to the service of his Creator, but his constant intent is merely to increase the pleasures of his soul.",
+        "All this I have gathered briefly from his beautiful language. These words are healing for the eyes, and fortunate is one who fulfills them properly. See Chayei Adam, klal 1, who also discusses them at length.",
+        "And he should not be ashamed, etc. See Mishnah Berurah in the name of Beit Yosef. Know that Beit Yosef speaks only of a mitzvah that a person performs for himself while others mock him. In that case he certainly should pay no attention at all to their ridicule, nor should he quarrel with them. If, however, he is in a place where heretics rise against the Torah and seek to institute regulations concerning the affairs of the city that will cause the people to depart from Hashem’s will, and he first approached them peacefully but they did not heed his words, Beit Yosef said nothing about such a case. It is a mitzvah to hate them, contend with them, and frustrate their counsel to the fullest extent possible. David HaMelech said, “Do I not hate those who hate You, Hashem, and contend with those who rise against You? I hate them with the utmost hatred, etc.”"
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman1/seif-001/biur-halacha",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman27/seif-006/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 27,
+      "seif": 6,
+      "slug": "machatzit-hashekel",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 6,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 2,
+      "he_segments": [
+        "(ס\"ק ו) תש\"ר על הכובע כו' כמ\"ש ס\"ס זה כן נ\"ל דלא כהב\"ח ומה\"ט נראה כו' אין הכונה במ\"ש דלא כהב\"ח דהב\"ח מתיר בשל יד. דליתא אדרב' הב\"ח מחמיר יותר כאשר יתבאר. אלא ר\"ל דלא כהב\"ח במה שפי' דברי רשב\"א שממנו מקור דין סעיף זה. ולפי פירושו הקשה על הרשב\"א וחלק עליו. ע\"ז כתב מ\"א דלא כהב\"ח. והוא דהרא\"ש ס\"ל כמו דהקפידה תורה לענין חציצה בשל יד מדכתיב והיה לאות על ידך ה\"ה דאמרי' מסבר' אף שאינו מבואר כן להדיא בש\"ס דגם בשל ראש הקפידה תורה. מדכתיב והיו לטוטפות בין עיניך והרשב\"א ס\"ל דבש\"ר אין קפיד' והא דכתיב והיו לטוטפות בין עיניך הוא רק לסיים מקום הנחתו כנ\"ל. וע\"ז הקשה הב\"ח דאמרינן סוף פרק הקומץ על ידך זו גובה שביד או אינו אלא על יד ממש אמרה תורה הנח תפילין ביד והנח תפילין בראש. מה להלן בגובה שבראש אף כאן בגובה שביד (פירש\"י גובה שביד היינו קבורת שהוא בשר התופח. ועל יד ממש פירש\"י על הכף) וכיון דקי\"ל אין היקש למחצה כו' ה\"נ הוקש של ראש לשל יד לענין חציצה כו' עכ\"ל הב\"ח. נראה דהב\"ח הבין דגם רשב\"א דרש טעמ' דקרא והיה לך לאות מטעם חציצה. אבל אין כן דעת מ\"א אלא ס\"ל דהרשב\"א ס\"ל דגם בש\"י לא חיישינן לחציצה אפילו לגבי בית. והא דאסרינן להניח של יד על הבגד לא מטעם חציצה אלא מגזרת הכתוב והיה לך לאות ולא לאחרים לאות. דשל יד צ\"ל מכוסה:",
+        "וכמ\"ש מ\"א ס\"ס זה. וא\"כ תו לא קשיא נילף של ראש משל יד דלמאי נילף אי דחציצה תפסל. הא בשל יד גופיה אין החציצה פוסלת ואי משום שיהיה גם של ראש מכוסה כמו בשל יד. ומה\"ט לא יניח גם של ראש על הבגד. זה ליתא דאדרב' הא של ראש צ\"ל מגולה. כדכתיב וראו כל עמי הארץ כי שם ה' נקרא עליך ודרש ר\"א אלו תפילין שבראש כמ\"ש ס\"ס זה ולק\"מ. וע\"ז א\"ש מ\"ש מ\"א ומה\"ט נראה דמותר כו' ר\"ל לפי שיטת מ\"א דלהרשב\"א אין איסור חציצה אפילו בשל יד אלא שצ\"ל מכוסה. א\"כ אם י\"ל מכה ביד רשאי להניחן על הסרמטוט דלחציצה ל\"ח. ואי דבעי ולא לאחרים לאות הא מכוסה ע\"י בגד אחר דהיינו כתונת או מלבוש ואעפ\"כ לא יברך וכמ\"ש מ\"א ס\"ק ח'. והטעם ניהו דלרשב\"א אין איסור חציצה. מ\"מ להרא\"ש ודאי דאיכ' איסור חציצה. והא דלא הניחו הכהנים. ר\"ל דהכהנים לא היו מניחים תפלה של יד שהיה צריך ללבוש הכתונת על בשרו ממש ולא יהיה חציצה דכתיב ילבש על בשרו כדלעיל ולפ\"ד מ\"א דלרשב\"א אין חציצה פוסלת בשל יד. א\"כ ה\"ל להניח תפלה של יד על הכתונת ולא יהי' חציצ' בין הכתונת לבשרו. ואי משום לך לאות כו' דשל יד צ\"ל מכוסה:",
+        "הא אפשר לכרוך ד\"א על גבי תפלה של יד שלא תהיה נראה. ע\"ז תי' מ\"א דלא היו רשאי' ללבוש בגד אחר ע\"ג הכתונת ואין כוונתו דוקא על אותו בגד שיתן ע\"ג תפלה של יד איכא איסור'. אלא אפי' תפלה ש\"י גופה אסור להניח על גבי כתונת של בגדי כהונה וכ\"כ הרב\"י בשם הר\"ן לענין מצנפת שהקש' לדעת רשב\"א דבשל ראש אין בו משום חציצה ומותר להניח ע\"ג בגד. א\"כ למה הוצרך הש\"ס לומר בכה\"ג שערו היה נרא' בין ציץ למצנפת ששם היה מניח תפלה של ראש ת\"ל הא הי' אפשר לכה\"ג להניח התפל' על המצנפת ותירץ וז\"ל ואפשר דהיינו משום דאסור לתת כלי אחר של מצוה על המצנפת עכ\"ל. ואולי נקט מ\"א בגד דתפילין שהם כלי מצוה כ' הר\"ן דרך אפשר כמסתפק'. אבל בגד רשות שמניח ע\"ג תפלה שתהי' מכוסה זה ודאי אסור להניח ע\"ג בגדי כהונה:"
+      ],
+      "en_segments": [
+        "Seif katan 6: Head tefillin over a hat, etc. As Magen Avraham writes at the end of this siman, so it appears to me, unlike the Bach, and for this reason it appears, etc. His statement \"unlike the Bach\" does not mean that the Bach permits this regarding the arm tefillin. The opposite is true, for the Bach is more stringent, as will be explained. Rather, he disagrees with the Bach's interpretation of the Rashba, whose words are the source of this seif. Based on his interpretation, the Bach challenged and rejected the Rashba's ruling. Magen Avraham writes that the matter is unlike the Bach. The Rosh holds that just as the Torah was particular regarding an interposition for the arm tefillin, as it states, \"it shall be a sign upon your arm,\" so too, by reasoning, even though the Gemara does not state it explicitly, the Torah was particular regarding the head tefillin, as it states, \"they shall be as frontlets between your eyes.\" The Rashba holds that there is no such concern with the head tefillin, and the verse merely defines their place of placement.",
+        "The Bach asks from the end of the chapter HaKometz: The Gemara expounds \"upon your arm\" as the raised part of the arm. Perhaps it means literally upon the hand? The Torah said to place tefillin on the arm and on the head. Just as there they are placed on the raised part of the head, so here on the raised part of the arm. Rashi explains that the raised part of the arm is the kibbores, the bulging flesh, while literally upon the hand would mean upon the palm. Since we rule that an analogy cannot be applied partially, the head tefillin should likewise be compared to the arm tefillin regarding interposition. These are the Bach's words. It appears that the Bach understood the Rashba to derive from \"it shall be a sign for you\" that there is no interposition. Magen Avraham does not understand him this way. He holds that according to the Rashba, even with the arm tefillin an interposition does not invalidate, even beneath the box. The prohibition against placing the arm tefillin over a garment is not because of interposition, but because of the Scriptural decree, \"it shall be a sign for you,\" meaning for you and not as a sign for others. The arm tefillin must be covered.",
+        "As Magen Avraham writes at the end of this siman. There is therefore no difficulty that we should derive the law of the head tefillin from the arm tefillin. What should be derived? If that interposition invalidates, interposition does not invalidate even the arm tefillin according to the Rashba. If that the head tefillin too should be covered like the arm tefillin, and for that reason should not be placed over a garment, that is incorrect. On the contrary, the head tefillin must be exposed, as it states, \"all the peoples of the earth shall see that the Name of Hashem is called upon you,\" which Rabbi Eliezer expounds as referring to the head tefillin, as Magen Avraham writes at the end of this siman. There is therefore no difficulty.",
+        "This also explains Magen Avraham's statement, \"For this reason it appears that it is permitted, etc.\" According to Magen Avraham's understanding of the Rashba, interposition is not prohibited even with the arm tefillin; they merely must be covered. If one has a wound on his arm, he may place the tefillin over the bandage, since there is no concern of interposition. As for the requirement that they be a sign for him and not for others, they are covered by another garment, such as a shirt or outer garment. Nevertheless, he should not recite a blessing, as Magen Avraham writes in seif katan 8. The reason is that although the Rashba sees no prohibition of interposition, according to the Rosh there certainly is such a prohibition.",
+        "And the fact that the kohanim did not place them. The kohanim did not wear the arm tefillin because the tunic had to be worn directly upon the flesh with no interposition, as the verse states, \"he shall wear it upon his flesh.\" According to Magen Avraham's understanding that the Rashba does not disqualify an interposition beneath the arm tefillin, why did they not place the arm tefillin over the tunic, so that there would be no interposition between the tunic and the flesh? If the problem is that the arm tefillin must be covered, it would have been possible to wrap another item over them so they would not be visible.",
+        "It would have been possible to wrap another item over the arm tefillin so they would not be visible. Magen Avraham answers that the kohanim were not permitted to wear another garment over the tunic. His intent is not merely that the particular covering placed over the tefillin would be prohibited. Even the arm tefillin themselves may not be placed over the tunic of the priestly garments. Beit Yosef writes similarly in the name of the Ran regarding the turban. The Ran asks that according to the Rashba, who holds that interposition does not apply to the head tefillin and that they may be placed over a garment, why did the Gemara need to state that the Kohen Gadol's hair was visible between the tzitz and the turban, where he placed the head tefillin? He could have placed them upon the turban. The Ran answers that perhaps it is prohibited to place another sacred article upon the turban. Perhaps Magen Avraham specifically mentions a garment because tefillin are sacred articles, concerning which the Ran writes only tentatively. But an ordinary garment placed over the arm tefillin to cover them would certainly be prohibited over the priestly garments."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman27/seif-006/machatzit-hashekel",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman51/seif-007/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 51,
+      "seif": 7,
+      "slug": "machatzit-hashekel",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 4,
+      "enSegs": 5,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "(ס\"ק ז) ואומרים כו' שנזכה כו' ר\"ל דכוונת אמירתינו פסוק ואנחנו נברך כו' הוא תפלה שיתקיים בנו הבטחתו שנזכה לעה\"ב ונברך יה מעתה ועד עולם:",
+        "לכן כ' דא\"ל במנח'. קיצר בתשו' והכי איתא התם דבמנחה לא היה צריך לסיים בפסוק ואנחנו נברך כו' כיון דלא שייך לשלשולי הללויה כו' דהא אינו אומר במנחה שום מזמורי' של הללויה (ובשחרית הטעם כיון שאחר אשרי אומרים מזמורים שמתחילים בהללויה ומסיימים בהללויה מסיים גם אשרי בפסוק שמסיים הללויה) אעפ\"כ היה אומר גם במנחה אחר אשרי פ' ואנחנו נברך כיון שהיה אומר קודם תהלה לדוד פ' אשרי כו' המסיים עוד יהללוך סלה א\"כ התחיל בל' תהלה לכן היה מסיים בפ' ואנחנו נברך כדי לסיים בל' תהלה אבל בשחרית קודם למנצח לא היה מסיים באותו תהלה לדוד בפ' ואנחנו נברך דהוא לא היה מתחיל קודם תהלה לדוד בפ' אשרי כ\"א במנחה כמ\"ש מ\"א אחר זה דהטעם דמוסיפים פ' אשרי הוא משום דצריכים לשהות שעה א' קודם שיתחיל להתפלל לכן ראו חז\"ל לתקן לומ' פ' א' והוא שיעור השהיה וכיון דמפ' אשרי יושבי ביתך כו' דרשי' האי דרשא שצריכים לשהות שעה א' לכן תקנו לומ' אשרי קודם תהלה לדוד משא\"כ בשחרית שתהל' לדוד הוא באמצע זמירות דל\"ש טעם זה לא הי' אומרם וא\"כ ה\"ה קודם למנצח ג\"כ לא היה אומר קודם תהלה לדוד פ' אשרי ג\"כ מטעם הנ\"ל דהוא באמצע התפלה ולכך לא היה מסיים גם פסוק ואנחנו נברך דקודם למנצח ליכא טעמא לשלשולי הללויה בתר הללויה ולא טעם כיון שהתחיל בלשון תהלה כנ\"ל דהא לא התחיל בל' תהלה דהא לא היה אומר תחלה פ' אשרי וע\"ש עוד שנוי'. אבל המנהג כמ\"ש דהטעם באמירת ואנחנו נברך כמ\"ש הכל בו שזה שייך כל פעם שאומרו וגם אשרי אנו אומרים כל פעם משום לא פלוג:",
+        "מי כמוך תנינא ר\"ל שבשירה והיינו ד' מי כמוך שנאמרה על הים ופסל מיכה עבר עמהם בים ואם היה אומר הכ\"ף רפוי' היה נראה כחירוף ח\"ו כאלו אומר מיכה והוא סמוך לשם אבל מי כמוך קמא דהיינו מי כמוך באלים אף שנא' בים מ\"מ כיון דאינו סמוך לשם דהא תיבת באלים מפסיק לית לן בה וכן כל עצמותי כו' מי כמוך אף שהוא סמוך לשם מ\"מ כיון דלא נא' פסוק זה בים ל\"ל בה וראוי לאומרה כדינא בכ\"ף רפוי' כיון שבא אחר אותיות אהו\"י:",
+        "הגימ\"ל דגושה דרפוי' נראה כאלו הוא לשון מגואל ומתועב וגם כ' ט\"ז ידמו כאבן יאמר הכ\"ף דגושה שלא יראה ידמוך:"
+      ],
+      "en_segments": [
+        "Seif katan 7: And we say, etc., that we should merit, etc. Our intent in reciting the verse, \"But we shall bless Hashem, etc.,\" is a prayer that His promise be fulfilled for us, that we merit the World to Come and bless Hashem from now and forever.",
+        "Therefore he wrote that it should not be said at Minchah. The responsum is abbreviated. Its full meaning is as follows. At Minchah there would seemingly be no need to conclude with the verse \"But we shall bless Hashem, etc.,\" because the reason of linking one Halleluyah to another does not apply. At Minchah no Tehillim that begin and end with Halleluyah are recited. At Shacharis, by contrast, after Ashrei we recite Tehillim that begin and end with Halleluyah, and therefore Ashrei is also concluded with a verse ending in Halleluyah. Nevertheless, at Minchah he would also recite after Ashrei the verse \"But we shall bless Hashem,\" because before Tehillah LeDavid he recited the verse \"Fortunate are those who dwell in Your house, etc., they will yet praise You, Selah.\" Since he began with language of praise, he concluded with \"But we shall bless Hashem\" so as to end with language of praise.",
+        "At Shacharis before LaMenatzeach, however, he did not conclude that Tehillah LeDavid with \"But we shall bless Hashem,\" because he did not begin it with Ashrei. He recited Ashrei before Tehillah LeDavid only at Minchah, as Magen Avraham writes below. The reason is that one must remain in waiting for one hour before beginning the Amidah. The Sages therefore instituted the recitation of a chapter of Tehillim, which provides the measure of that waiting period. Since the requirement to wait is derived from the verse \"Fortunate are those who dwell in Your house,\" they instituted Ashrei before Tehillah LeDavid. At Shacharis, where Tehillah LeDavid appears in the middle of Pesukei DeZimrah and this reason does not apply, he would not recite Ashrei beforehand. Likewise, before LaMenatzeach, since it is already in the middle of prayer, he did not recite Ashrei before Tehillah LeDavid. He therefore did not conclude with \"But we shall bless Hashem,\" because neither reason applied: there was no need to link one Halleluyah to another, and he had not begun with language of praise by saying Ashrei. See there for additional variations. Our custom, however, follows the explanation of Kol Bo that \"But we shall bless Hashem\" is recited because of its own meaning, which applies whenever the chapter of Tehillim is said. Ashrei too is always recited because the Sages made no distinction.",
+        "The second occurrence of \"Who is like You.\" This refers to the phrase in the Song at the Sea, the second of the four occurrences of \"Who is like You.\" The idol of Michah passed with them through the sea. If the kaf were pronounced softly, the words could sound, Heaven forbid, like \"Michah, Hashem,\" placing the name Michah next to the Divine Name. The first occurrence, \"Who is like You among the mighty,\" presents no concern even though it too was said at the sea, because the word \"among the mighty\" separates it from the Divine Name. Likewise, in the verse \"All my bones shall say: Hashem, who is like You,\" although the phrase is adjacent to the Divine Name, the verse was not said at the sea and there is no concern. It should therefore be pronounced according to the ordinary rule, with a soft kaf, since it follows one of the letters alef, hei, vav, or yud.",
+        "The gimel of \"ga'al\" should be pronounced with a dagesh, because if it is soft the word can sound like \"defiled\" or \"repulsive.\" The Taz likewise writes that in \"they were still as a stone\" the kaf should be pronounced with a dagesh, so that it not sound like \"they compare You.\" See citations 50, 100, 130."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman51/seif-007/machatzit-hashekel",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman128/seif-003/turei-zahav",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "bucket": "reject_spot_review",
+      "heSegs": 2,
+      "enSegs": 3,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "spot_review_suggested_alt": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "spot_verdict": "REJECT",
+      "spot_reason": "E2 matches distinct H1 Levi lemma; plan would glue it into prior note.",
+      "he_segments": [
+        "א' מהדברים. קשה דמשמע אם יש בו אז אינו עובר והא אפי' איסור יש כדלקמן סי' זה ונ\"ל דמצינו לקמן אפי' ביש בו מומין אם דש בעירו נושא את כפיו בזה אמר דמ\"מ אם אינו נושא כפיו אינו עובר והכי משמע לשון הגמרא בס\"פ הקורא את המגילה עומד אם היה דש בעירו מותר ולא אמר חייב ע\"כ אמר כאן דוקא באין בו דבר המעכב כלל עובר וממילא א\"צ לצאת מבה\"כ בשעת קריאת כהנים אותו שדש בעירו אבל למעשה יש להחמיר שיצא מבה\"כ דהא בירוש' מביאו ב\"י דר\"ש בן פזי ור\"א כי הוה רישייהו חלשי הוו נפקי לבר מבה\"כ בשעת קריאת כהנים: כתב הטור כתב הר\"פ שאם אין שם אלא א' אינו עובר דילפינן ליה מאמור להם דמשמע דוקא לרבים ואינו נראה דלהם על אהרן ובניו קאי ופי' אמור להם לכל א' מהם וכב\"י בשם מהרי\"א תימה דהא גרסי' בפ' א\"נ אמר אביי נקטי' לשנים קורא כהנים לא' אינו קורא מ\"ט אמור להם לשנים. ותי' דאע\"ג דדרשינן הכי בגמ' מ\"מ לא נפיק ממשמעותי' דלהם על אהרן ובניו קאי ואמור להם לכל אחד מהם משמע וא\"ת כיון דאינו קורא כהנים אלא לשנים וכל שאין קוראין לכהן לעלות אינו עובר היאך אמר אם אין שם אלא א' עובר וי\"ל שמ\"מ אם קראו ולא עלה עובר לדעת רבינו עכ\"ל. וקשה לי חדא דקרא לא מיירי בדרך אי לא עביד שפיר כדאית' בפרק הערל (יבמות דף ע\"ח) כל דאי לא כתב רחמנא ותו דהא לקמן סי' זה יש עוד דרשה דהיינו שצריך להקרות כל תיבה לפני הכהנים והוא אינו כפשוטו ואפ\"ה כתב הטור שם שקאי על כל א' וא' ושם אין שייך לומר דאין המקרא יוצא מידי פשוטו גם מ\"ש ב\"י דלדעת הטור עובר אם אירע שקרא כהן זה לא נהירא דאם הוא קורא שלא כדין למה יעבור זה שלא שמע לו. והנלע\"ד בזה לפ\"ד הטור דיש כאן ג' לימודים מפסוק זה. האחד כפשוטו דאמור להם דהיינו לכל א' מהם שמוטל עליהם לברך ישראל הן יחיד הן רבים דקאי על אהרן ובניו הנזכר קודם לזה דאהרן מורה על יחיד ובניו על רבים אלא דיש כאן עוד ב' דרשות שדרשו בזה נוסף על הפשוטו. דרשה א' שאין על הכהנים חיוב אלא אחר שיקרא אותם הש\"ץ כהנים ובזה אמרו דהחיוב של קריאת כהנים אינו אלא אם הם ב' אבל ביחיד אינו תלוי בקריאה אבל חייב לילך מעצמו. ודרשה הב' שהש\"ץ יקרא אותם מלה במלה כל תיבה מברכת כהנים ויש הוכחה להנהו דרשות דאי אין כאן אלא הפשוטו קשה ל\"ל להם כיון דכבר כתיב אל אהרן ואל בניו וע\"ק במ\"ש הפסוק אמור להם בקמץ שלשון זה יש לתשמישו ג\"כ לשון עבר כי הוא מקור כמו זכור ושמור והיה לו לומר אמור בשו\"א דהוה משמע לשון ציוי אלא ודאי דקא מרמז על דרשות כד יימרון דהיינו קריאת כהנים דאין חיוב כה תברכו אלא אם תחלה אמר להם דהיינו הקריאת כהנים ואכתי יש יתור תיבת להם אלא דממעט אחד שא\"צ תחלה ואי להא לחוד קשה מ\"ט באמת אמר הכתוב אמור בסוף לשון עבר ותרגומו כד יימרון הי' לו לכתוב אמור בשו\"א קודם כה תברכו דהא קריאת כהנים קודם הברכה אלא ודאי דאתי עוד לדרוש שיקרא הש\"ץ לכהנים כל תיבה בפ\"ע וזה שייך לברכה עצמה ולא בקריאת כהנים ובזה אין שייך לדרוש להם דוקא לשנים דהא קריאת התיבה אינו מעכב כלל אלא למצוה בעלמא שטוב לעשות כן כדי שלא יטעה הכהן בברכותיו אבל החיוב של הכהן כבר חל עליו אחר קריאת כהנים וא\"כ מה לי שנים בחיוב שלהם דהיינו אחר הקריאה כהנים מה לי אחד דודאי כמו שקורא התיבה לשנים קודם ברכה שלהם ה\"ה כשקורא א' ולמה ימעט אותו הכתוב דמה ריעותא יש בדבר שקורא התיבה תחלה. וא\"כ שאין לדרוש להם דוקא לפני רבים בזה אנו דורשים להם דממעט א' היינו לענין עובר בעשה שדוקא בשנים תלוים ההעברה אבל לענין שלא יוציאו עליו לעז שהוא בן גרושה אינו יוצא מידי חשש אפי' אם לא היו בשעת קריאת כהנים כיון שהכהנים אחרים מברכין והיא אינו עמהם כנ\"ל:",
+        "(ג) והלוי יצוק מים. כתב מו\"ח ז\"ל בשם מחזור ישן בשם מהר\"י מולין דאם אין שם לוי אם יש שם בכור פטר רחם יתן הוא מים לנטילת ידים לדוכן:"
+      ],
+      "en_segments": [
+        "One of the things. This is difficult, for it implies that if one of these things is present he does not violate, yet there is even a prohibition, as below in this siman. It seems to me that below we find that even where he has blemishes, if he is familiar in his city he performs Nesias Kapayim; regarding this it says that nevertheless, if he does not perform Nesias Kapayim, he does not violate. So too is implied by the language of the Gemara at the end of HaKorei Es HaMegillah Omed: if he is familiar in his city, it is permitted, but it did not say he is obligated. Therefore here it says that only where there is no matter preventing at all does he violate. Consequently, one who is familiar in his city need not leave the synagogue when they call ‘Kohanim.’ In practice, however, one should be stringent that he leave, for the Yerushalmi cited by Beis Yosef says that Rabbi Shimon ben Pazi and Rabbi Elazar, when their heads were weak, would leave the synagogue when they called ‘Kohanim.’",
+        "The Tur wrote. The Tur wrote in the name of Rabbeinu Peretz that if there is only one kohen there, he does not violate, for we derive from ‘say to them’ that it means specifically to many. This does not appear correct, for ‘to them’ refers to Aharon and his sons, meaning ‘say to each of them.’ Beis Yosef in the name of Mahari Abuhav asked from the Gemara that for two one calls ‘Kohanim,’ but for one he does not call, because it says ‘say to them,’ to two. He answered that although the Gemara derives this, it does not leave its plain sense that ‘to them’ refers to Aharon and his sons, and means each one. In my humble opinion according to the Tur, there are three teachings from this verse. The first is its plain meaning, that ‘say to them’ means to each of them, that they are obligated to bless Israel whether as an individual or many. There are also two additional derivations: one, that the kohanim are obligated only after the shaliach tzibbur calls them ‘Kohanim,’ and this calling applies only when there are two, but an individual is not dependent on the call and must go on his own. The second is that the shaliach tzibbur reads each word of Birkas Kohanim to them word by word. If so, ‘to them’ excludes one only regarding violating the positive commandment, which depends specifically on two; but regarding suspicion that people will say he is the son of a divorcee, the concern remains even if he was not there at the call, since the other kohanim bless and he is not with them.",
+        "And the Levi should pour water. My teacher and father-in-law wrote in the name of an old machzor in the name of Mahari Molin that if there is no Levi there, if there is a firstborn who opened the womb, he should give the water for washing hands for the duchan."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman128/seif-003/turei-zahav",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman137/seif-004/peri-megadim",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 4,
+      "slug": "peri-megadim",
+      "bucket": "reject_spot_review",
+      "heSegs": 4,
+      "enSegs": 5,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "spot_review_suggested_alt": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "spot_verdict": "REJECT",
+      "spot_reason": "Merges H1 practical-law with H2 If/Pesach lemmas.",
+      "he_segments": [
+        "צריך עט״ז דעתו ז״ל דכל שלא גלל הס״ת לגמרי (היינו להניח בארון הקודש) אע״ג שבירך ברכה אחרונה אין מפסיד ברכה ושאני פ׳ פרה בס״ה דבריך וגלל לגמרי כמ״ש באות ה׳ והב׳ פסוקים צריכין ברכה א״כ בחול ושבת שוין כל שלא קרא לאחר יעמוד הא׳ וישלים עוד פסוק ג׳ ומברך ברכה ב׳ ומייתר ברכה א׳ משא״כ אם קרא לאחר ילך אחר ויקרא משום פגם (וס״ל דל״ד לקל״ה ס״ו דעומד שם כו׳ עא״ר כאן אות ז׳ ולפ״ז לכאורה פליג עם המ״א בתלתא א׳ למ״א מפסיד גם ברכה א׳ ב׳ דמתחיל ממקום שפסק הראשון ג׳ בשבת יקר׳ אחר (אפשר דוקא או עכ״פ אם ירצה דאין נ״מ דסוף סוף אין מרויח הראשון בברכה א׳ אבל למעט במחלוקת עדיף ונאמר דבחדא פליגי דלמ״א מפסיד ברכה א׳ ומ״מ מתחיל למפרע והלכך בחול שהוא דוקא יקרא שנית קורא ב״פ ופסוק ג׳ ודי משא״כ בשבת רשאי לקרות לאחר עכ״פ דאין הא׳ מרויח (דלא כט״ז והא בהא תליא) א״כ ראוי שיקרא השני ג״פ מתחלה למפרע כט״ז רק יקרא ג״פ עוד מכאן ולהלן כמו בס״ו דראוי לרווחא דמלתא שיוסיף ג״פ כי׳ וראיה לזה דאל״כ אלא יתחיל ממש ממקום שפסק הא׳ פשיטא דמברך ברכה א׳ לפי הבנת הא״ר במ״א ואין להאריך:",
+        "ולענין דינא אעתיק מקו״ק שלי הנכרך בסידור) ודאי קיי״ל ספק ברכות לקולא והשתא אם קורא יתחיל מפסוק שלישי לחוד (דאם למפרע נראה שברכה א׳ בטעות) ומברך רק ברכה ב׳ ואם קראו אחר אפשר יעמוד השני כבסי׳ קל״ה ס״ו כא״ר כאן דהא באירע בכהן ב״פ כה״ג וקרא לוי בהכרח יעמוד לוי דאין קורא לוי בתחלה במקום שיש כהן לא פלוג וכן אחרון יעמוד הב׳ ויהיה מפטיר אבל במפטיר כה״ג אם קרא ב״פ אם לא קרא לאחר יקרא הוא פ״ג ויברך ברכה ב׳ ואם טעו וקראו לאחר למפטיר בהכרח יקרא אחר משום ביוש וכן בחול שלישי כה״ג. עא״ר אות ז׳ גם במפטיר כה׳ג ב״פ דינו כמו שאר קרואים והיינו אף מפטיר דשבתות השנה וכ״ש מפטיר דמועדות. ומיהו כה״ג אם הניח רק ב״פ עד סוף הסדרא מודה הט״ז דברכה א׳ בטעות דלא נשאר רק ב״פ ויברך ברכה א׳ ג״כ וכן בששי קראו עד סוף הסדרא ונשארו רק ב״פ השביעי דולג פ״א למפרע:",
+        "אם בפסח ועצרת קראו לרביעי הכל ולא נשאר כ״א ב״פ לחמישי וכדומה ביו״כ האחרון דולג פ״א למעלה ולא יקרא למטה שאין מפ׳ המועדים ובפרי החג אם קראו ללוי ביום הד׳ יקרא הישראל חמישי דהכל מענין חג תוס׳ מגילה כ״ב א׳ ד״ה שאני ומהרש״א שם עא״ר קל״ח א׳:",
+        "והוי יודע אם הכהן קרא ב״פ וקראו לוי וישראל ג״ג או אפי׳ ד״ד בחול י״ל דיקרא ישראל עוד ג״פ מכאן ולהלן וב״פ ראשונים שלא נתברכו מידי דהוי חיסר לגמרי בחול שפיר דמי ובשבת צ״ע אם יקרא ישראל ב״פ ועוד פסוק ג׳ (ולמפרע אין חשש כמ״ש הלבוש ס״ה דתורה מגילה מגילה נתנה) יש חשש הנכנסים יאמרו ישראל קורא בראש הסדר ויש כהנים בביה״כ (חשש נכנסים ויוצאים מיד) ואם יקרא כהן יש חשש ג״כ אחר ישראל ואפשר חיסור צריך לקרות בשבת משא״כ שלא נתברכו ב״פ בדיעבד אין חוזר ודוקא לכתחלה כל דאפשר לתקן מתקנינן. העתק מקונטרס קטן שלי שם. עמ״ש באות שאח״ז:"
+      ],
+      "en_segments": [
+        "He must. See Taz. His view is that so long as the sefer Torah was not completely rolled up, meaning to return it to the aron kodesh, even though the reader already recited the concluding blessing, the initial blessing is not lost. The case of Parashas Parah in seif 5 is different, because there he recited the blessing and rolled it up completely, as explained in seif katan 5, and the two verses require a blessing. Accordingly, weekday and Shabbos are alike. If another person was not yet called, the first reader should remain and complete a third verse, and he recites only the concluding blessing, thereby avoiding one unnecessary blessing. If another person was already called, however, a different person should read because of possible discredit to the first. He holds that this is unlike siman 135, seif 6, where the reader remains in place. See Eliyah Rabbah here, seif katan 7.",
+        "According to this, Taz apparently disagrees with Magen Avraham in three respects. First, according to Magen Avraham the initial blessing is also lost. Second, the next reader begins from the point where the first stopped. Third, on Shabbos another person reads. It is possible that the last point is only optional, or that another may read if desired, since in any event the first reader gains nothing with respect to the initial blessing. It is preferable, however, to minimize the disagreement and say that they differ in only one point: according to Magen Avraham the initial blessing is lost, yet the next reader nevertheless begins again from an earlier point. Thus, on a weekday, when the same person must read again, he reads the two earlier verses and a third verse, and that suffices. On Shabbos, another person may read, since the first gains nothing. Unlike Taz, these two matters are interdependent. Accordingly, the second reader should properly read three verses from the beginning, going back as Taz requires, or else read three additional verses from that point onward, as in seif 6, where it is proper, for greater assurance, to add three verses. A proof is that otherwise, if he began exactly where the first reader stopped, it would be obvious, according to Eliyah Rabbah’s understanding of Magen Avraham, that he must recite the initial blessing. There is no need to elaborate.",
+        "Regarding practical law, I will copy from my short booklet bound with the siddur. We certainly rule that in a doubt concerning blessings one is lenient. Therefore, if the same person reads, he should begin only with the third verse, because if he goes back it appears that the initial blessing was in error, and he recites only the concluding blessing. If another person was already called, perhaps the second should remain, as in siman 135, seif 6, and as Eliyah Rabbah writes here. For if this occurred with a kohen who read only two verses and a Levi was then called, the Levi must necessarily remain, since a Levi is not called first where a kohen is present, and no distinction was made. Similarly, if this occurred with the final aliyah, the second person should remain and serve as maftir. If it occurred with maftir and he read only two verses, then if no one else was called, he himself should read a third verse and recite only the concluding blessing. If they mistakenly called another person for maftir, another must read because of embarrassment. The same applies to the third aliyah on a weekday. See Eliyah Rabbah, seif katan 7. He also writes that a maftir who read only two verses has the same law as any other reader, whether the maftir of an ordinary Shabbos or, all the more so, the maftir of a festival. Nevertheless, if only two verses remained until the end of the sidrah, Taz agrees that the initial blessing was recited in error, since only two verses remained, and he must recite the initial blessing again. Likewise, if the sixth reader read until the end of the sidrah and only two verses remained for the seventh, the seventh repeats one verse from above.",
+        "If on Pesach or Shavuos they called the fourth reader for the entire reading and only two verses remained for the fifth, or similarly on Yom Kippur for the final reader, he should repeat one verse from above and should not read below, because the verses below do not discuss the festival. Regarding the festival offerings, if the Levi on the fourth day read too far, the Yisrael should read the fifth day, because all of it concerns the festival. See Tosafos, Megillah 22a, s.v. shani; Maharsha there; and Eliyah Rabbah 138:1.",
+        "Know also that if the kohen read only two verses and the Levi and Yisrael each read three or even four verses on a weekday, one may argue that the Yisrael should read another three verses from that point onward, while the first two verses, over which no proper reading was completed, are treated like a total omission. This is acceptable on a weekday. On Shabbos it requires study whether the Yisrael should read the two verses and an additional third verse. Going back is not inherently problematic, as Levush writes in seif 5 that the Torah was given section by section. Yet there is concern that those entering will say that a Yisrael is reading at the beginning of the sidrah while kohanim are present in the synagogue. The concern applies immediately to those entering and leaving. If a kohen reads, there is also concern because he reads after a Yisrael. Perhaps an actual omission must be corrected on Shabbos, whereas two verses over which no proper reading was completed need not be repeated after the fact. Only initially, wherever correction is possible, do we correct it. This is copied from my short booklet there. See what I wrote in the following seif katan."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman137/seif-004/peri-megadim",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman271/seif-013/biur-halacha",
+      "volume": "oc1",
+      "siman": 271,
+      "seif": 13,
+      "slug": "biur-halacha",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 9,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "צריך לשתות וכו' כמלא לוגמיו - ואפילו בדיעבד הוא לעכובא כדאיתא בגמרא והאי דנקט לישנא דלכתחלה נראה דבא לאשמועינן דאפילו לכתחלה די בזה ולא בעינן שישתה כל הכוס כמו לקמן לענין ד' כוסות בסימן תע\"ב ס\"ט באחרונים שם בשם התוספות והטעם כמו שכתב הב\"ח שם ע\"ש וכן מוכח בפסחים ק\"ז ע\"א בברייתא שם מטעמת יין כל שהוא ר' יוסי ב\"ר יהודא אמר מלא לוגמיו משמע דהכל אלכתחלה קאי:",
+        "והוא רובו וכו' - עיין במ\"ב וכן סתם השו\"ע לעיל בסימן ק\"צ והוא שיטת התוס' וש\"פ אבל בסימן תרי\"ב ס\"ט העתיק המחבר דשעורו הוא פחות מרביעית והוא כדעת הר\"ן המובא שם בב\"י דמגמרא דפרק יום הכפורים לא שמעינן אלא דכמלא לוגמיו הוא פחות מרביעית ותימה למה לא הביא המחבר כאן דעת הר\"ן אפילו בשם י\"א [תו\"ש] ואפשר לומר דשם דמיירי לענין חיוב חטאת נקט השעור דהוא חייב לכו\"ע [דלענין איסורא אפילו כל שהוא אסור מן התורה] אבל הכא לענין קידוש דשיעור הטעימה הוא מדרבנן סמך אתוס' ושארי פוסקים דדי ברוב רביעית לאדם בינוני דזהו שעורו. ודע דמלשונם משמע דבקטן לפי קטנו אף שהוא בן י\"ג שנה ולא בעינן אפילו רוב רביעית וכ\"כ בדה\"ח דבקטן לפי קטנו והטעם כמו לענין יוה\"כ דודאי חייב באדם קטן אפילו פחות מרוב רביעית אם הוא כמלא לוגמיו דידיה דמיתבא דעתיה עי\"ז ולענ\"ד יש לעיין בזה דמסתימת הגמרא והוא דשתה רובא דכסא משמע דפחות משעור זה אינו יוצא בכל גוונא והא דהזכיר הגמרא השעור דמלא לוגמיו יש לומר דלאשמועינן דבאדם גדול הוי השעור יותר מרוב רביעית כמ\"ש המגן אברהם ואינו ראיה מיוה\"כ דשם טעם החיוב הוא משום יתובי דעתיה כדאיתא בגמרא משא\"כ לענין קידוש אפשר דתקנת חכמים הוא כך שישתה דוקא רוב הכוס שהוא מקדש עליו וכ\"ש לדעת הר\"ן שדעתו דכמלא לוגמיו באדם בינוני הוא פחות מרביעית בודאי י\"ל דבכל אדם אפילו קטן ביותר מלא לוגמיו דידיה הוא לא פחות מרוב רביעית אך דמדברי הגמרא יש לדחות קצת דדוקא לענין ד' כוסות רוב כוס הוא לעכובא אפילו באדם קטן ולא לענין קידוש דעלמא וצ\"ע בכ\"ז. ודע דלענין קטן ממש כשמקדש משום מצות חינוך בודאי יש לסמוך להקל דדי במלא לוגמיו דידיה שהוא פחות מרוב רביעית. ודע עוד דמה שכתבו הפוסקים דבגדול כמלא לוגמיו הוא כמלא לוגמיו דידיה וכמו לענין יוה\"כ משמע ביומא פ' לדעת ב\"ה שם דהלכה כוותייהו דהוא דוקא מרווח ולא דחוק ע\"ש ובעניננו לענין יותר מרביעית אין נ\"מ מזה כמ\"ש במ\"ב דדי ברביעית בכל אדם ונ\"מ רק לענין פחות מרביעית:",
+        "של רביעית - עיין במ\"ב והנה הגאון צל\"ח פרק ערבי פסחים (פסחים דף ק\"ט) כתב שטרח ומדד שעור קמח לחלה ע\"פ שעורו של הרמב\"ם פ\"ו מבכורים שהוא שעורו של רב חסדא בגמרא ע\"פ חשבון מ' סאה למקוה ושוב מדד שעור חלה ע\"פ מה שהפילו מ\"ג ביצים מן המים כמ\"ש בטור ש\"ע א\"ח סי' תנ\"ו והיה הכלי הראשון מחזיק שני פעמים כפי שעור הזה ע\"כ שפט הגאון ז\"ל שע\"כ הביצים נתקטנו במחצית ממה שהיו בימים הקדמונים וא\"כ כל שעורנו הן בשתיית רביעית שאנו משערים ביצה ומחצה וכן שעור חלה של מ\"ג ביצים וכן אכילת כזית מצה ומרור שאנו משערים כחצי ביצה הכל הוא הטעאה וצריך להיות בכפל ע\"ש שהאריך להוכיח דשעורי האצבעות לא נשתנו להתקטן בזמננו מכפי מה שהעתיק הרמב\"ם וע\"כ דרק הביצים נתקטנו. ולענ\"ד אף דקושיתו היא קושיא גדולה וחמורה על שעורנו אבל לנגד שיטתו יש ג\"כ קושיא חמורה והוא דהנה בסוגיא דיומא דף פ' מוכח דשעור כמלא לוגמיו משני הצדדים באדם בינוני הוא יותר מרביעית ע\"ש בתוד\"ה ה\"נ וכ\"כ הר\"ן וש\"פ ואי ס\"ד דשעור רביעית בזמננו הוא כפלים דהיינו שעור ג' ביצים שלנו א\"כ כמלא לוגמיו באדם בינוני משני הצדדים הוא יותר מג' ביצים [דהא הוכיח הצל\"ח דאף בזמנינו לא נתקטן האדם באצבעותיו ממה שהיה מקודם וא\"כ פשוט דכה\"ג ביתר אבריו] וזה כבר בחנתי ונסיתי בכמה אנשים בינונים המלא לוגמא שלהם משני הצדדים ועלה לכל היותר רק עד שני ביצים בינונים בקליפה שלהם הרי דביצים שלנו לא נתקטנו כ\"כ רק איזה שעור קטן לבד [או אפשר דהאמת הוא כפי שיטת הר\"ן שהובא בב\"י בסימן תרי\"ב דמלא לוגמיו מצד אחד הוא פחות מרביעית ולא קים לן בשעורו כמה ע\"ש וא\"כ אפשר דהוא יותר מרוב רביעית והוא כשעור ביצה וממילא משני הצדדים הוא כשעור שני ביצים] וע\"כ צע\"ג בענין השעורים שכאשר נבא לבחינה אנו רואים ששני השיעורים סותרים היינו השעור רביעית ששיער רב חסדא [בפסחים ק\"ט] ע\"פ חשבון מ' סאה למקוה והוא מוסכם להלכה בפוסקים ולפי מה שמדד הצל\"ח וגם הגאון חתם סופר [בתשובה קכ\"ז או\"ח] הוא מחזיק ג' ביצים בינונים שלנו עם הקליפה ולפי מה דמוכח בגמ' דיומא הנ\"ל לא יחזיק לכל היותר כ\"א שני ביצים. ולמעשה נראה דלענין דאורייתא כגון כזית מצה בליל פסח בודאי יש להחמיר כדבריהם וכן לענין קידוש של לילה דעיקרו הוא דאורייתא ג\"כ נכון לחוש לכתחלה לדברי הצל\"ח הנ\"ל וכן בחתם סופר מחמיר ג\"כ לענין רביעית כדבריו [ומיהו לענין קידוש שחרית ולשאר כוס של ברכה יש לסמוך על מנהג העולם שנוהגין כמבואר במגן אברהם ופמ\"ג וש\"א] ועכ\"פ יראה לכתחלה שיחזיק הכוס כשני ביצים עם הקליפה וכנ\"ל. ודע עוד דאפילו לדברי הצל\"ח שהכוס צריך להחזיק כג' ביצים שלנו מ\"מ לענין שתית הכוס בודאי יש לסמוך להקל שלא ישתה אלא כמלא לוגמיו דידיה אף שלא יעלה כ\"א עד קרוב לשליש הכוס וכמו שפסק בדה\"ח דלכל אחד כמלא לוגמיו דידיה משערינן ואף שפקפקנו לעיל בענין זה על דבריו מ\"מ תרי חומרי לא עבדינן וע\"כ מי שאין לו יין כ\"כ ישתה רק כמלא לוגמיו דידיה והיותר ישייר עד למחר ובשחרית יכול לקדש על כוס של קטן מזה וכמ\"ש למעלה:"
+      ],
+      "en_segments": [
+        "He must drink, etc., a cheekful. Even after the fact this amount is indispensable, as stated in the Gemara. The Mechaber's use of language implying an initial requirement appears intended to teach that even initially this amount suffices, and one need not drink the entire cup, unlike the law of the four cups in siman 472, seif 9. See the later authorities there in the name of Tosafos. Bach explains the reason there. This is also evident from Pesachim 107a, where the baraisa states, \"If he tasted any amount of wine,\" while Rabbi Yose son of Rabbi Yehudah says, \"a cheekful.\" The entire discussion clearly concerns the initial requirement.",
+        "And it is the majority, etc. See Mishnah Berurah. The Mechaber rules likewise above in siman 190, following Tosafos and other authorities. In siman 612, seif 9, however, the Mechaber writes that the amount is less than a reviis, following Ran, cited there in Beit Yosef, who holds that the Gemara in the chapter Yom HaKippurim proves only that a cheekful is less than a reviis. Tosafos Shabbos asks why the Mechaber does not cite Ran's opinion here even as a minority view. Perhaps in siman 612, which concerns liability for a sin offering, the Mechaber states the amount for which all opinions agree there is liability. As to prohibition, even any amount is prohibited by Torah law. Here, however, where the drinking requirement for Kiddush is D'Rabbanan, he relies upon Tosafos and the other authorities that for an average person the majority of a reviis suffices, since that is his cheekful.",
+        "Their wording implies that for a small person, according to his size, even if he is thirteen years old, the required amount may be less than the majority of a reviis. Derech HaChaim writes likewise. The reasoning parallels Yom Kippur, where a small person is certainly liable for less than the majority of a reviis if it fills his own cheek and thereby settles his mind. In my opinion, however, this requires study. The Gemara's unqualified statement that one must drink most of the cup implies that less than this does not suffice under any circumstances. The Gemara's mention of a cheekful may teach that for a large person the amount can exceed the majority of a reviis, as Magen Avraham writes, but does not necessarily reduce the minimum for a small person. Yom Kippur is not a proof, because there liability depends upon settling the person's mind. Kiddush may instead have been enacted specifically to require drinking most of the cup over which Kiddush was recited. This is especially possible according to Ran, who holds that a cheekful for an average person is less than a reviis. According to him, even a very small person's cheekful might never be less than most of a reviis. The Gemara can be somewhat distinguished, since the requirement to drink most of the cup may be indispensable specifically for the four cups and not for ordinary Kiddush. The matter requires study. For an actual minor reciting Kiddush because of chinuch, one may certainly rely upon the lenient view that his own cheekful suffices even when it is less than the majority of a reviis.",
+        "Know also that when the authorities state that for an adult a cheekful is measured according to his own mouth, as regarding Yom Kippur, Yoma 80 implies according to Beis Hillel, whose view is accepted, that the amount is measured generously and not tightly. In our case, this distinction has no practical effect where the amount exceeds a reviis, because, as we wrote in Mishnah Berurah, one reviis suffices for every person. It matters only where the amount is less than a reviis.",
+        "Of a reviis. See Mishnah Berurah. The great authority Tzelach, in the chapter Arvei Pesachim, Pesachim 109, writes that he carefully measured the amount of flour requiring challah according to Rambam, chapter 6 of the laws of Bikkurim, which follows Rav Chisda's calculation based upon forty seah for a mikveh. He then measured the challah amount by displacing forty three eggs from water, as stated in Tur and Shulchan Aruch, Orach Chaim, siman 456. The first vessel held twice the second amount. He therefore concluded that eggs have become half their former size. Accordingly, all our present measurements are mistaken and must be doubled, whether a reviis, which we estimate as one and a half eggs, the challah amount of forty three eggs, or a kezayis of matzah and maror, which we estimate as half an egg. He extensively proves that finger measurements have not diminished from those recorded by Rambam, and therefore only the eggs have become smaller.",
+        "In my opinion, although his difficulty is very great and serious, his conclusion also faces a serious difficulty. Yoma 80 proves that an average person's two cheeks together hold more than a reviis. Tosafos and Ran write likewise. If the present reviis is actually double, namely the volume of three of our eggs, then an average person's two cheeks must hold more than three eggs. Tzelach himself proved that people's finger dimensions have not become smaller, and the same should obviously apply to their other limbs. Yet I personally tested the two cheeks of several average people and found that at most they held the volume of only two average eggs with their shells. This indicates that our eggs did not become half their former size, but only somewhat smaller. Alternatively, perhaps Ran's view cited in Beit Yosef, siman 612, is correct, that one cheekful is less than a reviis and its precise amount is unknown. It could therefore be somewhat more than the majority of a reviis, approximately the volume of one egg, so that both cheeks together would hold approximately two eggs.",
+        "The measurements therefore require great study, because practical examination shows a contradiction between the two standards. Rav Chisda's measure of a reviis in Pesachim 109, based upon forty seah for a mikveh, is accepted by the authorities. According to Tzelach's measurement, and also Chasam Sofer in responsum 127, Orach Chaim, it equals the volume of three of our average eggs with their shells. Yet the Gemara in Yoma indicates that it can hold at most only two.",
+        "In practice, regarding Torah obligations such as eating a kezayis of matzah on the first night of Pesach, one should certainly be stringent in accordance with their view. The same applies initially to nighttime Kiddush, whose essence is a Torah obligation. Chasam Sofer likewise rules stringently regarding a reviis. Regarding daytime Kiddush and other cups of blessing, however, one may rely upon the common custom reflected in Magen Avraham, Peri Megadim, and the other authorities. In any event, initially the cup should hold the volume of approximately two eggs with their shells, as explained above.",
+        "Know further that even according to Tzelach, who requires the cup to hold approximately three of our eggs, one may certainly be lenient regarding how much must actually be drunk. One need drink only his own cheekful, even if that amounts to only about one third of the cup. Derech HaChaim rules that each person is measured by his own cheekful. Although we questioned this above, we do not impose both stringencies together. Therefore, a person with limited wine may drink only his own cheekful and leave the remainder until the next day. In the morning he may recite Kiddush over a smaller cup, as explained above."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman271/seif-013/biur-halacha",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman272/seif-007/beur-hagra",
+      "volume": "oc1",
+      "siman": 272,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 10,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 7,
+      "he_segments": [
+        "ס\"ז שמרי יין כו'. ע\"ל סי' ר\"ד ס\"ה וס\"ו וכמ\"ש בב\"ב צ\"ו ב' ת\"ר כו' אמר רבא כו' כי פליגי כו' ודוקא תלתא ואתא ארבע הא פחות לא וע' רשב\"ם שם ד\"ה פש להו כו' ואע\"ג דבי\"ד סי' קכ\"ג ס\"ח וסי' קל\"ד ס\"ה פ' דוקא בששה וי\"א בששי' התם ביין גמור ולמדו מהא דפ\"ה דע\"ג ע\"ג ב' שני כוסות כו' וס' הראשונה ס\"ל דמיירי בס' וסברא האחרונה ס\"ל דמסתמא מיירי בכוסות שוין ש\"מ דבששה וכמ\"ש ב\"י בסי' קכ\"ג צ\"ה א' בד\"ה יין מזוג כו' וכ' הר\"ן איכא מ\"ד כו' ואינה ראיה כו' והרשב\"א בת\"ה כו'. מיהו בחרצנים שלא נעצרו בקורה אין להם דין שמרים ואפי' מצא כדי מדתו או פחות קלטו טעם החרצנים ואסור וכמו ביין גמור אם לא שיש במים ששה פעמים נגד כל החרצנים וכן ביין ממש וז\"ש לעיל בסי' ר\"ד ס\"ה בהג\"ה ובלבד כו' ר\"ל ביין ממש וכמ\"ש באגור עב\"י. ומ\"מ בשמרים ובחרצני' של יי\"נ היה ג\"כ הדין כן בתלתא ואתא פחות מארבעה דמותר וכ\"כ הרא\"ש שם בב\"ב בשם הרב אב ב\"ד אבל בשם הר' יונה לא כתב כן שמדמה חרצנים ושמרים של היתר לענין מגע נכרי לשמרים של מעשר ראשון דפעם ראשון אסור וכפי' הרשב\"ם שם דכל הברייתא מיירי הכל בכדי מדתו ע\"ש ד\"ה ראשון כו' ובשני מותר אא\"כ רמי תלתא ואתא ארבע דבזה לעולם אסור ומיהו כשלא נדרכו בקורה אף פעם שני אסור אף בכדי מדתו כנ\"ל אלא דהר\"י סובר כן דוקא לענין יי\"נ אבל לענין ברכה לא ואנן קי\"ל אף לענין ברכה כן כנ\"ל וביין נסך שנתערב מדמי להקדש דלעולם אסור כיון דנאסרו מתחילתן. והא דאמרו המתמד ונתן מים במדה כו' דפטור אף בפעם ראשון ס\"ל כפירוש רשב\"ם הנ\"ל דכל הברייתא משום חומרא ולר\"י במתמד לענין טבל שם אוקמוה אדינא דאורייתא דשם א\"א להחמיר משום דאתי לאפרושי מן הפטור כו' כמ\"ש בפ\"ד דפסחים וכן לענין ברכה ועתו' שם צ\"ו ב' ד\"ה וביותר כו' וקשה מהא כו' וי\"מ כו' וכן בחולין שם ע\"ש. וז\"ש בש\"ע י\"ד שם ס\"ט מים כו' כיון שלא נעצרו בקורה אף לענין ברכה הדין כן כנ\"ל ומש\"ש ואם נעצרו בגלגל כו' קאי אפעם שני אבל בראשון אפי' כדי מדתו אסור כנ\"ל וכמש\"ש בסי\"א בשמרים ושם סי\"א ופעם שני מותר היינו עד ארבעה אבל באתא ארבעה אסור ודבריו סתומים ביותר. ומ\"ש הש\"ך שם ס\"ק י\"ח ומצא ארבע ל\"ד כו' טעה בדברי הרשב\"א שהרשב\"א ל\"ק אלא בשמרים של יי\"נ כבר וכמ\"ש ב\"י שם בד\"ה וכ' בת\"ה שמרים של יי\"נ כו' וכ' שם לדברי האומרים בס' ה\"נ בס' ע\"ש וכמ\"ש שם בד\"ה יין מזוג בשם הר\"ן והרשב\"א דבשמרים כ\"ע מודו דדוקא אתא ארבעה וגמ' ערוכה היא פלוגתא דאחרים ורבנן ושיטת הרשב\"א שם צ\"ז א' דברייתא מיירי ביותר מכדי מדתו כמ\"ש שם דכל שנעצרו בגלגל וקורה כל לחלוחית שבהן יוצא אלא דמיירי במצא יתר מכדי מדתו שביין גמור כמ\"ש למר בס' ולמר בו' ובכה\"ג החמירו במעשר ותרומה והקדש וביי\"נ גמור החמיר כמו שם אבל בהיתר ס\"ל כמו בטבל וברכה ועב\"י שם ד\"ה הנ\"ל וכ' בת\"ה וכו':",
+        "או חרצנים. במכ\"ש משמרים דבעינן תלתא ואתא ארבעה וכ\"ז בחרצנים שהם גרועים יותר כמ\"ש בפסחי' מ\"ב ב' אבל אי אתא ארבעה ודאי יין הוא:"
+      ],
+      "en_segments": [
+        "Seif 7: Wine lees, etc. See above, siman 204, seifim 5 and 6. Bava Basra 96b states: “The Sages taught, etc.; Rava said, etc.; they disagree only, etc.” The law applies specifically where one poured three measures of water and obtained four. If he obtained less than four, the liquid is not wine. See Rashbam there, in the passage beginning “there remains for them, etc.”",
+        "Although Yoreh Deah, siman 123, seif 8, and siman 134, seif 5, require specifically six parts, and some say sixty, those laws concern actual wine. They are derived from Avodah Zarah 73b concerning two cups, etc. The first opinion understands that case as involving sixty, while the final opinion assumes the cups were equal and therefore derives a ratio of one to six. Beit Yosef explains this in siman 123, in the passage beginning “diluted wine, etc.” Ran writes that some say, etc., but rejects the proof. Rashba writes similarly in Toras HaBayis.",
+        "Grape skins that were not pressed in a beam do not have the law of lees. Even if the amount of liquid obtained equals the amount of water placed upon them, or is less, the water has absorbed the taste of the skins and is forbidden like actual wine, unless the water is six times the volume of all the grape skins. The same applies to actual wine. This is the meaning of the gloss above in siman 204, seif 5, “provided that, etc.” It refers to actual wine, as stated in Agur and cited by Beit Yosef.",
+        "Nevertheless, regarding lees and grape skins of idolatrous wine, the same rule of three measures producing less than four would permit the liquid. Rosh writes this in Bava Basra in the name of Raavad. In the name of Rabbeinu Yonah, however, he does not write so. Rabbeinu Yonah compares permitted grape skins and lees, regarding a non-Jew’s contact, to lees of first tithe. The first infusion is forbidden, in accordance with Rashbam’s explanation that the entire baraisa concerns a case where the resulting quantity equals the original amount of water. See Rashbam in the passage beginning “the first, etc.” The second infusion is permitted unless one poured three measures and obtained four. In that case it is always forbidden.",
+        "When the grape skins were not pressed in a beam, even the second infusion is forbidden although only the original measure was recovered, as explained above. Rabbeinu Yonah holds this specifically regarding idolatrous wine, but not regarding the blessing. We, however, rule that the same standard applies even regarding the blessing, as explained above.",
+        "Wine used for idolatry that became mixed is compared to consecrated property and is always forbidden, since it was prohibited from the outset. The statement that one who soaks and adds a measured amount of water is exempt even the first time follows Rashbam’s explanation that the entire baraisa was stated as a stringency. According to Rabbeinu Yonah, regarding soaking for the laws of untithed produce, the Gemara applies Torah law, because one cannot impose a stringency there lest it cause separation from exempt produce, as explained in chapter 4 of Pesachim. The same applies regarding blessings. See Tosafos there, Bava Basra 96b, in the passage beginning “and more, etc.,” and Chullin there.",
+        "This is the meaning of Shulchan Aruch, Yoreh Deah, siman 123, seif 9: “water, etc.” Since the grape skins were not pressed in a beam, the same law applies even regarding the blessing. The following words, “if they were pressed with a wheel, etc.,” refer to the second infusion. The first infusion is forbidden even when the amount obtained equals the water added, as explained. This is also what is stated there in seif 11 concerning lees. The phrase there, “and the second time it is permitted,” means only where less than four was obtained. If four was obtained, it is forbidden. The wording there is extremely obscure.",
+        "What Shach writes there in seif katan 18, that “he found four” is not exact, is an error in understanding Rashba. Rashba speaks only of lees that were already from idolatrous wine, as Beit Yosef explains there in the passage beginning “Toras HaBayis writes concerning lees of idolatrous wine, etc.” He writes that according to those who require sixty in actual wine, the same applies there. See also Beit Yosef in the passage beginning “diluted wine,” in the name of Ran and Rashba. Regarding ordinary lees, all agree that the criterion is specifically obtaining four from three, as stated explicitly in the Gemara in the dispute between Others and the Sages.",
+        "Rashba’s approach on 97a is that the baraisa concerns a case where more liquid was obtained than the amount of water added. Once the grapes were pressed with a wheel and beam, all their natural moisture had already been extracted. The case therefore concerns surplus liquid beyond the original amount, which has the law of actual wine. According to one authority it requires sixty, and according to another six. In such a case the Sages were stringent regarding tithe, terumah, consecrated property, and actual idolatrous wine. Regarding permitted wine, however, Rashba applies the same law as untithed produce and blessings. See Beit Yosef there in the cited passage and Toras HaBayis.",
+        "Or grape skins. This is certainly no more lenient than lees, for which three measures must produce four. All this concerns grape skins, which are inferior, as stated in Pesachim 42b. If, however, three measures produce four, the liquid is certainly wine."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman272/seif-007/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman273/seif-005/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 273,
+      "seif": 5,
+      "slug": "machatzit-hashekel",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 6,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "(ס\"ק ה) וצריך לאכול ז\"ל ד\"מ כו' להיות הגהת רמ\"א צ\"ב שכ' או שיהי' בדעתו לאכול שם מיד אבל בלאו הכי ע\"כ ר\"ל שלא הי' דעתו לאכול שם מיד וסיים רמ\"א אפי' אכל במקום קידוש לא יצא כיון שהי' במחשבתו שלא כדין ומיד אחר זה כ' ואם הי' בדעתו כו' יצא הרי הדברים סותרים זה את זה תוך כדי דיבור. ומדברי לבוש נרא' שגם הוא הרגיש בזה ולכן שינה לשון רמ\"א וכ' וז\"ל ואם קידש ולא סעד כלום אף ידי קידוש לא יצא שצריך לאכול במקום קידוש לאלתר כו' או שיהי' בדעתו לאכול מיד ואע\"פ שנמשך אח\"כ מעט ל\"ל בה אבל אם הי' בדעתו שלא לאכול כלל לא במקום קידוש ולא במקום אחר אף ע\"פ שנמלך אח\"כ ואכל שם יש אומרים שלא יצא שם ידי קידוש ואם הי' בדעתו מתחלה שלא לאכול שם אלא במקום אחר ונמלך אח\"כ לאכול שם א\"צ לחזור ולקדש דהא מ\"מ הי' בשעת קידוש דעתו לאכול וכיון שאוכל במקום שקידש שפיר הוי קידוש במקום סעודה עכ\"ל וע\"כ הי' מפרש מ\"ש רמ\"א תחלה אבל בלא\"ה אפי' אכל כו' אינו יוצא ר\"ל שהי' דעתו שלא לאכול כאן גם לא במקום אחר לכך לא יצא ומ\"ש בסיפא אם הי' בדעתו כו' יצא מיירי שהי' דעתו שלא לאכול כאן אלא במקום אחר ולבסוף אכל כאן יצא (והא לא קשיא כיון שהי' דעתו לאכול במקום אחר מאי ארי' שנמלך ואכל כאן יצא אפי' אכל במקום אחר יצא לדעת רמ\"א בסעיף א' שכ' שכן עיקר וכן הקש' ע\"ש די\"ל דמיירי בשני בתים דלא מהני דעתו וכמ\"ש בסעיף א' אף שכתב ע\"ש שהוא דוחק) אולם מ\"א הביא דברי מהרי\"ל שמשם נובע הגהת רמ\"א הלז וממנו תראה שאין הפי' כמ\"ש הלבוש אבל בלאו הכי כו' פי' כו' והפסיק אפי' אכל אחר זה במקום קידוש אינו יוצא אע\"ג דהכוונה לבדה כשהיא שלא כדין אינה מפסדת מ\"מ כאן שקיים מחשבתו והפסיק בדברים אחרים אע\"ג שאחר כך אכל במקום קידוש מ\"מ לא יצא ובזה אתי שפיר מ\"ש רמ\"א אחר זה ואם הי' בדעתו כו' ונמלך ואכל יצא ר\"ל אע\"פ שהי' דעתו להפסיק כיון שלא נתקיימה מחשבתו דהא לא הפסיק ואכל כאן ולכן יצא:",
+        "ואם הי' דעתו כו' וארעו אונס כו' לא כתב זה לפרש דברי רמ\"א כ\"א מ\"א דין חדש מסבר' דנפשי' דאפי' הפסיק אם הי' ע\"י אונס אינו מפסיד אם הי' נשאר במקומו:",
+        "וכ\"מ בגמרא דף ק'. אמרו שם רב הונ' לאחר שקידש קודם שאכל כבו הנרות ונכנס לבית חתונת בנו ששם הי' עדיין הנרות דולקים וקידש שנית ואכל. ומזה הוכיח הש\"ס דע\"ש ג\"כ הוה סביר' ליה אין קידוש אלא במקום סעודה:",
+        "דדוקא משום שיצ' כו' אע\"ג דא\"ל מעשה שהי' כך הי' מ\"מ כיון דהש\"ס הביא כל המעשה שיצא ממקומו משמע דבזה תלי' מילתא ומהאי טעמ' קידש שנית. וכ\"מ מלשון רמ\"א שכתב שהי' דעתו תחלה להפסיק משמע דאם הי' דעתו תחלה שלא להפסיק ואחר כך ע\"י הכרח ואונס הפסיק לא הפסיד:",
+        "אך אם יצא כו' אפילו ע\"י אונס והו' עובד' דרב הונ':"
+      ],
+      "en_segments": [
+        "Seif katan 5: He must eat, as stated in Darchei Moshe, etc. Rama’s wording requires explanation. He first writes that unless one intended to eat there immediately, even if one later ate at the place of Kiddush he did not fulfill his obligation, because his original intent was improper. Immediately afterward, however, Rama writes that if he intended otherwise and then changed his mind and ate there, he fulfilled his obligation. Levush explains that the first case is where he intended not to eat at all, neither there nor elsewhere. If he later changed his mind and ate there, some say he did not fulfill Kiddush. The latter case is where he intended to eat elsewhere but ultimately ate at the place of Kiddush; since he intended at the time of Kiddush to eat a meal, and ultimately ate where he recited Kiddush, it is Kiddush in the place of a meal.",
+        "Magen Avraham cites Maharil, the source of Rama’s ruling, and explains differently. Mere improper intent does not invalidate Kiddush. Rather, in the first case he actually carried out his plan, interrupted with other matters, and only afterward ate where he had recited Kiddush. In the latter case, although he had intended to interrupt, he did not actually do so, but immediately ate there, and therefore fulfilled his obligation.",
+        "If he intended, etc., and an unavoidable circumstance occurred. This is a new ruling of Magen Avraham. Even if he interrupted, when the interruption was forced and he remained in the same place, it does not invalidate the Kiddush.",
+        "This is also implied by the Gemara, page 100. Rav Huna recited Kiddush, and before he ate the lamps went out. He entered the wedding house of his son, where lamps were still burning, recited Kiddush again, and ate. The Gemara inferred from this that he held there is no Kiddush except in the place of a meal.",
+        "Specifically because he left, etc. Since the Gemara relates that he left his place, it implies that this departure required a second Kiddush. Rama likewise speaks of one who initially intended to interrupt, implying that where he did not intend to interrupt but was compelled to do so, he has not necessarily lost the first Kiddush.",
+        "But if he left, etc. If he left the place, even under compulsion, he must recite Kiddush again, as in the incident of Rav Huna. See citations 4, 50, 81."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman273/seif-005/machatzit-hashekel",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman299/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 299,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 4,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "ס\"א אסור כו'. עד צריך להפסיק. פסחים קה א':",
+        "אפי' משתייה. תוס' שם ד\"ה אבל:",
+        "וי\"א. לפי' הרי\"ף שם כשם שהשבת קאי אספק חשיכה ופירש בע\"ה דע\"ז אמרו וה\"מ לקידוש כו' אבל בדברי הרי\"ף לא משמע כן דא\"כ ל\"ל לומר שם בר\"פ וה\"מ לקידוש כו' והא דאמר כו' כשם שמפסיק ליתא ע\"ש. ועיין רי\"ף שגורס כגי' הגאונים חזי אי נגה יומא כו' וע\"ש ואף שהרז\"ה והרא\"ש הקשו עליו מאי אריא קביעות מעשר לתיקונו כבר תי' במלחמות דע\"כ כיון שאסור בתיקון ע\"כ אסור באכילה דאל\"כ לא הוי כמתקן וגם העונג מתחיל אז כמ\"ש בברכות ע\"ש:"
+      ],
+      "en_segments": [
+        "Seif 1: It is forbidden, etc., until he must interrupt. Pesachim 105a.",
+        "Even drinking. Tosafos there, in the passage beginning “but.”",
+        "And some say. This follows Rif’s explanation there, according to which the statement that Shabbos establishes a fixed meal applies from the onset of twilight. Baal HaMaor explains that this is the context of the statement, “This applies only to Kiddush, etc.” Rif’s own words, however, do not imply this. Were that his intent, why would he need to say at the beginning of the chapter, “This applies only to Kiddush, etc.,” and then reject the statement, “just as one interrupts,” etc.? See there.",
+        "See Rif, whose text follows the reading of the Geonim, “See whether the day has darkened,” etc. Although Baal HaMaor and Rosh ask why Shabbos should establish the produce for tithing merely because one may not repair it, Milchamos answers that since one may not separate the tithe, eating must also be forbidden. Otherwise the separation would not appear as an act of repair. Furthermore, the delight of Shabbos begins at that time, as stated in Berachos. See there."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman299/seif-001/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman422/seif-002/biur-halacha",
+      "volume": "oc1",
+      "siman": 422,
+      "seif": 2,
+      "slug": "biur-halacha",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "וקורין וכו' - איתא בש\"ס מגילה כ' דהלל זמנה כל היום [חוץ מהלל דליל פסחים] ואיתא בת' שאילת יעב\"ץ דהלל שייכא לתפלת שחרית וע\"כ אין לטעום עד אחר הלל אם לא למאן דחליש ליבא דמותר ואפילו מדת חסידות ליכא. ולענין קריאת הלל בבית האבל בתוך שבעה עיין לעיל בסימן קל\"א במ\"ב סק\"כ:",
+        "הלל - כתב רבינו ירוחם בהלל אע\"פ שיצא מוציא בין ביחיד בין בצבור ודוקא שאינו בקי שאינו יודע לענות אבל אם יודע לענות אם יצא אינו מוציא אא\"כ עונה אחריו הללויה עכ\"ל וכתב המגן אברהם דריש דבריו הוא פשוט וכן מבואר בהדיא בש\"ס בשלהי פ\"ג דר\"ה בהלל ובמגילה אע\"פ שיצא מוציא [והנתיב חיים כתב דבפ\"ג דר\"ה לא נאמר אלא לענין ברכות ולא לענין הלל ואישתמיטתה שילהי פירקא] ומה שמסיים דכ\"ז אם אינו בקי הוא מש\"ס דסוכה דף ל\"ח דגדול מקרא והוא עונה אחריו הללויה אלמא דצריך עכ\"פ לענות הללויה וס\"ל דהוא לעכובא וא\"כ בש\"ס דר\"ה דפסיק ותני סתם אע\"פ שיצא מוציא ולא מצריך לענות מיירי בשאינו יכול לענות [ותימא קצת דהאיך אפשר שלא יהא יכול לענות תיבת הללויה ואולי דאינו יודע באיזה מקום לענות זו התיבה] ומש\"כ ר' ירוחם דבריו ביצא לאו דוקא דה\"ה אפילו בלא יצא נמי אינו יכול להוציא חבירו ביכול לענות אא\"כ עונה וכ\"כ הא\"ר והרב פר\"ח כתב דדוקא ביצא צריך לענות אבל אם עדיין לא יצא בעצמו ומברך לעצמו ולחבירו אפילו לא ענה חבירו דבר יצא. וקמסייעי לה מסוגיא דר\"פ שלשה שאכלו [ועיין שם בפר\"ח דגם על עיקר דינא דרי\"ו פליג ולדידיה אפילו בבקי נמי יכול להוציא וכ\"כ לעיל סימן רע\"ג בבה\"ל ועיין בריטב\"א סוכה ל\"ח] ומבואר עוד בש\"ס סוכה ל\"ח ובפוסקים דנשים פטורות מהלל ומשום דהיא מצוה שהזמן גרמא [חוץ מהלל דלילי פסחים דחייבות משום שאף הן היו באתו הנס כ\"כ תוס' שם] ולפיכך אין יכולות להוציא אנשים אל\"כ עונים אחריהם מלה במלה [ומסיים שם בברייתא תבא מארה לאדם שהוצרך לכך שתהא אשתו מקראת לו] והנה משמע ממגן אברהם דגם בר\"ח שייך דין זה ולענ\"ד אין זה ברור דזה שייך לומר רק בימים שגומרין ההלל דיש על האנשים חיוב מד\"ס אין הנשים יכולות להוציאם אף במקום שנהגו במצוה זו מכבר שאלו רק מצד מנהגא בלבד ואלו מצד חיובא אבל בימים שאין גומרין את ההלל דעל האנשים הוא ג\"כ רק מצד מנהגא ובמקום זה נהגו הנשים ג\"כ במצוה זו מאי נ\"מ בין אלו לאלו ואולי כונת המגן אברהם במקום שלא החזיקו הנשים במצוה זו עד עתה דמצד מנהגא ג\"כ אין עליהם שום חיוב ועתה רוצה אשה לקרות ולהוציא וצ\"ע. ודע דפשוט דעכ\"פ היא עצמה יכולה לקרות הלל ולברך אע\"פ שאינה מחוייבת וכמו בכל מ\"ע שהזמן גרמא שמדקדקות ע\"ע ומברכות ומסתברא עוד דגם בהלל דר\"ח לפי מנהגינו דמברכין על ההלל דגם אשה יכולה לברך וכמו אנשים וכעין שכתבו התוס' בערכין דף י' [והעתקנו דבריהם בשעה\"צ אות ה'] ובסידור יעב\"ץ כתב דאין לנשים לברך על הלל דר\"ח ולא נהגו כוותיה:"
+      ],
+      "en_segments": [
+        "And we recite, etc. The Gemara in Megillah 20 states that Hallel may be recited throughout the entire day, except for the Hallel recited on Pesach night. Responsa Sheilas Yaavetz states that Hallel is connected to Shacharis. Therefore, one should not taste anything until after Hallel, unless he is physically weak, in which case it is permitted, and there is not even a measure of piety in refraining. Regarding reciting Hallel in a mourner’s house during shivah, see above, siman 131, Mishnah Berurah, seif katan 20.",
+        "Hallel. Rabbeinu Yerucham writes that regarding Hallel, one who has already fulfilled his obligation may discharge the obligation of another, whether for an individual or for a congregation. This applies specifically where the listener is not proficient and does not know how to respond. If he knows how to respond, one who has already fulfilled his own obligation cannot discharge him unless the listener answers Halleluyah after him. Magen Avraham writes that the first part of his ruling is straightforward, and it is stated explicitly at the end of the third chapter of Rosh Hashanah that regarding Hallel and Megillah, one who has already fulfilled his obligation may discharge another. Nesiv Chayim wrote that the statement in the third chapter of Rosh Hashanah concerns only blessings and not Hallel, but he overlooked the end of the chapter. Rabbeinu Yerucham’s conclusion, that this applies when the listener is not proficient, is derived from Sukkah 38, where an adult recites for him and he answers Halleluyah. This indicates that he must at least answer Halleluyah, and Rabbeinu Yerucham holds that this is indispensable. Accordingly, when Rosh Hashanah states without qualification that one who has already fulfilled his obligation may discharge another and does not require a response, it must refer to one who is unable to respond. It is somewhat surprising how a person could be unable to answer the single word Halleluyah. Perhaps he does not know at which points he must answer it. Rabbeinu Yerucham’s reference to one who has already fulfilled his obligation is not exclusive. The same applies even where the reader has not yet fulfilled his own obligation. He cannot discharge a listener who is capable of responding unless that listener responds. Eliyah Rabbah rules accordingly. Peri Chadash, however, writes that the requirement to respond applies specifically where the reader has already fulfilled his obligation. If the reader has not yet fulfilled his own obligation and recites the blessing for himself and his fellow, the fellow fulfills his obligation even if he answers nothing. He supports this from the discussion at the beginning of the chapter Three Who Ate. See Peri Chadash there, who also disputes Rabbeinu Yerucham’s basic ruling and maintains that even a proficient listener may be discharged by another. I wrote similarly above in siman 273 in Biur Halacha. See also Ritva, Sukkah 38.",
+        "It is further explicit in Sukkah 38 and in the poskim that women are exempt from Hallel because it is a time bound positive mitzvah, except for the Hallel of Pesach night, in which they are obligated because they too participated in that miracle, as Tosafos writes there. Therefore, women cannot discharge men unless the men repeat every word after them. The baraisa concludes that a curse should come upon a man who must have his wife recite for him. Magen Avraham appears to apply this rule even on Rosh Chodesh. In my humble opinion, this is not certain. The rule is readily understood on days when the complete Hallel is recited, because men are obligated by Rabbinic law, whereas women, even in a place where they have long practiced this mitzvah, are bound only by custom. Men are obligated, while women act only by custom. On days when the incomplete Hallel is recited, however, men are likewise obligated only by custom. In a place where women have also accepted this practice, what difference is there between them? Perhaps Magen Avraham refers to a place where women had not previously accepted this practice, so they have no obligation even by custom, and a woman now wishes to recite Hallel and discharge others. This requires study.",
+        "Know that it is clear that a woman herself may recite Hallel and recite its blessing even though she is exempt, just as meticulous women accept other time bound positive mitzvos upon themselves and recite blessings over them. It also appears reasonable that according to our custom of reciting a blessing over Hallel on Rosh Chodesh, a woman may likewise recite the blessing just as a man does, similar to what Tosafos writes in Arachin 10. Their words are cited in Shaar HaTziyun, note 5. Siddur Yaavetz states that women should not recite a blessing over Hallel on Rosh Chodesh, but the accepted custom does not follow his view."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman422/seif-002/biur-halacha",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "oc1/siman466/seif-005/biur-halacha",
+      "volume": "oc1",
+      "siman": 466,
+      "seif": 5,
+      "slug": "biur-halacha",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 7,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 6,
+      "he_segments": [
+        "וכן מי רגלים - עיין מ\"ב הנה במשנה דמכשירין פ\"ו איתא ומי רגלים בין גדולים ובין קטנים ופירש הר\"ש והרע\"ב בין גדולים משקין היוצא מפי הטבעת והנה לכאורה הוא סתירה למה דקי\"ל דצואת תרנגולים וגללי בהמה אינו מחמיץ ולכך פוסק הטור דשק של קמח שישבו עליו תרנגולים ונתלחלח מצואתם אינו נעשה חמץ הקמח הלח שם [עיין בב\"ח וט\"ז] ומצאתי בא\"ר שמתרץ דהתם מיירי בצואה עבה ונראה שאין הכונה שהיא עבה ממש דאיך נתלחלח הקמח שבשק ונעשה בצק ע\"י שהטילו עליו התרנגולים צואה מלמעלה אלא שאינה רכה גמורה דאי היתה רכה גמורה היתה חשובה כמשקין היוצא מפי הטבעת [ועיין בפמ\"ג והנלענ\"ד כתבתי ואולי דגם כונתו הוא כשיש בו לחלוחית רב. ובח\"א ראיתי שכתב לענין צואה רכה שני דיעות י\"א דדינו כמי פירות וי\"א דאינו מחמיץ כלל והנה הי\"א השני פשוט דהוא דעת הפוסקים דסתמו דצואה אינו מחמיץ ולא חלקו בין עבה לרכה אבל הי\"א הראשון איני יודע מי הוא דהמחלק בין עבה לרכה הוא רק הא\"ר ודעתו הלא נוטה דרכה הוא כמי רגלים דמחמיץ] ואולם בעיקר הענין אפילו היתה רכה כמים ממש אני מפקפק מאד דהנה ידוע מה שהקשה שם התוי\"ט על פירוש הר\"ש דהא תנן בסיפא דהשותה מי טבריא אע\"פ שיוצאין נקיים מ\"מ אינן חשובין שוב משקה הואיל שיצאו דרך פי הטבעת ועיין שם שנדחק מאד בתירוצו והראיה שהביא שם לסברתו אינו מוכחת כלל ע\"ש. ולולא פירוש הר\"ש והרע\"ב היה נ\"ל פשוט דהכונה בין שהמי רגלים הוא של אדם גדול ובין שהוא של קטן כיון דהוא בן קיימא ולאפוקי אם הוא רק בן שמונה חדשים כדקתני במשנה שאחריה ע\"ש. אח\"כ מצאתי ברמב\"ם פ\"י מהלכות טומאת אוכלין שמעתיק דין המשנה ונראה פשטיות דבריו שהוא מפרש כדברינו [ועיין בתשובת חוט השני סימן ל' שהוא מפרש את דברי הרמב\"ם ג\"כ כדברינו] וכן בא\"ר על סדר טהרות המיוחס להגר\"א מפרש בהדיא כדברינו ופשוט שנטו מפירוש הר\"ש מפני קושית התוי\"ט והנה לפ\"ז אפילו רכה כמים ממש ג\"כ דינה כצואה לענין זה ובתשובת חוט השני הנ\"ל מצדד לומר דאפילו לפירוש הר\"ש והרע\"ב אין הכונה במשנה על צואה רכה שיהא דינה כמי רגלים לענין הכשר דהשותה מי טבריה יוכיח אלא על מי רגלים ממש שמפני איזה חולי יוצאים דרך מקום גדולים דהיינו דרך פי הטבעת ולפי דבריו אין לנו עתה שום דעה על צואה רכה כמים שתהא חשובה כמי רגלים לענין הכשר וממילא ה\"ה לענין חימוץ. אולם כ\"ז כתבנו לפי דעת הפוסקים דמשוינן ענין חימוץ לענין הכשר דמה דלענין הכשר יקרא תולדות המים גם לענין חימוץ הוא כמים ומה דלא חשיב שם תולדות המים גם לענין חימוץ לא יקרא מים אבל יש מן האחרונים שסוברין דזה אינו הכרח ולכך ס\"ל דמי רגלים של בהמה וכלב ועכברים מחמיץ אע\"ג דלענין הכשר איתא בתוספתא דמי רגלי בהמה אינו מכשיר [עיין בא\"ר] ועכ\"פ בהצטרף עוד איזה ספק בודאי יש להקל כנלענ\"ד:",
+        "וזיעת אדם - עיין מ\"ב מש\"כ לענין צואה של תרנגולים וכתב בספר מאמר מרדכי סק\"ד שהורה לאחד שקנה שק של חטים ונמצא בהם צואת חתולים יבשה דשרי לפסח ואף דאין ללמוד היתר לזה מדין צואת תרנגולים שברוקח די\"ל שאני עופות שאין לחוש למי רגלים שהרי אינם משתינים דכל מי שאינו יונק אין לו מקום השתן כמו שכתב בספר שערי שמים מאמר ד' אבל בחתולים יש לחוש שהשתינו כמו שהטילו שם רעי ובאו לידי חימוץ מ\"מ לא מחזקינן איסורא ושמא לא הטילו מי רגלים כלל או שהטילו רחוק מהחטים או שמא לא נתחמצו החטים ואף אם נתחמצו קצת אינו אלא מיעוטא דמיעוטא ועוד עיקר דין מי רגלים שנוי במחלוקת כמבואר בב\"י ונוסף ע\"ז דעת הפר\"ח וח\"י דדוקא מי רגלי אדם מחמיץ ולכן כל שאין רואין שום ריעותא בחטים אין להחמיר כלל דאל\"כ אין לך מגורה שלא תפול בה ספק זה וכן עיקר עכ\"ל:"
+      ],
+      "en_segments": [
+        "And urine. See Mishnah Berurah. The Mishnah in Machshirin, chapter 6, states, “Urine, whether of adults or of minors.” Rash and Rabbi Ovadiah of Bartenura explain “of adults” as liquids that emerge from the rectum. At first glance, this contradicts the accepted ruling that chicken droppings and animal dung do not cause fermentation. Tur therefore rules that if chickens sat upon a sack of flour and the flour became moist from their droppings, the damp flour there does not become chametz. See Bach and Taz. I found that Eliyah Rabbah resolves this by saying that the case there concerns thick excrement. It does not appear that he means literally thick material, because then how did the flour in the sack become moist and turn into dough merely because chickens deposited excrement upon it from above? Rather, he means that it was not completely liquid. Had it been completely liquid, it would be regarded as liquid emerging from the rectum. See Pri Megadim. I have written what appears correct to me, and perhaps this is also his intent where it contains abundant moisture.",
+        "I saw that Chayei Adam records two views regarding soft excrement. Some say that it has the law of fruit juice, while others say that it does not cause fermentation at all. The second view is clearly that of the poskim who state without qualification that excrement does not cause fermentation and make no distinction between thick and soft. I do not know the source of the first view. The distinction between thick and soft appears only in Eliyah Rabbah, and his inclination is that soft excrement is like urine and causes fermentation.",
+        "Regarding the basic matter, however, even if it were as liquid as water, I have serious doubts. Tosafos Yom Tov asks there against the explanation of Rash. The end of the Mishnah states that one who drinks the waters of Tiberias, although they emerge clear, no longer gives them the status of a liquid because they emerged through the rectum. See there, where he struggles greatly with his answer, and the proof he brings for his reasoning is not compelling at all.",
+        "Were it not for the explanation of Rash and Rabbi Ovadiah of Bartenura, it would appear obvious to me that “whether adults or minors” means whether the urine is from an adult person or from a child, provided the child is viable, excluding an eight month fetus, as taught in the following Mishnah. I later found that Rambam, in chapter 10 of Hilchos Tumas Ochlin, cites the Mishnah, and the straightforward meaning of his words indicates that he explains it as we have. Responsa Chut HaShani, siman 30, likewise interprets Rambam in this manner. Eliyah Rabbah on the order of Taharos attributed to the Vilna Gaon explicitly explains it this way. It is clear that they departed from the explanation of Rash because of Tosafos Yom Tov’s question. According to this, even excrement as liquid as water retains the law of excrement for this matter.",
+        "Responsa Chut HaShani further suggests that even according to Rash and Rabbi Ovadiah of Bartenura, the Mishnah does not mean that liquid excrement has the law of urine regarding rendering produce susceptible to impurity, as the case of one who drinks the waters of Tiberias proves. Rather, it refers to actual urine that, because of an illness, exits through the place ordinarily used for excrement, namely through the rectum. According to his explanation, we presently have no opinion that excrement as liquid as water is considered urine regarding susceptibility to impurity, and consequently the same applies regarding fermentation.",
+        "All this follows the view of the poskim who equate the laws of fermentation with those of rendering produce susceptible to impurity. Whatever is considered a derivative of water for susceptibility is also treated as water regarding fermentation, and whatever is not considered a derivative of water there is likewise not called water regarding fermentation. Some Acharonim, however, maintain that this comparison is not conclusive. They therefore hold that the urine of animals, dogs, and mice causes fermentation, although the Tosefta states that animal urine does not render produce susceptible to impurity. See Eliyah Rabbah. In any event, where another doubt is also present, one may certainly be lenient. This appears correct to me.",
+        "And human perspiration. See Mishnah Berurah regarding chicken droppings. Maamar Mordechai, seif katan 4, writes that he ruled concerning one who purchased a sack of wheat in which dry cat droppings were found that the wheat was permitted for Pesach. One cannot derive this permission from Rokeach’s ruling regarding chicken droppings, because birds are different. There is no concern for urine, since any creature that does not nurse has no separate urinary opening, as stated in Shaarei Shamayim, discourse 4. Regarding cats, however, there is reason to suspect that they urinated there just as they deposited excrement, and the wheat may have fermented. Nevertheless, we do not presume a prohibition. Perhaps they did not urinate at all; perhaps they urinated away from the wheat; perhaps the wheat did not ferment; and even if a small amount fermented, it would be only an extremely small minority. Moreover, the basic law of urine is disputed, as explained in Beit Yosef. In addition, Pri Chadash and Chok Yaakov hold that only human urine causes fermentation. Therefore, where no defect is visible in the wheat, there is no basis for stringency. Otherwise, there would be no grain store free of this concern. This is the primary ruling."
+      ],
+      "reviewer_output_template": {
+        "id": "oc1/siman466/seif-005/biur-halacha",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    }
+  ]
+}

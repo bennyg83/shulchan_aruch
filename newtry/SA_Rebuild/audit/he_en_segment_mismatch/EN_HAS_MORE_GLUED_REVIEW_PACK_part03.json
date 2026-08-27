@@ -1,0 +1,850 @@
+{
+  "meta": {
+    "created": "2026-08-27T18:39:43.547Z",
+    "purpose": "External AI: propose correct EN merge groups so enSegs===heSegs without gluing distinct notes",
+    "applied_excluded": [
+      "oc1/siman32/seif-005/yad-ephraim"
+    ],
+    "sources": {
+      "spot_review": "en_rejoin_11_spot_review.json",
+      "dry_run": "en_rejoin_continuations_dry_run.json",
+      "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+      "split": "normalize consecutive <br> then split on <br>; strip tags for segment text"
+    },
+    "counts": {
+      "reject_spot_review": 10,
+      "unsafe_dry_run": 48,
+      "deduped_total": 58,
+      "expected": 58,
+      "by_bucket": {
+        "unsafe_dry_run": 48,
+        "reject_spot_review": 10
+      }
+    },
+    "instructions_for_reviewer": [
+      "For each case, read he_segments and en_segments.",
+      "Propose merge_groups: array of arrays of EN indices, length === heSegs.",
+      "Only merge true continuations; never glue distinct HE lemmas/notes.",
+      "If not safely fixable by contiguous EN rejoin, set verdict: \"needs_editorial\" and explain.",
+      "Return same case id; do not invent content.",
+      "Output a JSON array of objects matching reviewer_output_template for every case."
+    ],
+    "chunk_index": 3,
+    "chunk_total": 7,
+    "case_offset": 22,
+    "cases_in_chunk": 16
+  },
+  "cases": [
+    {
+      "id": "yd1/siman37/seif-002/yad-avraham",
+      "volume": "yd1",
+      "siman": 37,
+      "seif": 2,
+      "slug": "yad-avraham",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 11,
+      "enSegs": 12,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          11
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "שאלה ותשובה בהלכות טריפות סימן ל\"ז",
+        "נידון הלכה למעשה ששחטו שור א' ונמצא שנסרכה הריאה שלו לשמנונית הלב והסירכא היה יצא מגומא שהיתה ע\"ג הריאה. והורה מורה א' לקלוף הסירכא כמו שהמנהג בכל הסרכות. וכאשר קלפוה נמצא שנתפשטו דלדולי הסירכא מהצדדים עד סמוך לקמט אשר היה ג\"כ ע\"ג הריאה. והמורה הנ\"ל הורה לקלוף הכל והכשיר ואנכי כאשר שמעתי ותרגז בטני. כי לקוצר דעתי אין לו על מי להשען כאשר יתבאר בעז\"ה. ובפרט ששמעתי שכבר היה מורה ובא כן מעודו ואומר כי גומא לא נחשב ריעותא. ותקע א\"ע ע\"ד ס' בית לחם יהודה שכתב בס\"ס ל\"ט להכשיר סירכא מתוך הגומא. וכמה גדלה סירכת נגע הצרעת אשר פשתה בזמנינו המורים מתוך ספרי הקיצורים אשר כבר הזהירו ע\"ז וצווחו ככרוכיא כל הגדולים שלפנינו. וכאשר כתב ג\"כ הרב פרמ\"ג בסימן מ\"ג ביחוד על ספר הנ\"ל שמצא בו טעות כדרך הקוצרים. וצריכים גדולי זמנינו להזהיר מחדש ע\"ז. ואשובה אראה מנידון השאלה אם אפשר לקיים ולסמוך ע\"ד הבל\"י להכשיר סירכא מתוך הגומא כמו שחשב המורה הנ\"ל אם נחקור הענין ממקורו.",
+        "הנה זה פשוט בכל הפוסקים ובודקים ומנהגים להטריף בכל תרתי לריעותא כשהם מעידים על שם ריעותא אחת וכל שיש דעה להטריף מחשב ריעותא אף דלא קיי\"ל כוותה. וא\"כ פשוט בספרי גדולי האחרונים אשר מימיהם אנו שותים בהלכות הללו ובראשם הרב המובהק בעל תבואת שור דגומא או קמט בריאה מבחוץ אפילו כל שהוא מצטרף לריעותא אחרת אעפ\"י שאין המנהג להטריף בגומא פחותה מאגודל מ\"מ ריעותא הוה שהרי מגדולי הראשונים המטריפים אף בכל שהוא והובא בש\"ע סי' ל\"ו בשם יש מי שאוסר. והן הרמב\"ם בפ\"ח מה\"ש. והראב\"ד מדלא השיגו מסתמא ג\"כ הכי ס\"ל. וכבר הובא דעה זו בתוס' פא\"ט (סוף דף מ\"ז) בשם יש מי שרצו לאסור ומסתמא לאו קטלי קני הוו כמ\"ש התב\"ש סי' ל\"ו ס\"ק נ'. ואף שהתוס' שם הקשו ע\"ז דה\"ל להגמרא לאוקמא מתני' דקתני או שחסרה בהכי. כבר האריכו כל האחרונים בישוב דבר זה בכמה אופנים וכיון דמהגמ' אין הכרע וגדולי הפוסקים מטריפים וגם הש\"ע חשש לדעתם האיך יעלה על הדעת להקל בסירכא דבוקה היוצאה ממנה. ובפרט כמו לשומן הלב אשר המחבר בסי' ל\"ט מטריף לגמרי. רק דאנן מקילין למעך והאיך ניקל כולי האי למעך כשיוצאה מתוך ריעותא גדולה כגומא. והרי אפי' ריעותא כל דהו שלא היה מי שיטריף כמו טינרא קיי\"ל שאין ממעכין בסירכא דבוקה היוצא ממנה כמו שמבואר בכל האחרונים. והבל\"י עצמו הביא זה מקודם שם בסי' הנ\"ל. והשתא יציבא בארעא וגיורא בשמי שמיא דמטינרי אין ממעכין ומגומא ממעכין זה דבר שאין הדעת סובלתו. ובודאי אם אינו שגיאה בס' הנ\"ל הוא ט\"ס או דקאי על סירכא תלויה אבל לא בדבוקה כמו שחשב המורה הנ\"ל. והרי לא נמצא בכל האחרונים שיהא מיקל בדין גומא וקמט לענין הצטרפות לשאר ריעותא רק מחבר א' מזמנינו בס' לבושי שרד. וגם הוא לא היקל רק שאינה מצטרפת לשאר ריעות' המעידה על נקב באומרו שגומא או קמט כשהם מתחלת הבריאה אין סופן לנקוב וטריפה רק מטעם חסר ולא הוי ב' ריעותות משם אחד וגם הוא אינו מיקל רק בשניכר שהוא מתחלת הבריאה בבירור ולא בספק. וכתב דהוי ס\"ק חסרון ידיעה כמבואר בדבריו בסי' ל\"ו ס\"ק קמ\"ב וס\"ס ל\"ז ואף במקום הפס\"מ כדמוכח מדבריו בסי' ל\"ו ס\"ק ס' וסי' ל' ס\"ק ר\"ג. אבל מודה הוא שאין ממעכין סירכא היוצא מתוך הגומא או קמט אף שידוע שהוא מתחלת הבריאה כמבואר בספרו סימן ל\"ט ס\"ק קע\"א. וכ\"כ בסימן ל\"ה גבי יתרת בדרי דאונא דעדיפי אף מטינרי לפ\"ד דאינה מעידה על שם לקותא כלל ואפ\"ה מעכבת קולא גדולה דמיעוך סירכא דבוקה היוצאה ממנה. וק\"ו ב\"ב של ק\"ו לסירכא מתוך הגומא כנ\"ל והנה דבר זה פשוט באמת ולא הוצרכתי לכתבו רק להוציא מדעת המורה הנ\"ל:",
+        "אמנם גדולה מזו נראה דאף לענין שאר ריעותא שעל הגומא או קמט דיינינן ליה להטריף ככל דין תרתי לריעותא כמ\"ש להדיא הרב התב\"ש בסי' ל\"ו סעיף כ\"א ס\"ק מ\"ה ובסימן ל\"ז סעיף ה' ס\"ק ח' והפמ\"ג בפתיחה להלכות בדיקה ובסי' ל\"ז כתב שכ\"ד רוב הפוסקים דס\"ל דכל טריפות הריאה מטעם נקב הוא וכ\"ד הדרישה וכ\"ה התב\"ש מתוס' רפא\"ט ומהטוש\"ע ר\"ס ל\"ה וכ\"ה הפמ\"ג מדברי הש\"ך שם. ונראה לקיים דבריהם אשר אנו חיים מפיהם:",
+        "וראיתי להלבושי שרד שבנה דיק ושפך סוללה ע\"ד התב\"ש בדברים שאינם מוכרחים ע\"כ אאריך בזה דהתב\"ש כתב דמוכח דברי התוס' בר\"פ א\"ט (מ\"ב ב') ד\"ה דאפיק דכל טריפות שבריאה הוי משום דסופן לנקוב שכתבו דלרבנן לא הוו אלא י\"ז טריפות וחסרה לר\"ש איצטריך דלרבנן הוו בכלל נקובה. וכתב עליו בס' לבושי שרד בס\"ק ג' שאין מדברי התוס' ראיה דאין שום טריפות בריאה שלא יהא משום דסופו לנקוב. דאפי' נימא דטריפות דחסר ויתיר וחליף וכה\"ג הוי אין סופן לנקוב רק מטעם חסרון טריפה אפ\"ה שפיר כתבו דהוי בכלל נקובה לענין מניין ח\"י טריפות שאין לחשוב אותן בפ\"ע משום דכולן הוו בכלל נקב משהו שהוא הקל שבכל הריעותות וכיון דנטרף בנקב משהו שוב אין לחשוב בו ניטל וחסר דכ\"ש הוא. דמה\"ט לא תני במתני' ניטל וחסר ויתיר גבי לב ודקין כמ\"ש תוס' שם. והנה הרב הנ\"ל החזיק בסברא זו בפשיטות עד שמלבד שדחה בה ראיית התב\"ש אלא דמחמתה הקשה בס\"ק י\"א על התוס' גופייהו דמשמע מדבריהם דלמ\"ד חסרון מבפנים שמיה חסרון הוא נחשב במניין ח\"י טריפות. ואיך אפשר לחשבו בפ\"ע כיון דחסרון הוא כ\"ש מנקב ובכלל הריאה שניקבה הוא. גם הקשה בסק\"ח על מ\"ש הב\"י בסי' ל\"ו לדעת הרמב\"ם דמטריף קמט וגומא ע\"ג הריאה ס\"ל שהוא משלים מניין ח\"י טריפות והאיך ישלים כיון שהוא לדידי' בכלל חסרה הוא כ\"ש מניקב וכבר מנה שניקבה והניח בצ\"ע:",
+        "אבל באמת סברא זו ליתא דלא כתבו התוס' כן אלא גבי ניטל כל הלב והריאה והדקין דהוו כ\"ש מניקב כיון דבטל כל שימוש האבר ההוא אבל בלקותות הריאה שכולה שלימה רק שנבראת בה ריעותא במקום אחד זה ודאי לא הוי כ\"ש מנקב ובפרט ריעותא שלא מצינו כיוצא בה בשאר איברים שנטרפים בנקב כגון חסר אונא ויתיר אונא וחליף ודמיא כאופתא. או בגישתא ודפחיזא. דודאי איצטריך למתני חסרה הריאה לומר דאף חסרון ולקותא דכה\"ג טריפה. דה\"א שאינה בכלל ניקבה הריאה כמו שאין נמצא ריעותא כזו בכלל נקובה דשאר איברים. או ה\"א דריעותות הנ\"ל לא גריעי מאלו נבראת נקובה שאין נטרפת בו כיון שאין מפקעת זיקא כמ\"ש הצ\"צ וכן הסכים הוא בסק\"י. וכיון דאיצטריך למתני חסר כזו שפיר איכא למימניה אותו במניין ח\"י טריפות. דכה\"ג כתב הרשב\"א הובא בב\"י סי' מ\"ב וביש\"ש פא\"ט גבי הא דמנו נטולה וחסורה בשתים דלמד הרמב\"ם מזה דכל שאמרו שנטרף בניטל אין נטרף בחסר. והוא חולק עליו וכתב דלכך מנוהו בשתים ללמדך שאחד ניטל ביד וא' חסר מן התולדה טריפה שלא ליתן פ\"פ לבע\"ד לחלוק ולומר דדוקא שחסרה מתולדתה אבל היה לה וניטל כשרה או להיפך ע\"כ. והרי התוס' בקידושין (דף נז) כתבו דחסר הכבד טריפה כדעת הרשב\"א וע\"כ ס\"ל ג\"כ דלא מנו נטולה וחסורה בשתים אלא כדי שלא ליתן פ\"פ לבע\"ד לחלוק. וא\"כ ה\"נ י\"ל חסרה הריאה חסרון בריעותות באיזה ריעותא שבה ונקובת הריאה בשתים שלא ליתן פ\"פ לבע\"ד לחלוק ולומר דדוקא ניקבה טריפה אבל נולד בה חסרון מאיזה ריעותא כשרה או להיפך. אלא ע\"כ מדכתבו התוס' דלרבנן ליכא אלא י\"ז טריפות ש\"מ דס\"ל דכל הריעותות שבריאה סופן לנקוב ולכן א\"א לחשבן ולנקובה בשתים. דאלו בלא\"ה שפיר הוה אפשר למנותן בשתים:",
+        "והשתא גם דברי הב\"י א\"ש דנהי דהרמב\"ם לא ס\"ל סברת הרשב\"א גבי נטולה וחסורה לומר דמנאן בשתים משום שלא ליתן פ\"פ לבע\"ד לחלוק. היינו משום דלא מסתבר לי' שיהא מקום לבע\"ד לחלוק ולומר דדוקא חסר מתולדה טריפה ולא ניטל וא\"כ בחסר לחוד הוי סגי וניטל למה לי. אבל בטריפות דחסרון על הריאה מבחוץ דמטריף הרמב\"ם דאיכא באמת מכשירים שפיר י\"ל דמנאה ולנקובה בשתים כדי שלא ליתן פ\"פ לבע\"ד לחלוק. וכן למ\"ד חסרון מבפנים שמי' חסרון שפיר יש לחשבו ולנקובה בשתים דהא ודאי יש מקום לבע\"ד לחלוק. שהרי באמת חולקים עליו. ושפיר ס\"ל דיש לחשבו ולנקובה בשתים. דכל שאינו כ\"ש לכל הדעות יש לחשבו בשתים. ולא דמי לניטל כל הלב והריאה והדקין שאין עולה על הדעת כלל להכשיר. וא\"כ מה שחשב הלבושי שרד לדחות דברי התב\"ש אדרבה יש ראיה לדבריו שהן מוכרחין. (אלא דאכתי צ\"ע לדברי הרמב\"ם שמנאן בב' משמע שאין סופו לנקוב):",
+        "ועוד י\"ל מטעם אחר יש לחשוב ריעותות הריאה שהן בכלל חסרה מבחוץ בשתים עם נקובה אף אם נאמר דהוי כ\"ש מניקבה מ\"מ איצטריך למיתני משום דנ\"מ לענין סתומה דנקב מתכשר בסתימת דופן במיצר החזה ואלו חסרון לא מתכשר בסתימה כמ\"ש הפמ\"ג בפתיחה להלכות בדיקה. וכ\"כ בס' חוות דעת סי' ל\"ו ע\"ש. וכיון שדינו חלוק מניקבה שפיר יש לחשבו בשתים. ולפ\"ז נסתלקה קושיית הלבושי שרד מהתוס' והב\"י והתב\"ש:",
+        "גם מ\"ש הלבושי שרד לדחות ראיית התב\"ש מדברי הטוש\"ע שהתחילו ריאה שניקבה טריפה ושבקוה ומפרשי לח\"ו וחליף. וכתב דמש\"ה התחילו לכתוב ריאה שניקבה טריפה שהוא הקדמה לכל דיני ח\"ו וחלוף אבל לא שמענו דכל הריעותות סופן לנקוב. הנה דוחה דברי התב\"ש בקש וכאלו לא ידע שו\"ר. דהא אין הוכחתו של התב\"ש הוא משום שהתחילו בדיני נקובה אלא משום דהתחילו ושבקוהו ומפרשי לדיני ח\"ו באמצע ואח\"כ חזרו וגמרו לדיני נקובה. ומזה ודאי יש לשמוע דכולן משום דסופן לנקוב הוא. דאי משום שניקב הוא התחלה לכל הדינים. ה\"ל להתחיל ולגמור כל דיני נקובה תחילה. ולמה הכניסו דיני ח\"ו באמצע דיני נקובה. אלא ש\"מ כמ\"ש התב\"ש:",
+        "תו כתב הלבושי שרד בסק\"ז לדחות דברי התב\"ש ממ\"ש הט\"ז סי' מ\"ג והצ\"צ דאף נקב גמור כל שנברא כך לית בי' לתא דנקב כלל. וא\"כ כ\"ש חסר מתחלת בריאה שלא כצורת נקב כלל כגון חסר ויתיר אונא דלא הוי בכלל נקב. וכ\"כ בס\"ק י' ומה שחשבו לכ\"ש אדרבה י\"ל דבשלמא נקב שמתחלת בריאה כשר כיון דלא מפקע זיקא אבל חסר ויתיר אונא י\"ל דטריפה משום דסופו לנקוב ויפקע זיקא:",
+        "גם מ\"ש בס\"ק י\"א לדחות דברי התב\"ש ממ\"ש תוס' ריש א\"ט דמשמע דלמ\"ד חסרון מבפנים שמי' חסרון הוא משלים לח\"י טריפות. ולדברי התב\"ש שכל טריפות הריאה מטעם שסופו לנקוב. גם חסרון מבפנים סופה לנקוב ואיך ישלים המנין אלא ע\"כ שאינו בתורת נקב. וא\"כ ה\"ה שאר ריעותות שבריאה מבחוץ כגון חסר אונא אינו בתורת נקב. ואינו ראי' כלל מחסרון מבפנים לשאר ריעותות שע\"ג הריאה. דש\"ה שהוא בתוך בשר הריאה ואין בו חשש לשמא ינקובו הקרומים שכ\"כ הרשב\"א בחידושיו דריאה שנשפכה כקיתון לית בה חשש נקב דמבפנים הוא שנימוק בשרה. ומשום נקב ליכא דעורה לא לקה כלל. ואע\"פ שכתב זה למ\"ד לא שמי' חסרון. מ\"מ למ\"ד שמי' חסרון נמי י\"ל כן דלא מטריף רק משום חסרון הבשר שמבפנים דס\"ל דשמי' חסרון ולא הדר בריא. אבל מודה שאין בו משום חשש נקב כלל מטעמא דאמרן. משא\"כ שאר ריעותא שבחוץ ע\"ג הריאה יש לחוש דסופן לנקוב אותה. וכ\"מ בס' חוות דעת. הרי נתבאר שאין בדחיית וראיית הלבושי שרד ממש. ואין לנו אלא דברי האחרונים המפורסמים דכולן מטעם נקבה ומעידין על שם א' ומצטרפין לב' ריעותות:"
+      ],
+      "en_segments": [
+        "Question and answer in laws of treifot siman 37.",
+        "A practical ruling occurred: they slaughtered one ox and found its lung adhered to the fat of the heart, and the adhesion emerged from a depression that was on the lung. One posek ruled to peel the adhesion as is custom with all adhesions. When they peeled, the strands of the adhesion spread from the sides until near a wrinkle that was also on the lung. That posek ruled to peel everything and permitted; and I when I heard — my stomach churned, for in my short understanding he has no one to rely on, as will be explained with God's help; especially I heard he had already ruled thus before and says a depression is not considered a flaw. And he relied on Beit Lechem Yehudah who wrote at end of siman 39 to permit adhesion from within the depression. And how great is the leprosy plague that spread in our time — teachers from summary books who already warned and cried like street criers — all the great ones before us. And Rav Pri Megadim in siman 43 especially on that book found an error as summarizers do. And the great ones of our time need warn against innovating. I return to see from the posed question whether one can uphold Beit Lechem Yehudah to permit adhesion from the depression as that posek thought if we investigate from the source.",
+        "Here it is simple in all poskim, examiners, and customs to declare treifah in every two flaws when they testify to one flaw-name; and every view to declare treifah counts as a flaw even if we do not hold thus. If so it is simple in books of great acharonim from whom we drink in these laws, headed by the illustrious Rav author of Tevuot Shor — depression or wrinkle on lung from outside, even any amount, joins another flaw, even though custom does not declare treifah in depression less than thumb-size; nevertheless it is a flaw, for from great rishonim who declare treifah even in any amount, brought in Shulchan Aruch siman 36 in the name of \"there are those who forbid\" — they are Rambam ch. 8, and Raavad since he did not challenge presumably holds thus; and this view was brought in Tosafot Perek Aleph Tav (end daf 47) in the name of some who wanted to forbid, and presumably they were not mere property owners as Turei Zahav siman 36 s.k. 50 wrote. And even though Tosafot there challenged that the mishnah should be established \"or that it lacks\" — all acharonim expanded to settle this in several ways; and since there is no resolution from the Gemara and great poskim declare treifah and Shulchan Aruch was concerned for their view — how can one be lenient in adhered adhesion emerging from it, especially like heart fat which the Mechaber in siman 39 declares treifah entirely; only we are lenient to press — and how can we press so much when emerging from a great flaw like depression. And behold even a flaw that no one would declare treifah, like tinnir — we hold one does not press adhesion emerging from it, as explained in all acharonim. And Beit Lechem Yehudah himself brought this earlier there in that siman. And now it stands: tinnir one does not press, and from depression one presses — a matter the mind cannot bear; and certainly if he erred in that book it is a scribal error, or it refers to hanging adhesion but not adhered as that posek thought. And it is not found in all acharonim that one is lenient in law of depression and wrinkle to join other flaws except one author of our time in Levushei Serad; and he too was not lenient except that it does not join flaws testifying to puncture, saying depression or wrinkle when beginning of health has no end to puncture and treifah only from deficiency and it is not two flaws from one name; and he is not lenient except when recognizable it is from beginning of health clearly, not in doubt. And he wrote it is a doubt of lack of knowledge as explained in his words siman 36 s.k. 142 and end of siman 37; and even in place of great loss as proven from his words siman 36 s.k. 60 and siman 30 s.k. 203. But he admits one does not press adhesion emerging from depression or wrinkle even when known from beginning of health, as explained in his book siman 39 s.k. 171. And so siman 35 regarding extra of ona — preferable even from tinnir, for in his view it does not testify to flaw-name at all; nevertheless pressing adhered adhesion emerging from it delays a great leniency. And a fortiori regarding adhesion from depression as above; and behold this matter is truly simple and I did not need write except to remove from the mind of that posek.",
+        "However greater than this: even regarding other flaws on depression or wrinkle we judge to declare treifah like every law of two flaws, as Turei Zahav wrote explicitly siman 36 seif 21 s.k. 45 and siman 37 seif 5 s.k. 8; and Pri Megadim in opening to laws of examination and in siman 37 wrote that most poskim hold all lung treifot are from puncture; and so Darkei Yesharah; and so Turei Zahav from Tosafot Rif Perek Aleph Tav and from Shulchan Aruch siman 35; and so Pri Megadim from Shach's words there. And it appears to uphold their words upon which we live from their mouth.",
+        "And I saw Levushei Serad who built a dike and poured a rampart on Turei Zahav's words with non-compelling matters — therefore I expand here: Turei Zahav wrote it is proven from Tosafot beginning Perek Aleph Tav (42b) \"that he brought\" that all lung treifot are because they will eventually puncture; they wrote for Rabbanan there are only 17 treifot and \"lacking\" for R' Shimon was needed — for Rabbanan all are included in punctured. And he wrote on this in Levushei Serad s.k. 3 there is no proof from Tosafot that no lung treifah is not because it will eventually puncture; even if we say treifot of deficiency, extra, exchange, etc. have no end to puncture but only from deficiency treifah — nevertheless they wrote well it is included in punctured for counting 18 treifot not counted separately since all are included in some puncture which is the lightest of flaws; and since treifah through puncture — no longer count removed and lacking. And why does the mishnah not teach removed and lacking and extra regarding heart and kidney as Tosafot wrote there. And the Rav held this view simply until besides rejecting Turei Zahav's proof he challenged in s.k. 11 on Tosafot themselves that it appears from their words for one who holds internal deficiency is called deficiency — it is counted in 18 treifot; how count separately since deficiency is more than puncture and included in lung punctured. Also challenged in s.k. 8 on Beit Yosef siman 36 — Rambam declares treifah depression and wrinkle on lung — he holds it completes count of 18 treifot; how complete since for him it is included in \"lacking\" which is more than puncture and already counted punctured — left in tzarich iyun.",
+        "But in truth this view is not so — Tosafot only said regarding removed entire heart, lung, and kidney which are more than puncture since that organ's use is nullified; but in lung flaws where the whole is intact only a flaw in one place — certainly not more than puncture; especially flaws not found similarly in other organs declared treifah through puncture, such as missing ona, extra ona, exchange, and similar to a sponge, or adhesion and blister — certainly \"lacking lung\" was needed to say even deficiency and flaws like this are treifah; lest you say not included in lung punctured as no such flaw in punctured of other organs; or these flaws are not inferior to \"created punctured\" not treifah since it does not eliminate the channel as Taz wrote and he agreed in s.k. 10. And since \"lacking\" like this was needed — well one may count it in 18 treifot; as Rashba wrote brought in Beit Yosef siman 42 and Yesh Nohalin Perek Aleph Tav regarding that which they counted removed and lacking in two — Rambam learned from this whoever they said treifah through removal is not treifah through deficiency; and he disagrees and wrote therefore they counted in two to teach: one removed by hand and one deficient from birth — treifah, lest give loophole to disputant to say specifically deficient from birth but had it and removed — kosher or vice versa — end. And Tosafot in Kiddushin (daf 57) wrote deficient liver is treifah as Rashba's view; therefore he also holds they did not count removed and lacking in two except lest give loophole to disputant. If so one may say \"lacking lung\" — deficiency in flaws in whatever flaw in it, and \"lung punctured\" in two — lest give loophole. Rather necessarily from Tosafot that for Rabbanan there are only 17 treifot — we learn they hold all lung flaws will eventually puncture; therefore impossible to count them with punctured in two; for otherwise well possible to count in two.",
+        "And now Beit Yosef's words are settled: though Rambam does not hold Rashba's view on removed and lacking to say counted in two lest loophole — because it is not reasonable there is room for disputant; if so for deficiency alone suffices and why need removed. But in treifot of deficiency on lung outside which Rambam declares treifah — there are truly those who permit — well one may say counted with punctured in two lest loophole. And so for one who holds internal deficiency is called deficiency — well count with punctured in two; for certainly there is room for disputant — they disagree on him; and well holds one should count with punctured in two; for all that is not more than puncture for all views — count in two. And unlike removed entire heart, lung, and kidney which is inconceivable to permit at all; if so what Levushei Serad thought to reject Turei Zahav's words — on the contrary there is proof for his words that they are compelling. (Except still tzarich iyun on Rambam's words that counted in two implies no end to puncture.)",
+        "And further one may say another reason to count lung flaws included in \"lacking\" outside with punctured even if we say more than punctured — nevertheless mishnah was needed because difference for sealed: puncture is kosher through sealing lining in narrow of chest, and these deficiencies are not kosher through sealing as Pri Megadim wrote in opening to examination laws; and so in Chavat Daat siman 36 — see there; and since its law differs from punctured — well count in two. And accordingly Levushei Serad's difficulty from Tosafot and Beit Yosef and Turei Zahav is removed.",
+        "Also what Levushei Serad wrote to reject Turei Zahav's proof from Shulchan Aruch that began \"lung punctured treifah\" and left and explained deficiency, exchange — and wrote therefore they began to write lung punctured treifah as introduction to all laws of deficiency and exchange, but we did not hear all flaws will puncture — behold he sought and as if he does not know Shulchan Aruch; for Turei Zahav's proof is not because they began puncture laws but because they began and left and explained deficiency laws in the middle and afterward returned and concluded puncture laws; and from this certainly one hears all are because they will eventually puncture; for if because punctured is beginning of all laws — they should have begun and finished all puncture laws first; why insert deficiency laws in middle of puncture laws — rather we learn as Turei Zahav wrote.",
+        "Further Levushei Serad wrote in s.k. 7 to reject Turei Zahav from Taz siman 43 and Taz that even complete puncture created thus has no taste of puncture at all; if so all the more deficiency from beginning of health not puncture-form at all like missing and extra ona not in category of puncture; and so in s.k. 10 what they thought as more — one may say: granted puncture from beginning of health is kosher since it does not eliminate the channel; but missing and extra ona — one may say treifah because it will eventually puncture and eliminate the channel.",
+        "Also what he wrote in s.k. 11 to reject Turei Zahav from Tosafot beginning Aleph Tav that it appears for one who holds internal deficiency is called deficiency — it completes 18 treifot; and according to Turei Zahav all lung treifot from will eventually puncture — internal deficiency too will puncture; how complete the count — rather necessarily not in category of puncture; if so other flaws on lung outside like missing ona are not in category of puncture; and no proof at all from internal deficiency to other flaws on lung; for this is inside lung flesh and no concern lest membranes puncture as Rashba wrote in his chiddushim — lung poured like a pitcher has no puncture concern, for inside flesh melted; and from puncture its skin did not suffer at all. And even though he wrote this for one who does not call it deficiency — nevertheless for one who calls it deficiency one may also say thus — only declares treifah from deficiency of flesh inside which he holds is called deficiency and did not return healthy; but he agrees no puncture concern at all from our reason; unlike other flaws outside on lung — concern they will eventually puncture it; and so in Chavat Daat. Behold explained there is no substance in Levushei Serad's rejection and proof; and we have only the famous acharonim — all from puncture, testify to one name, and combine to two flaws.",
+        "(Siman 37 seif 2) If an adhesion hangs out from the bubble — treifah. Shach wrote and brings in Lechem HaPanim and Avodat HaTaharah s.k. 6: if the skin of the bubble changes to lung appearance — kosher, for since it has lung appearance it is only internal deficiency — end. And accordingly all the more adhesion hanging or other flaw emerging from morsa called in Italian that it is not two flaws (for the lung membrane covers it); and on the contrary morsa is better than bubble, for it does not forbid in adjacency since it is not higher than lung flesh — unlike bubble which even if covered forbids in adjacency since it is high, as explained in the next seif. And all this is clear and simple. And I did not reach the end of the view of Lechem HaPanim and acharonim s.k. 10 who wrote in the name of Machatzit HaShekel: morsa in which at its head an adhesion hangs — if clear water in it — kosher; if mugla — treifah — end. And it is not so; rather even if mugla in it — kosher, for it is not two flaws since it is not high. And it is proper that after my writing I saw thus in Pri Megadim and it pleased me. And see there he wrote the same applies to morsa and tinnir standing on protrusions or where sound is heard — kosher; they only said regarding bubble; if so the same applies to morsa on the wrinkle; and so is the version of kosher appearances. And likewise across does not disqualify in it. Adhesion hanging from the sealed place or from kosher appearance or kosher appearance on protrusion is called two flaws. And two flaws is only when standing one next to the other with no hard gap between them and testify to one name; and there is one view to declare treifah — in such a case they combine. And regarding pressing see there siman 39 seif 13 that not all agree — only hanging from bubble. And in responsum Tur HaEven siman 10 he permits also adhesion to lining in narrow of chest from bubble, since kosher by Gemara law pressing helps even with two flaws."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman37/seif-002/yad-avraham",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman48/seif-004/yad-avraham",
+      "volume": "yd1",
+      "siman": 48,
+      "seif": 4,
+      "slug": "yad-avraham",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 4,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "(סימן מ\"ח סעיף ד') אם נקדר הבשר הזה בעיגול או באורך אם היה יתד מכסלע ה\"ז טריפה שאם ימתח קרע זה יעמוד על טפח. נראה ללמוד מזה דבבהמה גדולה איירי ששיעורה בקרע טפח אבל בקטנה ששיעורה ברובה שהוא פחות מטפח. ה\"ה בנקדרה משערין שאם ימתח הקרע יעמוד על רוב שלה והוא פחות מכסלע וק\"ל. אכן ראיתי להתב\"ש שלא כ\"כ. ועיין בפמ\"ג ובס' ל\"ש:",
+        "ודע דלפי פסק הרמב\"ם והש\"ע בסעיף הקודם דאם נקרע רוב עובי הבשר ה\"ל כמפולש ה\"ה גבי נקדרה. והכי מוכח להדיא ברשב\"א בתה\"א (דף מ\"ג) ע\"ש ודו\"ק. וכ\"כ הפמ\"ג בפשיטות ותמה על הש\"ך בס\"ק ז'. אכן הש\"ך אזל לשיטת בספרו הארוך שכתב לדעת הרמב\"ם נמי נקדרה היינו מפולש דאי אינה מפולש אין זה ניקדרה ומשערינן בין באורך בין ברוחב בין בעיגול בכסלע ע\"ש. ומה שהקשה הפמ\"ג דבגמ' אמרו שאם תמתח תעמוד על טפח משמע דמשום טפח קאתינן עלה וא\"כ אף באינה מפולש. ואין זה ראיה דהא אפ\"ה קילא מדין טפח גבי בהמה קטנה כמ\"ש התב\"ש. אלמא דנקדרה בעיגול וליכא רוב באורך או ברוחב לחוד קיל. ומהאי טעמא קילא נמי באינה מפולש ולא מהני אלא במפולש כיון דליכא רוב בחד צד אלא בעיגול:",
+        "ונ\"ל להביא ראיה לדעת הרמב\"ם שבזה מתורץ קושיית תוס' רפא\"ט (דף מ\"ג) ד\"ה הנך כו' דנקרע רוב החיצונה ובשר החופה נמי נחשוב כחד. וכ\"מ בתב\"ש. ומה שתמה על הב\"י שהרי הרמב\"ם ס\"ל דניקב לחלל יש לו בדיקה כבר הקדימו הש\"ך בס' הארוך:"
+      ],
+      "en_segments": [
+        "(Siman 48 seif 4) If this flesh was bored in circle or length if more than sela — treifah if this tear stretched will stand tefach. Appears to learn: in large animal tear measure tefach; in small animal measure is majority which is less than tefach; same in boring — if stretch tear will stand at its majority less than sela — examine well. However I saw Turei Beit Shmuel not so; see Peri Megadim and Lechem.",
+        "And know: per Rambam and Shulchan Aruch previous seif if majority thickness torn — like mafpolash; same regarding bored; so clear from Rashba Tur haArukh (43) — see there; examine well. Peri Megadim simply; wondered on Shach s.k. 7. However Shach followed his long book that wrote per Rambam bored means mafpolash; if not mafpolash not bored; we estimate length width circle like sela — see there. Peri Megadim challenged: Gemara says if stretched stands tefach — implies because of tefach; if so even not mafpolash; no proof — nevertheless lenient from tefach measure in small animal as Turei Beit Shmuel wrote. Thus bored in circle no majority in length or width alone lenient; for this reason lenient also not mafpolash — only helps in mafpolash since no majority on one side only in circle.",
+        "And in my humble opinion bring proof for Rambam — resolves Tosafot Orach Chaim 43 s.v. henakh, etc. — majority outer torn and flesh covering also counted as one; so Turei Beit Shmuel. What wondered on Beit Yosef — Rambam holds puncture to cavity requires examination — Shach already preceded in long book.",
+        "(Siman 48 seif 4) If this flesh was bored in circle or length if more than sela — treifah if this tear stretched will stand tefach. Appears to learn: in large animal tear measure tefach; in small animal measure is majority which is less than tefach; same in boring — if stretch tear will stand at its majority less than sela — examine well. However I saw Turei Beit Shmuel not so; see Peri Megadim and Lechem. And know: per Rambam and Shulchan Aruch previous seif if majority thickness torn — like mafpolash; same regarding bored; so clear from Rashba Tur haArukh (43) — see there; examine well. Peri Megadim simply; wondered on Shach s.k. 7. However Shach followed his long book that wrote per Rambam bored means mafpolash; if not mafpolash not bored; we estimate length width circle like sela — see there. Peri Megadim challenged: Gemara says if stretched stands tefach — implies because of tefach; if so even not mafpolash; no proof — nevertheless lenient from tefach measure in small animal as Turei Beit Shmuel wrote. Thus bored in circle no majority in length or width alone lenient; for this reason lenient also not mafpolash — only helps in mafpolash since no majority on one side only in circle. And in my humble opinion bring proof for Rambam — resolves Tosafot Orach Chaim 43 s.v. henakh, etc. — majority outer torn and flesh covering also counted as one; so Turei Beit Shmuel. What wondered on Beit Yosef — Rambam holds puncture to cavity requires examination — Shach already preceded in long book."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman48/seif-004/yad-avraham",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman61/seif-006/yad-avraham",
+      "volume": "yd1",
+      "siman": 61,
+      "seif": 6,
+      "slug": "yad-avraham",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 3,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "(סימן ס\"א סעיף ו') אבל שחט ומצא טריפה פטור. הרמב\"ם השמיט הך ברייתא דספרי דטריפה פטור ממתנות דאמעיט מדכתיב מאת זובחי הזבח. וכתב בס' תורת יקותיאל דס\"ל להרמב\"ם דז\"א רק לר\"ש דאמר שחיטה שאינה ראויה לא שמה שחיטה ולא קרינן בה זבח אבל לרבנן דשמה שחיטה לא ממעטי טריפה מזבח. ולא ס\"ל להרמב\"ם מ\"ש רש\"י בחולין (דף קל\"ו ע\"ב) דממעטינן טריפה מדכתיב תתן לו ומשמע לא לכלבו. ויש להביא ראי' לדעת הרמב\"ם מהסוגיא דחולין (דף קט\"ו) דבעי התם כלאי בהמה דשרו להדיוט מנ\"ל. והקשה בס' שער המלך הל' כלאים דאמאי לא יליף דכלאים שרו להדיוט מדילפינן מקרא דכלאים חייבים במתנות ואי אסירי באכילה אמאי חייבים וקושיא זו אינה רק להפוסקים דטריפה לכ\"ע פטורה ממתנות משום דאסורה באכילה ולא מקרי זבח. אבל לדעת הרמב\"ם לק\"מ דלרבנן דקיי\"ל כוותייהו טריפה חייבת במתנות ולדידהו ליכא לאוכוחי דכלאים שרו באכילה מהא דחייבינן במתנות כהונה:",
+        "ועיין בפר\"ח שכתב דמסתבר דאף טריפה שמטריפין אותה מחמת חומרות אחרונים ומדאורייתא כשרה יפטר ממתנות משום דבעינן זבח הראוי לאכילה לכהן ולא לכלבו דמפיק לה בספרי מקרא דזובחי הזבח והאי הא לא חזי לי'. וצ\"ע בסוכה (דף כ\"ג ושבועות (דף ל\"א) דאיכא למ\"ד דלא ממעטינן דרבנן מחמת קרא דאורייתא וכן גבי כסוי דם בחולין (דף פ\"ו) וכ\"כ בעצמו סי' כ\"ח וסי' ט\"ז גבי או\"ב. וכ\"מ בפמ\"ג ע\"ש:"
+      ],
+      "en_segments": [
+        "(Siman 61 seif 6) But if he slaughtered and found a treifah — exempt. Rambam omitted this baraita in Sifrei that treifah is exempt from gifts, for we exclude from \"from those who slaughter the sacrifice.\" And it is written in Sefer Torat Yekusiel that Rambam holds this is only per R' Shimon who says improper slaughter is not called slaughter and we do not read \"sacrifice\" in it; but for Rabbanan who call it slaughter we do not exclude treifah from \"sacrifice.\" Rambam does not hold like Rashi Chullin 136b who excludes treifah from \"you shall give to him\" implying not to his dog. One may bring proof for Rambam from the sugya Chullin 115 — they require kilayim of animal permitted to a layman — from where? He challenged in Sefer Sha'ar HaMelech Hilchot Kilayim: why not derive kilayim permitted to a layman from the verse that kilayim are obligated in priestly gifts — if forbidden in eating why obligated in gifts? This challenge is only for those who hold treifah is exempt from gifts because forbidden in eating and not called \"sacrifice\"; but per Rambam — no question, for Rabbanan hold treifah is obligated in gifts and for them there is no proof kilayim are permitted in eating from being obligated in priestly gifts.",
+        "And see Perishah who wrote it is reasonable that even treifah that later authorities declare treifah and is d'oraita kosher is exempt from gifts because we require a sacrifice fit for the kohen's eating, not for his dog — Sifrei excludes \"those who slaughter the sacrifice\"; this is not fit for his dog. Requires further study in Sukkah 23 and Shevuot 31 that some say we do not exclude Rabbanan biblically, and likewise covering blood Chullin 86 and siman 28 and 16 regarding koy. And so in Peri Megadim — see there.",
+        "(Siman 61 seif 6) But if he slaughtered and found a treifah — exempt. Rambam omitted this baraita in Sifrei that treifah is exempt from gifts, for we exclude from \"from those who slaughter the sacrifice.\" And it is written in Sefer Torat Yekusiel that Rambam holds this is only per R' Shimon who says improper slaughter is not called slaughter and we do not read \"sacrifice\" in it; but for Rabbanan who call it slaughter we do not exclude treifah from \"sacrifice.\" Rambam does not hold like Rashi Chullin 136b who excludes treifah from \"you shall give to him\" implying not to his dog. One may bring proof for Rambam from the sugya Chullin 115 — they require kilayim of animal permitted to a layman — from where? He challenged in Sefer Sha'ar HaMelech Hilchot Kilayim: why not derive kilayim permitted to a layman from the verse that kilayim are obligated in priestly gifts — if forbidden in eating why obligated in gifts? This challenge is only for those who hold treifah is exempt from gifts because forbidden in eating and not called \"sacrifice\"; but per Rambam — no question, for Rabbanan hold treifah is obligated in gifts and for them there is no proof kilayim are permitted in eating from being obligated in priestly gifts. And see Perishah who wrote it is reasonable that even treifah that later authorities declare treifah and is d'oraita kosher is exempt from gifts because we require a sacrifice fit for the kohen's eating, not for his dog — Sifrei excludes \"those who slaughter the sacrifice\"; this is not fit for his dog. Requires further study in Sukkah 23 and Shevuot 31 that some say we do not exclude Rabbanan biblically, and likewise covering blood Chullin 86 and siman 28 and 16 regarding koy. And so in Peri Megadim — see there."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman61/seif-006/yad-avraham",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman106/seif-002/baer-heitev",
+      "volume": "yd1",
+      "siman": 106,
+      "seif": 2,
+      "slug": "baer-heitev",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 6,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "לבטל. ולדידן דקי\"ל חנ\"נ בכל האיסורים וכן באיסור דבוק צריך ס' נגד כל החתיכה ה\"ה הכא צריך ס' נגד כל החתיכה שהחלב דבוק בה ואפ\"ה החתיכה עצמה אסורה. ש\"ך:",
+        "שתצטנן. פי' כשיוציאה ותהיה חמה א\"כ יאסר החתיכה מחמת החלב שבה שאין בה ס' לבטלו אבל כשמניחה בקדרה הטעם הולך בכולו בשוה וא\"ל דהא ע\"כ החתיכה נמלחה תחלה דאל\"ה היתה אסורה משום דם והיה צריך ס' בתבשיל נגד כולה וא\"כ נאסרה תחלה מפני שנמלחה עם החלב שבה ושוב אינה חוזרת להיתרה י\"ל דמיירי שהוא חלב דרבנן או חלב של בהמה כחושה דאינו אוסר במליחה אלא כ\"ק א\"נ מיירי שהיה בחתיכה ס' נגד החלב ואח\"כ קודם בישול נחתך ממנה עכ\"ל הש\"ך:",
+        "נבלה. וא\"כ החתיכה זו עכ\"פ אסורה משום איסור דבוק א\"כ מסיר החתיכה וכו' שהרי אינו מזיק כלום במה שמסירה וא\"כ לא יניחנה בחנם בקדרה. ש\"ך:"
+      ],
+      "en_segments": [
+        "To nullify.",
+        "Until it cools.",
+        "Rendered forbidden.",
+        "Cancel. And according to Dakiyil Hanan, in all prohibitions, as well as in the prohibition of sticking, one needs a S against the entire piece, Hashem Hashem, here, one needs a S against the entire piece to which the milk sticks, and even the piece itself is forbidden. So:",
+        "Let it cool. When you take it out and it is hot, then the piece will be forbidden because of the milk in it, which does not have a S to cancel it, but when you put it in a pot, the taste goes all the way to the vat, and so the piece was salted first, but it was forbidden because of blood, and S was needed in the dish against the whole thing, and so the piece was salted first because it was salted with the milk in it and does not return to the permit. The rabbinic law, which is the milk of a rabbinic priest or the milk of a weakened animal, does not prohibit salting, but the rabbinic law, which was in the piece S against the milk, and then before cooking, it was cut from it, according to the Shachak:",
+        "It is rotten. However, this piece is still forbidden because of the prohibition of sticking, so the one who removes the piece, etc., does not harm anything in what is removed, and yet he does not place it in a cauldron. Thus: Reference 200. Reference 205."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman106/seif-002/baer-heitev",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman198/seif-039/beur-hagra",
+      "volume": "yd1",
+      "siman": 198,
+      "seif": 39,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 6,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 6,
+      "he_segments": [
+        "י\"א שלא כו'. עתוס' ס\"ז א' ד\"ה פתחה כו' וכ' סמ\"ג ומרדכי דאפי' לדעת תוס' ה\"מ דיעבד אבל לכתחלה אפי' לבעלה ולדעת רש\"י אפי' דיעבד נמי לא כמש\"ש לא עלתה כו' ובזה תליא נמי פלוגתא דסל\"ה ועב\"י קע\"ב ב' שכתב בזה כמה שיטות לגירסת תוס' אהי קאי האי ולית הלכתא וע\"ל ס\"ח וס\"ט ועש\"ך ס\"ק מ\"ט:",
+        "(ליקוט) י\"א שלא כו'. עתוס' שם ד\"ה פתחה כו' אבל ר\"ת פירש כו' וכ\"כ ברי\"ף ופי' ראב\"ד שלא קאי אלא מריבדא דכוסילתא ולמטה ועל הג' שמעתא ריבדא וליפלוף וכחול ולית הלכתא אלא מילתא דר' יוחנן עצמה כו' וז\"ש וכדאר\"ל האשה לא כו' ומביא ראיה על דר\"י דהלכתא היא אבל הראשונות לא איתמר אלא לטהרות וז\"ש חוצץ ואינו חוצץ ובשמעתא דר\"י קאמר לא עלתה לה כו' אלמא באשה קמיירי והשומע שמע וטעה וקבעם גם לראשונות באשה וליתא אלא לפלוף ואפילו יבש וכחול אפילו ע\"ג העין וריבדא אפילו לאחר ג' אינו חוצץ [ובזה מתורץ כל קושיות רש\"י בתוס' הנ\"ל חדא כו' ועוד כו' ועוד כו' ועוד כו'] וטעמו של הראב\"ד שפי' דוקא על הנך שלשה שלא הוזכר בהן לשון נקבה משא\"כ בהנך כ\"ש במילתיה דר' יוחנן דמילתיה דר\"ל לסיועיה קאתי כמ\"ש הראב\"ד דמ\"ש כי הא דר\"ל כו' אין לו שחר למידחייה הנך מימרות דהא ר\"ל לאחמורי קאתי אלא לסיועיה לר\"י וכ\"ד הרשב\"א. אבל הרמב\"ם פי' דקאי מנתנה תבשיל לבנה ואילך ואף אמילתא דר' יוהחנן וחסר שם (בדברי הרמב\"ם) תיבת לפלוף וכצ\"ל שם שרטישן או לפלוף או כו' וכן סידר שם הנך כולהו ביחד נדה כו' שרטה כו' וכן לפלוף כו' כוחל כו' פתחה כו' בד\"א כו' והנך דלעיל לא סידר שם וגירסת הרמב\"ם ההיא דמפשלת קודם כלי חרס אחר טבלה ועלתה כו' ששם שייך מימרא זו ולכן פי' מנתנה תבשיל כי מנמל ולמעלה א\"א דהא דנמל ודאי הילכתא מאבוה דשמואל כמו שהקשה רש\"י הביאו בתוס' שם. ודעת תוס' דקאי מכלי חרס ואילך וקאי נמי אף אר' יוחנן כנ\"ל ועתוס' ס\"ו ב' ד\"ה אם כו' ועוד אור\"ת דההיא כו' והא דאמרינן בסוף שמעתין כו' ובד\"ה פתחה כו' אבל ר\"ת כו' אבל הנך חומרי דכ\"ח כו' ופתחה כו' וכ\"כ הרא\"ש בסוף סל\"ח. וסמ\"ג בשם הערוך הוסיף על דברי תוס' גם להא דר\"ל ופי' דה\"ק כי הא דר\"ל כו' דודאי מילתיה לענין טהרות דהא נלמד מטומאת וטהרת נגעים ה\"ג כולהו מכ\"ח ולמטה לענין טהרות. ומ\"מ כתב הרא\"ש שיש להחמיר כדברי רש\"י וכ\"ד תוס' בד\"ה פתחה הנ\"ל וכן סתם בכמה מקומות בסי' זה ומ\"ש כאן י\"א הוא ולא בהנך משום דדעתו כדעת רי\"ף וש\"פ אלא דסמ\"ג בשם רא\"מ ומרדכי והג\"מ כתבו דאף לדעת רי\"ף וסייעתו דווקא בדיעבד אבל לכתחלה אף לבעלה ולכן בריבדא וליפלוף וכחול כ' כלשון הגמ' חוצץ ולכל חד כדאית ליה לכתחלה או דיעבד אבל בכ\"ח ונמל אף לדעת הראב\"ד עלתה בדיעבד כמש\"ל סל\"א וסל\"ד דמשום ביעתותא ובושה אם יודעת בעצמה שטבלה שפיר שפיר דמי וכ\"כ בת\"ה אבל כאן כ' י\"א משום דעת הראב\"ד הנ\"ל ומ\"ש בסל\"ה ואם שינתה כו' הוא דעת סמ\"ג והערוך אבל כל הפוסקים חולקים עליהם כנ\"ל והוא ויש מי שאומר שם ומ\"ש בסל\"ח ואם קפצה לא כו' הוא לד\"ה כי מתני' היא וכמו שחילקוה הפוסקים בין עצמה עיניה לשם אבל מה שסתם במפשלת (בסעיף מ\"א) ונתנה תבשיל (בסוף סימן קצ\"ט) שלא עלתה דבריו תמוהין ונמשך אחר הרמב\"ם והטור בהעתקתו ולא נזכר להנ\"ל ומ\"ש בסל\"ג י\"א שלא כו' הוא ג\"כ לדעת רש\"י וכן לדעת ראב\"ד אלא שהראב\"ד אינו מסכים עמו בפי' אלא פי' כפי' תוס' וכן פירשו כל הגאונים והפוסקים וכמש\"ל סל\"א אלא דמ\"מ הסכים עמו לדינא כמ\"ש בספרו והביאו ב\"י שחילק בין ההיא דהטביל את המטה לההיא דנמל דאדם שאני דנכנס לו בין אצבעותיו וכ\"כ הר\"נ [וכ\"כ בת\"ה ועוד כ' שי\"א שה\"ה לאדם וההיא דהכא בטיט שעל שפת הנהר ואפשר שז\"ש רש\"י בנדה שעוברות עליהן וע\"ל סל\"א ומש\"ש]. וכ\"כ הרא\"ש בסל\"ג ויש מחלקין בין אדם לכלים כו' אלא שחלק עליהם וכ' ומיהו לפי הטעם שהמים מקדמים אין לחלק והסכים לפי' תוס' הנ\"ל וז\"ש שם י\"א כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Some say that she should not, etc. See Tosafot on Niddah 67a, s.v. 'she opened,' etc. The Semag and Mordechai write that even according to Tosafot this distinction applies only after the fact, whereas initially it applies even for immersion to permit her to her husband. According to Rashi, however, the immersion is invalid even after the fact, as implied by the wording, 'her immersion did not count,' etc. The dispute in seif 35 also depends on this issue. See the Beit Yosef, 172b, who records several views concerning the reading of Tosafot and the scope of the phrase, 'the halachah does not follow,' and see above, seifim 8 and 9, and the Shach, seif katan 49.",
+        "(Addendum) Some say that she should not, etc. See Tosafot there, s.v. 'she opened,' etc. Rabbeinu Tam explains differently, as cited by the Rif. The Raavad explains that the rejection applies only from the teaching concerning the mark of bloodletting and onward, namely to the three discussions of the bloodletting mark, eye discharge, and eye paint, while Rabbi Yochanan's own ruling remains authoritative. The Gemara's citation of Reish Lakish supports Rabbi Yochanan's ruling, whereas the earlier teachings were stated only regarding handling sacred food in purity. This is why those teachings use the terms, 'constitutes an interposition' and 'does not constitute an interposition,' while Rabbi Yochanan's teaching says, 'her immersion did not count,' clearly referring to a woman immersing for her husband. The listener heard Rabbi Yochanan's ruling and mistakenly applied it to the earlier teachings as well. According to this explanation, dry eye discharge, eye paint even upon the eye itself, and a bloodletting mark even after three days do not invalidate immersion. This resolves Rashi's questions there. The Raavad limits the rejection to those three teachings because they are not formulated in the feminine, unlike the other teachings. Certainly Rabbi Yochanan's ruling is supported by Reish Lakish, whose statement comes to be stringent, not to reject Rabbi Yochanan. The Rashba agrees.",
+        "Rambam, however, understands the rejection as applying from the case of a woman placing food before her nursing child and onward, including Rabbi Yochanan's ruling. In Rambam's text the word 'eye discharge' is missing and must be restored. He accordingly groups all these cases together, but does not include the earlier teachings there. Rambam's version places the teaching about a woman lifting her child before the discussion of an earthenware vessel and after the words, 'she immersed and her immersion counted,' which is where this statement belongs. He therefore begins the rejected teachings with the case of placing food before her child. The teaching concerning a harbor cannot be included, because that ruling certainly follows the law, as derived from the father of Shmuel, as Rashi objects in Tosafot there.",
+        "Tosafot understand that the rejection applies from the earthenware vessel onward, including Rabbi Yochanan's ruling. See Tosafot on Niddah 66b, s.v. 'if,' and 67a, s.v. 'she opened.' The Rosh rules likewise at the end of siman 38. The Semag, in the name of the Aruch, extends Tosafot's view to Reish Lakish's statement as well, explaining that it certainly concerns purity, since it is derived from the laws of impurity and purity of skin lesions. Nevertheless, the Rosh writes that one should be stringent in accordance with Rashi, and Tosafot there also incline this way. The Shulchan Aruch therefore rules stringently without qualification in several places in this siman. Here, however, he writes, 'some say,' because his primary view follows the Rif and the other halachic authorities. The Semag in the name of the Raem, the Mordechai, and Hagahot Maimoniyot nevertheless write that even according to the Rif and those who agree with him, the leniency applies only after the fact, but initially one must be stringent even for immersion to permit her to her husband.",
+        "Accordingly, concerning the bloodletting mark, eye discharge, and eye paint, the Shulchan Aruch uses the Gemara's language, 'constitutes an interposition,' each according to the relevant view, initially or even after the fact. Concerning an earthenware vessel and a harbor, however, even according to the Raavad the immersion counts after the fact, as stated above in seifim 31 and 34, because the concern is fear or embarrassment. If she knows that she immersed properly, the immersion is valid. The Torat HaBayit likewise rules this way. Here the Shulchan Aruch writes, 'some say,' because of the Raavad's view. The statement in seif 35, 'and if she deviated,' follows the Semag and Aruch, but all the other halachic authorities disagree, as explained above; this is the opinion introduced there as, 'there is one who says.' The ruling in seif 38, 'if she jumped, her immersion did not count,' is accepted by all, since it is an explicit Mishnah. The halachic authorities distinguish between that case and closing one's eyes.",
+        "The Shulchan Aruch's unqualified rulings concerning a woman lifting her child in seif 41 and placing food before her child at the end of siman 199 are therefore difficult. He followed Rambam and the Tur when copying them, without addressing the preceding discussion. The ruling in seif 33, 'some say that she should not,' follows both Rashi and the Raavad. The Raavad disagrees with Rashi's interpretation but agrees with the law, as he writes in his work cited by the Beit Yosef. He distinguishes between immersing a bed and the case of a harbor, because water can enter between a person's toes. The Ran likewise writes this. The Torat HaBayit adds that some apply the same rule to a person, and explains that the case here concerns mud on the riverbank. This may be what Rashi means by saying in Niddah that women walk across them. See above, seif 31. The Rosh also records in seif 33 that some distinguish between people and vessels, but he disagrees, writing that according to the rationale that the water reaches the object first, there is no basis for distinction. He therefore agrees with Tosafot's explanation, which is why the Shulchan Aruch writes there, 'some say,' etc. (End of addendum.)"
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman198/seif-039/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman245/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 245,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "bucket": "reject_spot_review",
+      "heSegs": 4,
+      "enSegs": 8,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": "REJECT",
+      "spot_reason": "Non-contiguous lemma stubs then bodies; contiguous rejoin cannot align.",
+      "he_segments": [
+        "היה מנהג כו'. ר\"ל כמש\"ו בנדרים ל\"ו ל\"ז:",
+        "חייב כו'. קדושין ל' א' וכמ\"ש בס\"ד:",
+        "תורה כו'. דלא כפירש\"י שם חומש לבד ומש\"ש תורה זו מקרא ר\"ל דל\"ת מדרש תורה כמ\"ש בפ\"ב (מ\"ט ב') שם:",
+        "וה\"מ כו'. כמו שמחוייב עצמו כמ\"ש בבכורות כ\"ט א':"
+      ],
+      "en_segments": [
+        "If there was a custom, etc.",
+        "He is obligated, etc.",
+        "Torah, etc.",
+        "This applies specifically, etc.",
+        "If the custom was, etc. ; meaning as explained in Nedarim 36-37.",
+        "Liable, etc. ; Kedushin 40 side a, and as written in Shulchan Aruch.",
+        "Torah, etc. ; not like Rashi there who explains chumash alone; and as explained there \"Torah\" means mikra ; meaning not midrash Torah, as written in chapter 2 (49 side b) there.",
+        "And the “Ps.” It is like Hashem Himself as a “t"
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman245/seif-006/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman263/seif-005/baer-heitev",
+      "volume": "yd1",
+      "siman": 263,
+      "seif": 5,
+      "slug": "baer-heitev",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "קודם. וה\"ה הגיע לבן ח' אלא שלא נימול בחיים מחמת איזה סיבה. ש\"ך. (ואם קברו התינוק תוך שמונה ימים בלתי נימול בצור מותר לחטט ולמולו בצור. ת' כנסת יחזקאל שאלה מ\"ד) :",
+        "גרות. כתב הט\"ז נ\"ל הטעם כיון דאמרינן שאברהם אבינו עומד ומבחין מי שהוא נימול אינו מניחו לגיהנם וזה שמל את העובד כוכבים מבטל סימן המילה מישראל עכ\"ל אבל הש\"ך פירש דעושה כן משום רפואה כגון שצריך העובד כוכבים לחתוך ערלתו מפני מכה וכיוצא בו ואסור לרפאותו בחנם אבל בשכר שרי ע\"ש:"
+      ],
+      "en_segments": [
+        "Previously.",
+        "Conversion.",
+        "First. And Hashem came to Ben, but we did not face any reason in life. “Third. (And if the baby was buried in eight days, it is not possible to snort and complete in the siege. “Arise a question from Hashem.”",
+        "Conversion ; Taz wrote: it appears the reason is since we say Avraham our father stands and examines whoever is circumcised ; he does not let him go to Gehenna; and this one who circumcised the gentile removes the sign of circumcision from Israel ; end. But Shach explained he does so for healing, e.g., the gentile needs to cut his foreskin because of a wound and the like, and it is forbidden to heal him for free but for payment it is permitted ; see there. Reference 7. Reference 90."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman263/seif-005/baer-heitev",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman269/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 269,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 6,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "כיצד כו'. הנה בפ\"ט מה' מלכים כתב שש עריות אסורות על ב\"נ האם ואשת אב ואשת איש ואחותו מאמו וזכור ובהמה שנאמר על כן יעזב איש את אביו זו אשת אביו ואת אמו כמשמעה ודבק ולא בזכור (כצ\"ל ברמב\"ם שם) באשתו ולא באשת חבירו והיו לבשר כו' להוציא בהמה כו' ונאמר אחותי בת אבי אך לא בת אמי ותהי לי לאשה. והוא דברי ר\"ע בסנהדרין נ\"ה א' אך אחותו לר\"ע שרי כמש\"ש ב' וערש\"י שם ד\"ה ת\"ש וגם כו' אלא שהוא פסק כרבנן שם נ\"ז ב' ת\"כ דר\"י כל ערוה כו' וחכ\"א הרבה כו' ונראה דל\"ג הרבה אלא יש שאין ב\"ד של ישראל כו' והיינו ההיא דמפרש בסיפא בא כו' והן אחותו לבד ונערה המאורסה (צ\"ע מהו בנערה המאורסה) אחותו מקרא דע\"כ יעזב כו' דלר\"ע צריך לדחוקי ורבנן מוקי כפשטיה ובת\"כ פ' קדושים ואיש כו' חסד הוא ושמא תאמר קין נשא אחותו ת\"ל חסד הוא ועולם מתחלתו לא נברא אלא בחסד וכמש\"ש נ\"ה ב' ת\"ש מפני מה כו' ולא כדיחוייא דהתם ודלא כפירש\"י שם נ\"ז ב' ד\"ה הרבה כו' וכ\"כ הרמב\"ן אלא שכתב דכל אותן שמאם אסורות לרבנן ואין בינו לבין הרמב\"ם אלא אחות האם מן האם וכמ\"ש ברמב\"ן. דכ\"ב עריות הן ד' שאינן מצד קורבה זכר ובהמה ואשת איש ונדה וכולן אסורות לעובד כוכבים חוץ נדה דלית להו וח\"י עריות מצד קורבה כמ\"ש בפ\"א דיבמות ט\"ו נשים כו' שש עריות כו' הרי כ\"א ואשת אחיו חשיב שם ג' פעמים מאביו ומאמו ושלא היה בעולמו ואחותו ב\"פ מאביו ומאמו והנה שבע הן קורבת עצמו ושבע מצד אשתו וד' אשת קרובים שבעל אוסר על אשתו והנה בב\"נ שבע שמצד אשתו כולן מותרים דאין אישות לעובר כוכבים וכן ד' של אשת קרובים כולן מותרים לבד אשת אביו דאתרבאי מקרא לר\"ע אבל לר\"א כולן מותרים וז' שמצד עצמו אותן שמצד אב כולן מותרים כמ\"ש ביבמות פי\"א (צ\"ח א') דאין אב לעובד כוכבים לכן אמרו שם נ\"ח ב' דעובד כוכבים מותר בבתו וכ\"ש בבת בתו ובת בנו וכן אחות האב לר\"ע מה\"ט אלא לר\"א אתרבאי מקרא אבל אחות האם ס\"ל לרמב\"ן דאסור אף לר\"ע וכתב משום דכתיב לאמר אתרבאי כל שמצד אם אבל הרמב\"ם ס\"ל דאינן אסורין אף לרבנן אלא אמו ואחותו שמפורשין וכמו לר\"מ אליבא דר\"ע ול\"פ ר\"מ וחכמים אלא באחותו ובפי' דקרא כמ\"ש בגמ' הנ\"ל ופריך שם נ\"ז ב' וסבר ר\"מ כל כו' ופי' הרמב\"ן דקושיא לא קאי אלא אסיפא דמילתא דאמר אין ב\"נ מוזהר כו' וכאן תני אחותו כו' אבל מאשת אביו לא פריך דלא גזרו שאר אב בגרים דלא כפירש\"י שם ד\"ה ואיכא דתני כו' וראיה ממה דפריך לר\"מ דוקא ואי כפירש\"י גם לרבנן קשה דהא רבנן ל\"פ בזה ומשני ל\"ק הא ר\"מ כו' וה\"ה דלא אתי הברייתא כרבנן דל\"פ אלא באחותו דהא ע\"כ כר\"ע ס\"ל מדמודי בחייבי מיתות ב\"ד לר\"מ ובפלוגתא דראב\"י ור\"ש ביבמות צ\"ז ב' פסק כרב אחא בר יעקב וכלישנא קמא דלא כרי\"ף וטעמו ממש\"ש צ\"ח א' אמר רבא הא דאמור רבנן כו' משמע דאף מדרבנן אין אב לגר וקאמר דהא שני אחין תאומים כו' וכן כל שאר שיש בו צד אב מותר לכתחלה אחות האב מן האם ואחות האם מן האב ואחותו מן האב ואע\"ג דבברייתא שם כולן אסורין כבר אוקמוה כר\"א משום דאחות האב אסור לב\"נ אליביה אבל לר\"ע ורבנן כל שיש בו צד האב מותר לגמרי וכ\"כ הרמב\"ן ורשב\"א אבל אחות האם מן האם אסור לגר מד\"ס אע\"ג דמותר לב\"נ מדקאמר אין אב לעובד כוכבים כו' משמע דאם יש לו וכן באחין מן האם דאסור כנ\"ל וכן צד האב שמצד אישות מותר אפי' אשת אב לד\"ה רק אחיו מאמו כנ\"ל וכמו בקורבי עצמו וכמש\"ש מאי לאו כו' לא כו' ולא קאי רק אאשת אחיו לבד דלא בפי' הראב\"ד שקאי אכל האסורין מאישות דהא חשיב שם אשת אחי אביו והיא ודאי אפי' נשאה כשהוא גר. רמב\"ן. ועוד חילוק בין ברייתא לרבנן דלהברייתא אחות אם מן האם יוציא אבל לרבנן יקיים כמו אחות אב מן האב לר\"מ דאינו אלא משום אחלופי וה\"ה לאחות האם מן האם לר\"ע ורבנן וכ\"ש באשת אחיו מאמו זהו שיטת הרמב\"ם וז\"ש אם היה נשוי כו' לשאר כו':",
+        "(ליקוט) עמש\"ש והכלל להרמב\"ם לב\"נ אסור אמו ואחותו מאמו ואשת אביו ושאר מותר לגמרי וכרבנן דר\"מ. ובגר צד אביו מותר לגמרי בין שמצד עצמו בין מצד אישות הלכך מותר אף באשת אב ובזה קל מעובד כוכבים אבל בזה חמור ממנו שכל מצד האם אסור לו בין מצד עצמו או מצד אישות הלכך אסור באמו ואחות אמו מן האם זהו מצד עצמו ומצד אשתו אסור אחות אשתו מאמה ובת אשתו ובת בתה וחמותו ואם חמותו וכמ\"ש בס\"ה הנושא כו' וה\"ה כו' וה\"ה להנך וכמ\"ש בתוס' ורמב\"ן ומצד אישות אסור באשת אחיו מאמו כולם ט' עריות. ושיטת הרמב\"ן בגר כדברי הרמב\"ם אלא בעובד כוכבים כתב דלד\"ה אסור בכל העריות מצד אם ומותר מצד אב ומצד אישות ל\"ל כלל רק אותן שפרטן אחות האב מן האם לר\"א ואשת אב לר\"ע אלא דלר\"מ אליבא דר\"ע אין אסור קרובי אם אלא מיתת ב\"ד ולר\"א ורבנן אף חייבי כריתות. ושיטה אחרת לרש\"י וע' בדברי הרמב\"ן (ע\"כ):"
+      ],
+      "en_segments": [
+        "A non-Jew is forbidden, etc. As Rava states there: “That which the Sages said,” etc. This applies both to his own relatives and to relatives connected through the wife of a relative, as the Mechaber proceeds to explain.",
+        "Even though, etc., such as, etc. This follows Rabbi Eliezer ben Yaakov and the first version of the Gemara.",
+        "Therefore, etc. This is stated in the baraisa there.",
+        "And likewise a sister, etc. This does not follow the baraisa, but rather the Sages, as explained above.",
+        "And some prohibit, etc. This follows Rashi's explanation cited above, according to which the Gemara also challenges from the case of a father's wife and answers, “This is Rabbi Meir,” etc. See Tosafos in Yevamos there, s.v. “His father's wife,” etc.; “However,” etc. The Tur likewise rules this way, and it is proper to be stringent in accordance with both opinions. In all of this, there is no distinction between one who was conceived before conversion and born after conversion, one who was both conceived and born before conversion, or one son who was conceived before conversion, etc. Ramban agrees with this, and Rambam and Shulchan Aruch likewise state the law without qualification. See Tosafos there, s.v. “He married,” etc. (Collected note) And some prohibit a father's wife. This is taken from the Tur, as stated above. The Rav, however, did not examine the matter carefully here, for the Tur disagrees extensively with Rambam. Since the Tur also rules like Rabbi Eliezer, he prohibits one's sister, father's sister, and mother's paternal sister, as stated in the baraisa there. The paternal side is lenient only in relationships created through marriage, such as the wife of a paternal brother, and similarly the paternal sister of a female convert's husband, as Tosafos write and as explained above. Furthermore, one who married his sister, father's sister, or mother's maternal sister must divorce her, as stated there. He must likewise divorce his father's wife, because the Tur rules in accordance with both opinions. In addition, he rules like Rabbi Shimon that a relative connected through both the father and the mother is forbidden just like one connected through the mother alone, unlike Rambam, who writes concerning two twin brothers, etc. (End of collected note.)",
+        "But, etc. Every relation based exclusively on the maternal side is forbidden, just as the wife of his maternal brother is forbidden, as explained above. Nevertheless, it appears that his sister is forbidden even when she shares both his father and mother, for she is already forbidden to a ben Noach. This is derived from the verse, “And indeed she is my sister,” etc.; “but,” etc."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman269/seif-003/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman308/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 308,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "(ליקוט) או כו' מותר כו'. שם כ\"ה א' איבעיא להו כו' (ע\"כ):",
+        "והצמר כו'. כנ\"ל בס\"ב:"
+      ],
+      "en_segments": [
+        "Collected note: Or, etc., is permitted, etc.",
+        "And the wool, etc.",
+        "(Luke) or P. is permitted. It's called \"Hashem of hosts,\" and he said",
+        "And he's called 'W'. Same in the US:"
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman308/seif-003/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman331/seif-034/beur-hagra",
+      "volume": "yd1",
+      "siman": 331,
+      "seif": 34,
+      "slug": "beur-hagra",
+      "bucket": "reject_spot_review",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": "REJECT",
+      "spot_reason": "Glues distinct האומר / וי״א notes; E2-E3 broken MT.",
+      "he_segments": [
+        "האומר כו'. עבתוס' דעירובין ל\"ב א' ד\"ה ר\"ש. ולר\"ת כו':",
+        "וי\"א כו'. טור והוא מדברי תוס' שם ואור\"י כו' וכ\"כ הרא\"ש שם וכהר\"ש מפוליזא שם. אבל דברי הטור והרב א\"א להולמן דהא בחולין שם אמרינן ומצא תרום וגם דבריהם אינן מובנים וכן מצאתי במש\"ל שגם הוא תמה עליהם:"
+      ],
+      "en_segments": [
+        "One who says, etc.",
+        "And some say, etc.",
+        "They say so. Absolutely, he is called “Ah.” And to Hashem:",
+        "Oh, yes. He says, “Go forth there and the light of Hashem.” But the words of the column and Rabbi A. for the sake of the people of Dea in Berlin, where they were told, and they were not understood as well as found in the IDF that they also discussed:"
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman331/seif-034/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman334/seif-042/beur-hagra",
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 42,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 10,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 4,
+      "he_segments": [
+        "ואע\"פ שנמנים כו'. פ\"ד דפסחים (נ\"ב א'):",
+        "ואי סני כו'. מ\"ק י\"ז א':",
+        "כגון כו'. הרא\"ש שם:",
+        "שמתעסק כו'. בפ\"ב דחגיגה (ט\"ו ב'):",
+        "או כו'. פ' בתרא דיומא (פ\"ו א'):"
+      ],
+      "en_segments": [
+        "Although they are counted, etc.",
+        "If he is hated, etc.",
+        "For example, etc.",
+        "One who occupies himself, etc.",
+        "Or, etc.",
+        "“And I am Hashem of hosts.”",
+        "And I'm not Sani Cho. M.J.:",
+        "Like a qua. The fire there:",
+        "employed as a. In the United States of America",
+        "Or a qua. P. B. A.D.:"
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman334/seif-042/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman334/seif-043/baer-heitev",
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 43,
+      "slug": "baer-heitev",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 3,
+      "enSegs": 6,
+      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "החכם. והוא שראוי להורות ויגע בתורה. ב\"י בשם הקונטרסים:",
+        "המחשב. כ' הש\"ך נראה דהיינו דוקא כשמחשב וקובע ע\"פ שהיו רגילים לקבוע בא\"י בזמן שהיה ב\"ה קיים אבל לחשב בתקופות ומזלות כמו שנהגו האידנא אדרבה מצוה היא כדאמרי' כל היודע לחשב תקופות ומזלות ואינו חושב עליו הכתוב אומר ואת פועל ה' לא יביטו וגו':",
+        "למי. ובא לב\"ד להתרעם עליו שנידהו שלא כדין ב\"ד מנדין אותו כ\"כ הלבוש ומשמע דכל שלא בא לב\"ד לקבול עליו אין ב\"ד נזקקין לנדותו. ובכסף משנה כתב בשם הרשב\"ץ בתשובה דהכא מיירי במי שרגיל בכך שב\"ד נזקקין לנדותו ומשמע דברגיל אפי' אינו קובל עליו הב\"ד נזקקין לנדותו עכ\"ל הש\"ך:"
+      ],
+      "en_segments": [
+        "The sage.",
+        "One who calculates.",
+        "Against one who.",
+        "The sage. This is where he is fit to issue rulings and labors in Torah. Beit Yosef in the name of the Kuntresim.",
+        "Who calculates. The Shach wrote: it appears that this is specifically when he calculates and establishes the calendar orally, as they were accustomed to establish it in Eretz Yisrael when the Temple stood. But to calculate seasons and constellations as is customary nowadays is, on the contrary, a mitzvah, as we say: whoever knows how to calculate seasons and constellations and does not calculate, Scripture says of him, “and they do not regard the work of Hashem,” etc.",
+        "For one who. If he comes to beit din to complain that the other placed him in nidui unlawfully, beit din places the other in nidui. So wrote the Levush. It implies that as long as he does not come to beit din to complain, beit din does not attend to placing him in nidui. Kesef Mishneh wrote in the name of Tashbetz in responsum that here it speaks of one who is accustomed to doing so, in which case beit din attends to placing him in nidui. It implies that where he is accustomed, even if the injured party does not complain, beit din attends to placing him in nidui. End quote from Shach. Reference 40."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman334/seif-043/baer-heitev",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman334/seif-045/beur-hagra",
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 45,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 2,
+      "enSegs": 4,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
+      "he_segments": [
+        "ואם דינו כו'. שם לפי' הרא\"ש בשם ר\"ת:",
+        "ואפי' לא כו'. נדרים נ' ב':"
+      ],
+      "en_segments": [
+        "If his judgment, etc.",
+        "Even if he did not, etc.",
+        "If he is a . . This is the name of Hashem:",
+        "\"No,\" he did. Let's say, \""
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman334/seif-045/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "yd1/siman371/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 371,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "bucket": "reject_spot_review",
+      "heSegs": 3,
+      "enSegs": 4,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "spot_review_suggested_alt": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spot_verdict": "REJECT",
+      "spot_reason": "Glues H0 opening-size note with H1 tumah-susceptible note.",
+      "he_segments": [
+        "בנקב שיש בו טפח. פירוש במקום אחד אבל אם אינו במקום אחד אלא ע\"י צירוף יש טפח כגון מה שקורין גיגאטי\"ר שעשוי ע\"י סירוג ויש שם נקבים קטנים הרבה אין זה מביא הטומאה והוא משנה פרק י\"ג דאהלות הסירוגות מצטרפות למלא מקדח דברי בית שמאי וב\"ה אומרים עד שיהא כמלא מקדח במקום אחד ומבואר שם בין להביא הטומאה ובין להוציא ופשוט הוא דדין שיעור מקדח בחלון שעשוי לאורה שוה לשיעור טפח בחלון העשוי לתשמיש כמבואר בפ' הנ\"ל וכ\"פ רמב\"ם להדיא פרק י\"ד דטומאת מת דדוקא בעינן טפח במקום א' ואם לאו הרי היא כסתומה. וכ\"כ הרמב\"ם בפירוש המשנה בפרק ח' דאהלות גבי סריגת החלון ועיין מה שכתבתי מזה לקמן סעיף ד' על דברי הדרישה:",
+        "וכל דבר המקבל טומאה. זה קאי גם ארישא דסותם כל הנקב דמועיל אפילו אין מבטלו שם מ\"מ בעינן שלא יהא דבר המקבל טומאה אלא צריך לסתמו בעץ או באבן דבר שאינו כלי כמ\"ש בית יוסף בשם לשון הרי\"ף:",
+        "אא\"כ יכול לעמוד בלא סמיכה. בפרק לא יחפור סוף (בבא בתרא דף י\"ט) כתבו התוס' טעם לזה דכל שצריך סמיכה מקרי סתימת עראי ועוד טעם אחר שהסמיכה לא תהיה על ידי דבר שהוא מקבל טומאה אע\"פ שהדבר עצמו שסותם הוא אינו מקבל טומאה מכל מקום כיון שהדבר שסומכו מקבל טומאה הוה כאלו הוא עצמו מקבל טומאה וכ\"פ הר\"ש והרמב\"ם בפ\"ו דאהלות במשנה דקוברי המת שהיו עוברין כו' ופשוט הוא לדברי הכל כל שמושיב באותו חלון עצים ואבנים כל כך הרבה עד שכותלי החלון מחזיקים אותם זה ודאי מהני וחוצץ דאין זה בכלל סמיכה כלל כנ\"ל פשוט:) ומעשה שהי' בטומאה שהיתה בבית סמוך לבית הכנסת באופן שהיתה נכנסת דרך חלון ביהכ\"נ של נשים וצוה מורה אחד לסתום החלון באותו פרוכת קטן שתלוי שם בקרסי הברזל תמיד שהוא לצניעות שתולין אותו שם הנשים בשעה שאינן צריכין לראות ביהכ\"נ של אנשים ואמרתי שטעה המורה דבהדיא אמרינן במתניתין דפ' ח' דאהלות דסדין ומחצלת העשוין כאהלים שחוצץ בפני הטומאה אבל אם אין עשוים כאהלים אין חוצץ וכתב שם הר\"ש כל שהוא עשוי כאהל חוצץ אע\"ג דמקבל טומאה ואם אין עשוי כאהל אינו חוצץ וביאר ברמב\"ם פרק י\"ג דטומאת מת שאין עשוי כאהל אלא מתוח בלבד ואין להם שיפוע אהלים ואין שם כתלים עכ\"ל וה\"ה כאן שאין כאן אלא סתימה על החלון ולא כותל ולא אהל ותו דאותו הפרוכת תלוי בטבעות של ברזל נמצא דהברזל עושה הקיום ובהדיא כ' רמב\"ם פרק י\"ח דטומאת מת אם הגיף א' את הדלת וסמכו במפתח כדי שלא יטמא את הבית וכן אם היה אדם מבפנים או בחוץ סומך את הדלת אם יכול הדלת לעמוד בפני עצמו הבית טהור ואם לאו הבית טמא לפי שהאדם והכלים הוא שחוצץ בפני הטומאה והאדם והכלים מביאין את הטומאה ואינם חוצצין עכ\"ל וכן כתבו התוס' בפרק לא יחפור (בבא בתרא דף י\"ט) בד\"ה רואין כו' לענין אם סגר הדלת במפתח דבעינן דבר החוצץ עומד על ידי דבר שאינו מקבל טומאה ולשונם אזכיר בסמוך ה\"ה נמי כאן שהטבעות של ברזל מעמידין את הפרוכת והם כלים וא\"ל ממ\"ש במשנה דכלים דף כ\"א דטבעות כלים טהורות דהא איתא בפרק במה בהמה (שבת דף נ\"ב) ברש\"י וז\"ל ומיהו עם הרצועה מקבלת טומאה אלא שאין מקבלת טומאה לעצמה עכ\"ל ממילא כאן שהטבעות עם אותו פרוכת הוה ודאי שם כלי עליהם והוה כמפתח ותו נראה דאפי' אם אינו מקבל טומאה מ\"מ אינו חוצץ וזה מוכח ממה דקשה תרי משניות אהדדי לכאורה דבפי\"א דכלים שנינו כל כלי מתכות שיש לו שם בפני עצמו טמא חוץ מן הדלת ומן הנגר ומן המנעול והפותה שתחת הציר (והציר) [והצינור] שנעשו לקרקע פי' הרמב\"ם שתשמישן עם הקרקע משמע מזה דכלים אלו ובתוכן מנעול שנועל בו בית לא מקבל טומאה ובפרק ו' דאהלות שנינו קוברי המת שהיו עוברים באכסדרה והגיף אחד מהם את הדלת וסמכו במפתח פירש הרמב\"ם שהיה שער הבית קצת פתוח והחזיק אחד מהנושאים לנעול שער הבית במפתח אשר בו עכ\"ל אם יכול הדלת לעמוד בפני עצמו טהור פירש ר\"ש דאם יכולה לעמוד בלא סמיכת המפתח ה\"ל מפתח כמאן דליתיה ואם לאו טמא דכל דבר הנסמך באדם וכלים אין חוצץ בפני הטומאה משמע מזה דמפתח שהדלת נעול בו מקבל טומאה וע\"כ אינו חוצץ ובתוס' פרק לא יחפור (בבא בתרא דף י\"ט) כתוב טעם למה אמרינן דאם ינטלו אינם יכולים לעמוד דאינו חוצץ וז\"ל והיינו טעמא דסתימת עראי היא כיון שאינו יכול לעמוד בפני עצמו אי נמי משום דבעינן דבר החוצץ עומד על ידי דבר שאינו מקבל טומאה ומיהו בפי' משניות מצא ר\"י דמפרש דאפי' במפתח שאינו מקבל טומאה איירי ומטעמא דלא חשיב אהל לחוץ בפני הטומאה כיון שעומד ע\"י כלי אע\"ג דאינו מקבל טומאה עכ\"ל נ\"ל דהתו' באו לפרש המשנה דאהלות שזכרנו ולתרץ קושיא שזכרנו דתחלה תירצו דמפתח לאו דוקא אלא כל דבר שבעולם אם בא לסמוך בו דבר החוצץ אינו חוצץ ולא תליא מילתא במקבל טומאה אלא סתימה מעלייתא בלא שום סמיכה בעינן ואח\"כ כתבו דדוקא מפתח נקט שהוא מקבל טומאה ולא מיירי בההוא גוונא דמיירי בכלים שזכרנו דהתם המנעול אין מקבל טומאה דנעשה תחלה לצורך תשמיש קרקע אבל באהלות מיירי ממפתח דעלמא שלא נעשה לקרקע והוא מקבל טומאה ואח\"כ כתבו שבפי' המשניות ס\"ל דודאי מפתח דוקא נקט דאינו חוצץ כיון שהוא על כל פנים כלי מה שאין כן במידי דאינו כלי לגמרי ולא תליא מילתא בטומאה ומתני' דאהלות מיירי אפי' במפתח שנעשה לקרקע דאין מקבל טומאה הנה לפנינו דמפתח שנועלין בו הדלת פשיטא דאינו חוצץ ואפי' אינו מקבל טומאה אלא אפי' שאר דבר שאינו כלי לגמרי אין יכול לסמוך בו הדלת לתירוצא קמא ובמרדכי פרק לא יחפור כתב כתירוצא קמא דצריך שיהיה עומד שם בחלון בלא סמיכת דבר אחר וכ\"כ רמ\"א בסי' זה בסמוך. ואע\"ג דבמרדכי הביא שם עוד מתני' דהגפת מפתח לא מהני אע\"פ שאינו מקבל טומאה לא נתכוין שיהיה עכ\"פ כלי דהא פסק כתירוצא קמא כמו שזכרתי אלא בא לתקן בזה שלא נימא דבטומאה תליא מילתא תדע דהא לא זכר שיהיה דוקא כלי. ממילא נשמע מזה דלא מועיל חציצת דלת או חלון כל שאינה יכולה לעמוד בלא צירים של ברזל או שאר דבר של ברזל אע\"פ שהם לצורך קרקע וזה מועיל שלא יקבלו טומאה מ\"מ אינם חוצצים כמו שזכרנו ולפ\"ז הא דאמרי' בסעיף ד' דמהני נעילת מפתחים לחצון היינו אם הם בענין שיכולים לעמוד בלא שום סמיכה ולא ביש לה צירים של ברזל דאל\"כ אינם חוצצין דהוה כמפתח של משנה דאהלות ועיין מה שאכתוב לקמן שלא לסמוך להקל כדברי הדרישה לנעול הבית כדי לחוץ. ועל כן בודאי אינו חוצץ ומטעם זה יראה דאם יש סתימה בחלון של ברזל שהוא עשוי כמו סבכה שקורין בלשון אשכנז גיגאטי\"ר והוא של ברזל אינו מועיל כיון שהוא מקבל טומאה) ואינו עשוי כעין אהל ועיין מה שכתבתי מזה בסעיף ד' שעל פי זה אין להתיר לכהן להיות בבית ולסתום הפתח והחלון:"
+      ],
+      "en_segments": [
+        "A bank that has a cultivator. It means one place, but if it is not one place, it does not bring such a cult, and it does not mean that it does not mean that it does not mean that it does not occur in a single place, and it does not mean that it is used in the window, and that it is not possible to take place in a single place. As such, the Rambam interprets The subcommittee of the window, and see what I have written from it to C.D. on the terms of demand:",
+        "And anything susceptible to tumah. This applies also to the first clause, where one completely seals an opening. Even if he does not permanently nullify the sealing material there, the material itself may not be something susceptible to tumah. It should therefore be sealed with wood, stone, or another substance that is not a utensil, as Beit Yosef cites from Rif.",
+        "Unless it can stand without support. Tosafot in Bava Batra 19 give two reasons. First, anything that requires external support is merely a temporary closure. Second, the barrier may not depend for support upon an object susceptible to tumah. Even if the barrier itself is not susceptible, if it is held in place by something that is, it is treated as though the barrier itself depended upon a tumah-receiving object. R. Shimshon and Rambam rule similarly in Ohalot. It is obvious, however, that if one fills a window with enough stones or wood that the window walls themselves hold the material in place, that is a valid barrier and is not called external support.",
+        "An incident occurred where tumah was present in a house adjacent to a synagogue and could pass through a window of the women's section. One halachic authority instructed that the window be closed with a small curtain that hung there permanently on iron hooks for privacy. I said he erred. Ohalot teaches that a sheet or mat interposes against tumah only when it is made and positioned as an actual tent. If merely stretched flat without sloping sides or walls, it does not interpose. Here the curtain merely covers the window and is neither a wall nor an ohel. Furthermore, the curtain is held by iron rings. Rambam rules that if a door is kept shut by a key or by a person supporting it, the house is pure only if the door can stand closed by itself. If not, the supporting person or utensil is the effective barrier, and people and utensils transmit tumah but do not interpose. Tosafot likewise require the barrier to stand by means of something not susceptible to tumah. The iron rings here function like the key. Even if certain rings are not independently susceptible to tumah when detached from their normal use, when joined to the curtain they clearly function as utensils. There is also reason to say that even a support not susceptible to tumah may fail. Kelim teaches that certain metal door components made for attachment to the ground are not susceptible to tumah. Ohalot nevertheless says that a door supported by a key fails unless the door can stand on its own. Tosafot offer two explanations: either any barrier requiring support is temporary and invalid, or specifically a tumah-receiving support invalidates it. They then cite a commentary holding that even a key not susceptible to tumah invalidates because the barrier is not independently established. Mordechai follows the first explanation and requires the material in the window to stand without any other support. Rama rules this way below. Therefore, a door or window cannot be relied upon as a tumah barrier if it stands only by iron hinges or other iron fittings, even if those fittings are deemed attached to the ground and not susceptible to tumah. According to this, the locking arrangements mentioned later work only where the closure is independently established and does not rely on such supports. One should not rely upon Derishah's leniency of locking the house in order to protect a kohen. The same concern applies to an iron lattice in a window. Since it is iron and not formed as an ohel, it does not create the necessary interposition. Therefore, one should not permit a kohen to remain inside merely by closing the door or window in such a fashion."
+      ],
+      "reviewer_output_template": {
+        "id": "yd1/siman371/seif-001/turei-zahav",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "cm1/siman39/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 39,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 16,
+      "enSegs": 17,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 12,
+      "he_segments": [
+        "(ליקוט) בד\"א כו'. שם ושם (ע\"כ):",
+        "(ליקוט) שסתם כו'. ב\"ב שם (ע\"כ):",
+        "(ליקוט) או יכתבו כו'. מפני שלא כ' בו דאקנה כמש\"ל סי' מ\"ג סי\"ב (ע\"כ):",
+        "(ליקוט) או יכתבו כו'. ע' סמ\"ע סק\"ו וכ\"ה בגמ' דב\"ב קע\"א ב' (ע\"כ):",
+        "ואפי'. דדוק' במתנת ש\"מ אין כותבין לאחר מיתה. ב\"ב קנ\"ב:",
+        "(ליקוט) ואפי' מת הלוה כו'. דוקא בש\"מ אמרי' דאין שטר כו' משא\"כ כאן דהקנין היה מחיים (ע\"כ):",
+        "אפי' קבע. דבלא\"ה אף בלא קנין. ב\"ב ה' א' ובכתובות ך\"ב ש\"מ האי סהדות' כו' אפי' טובא נמי:",
+        "(ליקוט) וכן כו'. ממ\"ש האי סהדות' כו' ולא היא כו' (ע\"כ):",
+        "ויש חולקין. דפליגי על רב האי וחוזר הדין לשאר מלוה ע\"פ שדוקא בתוך הזמן לא חיישי' לפרעון וראיה מב\"מ י\"ז א' בין צא תן כו' ואמר פרעתי נאמן אע\"ג דגבי ממשעבדי וע' רי\"ף שם. רמב\"ן בשם מקצת גאונים:",
+        "(ליקוט) וי\"ח כו'. וראייתו ממצא שט\"ח דחיישי' לפרעון וממ\"ש בב\"מ י\"ז בין צא תן כו' דחי' שי' לפרעון אע\"ג דגבינן ממשעבדי כמ\"ש הרי\"ף שם וס' הראשונה ס\"ל דמצא שאני דאפי' בתוך זמנו חיישי' דאיתרע כמ\"ש בס\"ס מ\"א ומצא תן ג\"כ אין ראיה דשם לא אסיק אדעתיה ומסתמ' עושה כמה שצוהו ב\"ד משא\"כ בקנין דסתם קנין כו' ואיהו הוא דאפסיד אנפשיה כמ\"ש בב\"ב קע\"א ב' (ע\"כ):",
+        "דאי משך. לסברתם דשוה לקובע זמן ועסי' ע\"ח ס\"ח וצ\"ע וער\"ן. (ליקוט) דאי משך כו'. הרמב\"ן אזיל לשיטתו דס\"ל דשלשים יום הוא כמו קובע זמן כמ\"ש בחידושיו וכ\"כ הר\"ן ועס\"ס ע\"ח ועש\"ך (ע\"כ):",
+        "וכל שלא. סנה' שם ההיא אודית' כו':",
+        "מיהו י\"א. עתוס' כתובות שם ד\"ה ור\"י:",
+        "(ליקוט) וכל שלא כו' מיהו כו' הל' מגומגם דהוא חולק על ס' הראשונה ופליגי בשני התי' של תוס' דכתובות כ\"ב ד\"ה ורי\"א אומר כו' וי\"ל דלא חשיב שטר אלא כו' ועוד אור\"י דלא בעינן כו' (ע\"כ):",
+        "(ליקוט) וכל שלא כו' עתוס' דפ\"ג דב\"ב מ\"א ד\"ה מחאה כו' ע\"ש (ע\"כ):",
+        "(ליקוט) וכל כו'. ובתוס' דב\"ב שם ד\"ה מחאה כ' כס' ראשונה לפי מה דקי\"ל כרש\"י כמ\"ש בסי' כ\"ח אבל ביבמות כ\"ט ב' כ' כס' אחרונה (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Collected note) When does this apply, etc. There and there. (End of collected note.)",
+        "(Collected note) For ordinarily, etc. Bava Batra there. (End of collected note.)",
+        "(Collected note) Or they should write, etc. Because the document does not contain an after-acquired-property clause, as written below in siman 43, seif 12. (End of collected note.)",
+        "(Collected note) Or they should write, etc. See Sema, seif katan 6. So it is in Bava Batra 171b. (End of collected note.)",
+        "And even. Only with a gift of a dying person do we say not to write after death, Bava Batra 152.",
+        "(Collected note) And even if the borrower died, etc. Only regarding a dying person's gift do we say that the document, etc., because there the transfer was not fully effected in his lifetime. Here, however, the kinyan was made while he lived. (End of collected note.)",
+        "Even if he fixed. For without this, even without a kinyan, Bava Batra 5a. In Ketubot 22, \"we learn from here that this testimony, etc.; even a long time, too.\"",
+        "(Collected note) Likewise, etc. From the statement, \"this testimony, etc.; but it is not so, etc.\" (End of collected note.)",
+        "And there are those who disagree. They disagree with Rav Hai and return the case to the ordinary law of an oral loan, where only within the due date do we not suspect repayment. Proof is from Bava Metzia 17a, the distinction between \"go out and give,\" etc., where if he says \"I repaid\" he is believed even though collection could otherwise be from encumbered property. See Rif there. Ramban in the name of some Geonim.",
+        "(Collected note) And there are those who disagree, etc. Their proof is from a found promissory note, where we suspect repayment, and from Bava Metzia 17, \"between 'go out and give,' etc.,\" where we suspect repayment even though collection is from encumbered property, as the Rif writes there. The first opinion responds that a found document is different, for even within its due date we are concerned because the document's condition has been weakened, as written at the end of siman 41. The case of \"go out and give\" is also no proof, because there the debtor did not anticipate needing a receipt and ordinarily follows beit din's instruction, unlike a kinyan, since an ordinary kinyan is intended for writing and he caused his own loss, as stated in Bava Batra 171b. (End of collected note.)",
+        "For if he extended. According to their view this is like fixing a due date. See siman 78, seif 8; this requires study. See Ran.",
+        "(Collected note) For if he extended, etc. The Ramban follows his own view that thirty days is like a fixed due date, as he writes in his novellae. So too the Ran. See the end of siman 78 and Shach. (End of collected note.)",
+        "And whenever he did not. Sanhedrin there, the case of that admission, etc.",
+        "However, some say. See Tosafot, Ketubot there, s.v. \"veRabbi Yehuda.\"",
+        "(Collected note) And whenever he did not, etc.; however, etc. The wording is awkward, because this view disagrees with the first. Their dispute corresponds to Tosafot's two answers in Ketubot 22, s.v. \"Rabbi Yehuda says, etc.\": one can say that it is not considered a document unless, etc.; and Ri further says that we do not require, etc. (End of collected note.)",
+        "(Collected note) And whenever he did not, etc. See Tosafot, chapter 3 of Bava Batra 41, s.v. \"Mecha'ah, etc.\" (End of collected note.)",
+        "(Collected note) And whenever, etc. Tosafot in Bava Batra there, s.v. \"Mecha'ah,\" follow the first opinion according to what we rule like Rashi, as stated in siman 28. In Yevamot 29b, however, they write according to the latter view. (End of collected note.)"
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman39/seif-003/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "cm1/siman42/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 42,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 6,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "ואפשר. משם דאיבעיא להו אי חיישי' לזבוב:",
+        "(ליקוט) ואין ב' בשטר כו'. משמע דלא מיירי האידנ' דפסול בלא שריר וקיים ואפ\"ה אם כ' בשטר ש\"ו למדין משטה אחרונה וכ\"כ בסי' מ\"ד ס\"ד היכא כו' ועש\"ך שם. ס\"ק י\"ב שנתקשה בזה כקו' תוס' שם דדילמ' לא היה כ' ש\"ו והוא זייף וכ' ש\"ו דמ\"ש בב\"מ דכת' ש\"ו היינו דוקא במקושר דבלא\"ה פסול הוא וכן האידנ' ועש\"ך סי' מ\"ה ס\"ק כ' אלא נלפע\"ד דהרא\"ש והט\"ו כו' ודבריו תמוהין דא\"כ האיך כ' ומיהו כו' ק' דא\"כ ברישא בלא\"ה פסול כיון דאין כ' ש\"ו אע\"כ משמע בימיהם ואפ\"ה אם כ' ש\"ו אין חוששין לזיוף ולענין קו' הנ\"ל של תוס' נ\"ל דה\"ק היכא דכ' ש\"ו ר\"ל דבתחלה כ' בשטר ש\"ו וידוע זה בעדים או שהלוה מודה ובזה צדקו ג\"כ דברי הרמב\"ם שכ' הא דסמ\"ד ס\"ח אם היה המחק כו' והקשו עליו קו' הנ\"ל דלמה יפסל הא אין למדין משטה אחרונה אף היכא דכ' ש\"ו כנ\"ל וכן ק' על הש\"ע דהא כל הסע' הללו דסי' מ\"ד עד ס\"ט מיירי לדינא דגמ' מדכ' שם בס\"ט האידנ' כו' ועש\"ך שם ס\"ק י\"ז ובמ\"ש מתורץ הכל (ע\"כ):",
+        "(ליקוט) ואם נמחק סכום כו'. ירושלמי הנ\"ל ואמר שם מהו כל מה שאת יכול לתלות במחק תלה ר\"י קוצירה חתניה דר\"י בשם ר\"י סמפון כתיב מלעיל וסמפון מחיק מלרע כו' ע\"ש (ע\"כ):",
+        "(ליקוט) ויש מי כו'. עס\"י בהג\"ה וכל כו' (ע\"כ): (ליקוט) ויש מי כו'. כנ\"ל ממ\"ש לתלות בזבוב (ע\"כ):",
+        "בד\"א. כפי' הר\"י מיגש:"
+      ],
+      "en_segments": [
+        "and possible. From there, Daiba is an island of my life for Bob:",
+        "(Anthology) And there are not two in the document, etc. This implies that the passage does not concern current practice, where a document is invalid without the words 'valid and established.' Even so, if those words are written, we derive law from the last line. Siman 44, seif 4, likewise states, 'where,' etc. See Shach there, seif katan 12, who struggles with Tosafot's question that perhaps the words were not originally present and were fraudulently added. He answers that Bava Metzia's case where 'valid and established' was written concerned only a folded document, which is otherwise invalid, and likewise documents in current practice. See Shach, siman 45, seif katan 20. He then writes, 'rather, it appears to me that the Rosh and Tur,' etc. His words are puzzling, for if so, how can the Tur write, 'nevertheless,' etc.? In the first case the document would in any event be invalid because 'valid and established' is absent. It must therefore concern earlier practice, and even there, where these words were written, forgery was not suspected. As to Tosafot's difficulty, the meaning is that where 'valid and established' was written, it was known through witnesses or admitted by the borrower that those words appeared in the document from the outset. Rambam's ruling in siman 44, seif 8, concerning an erasure, is thereby correct. The objection that the document should not be invalid because one does not derive law from the last line is answered, even where 'valid and established' was written as above. The same question applies to Shulchan Aruch, since all the seifim in siman 44 through seif 9 concern Talmudic law, as shown by seif 9, 'nowadays,' etc. See Shach there, seif katan 17. According to this explanation everything is resolved.",
+        "And if it is deleted, it is the same. Jerusalem, and he said, \"What is it that you can hang on in the void of the rod,\" and he said, \"What is it that you can do, and that you have a platter from evil.\"",
+        "(Anthology) And some say, etc. See seif 10 in the gloss, 'and every,' etc.",
+        "(Anthology) And some say, etc. As explained above from the rule that one may attribute the discrepancy to a fly.",
+        "When does this apply. According to Ri Migash's explanation."
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman42/seif-005/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    }
+  ]
+}
