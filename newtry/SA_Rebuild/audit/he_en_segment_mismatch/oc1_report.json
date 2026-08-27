@@ -1,13 +1,13 @@
 {
   "volume": "oc1",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "scannedAt": "2026-08-27T15:44:15.178Z",
+  "scannedAt": "2026-08-27T17:17:22.418Z",
   "pairs": 89911,
-  "issues": 109,
+  "issues": 107,
   "byKind": {
     "en_has_more_segments": 22,
     "he_missing": 59,
-    "en_truncated_vs_multi_he": 16,
+    "en_truncated_vs_multi_he": 14,
     "he_has_more_segments": 12
   },
   "bySlug": {
@@ -81,13 +81,6 @@
         "he_missing": 1
       }
     },
-    "magen-avraham": {
-      "issues": 4,
-      "byKind": {
-        "en_truncated_vs_multi_he": 2,
-        "he_missing": 2
-      }
-    },
     "baer-heitev": {
       "issues": 2,
       "byKind": {
@@ -99,6 +92,12 @@
       "byKind": {
         "he_missing": 4,
         "en_has_more_segments": 8
+      }
+    },
+    "magen-avraham": {
+      "issues": 2,
+      "byKind": {
+        "he_missing": 2
       }
     },
     "netiv-chayim": {
@@ -489,22 +488,6 @@
     },
     {
       "volume": "oc1",
-      "siman": 132,
-      "seif": "seif-002",
-      "slug": "magen-avraham",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 6,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 13347,
-      "enBytes": 14547,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman132/seif-002/magen-avraham"
-    },
-    {
-      "volume": "oc1",
       "siman": 135,
       "seif": "seif-002",
       "slug": "eshel-avraham",
@@ -774,6 +757,22 @@
       "heHasHebrew": false,
       "enHasLatin": true,
       "path": "oc1/siman135/seif-005/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-006",
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 1704,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-006/shaarei-teshuvah"
     }
   ],
   "simanimScanned": 697
