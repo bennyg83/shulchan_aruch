@@ -1,0 +1,1503 @@
+{
+  "scannedAt": "2026-08-27T12:53:37.948Z",
+  "mode": "dry-run",
+  "volumes": [
+    "oc1",
+    "yd1",
+    "cm1"
+  ],
+  "totals": {
+    "A_eligible": 0,
+    "B_candidate": 646,
+    "C_remap": 0,
+    "skip": 650,
+    "eligible": 0,
+    "applied": 0
+  },
+  "reports": [
+    {
+      "volume": "oc1",
+      "scannedPairs": 89911,
+      "targetMismatches": 326,
+      "classification": {
+        "A_eligible": 0,
+        "B_candidate": 325,
+        "C_remap": 0,
+        "skip": 1
+      },
+      "eligible": 0,
+      "applied": 0,
+      "skipped": 326,
+      "byKind": {
+        "en_truncated_vs_multi_he": 314,
+        "he_has_more_segments": 12
+      },
+      "bySlug": {},
+      "byStrategy": {},
+      "bySkipReason": {
+        "upstream_he_multi_segment": 313,
+        "en_not_single": 12,
+        "not_seif_aligned": 1
+      },
+      "byClass": {
+        "B_candidate:upstream_also_multi_same_content": 313,
+        "B_candidate:upstream_multi": 12,
+        "skip:not_seif_aligned": 1
+      },
+      "byUpstreamSource": {},
+      "affectedSimanim": [],
+      "backups": [],
+      "eligibleSamples": [],
+      "classSamples": {
+        "A_eligible": [],
+        "B_candidate": [
+          {
+            "path": "oc1/siman1/seif-008/yad-ephraim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman1/seif-009/yad-ephraim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman2/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman5/seif-001/ateret-zekenim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "upstream_multi",
+            "upstreamSegs": 3,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman8/seif-003/shaarei-teshuvah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman12/seif-001/ateret-zekenim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "upstream_multi",
+            "upstreamSegs": 3,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman14/seif-001/chokhmat-shlomo",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 3,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 3,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman26/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman27/seif-004/machatzit-hashekel",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 6,
+            "reason": "upstream_multi",
+            "upstreamSegs": 7,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman33/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman35/seif-001/ateret-zekenim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman35/seif-001/kol-yaakov",
+            "kind": "he_has_more_segments",
+            "heSegs": 144,
+            "enSegs": 94,
+            "reason": "upstream_multi",
+            "upstreamSegs": 144,
+            "noteMarks": 6
+          },
+          {
+            "path": "oc1/siman42/seif-003/biur-halacha",
+            "kind": "he_has_more_segments",
+            "heSegs": 14,
+            "enSegs": 13,
+            "reason": "upstream_multi",
+            "upstreamSegs": 14,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman45/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman46/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman48/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman51/seif-003/shaarei-teshuvah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 3,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 3,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman51/seif-009/ateret-zekenim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman52/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman53/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman55/seif-003/ateret-zekenim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman56/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman57/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman58/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman59/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman60/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman61/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "oc1/siman63/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman64/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "oc1/siman69/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "oc_simanim_he_html",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          }
+        ],
+        "C_remap": [],
+        "skip": [
+          {
+            "path": "oc1/siman13/seif-003/chokhmat-shlomo",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 1,
+              "mechN": 3
+            }
+          }
+        ]
+      },
+      "simanimScanned": 697
+    },
+    {
+      "volume": "yd1",
+      "scannedPairs": 25946,
+      "targetMismatches": 383,
+      "classification": {
+        "A_eligible": 0,
+        "B_candidate": 9,
+        "C_remap": 0,
+        "skip": 374
+      },
+      "eligible": 0,
+      "applied": 0,
+      "skipped": 383,
+      "byKind": {
+        "he_has_more_segments": 229,
+        "en_truncated_vs_multi_he": 154
+      },
+      "bySlug": {},
+      "byStrategy": {},
+      "bySkipReason": {
+        "en_not_single": 229,
+        "not_seif_aligned": 145,
+        "upstream_he_multi_segment": 9
+      },
+      "byClass": {
+        "skip:not_seif_aligned": 374,
+        "B_candidate:upstream_also_multi_same_content": 8,
+        "B_candidate:upstream_multi": 1
+      },
+      "byUpstreamSource": {},
+      "affectedSimanim": [],
+      "backups": [],
+      "eligibleSamples": [],
+      "classSamples": {
+        "A_eligible": [],
+        "B_candidate": [
+          {
+            "path": "yd1/siman129/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman150/seif-003/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_aligned",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman160/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman165/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman168/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman177/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman184/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman196/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_multi",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "yd1/siman289/seif-003/turei-zahav",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_aligned",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          }
+        ],
+        "C_remap": [],
+        "skip": [
+          {
+            "path": "yd1/siman84/seif-006/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 6,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 48,
+              "mechN": 17
+            }
+          },
+          {
+            "path": "yd1/siman84/seif-014/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 48,
+              "mechN": 17
+            }
+          },
+          {
+            "path": "yd1/siman84/seif-015/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 48,
+              "mechN": 17
+            }
+          },
+          {
+            "path": "yd1/siman84/seif-017/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 48,
+              "mechN": 17
+            }
+          },
+          {
+            "path": "yd1/siman96/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 11,
+            "enSegs": 9,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 17,
+              "mechN": 5
+            }
+          },
+          {
+            "path": "yd1/siman98/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 9,
+            "enSegs": 7,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 39,
+              "mechN": 9
+            }
+          },
+          {
+            "path": "yd1/siman105/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 14,
+            "enSegs": 11,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 88,
+              "mechN": 14
+            }
+          },
+          {
+            "path": "yd1/siman107/seif-001/turei-zahav",
+            "kind": "he_has_more_segments",
+            "heSegs": 6,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 5,
+              "mechN": 2
+            }
+          },
+          {
+            "path": "yd1/siman108/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 25,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 37,
+              "mechN": 7
+            }
+          },
+          {
+            "path": "yd1/siman109/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 11,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 11,
+              "mechN": 2
+            }
+          },
+          {
+            "path": "yd1/siman110/seif-008/yad-avraham",
+            "kind": "he_has_more_segments",
+            "heSegs": 6,
+            "enSegs": 3,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 7,
+              "mechN": 10
+            }
+          },
+          {
+            "path": "yd1/siman114/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 9,
+            "enSegs": 8,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 28,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "yd1/siman114/seif-010/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 20,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "yd1/siman115/seif-002/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 24,
+              "mechN": 3
+            }
+          },
+          {
+            "path": "yd1/siman115/seif-003/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 9,
+            "enSegs": 8,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 24,
+              "mechN": 3
+            }
+          },
+          {
+            "path": "yd1/siman116/seif-004/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 15,
+              "mechN": 7
+            }
+          },
+          {
+            "path": "yd1/siman116/seif-005/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 13,
+            "enSegs": 12,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 20,
+              "mechN": 7
+            }
+          },
+          {
+            "path": "yd1/siman123/seif-008/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 56,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "yd1/siman123/seif-009/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 56,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "yd1/siman123/seif-014/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 39,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "yd1/siman123/seif-017/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 6,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 56,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "yd1/siman123/seif-026/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 56,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-006/nekudot-hakesef",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 18,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-011/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 5,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 76,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-012/turei-zahav",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 36,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-014/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 5,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 76,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-018/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 4,
+            "enSegs": 3,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 76,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-019/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 10,
+            "enSegs": 8,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 76,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-024/turei-zahav",
+            "kind": "he_has_more_segments",
+            "heSegs": 6,
+            "enSegs": 5,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 36,
+              "mechN": 27
+            }
+          },
+          {
+            "path": "yd1/siman124/seif-027/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 76,
+              "mechN": 27
+            }
+          }
+        ]
+      },
+      "simanimScanned": 402
+    },
+    {
+      "volume": "cm1",
+      "scannedPairs": 70186,
+      "targetMismatches": 587,
+      "classification": {
+        "A_eligible": 0,
+        "B_candidate": 312,
+        "C_remap": 0,
+        "skip": 275
+      },
+      "eligible": 0,
+      "applied": 0,
+      "skipped": 587,
+      "byKind": {
+        "en_truncated_vs_multi_he": 433,
+        "he_has_more_segments": 154
+      },
+      "bySlug": {},
+      "byStrategy": {},
+      "bySkipReason": {
+        "upstream_he_multi_segment": 278,
+        "not_seif_aligned": 155,
+        "en_not_single": 154
+      },
+      "byClass": {
+        "B_candidate:upstream_also_multi_same_content": 278,
+        "skip:not_seif_aligned": 275,
+        "B_candidate:note_markers": 34
+      },
+      "byUpstreamSource": {},
+      "affectedSimanim": [],
+      "backups": [],
+      "eligibleSamples": [],
+      "classSamples": {
+        "A_eligible": [],
+        "B_candidate": [
+          {
+            "path": "cm1/siman1/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman2/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman3/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman4/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman5/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman5/seif-003/urim-vetumim-tumim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 5,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_aligned",
+            "upstreamSegs": 5,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman6/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman9/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman10/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman11/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman12/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman13/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman14/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman15/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman16/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman17/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman19/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman20/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman21/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman21/seif-001/urim-vetumim-tumim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_aligned",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman22/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman23/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman24/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman28/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman29/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman30/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman31/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman32/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 1
+          },
+          {
+            "path": "cm1/siman33/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          },
+          {
+            "path": "cm1/siman35/seif-001/mechaber",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "upstream_also_multi_same_content",
+            "upstreamSource": "merged_mechaber",
+            "upstreamSegs": 2,
+            "noteMarks": 0
+          }
+        ],
+        "C_remap": [],
+        "skip": [
+          {
+            "path": "cm1/siman1/seif-002/urim-vetumim-tumim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 5,
+              "mechN": 6
+            }
+          },
+          {
+            "path": "cm1/siman1/seif-003/urim-vetumim-tumim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 3,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 5,
+              "mechN": 6
+            }
+          },
+          {
+            "path": "cm1/siman3/seif-003/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 29,
+              "mechN": 4
+            }
+          },
+          {
+            "path": "cm1/siman7/seif-005/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 13,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "cm1/siman7/seif-008/chelkat-mechokek",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 29,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "cm1/siman11/seif-002/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 14,
+              "mechN": 6
+            }
+          },
+          {
+            "path": "cm1/siman12/seif-002/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 10,
+              "mechN": 20
+            }
+          },
+          {
+            "path": "cm1/siman12/seif-012/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 30,
+              "mechN": 20
+            }
+          },
+          {
+            "path": "cm1/siman15/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 3,
+              "mechN": 5
+            }
+          },
+          {
+            "path": "cm1/siman17/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 8,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "cm1/siman17/seif-012/urim-vetumim-tumim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 8,
+              "mechN": 12
+            }
+          },
+          {
+            "path": "cm1/siman20/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 11,
+            "enSegs": 8,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 8,
+              "mechN": 1
+            }
+          },
+          {
+            "path": "cm1/siman22/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 9,
+            "enSegs": 5,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 8,
+              "mechN": 3
+            }
+          },
+          {
+            "path": "cm1/siman22/seif-003/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 8,
+              "mechN": 3
+            }
+          },
+          {
+            "path": "cm1/siman24/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 3,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 3,
+              "mechN": 1
+            }
+          },
+          {
+            "path": "cm1/siman25/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 17,
+              "mechN": 5
+            }
+          },
+          {
+            "path": "cm1/siman25/seif-003/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 22,
+            "enSegs": 10,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 17,
+              "mechN": 5
+            }
+          },
+          {
+            "path": "cm1/siman28/seif-005/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 6,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 95,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "cm1/siman28/seif-006/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 4,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 95,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "cm1/siman28/seif-017/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 5,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 95,
+              "mechN": 26
+            }
+          },
+          {
+            "path": "cm1/siman30/seif-002/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 7,
+            "enSegs": 6,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 18,
+              "mechN": 14
+            }
+          },
+          {
+            "path": "cm1/siman30/seif-006/beur-hagra",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 3,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 36,
+              "mechN": 14
+            }
+          },
+          {
+            "path": "cm1/siman33/seif-006/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 37,
+              "mechN": 18
+            }
+          },
+          {
+            "path": "cm1/siman33/seif-009/rabbi-akiva-eiger",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 11,
+              "mechN": 18
+            }
+          },
+          {
+            "path": "cm1/siman34/seif-005/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 70,
+              "mechN": 35
+            }
+          },
+          {
+            "path": "cm1/siman34/seif-018/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 8,
+            "enSegs": 7,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 70,
+              "mechN": 35
+            }
+          },
+          {
+            "path": "cm1/siman34/seif-023/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 2,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 70,
+              "mechN": 35
+            }
+          },
+          {
+            "path": "cm1/siman39/seif-001/urim-vetumim-tumim",
+            "kind": "he_has_more_segments",
+            "heSegs": 4,
+            "enSegs": 3,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 27,
+              "mechN": 17
+            }
+          },
+          {
+            "path": "cm1/siman43/seif-001/chokhmat-shlomo",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 3,
+              "mechN": 29
+            }
+          },
+          {
+            "path": "cm1/siman43/seif-003/chokhmat-shlomo",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1,
+            "reason": "not_seif_aligned",
+            "detail": {
+              "rowLen": 3,
+              "mechN": 29
+            }
+          }
+        ]
+      },
+      "simanimScanned": 427
+    }
+  ]
+}
