@@ -190,9 +190,9 @@ function visibleText(html) {
  *
  * Buckets (mutually exclusive, checked in order):
  *   title_singular_seif — siman title with singular סעיף (final ף), e.g. ובו סעיף אחד
- *   title_plural_seifim — siman title with plural סעיפים — different case; hold
+ *   title_plural_seifim — siman title with plural סעיפים, e.g. ובו ו סעיפים
  *   shem_stub           — שם: / (שם) / short …שם:
- *   other_stub          — label-only / very short stub
+ *   other_stub          — label-only / very short stub (held)
  *
  * Built from codepoints so pe (פ) vs final-pe (ף) are never normalized away.
  */
@@ -281,8 +281,8 @@ function isHeadingOrStubSegment(seg) {
 /**
  * Case A′ classification for HE parts.
  * ok=true only when every pre-last seg is a heading/stub and body is substantive.
- * autoApply=true only for high-confidence buckets (singular title and/or shem stubs);
- * plural סעיפים is detected but held (autoApply=false).
+ * autoApply=true for singular/plural seif titles and שם stubs;
+ * other_stub alone remains held (lower precision).
  */
 function classifyCaseAPrime(heParts) {
   if (!heParts || heParts.length < 2) {
@@ -318,7 +318,6 @@ function classifyCaseAPrime(heParts) {
   const hasPlural = buckets.includes("title_plural_seifim");
   const hasSingular = buckets.includes("title_singular_seif");
   const hasShem = buckets.includes("shem_stub");
-  const hasOther = buckets.includes("other_stub");
 
   // Primary heading bucket for reporting (prefer title > shem > other)
   let primaryBucket = "other_stub";
@@ -326,25 +325,17 @@ function classifyCaseAPrime(heParts) {
   else if (hasSingular) primaryBucket = "title_singular_seif";
   else if (hasShem) primaryBucket = "shem_stub";
 
-  // Auto-apply policy (revised):
+  // Auto-apply policy (plural unlocked after human verify of ובו <N> סעיפים:):
   //   - singular סעיף titles: YES
+  //   - plural סעיפים titles: YES
   //   - שם stubs (no title): YES (high-precision stub)
-  //   - plural סעיפים: HOLD (different case)
   //   - other_stub alone: HOLD (lower precision)
   let autoApply = false;
   let holdReason = null;
-  if (hasPlural) {
-    autoApply = false;
-    holdReason = "hold_plural_seifim";
-  } else if (hasSingular && !hasOther) {
+  if (hasPlural || hasSingular) {
     autoApply = true;
-  } else if (hasSingular && hasOther) {
-    // title + extra non-title stubs before body — still OK if all stubs
+  } else if (hasShem) {
     autoApply = true;
-  } else if (hasShem && !hasOther) {
-    autoApply = true;
-  } else if (hasShem && hasOther) {
-    autoApply = true; // shem + tiny labels
   } else {
     autoApply = false;
     holdReason = "hold_other_stub";
@@ -1280,7 +1271,7 @@ function processVolumeCaseAPrime(vol, opts) {
         writeBytes: Buffer.byteLength(joined, "utf8"),
       };
 
-      // Plural סעיפים / other_stub: detect & count but do not auto-apply
+      // other_stub (and any future holds): detect & count but do not auto-apply
       if (!aPrime.autoApply) {
         markClass("A_prime_held", aPrime.holdReason || aPrime.primaryBucket, {
           stubPreviews: aPrime.stubPreviews,
@@ -1313,9 +1304,11 @@ function processVolumeCaseAPrime(vol, opts) {
       const strategy =
         aPrime.primaryBucket === "title_singular_seif"
           ? "rejoin_he_singular_seif_title_body"
-          : aPrime.primaryBucket === "shem_stub"
-            ? "rejoin_he_shem_stub_body"
-            : "rejoin_he_heading_stub_body";
+          : aPrime.primaryBucket === "title_plural_seifim"
+            ? "rejoin_he_plural_seifim_title_body"
+            : aPrime.primaryBucket === "shem_stub"
+              ? "rejoin_he_shem_stub_body"
+              : "rejoin_he_heading_stub_body";
       result.eligible++;
       bump(result.byStrategy, strategy);
       bump(result.bySlug, slug);
@@ -1437,9 +1430,13 @@ function main() {
     volumes: opts.volumes,
     policy: opts.caseAPrime
       ? {
-          autoApply: ["title_singular_seif", "shem_stub"],
-          hold: ["title_plural_seifim", "other_stub"],
-          note: "Plural סעיפים held for separate handling; singular סעיף + שם stubs auto",
+          autoApply: [
+            "title_singular_seif",
+            "title_plural_seifim",
+            "shem_stub",
+          ],
+          hold: ["other_stub"],
+          note: "Singular/plural ובו … סעיף/סעיפים titles + שם stubs auto; other_stub held",
         }
       : undefined,
     totals: opts.caseAPrime
@@ -1487,12 +1484,12 @@ function main() {
         `Scanned at: ${payload.scannedAt}`,
         `Mode: ${payload.mode}`,
         "",
-        "**Policy:** auto-apply `title_singular_seif` + `shem_stub`; hold `title_plural_seifim` + `other_stub`.",
+        "**Policy:** auto-apply `title_singular_seif` + `title_plural_seifim` + `shem_stub`; hold `other_stub`.",
         "",
         `| Bucket | Count |`,
         `|--------|------:|`,
         `| title_singular_seif (detected) | ${payload.totals.byHeadingBucket.title_singular_seif || 0} |`,
-        `| title_plural_seifim (detected, held) | ${payload.totals.byHeadingBucket.title_plural_seifim || 0} |`,
+        `| title_plural_seifim (detected) | ${payload.totals.byHeadingBucket.title_plural_seifim || 0} |`,
         `| shem_stub (detected) | ${payload.totals.byHeadingBucket.shem_stub || 0} |`,
         `| other_stub (detected, held) | ${payload.totals.byHeadingBucket.other_stub || 0} |`,
         `| auto eligible | ${payload.totals.eligible} |`,

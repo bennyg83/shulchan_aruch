@@ -1,15 +1,15 @@
 # HE/EN segment mismatch scan
 
-Scanned at: 2026-08-27T13:36:46.797Z
+Scanned at: 2026-08-27T14:01:54.573Z
 
 Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Volume | Pairs | Issues | Top kinds |
 |--------|------:|-------:|-----------|
-| oc1 | 89911 | 382 | en_truncated_vs_multi_he(289), he_missing(59), en_has_more_segments(22) |
-| yd1 | 25946 | 408 | he_has_more_segments(229), en_truncated_vs_multi_he(144), en_missing(20) |
+| oc1 | 89911 | 176 | en_truncated_vs_multi_he(83), he_missing(59), en_has_more_segments(22) |
+| yd1 | 25946 | 402 | he_has_more_segments(229), en_truncated_vs_multi_he(138), en_missing(20) |
+| cm1 | 70186 | 338 | en_truncated_vs_multi_he(162), he_has_more_segments(154), en_has_more_segments(22) |
 | eh1 | 11939 | 0 | — |
-| cm1 | 70186 | 576 | en_truncated_vs_multi_he(400), he_has_more_segments(154), en_has_more_segments(22) |
 
 ## By slug (issues ≥ 1)
 
@@ -17,7 +17,6 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Slug | Issues | Kinds |
 |------|-------:|-------|
-| mechaber | 206 | en_truncated_vs_multi_he:206 |
 | chok-yaakov | 31 | en_truncated_vs_multi_he:27, he_has_more_segments:4 |
 | baer-heitev | 22 | en_truncated_vs_multi_he:20, he_missing:2 |
 | magen-avraham | 19 | en_truncated_vs_multi_he:17, he_missing:2 |
@@ -48,7 +47,6 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 | yad-avraham | 13 | en_has_more_segments:4, he_has_more_segments:1, en_missing:8 |
 | baer-heitev | 13 | en_has_more_segments:3, en_truncated_vs_multi_he:7, he_has_more_segments:3 |
 | mateh-yehonatan | 8 | en_missing:8 |
-| mechaber | 6 | en_truncated_vs_multi_he:6 |
 | rabbi-akiva-eiger-yd | 4 | en_missing:4 |
 | tiferet-yisrael | 3 | en_truncated_vs_multi_he:3 |
 | nekudot-hakesef | 1 | en_truncated_vs_multi_he:1 |
@@ -59,7 +57,6 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Slug | Issues | Kinds |
 |------|-------:|-------|
-| mechaber | 238 | en_truncated_vs_multi_he:238 |
 | beur-hagra | 129 | en_truncated_vs_multi_he:69, he_has_more_segments:51, en_has_more_segments:9 |
 | urim-vetumim-tumim | 94 | en_truncated_vs_multi_he:40, he_has_more_segments:53, en_has_more_segments:1 |
 | beer-hagolah | 36 | he_has_more_segments:32, en_truncated_vs_multi_he:4 |
@@ -87,38 +84,38 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 - `oc1/siman1/seif-008/yad-ephraim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (3148B / 3605B)
 - `oc1/siman1/seif-009/levushei-serad` — **he_missing** heSegs=0 enSegs=1 (2B / 384B)
 - `oc1/siman1/seif-009/yad-ephraim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (3422B / 3768B)
-- `oc1/siman2/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (597B / 154B)
 - `oc1/siman5/seif-001/ateret-zekenim` — **he_has_more_segments** heSegs=3 enSegs=2 (951B / 1140B)
 - `oc1/siman8/seif-003/shaarei-teshuvah` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2140B / 2263B)
 - `oc1/siman12/seif-001/ateret-zekenim` — **he_has_more_segments** heSegs=3 enSegs=2 (1110B / 1208B)
 - `oc1/siman13/seif-003/chokhmat-shlomo` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (10232B / 12055B)
 - `oc1/siman14/seif-001/chokhmat-shlomo` — **en_truncated_vs_multi_he** heSegs=3 enSegs=1 (12873B / 11113B)
-- `oc1/siman26/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (814B / 397B)
 - `oc1/siman27/seif-004/machatzit-hashekel` — **he_has_more_segments** heSegs=7 enSegs=6 (3021B / 3321B)
 - `oc1/siman27/seif-006/machatzit-hashekel` — **en_has_more_segments** heSegs=3 enSegs=6 (4725B / 5571B)
 - `oc1/siman32/seif-005/yad-ephraim` — **en_has_more_segments** heSegs=2 enSegs=4 (2149B / 2372B)
-- `oc1/siman33/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2486B / 1033B)
 - `oc1/siman35/seif-001/ateret-zekenim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (581B / 1152B)
 - `oc1/siman35/seif-001/kol-yaakov` — **he_has_more_segments** heSegs=144 enSegs=94 (38320B / 46997B)
 - `oc1/siman42/seif-003/biur-halacha` — **he_has_more_segments** heSegs=14 enSegs=13 (17696B / 14938B)
-- `oc1/siman45/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (995B / 287B)
-- `oc1/siman46/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2836B / 1305B)
 - `oc1/siman51/seif-003/shaarei-teshuvah` — **en_truncated_vs_multi_he** heSegs=3 enSegs=1 (1594B / 1704B)
 - `oc1/siman51/seif-007/machatzit-hashekel` — **en_has_more_segments** heSegs=4 enSegs=5 (3383B / 3755B)
 - `oc1/siman51/seif-009/ateret-zekenim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (566B / 666B)
-- `oc1/siman53/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (561B / 176B)
 - `oc1/siman55/seif-003/ateret-zekenim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1345B / 1637B)
-- `oc1/siman56/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2949B / 1167B)
-- `oc1/siman57/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1374B / 461B)
-- `oc1/siman58/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2376B / 892B)
-- `oc1/siman59/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (697B / 326B)
-- `oc1/siman60/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (716B / 470B)
-- `oc1/siman61/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (704B / 193B)
-- `oc1/siman63/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1402B / 694B)
-- `oc1/siman64/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (566B / 392B)
-- `oc1/siman69/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (5672B / 3645B)
-- `oc1/siman72/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (870B / 590B)
-- `oc1/siman77/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1022B / 535B)
+- `oc1/siman90/seif-007/magen-avraham` — **en_truncated_vs_multi_he** heSegs=5 enSegs=1 (944B / 1125B)
+- `oc1/siman117/seif-001/magen-avraham` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1730B / 2145B)
+- `oc1/siman117/seif-002/baer-heitev` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1966B / 2243B)
+- `oc1/siman117/seif-002/magen-avraham` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1190B / 1378B)
+- `oc1/siman128/seif-003/turei-zahav` — **en_has_more_segments** heSegs=2 enSegs=3 (5604B / 2830B)
+- `oc1/siman128/seif-043/ateret-zekenim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2089B / 2411B)
+- `oc1/siman132/seif-002/baer-heitev` — **en_truncated_vs_multi_he** heSegs=7 enSegs=1 (13950B / 15399B)
+- `oc1/siman132/seif-002/magen-avraham` — **en_truncated_vs_multi_he** heSegs=6 enSegs=1 (13347B / 14547B)
+- `oc1/siman135/seif-002/eshel-avraham` — **he_missing** heSegs=0 enSegs=1 (2B / 360B)
+- `oc1/siman135/seif-002/shaarei-teshuvah` — **he_missing** heSegs=0 enSegs=1 (2B / 494B)
+- `oc1/siman135/seif-003/ateret-zekenim` — **he_missing** heSegs=0 enSegs=1 (2B / 1200B)
+- `oc1/siman135/seif-003/baer-heitev` — **he_missing** heSegs=0 enSegs=1 (2B / 58B)
+- `oc1/siman135/seif-003/beur-hagra` — **he_missing** heSegs=0 enSegs=1 (2B / 113B)
+- `oc1/siman135/seif-003/machatzit-hashekel` — **he_missing** heSegs=0 enSegs=1 (2B / 141B)
+- `oc1/siman135/seif-003/magen-avraham` — **he_missing** heSegs=0 enSegs=1 (2B / 132B)
+- `oc1/siman135/seif-003/netiv-chayim` — **he_missing** heSegs=0 enSegs=1 (2B / 1114B)
+- `oc1/siman135/seif-003/shaarei-teshuvah` — **he_missing** heSegs=0 enSegs=1 (2B / 797B)
 
 ### yd1
 
@@ -165,44 +162,44 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 ### cm1
 
-- `cm1/siman1/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (4509B / 568B)
 - `cm1/siman1/seif-002/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (5183B / 5594B)
 - `cm1/siman1/seif-003/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=3 enSegs=1 (18429B / 11283B)
-- `cm1/siman3/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2972B / 1171B)
 - `cm1/siman3/seif-003/beur-hagra` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (614B / 235B)
-- `cm1/siman5/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (775B / 140B)
 - `cm1/siman5/seif-003/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=5 enSegs=1 (28914B / 20369B)
 - `cm1/siman7/seif-005/urim-vetumim-tumim` — **he_has_more_segments** heSegs=3 enSegs=2 (15556B / 14546B)
 - `cm1/siman7/seif-008/chelkat-mechokek` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1421B / 1514B)
-- `cm1/siman9/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (3120B / 422B)
-- `cm1/siman10/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1076B / 330B)
-- `cm1/siman11/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (5014B / 1886B)
 - `cm1/siman11/seif-002/beur-hagra` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (132B / 81B)
-- `cm1/siman12/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2505B / 979B)
 - `cm1/siman12/seif-002/urim-vetumim-tumim` — **he_has_more_segments** heSegs=3 enSegs=2 (6338B / 7109B)
 - `cm1/siman12/seif-012/beur-hagra` — **he_has_more_segments** heSegs=3 enSegs=2 (561B / 546B)
-- `cm1/siman13/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (4721B / 1613B)
-- `cm1/siman14/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (10566B / 3728B)
-- `cm1/siman15/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2447B / 392B)
 - `cm1/siman15/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=3 enSegs=2 (7069B / 7834B)
-- `cm1/siman16/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1977B / 662B)
-- `cm1/siman17/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (4126B / 789B)
 - `cm1/siman17/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=3 enSegs=2 (17420B / 15931B)
 - `cm1/siman17/seif-012/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (12356B / 12630B)
-- `cm1/siman19/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (1259B / 459B)
 - `cm1/siman20/seif-001/beur-hagra` — **he_has_more_segments** heSegs=11 enSegs=8 (1314B / 1230B)
 - `cm1/siman21/seif-001/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (13501B / 12001B)
-- `cm1/siman22/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (8275B / 973B)
 - `cm1/siman22/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=9 enSegs=5 (23937B / 23393B)
 - `cm1/siman22/seif-003/urim-vetumim-tumim` — **he_has_more_segments** heSegs=3 enSegs=2 (11298B / 11061B)
 - `cm1/siman24/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=5 enSegs=3 (17157B / 17391B)
 - `cm1/siman25/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=7 enSegs=4 (45401B / 28374B)
 - `cm1/siman25/seif-003/urim-vetumim-tumim` — **he_has_more_segments** heSegs=22 enSegs=10 (134403B / 73593B)
-- `cm1/siman28/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (5061B / 1067B)
 - `cm1/siman28/seif-005/beur-hagra` — **he_has_more_segments** heSegs=7 enSegs=6 (462B / 286B)
 - `cm1/siman28/seif-006/beur-hagra` — **he_has_more_segments** heSegs=5 enSegs=4 (670B / 727B)
 - `cm1/siman28/seif-017/beur-hagra` — **he_has_more_segments** heSegs=7 enSegs=5 (469B / 381B)
-- `cm1/siman29/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (6735B / 1892B)
-- `cm1/siman30/seif-001/mechaber` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2293B / 777B)
 - `cm1/siman30/seif-002/urim-vetumim-tumim` — **he_has_more_segments** heSegs=7 enSegs=6 (36370B / 21023B)
+- `cm1/siman30/seif-006/beur-hagra` — **en_truncated_vs_multi_he** heSegs=3 enSegs=1 (554B / 414B)
+- `cm1/siman33/seif-006/beur-hagra` — **he_has_more_segments** heSegs=3 enSegs=2 (236B / 119B)
+- `cm1/siman33/seif-009/rabbi-akiva-eiger` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (553B / 446B)
+- `cm1/siman34/seif-005/beur-hagra` — **he_has_more_segments** heSegs=3 enSegs=2 (664B / 471B)
+- `cm1/siman34/seif-018/beur-hagra` — **he_has_more_segments** heSegs=8 enSegs=7 (1146B / 1106B)
+- `cm1/siman34/seif-023/beur-hagra` — **he_has_more_segments** heSegs=3 enSegs=2 (233B / 170B)
+- `cm1/siman38/seif-001/chokhmat-shlomo` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (6246B / 5627B)
+- `cm1/siman38/seif-001/urim-vetumim-tumim` — **en_truncated_vs_multi_he** heSegs=6 enSegs=1 (107115B / 80700B)
+- `cm1/siman39/seif-001/urim-vetumim-tumim` — **he_has_more_segments** heSegs=4 enSegs=3 (50096B / 42073B)
+- `cm1/siman39/seif-003/beur-hagra` — **en_has_more_segments** heSegs=16 enSegs=17 (2916B / 3771B)
+- `cm1/siman42/seif-005/beur-hagra` — **en_has_more_segments** heSegs=5 enSegs=6 (1968B / 2334B)
+- `cm1/siman43/seif-001/chokhmat-shlomo` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (3390B / 2631B)
+- `cm1/siman43/seif-003/chokhmat-shlomo` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (2845B / 2694B)
+- `cm1/siman43/seif-007/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=3 (811B / 1019B)
+- `cm1/siman43/seif-011/beur-hagra` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (191B / 148B)
+- `cm1/siman43/seif-018/beur-hagra` — **he_has_more_segments** heSegs=3 enSegs=2 (371B / 322B)
+- `cm1/siman45/seif-012/beur-hagra` — **en_has_more_segments** heSegs=10 enSegs=11 (2473B / 2628B)
 

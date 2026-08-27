@@ -1,23 +1,22 @@
 # Case A′ HE heading/stub rejoin — audit
 
 **LIVE repo:** `C:\Users\binya\Documents\shulchan-aruch-clean`  
-**Mode:** apply (singular `סעיף` + `שם` stubs only)  
 **Script:** `newtry/SA_Rebuild/scripts/rejoin_oversplit_he.mjs --case-a-prime`
 
-## Heuristic change
+## Heuristic / policy
 
 | Bucket | Pattern | Auto-apply? |
 |--------|---------|-------------|
 | `title_singular_seif` | siman title with **singular** `סעיף` (final pe ף), e.g. `ובו סעיף אחד` | **YES** |
-| `title_plural_seifim` | siman title with **plural** `סעיפים` (pe פ + ים), e.g. `ובו ו סעיפים` | **HOLD** (separate case) |
+| `title_plural_seifim` | siman title with **plural** `סעיפים` (pe פ + ים), e.g. `ובו ו סעיפים` | **YES** (unlocked after human verify) |
 | `shem_stub` | `שם:` / `(שם)` / short `…שם:` | **YES** |
 | `other_stub` | ס״ק labels, letter labels, short colon stubs | **HOLD** |
 
 Codepoint-built needles so pe (פ) vs final-pe (ף) are never conflated.
 
-**No prior apply** under the mixed (stem-`סעיפ`) rule — dry-run revised before first apply.
+---
 
-## Dry-run / apply counts
+## Pass 1 — singular + שם (`5fecb79dc4`)
 
 | Bucket | Detected | Auto applied |
 |--------|---------:|-------------:|
@@ -27,13 +26,9 @@ Codepoint-built needles so pe (פ) vs final-pe (ף) are never conflated.
 | other_stub | 5 | 0 (held) |
 | **Total applied** | | **68** |
 
-By volume applied: oc1=25, yd1=10, cm1=33.
+By volume: oc1=25, yd1=10, cm1=33.
 
-Residual Part 2 estimate (`B_candidate` from A′ pass): **376** (true multi-note / non-stub first HE segs with `enSegs===1`).
-
-Plural held for later: **450**.
-
-## Before → after scan (`en_truncated_vs_multi_he` / `he_has_more_segments`)
+### Before → after (pass 1)
 
 | Volume | Before en_trunc | After en_trunc | Δ | Before he_more | After he_more | Δ |
 |--------|----------------:|---------------:|--:|---------------:|--------------:|--:|
@@ -41,7 +36,38 @@ Plural held for later: **450**.
 | yd1 | 154 | 144 | −10 | 229 | 229 | 0 |
 | cm1 | 433 | 400 | −33 | 154 | 154 | 0 |
 
-Total issues: oc1 407→382, yd1 418→408, cm1 609→576 (−68 overall).
+---
+
+## Pass 2 — plural `סעיפים` (this commit)
+
+**Mode:** apply (`title_plural_seifim` only remaining; singular/שם already joined)  
+**Spot-check:** ≥8 dry-run samples (oc1/yd1/cm1) — all `ובו <N> סעיפים:` title + body, heSegs=2, enSegs=1.
+
+| Bucket | Detected | Auto applied |
+|--------|---------:|-------------:|
+| title_singular_seif | 0 | 0 |
+| title_plural_seifim | 450 | 450 |
+| shem_stub | 0 | 0 |
+| other_stub | 5 | 0 (held) |
+| **Total applied** | | **450** |
+
+By volume: oc1=206, yd1=6, cm1=238.
+
+Residual Part 2 estimate (`B_candidate` from A′ pass): **376**.
+
+Held: **5** `other_stub`.
+
+### Before → after scan (`en_truncated_vs_multi_he` / `he_has_more_segments`)
+
+Baseline = post–pass 1 SUMMARY (2026-08-27T13:36:46Z). After = rescan 2026-08-27T14:01:54Z.
+
+| Volume | Before en_trunc | After en_trunc | Δ | Before he_more | After he_more | Δ |
+|--------|----------------:|---------------:|--:|---------------:|--------------:|--:|
+| oc1 | 289 | 83 | −206 | 12 | 12 | 0 |
+| yd1 | 144 | 138 | −6 | 229 | 229 | 0 |
+| cm1 | 400 | 162 | −238 | 154 | 154 | 0 |
+
+Total issues: oc1 382→176, yd1 408→402, cm1 576→338 (−450 overall).
 
 ## Artifacts
 
@@ -53,6 +79,5 @@ Total issues: oc1 407→382, yd1 418→408, cm1 609→576 (−68 overall).
 ## Scope
 
 - Modified **he.html only** (join with space).
-- Never invented EN; no TXT republish.
-- Rebundled affected simanim only (`BUNDLE_CONCURRENCY=1`).
-- **STOP** — no Part 2 EN split.
+- Never invented EN; no TXT republish; no Part 2 EN split.
+- Rebundled affected simanim only (`BUNDLE_CONCURRENCY=1 --simanim`).
