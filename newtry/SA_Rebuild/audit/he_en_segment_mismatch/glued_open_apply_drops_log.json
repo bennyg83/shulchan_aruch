@@ -1,0 +1,79 @@
+{
+  "scannedAt": "2026-08-27T20:12:22.732Z",
+  "mode": "apply",
+  "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "counts": {
+    "planned": 5,
+    "ok": 5,
+    "failed": 0
+  },
+  "results": [
+    {
+      "id": "yd1/siman4/seif-004/yad-avraham",
+      "kit": "A",
+      "drop_indices": [
+        2
+      ],
+      "note": "duplicate EN2 ≈ EN0+EN1",
+      "heSegs": 2,
+      "enSegsBefore": 3,
+      "enSegsAfter": 2,
+      "ok": true,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman37/seif-002/yad-avraham",
+      "kit": "A",
+      "drop_indices": [
+        11
+      ],
+      "note": "orphan EN11 no HE match",
+      "heSegs": 11,
+      "enSegsBefore": 12,
+      "enSegsAfter": 11,
+      "ok": true,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman48/seif-004/yad-avraham",
+      "kit": "A",
+      "drop_indices": [
+        3
+      ],
+      "note": "duplicate EN3 ≈ EN0–2",
+      "heSegs": 3,
+      "enSegsBefore": 4,
+      "enSegsAfter": 3,
+      "ok": true,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman61/seif-006/yad-avraham",
+      "kit": "A",
+      "drop_indices": [
+        2
+      ],
+      "note": "duplicate EN2 ≈ EN0+EN1",
+      "heSegs": 2,
+      "enSegsBefore": 3,
+      "enSegsAfter": 2,
+      "ok": true,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman334/seif-043/baer-heitev",
+      "kit": "B",
+      "drop_indices": [
+        0,
+        1,
+        2
+      ],
+      "note": "drop stubs; keep bodies EN3–5 only (not stub+space+body)",
+      "heSegs": 3,
+      "enSegsBefore": 6,
+      "enSegsAfter": 3,
+      "ok": true,
+      "applied": true
+    }
+  ]
+}

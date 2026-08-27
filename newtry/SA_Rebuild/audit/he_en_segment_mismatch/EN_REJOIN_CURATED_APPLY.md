@@ -77,49 +77,51 @@ Allowlist size this run: 44 (yad-ephraim not re-listed). All 44 verified `enSegs
 
 ## OPEN list (do not apply as contiguous EN rejoin)
 
-From glued review pack (58 cases − 44 applied = **14 open**). Plus broader `en_has_more` inventory note below.
+Originally 14 open after contiguous curated apply. **5 high-confidence drops applied** 2026-08-27 — see `GLUED_OPEN_APPLY_DROPS.md`. **9 remain.**
 
-### needs_editorial
+### Applied via drop_en_indices (closed)
 
-YD dupes / stub-body / garbled / unsafe contiguous (parts 2–4 AI + later reject):
+1. ~~`yd1/siman4/seif-004/yad-avraham`~~ — drop EN `[2]` (3→2)
+2. ~~`yd1/siman37/seif-002/yad-avraham`~~ — drop EN `[11]` (12→11)
+3. ~~`yd1/siman48/seif-004/yad-avraham`~~ — drop EN `[3]` (4→3)
+4. ~~`yd1/siman61/seif-006/yad-avraham`~~ — drop EN `[2]` (3→2)
+5. ~~`yd1/siman334/seif-043/baer-heitev`~~ — drop stubs EN `[0,1,2]`; keep bodies (6→3)
 
-1. `yd1/siman4/seif-004/yad-avraham`
-2. `yd1/siman37/seif-002/yad-avraham`
-3. `yd1/siman48/seif-004/yad-avraham`
-4. `yd1/siman61/seif-006/yad-avraham`
-5. `yd1/siman106/seif-002/baer-heitev`
-6. `yd1/siman245/seif-006/beur-hagra` (also non-contiguous lemma/body)
-7. `yd1/siman263/seif-005/baer-heitev`
-8. `yd1/siman308/seif-003/beur-hagra`
-9. `yd1/siman331/seif-034/beur-hagra` (also non-contiguous / broken MT)
-10. `yd1/siman334/seif-042/beur-hagra`
-11. `yd1/siman334/seif-043/baer-heitev`
-12. `cm1/siman275/seif-003/ketzot-hachoshen` (parts 8–10: contiguous rejoin unsafe)
+### Still OPEN — needs_editorial / rewrite_skip
 
-### disagree / non-contiguous
+1. `yd1/siman106/seif-002/baer-heitev` (Kit B rewrite_skip — do not apply stub+body glue)
+2. `yd1/siman245/seif-006/beur-hagra` (Kit B; non-contiguous lemma/body)
+3. `yd1/siman263/seif-005/baer-heitev` (Kit B)
+4. `yd1/siman308/seif-003/beur-hagra` (Kit C garbled)
+5. `yd1/siman331/seif-034/beur-hagra` (Kit C; non-contiguous / broken MT)
+6. `yd1/siman334/seif-042/beur-hagra` (Kit B rewrite_skip)
+7. `cm1/siman275/seif-003/ketzot-hachoshen` (Kit C; contiguous rejoin unsafe)
 
-13. `yd1/siman334/seif-045/beur-hagra` — AI proposed contiguous `[[0],[1,2,3]]`; evaluator: EN2 belongs with HE0 → true fix likely **non-contiguous** `[[0,2],[1,3]]`. Do not space-rejoin.
+### Still OPEN — disagree / non-contiguous
 
-### uncertain
+8. `yd1/siman334/seif-045/beur-hagra` — true fix likely **non-contiguous** `[[0,2],[1,3]]`. Do not space-rejoin.
 
-14. `yd1/siman269/seif-003/beur-hagra` — AI said `needs_editorial`; human evaluation marked **UNCERTAIN** (no apply).
+### Still OPEN — uncertain
+
+9. `yd1/siman269/seif-003/beur-hagra` — **UNCERTAIN** (no apply).
 
 ---
 
 ## Remaining `en_has_more` (live recount)
 
-Full br-split scan after apply (`recount_en_has_more.mjs`, oc1+yd1+cm1):
+Full br-split scan after drop apply (`recount_en_has_more.mjs`, oc1+yd1+cm1):
 
 | Metric | Count |
 |--------|------:|
 | Pairs scanned | 106,913 |
-| `enSegs > heSegs` | **73** |
+| `enSegs > heSegs` | **68** (was 73; −5 from these drops) |
 | `heSegs > enSegs` | 610 |
-| Matched | 106,230 |
+| Matched | 106,235 |
 
-Note: many of the 73 include `heSegs=0` (HE missing / empty) with a single EN stub — not the glued oversplit class. The glued pack’s contiguous-rejoin track for these 58 is closed except the **14 OPEN** above.
+Note: many of the 68 include `heSegs=0` (HE missing / empty) with a single EN stub — not the glued oversplit class. Glued pack leftovers: **9 OPEN** above.
 
 ## Artifacts
 
 - Apply log: `en_rejoin_curated_apply_log.json`
 - Script: `apply_en_rejoin_curated.mjs`
+- Drop apply: `apply_glued_open_drops.mjs`, `GLUED_OPEN_APPLY_DROPS.md`, `glued_open_apply_drops_log.json`
