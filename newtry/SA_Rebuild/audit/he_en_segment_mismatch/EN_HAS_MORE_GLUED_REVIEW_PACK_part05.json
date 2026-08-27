@@ -30,343 +30,114 @@
       "Output a JSON array of objects matching reviewer_output_template for every case."
     ],
     "chunk_index": 5,
-    "chunk_total": 7,
-    "case_offset": 44,
-    "cases_in_chunk": 8
+    "chunk_total": 10,
+    "case_offset": 34,
+    "cases_in_chunk": 5
   },
   "cases": [
     {
-      "id": "cm1/siman146/seif-008/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 146,
-      "seif": 8,
-      "slug": "ketzot-hachoshen",
-      "bucket": "reject_spot_review",
+      "id": "yd1/siman334/seif-045/beur-hagra",
+      "volume": "yd1",
+      "siman": 334,
+      "seif": 45,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
       "heSegs": 2,
-      "enSegs": 5,
-      "unsafe_reason": null,
+      "enSegs": 4,
+      "unsafe_reason": "under_grouped_cannot_split",
       "prior_auto_merge_groups": [
-        [
-          0,
-          1,
-          2
-        ],
-        [
-          3,
-          4
-        ]
-      ],
-      "spot_review_suggested_alt": [
         [
           0,
           1,
           2,
           3
-        ],
-        [
-          4
         ]
       ],
-      "spot_verdict": "REJECT",
-      "spot_reason": "E4 starts H1 need-not-protest; E3 still belongs to H0.",
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 1,
       "he_segments": [
-        "[\"אלא כשעומד בתוכו הראשון. והוא בב\\\"י בשם תשובת הרשב\\\"א שנשאל בשני אחין שמכר א' מהם קרקע ליהודה שטען שהי' שלו שאביו נתנה לו במתנה ומחה בו אחיו ואח\\\"כ מכרו המחזיק והחזיק הלוקח שני חזקה והשיב שלא עלתה לו חזקה שלא אמרו צריך למחות בסוף כל שלש אלא כשעומד בתוכו אותו הראשון אבל אם מכרה אותו הראשון לאחר אינו צריך למחות בלוקח לפי שהלוקח אינו בא אלא מכח הראשון וכבר מיחה בראשון ויכול לו' לא חששתי למחות בך לפי שאינך בא בטענה שמכרתי לך אלא מחמת הראשון וכבר מחיתי בו והראיה דההוא דדר בקשתא בעיליתא ג' שנים וכו' אתא לקמיה דרבי חייא וכו' ואי איתא נימא ליה כיון דלא מחית בי מוכחא מלתא דזבנית להאי דזבני ניהליה וכן מהאי דא\\\"ל לחבריה מאי בעית בהאי ארעא וכו' עביד אינש דקרי לשני טובא שני חזקה והני מילי דאכלה שבע שנין וכו' וא\\\"כ אפי' שית נמי דהא אחזיק ביה לוקח בתר הכי ארבע שני בפני הלוקח ובלא מחאה אלא שיכול הראשון לטעון כבר מיחה בו ושוב לא חששתי למחות לפי שהוא אינו בא בטענה מחמתו עכ\\\"ל ע\\\"ש. ומוהרי\\\"ט בחלק ח\\\"מ סי' כ' האריך להסתיר ולסתור דין זה של הרשב\\\"א וז\\\"ל ואיכא למידק בה טובא חדא מ\\\"ש מכל לוקח דמייתי ראיה דדר האי מקמי' חד יומא ואכלה שני חזקה דעלתה לו חזקה בכך דחד יומא לא עדיף משלש שנים במחאה ולאחר שאכלה הלוקח ג' שנים בשופי ולא מיחה מוקמינן בידיה ולא מצי מערער לו' לא חששתי למחות בך לפי שאינך בא בטענה שאני מכרתי לך אלא מחמת הראשון והראשון לא עלתה לו חזקה וכו' והא דמייתי ראי' מההיא דדר בקשתא בעיליתא שלש שנין דאצטרכינן ר' חייא סהדי דדר ביה חד יומא התם ודאי לא חשיב לוקח אלא א\\\"כ מברר שהי' דר בו אותו שמכרה לו אפי' חד יומא שאל\\\"כ לאו לוקח הוא וכו' וכן פי' רשב\\\"ם אייתי עדים וכו' וע\\\"ש שהאריך וסוף דבריו ז\\\"ל והשתא דאתינ' להכי אמינא שבנדון של הרשב\\\"א וכו' דמחה אחיו בפני הלוקח וכו' והחזיק הלוקח שני חזקה בזה אמר שלא עלתה לו חזקה וכו' ולוקח הוא דאפסיד אנפשיה וכו' כך נראה בעיני לישב דינו של הרשב\\\"א אליבא דהלכתא ואם יש קיצור בלשון או שינוי קצת אין לתמוה וכו' אבל מה נעשה שהרב מוהר\\\"י קארו ז\\\"ל כת' סתם בפסקים לא אמרו למחות בסוף כל שלש אלא כשעמד בתוכו הראשון ולא הזכיר שמכרה בטענה שהי' של אביו דהלה מכחישו דאיהו דאפסיד אנפשיה עכ\\\"ל וע\\\"ש: ולפענ\\\"ד נראין דברי הב\\\"י במה שהעלה להלכה בד\\\"א שעמד בתוכו ראשון ומה שמפרש מוהרי\\\"ט דברי רשב\\\"א הרואה יראה שאין דבריו עולין כלל וכלל וכמ\\\"ש בעצמו שמורה חסרון בלשון הרשב\\\"א. והנה מה דקשיא ליה למוהרי\\\"ט דמ\\\"ש מכל לוקח כו' דחד יומא לא עדיף משלשה שנים בהמחאה וכו' ודאי חד יומא עדיפא וכמו שנבאר. והוא דבמה שאמרו צריך למחות בסוף כל שלש דעת בעל המאור הוא שלא יאמר חזרתי ולקחתיו אחר המחאה משום וס\\\"ל דיורד שלא ברשות נמי אית ליה חזקה וכן נמי דעת הרשב\\\"א וכן ביורד ברשות אם כלו ימי המשכונא אית ליה חזקה ובנ\\\"י פ' חזקת כ' בשם הרשב\\\"א ותיקשי הא דאמרי' בפ' חזקת בבן אומן דאין לו חזקה כשבא בטענת אביו כיון דהאומן גופיה יש לו חזקה אחר שכלו ימי אומנתו והבן שאינו אומן אמאי אין לו חזקה אלא ברירא דהאי מלתא דאין טוענין ליורש ולוקח אלא כשדר בו המוכר יום אחד וכן המוריש וכיון דדר בו יום אחד הוי קצת אומדנא שקנאו המוכר או המוריש וכן מבואר מדברי הרשב\\\"ם פ' חזקת הבתים (בבא בתרא דף מ\\\"א) אייתי ראיה דדר ביה חד יומא כדי לאמת דבריך ע\\\"ש ומש\\\"ה אמרו שם נראה בו רבא אמר עביד אינש דסייאר ארעא ולא זבין וקי\\\"ל כרבא והיינו כיון דעביד איניש דסייאר ארעא תו ליכא אומדנא כלל ואנן לא טענינן ללוקח וליורש עד דאית אומדנא דמוכח דזבניה ליה המוכר או המוריש. ומ\\\"ש מוהרי\\\"ט דדר ביה חד יומא דמוכר היינו שנדע שזה לוקח הוא דליתיה וכמו שיתבאר בסק\\\"ט ע\\\"ש אלא דר ביה חד יומא דמוכר לאומדנא שקנאו דאע\\\"ג חד יומא לאו חזקה הוא אומדנא מיהא הוית ואז טענינן ללוקח ובלא אומדנ' לא טענינן ללוקח ויורש ומש\\\"ה בבן אומן אין לו חזקה כשבא בטענת אביו כיון דדר ביה חד יומא דאביו לאו אומדנ' כיון שהי' אומן ואין לנו אלא חזקת שלש של הבן וחזקת היורש בעצמו לאו כלום כיון דאין לנו אומדנ' והרי הוא כמי שנרא' בו אביו דליכ' אומדנ' וכמ\\\"ש ואע\\\"ג דכלו ימי אומנתו דאביו שנה אחת קודם מותו נמי לא הוי חד יומא כיון דירד בו ברשות ליכא אומדנ' גבי יורד ברשות ל\\\"מ אלא חזקת שלש וכמו שמבואר מדברי הנ\\\"י פרק חזקת שכתב בשם הרשב\\\"א דאע\\\"ג דמטלטלין יורד ברשות לית ליה חזקה היינו משום דגבי מטלטלין אין הראיה רק התפיס' ולהכי כשירד ברשות ליכא ראיה בתפיסתו משום דעל ידי שאלה ושכירות ואומנות בא לידו אבל חזקת קרקעות דהוי שלש שנים מדלא מיחה שייך נמי ביורד ברשות עכ\\\"ל ע\\\"ש. וכיון דיורד ברשות דהיינו באומנות ליכא ראיה אלא בחזקת שלש שנים מדלא מיחה א\\\"כ דר ביה חד יומא אחר שכלו ימי אומנתו ליכא אומדנ' כלל וחזקת הבן ל\\\"מ בלא אומדנ' דדר ביה חד יומא וז\\\"ב. ולפ\\\"ז ממילא מבואר טעמא דרשב\\\"א דהיכא שמיחה בראשון דשוב לא טענינן ללוקח שקנאו המוכר אחר המחאה כיון דאם קנה אחר המחאה ה\\\"ל יורד שלא ברשות ותו ליכא חד יומא אצל המוכר דכל שירד ברשות או שלא ברשות ליכא חד יומא וכמ\\\"ש ואין לך בו אלא חזקת ג' שנים ול\\\"מ חזקת ג' שנים דלוקח אלא כי דר ביה המוכר חד יומא דהוי אומדנ' שקנאו ובהנך שירד שלא ברשות או ברשות לא הוי חד יומא ראיה ואומדנא כלל ומהרי\\\"ט הבין דדר ביה חד יומא שהוא לראיה שזה לוקח היא אמנם מבואר ברשב\\\"ם דהוא כדי לאמת דבריו שקנאו המוכר כמ\\\"ש בס\\\"ק ט' וא\\\"כ דברי הרשב\\\"א והש\\\"ע נכונים. וכן לדעת הרשב\\\"ם והרמב\\\"ן והרא\\\"ש דהא דצריך למחות בסוף כל שלש היינו משום דתולה המחאה בדברי הבאי היינו היכי דטוען ברי שקניתי ואית ליה חזקת שלש מבורר בשופי תלינן המחאה בדברי הבאי אבל חזקת שלש דלוקח ויורש לאו חזקה הוא עד דאיכ' בהדי' אומדנ' דדר ביה חד יומא בשופי וכיון שמיחה בראשון וא\\\"כ דירת המוכר לאו כלום הוא וכיון דמיחה בראשון שירד בה בתורת בזלנות או בתורת שכירות תו לא מצינן למיתלי מחאתו בדברי הבאי ע\\\"י חזקת שלש שנים דלוקח כיון דעיקר הסיבה של חזקת לוקח אינו אלא חד יומא דמוכר וכל זמן שאינו מבורר שדר ביה המוכר בשופי כיון דמיחה בו ממילא חזקת הלוקח לאו כלום ומש\\\"ה כל שלא מיחה בראשון דאיכ' עכ\\\"פ אצל המוכר חד יומא בשופי אז הוא דמהני חזקת הלוקח וטענינן עבורו כיון דאיכ' אומדנ' שקנאו המוכר אבל כל שמיחה בראשון חד יומא דראשון לאו כלום וממילא תו ל\\\"מ חזקת לוקח ויורש בלא טענה כיון דליכ' אומדנ' שקנאו המוכר וכמ\\\"ש וכל זה ברור. והארכנו בזה לברר דין של הרשב\\\"א ולהוציא מדברי מוהרי\\\"ט והעיקר כדברי הש\\\"ע ודו\\\"ק:\"]",
-        "[\"אינו צריך למחות בלוקח. כ' הסמ\\\"ע ז\\\"ל מוכח מזה דהא דכ' א\\\"צ לעשות מחאה בלוקח היינו דוקא כשהוא מובטח בלוקח שלא ישקר לטעון כו' דאל\\\"כ צריך לעשות מחאה כדי שלא יטעון הלוקח שקנה מן המערער ע\\\"ש. והכוונה דאם אינו מובטח בלוקח צריך לעשות מחאה שלא יטעון הלוקח שהוא קנאו אבל אם הלוקח אינו טוען. שקנאו בעצמו אלא בא בטענתי' דמוכר ודאי מוציאין מידו כיון שכבר מיחה בראשון וזה פשוט אלא שראיתי במוהרי\\\"ט סי' כ\\\"ו שהבין כוונת הסמ\\\"ע דדוקא שמובטח בלוקח וכגון שהוד' הלוקח אבל אם לא הודה שלוקח מהני חזקתו ולכן השיג עליו מהא דבא מחמת כותי דאם לא מיחה לא הפסיד ע\\\"ש אמנם הסמ\\\"ע נמי מודה דהיכא דהלוקח אינו בא מחמת עצמו אלא מחמת הראשון דמוציאין מידו אלא דעצה טובה קמ\\\"ל לפי שנראה דא\\\"צ למחות בלוקח לזה כת' דהיכא דאינו בטוח בלוקח יש לו למחות וה\\\"ה בבא מחמת כותי אם אינו בטוח בלוקח יש לו למחות:\"]"
+        "ואם דינו כו'. שם לפי' הרא\"ש בשם ר\"ת:",
+        "ואפי' לא כו'. נדרים נ' ב':"
       ],
       "en_segments": [
-        "Only when the first possessor remains in it. Beit Yosef cites Responsa Rashba concerning two brothers, one of whom sold land to Yehudah claiming it was his because his father had given it to him. His brother protested. The possessor later sold it, and the purchaser then held it for the years of chazakah. Rashba ruled that the purchaser did not acquire a chazakah. The requirement to protest again at the end of every three years was stated only where the original possessor remains there. If the first possessor sells to another, the claimant need not protest against the purchaser, because the purchaser comes only through the first possessor, against whom the claimant already protested. The claimant may say, 'I did not concern myself to protest against you, because you do not claim that I sold it to you, but only that you derive your right from the first possessor, against whom I already protested.' Rashba brings proofs from the cases in Bava Batra involving one who lived in an upper room for three years and from the rule that a person sometimes calls many years 'years of chazakah.' Maharit, Choshen Mishpat siman 20, argues at length against Rashba. He asks why this should differ from any purchaser who proves that his seller lived there one day and then himself possesses it for the years of chazakah. One day should not be stronger than three years in the face of an earlier protest. Yet after the purchaser himself possessed it peacefully for three years without protest, why should the claimant be able to say that he did not bother protesting because the purchaser came only through the first possessor, whose own chazakah was deficient? Maharit explains Rashba's proof from the upper-room case differently, saying that a purchaser is not treated as a purchaser at all until he proves that his seller lived there even one day. He ultimately attempts to preserve Rashba's ruling by limiting it to the precise facts, where the brother had protested in the purchaser's presence and the purchaser nevertheless proceeded, thereby causing his own loss. Maharit admits, however, that this reading is not reflected in Rashba's wording, while Beit Yosef codified the rule without that limitation.",
-        "In my opinion Beit Yosef's ruling is correct, and Maharit's reconstruction of Rashba's words does not stand. His principal question, that one day cannot be stronger than three years after a protest, is mistaken. One day is stronger in the relevant respect. The reason one must renew a protest after every three years, according to Baal HaMaor, is to prevent the possessor from saying that he later purchased the property after the first protest. Baal HaMaor holds that even one who originally entered without permission can later establish a chazakah, and Rashba agrees. So too, one who originally entered with permission, such as through a mortgage, may establish a chazakah after the mortgage period ends. Nimukei Yosef cites Rashba's question from the son of an artisan, who cannot establish chazakah merely by relying on his father's claim, even though the artisan himself can eventually establish chazakah after his period of artisan possession ends. The resolution is that we advance a claim for an heir or purchaser only when the seller or decedent lived in the property for one day. That one day supplies some indication that the seller or decedent actually purchased it. Rashbam explains in chapter Chazakat HaBatim that the proof of one day's residence is required 'to substantiate your words.' This is also why the Gemara says that merely being seen on the land is not enough, because a person may inspect land without buying it. Without some indication of acquisition, we do not advance a claim for an heir or purchaser. Maharit understood the one day as proof merely that the claimant before us is indeed a purchaser, but that is not so. Its function is to create an evidentiary indication that his seller acquired the property.",
-        "This explains why the son of an artisan has no chazakah when he comes through his father's claim. His father's one day of residence carries no indication of purchase, because the father entered as an artisan. The son's own three-year possession does not help without an evidentiary basis for advancing the father's claim. Even if the father's artisan period had ended a year before his death, that isolated day or year still does not supply the required indication, because one who originally entered with permission establishes ownership only through a full three-year chazakah based on the owner's failure to protest. Thus, when the claimant protested against the original possessor, we can no longer advance for the purchaser a claim that the seller bought it after the protest. If he bought it after the protest, he was then one who had entered without permission, and no mere one-day residence supplies an indication of purchase. Only a new three-year chazakah by that seller could do so. The purchaser's later three years cannot substitute for the missing evidentiary basis in the seller.",
-        "The same conclusion follows according to Rashbam, Ramban, and Rosh, who explain the need to renew protest after three years on the ground that the possessor may treat the earlier protest as idle talk once he himself has a definite claim of purchase and a clear three-year chazakah. A purchaser's or heir's three-year possession is not itself sufficient without the additional indication of one peaceful day of possession by the seller or decedent. Once the claimant protested against the first possessor, the first possessor's residence is not peaceful and supplies no such indication. We therefore cannot treat the earlier protest as idle merely because the purchaser later possessed for three years. Only where there was no protest against the original possessor, so that his one day of residence was peaceful and supplied an indication of purchase, do we advance the seller's claim for the purchaser. All this is clear, and therefore the essential ruling follows Shulchan Aruch rather than Maharit.",
-        "He need not protest against the purchaser. Sema writes that this exemption applies only when the claimant trusts the purchaser not to lie by claiming that he himself bought the property from the claimant. Otherwise it is advisable to protest so that the purchaser cannot later make such a claim. The intent is not that the purchaser's chazakah becomes effective whenever the claimant does not trust him. Rather, if the purchaser does not claim an independent purchase from the claimant and relies only upon his seller's right, the property is certainly removed from him because the claimant already protested against the first possessor. Sema merely gives prudent advice. Maharit, siman 26, misunderstood Sema as limiting the legal rule to a purchaser who admitted that he derived title only from the first possessor, and therefore challenged him from one who purchases through a non-Jew. But Sema agrees that when the purchaser comes only through the first possessor, he loses. He says only that if the claimant does not trust the purchaser, it is wise to protest lest the purchaser later invent an independent claim of purchase. The same practical advice applies to one who purchases through a non-Jew."
+        "If his judgment, etc.",
+        "Even if he did not, etc.",
+        "If he is a . . This is the name of Hashem:",
+        "\"No,\" he did. Let's say, \""
       ],
       "reviewer_output_template": {
-        "id": "cm1/siman146/seif-008/ketzot-hachoshen",
+        "id": "yd1/siman334/seif-045/beur-hagra",
         "merge_groups": null,
         "verdict": "ok_rejoin|needs_editorial|skip",
         "notes": ""
       }
     },
     {
-      "id": "cm1/siman157/seif-012/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 157,
-      "seif": 12,
-      "slug": "ketzot-hachoshen",
+      "id": "yd1/siman371/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 371,
+      "seif": 1,
+      "slug": "turei-zahav",
       "bucket": "reject_spot_review",
       "heSegs": 3,
       "enSegs": 4,
       "unsafe_reason": null,
       "prior_auto_merge_groups": [
         [
-          0
-        ],
-        [
+          0,
           1
         ],
         [
-          2,
+          2
+        ],
+        [
           3
         ]
       ],
       "spot_review_suggested_alt": [
         [
-          0,
+          0
+        ],
+        [
           1
         ],
         [
-          2
-        ],
-        [
+          2,
           3
         ]
       ],
       "spot_verdict": "REJECT",
-      "spot_reason": "Merges Yerushalmi (H1) with Rambam-resolve (H2).",
+      "spot_reason": "Glues H0 opening-size note with H1 tumah-susceptible note.",
       "he_segments": [
-        "בנין קבוע נאמן. כ' בנימוקי יוסף בשם ר' יונה הטעם בזה דכיון דקבע לו בבנין אזי חיובו פשוט ותו לא שייך ביה מי יימר דמחייבי ליה רבנן ע\"ש והיינו נמי טעמא דלקמן סעיף י\"ב שאם נתרצה בהגבהה דאז נמי חיובו פשוט ותו לא אמרינן ביה מי יימר. ואיכא למידק בסוגיא שם בפ\"ק דב\"ב דף ה' דפריך לאביי ורבא דסברי עביד איניש דפרע גו זימניה מסיפא דמתני' למעלה מד' אמות בחזקת שלא נתן אילימא בזמנו אמאי לא אלא לאו תוך זמנו אלמא לא עביד אינש דפרע גו זמניה ומשני שאני הכא דאמר מי יימר דמחייביה ליה רבנן ע\"ש וכיון דעיקר חיובו דכותל אינו אלא משום שנתן עליו התקרה וכמ\"ש רש\"י שם דף ו' בהא דאמר רב הונא סמך לפלגא סמך לכולה משום דסופו לגמור כל הכותל וליתן את התקרה וא\"כ אחר שיתן התקרה הרי משפטו נודע וכיון דס\"ל עביד איניש דפרע גו זמניה אמאי לא יפרע כיון שהוא יודע בבירור שודאי יתחייב לו אחר נתינת התקרה ופרע ליה גו זמניה כי היכי דלא לטרדיה אחר נתינת התקרה. והנה לפי מ\"ש הנ\"י שם וז\"ל סמך לו כותל אחר כו' וא\"ת ואמאי מגלגלין עליו את הכל שמא לא יתן התקרה כו' ויש לומר דמכל מקום כיון שנעשה כותל זה מחיצה לביתו חייב והכי תניא בתוספתא כו' וא\"כ לשטתו אפשר לומר דאין החיוב בכותל משום נתינת התקרה אלא משום שנעשה מחיצה לביתו ובזה אין המשפט גלוי ושייך ביה מי יימר ואין להקשות אכתי יאמר שהיה בדעתו ליתן את התקרה ונודע לו משפטו שיתחייב ומש\"ה פרעו תוך זמנו דיש לומר כיון דאיפלגי בזה בירושלמי אם יכול ליתן את התקרה והובא בחידושי הרמב\"ן ע\"ש א\"כ י\"ל דאביי ורבא ס\"ל דאין יכול ליתן התקרה וחבירו יכול למחות בתקרה וא\"כ אין חיובו אלא משום דנעשה מחיצה לביתו ובזה אין משפטו נודע:",
-        "אמנם אנן דקיי\"ל כהך מ\"ד בירושלמי דאין חבירו יכול למחות בנתינת התקרה א\"כ הא דסמך לו כותל אחר אינו נאמן לומר פרעתי משום דכל זמן שלא נתן התקרה אע\"ג דחייב משום דנעשה מחיצה לביתו אמרינן מי יימר ואם אמר יאמר שהיה בדעתו ליתן את התקרה כיון דקי\"ל לא עביד איניש דפרע גו זימניה לא היה לו לפרוע קודם זמן חיובו והוא נתינת התקרה:",
-        "ובזה נראה לענ\"ד ליישב דברי הרמב\"ם שכ' נשבע בנק\"ח ונוטל והרמ\"ה השיג עליו והוא מהא דמשמע בש\"ס דמי יימר טפי עדיף מחזקה דתוך זמנו דהא אביי ורבא דלא סברי חזקה דתוך זמנו ואפ\"ה מודו במי יימר דהוא בחזקת שלא פרע וכיון דקי\"ל בתוך זמנו דנאמן הנוטל בלא שבוע' מכ\"ש היכא דאיכא מי יימר דנוטל בלא שבועה ועיין בטור ובחידושי הרמב\"ן ולפמ\"ש דלדידן דקי\"ל כמ\"ד בירושלמי דיכול ליתן התקרה ואין חבירו יכול למחות וא\"כ הא דאינו נאמן לומר פרעתי משום דרצה ליתן התקרה וחיובו ברור אלא משום דה\"ל תוד זמנו. ובהך חזקה דתוך זמנו לחודיה נמי לא סגי לן כיון דבאמת חיובו אפי' עדיין לא נתן התקרה ומשום שנעש' מחיצה לביתו אלא כיון דזה אינו משפט גלוי א\"כ אמר מי יימר דמחייבי לי רבנן וחיובו בהצטרפות שניהם דהיינו חזקה דלא עביד אינש דפרע גו זימניה ובטעמא דמי יימר וכיון דאין אנו יכולין לחייבו בתוך זמנו לחוד וכן בחזקה דמי יימר לחודיה עד שאנו באים עליו משני צדדין בחזקת תוך זמנו ובהא דמי יימר וא\"כ ודאי איקלשא טובא חזקת שניהן ומש\"ה צריך הנוטל שבועה אבל היכא דסגי לה בחזקה דתוך זמנו ואלים טובא א\"צ הנוטל שבועה וכן במי יימר אלו הוי סגי לה בעצמה נמי לא היה צריך הנוטל שבועה כיון דחמיר מתוך זמנו כמ\"ש הרמ\"ה אבל זה שאינו אלא בהצטרפות שניהם איתרע לה טובא ומשום הכי צריך הנוטל מיהת שבועה ודו\"ק:"
+        "בנקב שיש בו טפח. פירוש במקום אחד אבל אם אינו במקום אחד אלא ע\"י צירוף יש טפח כגון מה שקורין גיגאטי\"ר שעשוי ע\"י סירוג ויש שם נקבים קטנים הרבה אין זה מביא הטומאה והוא משנה פרק י\"ג דאהלות הסירוגות מצטרפות למלא מקדח דברי בית שמאי וב\"ה אומרים עד שיהא כמלא מקדח במקום אחד ומבואר שם בין להביא הטומאה ובין להוציא ופשוט הוא דדין שיעור מקדח בחלון שעשוי לאורה שוה לשיעור טפח בחלון העשוי לתשמיש כמבואר בפ' הנ\"ל וכ\"פ רמב\"ם להדיא פרק י\"ד דטומאת מת דדוקא בעינן טפח במקום א' ואם לאו הרי היא כסתומה. וכ\"כ הרמב\"ם בפירוש המשנה בפרק ח' דאהלות גבי סריגת החלון ועיין מה שכתבתי מזה לקמן סעיף ד' על דברי הדרישה:",
+        "וכל דבר המקבל טומאה. זה קאי גם ארישא דסותם כל הנקב דמועיל אפילו אין מבטלו שם מ\"מ בעינן שלא יהא דבר המקבל טומאה אלא צריך לסתמו בעץ או באבן דבר שאינו כלי כמ\"ש בית יוסף בשם לשון הרי\"ף:",
+        "אא\"כ יכול לעמוד בלא סמיכה. בפרק לא יחפור סוף (בבא בתרא דף י\"ט) כתבו התוס' טעם לזה דכל שצריך סמיכה מקרי סתימת עראי ועוד טעם אחר שהסמיכה לא תהיה על ידי דבר שהוא מקבל טומאה אע\"פ שהדבר עצמו שסותם הוא אינו מקבל טומאה מכל מקום כיון שהדבר שסומכו מקבל טומאה הוה כאלו הוא עצמו מקבל טומאה וכ\"פ הר\"ש והרמב\"ם בפ\"ו דאהלות במשנה דקוברי המת שהיו עוברין כו' ופשוט הוא לדברי הכל כל שמושיב באותו חלון עצים ואבנים כל כך הרבה עד שכותלי החלון מחזיקים אותם זה ודאי מהני וחוצץ דאין זה בכלל סמיכה כלל כנ\"ל פשוט:) ומעשה שהי' בטומאה שהיתה בבית סמוך לבית הכנסת באופן שהיתה נכנסת דרך חלון ביהכ\"נ של נשים וצוה מורה אחד לסתום החלון באותו פרוכת קטן שתלוי שם בקרסי הברזל תמיד שהוא לצניעות שתולין אותו שם הנשים בשעה שאינן צריכין לראות ביהכ\"נ של אנשים ואמרתי שטעה המורה דבהדיא אמרינן במתניתין דפ' ח' דאהלות דסדין ומחצלת העשוין כאהלים שחוצץ בפני הטומאה אבל אם אין עשוים כאהלים אין חוצץ וכתב שם הר\"ש כל שהוא עשוי כאהל חוצץ אע\"ג דמקבל טומאה ואם אין עשוי כאהל אינו חוצץ וביאר ברמב\"ם פרק י\"ג דטומאת מת שאין עשוי כאהל אלא מתוח בלבד ואין להם שיפוע אהלים ואין שם כתלים עכ\"ל וה\"ה כאן שאין כאן אלא סתימה על החלון ולא כותל ולא אהל ותו דאותו הפרוכת תלוי בטבעות של ברזל נמצא דהברזל עושה הקיום ובהדיא כ' רמב\"ם פרק י\"ח דטומאת מת אם הגיף א' את הדלת וסמכו במפתח כדי שלא יטמא את הבית וכן אם היה אדם מבפנים או בחוץ סומך את הדלת אם יכול הדלת לעמוד בפני עצמו הבית טהור ואם לאו הבית טמא לפי שהאדם והכלים הוא שחוצץ בפני הטומאה והאדם והכלים מביאין את הטומאה ואינם חוצצין עכ\"ל וכן כתבו התוס' בפרק לא יחפור (בבא בתרא דף י\"ט) בד\"ה רואין כו' לענין אם סגר הדלת במפתח דבעינן דבר החוצץ עומד על ידי דבר שאינו מקבל טומאה ולשונם אזכיר בסמוך ה\"ה נמי כאן שהטבעות של ברזל מעמידין את הפרוכת והם כלים וא\"ל ממ\"ש במשנה דכלים דף כ\"א דטבעות כלים טהורות דהא איתא בפרק במה בהמה (שבת דף נ\"ב) ברש\"י וז\"ל ומיהו עם הרצועה מקבלת טומאה אלא שאין מקבלת טומאה לעצמה עכ\"ל ממילא כאן שהטבעות עם אותו פרוכת הוה ודאי שם כלי עליהם והוה כמפתח ותו נראה דאפי' אם אינו מקבל טומאה מ\"מ אינו חוצץ וזה מוכח ממה דקשה תרי משניות אהדדי לכאורה דבפי\"א דכלים שנינו כל כלי מתכות שיש לו שם בפני עצמו טמא חוץ מן הדלת ומן הנגר ומן המנעול והפותה שתחת הציר (והציר) [והצינור] שנעשו לקרקע פי' הרמב\"ם שתשמישן עם הקרקע משמע מזה דכלים אלו ובתוכן מנעול שנועל בו בית לא מקבל טומאה ובפרק ו' דאהלות שנינו קוברי המת שהיו עוברים באכסדרה והגיף אחד מהם את הדלת וסמכו במפתח פירש הרמב\"ם שהיה שער הבית קצת פתוח והחזיק אחד מהנושאים לנעול שער הבית במפתח אשר בו עכ\"ל אם יכול הדלת לעמוד בפני עצמו טהור פירש ר\"ש דאם יכולה לעמוד בלא סמיכת המפתח ה\"ל מפתח כמאן דליתיה ואם לאו טמא דכל דבר הנסמך באדם וכלים אין חוצץ בפני הטומאה משמע מזה דמפתח שהדלת נעול בו מקבל טומאה וע\"כ אינו חוצץ ובתוס' פרק לא יחפור (בבא בתרא דף י\"ט) כתוב טעם למה אמרינן דאם ינטלו אינם יכולים לעמוד דאינו חוצץ וז\"ל והיינו טעמא דסתימת עראי היא כיון שאינו יכול לעמוד בפני עצמו אי נמי משום דבעינן דבר החוצץ עומד על ידי דבר שאינו מקבל טומאה ומיהו בפי' משניות מצא ר\"י דמפרש דאפי' במפתח שאינו מקבל טומאה איירי ומטעמא דלא חשיב אהל לחוץ בפני הטומאה כיון שעומד ע\"י כלי אע\"ג דאינו מקבל טומאה עכ\"ל נ\"ל דהתו' באו לפרש המשנה דאהלות שזכרנו ולתרץ קושיא שזכרנו דתחלה תירצו דמפתח לאו דוקא אלא כל דבר שבעולם אם בא לסמוך בו דבר החוצץ אינו חוצץ ולא תליא מילתא במקבל טומאה אלא סתימה מעלייתא בלא שום סמיכה בעינן ואח\"כ כתבו דדוקא מפתח נקט שהוא מקבל טומאה ולא מיירי בההוא גוונא דמיירי בכלים שזכרנו דהתם המנעול אין מקבל טומאה דנעשה תחלה לצורך תשמיש קרקע אבל באהלות מיירי ממפתח דעלמא שלא נעשה לקרקע והוא מקבל טומאה ואח\"כ כתבו שבפי' המשניות ס\"ל דודאי מפתח דוקא נקט דאינו חוצץ כיון שהוא על כל פנים כלי מה שאין כן במידי דאינו כלי לגמרי ולא תליא מילתא בטומאה ומתני' דאהלות מיירי אפי' במפתח שנעשה לקרקע דאין מקבל טומאה הנה לפנינו דמפתח שנועלין בו הדלת פשיטא דאינו חוצץ ואפי' אינו מקבל טומאה אלא אפי' שאר דבר שאינו כלי לגמרי אין יכול לסמוך בו הדלת לתירוצא קמא ובמרדכי פרק לא יחפור כתב כתירוצא קמא דצריך שיהיה עומד שם בחלון בלא סמיכת דבר אחר וכ\"כ רמ\"א בסי' זה בסמוך. ואע\"ג דבמרדכי הביא שם עוד מתני' דהגפת מפתח לא מהני אע\"פ שאינו מקבל טומאה לא נתכוין שיהיה עכ\"פ כלי דהא פסק כתירוצא קמא כמו שזכרתי אלא בא לתקן בזה שלא נימא דבטומאה תליא מילתא תדע דהא לא זכר שיהיה דוקא כלי. ממילא נשמע מזה דלא מועיל חציצת דלת או חלון כל שאינה יכולה לעמוד בלא צירים של ברזל או שאר דבר של ברזל אע\"פ שהם לצורך קרקע וזה מועיל שלא יקבלו טומאה מ\"מ אינם חוצצים כמו שזכרנו ולפ\"ז הא דאמרי' בסעיף ד' דמהני נעילת מפתחים לחצון היינו אם הם בענין שיכולים לעמוד בלא שום סמיכה ולא ביש לה צירים של ברזל דאל\"כ אינם חוצצין דהוה כמפתח של משנה דאהלות ועיין מה שאכתוב לקמן שלא לסמוך להקל כדברי הדרישה לנעול הבית כדי לחוץ. ועל כן בודאי אינו חוצץ ומטעם זה יראה דאם יש סתימה בחלון של ברזל שהוא עשוי כמו סבכה שקורין בלשון אשכנז גיגאטי\"ר והוא של ברזל אינו מועיל כיון שהוא מקבל טומאה) ואינו עשוי כעין אהל ועיין מה שכתבתי מזה בסעיף ד' שעל פי זה אין להתיר לכהן להיות בבית ולסתום הפתח והחלון:"
       ],
       "en_segments": [
-        "With a permanent structure he is believed. Nimukei Yosef, in the name of Rabbeinu Yonah, explains that once he fixed the structure permanently, his liability became clear and the rationale of 'who says the Sages will obligate me' no longer applies. This is likewise the reason for the rule below that if he consented to raising the wall, his liability is clear and that rationale no longer applies. There is, however, a difficulty in the sugya in the first chapter of Bava Batra 5a. The Gemara challenges Abaye and Rava, who hold that a person may pay within the term, from the latter clause of the Mishnah: for a wall above four cubits, he is presumed not to have paid. If the case were after the due date, why should he not be believed? It must therefore be before the due date, showing that a person does not pay within the term. The Gemara answers that this case is different because he says, 'Who says the Sages will obligate me?' Yet the principal obligation for the wall appears to arise when he places his roof upon it, as Rashi explains on 6a concerning Rav Huna's statement that if he built an adjoining wall up to half the height, he is deemed to have accepted the whole, because he will ultimately finish the wall and place the roof upon it. If so, once he knows that when he places the roof he will certainly become liable, why, according to Abaye and Rava, should he not pay in advance in order not to be troubled afterward?",
-        "According to Nimukei Yosef, however, who asks why he must pay for the whole wall when perhaps he will never place a roof upon it and answers that once this wall serves as a partition for his house he is liable, one can explain that the liability does not arise from placing the roof but from its serving as a partition. In that respect the legal result is not obvious, and he can say, 'Who says the Sages will obligate me?' One cannot answer that he intended eventually to place the roof and therefore knew his liability with certainty and paid early, because the Yerushalmi records a dispute whether he is permitted to place the roof, as cited in Ramban's novellae. Abaye and Rava may hold that he cannot do so and that his neighbor may object. His liability therefore rests only on the wall's serving as a partition, which is not an obvious rule.",
-        "We, however, rule like the Yerushalmi view that the neighbor cannot object to his placing the roof. Accordingly, where he built another wall alongside, he is not believed to say he already paid. Before he placed the roof, although he was already liable because the wall served as a partition, that obligation was not obvious and he could say, 'Who says the Sages will obligate me?' If he says he intended to place the roof, then since we rule that a person does not ordinarily pay before the due date, he should not have paid before the later obligation matured through placing the roof.",
-        "This also resolves Rambam's ruling that the claimant takes a stringent oath and collects, against Ramah's objection. Ramah inferred from the Gemara that the rationale of 'who says' is stronger than the presumption against early payment, because Abaye and Rava reject the latter presumption and nevertheless agree that 'who says' creates a presumption of nonpayment. Since we rule that within the term the claimant collects without an oath, all the more so, Ramah argues, where 'who says' applies he should collect without an oath. According to what I wrote, however, under our ruling that the roof may be placed without the neighbor's objection, the defendant's lack of credibility does not rest upon 'who says' alone, for his eventual liability through the roof is certain. Nor can the presumption against early payment alone suffice, because even before the roof was placed he was already liable due to the partition, only that liability was not obvious. His liability therefore rests on the combination of both considerations: people do not ordinarily pay before the due date, and as to the present liability he could say, 'Who says the Sages will obligate me?' Since neither presumption independently suffices, their combined force is weaker, and the claimant must therefore swear. Where the ordinary presumption against early payment alone suffices, it is strong enough that no oath is needed. Likewise, if 'who says' alone would suffice, the claimant would not need an oath because it is even stronger than the ordinary within-term presumption, as Ramah states. Here, however, the claimant succeeds only through the combination of both, and therefore must swear. This is precise."
+        "A bank that has a cultivator. It means one place, but if it is not one place, it does not bring such a cult, and it does not mean that it does not mean that it does not mean that it does not occur in a single place, and it does not mean that it is used in the window, and that it is not possible to take place in a single place. As such, the Rambam interprets The subcommittee of the window, and see what I have written from it to C.D. on the terms of demand:",
+        "And anything susceptible to tumah. This applies also to the first clause, where one completely seals an opening. Even if he does not permanently nullify the sealing material there, the material itself may not be something susceptible to tumah. It should therefore be sealed with wood, stone, or another substance that is not a utensil, as Beit Yosef cites from Rif.",
+        "Unless it can stand without support. Tosafot in Bava Batra 19 give two reasons. First, anything that requires external support is merely a temporary closure. Second, the barrier may not depend for support upon an object susceptible to tumah. Even if the barrier itself is not susceptible, if it is held in place by something that is, it is treated as though the barrier itself depended upon a tumah-receiving object. R. Shimshon and Rambam rule similarly in Ohalot. It is obvious, however, that if one fills a window with enough stones or wood that the window walls themselves hold the material in place, that is a valid barrier and is not called external support.",
+        "An incident occurred where tumah was present in a house adjacent to a synagogue and could pass through a window of the women's section. One halachic authority instructed that the window be closed with a small curtain that hung there permanently on iron hooks for privacy. I said he erred. Ohalot teaches that a sheet or mat interposes against tumah only when it is made and positioned as an actual tent. If merely stretched flat without sloping sides or walls, it does not interpose. Here the curtain merely covers the window and is neither a wall nor an ohel. Furthermore, the curtain is held by iron rings. Rambam rules that if a door is kept shut by a key or by a person supporting it, the house is pure only if the door can stand closed by itself. If not, the supporting person or utensil is the effective barrier, and people and utensils transmit tumah but do not interpose. Tosafot likewise require the barrier to stand by means of something not susceptible to tumah. The iron rings here function like the key. Even if certain rings are not independently susceptible to tumah when detached from their normal use, when joined to the curtain they clearly function as utensils. There is also reason to say that even a support not susceptible to tumah may fail. Kelim teaches that certain metal door components made for attachment to the ground are not susceptible to tumah. Ohalot nevertheless says that a door supported by a key fails unless the door can stand on its own. Tosafot offer two explanations: either any barrier requiring support is temporary and invalid, or specifically a tumah-receiving support invalidates it. They then cite a commentary holding that even a key not susceptible to tumah invalidates because the barrier is not independently established. Mordechai follows the first explanation and requires the material in the window to stand without any other support. Rama rules this way below. Therefore, a door or window cannot be relied upon as a tumah barrier if it stands only by iron hinges or other iron fittings, even if those fittings are deemed attached to the ground and not susceptible to tumah. According to this, the locking arrangements mentioned later work only where the closure is independently established and does not rely on such supports. One should not rely upon Derishah's leniency of locking the house in order to protect a kohen. The same concern applies to an iron lattice in a window. Since it is iron and not formed as an ohel, it does not create the necessary interposition. Therefore, one should not permit a kohen to remain inside merely by closing the door or window in such a fashion."
       ],
       "reviewer_output_template": {
-        "id": "cm1/siman157/seif-012/ketzot-hachoshen",
+        "id": "yd1/siman371/seif-001/turei-zahav",
         "merge_groups": null,
         "verdict": "ok_rejoin|needs_editorial|skip",
         "notes": ""
       }
     },
     {
-      "id": "cm1/siman195/seif-001/ketzot-hachoshen",
+      "id": "cm1/siman39/seif-003/beur-hagra",
       "volume": "cm1",
-      "siman": 195,
-      "seif": 1,
-      "slug": "ketzot-hachoshen",
-      "bucket": "unsafe_dry_run",
-      "heSegs": 2,
-      "enSegs": 5,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
-      "prior_auto_merge_groups": [
-        [
-          0,
-          1
-        ],
-        [
-          2,
-          3,
-          4
-        ]
-      ],
-      "spot_review_suggested_alt": null,
-      "spot_verdict": null,
-      "alignHint": "no_head_align",
-      "strongEnHeads": 4,
-      "he_segments": [
-        "בקנין כיצד. כ' תוס' פ\"ק דקידושין דף ד' דכותי נמי קונה בחליפין וכ\"כ תוס' ר\"פ הלוקח עובר פרתו אלא שהקשו שם מהא דאמרו שם דומיא דעמיתך מה עמיתך בחדא אף נכרי נמי בחדא והא איכ' תרתי כסף וחליפין או משיכה וחליפין וע\"ש שכתבו דעמיתך בחדא לא קאי אלא על קנין החדש כגון כסף או משיכה אבל חליפין שוה בתרווייהו וע\"ש: ו",
-        "לפע\"ד נרא' ליישב לפי מ\"ש הרי\"ף בתשו' ז\"ל ששאלת אם יש בחליפין אונאה או לא זה שנראה מן התלמוד הוא שאין בו אונאה וכו' והתורה ג\"כ מעידה על זה באמרה וכי תמכרו ממכר וכו' במכר הוא דאזהר רחמנא בבל תונו אבל בחליפין לא והובא בשיטה מקובצת פ' הזהב וכ\"כ בכסף משנה פי\"ג ממכירה על מ\"ש הרמב\"ם המחליף כלים בכלים אין בו אונאה והטעם בשם תלמידי הרשב\"א דגבי אונאה ממכר כתיב וחליפין לאו ממכר הוא ע\"ש. ולפ\"ז ניחא הא דכתיב וכי תמכרו ממכר לעמיתך לישראל בחדא ולכותי בחדא דגבי ממכר ליכא אלא כסף או משיכה וחליפין לאו ממכר היא ובש\"ך סי' קכ\"ג חולק על דברי תוס' בקנין חליפין בכותי וז\"ל והראי' שהביא ר\"ת מכסף מקנתו וכו' לפע\"ד לאו דאי' היא דלעולם אימא לך חליפין אינו מועיל בעכו\"ם והא דממעט מכסף מקנתו דלא נקנה בחליפין היינו דאפילו לישראל אין ע\"ע נקנה בחליפין דודאי אע\"ג דהאי קרא מכסף מקנתו בעכו\"ם כתיב מ\"מ בישראל נמי משתעי קרא ותדע דאל\"כ הא דמשמע מכל הפוסקים דאין ע\"ע נקנה בחליפין מנא להו הא אלא ודאי כדפרישית ועוד יש לו' דקרא לגופי' אתי לגלויי דאין ע\"ע נקנה בחליפין ותדע דהא רב יוסף מפרש התם בקידושין דף ח' מכסף מקנתו ולא בתורת תבואה וכלים טעמיה משום דלא קי\"ל אע\"ג דס\"ל לרב יוסף התם דכל שאר דברים בעולם אינו מועיל קנין במידי דלא קיץ וא\"כ אמאי איצטריך קרא למעוטי ע\"ע אלא ודאי כדפרישית וע\"ש. ואיני רואה מזה שום קושיא על ר\"ת דנהי דבישראל נמי אין ע\"ע נקנה בחליפין וכדמשמע מהא דתנן פ\"ק דקידושין דף י\"ד ע\"ע נקנה בכסף ובשטר ומשמע הא חליפין לא היינו כיון דגלי קרא בעבד עברי הנמכר לעכו\"ם דאינו נקנה בחליפין הוא הדין בישראל דמ\"ש אבל אי נימא דעכו\"ם אינו בחליפין כלל א\"כ מאי ענין מעוטא דמכסף מקנתו למעט חליפין גבי עכו\"ם ואי בעי למעט ע\"ע מחליפין ה\"ל למכתב גבי ישראל אלא ודאי דכותי נמי יש לו דין חליפין אלא בע\"ע הוא דאמעט ומש\"ה בישראל נמי אין ע\"ע נקנה בחליפין ומ\"ש הש\"ך ועוד י\"ל דקרא לגופא לגלויי דע\"ע אינו נקנה בחליפין לעכו\"ם משום דאין חליפין לעכו\"ם. אינו קושיא דהא תינח אי נימא בישראל ע\"ע נקנה בחליפין אבל כיון דבישראל נמי אין ע\"ע נקנה בחליפין א\"כ תו ליכא למימר דקרא למעט עכו\"ם מחליפין כיון דאפי' ישראל דיש לו חליפין נמי אין ע\"ע [נקנה] בחליפין ולר' יוסף דאמר טעמא משום דלא קיץ ניחא דקרא לגופא אתי לגלויי דכל מידי דלא קיץ לא הוי כסף אבל לו' דקרא אתי למעט ע\"ע מחליפין בעכו\"ם משום דאין לעכו\"ם חליפין א\"א לו' כן כיון דאפי' ישראל דאיתי' בתורת חליפין נמי אינו קונה ע\"ע בחליפין אלא ודאי דעכו\"ם נמי אי' בתורת חליפין ומש\"ה כי מיעט ע\"ע מדין חליפין ממילא ישראל נמי אינו קונה בחליפין וזה פשוט:"
-      ],
-      "en_segments": [
-        "How is acquisition effected through a kinyan? Tosafos, Kiddushin 4, write that a non-Jew also acquires through chalipin. Tosafos at the beginning of HaLokeach Ubar Parato likewise write this, but ask from the Gemara's derivation comparing a non-Jew to 'your fellow': just as acquisition from your fellow is through one mode, so too from a non-Jew through one mode. Yet if chalipin works for both, there would be two modes, money and chalipin, or meshichah and chalipin. Tosafos answer that the statement 'your fellow through one' refers only to the acquisition mode newly taught there, namely money or meshichah, whereas chalipin is common to both.",
-        "In my opinion the matter can be resolved according to Rif's responsum concerning whether ona'ah applies to chalipin. Rif writes that the Talmud indicates it does not. The Torah likewise supports this by saying, 'When you sell a sale,' meaning that the Torah warned against ona'ah specifically in a sale, but chalipin is not categorized as a sale. Shitah Mekubetzet in chapter HaZahav cites this. Kesef Mishneh, chapter 13 of Hilchot Mechirah, likewise explains Rambam's ruling that exchanging vessels for vessels has no ona'ah, citing the students of Rashba that the verse speaks of a sale, while chalipin is not a sale. Accordingly, the verse, 'when you sell a sale to your fellow,' can mean that with respect to sale proper there is one mode for a Jew and one for a non-Jew, namely money or meshichah. Chalipin is outside the category of 'sale.'",
-        "Shach in siman 123 disputes Tosafos' view that chalipin works for a non-Jew. He rejects Rabbeinu Tam's proof from 'the money of his purchase,' arguing that the exclusion of chalipin there teaches that even for a Jew a Hebrew servant cannot be acquired through chalipin. Although the verse speaks about a Hebrew servant sold to a non-Jew, it also teaches the law for a Jewish purchaser. Otherwise, from where do all the authorities derive that a Hebrew servant cannot be acquired through chalipin? Shach further suggests that the verse itself comes to reveal that a Hebrew servant cannot be acquired through chalipin. Rav Yosef in Kiddushin 8 interprets 'the money of his purchase' as excluding produce and utensils because their value is not fixed, even though according to Rav Yosef acquisition by ordinary objects also fails where the value is not fixed. Why then was a verse needed regarding a Hebrew servant? Shach concludes that the verse comes to teach the rule specifically here.",
-        "I do not see any difficulty here against Rabbeinu Tam. It is true that even a Jewish master cannot acquire a Hebrew servant through chalipin, as is implied by the Mishnah in Kiddushin 14, which says a Hebrew servant is acquired by money and document, excluding chalipin. But that can be because once the verse revealed regarding a Hebrew servant sold to a non-Jew that chalipin does not acquire him, the same rule applies to a Jewish purchaser. If one were to say, however, that chalipin does not exist for non-Jews at all, then what purpose would there be in excluding chalipin through 'the money of his purchase' specifically in the law of a sale to a non-Jew? If the Torah wished to exclude a Hebrew servant from chalipin as a category, it should have written the exclusion in the law of a Jewish purchaser. The better explanation is that a non-Jew ordinarily does have chalipin, but a Hebrew servant was specially excluded from acquisition through chalipin. Consequently a Jewish purchaser likewise cannot acquire a Hebrew servant through chalipin.",
-        "Shach's further suggestion that the verse itself comes to reveal that a Hebrew servant is not acquired through chalipin from a non-Jew because non-Jews lack chalipin also does not work. That would be meaningful if a Hebrew servant could be acquired through chalipin by a Jew. But once a Jew, who unquestionably has chalipin generally, also cannot acquire a Hebrew servant through chalipin, one can no longer say that the verse's exclusion is based on the non-Jew's general lack of chalipin. According to Rav Yosef, who explains the exclusion because the value is not fixed, the verse can indeed teach that something of unfixed value does not count as money. But one cannot explain that the verse excludes chalipin merely because the purchaser is a non-Jew, since even a Jewish purchaser who generally has chalipin cannot acquire a Hebrew servant that way. We must therefore say that non-Jews too are within the law of chalipin, and the verse specifically excludes a Hebrew servant from chalipin. Consequently the same exclusion applies for a Jewish purchaser. This is clear."
-      ],
-      "reviewer_output_template": {
-        "id": "cm1/siman195/seif-001/ketzot-hachoshen",
-        "merge_groups": null,
-        "verdict": "ok_rejoin|needs_editorial|skip",
-        "notes": ""
-      }
-    },
-    {
-      "id": "cm1/siman204/seif-002/beur-hagra",
-      "volume": "cm1",
-      "siman": 204,
-      "seif": 2,
+      "siman": 39,
+      "seif": 3,
       "slug": "beur-hagra",
       "bucket": "unsafe_dry_run",
-      "heSegs": 2,
-      "enSegs": 3,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
-      "prior_auto_merge_groups": [
-        [
-          0
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "spot_review_suggested_alt": null,
-      "spot_verdict": null,
-      "alignHint": "no_head_align",
-      "strongEnHeads": 3,
-      "he_segments": [
-        "נתן כו'. שם מ\"ז ב' אלא גזירה שמא תפול כו' וכתב הרי\"ף ושמעינן מיהא כו וכ\"כ הרמב\"ם ע\"ש ובחולין ובעירובין בד' פרקים כו' לפיכך אם מת כו' מ' דאף מי שפרע אינו מקבל וכן בד' פרקים פריך שם והא לא משך כו':",
-        "וי\"א כו'. מעובדא דבי פרזק רופילא שם מ\"ט ב' ול\"ק ר\"ח לקבולי עליה מי שפרע ועתוס' שם מ\"ז ב' ד\"ה אי. ור\"ת מפרש כו' וס' הראשונה ס\"ל דבאמת צריך לקבל אלא דלא אתשיל אלא אם יכול לחזור וכמ\"ש שם מ\"ע א' והא בעי לקבולי כו' א\"ל ה\"נ ואעפ\"כ לא אמר בראשונה משום דלא אתשיל להא: (לקוט) וי\"א כו'. עבה\"ג ועתוס' דבכורות י\"ג ב' בד\"ה ה\"ק כו' א\"נ כמו כו' ועוד דכאן כו' (ע\"כ):"
-      ],
-      "en_segments": [
-        "He gave, etc. There, 47b: the enactment was made lest a fire occur, etc. The Rif writes that we learn from here, etc., and the Rambam rules likewise. In Chullin and Eruvin, regarding the four periods of the year, etc., the rule is that if the animal dies, etc.; this implies that even Mi Shepara does not apply. The Gemara there likewise asks from the four periods, “But he did not perform meshichah, etc.”",
-        "Some say, etc. This is derived from the incident involving the household of Parzak Rufila, there 49b, where Rav Chisda did not require them to accept Mi Shepara. See Tosafos 47b, s.v. “if.” Rabbeinu Tam explains differently. The first opinion holds that in truth Mi Shepara is required, but the question there was only whether he may retract at all. This is like the Gemara there on 48a: “But does he not have to accept Mi Shepara?” and the answer, “Here too.” The first case did not mention it because that was not the question being asked.",
-        "(Collected note) Some say, etc. See Beer HaGolah and Tosafos, Bechoros 13b, s.v. “this is what he says, etc.,” where they give an additional explanation. (End of note.)"
-      ],
-      "reviewer_output_template": {
-        "id": "cm1/siman204/seif-002/beur-hagra",
-        "merge_groups": null,
-        "verdict": "ok_rejoin|needs_editorial|skip",
-        "notes": ""
-      }
-    },
-    {
-      "id": "cm1/siman212/seif-007/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 212,
-      "seif": 7,
-      "slug": "ketzot-hachoshen",
-      "bucket": "unsafe_dry_run",
-      "heSegs": 2,
-      "enSegs": 5,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
-      "prior_auto_merge_groups": [
-        [
-          0,
-          1,
-          2
-        ],
-        [
-          3,
-          4
-        ]
-      ],
-      "spot_review_suggested_alt": null,
-      "spot_verdict": null,
-      "alignHint": "no_head_align",
-      "strongEnHeads": 3,
-      "he_segments": [
-        "[\" אם ציוה אדם כשהוא שכ\\\"מ והקשו עליו דהא כשמת בטל נדרו וכ' עלה הרב המגיד ז\\\"ל שאף במתנת שכ\\\"מ אע\\\"פ שאין הנודר קיים מצוה לקיים דברי המת כמו שהוא מחויב אם היה קיים ועיקר עכ\\\"ל והיינו דאע\\\"ג דהיכא דלא הושלש מתחלה לכך לא אמרי' מלדה\\\"מ אבל הכא שהיה מחויב בדבר אם הי' קיים עדיפא ולא גרע מהשליש מתחל' לכך ועמ\\\"ש בסי' רנ\\\"ב סק\\\"ב:\"]",
-        "[\" ואמר כל מה שיוציא אילן זה לעניים ודעת הרא\\\"ש דאם אמר לכשאקננו יהא הקדש אינו כלום אלא דוקא באומר לכשאקחנו אקדישנו אז הוא דצריך לקיים נדרו ולהקדישו ולדעת הרמב\\\"ם אפי' בדשלבל\\\"ע דאינו קדוש צריך לקיים דבריו משום נדר מש\\\"ה אפי' אומר יהיה הקדש או לעניים נמי צריך לקיים דבריו וע' ש\\\"ך ס\\\"ק י\\\"ב: ונראה ראיי' לדברי הרמב\\\"ם מהא דאיתא במס' פיאה מי שליקט את הפיאה ואמר הרי זו לפ' עני ר' אליעזר אומר זכה בו וחכמים אומרים יתננה לעני הנמצא ראשון ומפרש לה פ\\\"ק דמציעא מעני לעני מחלוקת וסבר ר' אליעזר מגו דזכי לנפשי' זכי נמי לחברי' וחכמים סברי דלא אמרי' מגו ע\\\"ש וכיון דמיירי מעני לעני וסברי חכמים דלא אמרי' מגו ולא זכה העני שליקט בשבילו א\\\"כ אמאי יתננה לעני שנמצא ראשון יזכה בה הוא עצמו כיון דעני הוא אלא דלפמ\\\"ש הרמב\\\"ם דצריך לקיים דבריו משום נדר אע\\\"ג שעדיין לא קנה אותו א\\\"כ כיון שאמר הרי זו לפ' עני צריך לקיים דבריו משום נדר דמשום נדרו יכול לתנו לעני אחר ולר' אליעזר דס\\\"ל אמרי' מגו וזכה אותו עני שליקט בשבילו וצריך ליתנו לאותו פ' עני אבל לחכמים דלא זכה פ' עני אלא משום נדרו וסגי לה ליתנו לעני אחר ובשו\\\"ת רדב\\\"ז סי' קל\\\"ד ושו\\\"ת ריט\\\"ץ סי' רס\\\"ד נסתפקו בנודר לפ' עני אם יכול לשנותו לעני אחר ע\\\"ש ונראה כיון דיכול לשנותו למצוה אחרת וכמ\\\"ש תוס' פ\\\"ק דערכין (דף ו' ד\\\"ה) עד שלא בא ליד גבאי כו' בשם הר\\\"ר ברוך דאם נדר צדקה לעניים יכול לעשות מצוה אחרת ע\\\"ש וא\\\"כ נראה דה\\\"ה בנודר לפלוני עני כיון דלא אמרי' אמיר' לגבוה כצדקה לעניי' ואינו אלא משום נדר דכתיב בפיך זו צדקה וסגי לי' ליתנו לעני אחר מיהו מדברי הגהת מיימוני נרא' דאינו יכול ליתנו לאחר ע\\\"ש פ\\\"א מזכי' ז\\\"ל פסק מורי רבינו זצ\\\"ל על איש ואשתו שהתנו ביניהם בקנין וכתבו בשטר לתת כך וכך לקרוביהם ומת א' שאין השני יכול לשנות לתת מחצה לקרובי המת כיון שלא הזכירו שום אדם אלא סתם לקרובים זכו קרוביו במחצה וקרוביהם במחצה ונעשה נדר ואי אפשר לשנות ואמירתו לגבוה כמסירה להדיוט ואלו היה רוצה לשנות ולתת לעשירים לאו כל כמיני' מעני לעני נמי לא עכ\\\"ל ואפשר דס\\\"ל להגה\\\"מ דאמיר' לגבוה אמרי' נמי באמירה לעני דהוי קנין ממש כמו באמיר' להקדש והדברים עתיקין וע' ב\\\"י בי\\\"ד סי' רנ\\\"ח וא\\\"כ ודאי א\\\"י לשנות מעני לעני אבל לפי דעת רוב הפוסקים דאמירה לעני אינו קנין אלא משום נדר יכול הוא לשנותו לעני אחר. ולדעת הרא\\\"ש דס\\\"ל דאין צריך לקיים דברו משום נדר היכא דאמר יהיה הקדש נראה לישב בהא דתנן יתננה לעני הנמצא ראשון ולפמ\\\"ש הרא\\\"ש בנדרים (דף ל\\\"ב) בשם הר\\\"ר אליעזר ממיץ דהיכא שהי' לפניו ככר של הפקר ולא היה אחר סמוך לה אלא הוא דיכול להקדישו כיון שבידו לזכות בה לא הוי דשלבל\\\"ע ע\\\"ש וא\\\"כ ה\\\"נ אם ירצה לזכות בה הוא עצמו הרי חייל נדרו מה שנדר ואמר הרי זו לפ' עני דלא הוי דשלבל\\\"ע כיון שהי' בידו לזכות אבל אם אינו מכוין לזכות עצמו ולא בא לידו כלל לא חיל נדרו כלל דאפי' לר' מאיר דאמר אדם מקנה דשלבל\\\"ע היינו כשבא לידו בסוף כמ\\\"ש תוס' פ' הספינה (בבא בתרא דף ע\\\"ט) ע\\\"ש ומש\\\"ה כשיתננה לעני ראשון ואינו זוכה בה לעצמו לא חייל נדרו אבל כשיזכה הוא עצמו חייל נדרו למפרע ודבר שלא בא לעולם לא הוי כיון שבידו לזכות:\"]"
-      ],
-      "en_segments": [
-        "If a person instructed while a shechiv mera. The authorities challenged this: when he dies, his vow should be nullified. Maggid Mishneh answers that even in a gift of a shechiv mera, although the one who vowed is no longer alive, there is a mitzvah to fulfill the words of the deceased just as he would have been obligated to fulfill them had he remained alive. This is the primary explanation. Although we ordinarily do not apply the rule of fulfilling the words of the deceased unless the property was initially placed with a third party for that purpose, here the deceased had himself been obligated in the matter while alive, which is stronger and is no worse than prior placement with a third party. See what I wrote in siman 252, seif katan 2.",
-        "And he said, 'Whatever this tree produces shall be for the poor.' Rosh holds that if he says, 'When I acquire it, it shall be hekdesh,' the statement has no effect. Only if he says, 'When I acquire it, I will consecrate it,' must he fulfill his vow and consecrate it. Rambam, however, holds that even concerning something not yet in existence, although the consecration does not presently take effect, he must fulfill his words because of the vow. Therefore, even if he says, 'It shall be hekdesh,' or, 'It shall be for the poor,' he must fulfill his words. See Shach, seif katan 12.",
-        "There appears to be proof for Rambam from the Mishnah in Peah: one who collected peah and said, 'This is for such-and-such poor person,' according to Rabbi Eliezer, that poor person acquires it, while the Sages say he must give it to the first poor person he encounters. The first chapter of Bava Metzia explains that the dispute concerns a poor person collecting for another poor person. Rabbi Eliezer holds that through the migo that he could acquire it for himself he may acquire it for his fellow, while the Sages reject that migo. Since the collector himself is poor and, according to the Sages, the named poor person did not acquire, why must he give it to the first poor person he encounters rather than acquire it for himself? According to Rambam the answer is clear. Once he said, 'This is for such-and-such poor person,' he must fulfill his words because of his vow, even though he had not yet acquired the item. Because the obligation is only by reason of the vow, he may satisfy it by giving the peah to another poor person. According to Rabbi Eliezer, by contrast, the named poor person actually acquired it through the migo, and the collector must therefore give it specifically to him.",
-        "Responsa Radbaz, siman 134, and Responsa Maharit Tzahalon, siman 264, discuss whether one who vows to a particular poor person may redirect the gift to another poor person. Since Tosafos in the first chapter of Arakhin 6, s.v. 'before it came into the treasurer's hand,' cite Rabbeinu Baruch that one who vowed charity for the poor may use it for another mitzvah, it appears that the same applies to one who vowed to a particular poor person. We do not say that a statement to the poor is equivalent to delivery to an ordinary person. The obligation is only by reason of the vow, from the verse that treats charity as a matter of 'what is expressed by your lips.' It should therefore suffice to give it to another poor person. Hagahot Maimoniyot, however, imply that he may not change the recipient. In chapter 1 of Hilchot Zechiyah they cite a ruling concerning a husband and wife who undertook by kinyan and document to give specified amounts to their relatives, and one spouse died. The survivor could not change the half designated for the deceased spouse's relatives. Since no individuals had been named, the relatives of each side acquired half; a vow arose and it could not be changed. They add that 'a statement to Heaven is like delivery to an ordinary person,' and say that just as he could not redirect it to wealthy people, he could not redirect it from one poor person to another. Perhaps Hagahot Maimoniyot hold that the rule of statement to Heaven applies also to a statement for the poor and creates an actual acquisition, like a statement to hekdesh. If so, he certainly may not redirect it. According to most authorities, however, a statement to a poor person is not an acquisition and operates only through the law of vows, so he may redirect it to another poor person.",
-        "According to Rosh, who holds that where he says, 'It shall be hekdesh,' there is no vow obligation to fulfill the statement, the Mishnah's rule that he must give it to the first poor person can be explained through what Rosh writes in Nedarim 32 in the name of Rabbi Eliezer of Metz. Where a loaf of hefker lies before a person and no one else is close to it, he may consecrate it because it lies within his power to acquire; it is therefore not considered something not yet in existence. Here too, if the collector chooses to acquire the peah himself, his vow saying, 'This is for such-and-such poor person,' would take effect, since acquisition was within his power and the object would not be treated as something not yet in existence. But if he does not intend to acquire it personally and it never comes into his possession, the vow does not take effect at all. Even Rabbi Meir, who permits transfer of something not yet in existence, requires that it ultimately come into the transferor's possession, as Tosafos write in chapter HaSefinah, Bava Batra 79. Therefore he gives it to the first poor person without acquiring it himself, and the vow does not take effect; but if he first acquired it for himself, the vow would take effect retroactively because acquisition had been within his power."
-      ],
-      "reviewer_output_template": {
-        "id": "cm1/siman212/seif-007/ketzot-hachoshen",
-        "merge_groups": null,
-        "verdict": "ok_rejoin|needs_editorial|skip",
-        "notes": ""
-      }
-    },
-    {
-      "id": "cm1/siman216/seif-013/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 216,
-      "seif": 13,
-      "slug": "ketzot-hachoshen",
-      "bucket": "unsafe_dry_run",
-      "heSegs": 2,
-      "enSegs": 3,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
-      "prior_auto_merge_groups": [
-        [
-          0
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "spot_review_suggested_alt": null,
-      "spot_verdict": null,
-      "alignHint": "no_head_align",
-      "strongEnHeads": 3,
-      "he_segments": [
-        "והחזיק זה באילנות וזה החזיק בקרקע. בפ' חזקת (בבא בתרא דף ל\"ז) זה החזיק באילנות וזה החזיק בקרקע אמר רב זביד זה קנה אילנות וזה קנה קרקע מתקיף לה רב פפא א\"כ אין לו לבעל אילנות בקרקע כלום לימא ליה בעל הקרקע לבעל האילנות עקור אילנך שקול וזיל אלא אמר רב פפא זה קנה אילנות וחצי קרקע וזה קנה חצי קרקע ופי' רשב\"ם דלאו בחזקת שלש שנים איירי אלא שמכר לזה קרקע ולזה אילנות והחזיק כל א' בשלו כגון דרפק ביה פורתא ובעל אילנות פשחינהו כדאמר לקמן האי מאן דפשח דיקלא כו' והקשו בתו' דא\"כ אמאי נקט חזקה טפי משטר וכסף וחליפין וה\"ל למינקט מכר כו' ועוד קשה דהא עד שימות האילן מודה רב זביד דאית לי' כמו בקונה שני אילנות אלא דס\"ל לרב זביד לכשימות אילן אין לו קרקע ליטע אחרים תחתיהן וא\"כ מאי פריך לימא לי' עקור אילנך וזיל הא מחיים אית ליה ע\"ש וביאור דבריהם אע\"ג דהרשב\"ם מפ' דהא דאמר רב פפא לימא ליה עקור אילנך לאחר שימות האילן אכתי תיקשי מאי קאמר רב פפא לימא ליה עקור אילנך לאחר שימות אילן כיון דרב זביד באמת הכי ס\"ל וע\"ש תוס' שהרגישו בזה ופי' בו פי' אחר:",
-        "וליישב פי' הרשב\"ם נבאר לפמ\"ש במשנה למלך פ\"א ממכירה ז\"ל שמעתי שחכמי הדור שלפני נסתפקו בא' שהשכיר ביתו לאחר זמן קצוב ואח\"כ רוצה להשכירה או למוכרה לאחר שיכלה הזמן אי מהני לשני קנין חזקה דנעל גדר ופרץ כיון דהבית וכל תשמישו שייך להראשון עד הזמן ואי מהני נתינת רשות דראשון לשני לקנות בחזקה ומטו בה מתשובת ריב\"ש סי' תק\"י שהביא מרן בסי' שי\"ב ושמעתי שנחלקו בו חכמי הדור עכ\"ל. ובתשובת מוהר\"ם מינץ נראה דפשיט' לי' דכה\"ג ל\"מ חזקה דשני ע\"ש סי' ל\"ט ז\"ל וכ\"ש וק\"ו הכא דלא הוי לעירונים בהכי שום זכות באותו שעה דמצי להקנות לר\"ג דהא הבית מושכר להר\"ג עד כלות השנה כ\"ש דלא קנה הר\"ג הבית במה שדר בה על השנה הבאה וכו' ואת\"ל דאמרו העירונים קני מעכשיו ותרצו לו' דאהני בידו להקנות כיון דגוף הבית שלהן כו' אבל גבי הדיוט דצריך לעשות חזקה לא מצא לעשות עתה חזקה במידי דליתי' עתה שלו עכ\"ל. וניחא לפ\"ז הא דאמר רב פפא א\"כ אין לו לבעל אילנות בקרקע כלום דאי נימא דיש לו לבעל אילנות בקרקע עד שימות האילן א\"כ היכי קנה זה שהחזיק בקרקע להיות הקרקע שתחת אילנות שלו לאחר שימות האילן כיון דליתי' השתא שלו אלא לבעל אילנות א\"כ חזקתו דנעל גדר ופרץ לא מהני ליה וכיון דאמרת דזה שהחזיק קנה קרקע כולה אפי' במה שתחת אילנות א\"כ ע\"כ צ\"ל שאין לו לבעל אילנות בקרקע כלום אפי' בחיי אילנות א\"כ לימא לי' עקור אילנך אפי' מחיים. וניחא נמי הא דנקט החזיק ולא כסף ושטר דבהנך מהני קנין אפי' אין הקרקע עתה שלו אלא לאחר זמן ולא הוי מקשי ביה רב פפא מידי אבל בהחזיק כיון דחזקת נעל גדר ל\"מ אלא כשהוא עתה שלו בזה הוא דמקשי ר\"פ לרב זביד א\"כ אין לו לבעל אילנות בקרקע כלום:"
-      ],
-      "en_segments": [
-        "And this one took possession of the trees while the other took possession of the land. In chapter Chazakat HaBatim, Bava Batra 37, the Gemara states: one person took possession of the trees and another of the land. Rav Zevid says the first acquires the trees and the second the land. Rav Pappa challenges: if so, the owner of the trees has no right in the land, and the landowner can tell him, 'Uproot your trees, take them, and go.' Rav Pappa therefore says that the first acquires the trees and half the land, and the second acquires half the land. Rashbam explains that this is not a case of three-year chazakah. Rather, one seller sold the land to one person and the trees to another, and each performed an act of chazakah on his portion, such as making a small improvement in the land and pruning the trees. Tosafos ask that if so, why does the Gemara speak specifically of chazakah rather than document, money, or chalipin? They further ask that Rav Zevid himself agrees that while the tree lives, the tree owner has rights in the land just like one who purchases two trees. Rav Zevid means only that when the tree dies he has no land in which to plant another. Why, then, does Rav Pappa challenge that the landowner can say, 'Uproot your tree and go,' when during the tree's life the tree owner unquestionably has land rights? Rashbam explains Rav Pappa's statement as referring to after the tree dies, but that still leaves the question: what is Rav Pappa challenging, when Rav Zevid himself holds exactly that? Tosafos therefore offer another explanation.",
-        "Rashbam's explanation can be defended through a question discussed by Mishneh LaMelech, chapter 1 of Hilchot Mechirah. Earlier scholars were uncertain about a person who rented his house for a fixed term and afterward wished, during that term, to rent or sell it to another person effective after the first rental ends. Can the second person acquire through chazakah of locking, fencing, or breaching, given that the house and all its present use belong to the first tenant until the term ends? Does the first tenant's permission enable the second to acquire through chazakah? They connected the issue to Responsa Rivash, siman 510, cited by the Mechaber in siman 312. Maharam Mintz, siman 39, appears to take it as obvious that such a chazakah does not work. He writes that if the property is presently leased to Reuven until the end of the year, the city owners cannot presently convey to another person by the latter's living there for the following year. Even if the city said, 'Acquire it from now,' and its ownership of the body of the house enables such a transfer in principle, an ordinary private purchaser who must make an act of chazakah cannot presently perform chazakah in something that is not now available to him.",
-        "Accordingly, Rav Pappa's challenge to Rav Zevid is clear. If the tree owner has a right in the land until the tree dies, how did the person who performed chazakah on the land acquire the land beneath the trees for the period after the trees die? That ground is not presently his to acquire; it presently belongs for use to the tree owner. His act of locking, fencing, or breaching cannot acquire a future right in land that is not presently available to him. Thus, if you say that the person who performed chazakah acquired all the land, including the land under the trees after their death, it necessarily follows that the tree owner has no land right at all even during the trees' lives. If so, the landowner could tell him even now, 'Uproot your trees and go.' This also explains why the Gemara specifically uses chazakah rather than money or document. Those other acquisitions can operate even where the land is not presently available to the buyer but will become his later. Rav Pappa's difficulty arises specifically with chazakah, because an act of chazakah works only on a right presently capable of acquisition."
-      ],
-      "reviewer_output_template": {
-        "id": "cm1/siman216/seif-013/ketzot-hachoshen",
-        "merge_groups": null,
-        "verdict": "ok_rejoin|needs_editorial|skip",
-        "notes": ""
-      }
-    },
-    {
-      "id": "cm1/siman250/seif-003/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 250,
-      "seif": 3,
-      "slug": "ketzot-hachoshen",
-      "bucket": "unsafe_dry_run",
-      "heSegs": 3,
-      "enSegs": 8,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
-      "prior_auto_merge_groups": [
-        [
-          0
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          3,
-          4,
-          5,
-          6,
-          7
-        ]
-      ],
-      "spot_review_suggested_alt": null,
-      "spot_verdict": null,
-      "alignHint": "no_head_align",
-      "strongEnHeads": 6,
-      "he_segments": [
-        "[\" הודה על נכסיו. ע' סמ\\\"ע שכתב דמיירי דאמר אתם עדי כו' ולא כע\\\"ש שכתב ז\\\"ל ואין צריך לומר אתם עדי שאין אדם משטה בשעת מיתה כו' דאכתי איכא למיחש שמא שלא להשביע אמר כן ע\\\"ש ועמ\\\"ש בסי' פ\\\"א ס\\\"ק כ\\\"ד:\"]",
-        "[\" דלא כדברי החולקין. והמה הרא\\\"ש והטור דסבירא להו דאינו חוזר מספיקא. ובאשר\\\"י הטעם משום דלא אמרי' אומדנא לבטל המתנה אלא אומדנ' הברור אבל בספיקא לא אמרי' אומדנא ומה\\\"ט דשכ\\\"מ שכתב כל נכסיו ועמד אינו חוזר דשמא יש לו נכסים במדינה אחרת וה\\\"ה הכא בהנך בעיות דהקדש וחולק לעניים כיון דשכ\\\"מ שחוזר אינו אלא משום אומדנא ובהנך דלא ברירי אומדנא אינו חוזר ע\\\"ש. ונראה ביאור דברים משום דקיי\\\"ל דברים שבלב אינן דברים והא דמהני אומדן דעתי' שהיה לזה התנאי אע\\\"ג דלא פירש היינו משום דכיון דאומדנא כך ה\\\"ל דברים שבלב כל אדם דמהני וכמ\\\"ש במרדכי גבי נדרי אונסין באומר בלבו היום ועמ\\\"ש סי' י\\\"ב סק\\\"א ע\\\"ש. וא\\\"כ היינו דוק' אומדנ' דברירי ה\\\"ל דברים שבלב כל אדם אבל באומדנ' דמספק' אע\\\"ג דהנותן מחשבתו היה לתנאי ה\\\"ל דברים שבלב כיון דאינו בלב כל אדם:\"]",
-        "[\" וכן דין הקדש כדין מתנה שיוכל לחזור בו. ז\\\"ל הטור ואם הקדיש נכסיו או נתנן לעניים מיבעי' אי הוי דינו כמו נותן וחוזר בו אם יעמוד או לא ולא איפשיט' ע\\\"ש. ונראה דלא מיבעי' אלא בעמד אבל אם חזר בעודו שכ\\\"מ ומית אח\\\"כ אפי' נימא דלא מהני חזר' ומשום דגמר בדעתו להקדש ולעניים דליהוי הקדש גמור מחיים אכתי אינו אלא נדר והנודר ומת אין היורשין צריכין לקיים נדרו וכמ\\\"ש הרמ\\\"א בסי' רנ\\\"ב ואם כן לא נפקא מיני' אלא בחיי הנודר ולענין עמד חוזר ומש\\\"ה ניחא דכת' הטור וחוזר בו אם יעמוד ולא כת' סתם וחוזר בו דהיינו בין יעמוד או ימות ומשום דאם ימות ליתי' לנדרו דהא נודר ומת אין היורשין צריכין לקיים נדרו וה\\\"ה הקדיש דעכשיו בהקדשות שלנו לא אמרי' אמירה לגבוה אלא מטעם נדר הוא ומש\\\"ה כת' אם יעמוד והא דכת' הרמ\\\"א וכן דין הקדש כדין מתנה שיוכל לחזור בו כמו במתנה היינו נמי אם יעמוד ואע\\\"ג דכבר כתבו בש\\\"ע אם עמד נתבטל מ\\\"מ קמ\\\"ל דאפי' חזר' בפירוש לא מהני ולאפוקי מדעת מהרד\\\"ך סי' ל' שכת' דאפי' לדברי הרא\\\"ש דוק' מסתמ' אם עמד אין המתנה בטילה אבל חזרה בפירוש מהני והובא בד\\\"מ ע\\\"ש לזה כ' הרמ\\\"א דלא כדברי החולקין וכן דין הקדש כדין מתנ' דיוכל לחזור בו דהא לדעת החולקין אפי' חזר' בפירוש לא מהני ומש\\\"ה נרשם בזה טור והוא מדכת' הטור וחוזר בו אם יעמדו וכת' עלה דהרא\\\"ש ס\\\"ל דנתקיימה ההקדש. ובסמ\\\"ע כת' וכן דין הקדש כדין מתנה שיוכל לחזור אם חזר בעודו שכ\\\"מ ומת אח\\\"כ ע\\\"ש ולפי מ\\\"ש א\\\"כ במת אח\\\"כ אפי' לדעת הרא\\\"ש דנתקיימה נדרו והקדישו נמי אין היורשין צריכין לקיים הצוואה דאי מדין מתנת ש\\\"מ הרי חזר ונתן לאחרים ואי משום נדרו הנודר ומת אין היורשין צריכין לקיים נדרו וכן בהקדשות שלנו דאינו אלא מתורת נדר ועמ\\\"ש בטור וש\\\"ע סי' צ\\\"ה דנשבעין על הקדשות שלנו וזה ברור. ובריב\\\"ש סי' קס\\\"א ז\\\"ל ומה שאמרת שקודם שבא היורש החזיקו עניים בחלקם אין זו חזקה אלא תקיפה במה שאינו שלהם שהרי היורש שבא לירש מחמת קורבה חזקתו בנכסים ברורה והקדש ספק ואין ספק מוציא מידי ודאי ואפשר שאם הי' ספק בשניהם כגון שלא בא מחמת קורבה אלא ששניהם באים לזכות מכח הצוואה ויש בה ספק אם היה אפשר שתועיל להקדש תפיס' במטלטלין לא בקרקעות וע\\\"ש. ולפי מ\\\"ש נראה דאם היה ספק בשניהם ולא באו מחמת קורבה אלא שהקדיש נכסיו וקודם שמת חזר ונתן לאחרים דאין להקדש כלום וזכו אחרים במתנתן דכיון שמת בטל נדרו ואין היורשין צריכין לקיים נדרו וא\\\"כ מכח מתנת שכ\\\"מ זכו מקבלים אחרים כיון שחזר מן הקדש אין להקדש בתורת מתנת שכ\\\"מ ולאחרים יש להם זכיה בתורת מתנת שכ\\\"מ ואפי' לדעת הרא\\\"ש דהקדש קיים כיון שמת פקע נדרו וכמ\\\"ש וזכו מקבלי המתנה זה הנרא' לענ\\\"ד ברור. אמנם קשה דמשמע מפוסקים דהקדיש וחילק לעניים ומת ולא חזר בו דודאי צריכין לקיים הצואה ואמאי הא כיון דמספקא לן בחילק לעניים אם חוזר כשיעמוד והיינו משום דמספקא שמא גמר להקדיש מחיים וא\\\"כ כשמת נימא שמא גמר להקדיש מחיים ואם כן תו ליכא משום מתנת שכ\\\"מ וכמ\\\"ש הרמ\\\"א בסעיף ט' דמתנת שכ\\\"מ שכתוב בו שמקנה לו מהיום הוי כמתנת בריא וצריכה קנין דדין מתנת שכ\\\"מ אינו אלא היכא שדעתו לאחר מיתה וא\\\"כ לא זכו עניים בתורת מתנת שכ\\\"מ ומדין נדר אין היורשין צריכין לקיים נדרו. והנה בטור וש\\\"ע לא כתבו אלא עמד וניחא אבל מדברי האחרונים משמע דאם מת ולא חזר ודאי צריכין לקיים ההקדש ואמאי דהא אם הכוונה היה מהיום לית בי' לא משום מתנת שכ\\\"מ ולא משום נדר וצ\\\"ע בזה וע' בריב\\\"ש סי' ר\\\"ז בצוואה שכתוב בי' שאף אם יתרפא תהי' צוואה קיימת דהוי דברים בעלמא שהרי אין כאן שכ\\\"מ וכל שמוציא צוואתו מכלל שאר צוואת שכ\\\"מ אין מקיימין דבריו כדי שלא תטרוף דעתו כמו שאין מקיימין מתנת שכ\\\"מ במקצת אפי' כשמת אלא בשקנו מידו כו' שלא תקנו חכמים אלא כשחלה החולי אשר ימות בו וכוונתו להקנות מחמת מיתה שלא יהא צריך לדרכי הקנאות אלא דבריו ככתובין ומסורין. וכן נמי מה דאמרינן בגמ' שכ\\\"מ שהקדיש כל נכסיו מהו הפקיר כל נכסיו חילק כל נכסיו מהו היינו לו' אע\\\"ג דנותן כל נכסיו לאחרים איכא אומדנא מחמת מיתה הכא גבי הקדש והפקר וחילוק לענים איכא למימר דלאו מחמת מיתה עבד אלא כבריא ואינו חוזר ובהקדש והפקר אף בבריא דבריו ככתובין ומסורין וגבי חילק לעניים נמי באמירה בעלמא סגי כדדרשי' בפיך זו צדקה אי נמי דמיירי באחת מדרכי הקנאות דלאחרים אפילו בקנין אם עמד חוזר ובהכי איבעי' לן אבל לא לו' דמה שאינו קונה בבריא יקנה משום אומדנא בשכ\\\"מ כשנותן במתנת בריא אז כשמוצי' צוואתו מכלל צוואת שכ\\\"מ עכ\\\"ל וא\\\"כ מבואר דחילוק לעניים אינו אלא משום בפיך זו צדקה וכיון דנודר ומת אין היורשין צדיכין לקיים נדרו היורשין פטורין לקיים את הצוואה ולפי מה דמספקא לן דלאו מחמת מיתה עבד אלא במתנת בריא א\\\"כ אפילו מת ולא חזר אין היורשין צריכין לקיים הצוואה אלא כשחילק לעניים באחת מדרכי הקנאות ומת ולא חזר ודאי היורשין צריכין לקיים דבריו דממ\\\"נ או במתנת בריא או במתנת שכ\\\"מ כיון דלא חזר הו\\\"ל לפחות מתנת שכ\\\"מ. ולפי שמדברי האחרונים בתשובות נראה פשוט בחילק לעניים ומת ולא חזר דצריכין היורשין לקיים הצוואה וגם מדברי סמ\\\"ע שכת' דין הקדש כדין מתנה שיוכל לחזור קודם שמת ולפי מ\\\"ש אפילו לא חזר ומת נמי אין בצוואה כלום ומטעמא שכתבנו וצ\\\"ע:\"]"
-      ],
-      "en_segments": [
-        "He acknowledged concerning his property. Sema writes that the case is one in which he said, 'You are my witnesses,' unlike Ir Shushan, who writes that this need not be said because a person does not jest at the time of death. Even then, however, there remains concern that he spoke merely so people would not think him wealthy. See what I wrote in siman 81, seif katan 24.",
-        "Unlike those who disagree. The dissenters are Rosh and Tur, who hold that because of the doubt he does not retract. Rosh explains that we use an assessment of intent to void a gift only when the assessment is clear. A doubtful assessment is insufficient. Thus a shechiv mera who wrote away all his property and recovered does not retract where it is possible that he had other property in another country. The same applies to the unresolved questions of hekdesh and distributing property to the poor. A shechiv mera's right to retract rests upon an inferred condition based on his intention. Where that inference is uncertain, he does not retract. The explanation is that we ordinarily rule that unexpressed intentions have no legal effect. An assessment of intent works even without an explicit condition because a sufficiently clear assessment is regarded as the unexpressed intention of every person. So Mordechai writes regarding coerced vows where a person internally limits the vow to 'today.' See what I wrote in siman 12, seif katan 1. This applies only to a clear assessment that can be described as the intention of everyone. With an uncertain assessment, even if this particular donor in fact intended the condition, it remains merely his own unexpressed intention and has no effect.",
-        "And the law of hekdesh is like the law of a gift, so that he may retract. Tur writes that where a shechiv mera consecrated his property or distributed it to the poor, the Gemara leaves unresolved whether he has the same law as an ordinary donor and may retract if he recovers. It appears that the uncertainty concerns only recovery. If he expressly retracted while still a shechiv mera and then died, even if we say his retraction is ineffective because he fully intended a present consecration or charity gift, the matter would still be only a vow. One who vows and then dies does not obligate his heirs to fulfill the vow, as Rama writes in siman 252. Thus the practical issue exists only during the donor's lifetime, namely whether recovery itself cancels the disposition. This explains why Tur specifically writes, 'and he retracts if he recovers,' rather than simply, 'and he retracts,' which would include retraction followed by death. If he dies, the vow itself expires and his heirs are not obligated. The same applies to our forms of hekdesh, which operate by the law of vows rather than the rule that a statement to Heaven is equivalent to delivery.",
-        "Rama's statement that hekdesh has the same law as a gift and can be retracted also refers to recovery. Although Shulchan Aruch had already said that if he recovers the gift is void, Rama teaches that even an express retraction does not help according to the dissenting authorities, excluding Mahardach, siman 30, who writes that even according to Rosh only an automatic cancellation upon recovery is ineffective, while an express retraction does work. Darkei Moshe cites him. Rama therefore rules unlike those dissenters and equates hekdesh with a gift as to the question of retraction. Sema writes that this means if he retracted while still a shechiv mera and later died. According to what I wrote, however, if he later dies, even according to Rosh the vow or consecration cannot obligate the heirs, for a vow dies with the one who made it. If the disposition no longer operates as a deathbed gift because he retracted and gave to others, the poor cannot recover through the vow. This is also true of our forms of hekdesh, which are vows. See Tur and Shulchan Aruch, siman 95, that oaths apply to our hekdesh.",
-        "Rivash, siman 161, writes that where poor people took possession of their portion before the heir arrived, their seizure does not help against an heir whose claim is certain by kinship while the hekdesh is doubtful. Perhaps if both claims were doubtful, such as two claimants who both derive their rights from an ambiguous will rather than kinship, seizure might help the charitable side with movable property, though not with land. According to what I have written, where both claims arise from the will and the donor consecrated his property but then, before death, retracted and gave it to others, the charity side receives nothing. Once he dies the vow expires, and the later recipients acquire through the deathbed gift. Since he retracted from the hekdesh, it cannot operate as a shechiv mera gift, while the later gift can. Even according to Rosh, who treats the consecration as effective during life, the vow falls away at death, and the later donees acquire. This appears clear.",
-        "There is nevertheless a difficulty. The authorities imply that if a shechiv mera consecrates or distributes property to the poor and then dies without retraction, the heirs certainly must carry out the instruction. Why? The unresolved question whether he can retract upon recovery rests on the possibility that he fully intended a present, healthy-person transfer. If so, at death perhaps we should likewise be uncertain whether he intended a present transfer. If he did, there is no ordinary deathbed gift, because Rama rules in seif 9 that a shechiv mera gift stating 'from today' is like an ordinary gift and requires a kinyan. On the other hand, if it is only a vow, the heirs do not have to fulfill it after his death. Tur and Shulchan Aruch speak only about recovery, which fits this analysis, but later responsa appear to assume simply that if he dies without retracting, the heirs must fulfill the charitable instruction.",
-        "Rivash, siman 207, discusses a will stating that even if the sick person recovers the will shall remain valid. He rules this is ineffective language, because if he recovers he is no longer a shechiv mera. Once he removes the instruction from the special framework of a deathbed gift, we do not enforce it merely to prevent distress, just as a partial deathbed gift is not effective at death without a kinyan. The Sages enacted that only where the person suffers the illness from which he dies and intends to transfer because of death do his words operate as though written and delivered without ordinary modes of acquisition. So too, when the Gemara asks about a shechiv mera who consecrates all his property, renders it ownerless, or distributes it to the poor, the question is whether, although giving all one's property ordinarily indicates an intention conditioned on death, these acts may instead reflect a present disposition like that of a healthy person. Hekdesh and hefker can operate by words even for a healthy person, and charity too can be undertaken verbally through the verse that treats charity as a matter of one's spoken vow. Alternatively, the charity case may involve one of the ordinary modes of acquisition. But the Gemara cannot mean that something ineffective for a healthy person becomes effective merely by a doubtful assessment that the sick person intended a healthy-person transfer. Once he removes his gift from the deathbed framework, ordinary acquisition rules apply.",
-        "Accordingly, distribution to the poor without a kinyan works during life only as a vow. Once the person dies, his heirs are not obligated to fulfill that vow. If, however, he distributed the property to the poor through a valid mode of acquisition and then died without retraction, the heirs certainly must honor it either as an ordinary gift or, at minimum, as a shechiv mera gift. Yet the language of later authorities seems broader, treating an ordinary verbal distribution to the poor as binding after death. Sema likewise writes that hekdesh is like a gift in that he may retract before death, implying that without such retraction death makes the instruction binding. According to my reasoning, even without express retraction there should be no binding will if the only basis during life was the vow. This requires study."
-      ],
-      "reviewer_output_template": {
-        "id": "cm1/siman250/seif-003/ketzot-hachoshen",
-        "merge_groups": null,
-        "verdict": "ok_rejoin|needs_editorial|skip",
-        "notes": ""
-      }
-    },
-    {
-      "id": "cm1/siman252/seif-002/ketzot-hachoshen",
-      "volume": "cm1",
-      "siman": 252,
-      "seif": 2,
-      "slug": "ketzot-hachoshen",
-      "bucket": "unsafe_dry_run",
-      "heSegs": 3,
-      "enSegs": 11,
-      "unsafe_reason": "greedy_or_unaligned_strong_heads",
+      "heSegs": 16,
+      "enSegs": 17,
+      "unsafe_reason": "under_grouped_cannot_split",
       "prior_auto_merge_groups": [
         [
           0
@@ -375,13 +146,174 @@
           1
         ],
         [
-          2,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13
+        ],
+        [
+          14
+        ],
+        [
+          15
+        ],
+        [
+          16
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 12,
+      "he_segments": [
+        "(ליקוט) בד\"א כו'. שם ושם (ע\"כ):",
+        "(ליקוט) שסתם כו'. ב\"ב שם (ע\"כ):",
+        "(ליקוט) או יכתבו כו'. מפני שלא כ' בו דאקנה כמש\"ל סי' מ\"ג סי\"ב (ע\"כ):",
+        "(ליקוט) או יכתבו כו'. ע' סמ\"ע סק\"ו וכ\"ה בגמ' דב\"ב קע\"א ב' (ע\"כ):",
+        "ואפי'. דדוק' במתנת ש\"מ אין כותבין לאחר מיתה. ב\"ב קנ\"ב:",
+        "(ליקוט) ואפי' מת הלוה כו'. דוקא בש\"מ אמרי' דאין שטר כו' משא\"כ כאן דהקנין היה מחיים (ע\"כ):",
+        "אפי' קבע. דבלא\"ה אף בלא קנין. ב\"ב ה' א' ובכתובות ך\"ב ש\"מ האי סהדות' כו' אפי' טובא נמי:",
+        "(ליקוט) וכן כו'. ממ\"ש האי סהדות' כו' ולא היא כו' (ע\"כ):",
+        "ויש חולקין. דפליגי על רב האי וחוזר הדין לשאר מלוה ע\"פ שדוקא בתוך הזמן לא חיישי' לפרעון וראיה מב\"מ י\"ז א' בין צא תן כו' ואמר פרעתי נאמן אע\"ג דגבי ממשעבדי וע' רי\"ף שם. רמב\"ן בשם מקצת גאונים:",
+        "(ליקוט) וי\"ח כו'. וראייתו ממצא שט\"ח דחיישי' לפרעון וממ\"ש בב\"מ י\"ז בין צא תן כו' דחי' שי' לפרעון אע\"ג דגבינן ממשעבדי כמ\"ש הרי\"ף שם וס' הראשונה ס\"ל דמצא שאני דאפי' בתוך זמנו חיישי' דאיתרע כמ\"ש בס\"ס מ\"א ומצא תן ג\"כ אין ראיה דשם לא אסיק אדעתיה ומסתמ' עושה כמה שצוהו ב\"ד משא\"כ בקנין דסתם קנין כו' ואיהו הוא דאפסיד אנפשיה כמ\"ש בב\"ב קע\"א ב' (ע\"כ):",
+        "דאי משך. לסברתם דשוה לקובע זמן ועסי' ע\"ח ס\"ח וצ\"ע וער\"ן. (ליקוט) דאי משך כו'. הרמב\"ן אזיל לשיטתו דס\"ל דשלשים יום הוא כמו קובע זמן כמ\"ש בחידושיו וכ\"כ הר\"ן ועס\"ס ע\"ח ועש\"ך (ע\"כ):",
+        "וכל שלא. סנה' שם ההיא אודית' כו':",
+        "מיהו י\"א. עתוס' כתובות שם ד\"ה ור\"י:",
+        "(ליקוט) וכל שלא כו' מיהו כו' הל' מגומגם דהוא חולק על ס' הראשונה ופליגי בשני התי' של תוס' דכתובות כ\"ב ד\"ה ורי\"א אומר כו' וי\"ל דלא חשיב שטר אלא כו' ועוד אור\"י דלא בעינן כו' (ע\"כ):",
+        "(ליקוט) וכל שלא כו' עתוס' דפ\"ג דב\"ב מ\"א ד\"ה מחאה כו' ע\"ש (ע\"כ):",
+        "(ליקוט) וכל כו'. ובתוס' דב\"ב שם ד\"ה מחאה כ' כס' ראשונה לפי מה דקי\"ל כרש\"י כמ\"ש בסי' כ\"ח אבל ביבמות כ\"ט ב' כ' כס' אחרונה (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Collected note) When does this apply, etc. There and there. (End of collected note.)",
+        "(Collected note) For ordinarily, etc. Bava Batra there. (End of collected note.)",
+        "(Collected note) Or they should write, etc. Because the document does not contain an after-acquired-property clause, as written below in siman 43, seif 12. (End of collected note.)",
+        "(Collected note) Or they should write, etc. See Sema, seif katan 6. So it is in Bava Batra 171b. (End of collected note.)",
+        "And even. Only with a gift of a dying person do we say not to write after death, Bava Batra 152.",
+        "(Collected note) And even if the borrower died, etc. Only regarding a dying person's gift do we say that the document, etc., because there the transfer was not fully effected in his lifetime. Here, however, the kinyan was made while he lived. (End of collected note.)",
+        "Even if he fixed. For without this, even without a kinyan, Bava Batra 5a. In Ketubot 22, \"we learn from here that this testimony, etc.; even a long time, too.\"",
+        "(Collected note) Likewise, etc. From the statement, \"this testimony, etc.; but it is not so, etc.\" (End of collected note.)",
+        "And there are those who disagree. They disagree with Rav Hai and return the case to the ordinary law of an oral loan, where only within the due date do we not suspect repayment. Proof is from Bava Metzia 17a, the distinction between \"go out and give,\" etc., where if he says \"I repaid\" he is believed even though collection could otherwise be from encumbered property. See Rif there. Ramban in the name of some Geonim.",
+        "(Collected note) And there are those who disagree, etc. Their proof is from a found promissory note, where we suspect repayment, and from Bava Metzia 17, \"between 'go out and give,' etc.,\" where we suspect repayment even though collection is from encumbered property, as the Rif writes there. The first opinion responds that a found document is different, for even within its due date we are concerned because the document's condition has been weakened, as written at the end of siman 41. The case of \"go out and give\" is also no proof, because there the debtor did not anticipate needing a receipt and ordinarily follows beit din's instruction, unlike a kinyan, since an ordinary kinyan is intended for writing and he caused his own loss, as stated in Bava Batra 171b. (End of collected note.)",
+        "For if he extended. According to their view this is like fixing a due date. See siman 78, seif 8; this requires study. See Ran.",
+        "(Collected note) For if he extended, etc. The Ramban follows his own view that thirty days is like a fixed due date, as he writes in his novellae. So too the Ran. See the end of siman 78 and Shach. (End of collected note.)",
+        "And whenever he did not. Sanhedrin there, the case of that admission, etc.",
+        "However, some say. See Tosafot, Ketubot there, s.v. \"veRabbi Yehuda.\"",
+        "(Collected note) And whenever he did not, etc.; however, etc. The wording is awkward, because this view disagrees with the first. Their dispute corresponds to Tosafot's two answers in Ketubot 22, s.v. \"Rabbi Yehuda says, etc.\": one can say that it is not considered a document unless, etc.; and Ri further says that we do not require, etc. (End of collected note.)",
+        "(Collected note) And whenever he did not, etc. See Tosafot, chapter 3 of Bava Batra 41, s.v. \"Mecha'ah, etc.\" (End of collected note.)",
+        "(Collected note) And whenever, etc. Tosafot in Bava Batra there, s.v. \"Mecha'ah,\" follow the first opinion according to what we rule like Rashi, as stated in siman 28. In Yevamot 29b, however, they write according to the latter view. (End of collected note.)"
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman39/seif-003/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "cm1/siman42/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 42,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 5,
+      "enSegs": 6,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
           3,
           4,
-          5,
+          5
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 3,
+      "he_segments": [
+        "ואפשר. משם דאיבעיא להו אי חיישי' לזבוב:",
+        "(ליקוט) ואין ב' בשטר כו'. משמע דלא מיירי האידנ' דפסול בלא שריר וקיים ואפ\"ה אם כ' בשטר ש\"ו למדין משטה אחרונה וכ\"כ בסי' מ\"ד ס\"ד היכא כו' ועש\"ך שם. ס\"ק י\"ב שנתקשה בזה כקו' תוס' שם דדילמ' לא היה כ' ש\"ו והוא זייף וכ' ש\"ו דמ\"ש בב\"מ דכת' ש\"ו היינו דוקא במקושר דבלא\"ה פסול הוא וכן האידנ' ועש\"ך סי' מ\"ה ס\"ק כ' אלא נלפע\"ד דהרא\"ש והט\"ו כו' ודבריו תמוהין דא\"כ האיך כ' ומיהו כו' ק' דא\"כ ברישא בלא\"ה פסול כיון דאין כ' ש\"ו אע\"כ משמע בימיהם ואפ\"ה אם כ' ש\"ו אין חוששין לזיוף ולענין קו' הנ\"ל של תוס' נ\"ל דה\"ק היכא דכ' ש\"ו ר\"ל דבתחלה כ' בשטר ש\"ו וידוע זה בעדים או שהלוה מודה ובזה צדקו ג\"כ דברי הרמב\"ם שכ' הא דסמ\"ד ס\"ח אם היה המחק כו' והקשו עליו קו' הנ\"ל דלמה יפסל הא אין למדין משטה אחרונה אף היכא דכ' ש\"ו כנ\"ל וכן ק' על הש\"ע דהא כל הסע' הללו דסי' מ\"ד עד ס\"ט מיירי לדינא דגמ' מדכ' שם בס\"ט האידנ' כו' ועש\"ך שם ס\"ק י\"ז ובמ\"ש מתורץ הכל (ע\"כ):",
+        "(ליקוט) ואם נמחק סכום כו'. ירושלמי הנ\"ל ואמר שם מהו כל מה שאת יכול לתלות במחק תלה ר\"י קוצירה חתניה דר\"י בשם ר\"י סמפון כתיב מלעיל וסמפון מחיק מלרע כו' ע\"ש (ע\"כ):",
+        "(ליקוט) ויש מי כו'. עס\"י בהג\"ה וכל כו' (ע\"כ): (ליקוט) ויש מי כו'. כנ\"ל ממ\"ש לתלות בזבוב (ע\"כ):",
+        "בד\"א. כפי' הר\"י מיגש:"
+      ],
+      "en_segments": [
+        "and possible. From there, Daiba is an island of my life for Bob:",
+        "(Anthology) And there are not two in the document, etc. This implies that the passage does not concern current practice, where a document is invalid without the words 'valid and established.' Even so, if those words are written, we derive law from the last line. Siman 44, seif 4, likewise states, 'where,' etc. See Shach there, seif katan 12, who struggles with Tosafot's question that perhaps the words were not originally present and were fraudulently added. He answers that Bava Metzia's case where 'valid and established' was written concerned only a folded document, which is otherwise invalid, and likewise documents in current practice. See Shach, siman 45, seif katan 20. He then writes, 'rather, it appears to me that the Rosh and Tur,' etc. His words are puzzling, for if so, how can the Tur write, 'nevertheless,' etc.? In the first case the document would in any event be invalid because 'valid and established' is absent. It must therefore concern earlier practice, and even there, where these words were written, forgery was not suspected. As to Tosafot's difficulty, the meaning is that where 'valid and established' was written, it was known through witnesses or admitted by the borrower that those words appeared in the document from the outset. Rambam's ruling in siman 44, seif 8, concerning an erasure, is thereby correct. The objection that the document should not be invalid because one does not derive law from the last line is answered, even where 'valid and established' was written as above. The same question applies to Shulchan Aruch, since all the seifim in siman 44 through seif 9 concern Talmudic law, as shown by seif 9, 'nowadays,' etc. See Shach there, seif katan 17. According to this explanation everything is resolved.",
+        "And if it is deleted, it is the same. Jerusalem, and he said, \"What is it that you can hang on in the void of the rod,\" and he said, \"What is it that you can do, and that you have a platter from evil.\"",
+        "(Anthology) And some say, etc. See seif 10 in the gloss, 'and every,' etc.",
+        "(Anthology) And some say, etc. As explained above from the rule that one may attribute the discrepancy to a fly.",
+        "When does this apply. According to Ri Migash's explanation."
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman42/seif-005/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "cm1/siman45/seif-012/beur-hagra",
+      "volume": "cm1",
+      "siman": 45,
+      "seif": 12,
+      "slug": "beur-hagra",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 10,
+      "enSegs": 11,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
           6,
-          7,
-          8,
+          7
+        ],
+        [
+          8
+        ],
+        [
           9,
           10
         ]
@@ -389,27 +321,34 @@
       "spot_review_suggested_alt": null,
       "spot_verdict": null,
       "alignHint": "no_head_align",
-      "strongEnHeads": 9,
+      "strongEnHeads": 8,
       "he_segments": [
-        "[\" מצוה לקיים דברי המת בתוס' פ' מי שמת (בבא בתרא דף קמ\\\"ט) ד\\\"ה דקא מגמרי טענתא ז\\\"ל ועוד היה או' ר\\\"י דלא אמרינן מצוה לדה\\\"מ אלא באו' לו פה אל פה כו' וחזר בו ר\\\"י מדאמר בהשולח (דף מ') עשיתי פ' עבדי בן חורין כו' אמר ר' יוחנן וכולו בשטר וא\\\"כ הא דתני בתר הכי אעשנו בן חורין ר' או' זכה וחכ\\\"א לא זכה אלא כופין את היורשין כו' מיירי נמי בשטר וכו' ע\\\"ש. והנה בש\\\"ס לפנינו שם פרק השולח לא הוזכר בברייתא שם לישנא דכופין את היורשין וכת' בחידושי מוהרש\\\"א דצ\\\"ל דתוס' אית להו גירסא בהך ברייתא שם דחכ\\\"א לא זכה וכופין את היורשין ונראה דכוונת תו' למה דתני בתוספתא פ\\\"ט דבבא בתרא וזה תוארה האומר נתתי שדה פ' לפ' כו' תנתן לו ר' או' זכה וחכ\\\"א לא זכה וכופין את היורשין לקיים דברי המת האומר עשיתי פ' עבדי בן חורין כו' יעשוהו בן חורין ר' או' זכה וחכ\\\"א לא זכה וכופין את היורשים לקיים דברי המת ע\\\"ש ונראה שזאת הברייתא היא בפ' השולח (גיטין דף מ') ואע\\\"ג דשם תני לישנא דאתננה ובתוספתא תני לישנא דתנתן דאידי ואידי לישנא דלהבא משמע לחכמים והרי מבואר שם דכופין את היורשין לקיים דברי המת ואע\\\"ג דשם פ' השולח תני ר\\\"מ ובתוספתא תני ר' מ\\\"מ חדא הוא הבריית' והתוספתא הנז' וא\\\"כ כבר תני שם וכופין את היורשין: \",\"אמנם קשה דהא בשדה נמי תני שם וכופין את היורשין ודעת תוס' שם דלא אמר מלדה\\\"מ אלא היכא דהושלש מתחלה לכך ובעבד דאמרינן כופין את היורשין לשחררו היינו משום דעבד מוחזק בעצמו ע\\\"ש וא\\\"כ היכי כופין בשדה משום מצוה לדה\\\"מ. והן אמת דהרמב\\\"ן הוכיח מתוספתא הנז' דאמרו בשדה מלדה\\\"מ ש\\\"מ דאפ\\\"ה דלא הושלש נמי והובא בר\\\"ן פ\\\"ח דגיטין ע\\\"ש וכיון דלפמ\\\"ש התוס' כיוונו להך תוספתא הנז' וא\\\"כ היכי מצינו שדה. ונראה לפמ\\\"ש הרב המגיד פ' כ\\\"ב ממכירה וז\\\"ל שאף במתנת שכ\\\"מ אע\\\"פ שאין הנודר קיים מצוה לקיים דברי המת כמו שהוא מחויב אם היה קיים ועיקר עכ\\\"ל והיינו דאע\\\"ג דדעת הרמב\\\"ם דלא אמרינן מצוה לדה\\\"מ היכא דלא הושלש אבל בנודר ומת כיון דאלו הי' קיים מחויב ליתן א\\\"כ במת אמרי' מלדה\\\"מ אע\\\"ג דאין על היורשין משום נדר מצוה לדה\\\"מ ומשום דהחיוב שחייב מחיים לקיימו לא גרע מהושלש והובא בסי' רי\\\"ב סק\\\"ז ע\\\"ש. וכבר כתבנו בסי' רמ\\\"ה סק\\\"א לדעת הפוסקים דקנין אתן מהני הא דתני בשדה בכותב בשטר אתננו דחכ\\\"א לא זכה היינו דלא זכה עכשיו אבל מחויב הניתן לקיים כאשר כת' בשטר וכמו בקנין אתן דאפי' לדעת הפוסקים דמהני קנין אתן היינו שכופין אותו לקיים כאשר קנו מידו אבל עדיין לא זכה וע\\\"ש. וכיון דכופין אותו בחייו ליתן השדה כאשר כתב בשטר אתננה א\\\"כ לא גרע מהושלש וכופין היורשין משום מלדה\\\"מ כמו בנודר שכתב הה\\\"מ שזכרנו דמלדה\\\"מ כמו שהוא מחויב אם היה קיים. וגבי עבד דשם בסי' רמ\\\"ה כתבנו דכיון דבאעשנו בן חורין לא זכה ואכתי עבדו הוא אינו זוכה בשטרו להיות רבו מחויב לשחררו כיון דיד עבד כיד רבו וגיטו וידו באין כא' לא שייך כאן כיון דלא יצא לחירות על שטר זה וע\\\"ש. וכיון דאין כופין אותו בחייו ע\\\"כ האי דעבד משום דעבד מוחזק בעצמו וכמ\\\"ש תוס' שם ודו\\\"ק. ונראה דאע\\\"ג דתני בתוספתא יתנהו יעשהו כולן לשון עתיד הן וה\\\"ל כקנין אתן וכמ\\\"ש:\"]",
-        "[\" והוא שנתנו עכשיו לשליש לשום כך. בתוס' פרק מי שמת הקשו מהא דאמרינן בגיטין פ' השולח (גיטין דף מ') פ' שפחתי עשתה לי קורת רוח כופין את היורשין כו' משום מלדה\\\"מ והתם לא הושלש בידו מידי וצ\\\"ל דגבי שחרור יש לנו לו' יותר מלד\\\"המ מבשאר דברים ע\\\"ש וסתמו הטעם דיש לנו לו' יותר מלדה\\\"מ והר\\\"ן פ\\\"ק דגיטין כתב ז\\\"ל י\\\"ל דשניא היא דזכו בה שמים וזכתה היא בעצמה ועדיפא ממוציא דבר מרשותו ומניח ביד אחרים עכ\\\"ל ובעל העיטור כתב נמי הטעם משום דזכו בה שמים וע\\\"ש. מיהו נרא' דזכו בה שמים לא שייך אלא היכא שצוה לשחרר דאחר השחרור ה\\\"ל עם קדוש ושייך ביה זכו שמים אבל היכא שאילו אומר לשחרר אלא שלא יעשו בו עבודה קשה הא אין בזה כלום לשמים ותיקשי מהא דאמרינן פרק השולח שם פ' שפחתי עשתה לי קורת רוח כופין את היורשין ועושין לה קורת רוח ומפרש לה הרי\\\"ף ז\\\"ל ומאי קורת רוח דעבדין לה דאי אמרה האי עבידתא לא מצינו למיעבדי' לא כייפינא לה ע\\\"ש ולא שייך בזה לשמים כיון דאכתי שפחה היא ואפשר דמה\\\"ט כת' רש\\\"י פרק השולח שם ועושין לה קורת רוח ואפי' אין רוח נתקרה בלא שחרור לשחרריה עכ\\\"ל והיינו כיון דאית בה זכיה לשמים כיון דאם רוצה בשחרור מחויבין לשחררה אמרינן מלדה\\\"מ בכל דבריו אפ\\\"ה דאינה רוצה בשחרור אלא בקורת רוח שיעשה לה כחפצה ודו\\\"ק מיהו הרא\\\"ש פ' מציאת האשה כתב ז\\\"ל התם נמי כביד שליש דמי לפי שהיא מוחזקת בגופה עכ\\\"ל ואע\\\"ג דכבר כתבנו בסי' רמ\\\"א סק\\\"ג דעבד אינו נקרא מוחזק נגד רבו ומשום דה\\\"ל כשורו וחמורו ויד עבד כיד רבו מ\\\"מ לזה חשוב מוחזק דלא גרע מהושלש לכך דה\\\"ל נמי בחזקת בעלים הראשונים לכל דבר:\"]",
-        "[\" מי שנשבע או נדר ליתן לפ'. והיינו משום דשבועה אינו עושה קנין וכן בנודר לעניים אינו עושה קנין ומשום דלא אמרינן אמירה לגבוה כמסירה להדיוט אלא בקדושת הגוף או בקדושת בדק הבית אבל נודר לעניים אינו כמסירה אלא שמחויב לקיים נדרו ומשום דכתיב בפיך זו צדקה וכיון דמת אין היורשין צריכין לקיים שבועת אביהן או נדר אביהן ואפי' או' ה\\\"ז לעניים ומעשה בא לידי באחד שנדר בחייו ליתן מעשר כספים מנכסיו וכבר חילק בחייו מקצתו וקודם מותו ציוה שיתן מעשר מנכסיו כפי הנדר שנדר בחייו. וכן באו אלי מעניי העיר לכוף את אפטרופסי יתמי המנוח לקיים הצוואה ואחר העיון לא מצאתי עצמי כמחויב בדבר הזה לפי שנראה לי שאין ממש בצוואה זו. והוא דכיון דנודר ומת אין היורשין מחויבין לקיים נדרו. וא\\\"כ משום נדר שנדר בעודו בריא אין היורשין מחויבין ואי משום מתנת שכ\\\"מ נראה דבזה לא אמרינן תקנת שכ\\\"מ מהא דאמרינן פרק גט פשוט (בבא בתרא דף קע\\\"ה) בהא דאמרי רב ושמואל שכ\\\"מ שאמר מנה לפ' בידי אמר תנו נותנין לא אמר תנו אין נותנין ופריך מכלל דרב ושמואל בדלא נקיט שטרא בידיה אמר תנו נותנין והא מלוה ע\\\"פ הוא ורב ושמואל דאמרי תרווייהו מלוה ע\\\"פ אינו גובה מן היורשין וכתבו תוס' ז\\\"ל וא\\\"ת והא דברי שכ\\\"מ ככתובין ומסורין דמי מאחר דאם כתבו ונתנו היו נותנין השתא אמאי אין נותנין כמחלק כל נכסיו וי\\\"ל לא דמי דהיכא דנותן מטעם מתנה בודאי תיקנו שיהי' ככתובין ומסורין שמא תטרוף דעתו עליו אבל אם מצווה להם ליתן מכח מלוה ולא מטעם אחר אין לו אלא מכח מלוה כאשר בתחלה והלכך אין נותנין עכ\\\"ל. וה\\\"נ כיון שאמר ליתן משום הנדר שנדר בחייו וא\\\"כ אין לעניים אלא מכח נדר כאשר בתחלה והנודר ומת אין היורשין מחויבין לשלם. והיות כי משמעות הפוסקים בתשובותיהם אינו נראה כן וע' בשו\\\"ת הר\\\"ן סי' א' בכיוצא בזה דהיה מצוה ליתן את הנדר שהיה לו לתלמוד תורה וע\\\"ש דפסק דמחויבין ליתן לתלמוד תורה אלא דמשמע שם דמחויבין לקיים הנדר שנדר בחייו וע\\\"ש ואלו מדברי הרמ\\\"א מבואר דמשום נרר ודאי יורשין פטורי ועמ\\\"ש בסי' ר\\\"ן סק\\\"ט דהיכא דאומר מנה לפ' בידי דה\\\"ל כאומר מהיום כיון שרוצה לפרוע חובו ובנודר מהיום ליכא תקנת שכ\\\"מ וכתבנו בזה ליישב קושיות תוס' הנז' וא\\\"כ ה\\\"ה הכא נמי כיון שנדר בחייו ואומר שיותן לעניים לפי הנדר שנדר בחייו הרי רוצה לזכות להם מהיום וליתא בתקנת שכ\\\"מ כמבואר ברמ\\\"א סעיף ז' בסי' ר\\\"ן שם ועמ\\\"ש שם סק\\\"ו ואכתי צ\\\"ע מיהו בסי' ר\\\"צ סק\\\"ב שם כתבנו ליישב דברי הב\\\"י בתשובה שפסק בנודר ומת מחויבין היודשין לקיים כפי הנדר ודו\\\"ק. ולפמ\\\"ש בסק\\\"ג בשם הרב המגיד פ' כ\\\"ב ממכירה דהיכא שהיה אביו מחויב בעודו קיים כופין את היורשין משום מצוה לדה\\\"מ א\\\"כ ה\\\"ה הכא:\"]"
+        "(ליקוט) שטר כו'. מתני' דפ\"ק דמכות וגמ' דב\"ב קס\"ב ב' ורי\"ף פ\"ק דמכות (ע\"כ):",
+        "(ליקוט) או שהיו שנים כו'. סנה' כ\"ט ב' ההוא כו' (ע\"כ):",
+        "(ליקוט) אם יש שם עדות כו' וא\"כ כו'. כן מ' בב\"ב שם וכמ\"ש תוס' שם ד\"ה נמצא יש תימא כו' וי\"ל כו' (ע\"כ):",
+        "(ליקוט) שהרי אפשר כו'. כמ\"ש בפ\"ק דגיטין (ע\"כ):",
+        "אע\"פ שהעד. כפירושו דנקט הראשונ' לרבותא:",
+        "(ליקוט) אע\"פ שהעד כו'. ס\"ל לרבותא קתני בתוספתא הראשונים וכמ\"ש בגטין ס\"א בגט מקושר דבכ\"מ קרובים כשר בין בתחלה כו' ע\"ש פ\"ב א' (ע\"כ):",
+        "(ליקוט) אע\"פ כו'. כמ\"ש בתוספת' והביאו תוס' בגטין י\"ח ב' ונמצא שנים הראשונים קרובים או פסולים כו' ופי' דלרבותא נקט אע\"ג דבגט כה\"ג אמרי לה דפסול אף לר' יוחנן כמ\"ש בגמ' דגטין שם וכ\"ש באמצע' או אחרוני' דלד\"ה כשר לר' יוחנן (ע\"כ):",
+        "ולכתחלה. מדאמרי' שם מלאוהו כו'. בדיעבד דוקא:",
+        "(ליקוט) ולכתחלה כו'. ע' רי\"ף פ\"ב דגטין שגורס שם בגמ' י\"ח ב' מיחתם לכתחלה קרוב כו' (ע\"כ):",
+        "(ליקוט) וי\"א כו'. ומההוא דגט מקושר אין ראיה ועתוס' שם י\"ח ב' ד\"ה אמרי. וא\"ת כו' (ע\"כ) (ליקוט) וי\"א כו'. כמ\"ש בתוספתא הנ\"ל ודוקא קתני דתלינן למילוי חתמו וראיה ממ\"ש בגטין ספ\"ח פ\"א ב' לא הוכשרו בו אלא ע\"א כו' וא\"כ כאן דמקיימינן מתרי מינייהו האיך מכשרינן קרובים אלא דאין מקיימין אלא מעדים שלמטה כמ\"ש בב\"ב קס\"ג ב' כל כה\"ג כו' מכלל דבשאר מקיימין מעדיו שלמטה ושם פסולין קרובין ולא חיישינן כמ\"ש בגטין פ\"ב א' וש\"מ מכל תלתא מקיימין כו' ומוכח מההיא דב\"ב הנ\"ל דא\"צ לקיים כל חתימת העדים אלא מתרי מקיימין מדאמר וליחוש כו' קסבר כל כה\"ג כו' ועתוס' שם קס\"ב ב' ד\"ה נמצא כו' ותוס' דגטין י\"ח ב' ד\"ה אמרי כו' (ע\"כ):"
       ],
       "en_segments": [
-        "It is a mitzvah to fulfill the words of the deceased. Tosafos in chapter Mi Shemet, Bava Batra 149, s.v. 'that they teach him a claim,' initially cite Rabbeinu Yitzchak that this rule applies only when the deceased gave the instruction orally face to face. Rabbeinu Yitzchak later retracted because of chapter HaSholeach, Gittin 40, where Rabbi Yochanan interprets the statement, 'I made so-and-so my slave a free man,' as written in a document. The baraita then teaches regarding, 'I will make him a free man,' that Rabbi says the slave acquired while the Sages say he did not acquire but the heirs are compelled, which Tosafos understood as a written statement as well. Our printed Gemara does not contain the words, 'the heirs are compelled.' Maharsha therefore writes that Tosafos had a version of the baraita reading, 'the Sages say he did not acquire, and the heirs are compelled.' It appears that Tosafos refer to the Tosefta, Bava Batra chapter 9: one who says, 'I gave such-and-such field to so-and-so,' or, 'it shall be given to him,' Rabbi says he acquired while the Sages say he did not acquire and the heirs are compelled to fulfill the words of the deceased. Likewise, one who says, 'I made so-and-so my slave a free man,' or, 'he shall be made free,' is subject to the same dispute. This is evidently the baraita underlying Gittin 40. Although the Gemara's wording and the Tosefta's wording differ slightly, both use future language according to the Sages, and the Tosefta explicitly states that the heirs are compelled.",
-        "A difficulty remains, because the Tosefta says the same concerning a field. Tosafos hold that the mitzvah to fulfill the words of the deceased applies only where the property was initially deposited with a third party for that purpose. In the case of a slave they explain that the slave is considered in possession of himself, and therefore no outside deposit is needed. But how can the heirs be compelled concerning the field? Ramban indeed proves from this Tosefta that the rule applies even without prior deposit, as Ran cites in Gittin. But Tosafos themselves evidently had this Tosefta in mind, so how do they explain the field?",
-        "According to Maggid Mishneh, chapter 22 of Hilchot Mechirah, the matter can be resolved. He writes that even in the case of a shechiv mera's vow, although the one who made the vow has died, the heirs are compelled through the mitzvah to fulfill the words of the deceased just as he himself would have been obligated had he lived. Rambam ordinarily requires prior deposit, but a vow is different. Since the father was personally obligated while alive, that preexisting obligation is no worse than prior deposit. See what I wrote in siman 212, seif katan 7. We also wrote in siman 245, seif katan 1 that according to those who hold a kinyan of 'I will give' is effective, the baraita's case of a field written as, 'I will give it,' means that the recipient has not yet acquired the field, but the donor is personally compelled to fulfill what he wrote. This resembles kinyan 'I will give': the kinyan does not itself transfer the property immediately, but it obligates the promisor to make the transfer. Since the donor would have been compelled during life to give the field as promised in the document, that living obligation is no worse than prior deposit, and the heirs are compelled through the mitzvah to fulfill the words of the deceased, just as Maggid Mishneh says regarding a vow.",
-        "The slave case is different. We explained in siman 245 that where he writes, 'I will make him free,' the slave has not acquired freedom and remains the master's slave. Nor does the document create a personal obligation upon the master to free him, because the slave's hand is legally the master's hand. The principle that the get and the slave's hand arrive simultaneously cannot help where this particular document does not itself free him. Thus the master could not be compelled during life merely because of this document. The heirs' obligation must therefore rest on the special consideration that the slave is regarded as in possession of himself, as Tosafos explain.",
-        "Although the Tosefta uses future language, 'it shall be given' and 'he shall be made free,' all are expressions of future undertaking and are equivalent to a kinyan of 'I will give.'",
-        "Provided that he now gave it to a third party for this purpose. Tosafos in chapter Mi Shemet ask from Gittin 40, where one says, 'My maidservant so-and-so gave me satisfaction,' and the heirs are compelled by reason of the mitzvah to fulfill the deceased's words even though nothing was deposited with a third party. Tosafos answer that emancipation is different, and the rule is applied there more readily. Ran in the first chapter of Gittin explains that Heaven has acquired a right in the slave and the slave also has a right in himself, making this stronger than removing an object from one's possession and placing it with another. Baal HaItur likewise explains that Heaven has acquired the right.",
-        "Yet the concept that Heaven has acquired a right appears to apply only when the deceased instructed actual emancipation, for after emancipation the slave enters the sanctity of Israel. What if he did not instruct emancipation, but only that the slave not be required to perform hard labor? There is no direct acquisition for Heaven, yet Gittin says that if he declared that his maidservant had given him satisfaction, the heirs are compelled to give her satisfaction. Rif explains that if she says, 'I do not wish to perform this task,' they may not compel her. She remains a maidservant, so where is the heavenly acquisition? Perhaps this is why Rashi explains that 'they give her satisfaction' means that even if she cannot receive satisfaction without emancipation, they must free her. Since the command is broad enough to entitle her to freedom if she chooses it, a heavenly right exists in the instruction. Consequently the mitzvah to fulfill the deceased's words governs all aspects of the instruction, even if she chooses only favorable treatment rather than actual freedom. Rosh in chapter Metziat HaIshah gives a different explanation: the case is like property placed with a third party because the slave is in possession of herself. Although we wrote in siman 241, seif katan 3 that a slave is not considered in possession against the master, since legally the slave is like the master's ox or donkey and the slave's hand is the master's hand, for the limited purpose of this rule the slave's possession suffices. It is no worse than property deposited for the intended recipient, even though formal ownership has not passed from the original owner.",
-        "One who swore or vowed to give to a particular person. An oath does not itself create an acquisition, and a vow to give to the poor likewise does not create an acquisition. The rule that a statement to Heaven is equivalent to delivery to an ordinary person applies to inherent sanctity or Temple property, but a vow for the poor merely creates a personal obligation through the verse that treats charity as an obligation of one's speech. When the donor dies, the heirs therefore need not fulfill the father's oath or vow. This applies even if he said, 'This is for the poor.'",
-        "A case came before me involving a person who, during life, vowed to give a tithe of his money from his assets. He distributed some during life and, before death, instructed that the remaining tithe be given from his estate in accordance with his earlier vow. The city's poor asked me to compel the guardians of his minor heirs to fulfill the will. After consideration I did not find myself able to obligate them. Since one who vows and dies does not obligate his heirs, the earlier vow itself could not bind them. Nor does the later deathbed instruction necessarily create a shechiv mera gift. In Bava Batra 175, Rav and Shmuel say that where a shechiv mera says, 'I owe one hundred to so-and-so,' if he adds, 'Give it,' they give, but if not they do not. The Gemara asks: if he holds no document, how can 'give it' suffice? It is an oral loan, and Rav and Shmuel themselves hold that an oral loan is not collected from heirs. Tosafos ask: are not the words of a shechiv mera treated as written and delivered? If a written and delivered gift would work, why should this verbal direction fail? Tosafos answer that the special enactment applies where he gives by way of gift, for otherwise his mind might become distressed. But where he directs payment specifically because of an alleged loan and not by way of gift, the claimant has only the original loan basis. If that original claim cannot be collected from heirs, the deathbed words do not transform it into a gift.",
-        "The same applies here. The deceased instructed payment specifically because of the vow he had undertaken during life. The poor therefore have only the original vow basis, and a vow does not bind heirs after the vower's death. I recognize that the general implication of responsa literature is not obviously so. Responsa Ran, siman 1, discusses a similar direction to give what had previously been vowed for Torah study and rules that the heirs must give it. Yet the responsum appears to ground the obligation in the original vow. Rama, by contrast, clearly states that heirs are exempt from the father's vow itself.",
-        "See also what I wrote in siman 250, seif katan 9: one who says on his deathbed, 'I owe one hundred to so-and-so,' speaks as one seeking to pay an already existing debt and therefore effectively intends a transfer from today. An instruction effective from today is outside the special shechiv mera enactment unless an ordinary kinyan exists, as Rama rules in siman 250, seif 7. The same reasoning applies here. Since he vowed during life and now says to give the poor according to that earlier vow, his intent is to satisfy a present obligation. That points toward a transfer from today, not a special after-death gift, and thus the shechiv mera enactment may not apply. See what I wrote there, seif katan 6. The matter still requires study. In siman 290, seif katan 2, however, I wrote an explanation preserving Beit Yosef's responsum that heirs are obligated where one vowed and then died. Moreover, according to what I wrote above in seif katan 3 from Maggid Mishneh, whenever the father was personally obligated during life, the heirs are compelled through the mitzvah to fulfill the words of the deceased. If so, the same should apply here."
+        "(Luke) No. Dr. D. D. D. D. D. D. D. D. D. D. D. D. D.C. and R. D.C.D. (J.C.)",
+        "(Anthology) Or there were two, etc. Sanhedrin 29b, in the incident there.",
+        "(Anthology) If there is testimony there, etc.; and if so, etc. This appears from Bava Batra there, as Tosafot write there, s.v. nimtza: there is a difficulty, etc., and they answer, etc.",
+        "(Anthology) For it is possible, etc. As stated in the first chapter of Gittin.",
+        "Although the witness. According to this explanation, the Tosefta mentions the first witnesses to teach the greater novelty.",
+        "(Anthology) Although the witness, etc. The Tosefta mentions the first witnesses as the greater novelty. In Gittin 81b, regarding a folded bill of divorce, relatives are valid wherever they sign, whether at the beginning or elsewhere. See also 82a.",
+        "(Anthology) Although, etc. As stated in the Tosefta cited by Tosafot, Gittin 18b: if the first two witnesses were relatives or disqualified, etc. The first witnesses are mentioned as the greater novelty, because with a bill of divorce such a case is invalid even according to Rabbi Yochanan, as stated there. Certainly, if the relatives were in the middle or at the end, all agree that it is valid according to Rabbi Yochanan.",
+        "And initially. Since the Gemara says that they filled it, etc., implying only after the fact.",
+        "(Anthology) And initially, etc. See Rif in the second chapter of Gittin, whose text on 18b reads: may a relative sign initially, etc.",
+        "(Anthology) And some say, etc. There is no proof from the folded bill of divorce. See Tosafot there, 18b, s.v. amri, and the objection there.",
+        "(Anthology) And some say, etc. This follows the Tosefta cited above, which says specifically that we presume the relatives signed merely to fill the blank. Proof is also brought from Gittin 81b: only one witness was validated there, etc. Here, since the document is authenticated through two of the signatories, how can relatives be accepted? The answer is that authentication is made only from the lower witnesses, as stated in Bava Batra 163b, 'in every such case,' etc. This implies that ordinarily authentication may be made from the lower witnesses, and relatives there are disqualified. We are not concerned about them, as stated in Gittin 82a. It also follows that document authentication requires only two signatures, not all the signatures, from the Gemara's question, 'let us be concerned,' and its answer, 'he holds that in every such case,' etc. See Tosafot, Bava Batra 162b, s.v. nimtza, and Tosafot, Gittin 18b, s.v. amri, etc."
       ],
       "reviewer_output_template": {
-        "id": "cm1/siman252/seif-002/ketzot-hachoshen",
+        "id": "cm1/siman45/seif-012/beur-hagra",
         "merge_groups": null,
         "verdict": "ok_rejoin|needs_editorial|skip",
         "notes": ""

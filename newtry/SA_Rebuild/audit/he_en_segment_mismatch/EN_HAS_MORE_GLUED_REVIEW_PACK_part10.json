@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "created": "2026-08-27T18:39:43.547Z",
+    "purpose": "External AI: propose correct EN merge groups so enSegs===heSegs without gluing distinct notes",
+    "applied_excluded": [
+      "oc1/siman32/seif-005/yad-ephraim"
+    ],
+    "sources": {
+      "spot_review": "en_rejoin_11_spot_review.json",
+      "dry_run": "en_rejoin_continuations_dry_run.json",
+      "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+      "split": "normalize consecutive <br> then split on <br>; strip tags for segment text"
+    },
+    "counts": {
+      "reject_spot_review": 10,
+      "unsafe_dry_run": 48,
+      "deduped_total": 58,
+      "expected": 58,
+      "by_bucket": {
+        "unsafe_dry_run": 48,
+        "reject_spot_review": 10
+      }
+    },
+    "instructions_for_reviewer": [
+      "For each case, read he_segments and en_segments.",
+      "Propose merge_groups: array of arrays of EN indices, length === heSegs.",
+      "Only merge true continuations; never glue distinct HE lemmas/notes.",
+      "If not safely fixable by contiguous EN rejoin, set verdict: \"needs_editorial\" and explain.",
+      "Return same case id; do not invent content.",
+      "Output a JSON array of objects matching reviewer_output_template for every case."
+    ],
+    "chunk_index": 10,
+    "chunk_total": 10,
+    "case_offset": 56,
+    "cases_in_chunk": 2
+  },
+  "cases": [
+    {
+      "id": "cm1/siman388/seif-007/ketzot-hachoshen",
+      "volume": "cm1",
+      "siman": 388,
+      "seif": 7,
+      "slug": "ketzot-hachoshen",
+      "bucket": "unsafe_dry_run",
+      "heSegs": 6,
+      "enSegs": 7,
+      "unsafe_reason": "under_grouped_cannot_split",
+      "prior_auto_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": null,
+      "alignHint": "no_head_align",
+      "strongEnHeads": 5,
+      "he_segments": [
+        "[\" והמוסר כופר. וכת' הרב המגיד ומביאו ב\\\"י דמדברי הרמב\\\"ם משמע שסובר כר\\\"ת דאם אין המוסר כופר אלא שאינו יודע כמה הפסידו נשבע הנמסר ונוטל ע\\\"ש וכן כת' מוהרש\\\"ל פרק הכונס סי' צ':\"]",
+        "[\" המוסר אומר איני יודע. והוא דעת ר\\\"ת בתוס' דע\\\"כ לא מיבעי' ליה אי עשו תקנת נגזל במוסר אלא היכא דהמוסר אומר ברי אבל אם טוען שמא ודאי נשבע הנמסר ונוטל וע\\\"ש וכן נראה ראיה דכבר הקשו הראשונים בהא דאיבעיא ליה בתקנת נגזל במוסר והא כיון דדינא דגרמי דאור' א\\\"כ מאי עדיפותיה משאר מזיק ובחידושי הרמב\\\"ן בדד\\\"ג כת' משום דאעפ\\\"כ דיבורא הוא ע\\\"ש ואכתי אינו מתברר דמה בכך שהוא דיבורא כיון דעושה היזק בדיבור כמעשה. וכן אפי' לדעת פוסקים דד\\\"ג אינו מן התורה אכתי תיקשי כיון דכבר חייבוהו חכמים להזיק זה בודאי הוא בתקנת נגזל אבל לפמ\\\"ש ר\\\"ת ניחא דהא בטוען נמסר שמא לא מיבעיא ליה ובמזיק גופיה כל היכא שטוען הניזק ברי לא עשו תקנת נגזל וכן באש וטוען המזיק שמא לא עשו בו תקנה זו ולא החמירו בטוען ברי אלא בגזלן וקא מיבעיא ליה אם החמירו במסור תקנת נגזל ממש ואפילו טוען ברי ומחמת עונשו של מוסר דחמיר אי לא עשו תקנת נגזל ולא חמיר משאר המזיקין ובטוען ברי לא עשו תקנה זו ומש\\\"ה ניחא דעת ר\\\"ת דבטוען שמא לא מספקא ליה וכמ\\\"ש דלא עדיף משאר המזיקין ואפי' למ\\\"ד גרמי דרבנן ה\\\"ל מזיק מדרבנן והוי בכלל תקנת מזיקין ולא מיבעיא ליה אלא בטוען ברי וכמ\\\"ש ודו\\\"ק ועמ\\\"ש בסי' שפ\\\"ו סק\\\"א:\"]",
+        "[\" וישבע הנמסר ויטול. וכת' בש\\\"ך ס\\\"ק ל\\\"ו ז\\\"ל ולענין הלכה נראה לכאורה לפסוק כאן משואיל\\\"מ כיון דכבר העליתי כהרמב\\\"ם וסייעתו דאפילו היכא דלא ה\\\"ל למידע כו' אך שצ\\\"ע בכאן מטעם אחר דהרמב\\\"ן ס\\\"ל דאין נשבעין שבועה דאוריית' על כל דיני דגרמי והבאתיו לעיל סי' שפ\\\"ו סק\\\"י וגם יש פוסקים דדינא דגרמי הוא דרבנן ולדידהו לא שייכא שבועה דאוריית' כלל עכ\\\"ל. וכבר כתבנו בסי' שפ\\\"ו סק\\\"ד דמדברי הרמב\\\"ן אין הכרע דלא כת' אלא דינ' דש\\\"ס דאין נשבעין על השטרות ומצינו לומר דהיינו היכא דשטרות בעינ' והעליתי שם דשטרות היכא דליתנהו וכגון ששרפן תלי' בדעת הרמב\\\"ם והראב\\\"ד דלדעת הרמב\\\"ם דאזלינן בתר מעיקרא ותובעו נזק קרקע ה\\\"ל קרקע א\\\"כ ה\\\"ה נזק שטרות ה\\\"ל שטרות ולדעת הראב\\\"ד דאזיל בתר בסוף וה\\\"ל דמים ה\\\"נ נשבעין על שטרות היכ' ששרפן מיהו אפי' נימ' דאין נשבעין בשורף שטר היינו משום דאזלינן בתר מעיקר' ושטרות אימעיט מדין שבועה והא דמיעט שטרות משבועה היינו משום דכתיב כי יתן איש אל רעהו כלים וכו' והיינו דבר שגופו ממון כדאיתא בש\\\"ס אבל טענת מסור ודאי כיון שחייב הוא מדיני דגרמי הרי הוא טענת ממון ממש ואינו דומה לשטרות דגוף התביעה היינו השטרות אין גופן ממון ואפי' נשרפו אזלינן בתר מעיקר' אבל היכא שתובעו היזק שעשה לו ע\\\"י דד\\\"ג ה\\\"ל תביעת ממון ממש שהפסיד ע\\\"י וזה ברור. ומ\\\"ש הש\\\"ך דלהפוסקים דדיני דגרמי דרבנן לא שייך שבועת התורה כבר כתבנו בסי' פ\\\"ז סקל\\\"ב דבממון דרבנן נמי נשבעין שבועת התורה ואמרינן ביה נמי משאיל\\\"מ ע\\\"ש ומדכתב ר\\\"ת ישבע הנמסר ויטול ע\\\"כ לאו משום מתוך אתי עלה דא\\\"כ שבועה זו למה דבחמשין ידענ' וחמשין לא ידענ' נוטל המלוה בלא שבועה וטעמ' דנשבע הנמסר אינו משום מתוך וכמ\\\"ש וכן ס\\\"ל לתוס' דהיכ' דלא ה\\\"ל למידע לא אמרינן מתוך אלא טעמ' דנשבע הנמסר היינו משום תקנת נגזל ומשום דבמזיק לא עשו תקנה זו בטוען המזיק ברי ומיבעי' ליה אם חמור מוסר כמו גזלן או לא וכמ\\\"ש בסק\\\"ו ע\\\"ש. וברא\\\"ש כת' וז\\\"ל והא דסליק בתיקו אם עשו תקנת נגזל במוסר ולא פשיט ליה מפקדון משום דמסור דינא דגרמי ובדיבור' בעלמ' הוא דאפסדיה עכ\\\"ל והיינו משום דהרא\\\"ש לשטתו דס\\\"ל דאיבעי' במוסר אפי' בטוען שמא ומש\\\"ה קשי' ליה מפקדון אבל לפמ\\\"ש ר\\\"ת דאיבעי' בטוען ברי א\\\"כ מפקדון לא קשי' דאינו אלא בטוען הנפקד שמא. ובמוהרי\\\"ט חלק ח\\\"מ סי' מ\\\"ז ושם הביא דברי הרא\\\"ש הנזכר וכתב עלה ז\\\"ל וא\\\"ת נהי דמסור בדבור' בעלמ' אפסדיה מ\\\"מ דמי למזיק טפי מפושע בפקדון דאלו מסור דיינין ליה כמזיק לשלם ממיטב כדמוכח בריש קמא ואלו פושע בפקדון לא משלם ממיטב ולא אמרו אלא במזיק ממש כדמוכח ר\\\"פ הנזקין למה אמרו הנזקין שמין להם בעידית עיין שם ותמהני בדבריו דהא כי היכי דמוכח מסור מרפ\\\"ק דב\\\"ק ה\\\"נ מוכח שומרין וארבעה שומרין המה תוך ארבעה ועשרים אבות נזיקין וכולהו לשלם ממיטב וכן כת' הרי\\\"ף והרא\\\"ש רפ\\\"ק דב\\\"ק דארבעה שומרין ממיטב נינהו וזה פשוט שם בש\\\"ס וביש\\\"ש פרק הכונס סי' ל' וז\\\"ל דמסור מיירי כשטוען ברי ואף דהא אמרינן עשו תקנת נגזל באשו לא איירי בכופר המבעיר מכל מקום לא הוי רשע כגזלן ודוק' מוסר ראוי לדמותו לגזלן אבל לא מזיק אפי' להכעיס עכ\\\"ל. וא\\\"כ דברי ר\\\"ת ניחא דבטוען מוסר שמא לא גרע מפקדון ומזיק וכמ\\\"ש ולכן נראה עיקר כדברי ר\\\"ת וכן משמע מסתימת דברי הש\\\"ע שכ' והמוסר כופר ומשמע בטוען שמא ודאי נשבע הנמסר ונוטל ואע\\\"ג דש\\\"ך דעתו דלא כר\\\"ת נראין עיקר דברי הש\\\"ע וגם הרמ\\\"א שלא הביא דעת החולקין נראה דס\\\"ל כדברי ש\\\"ע:\"]",
+        "[\" אם גורם לו תפיסה. ובש\\\"ך האריך בזה והעלה דאין לחלק בכך כלל בין מוסר ממונו למוסר גופו דסוף סוף לא עביד מעשה אלא דיבורא ולא מחייב אלא משום דינא דגרמי והוי בכלל מה דקאמר בש\\\"ס כי תבעי לך למאן דדאין דד\\\"ג וסוף דבריו ז\\\"ל הלכך נ\\\"ל ברור כמ\\\"ש דבין מוסר ממונו או גופו אם לא עשה מעש' בידו כגון שהוליכו בעצמו לתפיסה ולא עביד אלא דיבורא לא מיחייב אלא משום דד\\\"ג כו' ולא הוצרכתי להאריך רק מפני שגדול הדור מוהרי\\\"ל לא פסק כן ונמשכו אחריו מוהרש\\\"ל והרב מוהר\\\"ם לובלין ושאר אחרונים ולפענ\\\"ד הוא כשגגה היוצא מלפני השליטים האלו עכ\\\"ל. וז\\\"ל מוהרי\\\"ל סי' פ\\\"ו והשתא כיון דרבי דוד מוסר גמור כו' ישבע ר' ישי ויטול מר' דוד כל מה שברור לו שהזיקו בתפיסה אחרונה אע\\\"ג דרבותינו פסקו דתיקו לקולא ולא עשו תקנת נגזל במסור חבירו כו' אבל המזיק ממון חבירו בידים עשו תקנת נגזל באשו וכאן המזיק בידים כו' אלא היכא דמסר בידים כי האי דמסור גופו דחשיב מזיק בידים כדפסק רבי אפרים שלהי הגוזל קמא דכשמוסר גופו הוי מזיק ממש דאפי' רבנן מידי דהוי כחובל וע\\\"ש ובמרדכי פ' הגוזל ז\\\"ל אם היה מוסר חבירו בגופו כו' אפי' רבנן דפליגי במראה ממון חבירו ופטרי מטעמא דגרמא בניזקין הכא מודי ודומה לחובל בחבירו שמשלם ריפוי דחשוב ליה כאלו הפסיד ממונו ממש בשגרם לו ריפוי ה\\\"נ הואיל ומסר גופו כאלו מסר ממונו בידים. ותדע שיש חילוק בין נזקי גופו לנזקי ממונו כה\\\"ג מטעמא דפרישית שהרי שבת דאדם אם סגרו בחדר ובטלו ממלאכתו חייב שהרי ד' דברים שייכי באדם ושבת אחת מהן ואם סגר בהמה בבית ובטלה ממלאכתה פטור לד\\\"ה וכו' וה\\\"ט משום דע\\\"י ממון הפסיד ממון אחר פטור ומש\\\"ה פטור אפי' לר\\\"מ עכ\\\"ל והנה בש\\\"ך מפרש דברי המרדכי דמיירי דמוסר גופו של חבירו בידים דהיינו שנוטל גופו בידו ומוליכו בחזקה לתפיסה ולאפוקי דלא נימא סוף סוף אינו נוטל ממונו בידו לא תיהוי אלא גרמא אלא כיון דמוסר גופו בידו ומחמת זה נפסד לו ממון כל היזק דממונו ה\\\"ל כאלו הזיקו בעצמו ובזה יש חילוק בין נזקי ממונו לנזקי גופו וכו' ע\\\"ש. ולישנא דמוסר לא משמע הכי אלא מוסר בכל דוכתי אינו בידים אלא בדיבורא ועוד תמה אני היכא תפסי' בידים לתפיסה וכי בדידי' תלי' מלתא להוליכו לבית הסהר ומי עשאו לשר בית הסהר והכל תלוי ביד השלטון ואם לא היה דעת השר לזה תפיסתו לא מעלה ולא מוריד ואם היה דעתו לזה א\\\"כ המוליכו לא עבד כלום ואין זה אלא דבורו הגורם לזה. ולכן נראה דברי המרדכי דמחלק בין גרמי דממון לגרמי דאדם ומשום דאשכחן אדם באדם דמשלם שבת וריפוי אע\\\"ג דשבת וריפוי אינו אלא גרמא דהא מה\\\"ט דוחף מטבע לים וצריך הוצאות לבר אמוראה כיון דע\\\"י ממון זה נפסד ממון אחר ה\\\"ל גרמא ופטור ובאדם באדם חייב אלמא חייבי התורה אדם באדם בנזקי גרמי ואפילו דיני דגרמי דפטור לרבי מאיר כמו שבת וריפוי דפטור בבהמה אבל באדם חייב וא\\\"כ מה לי אהדקי באנדרוניא דחייב לשלם השבת אע\\\"ג דלא אזקיה מידי אלא שבטלו ממלאכתו וגרם לו הפסד ממון ה\\\"נ גורם דליהדקי' באנדרוניא נמי חייב כיון דעיקר חיובו דשבת וריפוי אינו אלא גרמא ומש\\\"ה אפי' לרבנן חייב בגרמי דאדם באדם והיינו דברי מוהרי\\\"ל משום דע\\\"כ לא מיבעי ליה במוסר אם עשו תקנת נגזל לפי מה שמפרש דאינו אלא מדרבנן כמו שהוכיחו מקצת הראשונים מהך איבעיא דגרמי אינו אלא מדרבנן דאי מן התורה מאי מבעי' ליה מי גרם משאר מזיק אבל במוסר גופו דגרמי דאדם לכ\\\"ע חייב מן התורה אפי' לרבנן דר\\\"מ א\\\"כ ודאי עשו תקנת נגזל: \",\"אמנם בעיקר דברי המרדכי לבי מהסס לו' אדם באדם חייב בנזקי גרמי ומשום דאע\\\"ג דאשכחן דחייבו התורה בשבת וריפוי היינו נמי הכא דעשה מעשה בגופו דאז חייב בריפוי ושבת הנעשה ע\\\"י מעשה בידים אבל היכא דתחלתו לא נעשה אלא ע\\\"י גרמא אדם באדם נמי פטור וראיה מהא דתנן המבעית חבירו ותקע באזנו פטור משום דאינו אלא גרמא ועיין ר\\\"פ הכונס וא\\\"כ מוכח דאפילו אדם באדם פטור ואפשר לדעת המרדכי מטעמא דמבעית משום דאינו אלא גרמא ולא גרמי ודוקא גרמי הוא דחייב באדם אך מדברי רש\\\"י ר\\\"פ הכונס לא משמע הכי ע\\\"ש דכתב רש\\\"י המבעית חבירו דסבר גרמא בנזקין פטור ומשמע דלרבי מאיר דדאין ד\\\"ג מבעית נמי חייב ומשום דרש\\\"י אינו מחלק בין גרמי לגרמא וכמ\\\"ש בש\\\"ך סי' שפ\\\"ו סק\\\"א ע\\\"ש וא\\\"כ מוכח דלמ\\\"ד דיני דגרמי פטור אדם באדם נמי פטור. אמנם בעיקר הדין נרא' לענ\\\"ד כדברי מוהרי\\\"ל והרמ\\\"א ומוהרש\\\"ל ומוהר\\\"ם לובלין ואע\\\"ג דמראה גופו נמי אינו אלא משום דיני דגרמי ופטור לרבנן דלפמ\\\"ש בסק\\\"ז דעיקר כדברי ר\\\"ת וכמ\\\"ש מוהרש\\\"ל דעיקר כדברי ר\\\"ת וע\\\"כ לא מיבעיא ליה אלא בטוען הנמסר ברי אבל בטוען שמא לא מיבעיא ליה דבין גרמי דאוריית' או דרבנן מזיק הוי ועשו תקנת נגזל במזיק אלא משום דלא עשו תקנה במזיק אלא בשמא ומבעיא ליה בטוען ברי אם עשו בו תקנת נגזל וחמור ממזיק ואפילו בברי נמי או דלמא לא חמיר משאר מזיק וכמ\\\"ש בסק\\\"ז וא\\\"כ הני מילי במוסר ממון דמזיק ממון נמי לא עשו תקנה בטוען ברי אבל במוסר גופו דהוי חובל וכבר עשו תקנה בנחבל דנשבע ונוטל אפילו בטוען ברי וכיון דאין חילוק בין הוזק גרמי להיזק שע\\\"י מעש' לדברי ר\\\"ת א\\\"כ במוסר גופו אפילו נימא דמוסר לא חמיר יותר ממזיק הרי נשבע ונוטל מדין תקנת נחבל שהוא אפילו בטוען ברי ולכן עיקר כדברי מוהרש\\\"ל והנמשכים אחריו ודו\\\"ק:\"]",
+        "[\" האו' לחבירו מסרתני. וכתב הרשב\\\"א בתשובת מוסר שהודה במקצת משלם מה שהודה ואינו משלם השאר דלא ה\\\"ל למידע ובש\\\"ך כתב דלפי מה שהעלה בסי' ע\\\"ב דאע\\\"ג דלא ה\\\"ל למידע נמי אמרינן ביה משאיל\\\"מ א\\\"כ ה\\\"ה הכא ע\\\"ש. ונראה סותר לפי מ\\\"ש הש\\\"ך ס\\\"ק ל\\\"ו דאפילו לדעת הרמב\\\"ם נמי אין בו ש\\\"ד כיון דהוא מדיני דגרמי ע\\\"ש. מיהו כבר כתבנו בסק\\\"ה דבמוסר נמי א\\\"י שבועת התורה:\"]",
+        "[\" שלא נפטר ממסירה הראשונה. כתב בש\\\"ך וז\\\"ל ואם יש ספק בדבר אם נפטר ממסירה הראשונה מספיקא לא מפקינן ממונא והאחרון פטור כן הוא בתשובת מוהר\\\"ם שם עכ\\\"ל. וצל\\\"ע מהא דכתב הרמב\\\"ם פ\\\"ו מחובל ז\\\"ל שנים שהמיתו בהמה ביחד או שברו כלי ביחד משלמין ביניהם חמשה שהניחו חבילות על בהמה ולא מתה ובא זה והניח חבילתו עליה ומתה אם היתה הבהמה מהלכת עם איתם חבילות ומשהוסיף זה חבילו' עמדה ולא הלכה האחרון חייב ואם מתחלה לא היתה מהלכת האחרון פטור ואם אינו ידוע כולם משלמין בשוה עד כאן לשונו וכן פסק בטור וש\\\"ע סימן שפ\\\"ג ומבואר דשנים שהזיקו ואינו יודע על ידי מי נגמר ההיזק משלמין בשוה וע\\\"ל סימן שפ\\\"ג סק\\\"א וא\\\"כ ה\\\"נ נימא דמשלמין בשוה ועוד מ\\\"ש דהאחרון פטור ואמאי הראשון חייב נימא שההיזק היה על ידי האחרון ואפשר כיון דהיה כדי היזק במסירה הראשונה בודאי דמוסר ה\\\"ל כתוא מכמר והספק אינו אלא אם נפטר אח\\\"כ ממסירה הראשונה וכה\\\"ג הוי ליה כאו' איני יודע אם פרעתיך וצ\\\"ע:\"]"
+      ],
+      "en_segments": [
+        "And the moser denies the claim. Maggid Mishneh, cited by Beit Yosef, writes that Rambam appears to agree with Rabbeinu Tam that if the moser does not deny the event but says he does not know how much loss he caused, the person informed upon takes an oath and collects. Maharshal rules similarly in chapter HaKones, siman 90.",
+        "The moser says, 'I do not know.' This is Rabbeinu Tam's position in Tosafos. The Gemara's unresolved question whether the special enactment for one who was robbed applies to a moser concerns only where the moser makes a definite denial. If he says he does not know, the injured person certainly swears and collects. This is also supported by the difficulty raised by the early authorities: if dina d'garmi creates Torah liability, why should the moser differ from any other tortfeasor? Ramban in his novellae on dina d'garmi answers that the moser caused the damage merely through speech. But this is still difficult. Why should speech matter if the damage caused by the speech is treated like an act? And even according to the authorities who hold dina d'garmi rabbinic, once Chazal imposed liability for such damage he should certainly be within the tortfeasor enactment. According to Rabbeinu Tam the matter is clear. The Gemara never asked about a case where the injured person claims with certainty and the moser says he does not know. With an ordinary tortfeasor, the special enactment for a robbed person was not made where the tortfeasor makes a definite denial, and even regarding fire the enactment was not extended to every such case. The question is only whether, because informing is especially severe, Chazal treated a moser fully like a robber so that the injured party may swear and collect even against a definite denial, or whether a moser is no more severe in this respect than an ordinary tortfeasor. Therefore Rabbeinu Tam properly holds that where the moser says 'I do not know' there was never a question. Even if dina d'garmi is rabbinic, the moser remains a rabbinically liable tortfeasor and is included in the ordinary enactment for damages. The unresolved issue is only the case of a definite denial. See what I wrote in siman 386, seif katan 1.",
+        "The person informed upon shall swear and collect. The Shach, seif katan 36, writes that according to his general ruling like Rambam and those who follow him, even where the defendant had no reason to know, the rule is that one who is obligated to swear and cannot swear must pay. At first glance the same should apply here. He nevertheless raises another issue: Ramban holds that a Torah oath is not imposed for liabilities arising from dina d'garmi, and some poskim hold that dina d'garmi itself is only rabbinic, in which case perhaps no Torah oath applies at all. I have already written in siman 386, seif katan 4, that Ramban's words are not conclusive. He states only the Talmudic rule that no Torah oath is imposed concerning promissory notes. That can be understood where the documents themselves still exist. Where the documents no longer exist, such as where they were burned, the matter depends on the dispute between Rambam and Raavad. Rambam follows the original character of the damaged object, so destruction of land remains legally a claim about land, and destruction of documents remains a claim about documents. Raavad looks to the final monetary loss, in which case an oath can apply after the documents were burned. Even if we assume no Torah oath is imposed when one burns a document, that is because the claim is still fundamentally about an object excluded from the oath laws, since the Torah oath concerns objects whose body has monetary value. A claim against a moser is entirely different. Once dina d'garmi makes him liable, the claim is a direct monetary claim for the loss he caused, not a claim upon a document whose body lacks monetary value. The Shach also suggests that if dina d'garmi is rabbinic, a Torah oath cannot apply. But I wrote in siman 87, seif katan 32, that even on money whose underlying obligation is rabbinic, a Torah oath can apply, together with the rule that one obligated to swear who cannot swear must pay. Still, Rabbeinu Tam's statement that the injured party 'swears and collects' cannot be based on that rule. If it were, no oath would be needed, because in the classic case of fifty known and fifty unknown, the claimant collects without taking an oath. Rather, Rabbeinu Tam's oath is the enactment made for a robbed person. Tosafos also hold that where the defendant had no reason to know, the rule of one obligated to swear who cannot swear does not apply. The injured party swears because of the special enactment. The Gemara's uncertainty is whether this stronger enactment was extended to a moser even against a definite denial, not whether it applies where the moser says he does not know. The Rosh writes that the question remained unresolved because a moser causes loss through dina d'garmi and mere speech. That difficulty arises because the Rosh understands the question to include even a moser who says he does not know. According to Rabbeinu Tam, however, the case of a custodian presents no difficulty because it too concerns a defendant who says he does not know. Maharit, Choshen Mishpat, siman 47, cites the Rosh and asks that although a moser causes loss through speech, he is still more comparable to a tortfeasor than to a negligent custodian. A moser pays from his best property, as appears at the beginning of Bava Kamma, while a negligent custodian supposedly does not. I am astonished by this question, because the same opening sugya of Bava Kamma that includes a moser among tort categories also includes the four bailees among the principal categories of monetary liability, and Rif and Rosh explicitly state that the four bailees pay from their best property. Maharshal in chapter HaKones, siman 30, likewise writes that the case of a moser concerns a definite denial. Although an enactment was made regarding one harmed by fire, the ordinary tortfeasor is not wicked like a robber; only a moser is sufficiently severe to raise the possibility that he should be treated like a robber. This supports Rabbeinu Tam. Where the moser says 'I do not know,' he is no less liable than a custodian or ordinary tortfeasor. This also appears from the plain wording of Shulchan Aruch, which speaks of 'the moser denies,' implying that if he merely says he does not know, the injured party certainly swears and collects. Rama did not bring a dissenting opinion, which likewise suggests he accepts the Shulchan Aruch's ruling.",
+        "If he causes him to be imprisoned. The Shach discusses this at length and concludes that no distinction should be drawn between informing against a person's property and informing against his body. So long as the moser performed no physical act and caused the result only through speech, his liability is only through dina d'garmi. He writes that he would not have elaborated but for the fact that Mahari Weil, followed by Maharshal, Maharam Lublin, and other later authorities, ruled otherwise, and in his opinion their conclusion was an error. Mahari Weil, siman 86, ruled that since Rabbi David was a full moser, Rabbi Yishai may swear and collect from him whatever loss he knows he suffered through the final imprisonment. Although the early authorities treated the unresolved question whether the robbed-person enactment applies to a moser leniently, one who directly damages another's money is subject to the enactment used for fire. Here, Mahari Weil says, the injury is treated as direct because informing against a person's body is like direct physical damage. He relies on Rabbi Ephraim at the end of chapter HaGozel Kama, that one who informs against another's body is a direct tortfeasor, comparable to one who wounds him. Mordechai similarly writes that if one informs against another's person, even the Sages who exempt one who merely points out another's property because the injury is only indirect agree here. It resembles one who wounds another and pays medical costs, which are treated as though he directly deprived the victim of money. Likewise, handing over the person's body is treated as directly handing over his property. Mordechai proves that bodily damages differ from property damages in this respect because one who confines a person in a room and prevents him from working is liable for lost labor, whereas one who confines an animal and prevents its work is exempt. The reason is that when one damages property and thereby causes a secondary monetary loss, the loss is indirect and exempt, even according to Rabbi Meir. The Shach explains Mordechai as speaking only where the moser physically seizes his fellow and forcibly delivers him to imprisonment, not merely where he informs verbally. In that case, even though he does not personally seize the victim's money, because he physically delivers his body and monetary loss follows, the loss is treated as though he directly damaged the property. I find this explanation difficult. The ordinary term moser does not mean physical delivery, but informing by speech. Moreover, what would it mean for him personally to seize and imprison the victim? The matter depends upon the ruling authority. If the authority did not wish to imprison him, the informer's physical act could not accomplish it, and if the authority did wish to imprison him, the informer's escort added nothing. The real causative act is the speech. It therefore appears that Mordechai distinguishes between indirect monetary damage to property and indirect damage to a person. We find that one who injures another person pays for lost work and medical expenses even though these are themselves indirect monetary consequences. By contrast, one who pushes another's coin into the sea is exempt for expenses needed to retrieve it, because property caused another monetary loss. Thus Torah law recognizes some forms of garmi in person against person that it does not recognize in property damage. If one physically confines another in a room, he must pay for lost work even though he did not damage the body itself, but merely caused monetary loss by preventing work. On the same reasoning, one who causes the authorities to confine him should also be liable. Mahari Weil's ruling follows: the Gemara's uncertainty concerning a moser is relevant to ordinary monetary informing, which some understand as only rabbinic liability under dina d'garmi. But informing against the body can fall under Torah bodily-damage liability even according to the Sages who disagree with Rabbi Meir, and then the robbed-person type enactment certainly applies.",
+        "I nevertheless hesitate about Mordechai's broad principle that person against person is liable for all garmi damages. The Torah's liability for lost work and medical costs may apply specifically where the defendant first performed a direct physical injury to the body, and the resulting medical and lost-work costs follow from that direct act. Where the initial act itself is only indirect, perhaps even person against person is exempt. The Mishnah that exempts one who frightens another or blasts into his ear because the damage is indirect appears to prove this. Perhaps Mordechai distinguishes between ordinary grama and the more immediate category of garmi, holding only garmi liable in person against person. Yet Rashi at the beginning of chapter HaKones does not appear to make that distinction. Rashi explains the exemption of one who frightens another because he holds indirect damage exempt, implying that according to Rabbi Meir, who judges dina d'garmi, even that case might be liable. Since Rashi does not distinguish between grama and garmi as the Shach notes in siman 386, seif katan 1, this suggests that according to those who reject dina d'garmi, even person against person can be exempt. Nevertheless, regarding the practical ruling, I agree with Mahari Weil, Rama, Maharshal, and Maharam Lublin. As I wrote above, the principal view is Rabbeinu Tam's, and Maharshal also adopts it. The Gemara's unresolved question concerns only a moser who makes a definite denial. If the moser says he does not know, no special question arises, because whether garmi is Torah law or rabbinic, he is at least a tortfeasor and the injured party can use the applicable enactment. The only question is whether a moser is so severe that even against a definite denial he is treated like a robber. That distinction is relevant to informing against property, because an ordinary tortfeasor does not face the stronger enactment against a definite denial. But informing against the body is comparable to bodily injury, and Chazal already enacted that an injured person may swear and collect even where the alleged injurer makes a definite denial. Since under Rabbeinu Tam there is no distinction for this purpose between direct damage and garmi once the category of bodily injury applies, a person whose body was handed over may swear and collect under the enactment for bodily injury. Thus the ruling of Maharshal and those who follow him is the principal one.",
+        "One who says to his fellow, 'You informed against me.' Rashba writes in a responsum that if a moser admits part of the claim, he pays what he admitted but does not pay the remainder under the rule of one obligated to swear who cannot swear, because he had no reason to know the amount of the other person's loss. The Shach writes that according to his ruling in siman 72, that even where the defendant had no reason to know we apply the rule of one obligated to swear who cannot swear, the same should apply here. This appears to contradict what the Shach himself wrote in seif katan 36, that even according to Rambam there may be no Torah oath here because the obligation arises from dina d'garmi. However, as I wrote above in seif katan 5, a Torah oath can apply even to the monetary claim against a moser.",
+        "He was not discharged from the first act of informing. The Shach writes that if there is a doubt whether the first moser was already discharged from the consequence of his first informing, we do not extract money because of the doubt and the later moser is exempt, citing Maharam. This requires study from Rambam, chapter 6 of Hilchot Chovel, who rules that if two people together kill an animal or break an object they divide the payment. If five people placed loads upon an animal and it did not die, and a final person added his load and it died, then if the animal had been walking under the first loads and stopped only after the last was added, the last person alone is liable. If it had already stopped before he added his load, the last person is exempt. If it is unknown which situation occurred, all pay equally. Tur and Shulchan Aruch, siman 383, rule this way. Thus where multiple people cause damage and it is not known through whose act the damage was completed, they divide the payment. Why not say the same here? Moreover, why does the Shach say the later moser is exempt while apparently leaving the first liable? Perhaps the damage was actually caused only by the later informing. One can answer that the first informing was certainly sufficient to cause the damage, so the first moser was already like one who placed the victim into a trap. The only uncertainty is whether he was later discharged from the consequence of that first act. That is comparable to one who says, 'I do not know whether I repaid you.' This requires study."
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman388/seif-007/ketzot-hachoshen",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    },
+    {
+      "id": "cm1/siman411/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 411,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "bucket": "reject_spot_review",
+      "heSegs": 8,
+      "enSegs": 9,
+      "unsafe_reason": null,
+      "prior_auto_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "spot_review_suggested_alt": null,
+      "spot_verdict": "REJECT",
+      "spot_reason": "Glues distinct Gra lemmas H0 and H1; proposed merge is not the H3 dual-likut case.",
+      "he_segments": [
+        "(ליקוט) או לא הפקירן. עבה\"ג וכן ס\"ל לרבא עס\"י תי\"ג (ע\"כ):",
+        "או שהניחם כו'. ו' א':",
+        "לפיכך כו'. הרא\"ש שם וכ' דכל האוקימתות שם אע\"ג דגמר במה הצד מ\"מ תולדות דבור הם ע\"ש:",
+        "(ליקוט) לפיכך כו'. דג' אוקימתות האחרונות דיליף משור ע\"כ היאך חייב בהם ברה\"ר ועתוס' שם ד\"ה. תאמר כו'. הרא\"ש שם (ע\"כ): (ליקוט') לפיכך יש לו כו'. דעיקר דינו הוא כבור ואע\"ג דיליף לה ג\"כ מאש לא אמרינן דיו ועתוס' דקדושין יו\"ד ב' ד\"ה זו. ור\"ש כו'. יש\"ש ועיש\"ש שם שחולק וכ' דוקא באפקרינהו אבל בלא\"ה דין שניהן להן ואינו מוכרח (ע\"כ):",
+        "על כו'. בין כו'. כ\"ח ב':",
+        "אבל כו'. תוס' ד\"ה ונישוף כו':",
+        "(ליקוט) אבל אם נתקל כו'. אבל נ\"י כ' דכ\"ש כה\"ג דחייב וכ\"כ הרשב\"א ועתוס' כ' ב' ד\"ה לשמואל כו' שדחקו בזה וערשב\"א שם (ע\"כ):",
+        "וכן כו'. כמ\"ש בסי' ת\"י ס\"ו:"
+      ],
+      "en_segments": [
+        "(Collected note) Or he did not abandon ownership. See Beer HaGolah. Rava likewise holds so; see siman 413. (End of note.)",
+        "Or he placed them, etc. Bava Kamma 6a.",
+        "Therefore, etc. The Rosh there writes that all the Gemara's explanations, although derived by a common denominator, are nevertheless derivatives of pit. See there.",
+        "(Collected note) Therefore, etc. The final three explanations are derived from ox, yet they are liable in the public domain. See Tosafos there, s.v. \"say,\" etc., and the Rosh. (End of note.)",
+        "(Collected note) Therefore it has, etc. Its primary legal category is pit. Although it is also derived from fire, we do not apply the rule of dayo to limit it. See Tosafos Kiddushin 10b, s.v. \"this,\" and Rabbi Shimon, etc. Yam Shel Shlomo disagrees there and writes that this applies only where the objects were abandoned, while otherwise both bodies of law apply. His proof is not compelling. (End of note.)",
+        "Upon, etc., whether, etc. Bava Kamma 28b.",
+        "But, etc. Tosafos, s.v. \"and it was swept,\" etc.",
+        "(Collected note) But if he stumbled, etc. Nimukei Yosef writes that all the more so in such a case he is liable. The Rashba likewise rules so. See Tosafos 20b, s.v. \"according to Shmuel,\" where they struggle with this point, and see the Rashba there. (End of note.)",
+        "Likewise, etc. As stated in siman 410 seif 6."
+      ],
+      "reviewer_output_template": {
+        "id": "cm1/siman411/seif-001/beur-hagra",
+        "merge_groups": null,
+        "verdict": "ok_rejoin|needs_editorial|skip",
+        "notes": ""
+      }
+    }
+  ]
+}

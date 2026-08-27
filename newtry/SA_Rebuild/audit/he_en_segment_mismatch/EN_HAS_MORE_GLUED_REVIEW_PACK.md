@@ -4,48 +4,38 @@ Original file: `EN_HAS_MORE_GLUED_REVIEW_PACK.json`
 - Total characters: 554,403
 - Total bytes (UTF-8): 690,050
 - Total cases: 58
-- Parts: 7 (each body ≤ 95,000 characters, pretty JSON)
+- Parts: 10 (each file ≤ 90,000 bytes UTF-8 preferred; hard cap 100,000; target headroom ≤ 85,000)
 
 ## How to use
 
-Paste **one part file** + the shortened review prompt per session (100k context limit). Do not paste the full original pack.
+Paste **one part file** + the review prompt per session. Do not paste the full original pack. No gzip/zip — plain pretty JSON only.
 
 ## Parts
 
-| Part | File | Cases | Case offset | Characters |
-|------|------|------:|------------:|-----------:|
-| 1 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part01.json` | 11 | 0 | 91,802 |
-| 2 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part02.json` | 11 | 11 | 93,254 |
-| 3 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part03.json` | 16 | 22 | 92,029 |
-| 4 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part04.json` | 6 | 38 | 87,546 |
-| 5 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part05.json` | 8 | 44 | 85,184 |
-| 6 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part06.json` | 4 | 52 | 78,687 |
-| 7 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part07.json` | 2 | 56 | 31,526 |
+| Part | File | Cases | Case offset | Bytes (UTF-8) | Characters |
+|------|------|------:|------------:|--------------:|-----------:|
+| 1 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part01.json` | 7 | 0 | 81,784 | 66,060 |
+| 2 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part02.json` | 8 | 7 | 83,757 | 68,089 |
+| 3 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part03.json` | 7 | 15 | 62,946 | 52,344 |
+| 4 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part04.json` | 12 | 22 | 84,799 | 69,064 |
+| 5 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part05.json` | 5 | 34 | 36,710 | 29,643 |
+| 6 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part06.json` | 3 | 39 | 80,160 | 64,382 |
+| 7 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part07.json` | 7 | 42 | 77,881 | 63,032 |
+| 8 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part08.json` | 5 | 49 | 72,892 | 58,187 |
+| 9 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part09.json` | 2 | 54 | 79,736 | 62,018 |
+| 10 | `EN_HAS_MORE_GLUED_REVIEW_PACK_part10.json` | 2 | 56 | 39,330 | 31,529 |
 
-## Shortened prompt (use with each part)
+## Review prompt (use with each part)
 
 Paste this prompt together with **one** `EN_HAS_MORE_GLUED_REVIEW_PACK_partNN.json` file. Return a JSON array for **only** the case ids in that part.
 
 ```
-You are reviewing EN-has-more / glued segment mismatches for Shulchan Aruch (SA_Rebuild).
+SA_Rebuild glued EN review. INPUT: one EN_HAS_MORE_GLUED_REVIEW_PACK_partNN.json (this chunk only).
 
-INPUT: one chunk of EN_HAS_MORE_GLUED_REVIEW_PACK (meta.chunk_index / chunk_total / case_offset + cases[]).
+For each case: propose contiguous EN merge_groups so len(groups)===heSegs, partitioning EN indices 0..enSegs-1 in order. Only merge true continuations; never glue distinct HE notes. If impossible, verdict needs_editorial and merge_groups null.
 
-For EACH case in this chunk only:
-1. Compare he_segments vs en_segments (and any glued/extra EN text).
-2. Decide if EN is wrongly glued/extra, correctly longer (legitimate gloss/expansion), or uncertain.
-3. Propose a fix when EN is wrong: which EN segment(s) to split/trim/drop, and the corrected en_segments list if clear.
+OUTPUT JSON array only, same ids/order:
+[{"id":"...","merge_groups":[[0],[1,2]]|null,"verdict":"ok_rejoin"|"needs_editorial"|"skip","notes":"short"}]
 
-OUTPUT: a single JSON array (no markdown fence unless needed). One object per case id in this part, same order as cases[]. Schema:
-[
-  {
-    "id": "<exact case id from input>",
-    "verdict": "glued_error" | "legitimate_en_longer" | "uncertain" | "other",
-    "note": "<one short sentence>",
-    "fix_en_segments": null | ["..."],
-    "confidence": "high" | "medium" | "low"
-  }
-]
-
-Rules: only ids present in this part; no new cases; no corpus edits; plain JSON array only.
+Conservative when unsure. No text edits, no new cases.
 ```
