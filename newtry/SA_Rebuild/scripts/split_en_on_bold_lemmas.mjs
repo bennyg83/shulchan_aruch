@@ -8,16 +8,20 @@
  * Hard gates (ALL):
  *   1. heSegs >= 2, enSegs === 1  (v1: enSegs===1 only)
  *   2. Count of EN <b>…</b> lemma starts === heSegs
- *   3. Optional align: each HE seg starts with <b>; EN starts with <b>
+ *   3. Default: each HE seg starts with <b>; EN starts with <b>
+ *      With --relax-he-bold-heads: drop HE bold-headed requirement.
+ *      If first HE seg is not bold-headed, also allow EN non-bold prefix
+ *      (first EN bold maps mid-first-seg, matching HE).
  *   4. HE must not contain **** ENGLISH **** or similar corruption
  *   5. Do not empty-pad
  *   6. Do not touch when bold count ≠ heSegs
  *   7. Modify en.html only
- *   8. Skip content-offset (EN starts mid-essay / substantial non-bold prefix)
+ *   8. Skip content-offset (unless relaxed as in #3)
  *
  * Usage:
  *   node split_en_on_bold_lemmas.mjs --dry-run --volumes oc1,yd1,cm1
  *   node split_en_on_bold_lemmas.mjs --apply --volumes oc1,yd1,cm1
+ *   node split_en_on_bold_lemmas.mjs --apply --relax-he-bold-heads --volumes oc1,yd1,cm1
  *
  * After --apply: rebundle affected simanim only (BUNDLE_CONCURRENCY=1).
  */
@@ -48,12 +52,14 @@ function parseArgs(argv) {
     maxSimanim: null,
     corpusRoot: CORPUS_ROOT,
     sampleLimit: 40,
+    relaxHeBoldHeads: false,
   };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     const next = () => argv[++i];
     if (a === "--apply") out.apply = true;
     else if (a === "--dry-run") out.apply = false;
+    else if (a === "--relax-he-bold-heads") out.relaxHeBoldHeads = true;
     else if (a === "--volume") out.volumes = [next()];
     else if (a === "--volumes")
       out.volumes = next()
@@ -69,6 +75,9 @@ function parseArgs(argv) {
       console.log(`Split glued EN on bold lemmas (Part 2 bucket 1).
 
   --dry-run (default) | --apply
+  --relax-he-bold-heads  allow HE segs that do not all start with <b>
+                         (also allows EN non-bold prefix when first HE seg
+                         is not bold-headed)
   --volume oc1 | --volumes oc1,yd1,cm1
   --slug <slug>  --max-fixes N  --max-simanim N
   --corpus-root <dir>`);
@@ -366,7 +375,8 @@ function processVolume(vol, opts) {
       }
 
       // Structural align: prefer HE segs that each open with <b>
-      if (heBoldStarts !== cls.heN) {
+      const heAllBoldHeaded = heBoldStarts === cls.heN;
+      if (!heAllBoldHeaded && !opts.relaxHeBoldHeads) {
         skip("he_segs_not_all_bold_headed", {
           boldCount,
           heBoldStarts,
@@ -375,8 +385,13 @@ function processVolume(vol, opts) {
         continue;
       }
 
+      // Content-offset: when first HE seg is not bold-headed, EN may have a
+      // matching non-bold prefix before the first lemma (still 1:1 by bold count).
+      const firstHeBoldHeaded = /^\s*<b\b/i.test(lHe[0] || "");
+      const allowNonBoldPrefix =
+        opts.relaxHeBoldHeads && !heAllBoldHeaded && !firstHeBoldHeaded;
       const off = isContentOffset(liveEn, boldOpens);
-      if (off.offset) {
+      if (off.offset && !allowNonBoldPrefix) {
         skip("content_offset", off);
         continue;
       }
@@ -421,7 +436,12 @@ function processVolume(vol, opts) {
         boldCount,
         enHeads: enHeads.slice(0, 8),
         heHeads: heHeads.slice(0, 8),
-        strategy: "split_en_br_before_bold",
+        strategy: allowNonBoldPrefix
+          ? "split_en_br_before_bold_relax_he_heads"
+          : "split_en_br_before_bold",
+        relaxHeBoldHeads: !!opts.relaxHeBoldHeads,
+        heAllBoldHeaded,
+        allowNonBoldPrefix,
       };
 
       if (result.eligibleSamples.length < opts.sampleLimit) {
@@ -456,11 +476,16 @@ function main() {
   ensureDir(OUT_DIR);
 
   console.log(
-    `[split-en-bold] mode=${opts.apply ? "APPLY" : "DRY-RUN"} volumes=${opts.volumes.join(",")}`
+    `[split-en-bold] mode=${opts.apply ? "APPLY" : "DRY-RUN"} volumes=${opts.volumes.join(",")}` +
+      (opts.relaxHeBoldHeads ? " relaxHeBoldHeads=1" : "")
   );
   console.log(`[split-en-bold] corpusRoot=${opts.corpusRoot}`);
   console.log(
-    `[split-en-bold] policy: enSegs===1, heSegs>=2, enBoldOpens===heSegs, HE segs bold-headed, no content-offset, en.html only`
+    `[split-en-bold] policy: enSegs===1, heSegs>=2, enBoldOpens===heSegs, ` +
+      (opts.relaxHeBoldHeads
+        ? "HE bold-heads RELAXED (prefix OK if first HE not bold-headed)"
+        : "HE segs bold-headed, no content-offset") +
+      `, en.html only`
   );
 
   const reports = [];
@@ -510,8 +535,9 @@ function main() {
       enSegs: 1,
       heSegsMin: 2,
       boldCountMustEqualHeSegs: true,
-      heSegsMustBeBoldHeaded: true,
-      skipContentOffset: true,
+      heSegsMustBeBoldHeaded: !opts.relaxHeBoldHeads,
+      relaxHeBoldHeads: !!opts.relaxHeBoldHeads,
+      skipContentOffset: !opts.relaxHeBoldHeads,
       modify: "en.html only",
       noEmptyPad: true,
       stubIgnore: false,

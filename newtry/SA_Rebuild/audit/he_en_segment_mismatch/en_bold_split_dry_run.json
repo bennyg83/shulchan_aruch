@@ -1,27 +1,298 @@
 {
-  "scannedAt": "2026-08-27T14:58:33.034Z",
+  "scannedAt": "2026-08-27T17:11:51.350Z",
   "mode": "dry-run",
   "volumes": [
-    "yd1"
+    "oc1",
+    "yd1",
+    "cm1"
   ],
   "policy": {
     "kind": "en_truncated_vs_multi_he",
     "enSegs": 1,
     "heSegsMin": 2,
     "boldCountMustEqualHeSegs": true,
-    "heSegsMustBeBoldHeaded": true,
-    "skipContentOffset": true,
+    "heSegsMustBeBoldHeaded": false,
+    "relaxHeBoldHeads": true,
+    "skipContentOffset": false,
     "modify": "en.html only",
     "noEmptyPad": true,
     "stubIgnore": false
   },
   "totals": {
-    "candidates": 135,
-    "eligible": 0,
+    "candidates": 217,
+    "eligible": 2,
     "applied": 0,
-    "skipped": 135
+    "skipped": 215
   },
   "reports": [
+    {
+      "volume": "oc1",
+      "scannedPairs": 89911,
+      "candidateMismatches": 16,
+      "eligible": 2,
+      "applied": 0,
+      "skipped": 14,
+      "byKind": {
+        "en_truncated_vs_multi_he": 16
+      },
+      "bySlug": {
+        "magen-avraham": 2
+      },
+      "bySkipReason": {
+        "bold_count_ne_heSegs": 14
+      },
+      "byHeSegs": {
+        "2": 1,
+        "6": 1
+      },
+      "affectedSimanim": [
+        132,
+        175
+      ],
+      "backups": [
+        {
+          "path": "oc1/siman132/seif-002/magen-avraham/en.html",
+          "sha256": "425561757d37cac250842d2c378845dd5a90190abdfb54419e5b6f79d34538fa",
+          "bytes": 14547,
+          "preview": "When an announcement must be made, it should be made before the chazzan begins Ashrei, not between Ashrei and Lamnatzeach, and certainly not while Ashrei is being recited, because this disrupts the congregation’s concent",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 6,
+          "enSegs": 1,
+          "boldCount": 6,
+          "enHeads": [
+            "Aleinu.",
+            "We bow.",
+            "Evening and morning.",
+            "The song.",
+            "He should omit one.",
+            "And he bows."
+          ],
+          "heHeads": [
+            "עלינו",
+            "כורעי'",
+            "ערב ובוקר",
+            "השיר",
+            "ידלג א'",
+            "ומשתחוה"
+          ],
+          "strategy": "split_en_br_before_bold_relax_he_heads",
+          "relaxHeBoldHeads": true,
+          "heAllBoldHeaded": false,
+          "allowNonBoldPrefix": true
+        },
+        {
+          "path": "oc1/siman175/seif-001/magen-avraham/en.html",
+          "sha256": "b15234a05682835203ac0d982e1fd0641873bc34aa9f9c0204d0e36decab16cc",
+          "bytes": 1286,
+          "preview": "Maharil writes that some say one should not recite HaTov VeHaMeitiv on Pesach night, so as not to increase the number of cups. It appears to me that one should therefore not drink two kinds of wine. If, however, another ",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "boldCount": 2,
+          "enHeads": [
+            "When he has no more.",
+            "Which had not been."
+          ],
+          "heHeads": [
+            "שאין לו עוד",
+            "שלא היו"
+          ],
+          "strategy": "split_en_br_before_bold_relax_he_heads",
+          "relaxHeBoldHeads": true,
+          "heAllBoldHeaded": false,
+          "allowNonBoldPrefix": true
+        }
+      ],
+      "eligibleSamples": [
+        {
+          "path": "oc1/siman132/seif-002/magen-avraham/en.html",
+          "sha256": "425561757d37cac250842d2c378845dd5a90190abdfb54419e5b6f79d34538fa",
+          "bytes": 14547,
+          "preview": "When an announcement must be made, it should be made before the chazzan begins Ashrei, not between Ashrei and Lamnatzeach, and certainly not while Ashrei is being recited, because this disrupts the congregation’s concent",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 6,
+          "enSegs": 1,
+          "boldCount": 6,
+          "enHeads": [
+            "Aleinu.",
+            "We bow.",
+            "Evening and morning.",
+            "The song.",
+            "He should omit one.",
+            "And he bows."
+          ],
+          "heHeads": [
+            "עלינו",
+            "כורעי'",
+            "ערב ובוקר",
+            "השיר",
+            "ידלג א'",
+            "ומשתחוה"
+          ],
+          "strategy": "split_en_br_before_bold_relax_he_heads",
+          "relaxHeBoldHeads": true,
+          "heAllBoldHeaded": false,
+          "allowNonBoldPrefix": true,
+          "fixedPreview": "When an announcement must be made, it should be made before the chazzan begins Ashrei, not between Ashrei and Lamnatzeach, and certainly not while Ashrei is being recited, because this disrupts the congregation’s concentration. Amudei Shesh and Sema, Choshen Mishpat, siman 267. B",
+          "fixedBytes": 14582,
+          "fixedSegs": 6
+        },
+        {
+          "path": "oc1/siman175/seif-001/magen-avraham/en.html",
+          "sha256": "b15234a05682835203ac0d982e1fd0641873bc34aa9f9c0204d0e36decab16cc",
+          "bytes": 1286,
+          "preview": "Maharil writes that some say one should not recite HaTov VeHaMeitiv on Pesach night, so as not to increase the number of cups. It appears to me that one should therefore not drink two kinds of wine. If, however, another ",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "boldCount": 2,
+          "enHeads": [
+            "When he has no more.",
+            "Which had not been."
+          ],
+          "heHeads": [
+            "שאין לו עוד",
+            "שלא היו"
+          ],
+          "strategy": "split_en_br_before_bold_relax_he_heads",
+          "relaxHeBoldHeads": true,
+          "heAllBoldHeaded": false,
+          "allowNonBoldPrefix": true,
+          "fixedPreview": "Maharil writes that some say one should not recite HaTov VeHaMeitiv on Pesach night, so as not to increase the number of cups. It appears to me that one should therefore not drink two kinds of wine. If, however, another type was brought, he must recite the blessing, since the Gem",
+          "fixedBytes": 1293,
+          "fixedSegs": 2
+        }
+      ],
+      "skippedSamples": [
+        {
+          "path": "oc1/siman1/seif-008/yad-ephraim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "oc1/siman1/seif-009/yad-ephraim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "oc1/siman35/seif-001/ateret-zekenim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "oc1/siman51/seif-003/shaarei-teshuvah",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 2,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "oc1/siman51/seif-009/ateret-zekenim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "oc1/siman55/seif-003/ateret-zekenim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "oc1/siman128/seif-043/ateret-zekenim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "oc1/siman162/seif-007/peri-megadim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 4,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 4
+        },
+        {
+          "path": "oc1/siman252/seif-001/peri-megadim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 5,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 5
+        },
+        {
+          "path": "oc1/siman289/seif-001/peri-megadim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 4,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 4
+        },
+        {
+          "path": "oc1/siman292/seif-002/machatzit-hashekel",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 6,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 5
+        },
+        {
+          "path": "oc1/siman438/seif-001/chok-yaakov",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 6,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 5,
+          "heBoldStarts": 5
+        },
+        {
+          "path": "oc1/siman440/seif-001/ateret-zekenim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "oc1/siman697/seif-001/shaarei-teshuvah",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 2,
+          "heBoldStarts": 2
+        }
+      ],
+      "simanimScanned": 697
+    },
     {
       "volume": "yd1",
       "scannedPairs": 25946,
@@ -403,6 +674,388 @@
         }
       ],
       "simanimScanned": 402
+    },
+    {
+      "volume": "cm1",
+      "scannedPairs": 70186,
+      "candidateMismatches": 66,
+      "eligible": 0,
+      "applied": 0,
+      "skipped": 66,
+      "byKind": {
+        "en_truncated_vs_multi_he": 66
+      },
+      "bySlug": {},
+      "bySkipReason": {
+        "bold_count_ne_heSegs": 66
+      },
+      "byHeSegs": {},
+      "affectedSimanim": [],
+      "backups": [],
+      "eligibleSamples": [],
+      "skippedSamples": [
+        {
+          "path": "cm1/siman3/seif-003/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman7/seif-008/chelkat-mechokek",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman11/seif-002/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman30/seif-006/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 3
+        },
+        {
+          "path": "cm1/siman33/seif-009/rabbi-akiva-eiger",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "cm1/siman43/seif-011/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman46/seif-004/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman46/seif-009/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman46/seif-017/chelkat-mechokek",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman46/seif-020/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman48/seif-001/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman49/seif-003/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman49/seif-008/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman51/seif-007/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman60/seif-003/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman65/seif-010/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman66/seif-007/chokhmat-shlomo",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 3,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "cm1/siman66/seif-036/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman67/seif-003/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 3,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 3
+        },
+        {
+          "path": "cm1/siman67/seif-028/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman67/seif-030/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman71/seif-012/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman72/seif-029/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman72/seif-037/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman73/seif-003/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman73/seif-005/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman78/seif-001/chokhmat-shlomo",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 4,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman78/seif-008/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman79/seif-002/urim-vetumim-tumim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 2
+        },
+        {
+          "path": "cm1/siman88/seif-029/siftei-kohen",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman89/seif-004/urim-vetumim-urim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman104/seif-016/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 4,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman128/seif-001/chelkat-mechokek",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman129/seif-001/chelkat-mechokek",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman141/seif-001/ketzot-hachoshen",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 0
+        },
+        {
+          "path": "cm1/siman147/seif-003/urim-vetumim-tumim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman147/seif-004/urim-vetumim-urim",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman155/seif-008/beur-hagra",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 0,
+          "heBoldStarts": 1
+        },
+        {
+          "path": "cm1/siman163/seif-002/turei-zahav",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegs": 2,
+          "enSegs": 1,
+          "reason": "bold_count_ne_heSegs",
+          "boldCount": 1,
+          "heBoldStarts": 1
+        }
+      ],
+      "simanimScanned": 427
     }
   ]
 }
