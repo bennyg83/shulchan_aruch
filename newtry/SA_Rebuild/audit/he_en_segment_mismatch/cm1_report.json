@@ -1,13 +1,12 @@
 {
   "volume": "cm1",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "scannedAt": "2026-08-27T12:02:45.473Z",
+  "scannedAt": "2026-08-27T12:30:54.804Z",
   "pairs": 70186,
-  "issues": 610,
+  "issues": 609,
   "byKind": {
     "en_truncated_vs_multi_he": 433,
     "he_has_more_segments": 154,
-    "he_truncated_vs_multi_en": 1,
     "en_has_more_segments": 22
   },
   "bySlug": {
@@ -39,18 +38,17 @@
         "en_truncated_vs_multi_he": 4
       }
     },
-    "chokhmat-shlomo": {
-      "issues": 25,
-      "byKind": {
-        "he_truncated_vs_multi_en": 1,
-        "en_truncated_vs_multi_he": 23,
-        "he_has_more_segments": 1
-      }
-    },
     "rabbi-akiva-eiger": {
       "issues": 4,
       "byKind": {
         "en_truncated_vs_multi_he": 4
+      }
+    },
+    "chokhmat-shlomo": {
+      "issues": 24,
+      "byKind": {
+        "en_truncated_vs_multi_he": 23,
+        "he_has_more_segments": 1
       }
     },
     "turei-zahav": {
@@ -455,22 +453,6 @@
       "volume": "cm1",
       "siman": 15,
       "seif": "seif-001",
-      "slug": "chokhmat-shlomo",
-      "kind": "he_truncated_vs_multi_en",
-      "heSegments": 1,
-      "enSegments": 2,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 3966,
-      "enBytes": 6645,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "cm1/siman15/seif-001/chokhmat-shlomo"
-    },
-    {
-      "volume": "cm1",
-      "siman": 15,
-      "seif": "seif-001",
       "slug": "mechaber",
       "kind": "en_truncated_vs_multi_he",
       "heSegments": 2,
@@ -754,6 +736,22 @@
       "heHasHebrew": true,
       "enHasLatin": true,
       "path": "cm1/siman25/seif-001/urim-vetumim-tumim"
+    },
+    {
+      "volume": "cm1",
+      "siman": 25,
+      "seif": "seif-003",
+      "slug": "urim-vetumim-tumim",
+      "kind": "he_has_more_segments",
+      "heSegments": 22,
+      "enSegments": 10,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 134403,
+      "enBytes": 73593,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "cm1/siman25/seif-003/urim-vetumim-tumim"
     }
   ],
   "simanimScanned": 427
