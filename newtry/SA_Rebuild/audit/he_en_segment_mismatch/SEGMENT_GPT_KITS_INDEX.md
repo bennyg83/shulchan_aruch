@@ -41,6 +41,10 @@ Scan: live (122853ms), pairs=197,982, both-files=118,852
 
 **Note:** live scan matches prior counts 395 / 215 / 59 / 20.
 
+### Apply log (post-kit)
+
+- **2026-08-28:** Applied **18/20** `EN_MISSING` APPROVE fresh translates to LIVE corpus (citation fixes on mateh-yehonatan 122/124). Held 2. See [`EN_MISSING_APPLY.md`](./EN_MISSING_APPLY.md). Residual yd1 `en_missing` (HE present): **2**.
+
 Other live kinds (not packed here): en_has_more_segments=9, he_truncated_vs_multi_en=0.
 
 ## Existing en_has_more / glued kits (cross-link; not rebuilt)

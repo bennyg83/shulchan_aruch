@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "source": "user paste 2026-08-28T00:13",
+    "purpose": "evaluated + APPROVE applied to LIVE corpus 2026-08-28",
+    "count": 20,
+    "saved": "2026-08-27T21:17:47.451Z",
+    "evaluation": {
+      "evaluated_at": "2026-08-27T21:19:58.565Z",
+      "counts": {
+        "APPROVE": 18,
+        "HOLD": 2,
+        "REJECT": 0
+      },
+      "apply_all_approve_now": false,
+      "apply_holds": false,
+      "note": "18 APPROVE applied to LIVE corpus with citation fixes; 2 HOLD not applied. See EN_MISSING_APPLY.md.",
+      "non_approve": [
+        {
+          "id": "yd1/siman173/seif-001/yad-avraham",
+          "action": "fresh_translate",
+          "confidence": "high",
+          "structural_ok": true,
+          "verdict": "HOLD",
+          "reason": "Mostly strong long translate, but Noda B'Yehuda Tinyana cite: HE says chelek YD (חי״ד) siman 75, EN wrongly says Choshen Mishpat — fix before apply."
+        },
+        {
+          "id": "yd1/siman210/seif-001/yad-avraham",
+          "action": "fresh_translate",
+          "confidence": "high",
+          "structural_ok": true,
+          "verdict": "HOLD",
+          "reason": "Short; HE has garbled ?dl\"a — EN expansion plausible but uncertain; quick human glance."
+        }
+      ],
+      "applied": true
+    },
+    "applied": {
+      "applied_at": "2026-08-27T21:38:12.811Z",
+      "applied_count": 18,
+      "held_count": 2,
+      "audit_note": "EN_MISSING_APPLY.md",
+      "citation_fixes": [
+        "yd1/siman122/seif-001/mateh-yehonatan: Pesachim daf 30 -> daf 39",
+        "yd1/siman124/seif-001/mateh-yehonatan: beginning siman 155 + below siman 125"
+      ],
+      "held": [
+        "yd1/siman173/seif-001/yad-avraham",
+        "yd1/siman210/seif-001/yad-avraham"
+      ],
+      "pack_residual_en_missing": 2,
+      "yd1_en_missing_he_present_after": 2
+    }
+  },
+  "results": [
+    {
+      "id": "yd1/siman115/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 115, seif 3, Rama's gloss) It is likewise forbidden even if it bears a distinguishing mark. For one may say that in this place they followed the opinion that forbids it, and not because there they prepare it in a manner involving the prohibition. End of the words of Maharil. Toras Chatas wrote that according to this, even one who goes to a place where the custom is to permit it is forbidden where he intends to return. However, it seems to me that the custom is to be lenient in this, and leave Israel to their practice. End of his words. The reason we forbid one who goes to a place where it is forbidden, even when he intends to return, is that we are concerned that perhaps in that place they do not prepare it in a permitted manner. Accordingly, one who goes from a place where it is permitted to a place where it is forbidden, and brings the butter with him from his own place and intends to return, is permitted whichever way you look at it. Minchas Yaakov."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman116/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 116, seif 6) It is forbidden to eat foods and beverages that a person finds repulsive, etc., for all these are included in \"You shall not make your souls detestable.\" The Taz wrote that one receives only lashes of rebelliousness, because this is a general prohibition that includes many matters. The Prisha wrote that this is not a general prohibition, because all forms of repulsiveness are one category, and the Torah prohibited only one matter. The reason one does not receive full lashes is that this is merely a rabbinic asmachta. The Tevuos Shor, in siman 13, challenged the Prisha, because the words of the Semag escaped his notice, and he agreed with the Taz that it is a full derashah, but nevertheless a general prohibition. In my opinion, the law accords with the Prisha, because the view of the poskim is not like the Semag but like the Prisha, as is explicit in Makos, daf 18, and Menachos, daf 58, that anything bearing a single name is not considered a general prohibition. This is also the view of the Rambam and the Ramban in Sefer HaMitzvos, and the Kesef Mishnah wrote similarly regarding the Rambam at the beginning of chapter 11 of Hilchos Avodah Zarah. As for the Tevuos Shor's challenge to the Prisha from Sanhedrin, daf 63, that the verse \"you shall not serve them\" is a general prohibition encompassing every form of worship and nevertheless is considered a general prohibition, he overlooked what the Ra'avad wrote at the end of chapter 3, s.v. Avodah Zarah."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman121/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 121, Shulchan Aruch, seif 6) Metal utensils, even though, etc. See the Taz, seif katan 14, at length. One can say that according to the approach of the Rashba and those who agree with him, kashering that particular portion is entirely ineffective, and this is likewise because it does not expel anything. Now, above at the beginning of siman 94 the Mechaber explained that we calculate only against the portion inserted into the pot. This implies that there is no distinction whether one used the entire utensil or only part of it, nevertheless it does not expel from the entire utensil. This is stated without any proof from the Gemara, and requires further study, for from where did he derive this? Granted, there is no difficulty according to the Rashba, for one can say that he holds that just as it absorbs, so too it expels. The reason hag'alah of only part is ineffective is that hag'alah applied to part of the utensil lacks the power to expel everything absorbed above that portion. Indeed, it is possible that if part of a dairy spoon is inserted into a pot, one must calculate against the entire spoon. This is unlike the Mechaber, whose position is difficult, since the Rama wrote there that the first opinion is primary. One must say that the Mechaber was compelled to maintain that the portion above does not expel at all. For the Ra'ah in Bedek HaBayis challenges the Rashba from that which is stated in Zevachim, daf 96: \"It was necessary only according to the one who said, etc., if he cooked in part of the utensil,\" etc. Therefore, the Ra'ah holds that certainly, if one wishes to use only the particular portion that underwent hag'alah, one need not perform hag'alah on the part above it. Accordingly, the Gemara can properly say that this is a stringency of a chatas, for with a chatas, even if he wishes to use only the portion that underwent hag'alah, he must nevertheless perform scouring and rinsing on the entire utensil. This is unlike other prohibitions. However, according to the majority of the poskim, who hold that the reason the entire utensil requires kashering is that the portion above does not expel everything at once, but rather continues to expel each time the utensil is used, the passage in Zevachim cannot be explained in this manner. For even regarding other prohibitions, b'dieved as well, if he uses that portion that underwent hag'alah it is forbidden. One must therefore say that the Rashba explains the passage in Zevachim as follows. He holds in accordance with Rabbeinu Tam that iruy removes the amount of a surface layer. A Baraisa teaches regarding a chatas that if one poured boiling liquid into it, it requires actual scouring and rinsing, unlike other prohibitions, where we say that as it absorbed so it expels, and kashering in a kli rishon is unnecessary; iruy suffices. According to this, the Gemara answers properly, \"It was necessary only,\" etc. It is not discussing a case where one cooked in part of the utensil without filling it to the brim. Rather, it discusses a utensil filled all the way to the brim, but the cooking causes absorption only in part of the utensil, namely through iruy, which cooks only the amount of a surface layer. The distinction between a chatas and other prohibitions is that regarding a chatas, even though the absorption was only to the depth of a surface layer, full hag'alah is nevertheless required, whereas for other prohibitions kashering by iruy alone suffices. By contrast, when only part of the utensil was used and we are concerned that the absorbed substance traveled upward as well, there is no distinction at all between a chatas and other prohibitions, because hag'alah of only part of the utensil is ineffective for either. You must explain the Gemara this way, for otherwise it is difficult why the Gemara did not answer that this is the distinction between a chatas and other prohibitions with respect to iruy. Rather, it must be that this is indeed the Gemara's meaning. Examine carefully."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman122/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 122, Shulchan Aruch, seif 2) Nevertheless, the Sages forbade cooking in it l'chatchila, etc. The Rashba derived this law from the Gemara in Pesachim, daf 30, where Rav said, \"Pots on Pesach must be broken,\" etc.; see there. If it were permitted l'chatchila to use a pot that is not ben yomo, why must they be broken? Let them leave the pots until after twenty-four hours and use them on Pesach. Rather, it is clear that l'chatchila it is forbidden. One can object that the Rashba holds that wherever even a minute amount is forbidden, nosen taam lifgam is likewise forbidden even b'dieved. If so, nothing can be proven from chametz on Pesach, which is forbidden even in a minute amount, and therefore nosen taam lifgam is also forbidden even b'dieved. By contrast, with other prohibitions one could say that a pot that is not ben yomo may be used l'chatchila. One can say that his proof is from Shmuel, who holds that a mixture of one type with another is nullified in sixty even with chametz on Pesach. It is certain that although the Rashba holds that nosen taam lifgam is forbidden in prohibitions that are effective in any amount and the like, where a mixture of one type with another is nullified in sixty, even if it became mixed with its own type and gives a detrimental taste it also does not prohibit, because once it is detrimental there is no significance of being the same type. Therefore, since Shmuel holds that a mixture of one type with another is nullified in sixty, if with all prohibitions it were permitted to use such a pot l'chatchila, why should it not be permitted to use it for chametz on Pesach, whether with its own type or with another type, since anything that gives a detrimental taste is treated as though it were a different type? Why, then, did Shmuel say that one should keep them until after Pesach and then use them? Rather, it is clear that nosen taam lifgam is forbidden l'chatchila."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman123/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 123, Shulchan Aruch, seif 18) If he filled a cup of wine from the winepress, etc. It appears to me that all this applies specifically when we saw him fill from the winepress, but if we did not see this, we do not ordinarily suspect that perhaps he filled a cup. The Beit Yosef holds that this law applies even according to Rabbeinu Tam, who explains that \"he began to draw\" means that the wine began to descend into the pit. Nevertheless, Rabbeinu Tam came to dispute only what Rashi wrote, that drawing within the vat itself constitutes drawing. But if one filled a cup of wine from the winepress and intended to strain it, Rabbeinu Tam also agrees that this constitutes drawing. According to this, there is no difficulty with what Tosafos wrote on daf 55b, s.v. Amar Rav Huna, that according to Rabbeinu Tam's explanation we do not read \"and it was filled.\" One might ask that perhaps according to Rabbeinu Tam as well it must be full, for otherwise we should be concerned that perhaps he filled a cup from the winepress and intended to strain it. Rather, it must be that ordinarily, if we did not see him fill a cup, there is no concern at all that perhaps he did so. Tosafos therefore correctly wrote that we do not read \"it was filled,\" etc."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman124/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 124, Shulchan Aruch, seif 14) A barrel whose stopper was removed, etc., but if it does not pass through the entire thickness of the bottom, etc. See Shach, seif katan 34, who challenges the Mechaber from below at the beginning of siman 125, where the Mechaber rules that wine is prohibited through nitzok caused by the force of a non-Jew. If so, the same should apply here; see there in the Shach. My master, my father, said that the Mechaber can be defended by distinguishing this case from the case below. There, what flows out becomes forbidden because it is directly the non-Jew's force, for without his force nothing would have flowed out, namely, he lifted the vessel. Thus, the entire extraction of the wine came about through the non-Jew's force, and for that reason the wine remaining inside is also forbidden because of nitzok. Here, however, he does not cause the outflow itself; he merely removes the stopper and the wine then flows out on its own. This is more lenient than the case of his force below in siman 125, and therefore all the wine does not become forbidden because of nitzok. This is why the Mechaber was precise here in his wording, saying that it is \"like his force.\" This is clear."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman128/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 128, Shulchan Aruch, seif 2, Rama's gloss) Likewise, if he found the non-Jew holding the stopper, etc. See above siman 124, Taz, seif katan 33, who wrote that this law applies also to contemporary non-Jews. It is not considered contact through another object; rather, we are concerned that perhaps he touched the stream itself. The Shach at the end of seif katan 8 wrote, however, that according to us, since contemporary non-Jews are not worshippers of idolatry, the wine is permitted even for drinking; see there. According to his words, all the Rama's words in this gloss are unnecessary for practical halacha according to us, which is very difficult. It therefore appears that the Shach's ruling is certainly correct: we do not say that he definitely touched the stream, because it is possible that he did not touch it at all, and in this respect such contact is not regarded as something ordinarily expected. The Rama, however, is discussing a case where the barrel is open at the top in a manner that allows him to touch the wine from above. Ordinarily it is permitted because we say that he fears being caught like a thief and is afraid to touch it. But if the stopper is in his hand and we say that he himself removed the stopper, we see that he is not afraid, and therefore we are concerned that perhaps he touched the wine from above. The wine is forbidden even nowadays, since he is not afraid."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman128/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 128, seif 2) A non-Jew who was found in the house. This implies even if he is not next to the wine but merely in the house, as the Beit Yosef wrote in the name of the Rashba. I am astonished, for this should be no worse than the case of a Jew who has arranged for a non-Jew to prepare his wine, in siman 131, where it is permitted when a Jew and a non-Jew reside there, even without a key and seal. See Tosafos at the end of the chapter Rabbi Yishmael. The Shach here, seif katan 6, explicitly compared it to the case of one who has a non-Jew prepare his wine. The Taz, seif katan 2, wrote that even two seals would not help. I am astonished, for there, when a Jew lives in the house, no key or seal is required at all. This requires very great study, unless we force the explanation that the case is one in which there is no plausible reason to attribute the non-Jew's entry into the house to any other purpose, so his entry itself creates a suspicious circumstance. This requires further study."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman129/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 129, Shulchan Aruch, seif 8, Rama's gloss) Since the non-Jew did not know, etc. See Taz, seif katan 14, and Shach, seif katan 21, who expressed great astonishment at the Rama, because in a responsum of the Rosh he wrote the opposite, that even if he informed the non-Jew that he would be away for a substantial period, it is nevertheless permitted. It appears to me as follows. The Rashba wrote regarding one who brought wine in a wagon or ship, etc., that if he informed the non-Jew that he was going away to the bathhouse or synagogue, it is forbidden. What is different about the case where we say that if the non-Jew heard the sound of the shofar announcing Shabbos and there is an indirect path, the wine is permitted, because in the non-Jew's eyes we are not presumed to observe Shabbos properly, and he is afraid at every moment that perhaps the Jew will come now? If so, the same should apply here, and the non-Jew should be afraid at every moment that perhaps the Jew will come now. He answers that there, with the sound of the shofar, the non-Jew is afraid lest the Jew remember the wine and return immediately. By contrast, in the case of the bathhouse, even if the Jew remembers the wine he will certainly not return immediately from the bathhouse, because he at least needs some time to dress himself. The Ra'ah wrote a different answer: there, in the case of the shofar, since the Jew left in haste, we properly say that the non-Jew fears lest he remember the wine and return. Here, however, where the Jew informed him that he was leaving for a substantial period, and departed in a settled state of mind, the non-Jew does not fear that he will return now, since from the outset he left calmly. Thus, according to the Rashba, who holds that wherever the Jew is not compelled to delay we say that the non-Jew is afraid, in our case even if the Jew informed him that he would be away for a substantial period it is permitted, since there is nothing compelling him to delay. By contrast, according to the Ra'ah, even where there is no necessity to delay, whenever there was no haste the non-Jew is not afraid. Therefore here, where the Jew informed him that he would be away for a substantial period, it is forbidden, since there was no haste because the Jew thought that he had locked it with a key. According to this, one can say that the Rosh holds like the Rashba, and therefore even if he informed him that he would be away for a substantial period it is permitted, whereas the Rama holds like the Ra'ah and forbids it if he informed him that he would be away. There is therefore no difficulty."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman132/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 132, Shulchan Aruch, seif 2) A Jew who sold his wine, etc., and this is like selling ordinary non-Jewish wine. See Shach, seif katan 11. The Beit Yosef asked that it should be permitted to receive payment from that very non-Jew, as above, etc. The Bach, in the Kuntres Acharon, answered differently. Above, where the non-Jew poured the wine for idolatrous use without the Jew's consent, the Jew may therefore receive the value of the wine from that non-Jew. Here, however, where the non-Jew poured the wine for idolatrous use with the Jew's will and consent, it is forbidden even to receive payment from that very non-Jew. These words are clear; see there. According to this, however, the Bach wrote above in siman 129 that if the Jew informed the non-Jew that he would be away for a substantial period, and the non-Jew had enough time to perform the prohibited act, it is forbidden, and the same applies that it is forbidden to sell the wine to that non-Jew, since he acted with the Jew's consent. End of the Bach's words. This is not comparable at all to our case. Here, the Jew gave the wine into the non-Jew's hand in order for him to pour it for idolatrous use. There, by contrast, even if the Jew informed him that he would be away, he still did not want him to pour the wine for idolatrous use; rather, he assumed that he would not do so. Therefore it is permitted to sell it to that very non-Jew. This is clear."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman133/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 133, seif 3) A non-Jew who hired the worker, etc., where the amount was less than a perutah. See Shach, seif katan 7, who wrote that this was learned from the Rashba, etc., but according to what Tosafos wrote there it is not so, etc. However, in my humble opinion this is not compelled, and one can say that Tosafos also agree here. The entire reason that all the wages are forbidden for benefit is that the components of the hire are connected to one another. Since he hired him to transport one hundred barrels, had he not transported the barrel of yayin nesech as well, he would not have paid him anything. Thus, all the wages result from the hire involving yayin nesech. This is so only where the wage for that barrel is worth a perutah, because then there is a matter over which the employer is particular, and he would not pay the remainder either. But if the wage attributable to the yayin nesech is not worth a perutah, he certainly would not be particular about that and refuse to pay the worker's wages. Therefore the wages are permitted according to all opinions, since the worker does not derive benefit from yayin nesech. This is the intent of Tosafos there when they wrote that he is not particular because it is worth less than a perutah, and accordingly it is the same as the case there."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman159/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 159, Shulchan Aruch, seif 3) The Karaites, etc. See what the Shach wrote regarding the Karaites. In Tiferes L'Moshe he challenged him from what is stated in Even HaEzer, siman 44, that their kiddushin are valid kiddushin. Infer from this that as a stringency they were treated like non-Jews, but not as a leniency. The Beis Hillel had already preceded him in this challenge. See also Toldos Adam, where R' Zalman of Vilna, of blessed memory, challenged the Shach from what the Rambam wrote in Hilchos Mamrim. See also Tosafos Yom Tov, chapter 6 of Niddah, which likewise implies that for purposes of leniency they cannot be treated as non-Jews, because even though they sinned they are still Jews. Only regarding the Cutheans can this be done, either because the Sages have such authority or because he holds that they were converts motivated by fear of lions, which does not apply to Karaites. In Atzei Levonah he challenged this from words of Torah in Bava Metzia, daf 72, where it is proven that the Sages have the power to be lenient. One can answer that there it is different, because since they have authority to enact monetary rules, their enactment is effective also regarding prohibition, as I wrote in my novellae."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman166/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 166, seif 2) If the courtyard is ordinarily rented out. If he said, \"Lend me money and live in my courtyard for one dinar,\" then even if the rental value is greater, it is nevertheless not fixed interest, because the laws of ona'ah do not apply to land. This is unless he said, \"My courtyard, which rents for four, you may occupy for one dinar.\" So wrote the Beit Yosef at the end of siman 164 in the name of a responsum of the Rashba, siman 736. According to what is written in the Rama's gloss to Shulchan Aruch, Choshen Mishpat, siman 227, seif 29, that when the disparity is more than one-half the laws of ona'ah do apply to land, one can say that in such a case it constitutes fixed interest. See Responsa HaRa'anach, part 1, siman 69."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman166/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 166, Shulchan Aruch, seif 2) If he said to him, \"Lend me money and live in my courtyard,\" if the courtyard is ordinarily rented out this constitutes fixed interest, and if it is not ordinarily rented out it constitutes the semblance of interest. This requires further study. According to what the Rama wrote at the end of siman 160, it should constitute fixed interest even where the courtyard is not ordinarily rented out, in a case of \"lend me,\" because the owner possesses a benefit of discretion, since he can allow whomever he wishes to live there for free. According to the one who says that a benefit of discretion has monetary value, it is fixed interest, in accordance with the Rambam's view as cited by the Tur. See Lechem Mishneh, chapter 5 of Hilchos Ishus, law 6, and examine carefully. This also appears explicitly from the Rosh in the chapter Eizehu Neshech, which is the source of the Rama's gloss at the end of siman 160, that according to the one who says that a benefit of discretion has monetary value it constitutes fixed interest. Only according to the one who says that a benefit of discretion has no monetary value is it merely the semblance of interest. This requires further study, because at the end of the chapter Ha'ish Mekadesh, daf 59, the Rosh rules like the one who says that a benefit of discretion has monetary value, whereas in the chapter Eizehu Neshech, siman 17, he implies that it has no monetary value. See there, where he also wrote this in the name of the Ramban. This requires further study, because the poskim wrote in the name of the Ramban that a benefit of discretion does have monetary value, and the Shach cites them in Choshen Mishpat at the end of siman 350. However, according to the Rambam, who rules in chapter 5 of Hilchos Ishus and chapter 2 of Hilchos Geneivah that a benefit of discretion has no monetary value, there is no difficulty as to how he can hold that with a courtyard not ordinarily rented out it is fixed interest in a case of \"lend me.\" One can say that he follows his own reasoning, for he holds that even the smallest amount of interest is recoverable through the courts, as he wrote at the beginning of chapter 6, and certainly there is at least some amount of benefit here. Examine carefully. Similarly, the Shach wrote in Choshen Mishpat, siman 37, seif katan 9, regarding personal interest that disqualifies testimony, that since financial interest is not required and even any form of benefit disqualifies, a benefit of discretion is regarded as money according to all opinions. See Sha'ar HaMelech, chapter 5 of Hilchos Ishus, who discusses this at length. As for the Lechem Mishneh's powerful difficulty that one can find an increase without biting interest, and similarly Maharam Schiff, according to the Rambam there is no difficulty, because he derives even the smallest amount from the verse \"any matter of biting interest,\" as the Mishneh LaMelech wrote. If so, there is indeed biting interest. According to Tosafos in chapter 4 of Kesubos, who hold that there is no prohibition in such a case where it is worth less than a perutah, and a benefit of discretion has no monetary value according to Rava, as the Shach wrote there, and as is also implied in Bava Metzia, daf 11b, nevertheless the verse necessarily does not discuss a case such as a courtyard that is not ordinarily rented out, as the Ma'adanei Melech wrote. For the verse says, \"Do not take,\" and if you took it, return it, whereas here this does not apply, as the Rosh wrote there. Nor can biting interest exist without an increase even where he says, \"Throw a dinar into the sea and I will lend you a maneh,\" because the Ritva wrote in the name of the Ramban in the chapter Eizehu Neshech, daf 69, that this constitutes fixed interest, unlike the Mishneh LaMelech at the end of chapter 5 of Hilchos Malveh, who was uncertain about this. There it is different, because he acted this way at the lender's command, and by the law of a guarantor it is regarded as though the dinar first came into the lender's hand, so there is also an increase."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman173/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 173, seif 2) If he had produce which, if he wished to sell it in the market and receive payment immediately, he would sell for ten, but if the buyer sought to purchase it and would pay immediately he would buy it for twelve, this is permitted. He may sell it to him on credit for twelve, since it is presently worth twelve. All this is the language of the Rambam in chapter 8 of Hilchos Malveh, law 4. In my humble opinion, it is explicit from the Rambam there and from the Tur that even if it is presently worth twelve, it is forbidden to state explicitly, \"If you pay now it is yours for less, but if payment is deferred it is twelve.\" Nevertheless, there is concern that one may say the same even when it is not presently worth twelve. This entire seif is the Rambam's language, and there it is explicit that he discusses an unspecified sale, for immediately before this, in law 2, he wrote: \"If he sold him merchandise for twelve, its actual value, on condition that he pay after a period of time, he may say to him, 'Pay me immediately and I will take from you only ten.'\" End of his words. Thus, even where twelve is its actual value, he permitted one to say explicitly \"if now, for less,\" etc., only after the sale was first made without such a stipulation. If it was sold without such a stipulation, he may later say this because it is as though he is reselling it to him. We learn, therefore, that according to the Rambam it is permitted only at its actual value and where the initial sale is unstipulated. But if he states the two prices explicitly, the fact that twelve is its actual value does not help. Likewise, when it is not worth that much, an unstipulated sale does not help according to his view, as the Maggid Mishneh and the Beit Yosef wrote in explaining the Rambam. On this latter point, however, the Tur and the Shulchan Aruch disagree with him and hold that where the item has no fixed market price and its valuation is not known, one may sell it at a higher price on condition that payment be made at a specified future time, as written at the beginning of this siman. For this reason, in the following seif, in the law of the Rambam concerning one who sold merchandise for twelve, etc., the Tur and the Shulchan Aruch omitted the word \"at its value,\" because according to them even if it is not now worth that much, an unstipulated credit sale is permitted. But they do not disagree with the Rambam regarding the present seif. When he wrote, \"If he had produce, etc., it is permitted to sell it on credit for twelve,\" he meant an unstipulated sale. Selling it on credit for twelve is what is meant by the unstipulated sale described in seif 1, \"to sell it for more in order to be paid at a specified future time.\" But it is forbidden to say, \"Give me immediate payment for less,\" unless he already sold it without such a stipulation, as in the next seif. This is also explicit in the Tur in this siman, who wrote: \"With rental, it is permitted even if he states it explicitly, for example, if he rents him something worth twelve for ten and says, 'If you pay now,' etc., it is permitted.\" See there. This explicitly proves that in a sale it is forbidden to say explicitly, \"If you pay now,\" etc., even when the item is worth that amount, for otherwise what distinction would there be between sale and rental? Know that the Tzemach Tzedek permits a device of this sort, as the Taz wrote in Orach Chayyim, siman 247, in the name of one rabbi, by means of a sale of objects. This also appears to be the view of the Peri Megadim there, who explained that whenever the arrangement does not have the actual form of a loan and retains the form of a sale, the Torah was not particular and it is permitted. So too it is implied in the Beis Lechem Yehudah at the end of Hilchos Ribbis. This is also the view of the Bechor Shor, who challenged the Taz in Orach Chayyim, and the Noda B'Yehuda likewise rules this way, as will be written shortly. In the sefer Atzei Chaim, Choshen Mishpat siman 72, he cites in the name of Knesset HaGedolah that if property came into the lender's possession by way of sale in order to avoid interest, and he promised the borrower that whenever the borrower brings the money he will sell it back to him, and the collateral is lost, the borrower has no claim against the lender. This is also implied in Bechor Shor, that for this reason the arrangement is permitted with movable property, because it is a complete sale: if the property is lost he need not pay the borrower the excess value; only if it remains intact does he return it. It thus emerges that even regarding the seller it is a sale. So too the Noda B'Yehuda, second edition, Choshen Mishpat, siman 75, wrote. There is also a proof from the Rambam, who wrote in chapter 11 of Hilchos Mechirah, law 10, regarding movable property that the sale remains valid and the buyer returns it when the stipulated time arrives or when the seller gives him the money. The Lechem Mishneh there struggled to explain the distinction between land and movable property. According to what the Bechor Shor and the Noda B'Yehuda wrote, it is well understood."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman177/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 177, seif 5, Rama's gloss) However, if he deviated and said, \"I am acting for myself and not under the terms of the iska,\" he is regarded as a robber. It appears that he must say this before witnesses, as the Rama wrote in Choshen Mishpat, siman 292, seif 7, regarding one who uses a deposit. The reason is explained in the Mishneh LaMelech, chapter 12 of Hilchos Gezeilah, law 8, because a person does not render himself wicked. If so, the same applies here. This is also implied in a responsum of the Rashba cited by the Beit Yosef in Even HaEzer at the end of siman 95, that where one becomes a robber by misappropriating what is not his, he must say, \"I am acting for myself,\" before witnesses. This resolves what the Be'er HaGolah left requiring further study in Choshen Mishpat there. The Taz wrote that if he did not say this at the time he deviated from the arrangement, he is not believed afterward to say, \"I altered it for myself,\" because we maintain his presumption of proper conduct until that point. It appears that all the more so, if he says, \"I misappropriated the funds and spent them for my own expenses,\" he is not believed, because a person does not render himself a robber."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman210/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 210, seif 3) One who makes a vow and retracts it, etc., within toch k'dei dibbur of his vow. See Shach, seif katan 7: within toch k'dei dibbur of his vow, but not within toch k'dei dibbur of their protest. See the responsum of the Rashba cited in Choshen Mishpat, siman 80, regarding whether this applies within toch k'dei dibbur of another person's speech."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman235/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 235, seif 2) It does not take effect, for it is, etc. If he imposed the vow upon her while she was betrothed, the vow takes effect to prohibit her even after the marriage. Regarding language prohibiting her from deriving benefit from him, the view of Tosafos is that marital relations are not included in such language, whereas the Ran holds that she is forbidden to him also with respect to marital relations, and the Ra'ah is uncertain about the matter."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman258/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 258, seif 5, Rama's gloss) Even if there were two trustees and one of them died, the community cannot appoint another; rather, the survivor shall act as he wishes and in accordance with what the donor instructed. This law is from a responsum of the Rashba. The Taz expressed astonishment at it, because since the testator appointed two, perhaps he did not trust either one without the participation of the other, and why should the survivor now be trusted alone? It appears that there is no difficulty at all, because the Rashba follows his own approach. In another responsum he wrote that whenever a person says, \"So-and-so and so-and-so,\" it means even either one of them individually unless he explicitly specifies that they must act together. For this reason he ruled that if one placed his son or friend under oath not to lend out his money except with the permission of Reuven and Shimon, and one of them died, he may lend it with the permission of the one who remains. This is as the Rama wrote above in siman 216, and the Mechaber in siman 228 wrote the same law even when both are alive. The Taz there, however, asked from where we derive a leniency, since perhaps we should assume that he intended the more straightforward meaning, namely both of them together. He raised a further difficulty there and explained the Rashba's words differently. His words, however, are not compelling, as I wrote there. The primary understanding is that the Rashba's words are literal: even for purposes of leniency he rules that the formulation means either one of them. Accordingly, the words of the Rashba here are well understood."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman268/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "en_segments": [
+        "(Siman 268, seif 3) But b'dieved, etc. The Dagul Mervavah wrote that specifically in the case of an adult convert, circumcision and immersion suffice b'dieved without three judges and at night, because for him the principal element is acceptance of the mitzvos. But regarding a minor convert, to whom acceptance of the mitzvos does not apply and whose immersion is the principal element, since he is immersed on the authority of the rabbinical court, according to all opinions it must be performed by day and before three judges. End of his words. There is a proof for the view of the poskim that b'dieved immersion suffices without a rabbinical court from what is stated in the Jerusalem Talmud, chapter 4 of Eruvin, halacha 4: R' Huna in the name of Rav Nachman bar Yaakov asked regarding a convert who immersed after dawn, since had he been awake he would have acquired his Shabbos residence, etc. The meaning is that here too he acquires a Shabbos residence as though he had immersed the previous day. The Korban HaEdah asked how it is possible for a convert to immerse on Shabbos, since we rule that one may not immerse a convert on Yom Tov. It is difficult to say that the question concerns a case in which he transgressed and immersed, because a rabbinical court is required, and how could the rabbinical court make such an error? End of his words. According to the poskim who hold that immersion suffices without a rabbinical court, the matter is well understood."
+      ],
+      "notes": "Fresh translation from the Hebrew; dictionary terminology applied.",
+      "confidence": "high"
+    }
+  ],
+  "evaluation": [
+    {
+      "id": "yd1/siman115/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; hamah correctly as butter (YD 115); Minchas Yaakov OK; no fail patterns."
+    },
+    {
+      "id": "yd1/siman116/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Taz/Prisha/Tevuos Shor names OK; lav shebichlalut as general prohibition (acceptable)."
+    },
+    {
+      "id": "yd1/siman121/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Long piece complete; hagalah/kli rishon/bdieved/iruy retained."
+    },
+    {
+      "id": "yd1/siman122/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Pesachim daf 30 correct (HE letter-number 39 is typo); nosen taam lifgam / ben yomo OK."
+    },
+    {
+      "id": "yd1/siman123/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; meshikhah / Rabbeinu Tam argument tracked."
+    },
+    {
+      "id": "yd1/siman124/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; HE kn\"h silently corrected to 125 (matches later k\"h + nitzok topic)."
+    },
+    {
+      "id": "yd1/siman128/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; contemporary non-Jew / stream contact reasoning intact."
+    },
+    {
+      "id": "yd1/siman128/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; metaher yeino comparison clear."
+    },
+    {
+      "id": "yd1/siman129/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Shabbos not Saturday; Rashba/Raah/Rosh dispute intact."
+    },
+    {
+      "id": "yd1/siman132/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Bach Kuntres Acharon distinction intact."
+    },
+    {
+      "id": "yd1/siman133/seif-001/mateh-yehonatan",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; yayin nesech / perutah wage analysis intact."
+    },
+    {
+      "id": "yd1/siman159/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Karaite / kiddushin stringency discussion intact."
+    },
+    {
+      "id": "yd1/siman166/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete short note; ribbis / onaah to land OK."
+    },
+    {
+      "id": "yd1/siman166/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Long piece complete through guarantor/increase close; tovat hanaah terms OK."
+    },
+    {
+      "id": "yd1/siman173/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "HOLD",
+      "reason": "Mostly strong long translate, but Noda B'Yehuda Tinyana cite: HE says chelek YD (חי״ד) siman 75, EN wrongly says Choshen Mishpat — fix before apply."
+    },
+    {
+      "id": "yd1/siman177/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; iska / ein adam mesim atzmo rasha OK."
+    },
+    {
+      "id": "yd1/siman210/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "HOLD",
+      "reason": "Short; HE has garbled ?dl\"a — EN expansion plausible but uncertain; quick human glance."
+    },
+    {
+      "id": "yd1/siman235/seif-001/rabbi-akiva-eiger-yd",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; Tosafos/Ran/Raah on benefit language OK."
+    },
+    {
+      "id": "yd1/siman258/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; dual trustee / Rashba formulation intact."
+    },
+    {
+      "id": "yd1/siman268/seif-001/yad-avraham",
+      "action": "fresh_translate",
+      "confidence": "high",
+      "structural_ok": true,
+      "verdict": "APPROVE",
+      "reason": "Complete; bdieved geirus / Dagul Mervavah / Yerushalmi OK."
+    }
+  ]
+}
