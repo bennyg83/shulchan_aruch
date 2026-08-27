@@ -1,0 +1,748 @@
+{
+  "meta": {
+    "created": "2026-08-27T21:20:11.715Z",
+    "n": 28,
+    "judgments": {
+      "OK_plausible_continuation": 6,
+      "OK_cues_but_needs_multi_piece_split": 5,
+      "HOLD_as_labeled": 17
+    }
+  },
+  "spot": [
+    {
+      "id": "oc1/siman12/seif-001/ateret-zekenim",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "cue": {
+              "startsCont": true,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "שני ראשים שיפסקו משני צדדים שא' לא נשתייר כדי עניבה ובשני נשתייר כדי ע…",
+            "b": "ולפי מה שאנו נוהגים לדקדק בעת עשיית הציצית לתת סי' בד' ראשים כו' ה\"ה א…"
+          }
+        ],
+        "enPreviews": [
+          "If two ends were severed on opposite sides, such that one di…",
+          "According to our practice of carefully marking the four ends…"
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman105/seif-001/beur-hagra",
+      "action": "split_en",
+      "classify": "apply_ready",
+      "heSegs": 14,
+      "enSegs": 11,
+      "deficit": 3,
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=3 hints=2 enAfterMin=13"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "judgment": "OK_cues_but_needs_multi_piece_split",
+      "detail": {
+        "hints": [
+          {
+            "en_index": 1,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "note_label",
+              "sent_caps:4"
+            ],
+            "en": "In cold. Meaning even in twenty-four hours, not like Rashi who wrote that it is not called kavush ex…",
+            "enLen": 910
+          },
+          {
+            "en_index": 8,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "bracket",
+              "sent_caps:3"
+            ],
+            "en": "And if it is, etc. So too Rosh in chapter 25 end of seif 49 in brine and his reason: since it is lik…",
+            "enLen": 1159
+          }
+        ]
+      }
+    },
+    {
+      "id": "oc1/siman5/seif-001/ateret-zekenim",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "יכוין בברכות פי' המלות פי' בהזכירו שם אדני יכוין אל קריאתו וכתיבתו וקר…",
+        "en0": "When reciting the blessings, he should intend the meaning of the words…"
+      }
+    },
+    {
+      "id": "yd1/siman124/seif-014/beur-hagra",
+      "action": "split_en",
+      "classify": "apply_ready",
+      "heSegs": 7,
+      "enSegs": 5,
+      "deficit": 2,
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=6"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "judgment": "OK_cues_but_needs_multi_piece_split",
+      "detail": {
+        "hints": [
+          {
+            "en_index": 1,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "sent_caps:2"
+            ],
+            "en": "And specifically, etc. As stated above seif 24: (supplement) and specifically when he knew, etc. Hag…",
+            "enLen": 204
+          }
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman125/seif-010/beur-hagra",
+      "action": "split_en",
+      "classify": "apply_ready",
+      "heSegs": 5,
+      "enSegs": 3,
+      "deficit": 2,
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=4"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "judgment": "OK_cues_but_needs_multi_piece_split",
+      "detail": {
+        "hints": [
+          {
+            "en_index": 0,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "likut",
+              "sent_caps:3"
+            ],
+            "en": "And not, etc., and there are those who say, etc. As I wrote: (Likut) If he was, etc. From what I wro…",
+            "enLen": 412
+          }
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman148/seif-001/beur-hagra",
+      "action": "split_en",
+      "classify": "apply_ready",
+      "heSegs": 7,
+      "enSegs": 5,
+      "deficit": 2,
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=6"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "judgment": "OK_cues_but_needs_multi_piece_split",
+      "detail": {
+        "hints": [
+          {
+            "en_index": 0,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "sent_caps:10"
+            ],
+            "en": "Forbidden, etc. Even though they asked 6a because of profit, etc. ; the Ran wrote that the entire pa…",
+            "enLen": 1809
+          }
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman151/seif-001/beur-hagra",
+      "action": "split_en",
+      "classify": "apply_ready",
+      "heSegs": 10,
+      "enSegs": 8,
+      "deficit": 2,
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=9"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "judgment": "OK_cues_but_needs_multi_piece_split",
+      "detail": {
+        "hints": [
+          {
+            "en_index": 0,
+            "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment",
+            "cues": [
+              "sent_caps:2"
+            ],
+            "en": "Things, etc. Rambam's and Tur's wording. (Likkut) Things, etc., were. He omitted (Rambam) that which…",
+            "enLen": 366
+          }
+        ]
+      }
+    },
+    {
+      "id": "oc1/siman27/seif-004/machatzit-hashekel",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 7,
+      "enSegs": 6,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "(ס\"ק ד) דבר כו' בגדי כהונה דכתיב ילבש על בשרו. שלא יהיה דבר חוצץ בינו …",
+        "en0": "Seif katan 4: An intervening substance, etc. Regarding the priestly ga…"
+      }
+    },
+    {
+      "id": "oc1/siman35/seif-001/kol-yaakov",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 144,
+      "enSegs": 94,
+      "deficit": 50,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "א) נהגו בענין השיטין וכו' וכן הוא ע\"פ קבלת האר\"י ז\"ל בשער הכוונות בדרו…",
+        "en0": "1. The custom concerning the lines, etc. This follows the received tea…"
+      }
+    },
+    {
+      "id": "oc1/siman42/seif-003/biur-halacha",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 14,
+      "enSegs": 13,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "סודר דאזמניה וכו' - עיין במ\"ב במה שכ' אפילו בדבור בלבד והוא מהדה\"ח שכת…",
+        "en0": "A cloth that he designated, etc. Mishnah Berurah states that verbal de…"
+      }
+    },
+    {
+      "id": "oc1/siman451/seif-027/chok-yaakov",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "צלו בו בשר מלוח משא\"כ אם צלו בו מולית' חמץ:",
+        "en0": "The taps in barrels. In Responsa Mahari Weil, siman 193, he wrote that…"
+      }
+    },
+    {
+      "id": "yd1/siman84/seif-006/beur-hagra",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 7,
+      "enSegs": 6,
+      "deficit": 1,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              1,
+              2
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "והוא כו'. דהא בעינן השורץ. שם:",
+            "b": "(ליקוט) והוא שריחש כו'. אבל בת\"ה פ' ב' פליג ע\"ז וכתב דהא לשמואל הוא כמ…"
+          }
+        ],
+        "enPreviews": [
+          "Worms, etc. Per Shmuel at the beginning of that perek, chapt…",
+          "And it, etc.—for we require \"that creeps.\" There: (Collectio…",
+          "But those found, etc. — like a cucumber, etc. Ibid.",
+          "Worms that grow, etc. As written in Berachot 40b, Nedarim 55…",
+          "And sometimes, etc. So too the Rashba holds; and he holds we…",
+          "That it begins, etc. — like an egg in which blood is found i…"
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman107/seif-001/turei-zahav",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 6,
+      "enSegs": 2,
+      "deficit": 4,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "לא יוציאם מהמים כו'. בת\"ח כלל נ\"א דקדק מדלא כתב הש\"ע דאם לא עשה כן אסו…",
+        "en0": "He should not remove them from the water, etc. Turei Chayim general ru…"
+      }
+    },
+    {
+      "id": "yd1/siman108/seif-001/beur-hagra",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 25,
+      "enSegs": 4,
+      "deficit": 21,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "אין כו' ואם כו'. כלוי דרבא בע\"ז ס\"ו ב' כוותיה ועוד דברייתא אין צולין כ…",
+        "en0": "One may not, etc. And if, etc. Nullified of Rava in Avodah Zarah 66b i…"
+      }
+    },
+    {
+      "id": "yd1/siman110/seif-008/yad-avraham",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 6,
+      "enSegs": 3,
+      "deficit": 3,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "(שם בש\"ך ס\"ק נ\"ט) ספק איסור דרבנן בדשיל\"מ אסור. ודע שכתב הפר\"ח בהל' יו…",
+        "en0": "(There in the Shach, se'if katan 59) A doubt of a d'rabbanan issur reg…"
+      }
+    },
+    {
+      "id": "yd1/siman127/seif-001/siftei-kohen",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 20,
+      "enSegs": 9,
+      "deficit": 11,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "אם הוא בידו. ל' הטור כגון שנתנו בידו לשומרו ור\"ל דל\"ת דבידו היינו בידו…",
+        "en0": "If it is in his hand. The language of the Tur: such as when it was giv…"
+      }
+    },
+    {
+      "id": "yd1/siman131/seif-001/beer-hagolah",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 15,
+      "enSegs": 13,
+      "deficit": 2,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "משנה עבודת כוכבים דף ס\"א:",
+        "en0": "Mishnah, tractate Avodah Zarah, folio 61."
+      }
+    },
+    {
+      "id": "yd1/siman145/seif-003/siftei-kohen",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 9,
+      "enSegs": 8,
+      "deficit": 1,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              6,
+              7
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": false
+            },
+            "a": "הוציאה. אפילו דעתו להחזירה וכן אפילו הוציאה ישראל מותר כיון שלא הקצהו …",
+            "b": "הוציאה משם כו'. כ' ב\"י ודבר פשוט בעיני דהא דמהני בהוציאה שלא להכניסה ה…"
+          }
+        ],
+        "enPreviews": [
+          "The house itself etc. For otherwise it would be appurtenance…",
+          "It was built for human habitation and a gentile plastered an…",
+          "The Israelite takes etc. But a gentile — with any amount tha…",
+          "And the new addition is forbidden for benefit. It has no nul…",
+          "Into the house. And the house itself he did not intend to wo…",
+          "He removed it. Even if he intends to return it; and likewise…",
+          "He removed it from there etc. Beit Yosef wrote: and it is si…",
+          "And regarding Israel etc. Meaning: if the house is appurtena…"
+        ]
+      }
+    },
+    {
+      "id": "yd1/siman226/seif-001/baer-heitev",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 5,
+      "enSegs": 3,
+      "deficit": 2,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "חלוקה. דהיינו ד' אמות על ד' אמות לכל א' כמ\"ש בח\"מ ס' קע\"א ס\"ג:",
+        "en0": "Enter. It means even for the sake of the partners, and it is not clear…"
+      }
+    },
+    {
+      "id": "yd1/siman279/seif-002/turei-zahav",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              1,
+              2
+            ],
+            "cue": {
+              "startsCont": true,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "ומברך לאחריה כו'. במרדכי פ\"ב דמגילה כתוב דיש ללמוד דס\"ת דחסרין בה אותי…",
+            "b": "אלא אי קשיא לי הא קשיא לי ממה דפריך במס' יומא שם גבי כ\"ג דקורא פרשת וב…"
+          }
+        ],
+        "enPreviews": [
+          "And he begins from the place where the error occurred. After…",
+          "And he recites the concluding blessing, etc. The Mordechai w…"
+        ]
+      }
+    },
+    {
+      "id": "cm1/siman7/seif-005/urim-vetumim-tumim",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              1,
+              2
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "אם ראוהו בלילה כבר כתבתי באורים שדעת הב\"ח ה\"ה אם ראו בשבת וי\"ט דהואיל …",
+            "b": "אך מלבד דזה דוחק דמה בכך דאם יראו הב\"ד עובר דיהיה נהרג מ\"מ שייך שפיר ל…"
+          }
+        ],
+        "enPreviews": [
+          "One who has drunk wine, etc. Kenesset HaGedolah asks from Mi…",
+          "If they saw it at night. In Urim I cited Bach, who writes th…"
+        ]
+      }
+    },
+    {
+      "id": "cm1/siman12/seif-002/urim-vetumim-tumim",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "אתה זכאי כו' כן כתבו כל הפוסקים רק בסמ\"ג כתב וז\"ל ה\"ד גמר דין (רא\"א רש…",
+        "en0": "You are entitled, etc. This is the ruling of all the poskim. Semag, ho…"
+      }
+    },
+    {
+      "id": "cm1/siman12/seif-012/beur-hagra",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 3,
+      "enSegs": 2,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "שנים חלוקים כו'. ב\"ב ג' א' כגון שהלך כו' וז\"ש לעיל ס\"ז או אחד משאר כו'…",
+        "en0": "Years are divided. In “J.A.” such as “Go forth” or one of the rest of …"
+      }
+    },
+    {
+      "id": "cm1/siman20/seif-001/beur-hagra",
+      "action": "merge_groups",
+      "classify": "apply_ready",
+      "heSegs": 11,
+      "enSegs": 8,
+      "deficit": 3,
+      "soft": [],
+      "notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "judgment": "OK_plausible_continuation",
+      "detail": {
+        "groups": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ]
+        ],
+        "mergePairs": [
+          {
+            "indices": [
+              0,
+              1
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "אע\"פ שכבר נגמר. ירוש' שם:",
+            "b": "(ליקוט) אע\"פ כו'. ירו' שם אפי' לאחר גזר דין (ע\"כ):"
+          },
+          {
+            "indices": [
+              5,
+              6
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "ודוקא שבאו. תוספתא פ\"ו דסנה':",
+            "b": "(ליקוט) ודוקא שבאו כו'. תוספתא פ\"ו יש לך עדים כו' אין מקבלין הימנו עד …"
+          },
+          {
+            "indices": [
+              7,
+              8
+            ],
+            "cue": {
+              "startsCont": false,
+              "aEndsMid": true,
+              "bHasLemmaHead": true
+            },
+            "a": "לפיכך אם פי'. כן מ' שם בהא אפי' רבנן מודי דינוקא מ' דבגדול לא:",
+            "b": "(ליקוט) לפיכך אם פירש כו'. נלמד ממה שחלקו שם בין קטן לגדול (ע\"כ):"
+          }
+        ],
+        "enPreviews": [
+          "A FIFA is already over. He said, “I will be able to do this.…",
+          "Even if he paid. The Gemara there says: one might have thoug…",
+          "But if not. There, he said, “I will not have any evidence, a…",
+          "(Anthology) And some say the same applies, etc. They underst…",
+          "And Durk came. In addition to the P.A.D. (Luke) and Dokka wh…",
+          "Hence, if P. Yes, there is a great name in the name of David…",
+          "But if he brought. From the above:",
+          "Or small. There in J.J. . . . . . . . . . . . . . . . . ."
+        ]
+      }
+    },
+    {
+      "id": "cm1/siman25/seif-003/urim-vetumim-tumim",
+      "action": "needs_human",
+      "classify": "hold",
+      "heSegs": 22,
+      "enSegs": 10,
+      "deficit": 12,
+      "soft": [],
+      "notes": "The review chunk truncates this case, so the full segment text is required for a safe decision.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "היה הטועה מומחה ב\"ד כו' דעת הסמ\"ע בס\"ק כ' דהיינו גמיר וסביר ולכך כתב ה…",
+        "en0": "If the mistaken judge was an expert of the beit din, etc. Sema, seif k…"
+      }
+    },
+    {
+      "id": "cm1/siman56/seif-001/netivot-hamishpat-beurim",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 11,
+      "enSegs": 10,
+      "deficit": 1,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "שליש עש\"ך סק\"א עד דא\"כ מאי פריך רבא הא לא דמי כלל דהתם כיון דאיתחזק בב…",
+        "en0": "A shalish. See Shach, who asks why Rava needed the shalish's special c…"
+      }
+    },
+    {
+      "id": "cm1/siman81/seif-014/meirat-einayim",
+      "action": "needs_editorial",
+      "classify": "hold",
+      "heSegs": 11,
+      "enSegs": 6,
+      "deficit": 5,
+      "soft": [],
+      "notes": "The mismatch is real, but the available boundaries do not support a unique safe HE merge or EN split.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "שלא להשביע את עצמי הודיתי. פי' שלא ארא' כעשיר ושבע:",
+        "en0": "I admitted only so that I would not appear wealthy."
+      }
+    },
+    {
+      "id": "cm1/siman82/seif-013/siftei-kohen",
+      "action": "needs_human",
+      "classify": "hold",
+      "heSegs": 5,
+      "enSegs": 3,
+      "deficit": 2,
+      "soft": [],
+      "notes": "The review chunk truncates this case, so the full segment text is required for a safe decision.",
+      "judgment": "HOLD_as_labeled",
+      "detail": {
+        "he0": "[\" ועדים מעידים שכולו פרוע. ומיירי שהעדים לא העידו עד אחר שהודה במחצה …",
+        "en0": "Witnesses testify that the entire debt was paid. This means that the w…"
+      }
+    }
+  ]
+}
