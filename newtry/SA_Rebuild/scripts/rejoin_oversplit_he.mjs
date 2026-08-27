@@ -1,26 +1,31 @@
 /**
- * Re-join over-split HE when live EN is a single segment and upstream
- * Sefaria HE is also a single segment matching normalize(join(live HE)).
+ * Re-join over-split HE when live EN is a single segment.
  *
  * Mirror of rejoin_oversplit_en.mjs. Never writes en.html.
  *
+ * Modes:
+ *   (default Case A) — upstream HE single-seg ≈ normalize(join(live HE))
+ *   --case-a-prime   — join when extra HE segs are heading/stubs only (no
+ *                      upstream single-seg requirement). Prefer heSegs===2
+ *                      (title+body); heSegs>2 only if every pre-last seg is stub.
+ *
  * Classification (all en_truncated_vs_multi_he + he_has_more_segments):
- *   A_eligible — heSegs>=2, enSegs===1, upstream HE single-seg ≈ join(live HE)
- *   B_candidate — true multi-note HE (upstream also multi / note markers); Part 2
+ *   A_eligible / A_prime_eligible — auto rejoin candidates
+ *   B_candidate — true multi-note HE; Part 2 EN split
  *   C_remap    — orphan / wrong seif / upstream missing or content mismatch
  *   skip       — unclear / hard-gate fail for auto
  *
- * Auto-apply hard gates (ALL must hold):
- *   1. kind is en_truncated_vs_multi_he OR (he_has_more_segments AND enSegs===1)
- *   2. heSegs >= 2, enSegs === 1
- *   3. HE has Hebrew; EN non-empty
- *   4. Some upstream HE source is single-segment
- *   5. That upstream ≈ normalize(join(live HE parts)) (tag/whitespace-insensitive)
- *   6. After join, HE is non-empty and still 1 segment
+ * Case A′ hard gates (ALL must hold):
+ *   1. kind en_truncated_vs_multi_he OR he_has_more_segments
+ *   2. enSegs === 1, heSegs >= 2
+ *   3. EN non-empty; HE non-empty with Hebrew
+ *   4. First HE seg (and every pre-last when heSegs>2) is heading/stub
+ *   5. Last HE seg is substantive body
+ *   6. After join, HE non-empty and 1 segment
  *
  *   node rejoin_oversplit_he.mjs --dry-run --volumes oc1,yd1,cm1
- *   node rejoin_oversplit_he.mjs --apply --volumes oc1,yd1,cm1
- *   node rejoin_oversplit_he.mjs --apply --volume oc1 --max-fixes 50
+ *   node rejoin_oversplit_he.mjs --case-a-prime --dry-run --volumes oc1,yd1,cm1
+ *   node rejoin_oversplit_he.mjs --case-a-prime --apply --volumes oc1,yd1,cm1
  *
  * After --apply: rebundle affected simanim only (BUNDLE_CONCURRENCY=1).
  */
@@ -87,6 +92,7 @@ const VOLUME_CFG = {
 function parseArgs(argv) {
   const out = {
     apply: false,
+    caseAPrime: false,
     volumes: ["oc1", "yd1", "cm1"],
     slug: null,
     maxFixes: Infinity,
@@ -99,6 +105,7 @@ function parseArgs(argv) {
     const next = () => argv[++i];
     if (a === "--apply") out.apply = true;
     else if (a === "--dry-run") out.apply = false;
+    else if (a === "--case-a-prime") out.caseAPrime = true;
     else if (a === "--volume") out.volumes = [next()];
     else if (a === "--volumes")
       out.volumes = next()
@@ -111,9 +118,10 @@ function parseArgs(argv) {
     else if (a === "--corpus-root") out.corpusRoot = path.resolve(next());
     else if (a === "--sample-limit") out.sampleLimit = parseInt(next(), 10);
     else if (a === "--help" || a === "-h") {
-      console.log(`Re-join over-split HE when EN is single-segment and upstream HE matches join.
+      console.log(`Re-join over-split HE when EN is single-segment.
 
   --dry-run (default) | --apply
+  --case-a-prime       heading/stub + body join (no upstream single-seg req)
   --volume oc1 | --volumes oc1,yd1,cm1
   --slug <slug>  --max-fixes N  --max-simanim N
   --corpus-root <dir>`);
@@ -160,6 +168,199 @@ function visuallyEmpty(html) {
 
 function hasHebrewLetters(s) {
   return /[\u0590-\u05FF]/.test(s || "");
+}
+
+/** Visible text length after stripping tags. */
+function visibleText(html) {
+  return String(html ?? "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Classify a HE segment as a Case A′ heading/stub subtype.
+ * Returns null if not a heading/stub.
+ *
+ * Buckets (mutually exclusive, checked in order):
+ *   title_singular_seif — siman title with singular סעיף (final ף), e.g. ובו סעיף אחד
+ *   title_plural_seifim — siman title with plural סעיפים — different case; hold
+ *   shem_stub           — שם: / (שם) / short …שם:
+ *   other_stub          — label-only / very short stub
+ *
+ * Built from codepoints so pe (פ) vs final-pe (ף) are never normalized away.
+ */
+function classifyHeadingStub(seg) {
+  const v = visibleText(seg);
+  if (!v || !hasHebrewLetters(v)) return null;
+
+  const ubo = String.fromCodePoint(0x05d5, 0x05d1, 0x05d5); // ובו
+  // Singular: סעיף (ends with final pe ף U+05E3)
+  const seifSingular = String.fromCodePoint(0x05e1, 0x05e2, 0x05d9, 0x05e3);
+  // Plural: סעיפים (regular pe פ U+05E4 + י + ם)
+  const seifimPlural = String.fromCodePoint(
+    0x05e1,
+    0x05e2,
+    0x05d9,
+    0x05e4,
+    0x05d9,
+    0x05dd
+  );
+  // Stem סעיפ (regular pe) — only used to detect odd spellings
+  const seifStemPe = String.fromCodePoint(0x05e1, 0x05e2, 0x05d9, 0x05e4);
+
+  if (v.includes(ubo) && v.length <= 140) {
+    if (v.includes(seifimPlural)) {
+      return {
+        bucket: "title_plural_seifim",
+        preview: v.slice(0, 100),
+      };
+    }
+    if (v.includes(seifSingular)) {
+      return {
+        bucket: "title_singular_seif",
+        preview: v.slice(0, 100),
+      };
+    }
+    // Odd spelling: סעיף written with non-final pe and NOT followed by ים
+    if (v.includes(seifStemPe) && !v.includes(seifimPlural)) {
+      return {
+        bucket: "title_singular_seif",
+        preview: v.slice(0, 100),
+        note: "seif_stem_pe_without_im",
+      };
+    }
+  }
+
+  const shem = String.fromCodePoint(0x05e9, 0x05dd); // שם
+  if (new RegExp(`^[\\(\\[]?\\s*${shem}\\s*[\\)\\]]?\\s*[:.]?\\s*$`).test(v)) {
+    return { bucket: "shem_stub", preview: v };
+  }
+  if (v.startsWith(shem) && v.length <= 20) {
+    const after = v.slice(shem.length).trim();
+    if (after === "" || /^[:.]\s*$/.test(after)) {
+      return { bucket: "shem_stub", preview: v };
+    }
+  }
+  if (v.length <= 20 && v.endsWith(":") && v.includes(shem)) {
+    return { bucket: "shem_stub", preview: v };
+  }
+
+  // Label-only: ס"ק …, אות א, (א), א)
+  if (v.length <= 24) {
+    if (/^ס["\u05f4\u05f3׳״]?ק\b/u.test(v)) {
+      return { bucket: "other_stub", preview: v, subtype: "seif_katan_label" };
+    }
+    if (/^אות\s+[א-ת]\s*[:.]?\s*$/u.test(v)) {
+      return { bucket: "other_stub", preview: v, subtype: "ot_label" };
+    }
+    if (/^[\(\[]?\s*[א-ת]\s*[\)\]]?\s*[:.]?\s*$/u.test(v)) {
+      return { bucket: "other_stub", preview: v, subtype: "letter_label" };
+    }
+  }
+
+  // Very short generic label ending with : or . (≤20 visible chars)
+  if (v.length <= 20 && /[:.]\s*$/.test(v) && !/\s.{12,}\s/.test(v)) {
+    return { bucket: "other_stub", preview: v, subtype: "short_colon_stub" };
+  }
+
+  return null;
+}
+
+/** @deprecated use classifyHeadingStub */
+function isHeadingOrStubSegment(seg) {
+  return classifyHeadingStub(seg) != null;
+}
+
+/**
+ * Case A′ classification for HE parts.
+ * ok=true only when every pre-last seg is a heading/stub and body is substantive.
+ * autoApply=true only for high-confidence buckets (singular title and/or shem stubs);
+ * plural סעיפים is detected but held (autoApply=false).
+ */
+function classifyCaseAPrime(heParts) {
+  if (!heParts || heParts.length < 2) {
+    return { ok: false, reason: "he_segs_lt_2" };
+  }
+  const stubs = heParts.slice(0, -1);
+  const body = heParts[heParts.length - 1];
+  const stubClasses = [];
+  for (let i = 0; i < stubs.length; i++) {
+    const c = classifyHeadingStub(stubs[i]);
+    if (!c) {
+      return {
+        ok: false,
+        reason: i === 0 ? "first_not_heading_stub" : "middle_not_heading_stub",
+        stubIndex: i,
+        stubPreview: visibleText(stubs[i]).slice(0, 80),
+      };
+    }
+    stubClasses.push(c);
+  }
+  const bodyVis = visibleText(body);
+  if (bodyVis.length < 20) {
+    return { ok: false, reason: "body_too_short", bodyLen: bodyVis.length };
+  }
+  if (!hasHebrewLetters(body)) {
+    return { ok: false, reason: "body_no_hebrew" };
+  }
+  if (/ENGLISH\s+translation|English translation pending|\*{4}\s*ENGLISH/i.test(body)) {
+    return { ok: false, reason: "body_looks_corrupted" };
+  }
+
+  const buckets = stubClasses.map((c) => c.bucket);
+  const hasPlural = buckets.includes("title_plural_seifim");
+  const hasSingular = buckets.includes("title_singular_seif");
+  const hasShem = buckets.includes("shem_stub");
+  const hasOther = buckets.includes("other_stub");
+
+  // Primary heading bucket for reporting (prefer title > shem > other)
+  let primaryBucket = "other_stub";
+  if (hasPlural) primaryBucket = "title_plural_seifim";
+  else if (hasSingular) primaryBucket = "title_singular_seif";
+  else if (hasShem) primaryBucket = "shem_stub";
+
+  // Auto-apply policy (revised):
+  //   - singular סעיף titles: YES
+  //   - שם stubs (no title): YES (high-precision stub)
+  //   - plural סעיפים: HOLD (different case)
+  //   - other_stub alone: HOLD (lower precision)
+  let autoApply = false;
+  let holdReason = null;
+  if (hasPlural) {
+    autoApply = false;
+    holdReason = "hold_plural_seifim";
+  } else if (hasSingular && !hasOther) {
+    autoApply = true;
+  } else if (hasSingular && hasOther) {
+    // title + extra non-title stubs before body — still OK if all stubs
+    autoApply = true;
+  } else if (hasShem && !hasOther) {
+    autoApply = true;
+  } else if (hasShem && hasOther) {
+    autoApply = true; // shem + tiny labels
+  } else {
+    autoApply = false;
+    holdReason = "hold_other_stub";
+  }
+
+  return {
+    ok: true,
+    autoApply,
+    holdReason,
+    primaryBucket,
+    buckets,
+    reason: heParts.length === 2 ? "title_plus_body" : "multi_stub_plus_body",
+    stubPreviews: stubs.map((s) => visibleText(s).slice(0, 80)),
+    stubClasses,
+    bodyPreview: bodyVis.slice(0, 100),
+  };
 }
 
 function classify(heParts, enParts, heRaw, enRaw) {
@@ -859,6 +1060,292 @@ function processVolume(vol, opts) {
   return result;
 }
 
+/**
+ * Case A′: re-join HE when only extra segments are headings/stubs and EN is one block.
+ * Does not require upstream single-seg (that is why Case A was empty).
+ */
+function processVolumeCaseAPrime(vol, opts) {
+  const volCfg = VOLUME_CFG[vol];
+  const liveRoot = path.join(opts.corpusRoot, vol);
+  const result = {
+    volume: vol,
+    mode: "case_a_prime",
+    scannedPairs: 0,
+    targetMismatches: 0,
+    classification: {
+      A_prime_eligible: 0,
+      A_prime_held: 0,
+      B_candidate: 0,
+      C_remap: 0,
+      skip: 0,
+    },
+    eligible: 0,
+    held: 0,
+    applied: 0,
+    skipped: 0,
+    byKind: {},
+    bySlug: {},
+    byStrategy: {},
+    bySkipReason: {},
+    byClass: {},
+    byHeSegs: {},
+    byHeadingBucket: {
+      title_singular_seif: 0,
+      title_plural_seifim: 0,
+      shem_stub: 0,
+      other_stub: 0,
+    },
+    byAutoBucket: {},
+    byHeldBucket: {},
+    upstreamNearMatch: 0,
+    affectedSimanim: new Set(),
+    backups: [],
+    eligibleSamples: [],
+    heldSamples: [],
+    classSamples: {
+      A_prime_eligible: [],
+      A_prime_held: [],
+      B_candidate: [],
+      C_remap: [],
+      skip: [],
+    },
+  };
+
+  if (!volCfg) {
+    result.error = "unknown_volume";
+    return result;
+  }
+  if (!fs.existsSync(liveRoot)) {
+    result.error = "live_missing";
+    return result;
+  }
+
+  const slugToFolder = buildSlugToFolder(volCfg);
+  const simans = listSimanDirs(liveRoot);
+  let simanCount = 0;
+
+  for (const simanName of simans) {
+    if (opts.maxSimanim != null && simanCount >= opts.maxSimanim) break;
+    simanCount++;
+    const siman = parseInt(simanName.replace(/\D/g, ""), 10);
+    const liveSiman = path.join(liveRoot, simanName);
+
+    for (const { seif, slug, slugDir } of walkSlugDirs(liveSiman)) {
+      if (opts.slug && slug !== opts.slug) continue;
+      if (opts.apply && result.applied >= opts.maxFixes) {
+        result.affectedSimanim = [...result.affectedSimanim].sort((a, b) => a - b);
+        return result;
+      }
+      if (!opts.apply && result.eligible >= opts.maxFixes) {
+        result.affectedSimanim = [...result.affectedSimanim].sort((a, b) => a - b);
+        return result;
+      }
+
+      const hePath = path.join(slugDir, "he.html");
+      const enPath = path.join(slugDir, "en.html");
+      if (!fs.existsSync(hePath) && !fs.existsSync(enPath)) continue;
+
+      result.scannedPairs++;
+      const liveHe = readText(hePath);
+      const liveEn = readText(enPath);
+      const lHe = splitHtmlByBrSegments(liveHe);
+      const lEn = splitHtmlByBrSegments(liveEn);
+      const cls = classify(lHe, lEn, liveHe, liveEn);
+      if (!isTargetKind(cls)) continue;
+
+      result.targetMismatches++;
+      bump(result.byKind, cls.kind);
+      const seifNum = parseInt(seif.replace(/\D/g, ""), 10);
+      const rel = `${vol}/${simanName}/${seif}/${slug}`;
+      const heRel = `${rel}/he.html`;
+
+      const pushClassSample = (bucket, extra = {}) => {
+        const arr = result.classSamples[bucket];
+        if (arr.length >= opts.sampleLimit) return;
+        arr.push({
+          path: rel,
+          kind: cls.kind,
+          heSegs: cls.heN,
+          enSegs: cls.enN,
+          ...extra,
+        });
+      };
+
+      const markClass = (bucket, reason, extra = {}) => {
+        result.classification[bucket]++;
+        bump(result.byClass, `${bucket}:${reason}`);
+        pushClassSample(bucket, { reason, ...extra });
+        return bucket;
+      };
+
+      if (!hasHebrewLetters(liveHe) || visuallyEmpty(liveHe)) {
+        markClass("skip", "he_empty_or_no_hebrew");
+        result.skipped++;
+        bump(result.bySkipReason, "he_empty_or_no_hebrew");
+        continue;
+      }
+      if (visuallyEmpty(liveEn)) {
+        markClass("skip", "en_empty");
+        result.skipped++;
+        bump(result.bySkipReason, "en_empty");
+        continue;
+      }
+
+      // Hard: enSegs === 1
+      if (cls.enN !== 1 || cls.heN < 2) {
+        markClass("skip", "en_not_single_or_he_lt2", {
+          enSegs: cls.enN,
+          heSegs: cls.heN,
+        });
+        result.skipped++;
+        bump(result.bySkipReason, "en_not_single");
+        continue;
+      }
+
+      const aPrime = classifyCaseAPrime(lHe);
+      if (!aPrime.ok) {
+        // Residual = Part 2 (B) when true multi-note / non-stub first segs
+        if (
+          aPrime.reason === "first_not_heading_stub" ||
+          aPrime.reason === "middle_not_heading_stub"
+        ) {
+          markClass("B_candidate", aPrime.reason, {
+            stubPreview: aPrime.stubPreview || null,
+            stubIndex: aPrime.stubIndex ?? null,
+          });
+        } else {
+          markClass("skip", aPrime.reason, {
+            bodyLen: aPrime.bodyLen ?? null,
+          });
+        }
+        result.skipped++;
+        bump(result.bySkipReason, aPrime.reason);
+        continue;
+      }
+
+      const joined = rejoinHeSegments(liveHe);
+      if (visuallyEmpty(joined)) {
+        markClass("skip", "join_would_empty_he");
+        result.skipped++;
+        bump(result.bySkipReason, "join_would_empty_he");
+        continue;
+      }
+      const newSegs = splitHtmlByBrSegments(joined).length;
+      if (newSegs !== 1) {
+        markClass("skip", "join_still_multi");
+        result.skipped++;
+        bump(result.bySkipReason, "join_still_multi");
+        continue;
+      }
+
+      // Optional: note if upstream joined ≈ live join
+      let upstreamMatch = null;
+      try {
+        const candidates = collectUpstreamHeCandidates(
+          volCfg,
+          slugToFolder,
+          siman,
+          seif,
+          seifNum,
+          slug
+        );
+        const usable = candidates.filter((c) => c.text != null);
+        const match = usable.find((c) => heNearEqual(joined, c.text));
+        if (match) {
+          upstreamMatch = { source: match.source, segs: match.segs };
+          result.upstreamNearMatch++;
+        }
+      } catch {
+        /* optional */
+      }
+
+      bump(result.byHeadingBucket, aPrime.primaryBucket);
+      bump(result.byHeSegs, String(cls.heN));
+
+      const sampleBase = {
+        path: heRel,
+        sha256: sha256(liveHe),
+        bytes: Buffer.byteLength(liveHe, "utf8"),
+        preview: liveHe.replace(/\s+/g, " ").trim().slice(0, 200),
+        kind: cls.kind,
+        heSegs: cls.heN,
+        enSegs: cls.enN,
+        primaryBucket: aPrime.primaryBucket,
+        buckets: aPrime.buckets,
+        stubPreviews: aPrime.stubPreviews,
+        bodyPreview: aPrime.bodyPreview,
+        upstreamMatch,
+        joinedPreview: joined.replace(/\s+/g, " ").trim().slice(0, 200),
+        writeSha256: sha256(joined),
+        writeBytes: Buffer.byteLength(joined, "utf8"),
+      };
+
+      // Plural סעיפים / other_stub: detect & count but do not auto-apply
+      if (!aPrime.autoApply) {
+        markClass("A_prime_held", aPrime.holdReason || aPrime.primaryBucket, {
+          stubPreviews: aPrime.stubPreviews,
+          bodyPreview: aPrime.bodyPreview,
+          primaryBucket: aPrime.primaryBucket,
+          buckets: aPrime.buckets,
+          holdReason: aPrime.holdReason,
+          upstreamMatch,
+        });
+        result.held++;
+        bump(result.byHeldBucket, aPrime.primaryBucket);
+        if (result.heldSamples.length < opts.sampleLimit) {
+          result.heldSamples.push({
+            ...sampleBase,
+            holdReason: aPrime.holdReason,
+          });
+        }
+        continue;
+      }
+
+      markClass("A_prime_eligible", aPrime.reason, {
+        stubPreviews: aPrime.stubPreviews,
+        bodyPreview: aPrime.bodyPreview,
+        primaryBucket: aPrime.primaryBucket,
+        buckets: aPrime.buckets,
+        autoApply: true,
+        upstreamMatch,
+      });
+
+      const strategy =
+        aPrime.primaryBucket === "title_singular_seif"
+          ? "rejoin_he_singular_seif_title_body"
+          : aPrime.primaryBucket === "shem_stub"
+            ? "rejoin_he_shem_stub_body"
+            : "rejoin_he_heading_stub_body";
+      result.eligible++;
+      bump(result.byStrategy, strategy);
+      bump(result.bySlug, slug);
+      bump(result.byAutoBucket, aPrime.primaryBucket);
+      result.affectedSimanim.add(siman);
+
+      const backup = {
+        ...sampleBase,
+        strategy,
+      };
+
+      if (result.eligibleSamples.length < opts.sampleLimit) {
+        result.eligibleSamples.push(backup);
+      }
+      result.backups.push(backup);
+
+      if (opts.apply) {
+        // Join live parts only — never invent EN; never replace from upstream
+        const out = joined.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+        fs.writeFileSync(hePath, out.endsWith("\n") ? out : out + "\n", "utf8");
+        result.applied++;
+      }
+    }
+  }
+
+  result.affectedSimanim = [...result.affectedSimanim].sort((a, b) => a - b);
+  result.simanimScanned = simanCount;
+  return result;
+}
+
 function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
@@ -867,48 +1354,115 @@ function main() {
   const opts = parseArgs(process.argv.slice(2));
   ensureDir(OUT_DIR);
 
+  const modeLabel = opts.caseAPrime
+    ? opts.apply
+      ? "APPLY-A-PRIME"
+      : "DRY-RUN-A-PRIME"
+    : opts.apply
+      ? "APPLY"
+      : "DRY-RUN";
   console.log(
-    `[rejoin-he] mode=${opts.apply ? "APPLY" : "DRY-RUN"} volumes=${opts.volumes.join(",")}`
+    `[rejoin-he] mode=${modeLabel} volumes=${opts.volumes.join(",")}`
   );
 
   const reports = [];
   for (const vol of opts.volumes) {
     console.log(`\n[rejoin-he] scanning ${vol}…`);
-    const r = processVolume(vol, opts);
+    const r = opts.caseAPrime
+      ? processVolumeCaseAPrime(vol, opts)
+      : processVolume(vol, opts);
     reports.push(r);
-    console.log(
-      `[rejoin-he] ${vol}: targets=${r.targetMismatches} A=${r.classification.A_eligible} B=${r.classification.B_candidate} C=${r.classification.C_remap} skip=${r.classification.skip}` +
-        ` eligible=${r.eligible}` +
-        (opts.apply ? ` applied=${r.applied}` : "")
-    );
-    console.log(`  byKind: ${JSON.stringify(r.byKind)}`);
-    console.log(`  bySlug (eligible): ${JSON.stringify(r.bySlug)}`);
-    console.log(`  byStrategy: ${JSON.stringify(r.byStrategy)}`);
-    console.log(`  byClass: ${JSON.stringify(r.byClass)}`);
-    console.log(`  bySkipReason: ${JSON.stringify(r.bySkipReason)}`);
-    console.log(`  byUpstreamSource: ${JSON.stringify(r.byUpstreamSource)}`);
+    if (opts.caseAPrime) {
+      console.log(
+        `[rejoin-he] ${vol}: targets=${r.targetMismatches}` +
+          ` auto=${r.classification.A_prime_eligible}` +
+          ` held=${r.classification.A_prime_held}` +
+          ` B=${r.classification.B_candidate}` +
+          ` skip=${r.classification.skip}` +
+          ` eligible=${r.eligible}` +
+          (opts.apply ? ` applied=${r.applied}` : "")
+      );
+      console.log(`  byHeadingBucket: ${JSON.stringify(r.byHeadingBucket)}`);
+      console.log(`  byAutoBucket: ${JSON.stringify(r.byAutoBucket)}`);
+      console.log(`  byHeldBucket: ${JSON.stringify(r.byHeldBucket)}`);
+      console.log(`  bySlug (auto): ${JSON.stringify(r.bySlug)}`);
+      console.log(`  byStrategy: ${JSON.stringify(r.byStrategy)}`);
+      console.log(`  bySkipReason: ${JSON.stringify(r.bySkipReason)}`);
+    } else {
+      console.log(
+        `[rejoin-he] ${vol}: targets=${r.targetMismatches} A=${r.classification.A_eligible} B=${r.classification.B_candidate} C=${r.classification.C_remap} skip=${r.classification.skip}` +
+          ` eligible=${r.eligible}` +
+          (opts.apply ? ` applied=${r.applied}` : "")
+      );
+      console.log(`  byKind: ${JSON.stringify(r.byKind)}`);
+      console.log(`  bySlug (eligible): ${JSON.stringify(r.bySlug)}`);
+      console.log(`  byStrategy: ${JSON.stringify(r.byStrategy)}`);
+      console.log(`  byClass: ${JSON.stringify(r.byClass)}`);
+      console.log(`  bySkipReason: ${JSON.stringify(r.bySkipReason)}`);
+      console.log(`  byUpstreamSource: ${JSON.stringify(r.byUpstreamSource)}`);
+    }
     console.log(
       `  affectedSimanim(${r.affectedSimanim.length}): ${r.affectedSimanim.slice(0, 40).join(",")}${r.affectedSimanim.length > 40 ? "…" : ""}`
     );
   }
 
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
-  const outName = opts.apply
-    ? `he_rejoin_apply_log.json`
-    : `he_rejoin_dry_run.json`;
+  const outName = opts.caseAPrime
+    ? opts.apply
+      ? `he_rejoin_a_prime_apply_log.json`
+      : `he_rejoin_a_prime_dry_run.json`
+    : opts.apply
+      ? `he_rejoin_apply_log.json`
+      : `he_rejoin_dry_run.json`;
   const outPath = path.join(OUT_DIR, outName);
+
+  const sum = (key) =>
+    reports.reduce((n, r) => n + (r.classification?.[key] || 0), 0);
+  const sumField = (key) => reports.reduce((n, r) => n + (r[key] || 0), 0);
+
+  const mergeBucket = (field) => {
+    const out = {};
+    for (const r of reports) {
+      for (const [k, v] of Object.entries(r[field] || {})) {
+        out[k] = (out[k] || 0) + v;
+      }
+    }
+    return out;
+  };
+
   const payload = {
     scannedAt: new Date().toISOString(),
     mode: opts.apply ? "apply" : "dry-run",
+    case: opts.caseAPrime ? "A_prime" : "A",
     volumes: opts.volumes,
-    totals: {
-      A_eligible: reports.reduce((n, r) => n + r.classification.A_eligible, 0),
-      B_candidate: reports.reduce((n, r) => n + r.classification.B_candidate, 0),
-      C_remap: reports.reduce((n, r) => n + r.classification.C_remap, 0),
-      skip: reports.reduce((n, r) => n + r.classification.skip, 0),
-      eligible: reports.reduce((n, r) => n + (r.eligible || 0), 0),
-      applied: reports.reduce((n, r) => n + (r.applied || 0), 0),
-    },
+    policy: opts.caseAPrime
+      ? {
+          autoApply: ["title_singular_seif", "shem_stub"],
+          hold: ["title_plural_seifim", "other_stub"],
+          note: "Plural סעיפים held for separate handling; singular סעיף + שם stubs auto",
+        }
+      : undefined,
+    totals: opts.caseAPrime
+      ? {
+          A_prime_eligible: sum("A_prime_eligible"),
+          A_prime_held: sum("A_prime_held"),
+          B_candidate: sum("B_candidate"),
+          skip: sum("skip"),
+          eligible: sumField("eligible"),
+          held: sumField("held"),
+          applied: sumField("applied"),
+          byHeadingBucket: mergeBucket("byHeadingBucket"),
+          byAutoBucket: mergeBucket("byAutoBucket"),
+          byHeldBucket: mergeBucket("byHeldBucket"),
+        }
+      : {
+          A_eligible: sum("A_eligible"),
+          B_candidate: sum("B_candidate"),
+          C_remap: sum("C_remap"),
+          skip: sum("skip"),
+          eligible: sumField("eligible"),
+          applied: sumField("applied"),
+        },
     reports: reports.map((r) => ({ ...r })),
   };
   fs.writeFileSync(outPath, JSON.stringify(payload, null, 2), "utf8");
@@ -918,48 +1472,100 @@ function main() {
   for (const r of reports) {
     affected[r.volume] = r.affectedSimanim;
   }
-  const affPath = path.join(OUT_DIR, "he_rejoin_affected_simanim.json");
+  const affName = opts.caseAPrime
+    ? "he_rejoin_a_prime_affected_simanim.json"
+    : "he_rejoin_affected_simanim.json";
+  const affPath = path.join(OUT_DIR, affName);
   fs.writeFileSync(affPath, JSON.stringify(affected, null, 2), "utf8");
   console.log(`[rejoin-he] wrote ${affPath}`);
 
   // Classification summary markdown
-  const md = [
-    "# HE oversplit classification (Case A rejoin)",
-    "",
-    `Scanned at: ${payload.scannedAt}`,
-    `Mode: ${payload.mode}`,
-    "",
-    `| Bucket | Count |`,
-    `|--------|------:|`,
-    `| A_eligible | ${payload.totals.A_eligible} |`,
-    `| B_candidate | ${payload.totals.B_candidate} |`,
-    `| C_remap | ${payload.totals.C_remap} |`,
-    `| skip | ${payload.totals.skip} |`,
-    `| auto eligible/applied | ${payload.totals.eligible}${opts.apply ? ` / ${payload.totals.applied}` : ""} |`,
-    "",
-  ];
+  const md = opts.caseAPrime
+    ? [
+        "# HE Case A′ classification (heading/stub rejoin)",
+        "",
+        `Scanned at: ${payload.scannedAt}`,
+        `Mode: ${payload.mode}`,
+        "",
+        "**Policy:** auto-apply `title_singular_seif` + `shem_stub`; hold `title_plural_seifim` + `other_stub`.",
+        "",
+        `| Bucket | Count |`,
+        `|--------|------:|`,
+        `| title_singular_seif (detected) | ${payload.totals.byHeadingBucket.title_singular_seif || 0} |`,
+        `| title_plural_seifim (detected, held) | ${payload.totals.byHeadingBucket.title_plural_seifim || 0} |`,
+        `| shem_stub (detected) | ${payload.totals.byHeadingBucket.shem_stub || 0} |`,
+        `| other_stub (detected, held) | ${payload.totals.byHeadingBucket.other_stub || 0} |`,
+        `| auto eligible | ${payload.totals.eligible} |`,
+        `| held | ${payload.totals.held} |`,
+        `| B_candidate (Part 2) | ${payload.totals.B_candidate} |`,
+        `| applied | ${payload.totals.applied} |`,
+        "",
+        `Auto buckets: \`${JSON.stringify(payload.totals.byAutoBucket)}\``,
+        "",
+        `Held buckets: \`${JSON.stringify(payload.totals.byHeldBucket)}\``,
+        "",
+      ]
+    : [
+        "# HE oversplit classification (Case A rejoin)",
+        "",
+        `Scanned at: ${payload.scannedAt}`,
+        `Mode: ${payload.mode}`,
+        "",
+        `| Bucket | Count |`,
+        `|--------|------:|`,
+        `| A_eligible | ${payload.totals.A_eligible} |`,
+        `| B_candidate | ${payload.totals.B_candidate} |`,
+        `| C_remap | ${payload.totals.C_remap} |`,
+        `| skip | ${payload.totals.skip} |`,
+        `| auto eligible/applied | ${payload.totals.eligible}${opts.apply ? ` / ${payload.totals.applied}` : ""} |`,
+        "",
+      ];
   for (const r of reports) {
     md.push(`## ${r.volume}`, "");
-    md.push(
-      `- targets=${r.targetMismatches} A=${r.classification.A_eligible} B=${r.classification.B_candidate} C=${r.classification.C_remap} skip=${r.classification.skip}`
-    );
-    md.push(`- eligible by slug: \`${JSON.stringify(r.bySlug)}\``);
+    if (opts.caseAPrime) {
+      md.push(
+        `- targets=${r.targetMismatches} auto=${r.classification.A_prime_eligible} held=${r.classification.A_prime_held} B=${r.classification.B_candidate} skip=${r.classification.skip}`
+      );
+      md.push(`- byHeadingBucket: \`${JSON.stringify(r.byHeadingBucket)}\``);
+      md.push(`- auto by slug: \`${JSON.stringify(r.bySlug)}\``);
+    } else {
+      md.push(
+        `- targets=${r.targetMismatches} A=${r.classification.A_eligible} B=${r.classification.B_candidate} C=${r.classification.C_remap} skip=${r.classification.skip}`
+      );
+      md.push(`- eligible by slug: \`${JSON.stringify(r.bySlug)}\``);
+    }
     md.push("");
   }
-  const mdPath = path.join(OUT_DIR, "HE_REJOIN_CLASSIFICATION.md");
+  const mdName = opts.caseAPrime
+    ? "HE_REJOIN_A_PRIME.md"
+    : "HE_REJOIN_CLASSIFICATION.md";
+  const mdPath = path.join(OUT_DIR, mdName);
   fs.writeFileSync(mdPath, md.join("\n") + "\n", "utf8");
   console.log(`[rejoin-he] wrote ${mdPath}`);
 
   if (opts.apply) {
-    const bak = path.join(OUT_DIR, `he_rejoin_apply_log_${stamp}.json`);
+    const bak = path.join(
+      OUT_DIR,
+      opts.caseAPrime
+        ? `he_rejoin_a_prime_apply_log_${stamp}.json`
+        : `he_rejoin_apply_log_${stamp}.json`
+    );
     fs.writeFileSync(bak, JSON.stringify(payload, null, 2), "utf8");
     console.log(`[rejoin-he] backup log ${bak}`);
   }
 
-  console.log(
-    `\n[rejoin-he] TOTAL A=${payload.totals.A_eligible} B=${payload.totals.B_candidate} C=${payload.totals.C_remap} skip=${payload.totals.skip} eligible=${payload.totals.eligible}` +
-      (opts.apply ? ` applied=${payload.totals.applied}` : " (dry-run)")
-  );
+  if (opts.caseAPrime) {
+    console.log(
+      `\n[rejoin-he] TOTAL A′ auto=${payload.totals.eligible} held=${payload.totals.held} B=${payload.totals.B_candidate}` +
+        ` buckets=${JSON.stringify(payload.totals.byHeadingBucket)}` +
+        (opts.apply ? ` applied=${payload.totals.applied}` : " (dry-run)")
+    );
+  } else {
+    console.log(
+      `\n[rejoin-he] TOTAL A=${payload.totals.A_eligible} B=${payload.totals.B_candidate} C=${payload.totals.C_remap} skip=${payload.totals.skip} eligible=${payload.totals.eligible}` +
+        (opts.apply ? ` applied=${payload.totals.applied}` : " (dry-run)")
+    );
+  }
 }
 
 main();
