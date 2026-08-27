@@ -1,12 +1,12 @@
 # HE/EN segment mismatch scan
 
-Scanned at: 2026-08-27T11:39:27.268Z
+Scanned at: 2026-08-27T12:03:29.897Z
 
 Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Volume | Pairs | Issues | Top kinds |
 |--------|------:|-------:|-----------|
-| cm1 | 70186 | 618 | en_truncated_vs_multi_he(433), he_has_more_segments(154), en_has_more_segments(22) |
+| cm1 | 70186 | 610 | en_truncated_vs_multi_he(433), he_has_more_segments(154), en_has_more_segments(22) |
 
 ## By slug (issues ≥ 1)
 
@@ -15,11 +15,11 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 | Slug | Issues | Kinds |
 |------|-------:|-------|
 | mechaber | 270 | en_truncated_vs_multi_he:270 |
-| beur-hagra | 132 | en_truncated_vs_multi_he:70, he_has_more_segments:51, en_has_more_segments:9, he_truncated_vs_multi_en:2 |
+| beur-hagra | 130 | en_truncated_vs_multi_he:70, he_has_more_segments:51, en_has_more_segments:9 |
 | urim-vetumim-tumim | 94 | en_truncated_vs_multi_he:40, he_has_more_segments:53, en_has_more_segments:1 |
 | beer-hagolah | 36 | he_has_more_segments:32, en_truncated_vs_multi_he:4 |
 | chokhmat-shlomo | 25 | he_truncated_vs_multi_en:1, en_truncated_vs_multi_he:23, he_has_more_segments:1 |
-| ketzot-hachoshen | 21 | he_has_more_segments:1, en_truncated_vs_multi_he:2, en_has_more_segments:12, he_truncated_vs_multi_en:6 |
+| ketzot-hachoshen | 15 | he_has_more_segments:1, en_truncated_vs_multi_he:2, en_has_more_segments:12 |
 | meirat-einayim | 9 | he_has_more_segments:9 |
 | turei-zahav | 8 | en_truncated_vs_multi_he:8 |
 | netivot-hamishpat-beurim | 5 | he_has_more_segments:3, en_truncated_vs_multi_he:2 |

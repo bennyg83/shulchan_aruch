@@ -1,0 +1,258 @@
+{
+  "fixedAt": "2026-08-27T12:00:48.320Z",
+  "mode": "manual",
+  "criteria": "he_truncated_vs_multi_en only; join when single HE lemma covers EN parts; skip seif-remap mismatches",
+  "beforeCounts": {
+    "oc1": 1,
+    "yd1": 2,
+    "eh1": 0,
+    "cm1": 9,
+    "total": 12
+  },
+  "cells": [
+    {
+      "path": "oc1/siman568/seif-009/chatam-sofer",
+      "action": "fixed",
+      "reason": "Single HE note (yahrzeit / Chatam Sofer responsa digression); EN[1] is dangling References trailer artificially split by <br>.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "(שם) במחבר סעיף ט' נ\"ב עיין פה בא\"ר ס\"ק ט\"ו דין יום שמת בו רבו ודין יום מיתת ת\"ח ר\"ל ומסתמ' יום שמועה כבפניו דמי דהרי שאול ויהונתן יום שמועה היה גבי דוד והתענה ",
+      "enPreviews": [
+        "(There.) In the Mechaber, se'if 9. Gloss: See here in Eliyah Rabbah, s.k. 15, the law of the day on which his teacher died and the law of th",
+        "References: 7, 56, 151."
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "59662836a7c82ba85f48f21de9e195ae720bc4f08fea763cb1fc5037c42a21aa",
+      "shaAfter": "e7ef9a276640712628264a48ffe953af9fbc2d999b479ec64a4b8aecf8398464",
+      "bytesBefore": 5019,
+      "bytesAfter": 5007
+    },
+    {
+      "path": "yd1/siman35/seif-002/yad-avraham",
+      "action": "skipped",
+      "reason": "Seif-remap: HE is seif-5 ona+hollow lemma (duplicate of seif-005 HE); EN[0] is vardot essay; EN[1] duplicates seif-004 kids/lambs note. Blind join would merge unrelated lemmas.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "(סעיף ה' בהג\"ה) אם נמצא אונא ע\"ג הריאה וגומא תחתיה כו' ושוה לשאר הריאה כו' כשרה. דאין זה יתרת אלא פיצול הריאה ומאחר שיש לה גומא תחתיו לנוח בו אינו עתיד להתפרק כ",
+      "enPreviews": [
+        "(Siman 35 seif 2 in the hagahah b') If two vardot are found in it, etc., and if one is inverted and the other is not inverted — we follow th",
+        "(In the hagahah) Some say: in kids and lambs one should not declare treifah if onot are not found, etc., and when they grow the onot grow wi"
+      ],
+      "enSegsAfter": 2
+    },
+    {
+      "path": "yd1/siman331/seif-119/beur-hagra",
+      "action": "fixed",
+      "reason": "Classic Beur HaGra main + (ליקוט)/(Supplement) in one HE blob; EN artificially split at Supplement.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "אין פורעין כו'. עבה\"ג ועמ\"ש בסעיף ק\"א: (ליקוט) אין כו'. חולין קל\"א א' גיטין מ\"ד א' וב\"מ ק\"א א' ומקבל כחוכר כו' ועתוס' שם ד\"ה סברוה כו' ובחוכר מן הדין כו' (ע\"כ):",
+      "enPreviews": [
+        "One may not pay, etc. See Be'er HaGolah and what I wrote in seif 101.",
+        "(Supplement) One may not, etc. Chullin 131a, Gittin 44a, and Bava Metzia 101a. A sharecropper is like a renter, etc. See Tosafot there, s.v."
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "5e7985ccdd356bddee15f116c8a667b3c1d489f962fde6d46f0485f9fad3289a",
+      "shaAfter": "f3857c74e7721e8f2ba3e0ac7f92178ca61de4d8cf1d3ccbc9cf217da78a7fc0",
+      "bytesBefore": 312,
+      "bytesAfter": 308
+    },
+    {
+      "path": "cm1/siman15/seif-001/chokhmat-shlomo",
+      "action": "skipped",
+      "reason": "Seif-remap: HE lemma is seif-2 court-priority (widow/talmid chacham); both EN segments are one witnesses essay labeled Seif 1 that HE does not cover. Do not join wrong-lemma EN onto this HE.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "סעיף ב' היו לפניו דינים הרבה וכו' נ\"ב. הנה הטור הביא בשם הרמב\"ם דאלמנה קודם לת\"ח. ותמהו עליו דבש\"ס פ\"ב דכתובות מוכח כן לדין יתום ת\"ח קודם וכבר הקשה כן הד\"מ ע\"ש ",
+      "enPreviews": [
+        "Seif 1. Note: See my work on Even HaEzer, laws of kiddushin, siman 28, seventh edition siman 212, where I discuss whether a witness who is d",
+        "There, Seif 1. I heard a question attributed to a great scholar: Why, when one of a group of witnesses is found related or disqualified, do "
+      ],
+      "enSegsAfter": 2
+    },
+    {
+      "path": "cm1/siman71/seif-019/beur-hagra",
+      "action": "fixed",
+      "reason": "Main + (ליקוט)/(Supplement) single HE; EN oversplit at Supplement.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "אין. מהא דכתובות י\"ט א':) ליקוט) אין הנאמנות כו'. כבר תפסו הרז\"ה והרא\"ש וש\"פ את הרי\"ף והגאונים דל\"ד להא דפ\"ב דכתובות דדוקא אם קדם השיעבוד לנאמנות דמי להתם והביא",
+      "enPreviews": [
+        "There is no. This is derived from Ketubot 19a.",
+        "(Supplement) The trust clause does not, etc. Baal HaMaor, Rosh, and other authorities challenge Rif and the Geonim, arguing that the Ketubot"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "102eb55540e177ee94d0a38b597dedc91fa3fca0fd07c9386200bd8594c00a79",
+      "shaAfter": "1be820df060139559e12410319f8ba7abcb0f7f65a88287498f040b7847f860a",
+      "bytesBefore": 667,
+      "bytesAfter": 661
+    },
+    {
+      "path": "cm1/siman153/seif-016/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous Ketzot essay on ladder/beams chazakah; EN mid-paragraph <br> split with EN[1] continuing same lemma.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "ובחזקת סולם ונעיצת קורות. ונחלקו בזה רבוותא והובא בטור וז\"ל פי' רשב\"ם שלחזקה כזאת אין צריך שלש שנים אלא בדבר שיש בו חסרון קרקע כגון פתיחת חלונות ומרזב ומזחילה ש",
+      "enPreviews": [
+        "And regarding chazakah of a ladder and inserting beams. The early authorities disagree, as cited by the Tur. Rashbam explains that such a ch",
+        "It therefore appears to me that although consuming produce does not acquire the body of the land, if the owners agree to grant another perso"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "f1341eb04b4d476b94e989affc82339ac9d291e3c4360d2eea57665062633a70",
+      "shaAfter": "3f7ac6739b4903d127e5d956210cb622cf3c5946211b980349edd89088e5f113",
+      "bytesBefore": 2814,
+      "bytesAfter": 2810
+    },
+    {
+      "path": "cm1/siman154/seif-012/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous note on immediate mechilah/window blocking; EN[1] continues Sema critique of same lemma.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "ומיד הוי מחילה כ' הסמ\"ע וז\"ל הרא\"ש וסייעתו מודים בזה מטעם שכ' המחבר שאין אדם עשוי שסותמין אורו בפניו ושותק אלא א\"כ מחל והרמב\"ם שכ' ג\"כ טעם זה בסתימת החלון אע\"ג ",
+      "enPreviews": [
+        "And immediately it is deemed a waiver. Sema writes that the Rosh and those who follow him agree here because of the Mechaber's reason: a per",
+        "Sema's statement that in other nuisances we require affirmative knowledge that the injured party noticed the harm is not precise. Rambam wri"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "cd24f01ab664233290977f74c66c51b24847bb5658791e29f6f46f405a55b186",
+      "shaAfter": "bf9943bba71df3eb781878c6360c212ec0ac0ef08c684576ccbeb9b0dadb3295",
+      "bytesBefore": 2024,
+      "bytesAfter": 2020
+    },
+    {
+      "path": "cm1/siman155/seif-009/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous dovecote-distance note; EN[1] continues liability discussion of same lemma.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "מרחיקין השובך. כתב בנימוקי פ' לא יחפור וז\"ל כולהו מתני' הוי גיריה ממש ולא מבעיא בור ושיח ומערה דכל מרא ומרא מרפיה לארעיה כו' והרחקת שובך הוי נמי מטעם אחר שהוא מ",
+      "enPreviews": [
+        "The dovecote must be distanced. Nimukei Yosef in chapter Lo Yachpor writes that all the Mishnah's cases constitute direct causal force. Cert",
+        "Accordingly, if one failed to distance his dovecote from the city and the pigeons went and caused damage, the monetary liability depends on "
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "982e537a0f36b5a06e74a9796c72ae190b2f3c813d993de2fe7d22df046ccb31",
+      "shaAfter": "e859fa418ce5775c7fbaf9c71a17c139fd395fb548c9d02a9d45fdc427177c97",
+      "bytesBefore": 1985,
+      "bytesAfter": 1981
+    },
+    {
+      "path": "cm1/siman227/seif-023/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous broker/onaah note; EN[1] continues Sema analysis on same lemma.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "או שקנה ע\"י סרסור. כת' בסמ\"ע וז\"ל פי' אף אם ידע הלוקח שהן של בעה\"ב כיון שבעה\"ב מסרו לסרסור למכור למי שיבא לקנותו ודאי נתייאש שלא ידע הלוקח שהן של בעה\"ב ועל דעת ",
+      "enPreviews": [
+        "Or where he purchased through a broker. Sema explains that even if the buyer knew the goods belonged to a householder, once the householder ",
+        "Sema's view appears correct. Even if a buyer knows at the time of purchase that an item is not worth the price and nevertheless pays more, h"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "f04f89c420bad0ba71375f1e15acf94afab997f531a3a6c4dc608af24a93f711",
+      "shaAfter": "483a2c2bd5de4291dd4c62488e45c5b492370ee26c11ba043d64404d5ff331c9",
+      "bytesBefore": 1964,
+      "bytesAfter": 1960
+    },
+    {
+      "path": "cm1/siman236/seif-008/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous appraisal/rescue-expenditure note; EN[1] continues Responsa Rosh clarification of same ruling.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "שמין כמה הי' רוצה ליתן. כת' הרא\"ש פ' הכונס בפסק דרבינו גרשום ז\"ל דלא דמי כלל למבריח ארי מנכסי חבירו אע\"ג דמדעתי' עביד כיון שיצא הבית מחזקת ישראל ואינו מצוי שיחז",
+      "enPreviews": [
+        "We appraise how much he would have been willing to pay. Rosh in chapter HaKones cites Rabbeinu Gershom's ruling that this does not resemble ",
+        "Responsa Rosh, klal 95, records a question seeking clarification of Rabbeinu Gershom's ruling regarding a violent person who seized a Jew's "
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "6c5150ff94abd1934d502ef79245f20caa9bb6e38406461ff4d475e16a4d0886",
+      "shaAfter": "193f540f1e643e7ff7de5ccae321c7373ddd10ae2225dc4ed4b7313118977761",
+      "bytesBefore": 2154,
+      "bytesAfter": 2150
+    },
+    {
+      "path": "cm1/siman281/seif-002/ketzot-hachoshen",
+      "action": "fixed",
+      "reason": "One continuous inheritance-increase essay; EN oversplit into 3 continuation paragraphs of same lemma.",
+      "heSegs": 1,
+      "enSegsBefore": 3,
+      "heHasHebrew": true,
+      "hePreview": "דבריו קיימים. ונראה לי שדבריו קיימים כיון דהתורה נתנה לו רשות לעשות יורש בין היורשין למי שירצה א\"כ ה\"ל הוא היורש ואינו יכול לחזור אח\"כ ולומר שלא יירש כיון שכבר ",
+      "enPreviews": [
+        "His words stand. It appears to me that once the Torah granted a person authority to designate one of the legal heirs to receive a greater in",
+        "If, however, he initially increased one heir and reduced another, and then changes his words by reducing the first and increasing the second",
+        "But he cannot undo the first son's already acquired increased inheritance merely by saying, 'he shall not inherit the increase.' Once the fi"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "edc6aa3812973acedb56535514ad4b6807aae15ceb06d618004de8fe0bb32e8b",
+      "shaAfter": "e8453ded2d847ca2dddd7a0c2f367d1dab15fa3e0ba8d12f1ab6249dfab94a6b",
+      "bytesBefore": 2415,
+      "bytesAfter": 2408
+    },
+    {
+      "path": "cm1/siman391/seif-002/beur-hagra",
+      "action": "fixed",
+      "reason": "Main + (ליקוט)/(Supplement) single HE; EN oversplit at Supplement.",
+      "heSegs": 1,
+      "enSegsBefore": 2,
+      "heHasHebrew": true,
+      "hePreview": "בין כו'. דקי\"ל כר\"י ועוד דגם באידך דר\"ל לא קי\"ל כוותיה כמש\"ש כ\"ד ב': (ליקוט) בין כו' דאין הלכה כר\"ל דאף בדין דשתי פרות לא קי\"ל כוותיה ואף שהרא\"ש שם סי\"ד דחק עצמ",
+      "enPreviews": [
+        "Whether, etc. The law follows Rabbi Yehuda. Moreover, we do not follow Reish Lakish even in his other ruling, as stated on 24b.",
+        "(Supplement) Whether, etc. The law does not follow Reish Lakish, for even regarding the case of two cows we reject his view. Rosh's strained"
+      ],
+      "enSegsAfter": 1,
+      "shaBefore": "aa7a42673ca5cdfcac7155aec1ccf6b31dee99fb725d06e432c29615d52e25ee",
+      "shaAfter": "48d8556196baff3164b2cda0200f4a622dc7039aff3550fc4afaa86be744be19",
+      "bytesBefore": 334,
+      "bytesAfter": 328
+    }
+  ],
+  "affectedSimanim": {
+    "oc1": [
+      "siman568"
+    ],
+    "yd1": [
+      "siman331"
+    ],
+    "eh1": [],
+    "cm1": [
+      "siman71",
+      "siman153",
+      "siman154",
+      "siman155",
+      "siman227",
+      "siman236",
+      "siman281",
+      "siman391"
+    ]
+  },
+  "summary": {
+    "fixed": 10,
+    "skipped": 2
+  },
+  "afterCounts": {
+    "oc1": 0,
+    "yd1": 1,
+    "eh1": 0,
+    "cm1": 1,
+    "total": 2
+  },
+  "afterRemainingPaths": [
+    "yd1/siman35/seif-002/yad-avraham",
+    "cm1/siman15/seif-001/chokhmat-shlomo"
+  ],
+  "rescannedAt": "2026-08-27T12:07:02.400Z"
+}
