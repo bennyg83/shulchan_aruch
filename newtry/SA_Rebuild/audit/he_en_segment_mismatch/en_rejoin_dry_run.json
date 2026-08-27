@@ -1,0 +1,745 @@
+{
+  "scannedAt": "2026-08-27T11:34:25.194Z",
+  "mode": "dry-run",
+  "volumes": [
+    "oc1",
+    "yd1"
+  ],
+  "reports": [
+    {
+      "volume": "oc1",
+      "scannedPairs": 89911,
+      "candidateMismatches": 25,
+      "eligible": 24,
+      "applied": 0,
+      "skipped": 1,
+      "byKind": {
+        "he_truncated_vs_multi_en": 25
+      },
+      "bySlug": {
+        "yad-ephraim": 5,
+        "mechaber": 1,
+        "chatam-sofer": 1,
+        "peri-megadim": 4,
+        "biur-halacha": 4,
+        "beur-hagra": 2,
+        "machatzit-hashekel": 1,
+        "chokhmat-shlomo": 4,
+        "netiv-chayim": 1,
+        "turei-zahav": 1
+      },
+      "byStrategy": {
+        "rejoin_en_space": 24
+      },
+      "bySkipReason": {
+        "upstream_he_missing": 1
+      },
+      "byUpstreamSource": {
+        "oc_simanim_he_html": 24
+      },
+      "affectedSimanim": [
+        32,
+        128,
+        132,
+        167,
+        190,
+        236,
+        271,
+        272,
+        277,
+        298,
+        328,
+        422,
+        429,
+        440,
+        467,
+        469,
+        485,
+        486,
+        495,
+        643,
+        687,
+        688
+      ],
+      "backups": [
+        {
+          "path": "oc1/siman32/seif-003/yad-ephraim/en.html",
+          "sha256": "4e6aceef73aa820e26e452da154ad499a5d2e2d91c772b805ca3470dd905f07e",
+          "bytes": 3488,
+          "preview": "<b>Magen Avraham, seif katan 18.</b> He emends the text to read, “the first leg.” According to this, the word “or” must be deleted, as Peri Megadim and Machatzis HaShekel also write. Yet according to ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman32/seif-009/yad-ephraim/en.html",
+          "sha256": "0b73178e1d4fdd97f269f34d8d09a7ad4e8d84166d6fb1d6ed1f6d28c235e9e9",
+          "bytes": 6261,
+          "preview": "<b>Seif katan 26.</b> Rabbi Yosef HaLevi writes, etc., that he should not erase the leg. His meaning is that merely erasing the excess and leaving the remainder is not considered a valid repair. There",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 8,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman32/seif-024/yad-ephraim/en.html",
+          "sha256": "a149e92cfa34da8ba1e7511d2bce06ffee8b8d399333c5b81a68c9a834c242de",
+          "bytes": 2848,
+          "preview": "<b>Ibid.</b> “And also enough space to write one word.” This requires study, because Rambam does not mean that the space needed for one word is included in the prescribed blank interval. Rather, he me",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman128/seif-045/mechaber/en.html",
+          "sha256": "cd686b315e7ee25571c86d1448c6754cf7b8aeb9e681b7ca868221c91937822f",
+          "bytes": 564,
+          "preview": "<b>The manner in which the kohanim turn during Birkat Kohanim.</b><br>These are the words during which the kohanim turn toward the south and the north: “May Hashem bless you,” “and protect you,” “may ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman132/seif-001/chatam-sofer/en.html",
+          "sha256": "e920494454709ad75407d54a343f04e64d0ca3651236d5e115c5cdc1e855d2b8",
+          "bytes": 1317,
+          "preview": "In Magen Avraham note 2, end of his words. And I saw in Noda B'Yehuda, and it is explained in Levush and Minhagim, that prayer kaddishim specifically belong to yahrzeit, namely two on weekdays, Maariv",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman167/seif-006/peri-megadim/en.html",
+          "sha256": "04ea2a38a470b5109bc4cc87c50e5f1d02ce1b57744a145f94d1da38a2b23e8d",
+          "bytes": 3641,
+          "preview": "<b>Fine bread.</b> See Taz. Berachos 40a states, “This does not require delay.” Rashi explains that “this” means this bread, and “delay” is like the expression “Moshe delayed”; the Gemara used a refin",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman190/seif-003/peri-megadim/en.html",
+          "sha256": "6f5eab9755a37a60b9d5af36a179d24cafa62bb2f4e0e78eabb51e4f2e51b401",
+          "bytes": 1500,
+          "preview": "<b>That it is.</b> See Taz and Eliyah Rabbah, seif katan 5, regarding what Taz wrote. We do not find the exposition that “you shall bless” refers to the cup of Birkas HaMazon. Rather, “you shall bless",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman236/seif-001/peri-megadim/en.html",
+          "sha256": "5ae7030c865b113d9b672df3aa30e640b28f299855b0c006a52b170e39aeb56c",
+          "bytes": 1603,
+          "preview": "<b>Two</b> blessings before it. See Taz and Tur. See Tehillim 119. Bach concludes that the phrase “for Your righteous ordinances” alludes to seven righteous ordinances contained in the three paragraph",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman271/seif-001/biur-halacha/en.html",
+          "sha256": "c64e2a2784a5e90ca184fd545e6f8652876d5ac2040e31b853533a66a1a45832",
+          "bytes": 11764,
+          "preview": "<b>Immediately.</b> Taz writes that this applies even before nightfall, following his view in siman 234, seif katan 3. According to what Magen Avraham writes in siman 267, cited there in Mishnah Berur",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 13,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman272/seif-008/beur-hagra/en.html",
+          "sha256": "1173a300c9c1157caa261aab9597eea4788cd7488a506dd825173acf28fc2e55",
+          "bytes": 4498,
+          "preview": "<b>Seif 8: One may recite Kiddush, etc.; and some say that one may not recite Kiddush.</b> This is the ruling of the Gaon, who disqualifies cooked wine. His proof is from Menachos 86b, where the Mishn",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman277/seif-005/machatzit-hashekel/en.html",
+          "sha256": "f27766c750e44b3a1640d3d2e35023c19aeeac089876de21b008d2ea60d5426f",
+          "bytes": 1046,
+          "preview": "<b>Seif katan 5: The door strikes, etc.</b> It touches the lamp. This excludes the Taz’s interpretation that the lamp is fixed to the wall containing the doorway, though not directly behind the door, ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman298/seif-001/chokhmat-shlomo/en.html",
+          "sha256": "91516b60d3543977df3230f3cbd2f34b864e0f433570c6db80c6c9f26c0bf83f",
+          "bytes": 4622,
+          "preview": "<b>Seif 1: One recites the blessing over the flame, “Who creates the lights of fire,” etc.</b> Note: See my work Sefer HaChayim for the difficulty I raised concerning this matter, and see also what I ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 8,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman328/seif-044/biur-halacha/en.html",
+          "sha256": "08149cbb86de176ccf267c1f6eb46fa3c4721115a3b71f0d4a1df965d4ad21a3",
+          "bytes": 2216,
+          "preview": "<b>Except for medicinal purposes.</b> See Eliyah Rabbah, who writes regarding the hot springs of Tiberias that in places where people bathe in them only for medicinal purposes, one may not remain in t",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman422/seif-002/chokhmat-shlomo/en.html",
+          "sha256": "2d0390dcf31e1f16438d2c52df6383683a6a8a6d8c3dcc2ce38850f67598665d",
+          "bytes": 4302,
+          "preview": "<b>Ibid., seif 2.</b> “They recite Hallel with omissions,” etc. Note: The Gemara in Arachin 10b asks: Since Rosh Chodesh is called a moed, let Hallel be recited. It answers that Rosh Chodesh differs b",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman429/seif-001/chokhmat-shlomo/en.html",
+          "sha256": "8f96cb6fe6b0e37dacd8859b2cbf4d7df6458a0f533b4e4d9e51f0321825c410",
+          "bytes": 1268,
+          "preview": "<b>Seif 1.</b> “One asks and expounds concerning the laws of Pesach,” etc. See Magen Avraham, who writes that the same applies to the other festivals. See what I wrote in my novellae to Orach Chayim, ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman440/seif-002/biur-halacha/en.html",
+          "sha256": "bf9fe57e83272dcbe3a8e2a78357a73eb81f8c8b2dca12926752d4a2b8edda53",
+          "bytes": 1312,
+          "preview": "<b>So that he not forget and eat it.</b> The unqualified language of the poskim implies that this is not limited to bread, which can be eaten immediately as it is when taken. It applies even to forms ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman467/seif-001/netiv-chayim/en.html",
+          "sha256": "981cf55fc5d60e736335ebd8ca205b8d53b07c4fe479e7f6a4f376a74b98a91c",
+          "bytes": 3449,
+          "preview": "<small>(On Rama, seif 2)</small> “Those kernels that became damp.” Note: I will copy for you the words of the Agur, from which Rama’s ruling is taken, and through them we will arrive at the explanatio",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman469/seif-001/yad-ephraim/en.html",
+          "sha256": "0b919296133efc1bcd6cba9cba0fac0cd675ef1c7ceef4d6fc7d9bcf15f49302",
+          "bytes": 2269,
+          "preview": "<b>Magen Avraham, seif katan 2.</b> “People will say that he consecrated it for the monetary value of a Korban Pesach.” According to Rashi, the concern is not that people will assume he had already co",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman485/seif-001/biur-halacha/en.html",
+          "sha256": "e4f1c9430f7dbbf59b1cd05fede4fd960b7dab55f5b30ee2aee7489e8a391d84",
+          "bytes": 1184,
+          "preview": "<b>An oath that I will not eat matzah on Pesach night.</b> See Mor U’Ketziah, who writes that if one said, “I will not eat this matzah,” it is forbidden to him even if he has no other matzah available",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman486/seif-001/peri-megadim/en.html",
+          "sha256": "22e7226d41586f10f25a50e35cb278100443b8762e1592a88e7bf97da707227c",
+          "bytes": 4202,
+          "preview": "<b>In Tur it is written, etc.</b> See Taz. The principal laws of the Seder may be summarized as follows. See Levush. A cup used for a blessing should be rinsed on the outside and washed on the inside.",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman495/seif-002/beur-hagra/en.html",
+          "sha256": "3c5dd3967f9c16cbaa0b1307f40f46d72cfcf52aa26c6cc2e128860e42758256",
+          "bytes": 2596,
+          "preview": "<b>Seif 2: The Sages prohibited them.</b> This means unlike Rashi at the beginning of Ein Tzadin, who holds that these labors are prohibited by Torah law because they could have been performed before ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman643/seif-002/turei-zahav/en.html",
+          "sha256": "d63f4864cbfa7849f99d3620415edf9de26fcbddb042bc3412a33b0954b95c03",
+          "bytes": 4907,
+          "preview": "<b>According to the Rambam, he recites Kiddush while standing.</b> The Beit Yosef explains his reasoning as follows. The Rambam understood the blessing 'to dwell in the sukkah' as referring to actual ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman687/seif-002/chokhmat-shlomo/en.html",
+          "sha256": "41c036985858d5d82ebe39fa1417e458eb09f3b67c33f70719828b549319acef",
+          "bytes": 4717,
+          "preview": "<b>Ibid., seif 2.</b> “Torah study is suspended in order to hear the reading of the Megillah,” etc. Note: The Gemara says that the household of Rebbi relied upon the derivation from “family and family",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        },
+        {
+          "path": "oc1/siman688/seif-008/yad-ephraim/en.html",
+          "sha256": "53b61016f5a5c4356e539c55580b5657623fd22d903586dcd2aaf34bae5d23e3",
+          "bytes": 1126,
+          "preview": "<b>Ibid.</b> If it were regarded as a wall. Although for the laws of houses in a walled city it is certainly not a wall, regarding Megillah he remains in doubt, because it affords protection. Alternat",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space"
+        }
+      ],
+      "eligibleSamples": [
+        {
+          "path": "oc1/siman32/seif-003/yad-ephraim/en.html",
+          "sha256": "4e6aceef73aa820e26e452da154ad499a5d2e2d91c772b805ca3470dd905f07e",
+          "bytes": 3488,
+          "preview": "<b>Magen Avraham, seif katan 18.</b> He emends the text to read, “the first leg.” According to this, the word “or” must be deleted, as Peri Megadim and Machatzis HaShekel also write. Yet according to ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Magen Avraham, seif katan 18.</b> He emends the text to read, “the first leg.” According to this, the word “or” must be deleted, as Peri Megadim and Machatzis HaShekel also write. Yet according to ",
+          "joinedBytes": 3463
+        },
+        {
+          "path": "oc1/siman32/seif-009/yad-ephraim/en.html",
+          "sha256": "0b73178e1d4fdd97f269f34d8d09a7ad4e8d84166d6fb1d6ed1f6d28c235e9e9",
+          "bytes": 6261,
+          "preview": "<b>Seif katan 26.</b> Rabbi Yosef HaLevi writes, etc., that he should not erase the leg. His meaning is that merely erasing the excess and leaving the remainder is not considered a valid repair. There",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 8,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif katan 26.</b> Rabbi Yosef HaLevi writes, etc., that he should not erase the leg. His meaning is that merely erasing the excess and leaving the remainder is not considered a valid repair. There",
+          "joinedBytes": 6218
+        },
+        {
+          "path": "oc1/siman32/seif-024/yad-ephraim/en.html",
+          "sha256": "a149e92cfa34da8ba1e7511d2bce06ffee8b8d399333c5b81a68c9a834c242de",
+          "bytes": 2848,
+          "preview": "<b>Ibid.</b> “And also enough space to write one word.” This requires study, because Rambam does not mean that the space needed for one word is included in the prescribed blank interval. Rather, he me",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Ibid.</b> “And also enough space to write one word.” This requires study, because Rambam does not mean that the space needed for one word is included in the prescribed blank interval. Rather, he me",
+          "joinedBytes": 2829
+        },
+        {
+          "path": "oc1/siman128/seif-045/mechaber/en.html",
+          "sha256": "cd686b315e7ee25571c86d1448c6754cf7b8aeb9e681b7ca868221c91937822f",
+          "bytes": 564,
+          "preview": "<b>The manner in which the kohanim turn during Birkat Kohanim.</b><br>These are the words during which the kohanim turn toward the south and the north: “May Hashem bless you,” “and protect you,” “may ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>The manner in which the kohanim turn during Birkat Kohanim.</b> These are the words during which the kohanim turn toward the south and the north: “May Hashem bless you,” “and protect you,” “may Has",
+          "joinedBytes": 560
+        },
+        {
+          "path": "oc1/siman132/seif-001/chatam-sofer/en.html",
+          "sha256": "e920494454709ad75407d54a343f04e64d0ca3651236d5e115c5cdc1e855d2b8",
+          "bytes": 1317,
+          "preview": "In Magen Avraham note 2, end of his words. And I saw in Noda B'Yehuda, and it is explained in Levush and Minhagim, that prayer kaddishim specifically belong to yahrzeit, namely two on weekdays, Maariv",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "In Magen Avraham note 2, end of his words. And I saw in Noda B'Yehuda, and it is explained in Levush and Minhagim, that prayer kaddishim specifically belong to yahrzeit, namely two on weekdays, Maariv",
+          "joinedBytes": 1305
+        },
+        {
+          "path": "oc1/siman167/seif-006/peri-megadim/en.html",
+          "sha256": "04ea2a38a470b5109bc4cc87c50e5f1d02ce1b57744a145f94d1da38a2b23e8d",
+          "bytes": 3641,
+          "preview": "<b>Fine bread.</b> See Taz. Berachos 40a states, “This does not require delay.” Rashi explains that “this” means this bread, and “delay” is like the expression “Moshe delayed”; the Gemara used a refin",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Fine bread.</b> See Taz. Berachos 40a states, “This does not require delay.” Rashi explains that “this” means this bread, and “delay” is like the expression “Moshe delayed”; the Gemara used a refin",
+          "joinedBytes": 3622
+        },
+        {
+          "path": "oc1/siman190/seif-003/peri-megadim/en.html",
+          "sha256": "6f5eab9755a37a60b9d5af36a179d24cafa62bb2f4e0e78eabb51e4f2e51b401",
+          "bytes": 1500,
+          "preview": "<b>That it is.</b> See Taz and Eliyah Rabbah, seif katan 5, regarding what Taz wrote. We do not find the exposition that “you shall bless” refers to the cup of Birkas HaMazon. Rather, “you shall bless",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>That it is.</b> See Taz and Eliyah Rabbah, seif katan 5, regarding what Taz wrote. We do not find the exposition that “you shall bless” refers to the cup of Birkas HaMazon. Rather, “you shall bless",
+          "joinedBytes": 1493
+        },
+        {
+          "path": "oc1/siman236/seif-001/peri-megadim/en.html",
+          "sha256": "5ae7030c865b113d9b672df3aa30e640b28f299855b0c006a52b170e39aeb56c",
+          "bytes": 1603,
+          "preview": "<b>Two</b> blessings before it. See Taz and Tur. See Tehillim 119. Bach concludes that the phrase “for Your righteous ordinances” alludes to seven righteous ordinances contained in the three paragraph",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Two</b> blessings before it. See Taz and Tur. See Tehillim 119. Bach concludes that the phrase “for Your righteous ordinances” alludes to seven righteous ordinances contained in the three paragraph",
+          "joinedBytes": 1590
+        },
+        {
+          "path": "oc1/siman271/seif-001/biur-halacha/en.html",
+          "sha256": "c64e2a2784a5e90ca184fd545e6f8652876d5ac2040e31b853533a66a1a45832",
+          "bytes": 11764,
+          "preview": "<b>Immediately.</b> Taz writes that this applies even before nightfall, following his view in siman 234, seif katan 3. According to what Magen Avraham writes in siman 267, cited there in Mishnah Berur",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 13,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Immediately.</b> Taz writes that this applies even before nightfall, following his view in siman 234, seif katan 3. According to what Magen Avraham writes in siman 267, cited there in Mishnah Berur",
+          "joinedBytes": 11691
+        },
+        {
+          "path": "oc1/siman272/seif-008/beur-hagra/en.html",
+          "sha256": "1173a300c9c1157caa261aab9597eea4788cd7488a506dd825173acf28fc2e55",
+          "bytes": 4498,
+          "preview": "<b>Seif 8: One may recite Kiddush, etc.; and some say that one may not recite Kiddush.</b> This is the ruling of the Gaon, who disqualifies cooked wine. His proof is from Menachos 86b, where the Mishn",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif 8: One may recite Kiddush, etc.; and some say that one may not recite Kiddush.</b> This is the ruling of the Gaon, who disqualifies cooked wine. His proof is from Menachos 86b, where the Mishn",
+          "joinedBytes": 4467
+        },
+        {
+          "path": "oc1/siman277/seif-005/machatzit-hashekel/en.html",
+          "sha256": "f27766c750e44b3a1640d3d2e35023c19aeeac089876de21b008d2ea60d5426f",
+          "bytes": 1046,
+          "preview": "<b>Seif katan 5: The door strikes, etc.</b> It touches the lamp. This excludes the Taz’s interpretation that the lamp is fixed to the wall containing the doorway, though not directly behind the door, ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif katan 5: The door strikes, etc.</b> It touches the lamp. This excludes the Taz’s interpretation that the lamp is fixed to the wall containing the doorway, though not directly behind the door, ",
+          "joinedBytes": 1039
+        },
+        {
+          "path": "oc1/siman298/seif-001/chokhmat-shlomo/en.html",
+          "sha256": "91516b60d3543977df3230f3cbd2f34b864e0f433570c6db80c6c9f26c0bf83f",
+          "bytes": 4622,
+          "preview": "<b>Seif 1: One recites the blessing over the flame, “Who creates the lights of fire,” etc.</b> Note: See my work Sefer HaChayim for the difficulty I raised concerning this matter, and see also what I ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 8,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif 1: One recites the blessing over the flame, “Who creates the lights of fire,” etc.</b> Note: See my work Sefer HaChayim for the difficulty I raised concerning this matter, and see also what I ",
+          "joinedBytes": 4544
+        },
+        {
+          "path": "oc1/siman328/seif-044/biur-halacha/en.html",
+          "sha256": "08149cbb86de176ccf267c1f6eb46fa3c4721115a3b71f0d4a1df965d4ad21a3",
+          "bytes": 2216,
+          "preview": "<b>Except for medicinal purposes.</b> See Eliyah Rabbah, who writes regarding the hot springs of Tiberias that in places where people bathe in them only for medicinal purposes, one may not remain in t",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Except for medicinal purposes.</b> See Eliyah Rabbah, who writes regarding the hot springs of Tiberias that in places where people bathe in them only for medicinal purposes, one may not remain in t",
+          "joinedBytes": 2191
+        },
+        {
+          "path": "oc1/siman422/seif-002/chokhmat-shlomo/en.html",
+          "sha256": "2d0390dcf31e1f16438d2c52df6383683a6a8a6d8c3dcc2ce38850f67598665d",
+          "bytes": 4302,
+          "preview": "<b>Ibid., seif 2.</b> “They recite Hallel with omissions,” etc. Note: The Gemara in Arachin 10b asks: Since Rosh Chodesh is called a moed, let Hallel be recited. It answers that Rosh Chodesh differs b",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Ibid., seif 2.</b> “They recite Hallel with omissions,” etc. Note: The Gemara in Arachin 10b asks: Since Rosh Chodesh is called a moed, let Hallel be recited. It answers that Rosh Chodesh differs b",
+          "joinedBytes": 4289
+        },
+        {
+          "path": "oc1/siman429/seif-001/chokhmat-shlomo/en.html",
+          "sha256": "8f96cb6fe6b0e37dacd8859b2cbf4d7df6458a0f533b4e4d9e51f0321825c410",
+          "bytes": 1268,
+          "preview": "<b>Seif 1.</b> “One asks and expounds concerning the laws of Pesach,” etc. See Magen Avraham, who writes that the same applies to the other festivals. See what I wrote in my novellae to Orach Chayim, ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif 1.</b> “One asks and expounds concerning the laws of Pesach,” etc. See Magen Avraham, who writes that the same applies to the other festivals. See what I wrote in my novellae to Orach Chayim, ",
+          "joinedBytes": 1261
+        },
+        {
+          "path": "oc1/siman440/seif-002/biur-halacha/en.html",
+          "sha256": "bf9fe57e83272dcbe3a8e2a78357a73eb81f8c8b2dca12926752d4a2b8edda53",
+          "bytes": 1312,
+          "preview": "<b>So that he not forget and eat it.</b> The unqualified language of the poskim implies that this is not limited to bread, which can be eaten immediately as it is when taken. It applies even to forms ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>So that he not forget and eat it.</b> The unqualified language of the poskim implies that this is not limited to bread, which can be eaten immediately as it is when taken. It applies even to forms ",
+          "joinedBytes": 1305
+        },
+        {
+          "path": "oc1/siman467/seif-001/netiv-chayim/en.html",
+          "sha256": "981cf55fc5d60e736335ebd8ca205b8d53b07c4fe479e7f6a4f376a74b98a91c",
+          "bytes": 3449,
+          "preview": "<small>(On Rama, seif 2)</small> “Those kernels that became damp.” Note: I will copy for you the words of the Agur, from which Rama’s ruling is taken, and through them we will arrive at the explanatio",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<small>(On Rama, seif 2)</small> “Those kernels that became damp.” Note: I will copy for you the words of the Agur, from which Rama’s ruling is taken, and through them we will arrive at the explanatio",
+          "joinedBytes": 3430
+        },
+        {
+          "path": "oc1/siman469/seif-001/yad-ephraim/en.html",
+          "sha256": "0b919296133efc1bcd6cba9cba0fac0cd675ef1c7ceef4d6fc7d9bcf15f49302",
+          "bytes": 2269,
+          "preview": "<b>Magen Avraham, seif katan 2.</b> “People will say that he consecrated it for the monetary value of a Korban Pesach.” According to Rashi, the concern is not that people will assume he had already co",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 3,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Magen Avraham, seif katan 2.</b> “People will say that he consecrated it for the monetary value of a Korban Pesach.” According to Rashi, the concern is not that people will assume he had already co",
+          "joinedBytes": 2256
+        },
+        {
+          "path": "oc1/siman485/seif-001/biur-halacha/en.html",
+          "sha256": "e4f1c9430f7dbbf59b1cd05fede4fd960b7dab55f5b30ee2aee7489e8a391d84",
+          "bytes": 1184,
+          "preview": "<b>An oath that I will not eat matzah on Pesach night.</b> See Mor U’Ketziah, who writes that if one said, “I will not eat this matzah,” it is forbidden to him even if he has no other matzah available",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>An oath that I will not eat matzah on Pesach night.</b> See Mor U’Ketziah, who writes that if one said, “I will not eat this matzah,” it is forbidden to him even if he has no other matzah available",
+          "joinedBytes": 1177
+        },
+        {
+          "path": "oc1/siman486/seif-001/peri-megadim/en.html",
+          "sha256": "22e7226d41586f10f25a50e35cb278100443b8762e1592a88e7bf97da707227c",
+          "bytes": 4202,
+          "preview": "<b>In Tur it is written, etc.</b> See Taz. The principal laws of the Seder may be summarized as follows. See Levush. A cup used for a blessing should be rinsed on the outside and washed on the inside.",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>In Tur it is written, etc.</b> See Taz. The principal laws of the Seder may be summarized as follows. See Levush. A cup used for a blessing should be rinsed on the outside and washed on the inside.",
+          "joinedBytes": 4171
+        },
+        {
+          "path": "oc1/siman495/seif-002/beur-hagra/en.html",
+          "sha256": "3c5dd3967f9c16cbaa0b1307f40f46d72cfcf52aa26c6cc2e128860e42758256",
+          "bytes": 2596,
+          "preview": "<b>Seif 2: The Sages prohibited them.</b> This means unlike Rashi at the beginning of Ein Tzadin, who holds that these labors are prohibited by Torah law because they could have been performed before ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 5,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Seif 2: The Sages prohibited them.</b> This means unlike Rashi at the beginning of Ein Tzadin, who holds that these labors are prohibited by Torah law because they could have been performed before ",
+          "joinedBytes": 2571
+        },
+        {
+          "path": "oc1/siman643/seif-002/turei-zahav/en.html",
+          "sha256": "d63f4864cbfa7849f99d3620415edf9de26fcbddb042bc3412a33b0954b95c03",
+          "bytes": 4907,
+          "preview": "<b>According to the Rambam, he recites Kiddush while standing.</b> The Beit Yosef explains his reasoning as follows. The Rambam understood the blessing 'to dwell in the sukkah' as referring to actual ",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>According to the Rambam, he recites Kiddush while standing.</b> The Beit Yosef explains his reasoning as follows. The Rambam understood the blessing 'to dwell in the sukkah' as referring to actual ",
+          "joinedBytes": 4891
+        },
+        {
+          "path": "oc1/siman687/seif-002/chokhmat-shlomo/en.html",
+          "sha256": "41c036985858d5d82ebe39fa1417e458eb09f3b67c33f70719828b549319acef",
+          "bytes": 4717,
+          "preview": "<b>Ibid., seif 2.</b> “Torah study is suspended in order to hear the reading of the Megillah,” etc. Note: The Gemara says that the household of Rebbi relied upon the derivation from “family and family",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 4,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Ibid., seif 2.</b> “Torah study is suspended in order to hear the reading of the Megillah,” etc. Note: The Gemara says that the household of Rebbi relied upon the derivation from “family and family",
+          "joinedBytes": 4698
+        },
+        {
+          "path": "oc1/siman688/seif-008/yad-ephraim/en.html",
+          "sha256": "53b61016f5a5c4356e539c55580b5657623fd22d903586dcd2aaf34bae5d23e3",
+          "bytes": 1126,
+          "preview": "<b>Ibid.</b> If it were regarded as a wall. Although for the laws of houses in a walled city it is certainly not a wall, regarding Megillah he remains in doubt, because it affords protection. Alternat",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "upstreamSource": "oc_simanim_he_html",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>Ibid.</b> If it were regarded as a wall. Although for the laws of houses in a walled city it is certainly not a wall, regarding Megillah he remains in doubt, because it affords protection. Alternat",
+          "joinedBytes": 1119
+        }
+      ],
+      "skippedSamples": [
+        {
+          "path": "oc1/siman568/seif-009/chatam-sofer",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "reason": "upstream_he_missing",
+          "upstreamSource": "merged_aligned",
+          "upstreamReason": "not_seif_aligned",
+          "detail": {
+            "rowLen": 5,
+            "mechN": 12
+          }
+        }
+      ],
+      "simanimScanned": 697
+    },
+    {
+      "volume": "yd1",
+      "scannedPairs": 25946,
+      "candidateMismatches": 3,
+      "eligible": 1,
+      "applied": 0,
+      "skipped": 2,
+      "byKind": {
+        "he_truncated_vs_multi_en": 3
+      },
+      "bySlug": {
+        "pitchei-teshuva": 1
+      },
+      "byStrategy": {
+        "rejoin_en_space": 1
+      },
+      "bySkipReason": {
+        "upstream_he_missing": 2
+      },
+      "byUpstreamSource": {
+        "merged_aligned": 1
+      },
+      "affectedSimanim": [
+        320
+      ],
+      "backups": [
+        {
+          "path": "yd1/siman320/seif-006/pitchei-teshuva/en.html",
+          "sha256": "068e4360e9123b73928c769b04d16a469d04b74550d18b0b378571d1da792f39",
+          "bytes": 22746,
+          "preview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "merged_aligned",
+          "strategy": "rejoin_en_space"
+        }
+      ],
+      "eligibleSamples": [
+        {
+          "path": "yd1/siman320/seif-006/pitchei-teshuva/en.html",
+          "sha256": "068e4360e9123b73928c769b04d16a469d04b74550d18b0b378571d1da792f39",
+          "bytes": 22746,
+          "preview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "merged_aligned",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "joinedBytes": 22730
+        }
+      ],
+      "skippedSamples": [
+        {
+          "path": "yd1/siman35/seif-002/yad-avraham",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "reason": "upstream_he_missing",
+          "upstreamSource": "merged_aligned",
+          "upstreamReason": "not_seif_aligned",
+          "detail": {
+            "rowLen": 4,
+            "mechN": 10
+          }
+        },
+        {
+          "path": "yd1/siman331/seif-119/beur-hagra",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "reason": "upstream_he_missing",
+          "upstreamSource": "merged_aligned",
+          "upstreamReason": "not_seif_aligned",
+          "detail": {
+            "rowLen": 224,
+            "mechN": 146
+          }
+        }
+      ],
+      "simanimScanned": 402
+    }
+  ]
+}

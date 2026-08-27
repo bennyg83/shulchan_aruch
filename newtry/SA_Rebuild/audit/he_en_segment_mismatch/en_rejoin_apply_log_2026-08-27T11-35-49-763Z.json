@@ -1,0 +1,92 @@
+{
+  "scannedAt": "2026-08-27T11:35:49.764Z",
+  "mode": "apply",
+  "volumes": [
+    "yd1"
+  ],
+  "reports": [
+    {
+      "volume": "yd1",
+      "scannedPairs": 25946,
+      "candidateMismatches": 3,
+      "eligible": 1,
+      "applied": 1,
+      "skipped": 2,
+      "byKind": {
+        "he_truncated_vs_multi_en": 3
+      },
+      "bySlug": {
+        "pitchei-teshuva": 1
+      },
+      "byStrategy": {
+        "rejoin_en_space": 1
+      },
+      "bySkipReason": {
+        "upstream_he_missing": 2
+      },
+      "byUpstreamSource": {
+        "merged_aligned": 1
+      },
+      "affectedSimanim": [
+        320
+      ],
+      "backups": [
+        {
+          "path": "yd1/siman320/seif-006/pitchei-teshuva/en.html",
+          "sha256": "068e4360e9123b73928c769b04d16a469d04b74550d18b0b378571d1da792f39",
+          "bytes": 22746,
+          "preview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "merged_aligned",
+          "strategy": "rejoin_en_space"
+        }
+      ],
+      "eligibleSamples": [
+        {
+          "path": "yd1/siman320/seif-006/pitchei-teshuva/en.html",
+          "sha256": "068e4360e9123b73928c769b04d16a469d04b74550d18b0b378571d1da792f39",
+          "bytes": 22746,
+          "preview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 6,
+          "upstreamSource": "merged_aligned",
+          "strategy": "rejoin_en_space",
+          "joinedPreview": "<b>To make a partnership with the non-Jew.</b> See Mishneh LaMelech, chapter 4 of Hilchot Bechorot, who was asked about one who owned an animal expecting its first birth and wished to exempt it from f",
+          "joinedBytes": 22730
+        }
+      ],
+      "skippedSamples": [
+        {
+          "path": "yd1/siman35/seif-002/yad-avraham",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "reason": "upstream_he_missing",
+          "upstreamSource": "merged_aligned",
+          "upstreamReason": "not_seif_aligned",
+          "detail": {
+            "rowLen": 4,
+            "mechN": 10
+          }
+        },
+        {
+          "path": "yd1/siman331/seif-119/beur-hagra",
+          "kind": "he_truncated_vs_multi_en",
+          "heSegs": 1,
+          "enSegs": 2,
+          "reason": "upstream_he_missing",
+          "upstreamSource": "merged_aligned",
+          "upstreamReason": "not_seif_aligned",
+          "detail": {
+            "rowLen": 224,
+            "mechN": 146
+          }
+        }
+      ],
+      "simanimScanned": 402
+    }
+  ]
+}

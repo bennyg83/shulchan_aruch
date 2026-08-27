@@ -1,23 +1,22 @@
 {
   "volume": "oc1",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "scannedAt": "2026-08-27T10:33:46.809Z",
+  "scannedAt": "2026-08-27T11:37:36.019Z",
   "pairs": 89911,
-  "issues": 433,
+  "issues": 408,
   "byKind": {
     "en_has_more_segments": 22,
-    "he_missing": 60,
+    "he_missing": 59,
     "en_truncated_vs_multi_he": 314,
     "he_has_more_segments": 12,
-    "he_truncated_vs_multi_en": 25
+    "he_truncated_vs_multi_en": 1
   },
   "bySlug": {
     "biur-halacha": {
-      "issues": 9,
+      "issues": 5,
       "byKind": {
         "en_has_more_segments": 4,
-        "he_has_more_segments": 1,
-        "he_truncated_vs_multi_en": 4
+        "he_has_more_segments": 1
       }
     },
     "eshel-avraham": {
@@ -27,12 +26,11 @@
       }
     },
     "machatzit-hashekel": {
-      "issues": 12,
+      "issues": 11,
       "byKind": {
         "he_missing": 3,
         "he_has_more_segments": 4,
         "en_has_more_segments": 3,
-        "he_truncated_vs_multi_en": 1,
         "en_truncated_vs_multi_he": 1
       }
     },
@@ -48,27 +46,18 @@
         "he_missing": 2
       }
     },
-    "shaarei-teshuvah": {
-      "issues": 18,
-      "byKind": {
-        "he_missing": 13,
-        "en_truncated_vs_multi_he": 5
-      }
-    },
     "yad-ephraim": {
-      "issues": 19,
+      "issues": 14,
       "byKind": {
         "en_truncated_vs_multi_he": 2,
-        "he_truncated_vs_multi_en": 5,
         "en_has_more_segments": 1,
         "he_missing": 11
       }
     },
     "mechaber": {
-      "issues": 232,
+      "issues": 231,
       "byKind": {
-        "en_truncated_vs_multi_he": 231,
-        "he_truncated_vs_multi_en": 1
+        "en_truncated_vs_multi_he": 231
       }
     },
     "ateret-zekenim": {
@@ -79,12 +68,18 @@
         "he_missing": 7
       }
     },
+    "shaarei-teshuvah": {
+      "issues": 17,
+      "byKind": {
+        "en_truncated_vs_multi_he": 5,
+        "he_missing": 12
+      }
+    },
     "chokhmat-shlomo": {
-      "issues": 9,
+      "issues": 5,
       "byKind": {
         "en_truncated_vs_multi_he": 2,
-        "he_missing": 3,
-        "he_truncated_vs_multi_en": 4
+        "he_missing": 3
       }
     },
     "kol-yaakov": {
@@ -108,41 +103,37 @@
       }
     },
     "turei-zahav": {
-      "issues": 6,
+      "issues": 5,
       "byKind": {
         "en_has_more_segments": 4,
-        "he_missing": 1,
-        "he_truncated_vs_multi_en": 1
-      }
-    },
-    "chatam-sofer": {
-      "issues": 3,
-      "byKind": {
-        "he_truncated_vs_multi_en": 2,
         "he_missing": 1
       }
     },
     "beur-hagra": {
-      "issues": 14,
+      "issues": 12,
       "byKind": {
         "he_missing": 4,
-        "en_has_more_segments": 8,
-        "he_truncated_vs_multi_en": 2
+        "en_has_more_segments": 8
       }
     },
     "netiv-chayim": {
-      "issues": 5,
+      "issues": 4,
       "byKind": {
-        "he_missing": 4,
+        "he_missing": 4
+      }
+    },
+    "chatam-sofer": {
+      "issues": 2,
+      "byKind": {
+        "he_missing": 1,
         "he_truncated_vs_multi_en": 1
       }
     },
     "peri-megadim": {
-      "issues": 9,
+      "issues": 5,
       "byKind": {
         "en_has_more_segments": 2,
-        "en_truncated_vs_multi_he": 3,
-        "he_truncated_vs_multi_en": 4
+        "en_truncated_vs_multi_he": 3
       }
     },
     "chok-yaakov": {
@@ -233,6 +224,566 @@
       "heHasHebrew": false,
       "enHasLatin": true,
       "path": "oc1/siman1/seif-007/levushei-serad"
+    },
+    {
+      "volume": "oc1",
+      "siman": 1,
+      "seif": "seif-008",
+      "slug": "yad-ephraim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 3148,
+      "enBytes": 3605,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman1/seif-008/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 1,
+      "seif": "seif-009",
+      "slug": "levushei-serad",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 384,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman1/seif-009/levushei-serad"
+    },
+    {
+      "volume": "oc1",
+      "siman": 1,
+      "seif": "seif-009",
+      "slug": "yad-ephraim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 3422,
+      "enBytes": 3768,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman1/seif-009/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 2,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 597,
+      "enBytes": 154,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman2/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 5,
+      "seif": "seif-001",
+      "slug": "ateret-zekenim",
+      "kind": "he_has_more_segments",
+      "heSegments": 3,
+      "enSegments": 2,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 951,
+      "enBytes": 1140,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman5/seif-001/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 8,
+      "seif": "seif-003",
+      "slug": "shaarei-teshuvah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2140,
+      "enBytes": 2263,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman8/seif-003/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 12,
+      "seif": "seif-001",
+      "slug": "ateret-zekenim",
+      "kind": "he_has_more_segments",
+      "heSegments": 3,
+      "enSegments": 2,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 1110,
+      "enBytes": 1208,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman12/seif-001/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 13,
+      "seif": "seif-003",
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 10232,
+      "enBytes": 12055,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman13/seif-003/chokhmat-shlomo"
+    },
+    {
+      "volume": "oc1",
+      "siman": 14,
+      "seif": "seif-001",
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 3,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 12873,
+      "enBytes": 11113,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman14/seif-001/chokhmat-shlomo"
+    },
+    {
+      "volume": "oc1",
+      "siman": 26,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 814,
+      "enBytes": 397,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman26/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 27,
+      "seif": "seif-004",
+      "slug": "machatzit-hashekel",
+      "kind": "he_has_more_segments",
+      "heSegments": 7,
+      "enSegments": 6,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 3021,
+      "enBytes": 3321,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman27/seif-004/machatzit-hashekel"
+    },
+    {
+      "volume": "oc1",
+      "siman": 27,
+      "seif": "seif-006",
+      "slug": "machatzit-hashekel",
+      "kind": "en_has_more_segments",
+      "heSegments": 3,
+      "enSegments": 6,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 4725,
+      "enBytes": 5571,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman27/seif-006/machatzit-hashekel"
+    },
+    {
+      "volume": "oc1",
+      "siman": 32,
+      "seif": "seif-005",
+      "slug": "yad-ephraim",
+      "kind": "en_has_more_segments",
+      "heSegments": 2,
+      "enSegments": 4,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2149,
+      "enBytes": 2372,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman32/seif-005/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 33,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2486,
+      "enBytes": 1033,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman33/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 35,
+      "seif": "seif-001",
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 581,
+      "enBytes": 1152,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman35/seif-001/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 35,
+      "seif": "seif-001",
+      "slug": "kol-yaakov",
+      "kind": "he_has_more_segments",
+      "heSegments": 144,
+      "enSegments": 94,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 38320,
+      "enBytes": 46997,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman35/seif-001/kol-yaakov"
+    },
+    {
+      "volume": "oc1",
+      "siman": 42,
+      "seif": "seif-003",
+      "slug": "biur-halacha",
+      "kind": "he_has_more_segments",
+      "heSegments": 14,
+      "enSegments": 13,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 17696,
+      "enBytes": 14938,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman42/seif-003/biur-halacha"
+    },
+    {
+      "volume": "oc1",
+      "siman": 45,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 995,
+      "enBytes": 287,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman45/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 46,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2836,
+      "enBytes": 1305,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman46/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 48,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2050,
+      "enBytes": 1124,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman48/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 51,
+      "seif": "seif-003",
+      "slug": "shaarei-teshuvah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 3,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 1594,
+      "enBytes": 1704,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman51/seif-003/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 51,
+      "seif": "seif-007",
+      "slug": "machatzit-hashekel",
+      "kind": "en_has_more_segments",
+      "heSegments": 4,
+      "enSegments": 5,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 3383,
+      "enBytes": 3755,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman51/seif-007/machatzit-hashekel"
+    },
+    {
+      "volume": "oc1",
+      "siman": 51,
+      "seif": "seif-009",
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 566,
+      "enBytes": 666,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman51/seif-009/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 52,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 3027,
+      "enBytes": 1758,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman52/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 53,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 561,
+      "enBytes": 176,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman53/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 55,
+      "seif": "seif-003",
+      "slug": "ateret-zekenim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 1345,
+      "enBytes": 1637,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman55/seif-003/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 56,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2949,
+      "enBytes": 1167,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman56/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 57,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 1374,
+      "enBytes": 461,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman57/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 58,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2376,
+      "enBytes": 892,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman58/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 59,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 697,
+      "enBytes": 326,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman59/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 60,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 716,
+      "enBytes": 470,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman60/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 61,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 704,
+      "enBytes": 193,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman61/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 63,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 1402,
+      "enBytes": 694,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman63/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 64,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 566,
+      "enBytes": 392,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman64/seif-001/mechaber"
+    },
+    {
+      "volume": "oc1",
+      "siman": 69,
+      "seif": "seif-001",
+      "slug": "mechaber",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegments": 2,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 5672,
+      "enBytes": 3645,
+      "heHasHebrew": true,
+      "enHasLatin": true,
+      "path": "oc1/siman69/seif-001/mechaber"
     }
   ],
   "simanimScanned": 697
