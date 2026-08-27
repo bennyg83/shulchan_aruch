@@ -1,50 +1,23 @@
 {
-  "at": "2026-08-27T11:09:40.822Z",
+  "at": "2026-08-27T18:25:57.908Z",
   "apply": false,
   "kinds": [
-    "he_missing",
-    "he_truncated_vs_multi_en",
-    "en_has_more_segments"
+    "he_missing"
   ],
   "results": [
     {
       "volume": "oc1",
-      "mismatched": 107,
-      "fixable": 1,
+      "mismatched": 59,
+      "fixable": 0,
       "applied": 0,
-      "unfixable": 106,
+      "unfixable": 59,
       "byKind": {
-        "en_has_more_segments": 22,
-        "he_missing": 60,
-        "he_truncated_vs_multi_en": 25
+        "he_missing": 59
       },
-      "bySource": {
-        "sibling_en_similar": 1
-      },
-      "affectedSimanim": [
-        1
-      ],
-      "samples": [
-        {
-          "path": "oc1/siman1/seif-007/shaarei-teshuvah",
-          "kind": "he_missing",
-          "source": "sibling_en_similar",
-          "heN": 0,
-          "enN": 1,
-          "newHeN": 1
-        }
-      ],
+      "bySource": {},
+      "affectedSimanim": [],
+      "samples": [],
       "unfixableSamples": [
-        {
-          "path": "oc1/siman1/seif-001/biur-halacha",
-          "kind": "en_has_more_segments",
-          "heN": 5,
-          "enN": 10,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 5
-          }
-        },
         {
           "path": "oc1/siman1/seif-001/eshel-avraham",
           "kind": "he_missing",
@@ -79,96 +52,6 @@
           "heN": 0,
           "enN": 1,
           "near": null
-        },
-        {
-          "path": "oc1/siman27/seif-006/machatzit-hashekel",
-          "kind": "en_has_more_segments",
-          "heN": 3,
-          "enN": 6,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 3
-          }
-        },
-        {
-          "path": "oc1/siman32/seif-003/yad-ephraim",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 5,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 1
-          }
-        },
-        {
-          "path": "oc1/siman32/seif-005/yad-ephraim",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 2
-          }
-        },
-        {
-          "path": "oc1/siman32/seif-009/yad-ephraim",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 8,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 1
-          }
-        },
-        {
-          "path": "oc1/siman32/seif-024/yad-ephraim",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 4,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 1
-          }
-        },
-        {
-          "path": "oc1/siman51/seif-007/machatzit-hashekel",
-          "kind": "en_has_more_segments",
-          "heN": 4,
-          "enN": 5,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 4
-          }
-        },
-        {
-          "path": "oc1/siman128/seif-003/turei-zahav",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 3,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 2
-          }
-        },
-        {
-          "path": "oc1/siman128/seif-045/mechaber",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 2,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 1
-          }
-        },
-        {
-          "path": "oc1/siman132/seif-001/chatam-sofer",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 2,
-          "near": {
-            "source": "sef_he_html",
-            "heN": 1
-          }
         },
         {
           "path": "oc1/siman135/seif-002/eshel-avraham",
@@ -344,209 +227,76 @@
           "heN": 0,
           "enN": 1,
           "near": null
-        }
-      ]
-    },
-    {
-      "volume": "yd1",
-      "mismatched": 20,
-      "fixable": 2,
-      "applied": 0,
-      "unfixable": 18,
-      "byKind": {
-        "en_has_more_segments": 17,
-        "he_truncated_vs_multi_en": 3
-      },
-      "bySource": {
-        "editorial_txt": 2
-      },
-      "affectedSimanim": [
-        136,
-        158
-      ],
-      "samples": [
+        },
         {
-          "path": "yd1/siman136/seif-001/beur-hagra",
-          "kind": "en_has_more_segments",
-          "source": "editorial_txt",
-          "heN": 2,
+          "path": "oc1/siman135/seif-009/beur-hagra",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
+          "near": null
+        },
+        {
+          "path": "oc1/siman135/seif-009/yad-ephraim",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
+          "near": null
+        },
+        {
+          "path": "oc1/siman137/seif-001/ateret-zekenim",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
+          "near": null
+        },
+        {
+          "path": "oc1/siman137/seif-001/baer-heitev",
+          "kind": "he_missing",
+          "heN": 0,
           "enN": 5,
-          "newHeN": 5
+          "near": null
         },
         {
-          "path": "yd1/siman158/seif-002/beur-hagra",
-          "kind": "en_has_more_segments",
-          "source": "editorial_txt",
-          "heN": 5,
-          "enN": 7,
-          "newHeN": 7
-        }
-      ],
-      "unfixableSamples": [
+          "path": "oc1/siman137/seif-001/chokhmat-shlomo",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
+          "near": null
+        },
         {
-          "path": "yd1/siman4/seif-004/yad-avraham",
-          "kind": "en_has_more_segments",
-          "heN": 2,
+          "path": "oc1/siman137/seif-001/dagul-merevavah",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
+          "near": null
+        },
+        {
+          "path": "oc1/siman137/seif-001/magen-avraham",
+          "kind": "he_missing",
+          "heN": 0,
           "enN": 3,
           "near": null
         },
         {
-          "path": "yd1/siman35/seif-002/yad-avraham",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 2,
+          "path": "oc1/siman137/seif-001/netiv-chayim",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
           "near": null
         },
         {
-          "path": "yd1/siman37/seif-002/yad-avraham",
-          "kind": "en_has_more_segments",
-          "heN": 11,
-          "enN": 12,
+          "path": "oc1/siman137/seif-001/shaarei-teshuvah",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
           "near": null
         },
         {
-          "path": "yd1/siman48/seif-004/yad-avraham",
-          "kind": "en_has_more_segments",
-          "heN": 3,
-          "enN": 4,
+          "path": "oc1/siman137/seif-002/ateret-zekenim",
+          "kind": "he_missing",
+          "heN": 0,
+          "enN": 1,
           "near": null
-        },
-        {
-          "path": "yd1/siman61/seif-006/yad-avraham",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 3,
-          "near": null
-        },
-        {
-          "path": "yd1/siman106/seif-002/baer-heitev",
-          "kind": "en_has_more_segments",
-          "heN": 3,
-          "enN": 6,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 3
-          }
-        },
-        {
-          "path": "yd1/siman198/seif-039/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 6,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 1
-          }
-        },
-        {
-          "path": "yd1/siman245/seif-006/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 4,
-          "enN": 8,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 4
-          }
-        },
-        {
-          "path": "yd1/siman263/seif-005/baer-heitev",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 2
-          }
-        },
-        {
-          "path": "yd1/siman269/seif-003/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 6,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 1
-          }
-        },
-        {
-          "path": "yd1/siman308/seif-003/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 2
-          }
-        },
-        {
-          "path": "yd1/siman320/seif-006/pitchei-teshuva",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 6,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 5
-          }
-        },
-        {
-          "path": "yd1/siman331/seif-034/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 2
-          }
-        },
-        {
-          "path": "yd1/siman331/seif-119/beur-hagra",
-          "kind": "he_truncated_vs_multi_en",
-          "heN": 1,
-          "enN": 2,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 1
-          }
-        },
-        {
-          "path": "yd1/siman334/seif-042/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 5,
-          "enN": 10,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 5
-          }
-        },
-        {
-          "path": "yd1/siman334/seif-043/baer-heitev",
-          "kind": "en_has_more_segments",
-          "heN": 3,
-          "enN": 6,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 3
-          }
-        },
-        {
-          "path": "yd1/siman334/seif-045/beur-hagra",
-          "kind": "en_has_more_segments",
-          "heN": 2,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 2
-          }
-        },
-        {
-          "path": "yd1/siman371/seif-001/turei-zahav",
-          "kind": "en_has_more_segments",
-          "heN": 3,
-          "enN": 4,
-          "near": {
-            "source": "editorial_txt",
-            "heN": 3
-          }
         }
       ]
     }
