@@ -46,6 +46,14 @@ jobs:
           YD_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1/bundles/ | wc -l)
           echo "YD bundles: $YD_COUNT"
           test "$YD_COUNT" -gt 350
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/eh1/catalog.json
+          EH_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/eh1/bundles/ | wc -l)
+          echo "EH bundles: $EH_COUNT"
+          test "$EH_COUNT" -gt 150
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/cm1/catalog.json
+          CM_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/cm1/bundles/ | wc -l)
+          echo "CM bundles: $CM_COUNT"
+          test "$CM_COUNT" -gt 400
 
       - name: Install dependencies
         working-directory: newtry/OC_Mobile/oc-web-reader

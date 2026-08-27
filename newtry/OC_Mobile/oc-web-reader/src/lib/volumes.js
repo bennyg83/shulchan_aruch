@@ -33,7 +33,7 @@ export const VOLUMES = [
     short: "CM",
     catalogPath: "/corpus/cm1/catalog.json",
     simanCount: 427,
-    enabled: false,
+    enabled: true,
   },
 ];
 
