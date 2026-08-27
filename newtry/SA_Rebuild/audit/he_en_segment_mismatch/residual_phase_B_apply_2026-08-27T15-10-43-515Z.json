@@ -1,0 +1,200 @@
+{
+  "phase": "B",
+  "mode": "apply",
+  "volumes": {
+    "oc1": {
+      "candidates": 18,
+      "fixed": 2,
+      "skipped": 16,
+      "byMethod": {
+        "bold_lemma_relaxed": 2
+      },
+      "bySkipReason": {
+        "no_matching_delimiter": 16
+      },
+      "affectedSimanim": [
+        8,
+        448
+      ],
+      "samples": [
+        {
+          "path": "oc1/siman8/seif-003/shaarei-teshuvah",
+          "action": "applied",
+          "method": "bold_lemma_relaxed",
+          "heSegs": 2,
+          "enSegsBefore": 1,
+          "enSegsAfter": 2,
+          "previews": [
+            "And it is proper that he cover. See Baer Heitev. Responsa Ma",
+            "In Shulchan Aruch: tallisos. Tashbetz, part 2, siman 40, wri"
+          ]
+        },
+        {
+          "path": "oc1/siman448/seif-002/ateret-zekenim",
+          "action": "applied",
+          "method": "bold_lemma_relaxed",
+          "heSegs": 2,
+          "enSegsBefore": 1,
+          "enSegsAfter": 2,
+          "previews": [
+            "If a non-Jew brings, etc. If the non-Jew received it when th",
+            "It is proper that he say, etc. Strictly according to the law"
+          ]
+        }
+      ]
+    },
+    "yd1": {
+      "candidates": 135,
+      "fixed": 0,
+      "skipped": 135,
+      "byMethod": {},
+      "bySkipReason": {
+        "no_matching_delimiter": 135
+      },
+      "affectedSimanim": [],
+      "samples": []
+    },
+    "cm1": {
+      "candidates": 67,
+      "fixed": 1,
+      "skipped": 66,
+      "byMethod": {
+        "bold_lemma_relaxed": 1
+      },
+      "bySkipReason": {
+        "no_matching_delimiter": 66
+      },
+      "affectedSimanim": [
+        66
+      ],
+      "samples": [
+        {
+          "path": "cm1/siman66/seif-024/urim-vetumim-urim",
+          "action": "applied",
+          "method": "bold_lemma_relaxed",
+          "heSegs": 2,
+          "enSegsBefore": 1,
+          "enSegsAfter": 2,
+          "previews": [
+            "Which is valid under our law. If the instrument is invalid u",
+            "A handwritten obligation. Although it does not collect from "
+          ]
+        }
+      ]
+    }
+  },
+  "totals": {
+    "candidates": 220,
+    "fixed": 3,
+    "skipped": 217
+  },
+  "byMethod": {
+    "bold_lemma_relaxed": 3
+  },
+  "bySkipReason": {
+    "no_matching_delimiter": 217
+  },
+  "affectedSimanim": {
+    "oc1": [
+      8,
+      448
+    ],
+    "yd1": [],
+    "cm1": [
+      66
+    ]
+  },
+  "backups": [
+    {
+      "file": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus\\oc1\\siman8\\seif-003\\shaarei-teshuvah\\en.html",
+      "bak": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\backups_residual\\2026-08-27T15-08-59-772Z_808f79ba879d_en.html",
+      "method": "bold_lemma_relaxed"
+    },
+    {
+      "file": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus\\oc1\\siman448\\seif-002\\ateret-zekenim\\en.html",
+      "bak": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\backups_residual\\2026-08-27T15-09-32-204Z_90ed15bcfdf7_en.html",
+      "method": "bold_lemma_relaxed"
+    },
+    {
+      "file": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus\\cm1\\siman66\\seif-024\\urim-vetumim-urim\\en.html",
+      "bak": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\backups_residual\\2026-08-27T15-10-19-069Z_a2c4eef8a4f4_en.html",
+      "method": "bold_lemma_relaxed"
+    }
+  ],
+  "log": [
+    {
+      "path": "oc1/siman8/seif-003/shaarei-teshuvah",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "And it is proper that he cover. See Baer Heitev. Responsa Ma",
+        "In Shulchan Aruch: tallisos. Tashbetz, part 2, siman 40, wri"
+      ]
+    },
+    {
+      "path": "oc1/siman448/seif-002/ateret-zekenim",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "If a non-Jew brings, etc. If the non-Jew received it when th",
+        "It is proper that he say, etc. Strictly according to the law"
+      ]
+    },
+    {
+      "path": "cm1/siman66/seif-024/urim-vetumim-urim",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "Which is valid under our law. If the instrument is invalid u",
+        "A handwritten obligation. Although it does not collect from "
+      ]
+    }
+  ],
+  "spotChecks": [
+    {
+      "path": "oc1/siman8/seif-003/shaarei-teshuvah",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "And it is proper that he cover. See Baer Heitev. Responsa Ma",
+        "In Shulchan Aruch: tallisos. Tashbetz, part 2, siman 40, wri"
+      ]
+    },
+    {
+      "path": "oc1/siman448/seif-002/ateret-zekenim",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "If a non-Jew brings, etc. If the non-Jew received it when th",
+        "It is proper that he say, etc. Strictly according to the law"
+      ]
+    },
+    {
+      "path": "cm1/siman66/seif-024/urim-vetumim-urim",
+      "action": "applied",
+      "method": "bold_lemma_relaxed",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "previews": [
+        "Which is valid under our law. If the instrument is invalid u",
+        "A handwritten obligation. Although it does not collect from "
+      ]
+    }
+  ]
+}

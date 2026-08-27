@@ -1,0 +1,63 @@
+{
+  "phase": "C",
+  "mode": "dry-run",
+  "volumes": {
+    "yd1": {
+      "candidates": 379,
+      "fixed": 1,
+      "skipped": 378,
+      "byMethod": {
+        "c2_he_seg_match": 1
+      },
+      "bySkipReason": {
+        "no_c2_improvement": 378
+      },
+      "affectedSimanim": [
+        271
+      ],
+      "samples": [
+        {
+          "path": "yd1/siman271/seif-005/beur-hagra",
+          "action": "would_apply",
+          "method": "c2_he_seg_match",
+          "file": "he",
+          "kind": "he_has_more_segments",
+          "liveHeSegs": 3,
+          "liveEnSegs": 2,
+          "c2HeSegs": 2,
+          "c2EnSegs": 1
+        }
+      ]
+    }
+  },
+  "totals": {
+    "candidates": 379,
+    "fixed": 1,
+    "skipped": 378
+  },
+  "byMethod": {
+    "c2_he_seg_match": 1
+  },
+  "bySkipReason": {
+    "no_c2_improvement": 378
+  },
+  "affectedSimanim": {
+    "yd1": [
+      271
+    ]
+  },
+  "backups": [],
+  "log": [
+    {
+      "path": "yd1/siman271/seif-005/beur-hagra",
+      "action": "would_apply",
+      "method": "c2_he_seg_match",
+      "file": "he",
+      "kind": "he_has_more_segments",
+      "liveHeSegs": 3,
+      "liveEnSegs": 2,
+      "c2HeSegs": 2,
+      "c2EnSegs": 1
+    }
+  ]
+}

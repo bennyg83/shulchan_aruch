@@ -1,13 +1,13 @@
 {
   "volume": "oc1",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "scannedAt": "2026-08-27T14:24:20.427Z",
+  "scannedAt": "2026-08-27T15:44:15.178Z",
   "pairs": 89911,
-  "issues": 111,
+  "issues": 109,
   "byKind": {
     "en_has_more_segments": 22,
     "he_missing": 59,
-    "en_truncated_vs_multi_he": 18,
+    "en_truncated_vs_multi_he": 16,
     "he_has_more_segments": 12
   },
   "bySlug": {
@@ -54,24 +54,24 @@
       }
     },
     "ateret-zekenim": {
-      "issues": 15,
+      "issues": 14,
       "byKind": {
         "he_has_more_segments": 2,
-        "en_truncated_vs_multi_he": 6,
+        "en_truncated_vs_multi_he": 5,
         "he_missing": 7
-      }
-    },
-    "shaarei-teshuvah": {
-      "issues": 15,
-      "byKind": {
-        "en_truncated_vs_multi_he": 3,
-        "he_missing": 12
       }
     },
     "kol-yaakov": {
       "issues": 1,
       "byKind": {
         "he_has_more_segments": 1
+      }
+    },
+    "shaarei-teshuvah": {
+      "issues": 14,
+      "byKind": {
+        "en_truncated_vs_multi_he": 2,
+        "he_missing": 12
       }
     },
     "turei-zahav": {
@@ -278,22 +278,6 @@
       "heHasHebrew": true,
       "enHasLatin": true,
       "path": "oc1/siman5/seif-001/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 8,
-      "seif": "seif-003",
-      "slug": "shaarei-teshuvah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 2140,
-      "enBytes": 2263,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman8/seif-003/shaarei-teshuvah"
     },
     {
       "volume": "oc1",
@@ -774,6 +758,22 @@
       "heHasHebrew": false,
       "enHasLatin": true,
       "path": "oc1/siman135/seif-005/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-005",
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 163,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-005/yad-ephraim"
     }
   ],
   "simanimScanned": 697

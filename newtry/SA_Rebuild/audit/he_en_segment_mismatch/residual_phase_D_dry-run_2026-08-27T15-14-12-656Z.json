@@ -1,0 +1,595 @@
+{
+  "phase": "D",
+  "mode": "dry-run",
+  "volumes": {
+    "oc1": {
+      "candidates": 28,
+      "fixed": 0,
+      "skipped": 28,
+      "byMethod": {},
+      "bySkipReason": {
+        "no_high_confidence_stub_fold": 28
+      },
+      "affectedSimanim": [],
+      "samples": []
+    },
+    "yd1": {
+      "candidates": 364,
+      "fixed": 8,
+      "skipped": 356,
+      "byMethod": {
+        "fold_tiny_middle_stubs": 2,
+        "fold_stubs_to_single": 6
+      },
+      "bySkipReason": {
+        "no_high_confidence_stub_fold": 356
+      },
+      "affectedSimanim": [
+        131,
+        152,
+        234,
+        239,
+        296,
+        297
+      ],
+      "samples": [
+        {
+          "path": "yd1/siman131/seif-001/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 15,
+          "heSegsAfter": 13,
+          "enSegs": 13,
+          "stubPreviews": [
+            "שם במשנה:",
+            "שם במשנה:",
+            "שם בגמ':",
+            "שם במשנה:"
+          ]
+        },
+        {
+          "path": "yd1/siman152/seif-001/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 4,
+          "heSegsAfter": 3,
+          "enSegs": 3,
+          "stubPreviews": [
+            "מסקנת הגמרא שם:"
+          ]
+        },
+        {
+          "path": "yd1/siman234/seif-051/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "הרשב\"א בתשובות"
+          ]
+        },
+        {
+          "path": "yd1/siman239/seif-010/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "פ\"ג מהל' שבועות"
+          ]
+        },
+        {
+          "path": "yd1/siman296/seif-039/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "משנה ו' פרק ה'"
+          ]
+        },
+        {
+          "path": "yd1/siman296/seif-059/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "שם משנה ט'"
+          ]
+        },
+        {
+          "path": "yd1/siman296/seif-069/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "משנה ז' פ\"ד:"
+          ]
+        },
+        {
+          "path": "yd1/siman297/seif-042/turei-zahav",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "רצז II"
+          ]
+        }
+      ]
+    },
+    "cm1": {
+      "candidates": 220,
+      "fixed": 12,
+      "skipped": 208,
+      "byMethod": {
+        "fold_stubs_to_single": 1,
+        "fold_tiny_middle_stubs": 11
+      },
+      "bySkipReason": {
+        "no_high_confidence_stub_fold": 208
+      },
+      "affectedSimanim": [
+        89,
+        215,
+        218,
+        331,
+        340,
+        356,
+        369,
+        389,
+        394,
+        407,
+        412,
+        421
+      ],
+      "samples": [
+        {
+          "path": "cm1/siman89/seif-004/urim-vetumim-urim",
+          "action": "would_apply",
+          "method": "fold_stubs_to_single",
+          "kind": "en_truncated_vs_multi_he",
+          "heSegsBefore": 2,
+          "heSegsAfter": 1,
+          "enSegs": 1,
+          "stubPreviews": [
+            "(א ב ג חסר)"
+          ]
+        },
+        {
+          "path": "cm1/siman215/seif-002/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 11,
+          "heSegsAfter": 10,
+          "enSegs": 10,
+          "stubPreviews": [
+            "כ) שם ברייתא:"
+          ]
+        },
+        {
+          "path": "cm1/siman218/seif-020/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 7,
+          "heSegsAfter": 6,
+          "enSegs": 6,
+          "stubPreviews": [
+            "ג) שם במשנה:"
+          ]
+        },
+        {
+          "path": "cm1/siman331/seif-003/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 3,
+          "heSegsAfter": 2,
+          "enSegs": 2,
+          "stubPreviews": [
+            "פי' מפועלי העיר"
+          ]
+        },
+        {
+          "path": "cm1/siman340/seif-008/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 7,
+          "heSegsAfter": 6,
+          "enSegs": 6,
+          "stubPreviews": [
+            "פי' המשאיל"
+          ]
+        },
+        {
+          "path": "cm1/siman356/seif-003/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 4,
+          "heSegsAfter": 3,
+          "enSegs": 3,
+          "stubPreviews": [
+            "כן הוה ברמב\"ם"
+          ]
+        },
+        {
+          "path": "cm1/siman369/seif-002/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 8,
+          "heSegsAfter": 7,
+          "enSegs": 7,
+          "stubPreviews": [
+            "שם ברמב\"ם"
+          ]
+        },
+        {
+          "path": "cm1/siman389/seif-006/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 6,
+          "heSegsAfter": 5,
+          "enSegs": 5,
+          "stubPreviews": [
+            "כ) שם במשנה"
+          ]
+        },
+        {
+          "path": "cm1/siman394/seif-001/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 9,
+          "heSegsAfter": 8,
+          "enSegs": 8,
+          "stubPreviews": [
+            "ה) שם במשנה"
+          ]
+        },
+        {
+          "path": "cm1/siman407/seif-001/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 5,
+          "heSegsAfter": 4,
+          "enSegs": 4,
+          "stubPreviews": [
+            "ג) שם בגמ'"
+          ]
+        },
+        {
+          "path": "cm1/siman412/seif-005/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 6,
+          "heSegsAfter": 5,
+          "enSegs": 5,
+          "stubPreviews": [
+            "א) ברייתא שם"
+          ]
+        },
+        {
+          "path": "cm1/siman421/seif-013/beer-hagolah",
+          "action": "would_apply",
+          "method": "fold_tiny_middle_stubs",
+          "kind": "he_has_more_segments",
+          "heSegsBefore": 8,
+          "heSegsAfter": 7,
+          "enSegs": 7,
+          "stubPreviews": [
+            "ט) שם ושם:",
+            "י) שם ושם:"
+          ]
+        }
+      ]
+    }
+  },
+  "totals": {
+    "candidates": 612,
+    "fixed": 20,
+    "skipped": 592
+  },
+  "byMethod": {
+    "fold_tiny_middle_stubs": 13,
+    "fold_stubs_to_single": 7
+  },
+  "bySkipReason": {
+    "no_high_confidence_stub_fold": 592
+  },
+  "affectedSimanim": {
+    "oc1": [],
+    "yd1": [
+      131,
+      152,
+      234,
+      239,
+      296,
+      297
+    ],
+    "cm1": [
+      89,
+      215,
+      218,
+      331,
+      340,
+      356,
+      369,
+      389,
+      394,
+      407,
+      412,
+      421
+    ]
+  },
+  "backups": [],
+  "log": [
+    {
+      "path": "yd1/siman131/seif-001/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 15,
+      "heSegsAfter": 13,
+      "enSegs": 13,
+      "stubPreviews": [
+        "שם במשנה:",
+        "שם במשנה:",
+        "שם בגמ':",
+        "שם במשנה:"
+      ]
+    },
+    {
+      "path": "yd1/siman152/seif-001/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 4,
+      "heSegsAfter": 3,
+      "enSegs": 3,
+      "stubPreviews": [
+        "מסקנת הגמרא שם:"
+      ]
+    },
+    {
+      "path": "yd1/siman234/seif-051/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "הרשב\"א בתשובות"
+      ]
+    },
+    {
+      "path": "yd1/siman239/seif-010/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "פ\"ג מהל' שבועות"
+      ]
+    },
+    {
+      "path": "yd1/siman296/seif-039/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "משנה ו' פרק ה'"
+      ]
+    },
+    {
+      "path": "yd1/siman296/seif-059/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "שם משנה ט'"
+      ]
+    },
+    {
+      "path": "yd1/siman296/seif-069/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "משנה ז' פ\"ד:"
+      ]
+    },
+    {
+      "path": "yd1/siman297/seif-042/turei-zahav",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "רצז II"
+      ]
+    },
+    {
+      "path": "cm1/siman89/seif-004/urim-vetumim-urim",
+      "action": "would_apply",
+      "method": "fold_stubs_to_single",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegsBefore": 2,
+      "heSegsAfter": 1,
+      "enSegs": 1,
+      "stubPreviews": [
+        "(א ב ג חסר)"
+      ]
+    },
+    {
+      "path": "cm1/siman215/seif-002/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 11,
+      "heSegsAfter": 10,
+      "enSegs": 10,
+      "stubPreviews": [
+        "כ) שם ברייתא:"
+      ]
+    },
+    {
+      "path": "cm1/siman218/seif-020/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 7,
+      "heSegsAfter": 6,
+      "enSegs": 6,
+      "stubPreviews": [
+        "ג) שם במשנה:"
+      ]
+    },
+    {
+      "path": "cm1/siman331/seif-003/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 3,
+      "heSegsAfter": 2,
+      "enSegs": 2,
+      "stubPreviews": [
+        "פי' מפועלי העיר"
+      ]
+    },
+    {
+      "path": "cm1/siman340/seif-008/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 7,
+      "heSegsAfter": 6,
+      "enSegs": 6,
+      "stubPreviews": [
+        "פי' המשאיל"
+      ]
+    },
+    {
+      "path": "cm1/siman356/seif-003/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 4,
+      "heSegsAfter": 3,
+      "enSegs": 3,
+      "stubPreviews": [
+        "כן הוה ברמב\"ם"
+      ]
+    },
+    {
+      "path": "cm1/siman369/seif-002/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 8,
+      "heSegsAfter": 7,
+      "enSegs": 7,
+      "stubPreviews": [
+        "שם ברמב\"ם"
+      ]
+    },
+    {
+      "path": "cm1/siman389/seif-006/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 6,
+      "heSegsAfter": 5,
+      "enSegs": 5,
+      "stubPreviews": [
+        "כ) שם במשנה"
+      ]
+    },
+    {
+      "path": "cm1/siman394/seif-001/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 9,
+      "heSegsAfter": 8,
+      "enSegs": 8,
+      "stubPreviews": [
+        "ה) שם במשנה"
+      ]
+    },
+    {
+      "path": "cm1/siman407/seif-001/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 5,
+      "heSegsAfter": 4,
+      "enSegs": 4,
+      "stubPreviews": [
+        "ג) שם בגמ'"
+      ]
+    },
+    {
+      "path": "cm1/siman412/seif-005/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 6,
+      "heSegsAfter": 5,
+      "enSegs": 5,
+      "stubPreviews": [
+        "א) ברייתא שם"
+      ]
+    },
+    {
+      "path": "cm1/siman421/seif-013/beer-hagolah",
+      "action": "would_apply",
+      "method": "fold_tiny_middle_stubs",
+      "kind": "he_has_more_segments",
+      "heSegsBefore": 8,
+      "heSegsAfter": 7,
+      "enSegs": 7,
+      "stubPreviews": [
+        "ט) שם ושם:",
+        "י) שם ושם:"
+      ]
+    }
+  ]
+}
