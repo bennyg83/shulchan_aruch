@@ -30,17 +30,27 @@
     },
     {
       "path": "yd1/siman35/seif-002/yad-avraham",
-      "action": "skipped",
-      "reason": "Seif-remap: HE is seif-5 ona+hollow lemma (duplicate of seif-005 HE); EN[0] is vardot essay; EN[1] duplicates seif-004 kids/lambs note. Blind join would merge unrelated lemmas.",
-      "heSegs": 1,
+      "action": "fixed",
+      "reason": "Seif-remap (not blind join): restored vardot HE from editorial/Sefaria (was duplicate seif-5 ona HE); kept vardot EN only; split EN at ve'ayein hinge to match HE <br> (2:2); dropped kids/lambs EN orphan already correctly paired at seif-004.",
+      "heSegs": 2,
       "enSegsBefore": 2,
       "heHasHebrew": true,
-      "hePreview": "(סעיף ה' בהג\"ה) אם נמצא אונא ע\"ג הריאה וגומא תחתיה כו' ושוה לשאר הריאה כו' כשרה. דאין זה יתרת אלא פיצול הריאה ומאחר שיש לה גומא תחתיו לנוח בו אינו עתיד להתפרק כ",
+      "hePreview": "(סימן ל\"ה סעיף ב בהג\"ה ב') אם נמצאו בה ב' ורדות. ויש להם שורש א' כו' ואם א' הפוך והב' אינה הפוכה הולכין אחר היותר גדולה",
       "enPreviews": [
-        "(Siman 35 seif 2 in the hagahah b') If two vardot are found in it, etc., and if one is inverted and the other is not inverted — we follow th",
-        "(In the hagahah) Some say: in kids and lambs one should not declare treifah if onot are not found, etc., and when they grow the onot grow wi"
+        "(Siman 35 seif 2 in the hagahah b') If two vardot are found in it, etc., and if one is inverted and the other is not inverted",
+        "See what I wrote siman 45: if the small one was perforated or adhered — one may not permit; and see there the reason."
       ],
-      "enSegsAfter": 2
+      "enSegsAfter": 2,
+      "remap": {
+        "heSource": "Copy2 editorial YD_001/output/siman_035/yad-avraham part block 0 / Sefaria merged.json [34][0]",
+        "enKept": "prior EN[0] vardot essay; split at siman-50 / see-siman-45 hinge",
+        "enRemoved": "EN[1] kids/lambs duplicate of seif-004",
+        "neighborsVerified": [
+          "seif-003 lower-ona OK",
+          "seif-004 kids OK",
+          "seif-005 ona+hollow OK"
+        ]
+      }
     },
     {
       "path": "yd1/siman331/seif-119/beur-hagra",
@@ -62,17 +72,23 @@
     },
     {
       "path": "cm1/siman15/seif-001/chokhmat-shlomo",
-      "action": "skipped",
-      "reason": "Seif-remap: HE lemma is seif-2 court-priority (widow/talmid chacham); both EN segments are one witnesses essay labeled Seif 1 that HE does not cover. Do not join wrong-lemma EN onto this HE.",
+      "action": "fixed",
+      "reason": "Seif-remap (not blind join): moved court-priority HE (seif 2 widow/talmid/kohen) from seif-001 to seif-002; wrote matching court EN; removed witnesses EN from seif-001 (wrong lemma; near-duplicate of cm1/siman36/seif-001/chokhmat-shlomo). Cleared empty seif-001 cell.",
       "heSegs": 1,
       "enSegsBefore": 2,
       "heHasHebrew": true,
-      "hePreview": "סעיף ב' היו לפניו דינים הרבה וכו' נ\"ב. הנה הטור הביא בשם הרמב\"ם דאלמנה קודם לת\"ח. ותמהו עליו דבש\"ס פ\"ב דכתובות מוכח כן לדין יתום ת\"ח קודם וכבר הקשה כן הד\"מ ע\"ש ",
+      "hePreview": "סעיף ב' היו לפניו דינים הרבה וכו' נ\"ב. הנה הטור הביא בשם הרמב\"ם דאלמנה קודם לת\"ח.",
       "enPreviews": [
-        "Seif 1. Note: See my work on Even HaEzer, laws of kiddushin, siman 28, seventh edition siman 212, where I discuss whether a witness who is d",
-        "There, Seif 1. I heard a question attributed to a great scholar: Why, when one of a group of witnesses is found related or disqualified, do "
+        "Seif 2. \"If many cases were before him,\" etc. Note: The Tur cites in the name of the Rambam that a widow takes precedence over a Torah scholar."
       ],
-      "enSegsAfter": 2
+      "enSegsAfter": 1,
+      "finalPath": "cm1/siman15/seif-002/chokhmat-shlomo",
+      "remap": {
+        "heMovedTo": "cm1/siman15/seif-002/chokhmat-shlomo",
+        "enSource": "new editorial translation of court-priority HE (no prior matching EN in corpus)",
+        "enRemovedFromSeif001": "witnesses essay (~siman36 material)",
+        "seif001After": "empty (he blank, en deleted)"
+      }
     },
     {
       "path": "cm1/siman71/seif-019/beur-hagra",
@@ -225,10 +241,12 @@
       "siman568"
     ],
     "yd1": [
+      "siman35",
       "siman331"
     ],
     "eh1": [],
     "cm1": [
+      "siman15",
       "siman71",
       "siman153",
       "siman154",
@@ -240,19 +258,33 @@
     ]
   },
   "summary": {
-    "fixed": 10,
-    "skipped": 2
+    "fixed": 12,
+    "skipped": 0
   },
   "afterCounts": {
     "oc1": 0,
-    "yd1": 1,
+    "yd1": 0,
     "eh1": 0,
-    "cm1": 1,
-    "total": 2
+    "cm1": 0,
+    "total": 0
   },
-  "afterRemainingPaths": [
-    "yd1/siman35/seif-002/yad-avraham",
-    "cm1/siman15/seif-001/chokhmat-shlomo"
-  ],
-  "rescannedAt": "2026-08-27T12:07:02.400Z"
+  "afterRemainingPaths": [],
+  "rescannedAt": "2026-08-27T12:25:35.921Z",
+  "remapPassAt": "2026-08-27T12:25:35.921Z",
+  "remapPass": {
+    "mode": "manual_seif_remap",
+    "note": "Do not blind-join EN; topic/lemma realign only",
+    "paths": [
+      "yd1/siman35/seif-002/yad-avraham",
+      "cm1/siman15/seif-001/chokhmat-shlomo → seif-002"
+    ],
+    "rebundled": {
+      "yd1": [
+        35
+      ],
+      "cm1": [
+        15
+      ]
+    }
+  }
 }
