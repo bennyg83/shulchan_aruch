@@ -1,0 +1,802 @@
+{
+  "meta": {
+    "created": "2026-08-28T08:43:41.300Z",
+    "kit": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part01.json",
+    "kit_part": 1,
+    "kit_case_count": 30,
+    "gpt_result": "EN_TRUNC_EDITORIAL_GPT_RESULT_part01.json",
+    "gpt_case_count": 30,
+    "id_order_match": true,
+    "missing_from_gpt": [],
+    "extra_in_gpt": [],
+    "counts": {
+      "APPROVE": 18,
+      "HOLD": 11,
+      "REJECT": 1
+    },
+    "spot_checks": [
+      {
+        "id": "oc1/siman289/seif-001/peri-megadim",
+        "kit_heSegs": 4,
+        "gpt_enSegs": 4,
+        "corpus_heSegs": 4,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      },
+      {
+        "id": "yd1/siman129/seif-020/siftei-kohen",
+        "kit_heSegs": 3,
+        "gpt_enSegs": 3,
+        "corpus_heSegs": 3,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      },
+      {
+        "id": "yd1/siman135/seif-005/siftei-kohen",
+        "kit_heSegs": 2,
+        "gpt_enSegs": 2,
+        "corpus_heSegs": 2,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      },
+      {
+        "id": "yd1/siman138/seif-008/siftei-kohen",
+        "kit_heSegs": 2,
+        "gpt_enSegs": 2,
+        "corpus_heSegs": 2,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      },
+      {
+        "id": "yd1/siman145/seif-007/beer-hagolah",
+        "kit_heSegs": 2,
+        "gpt_enSegs": 2,
+        "corpus_heSegs": 2,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      },
+      {
+        "id": "yd1/siman154/seif-001/baer-heitev",
+        "kit_heSegs": 2,
+        "gpt_enSegs": 2,
+        "corpus_heSegs": 2,
+        "corpus_enSegs": 1,
+        "would_fix_trunc": true
+      }
+    ],
+    "recommendation": {
+      "apply_approved_only": true,
+      "do_not_blanket_apply": true,
+      "note": "Evaluation only — no corpus apply"
+    }
+  },
+  "results": [
+    {
+      "id": "oc1/siman162/seif-007/peri-megadim",
+      "slug": "peri-megadim",
+      "heSegs": 4,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "en_segments_mirror_incomplete",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN"
+      ],
+      "gpt_notes": "Fresh translation of all four Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "If he washed one hand, etc. See the Taz, who cites the words of the Beit…"
+        },
+        {
+          "i": 1,
+          "text": "The author says: In light of the many details explained in this siman an…"
+        },
+        {
+          "i": 2,
+          "text": "Likewise, in siman 161, seif 4, some say that one washes up to the arm, …"
+        },
+        {
+          "i": 3,
+          "text": "Regarding what the Taz wrote, that they were absorbed into the cloth, se…"
+        }
+      ]
+    },
+    {
+      "id": "oc1/siman252/seif-001/peri-megadim",
+      "slug": "peri-megadim",
+      "heSegs": 5,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "TRUNC_SV_0",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN",
+        "TRUNC_SV_0",
+        "SHORT_EN_1",
+        "LOW_COVERAGE_1",
+        "TRUNC_END_4"
+      ],
+      "gpt_notes": "Fresh translation of all five Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "And one who stirs. See Taz in siman 318, seif katan 22 and 23. With wool…"
+        },
+        {
+          "i": 1,
+          "text": "The Rambam, of blessed memory, writes in chapter 3, halacha 11 of Hilcho…"
+        },
+        {
+          "i": 2,
+          "text": "I will add one further point. Hagahos Maimoniyos, chapter 3, seif katan …"
+        },
+        {
+          "i": 3,
+          "text": "There remains another matter to clarify. There are three possible reason…"
+        },
+        {
+          "i": 4,
+          "text": "From where did the Sages derive that even in a kli rishon removed from t…"
+        }
+      ]
+    },
+    {
+      "id": "oc1/siman289/seif-001/peri-megadim",
+      "slug": "peri-megadim",
+      "heSegs": 4,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of all four Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "If it is beer. See Taz. His difficulty is based on an unnecessary blessi…"
+        },
+        {
+          "i": 1,
+          "text": "Know that the daytime Kiddush is d'rabbanan, yet women are obligated in …"
+        },
+        {
+          "i": 2,
+          "text": "What the Mechaber wrote concerning a prepared bed applies to one whose p…"
+        },
+        {
+          "i": 3,
+          "text": "If in the morning he has no wine and has only bread, so that he may not …"
+        }
+      ]
+    },
+    {
+      "id": "oc1/siman292/seif-002/machatzit-hashekel",
+      "slug": "machatzit-hashekel",
+      "heSegs": 6,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "en_segments_mirror_incomplete",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN"
+      ],
+      "gpt_notes": "Fresh translation of all six Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Seif katan 2. Three men, etc., because there is nothing here with which …"
+        },
+        {
+          "i": 1,
+          "text": "Rivash writes, etc., that in a place where there is no Sefer Torah, the …"
+        },
+        {
+          "i": 2,
+          "text": "They should likewise not recite Va'ani Sefilasi, as written above in the…"
+        },
+        {
+          "i": 3,
+          "text": "One might say that they should recite Va'ani Sefilasi and then recite Ka…"
+        },
+        {
+          "i": 4,
+          "text": "From the statement concerning Yehallelu. Meaning, regarding what was wri…"
+        },
+        {
+          "i": 5,
+          "text": "Or they should recite it, etc. Meaning, if they nevertheless wish to rec…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman129/seif-009/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "low",
+      "verdict": "HOLD",
+      "reason": "kit_he_truncated",
+      "flags": [
+        "KIT_HE_TRUNCATED"
+      ],
+      "gpt_notes": "Second Hebrew slot is visibly truncated in the supplied kit.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "And there is an opening from the upper story into the house, so that he …"
+        },
+        {
+          "i": 1,
+          "text": "Since he did not know, etc. Darkei Moshe wrote this in the name of a res…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman129/seif-020/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 3,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of all three Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "It is permitted. See Rivash, cited by the Beit Yosef, who permits it for…"
+        },
+        {
+          "i": 1,
+          "text": "Because the non-Jewish woman is not believed. But if it is known that sh…"
+        },
+        {
+          "i": 2,
+          "text": "Siman 125. This is the reading in the books and in Olat Tamid, and so it…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman135/seif-005/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Vessels of neser, etc. Tosafos in Avodah Zarah, daf 33b, wrote that ther…"
+        },
+        {
+          "i": 1,
+          "text": "From a quarry of tzerif, which is called alum. See Taz and Prisha. Rivas…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman138/seif-008/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "He ages them. The knots must be untied, as I will write shortly."
+        },
+        {
+          "i": 1,
+          "text": "Rinsing suffices for them. This implies rinsing with cold water, and so …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman145/seif-002/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "TRUNC_END_0",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN",
+        "TRUNC_END_0",
+        "TRUNC_END_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Its covering is forbidden, as it is stated,"
+        },
+        {
+          "i": 1,
+          "text": "The appurtenances of a mountain are like its covering. The prohibition o…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman145/seif-007/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "The statement of R' Yochanan there, daf 54."
+        },
+        {
+          "i": 1,
+          "text": "According to Rashi's explanation there, and so it is also implied by the…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman147/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "EMPTY_EN_1",
+      "flags": [
+        "EMPTY_EN_1",
+        "LOW_COVERAGE_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "It is permitted, etc. Rambam in his Commentary on the Mishnah at the end…"
+        },
+        {
+          "i": 1,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman150/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "TRUNC_SV_1",
+      "flags": [
+        "TRUNC_SV_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Rather, he should sit. Rambam."
+        },
+        {
+          "i": 1,
+          "text": "Or, etc., or, etc. Rashi, s.v."
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman153/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 4,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "TRUNC_SV_1",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN",
+        "TRUNC_SV_1",
+        "TRUNC_SV_2"
+      ],
+      "gpt_notes": "Fresh translation of all four Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "If the non-Jew had, etc. The Tur rules like R' Yishmael, whereas Rambam …"
+        },
+        {
+          "i": 1,
+          "text": "Nevertheless, etc. Rashi there, s.v."
+        },
+        {
+          "i": 2,
+          "text": "At all times. Rashi there, s.v."
+        },
+        {
+          "i": 3,
+          "text": "In a place, etc. Pirkei D'Rabbi Eliezer, chapter 29, states: Why did He …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman153/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "TRUNC_SV_1",
+      "flags": [
+        "TRUNC_SV_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Even if they are many. Gemara there, daf 25b."
+        },
+        {
+          "i": 1,
+          "text": "And their wives are with them. This is stated there. The Rif and Rambam …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman154/seif-001/baer-heitev",
+      "slug": "baer-heitev",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Assist in childbirth. It is clear that here too both conditions are requ…"
+        },
+        {
+          "i": 1,
+          "text": "An expert. We do not say that she would not damage her professional repu…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman156/seif-001/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "TRUNC_END_1",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN",
+        "TRUNC_END_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "With a razor, because danger is common. With scissors, however, where da…"
+        },
+        {
+          "i": 1,
+          "text": "And the custom is to be lenient, etc. The Derisha writes: The Rama wrote…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman159/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "The Karaites, etc. See Shach."
+        },
+        {
+          "i": 1,
+          "text": "A child, etc. The rule there applies specifically to an apostate who sin…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-002/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "There in the Mishnah, as R' Yitzchak explains there, and as R' Chiya tau…"
+        },
+        {
+          "i": 1,
+          "text": "Semak, the Rosh in a responsum, kelal 140, siman 16, and a responsum of …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman162/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "And it is known, etc. See Shach, seif katan 7 and 9."
+        },
+        {
+          "i": 1,
+          "text": "And this, etc., but, etc. This applies specifically in such a case. Howe…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman166/seif-001/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 3,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of all three Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "He may not make use of his slave for labor. Had he not lent him money, i…"
+        },
+        {
+          "i": 1,
+          "text": "And he may not rent from him for less. Rashi explains that this law appl…"
+        },
+        {
+          "i": 2,
+          "text": "And with a courtyard that is ordinarily rented out, it constitutes the s…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman167/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "en_segments_mirror_incomplete",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "He lends, etc. This is like the deferred-sale arrangement of Rav Chama, …"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) He lends, etc. This is not comparable to the case of Rav Chama …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman168/seif-007/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "The lender is permitted afterward to take the interest."
+        },
+        {
+          "i": 1,
+          "text": "And some are lenient. According to this view, neither the borrower nor t…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman168/seif-020/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "It is permitted to lend, etc. What difference does it make that the coll…"
+        },
+        {
+          "i": 1,
+          "text": "And according to the first view, etc. This is not comparable to the law …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman170/seif-001/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "This is permitted. This applies not only where he lent him 100 to be rep…"
+        },
+        {
+          "i": 1,
+          "text": "And some say that he is not, etc. The Beit Yosef writes that l'chatchila…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman175/seif-003/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "One may fix a price with gleaners according to the gleaners' market pric…"
+        },
+        {
+          "i": 1,
+          "text": "But he may not fix a price with a householder. The Gemara explains that …"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman175/seif-008/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "The sale, etc. See Choshen Mishpat, siman 208, and below siman 228. See …"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And it is, etc. The Rosh there likewise wrote in the name of th…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman177/seif-039/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Also for himself, etc. He may do so with other money that is not partner…"
+        },
+        {
+          "i": 1,
+          "text": "He should not sell them together, because perhaps the merchandise he pur…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman181/seif-011/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Over his entire beard. This includes the upper lip as well, because acco…"
+        },
+        {
+          "i": 1,
+          "text": "And even beneath the throat. The Tur writes that according to Rabbeinu C…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman183/seif-001/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "TRUNC_END_1",
+      "flags": [
+        "EN_SEGMENTS_MIRROR_LEN",
+        "TRUNC_END_1",
+        "SHORT_EN_1",
+        "LOW_COVERAGE_1"
+      ],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Under compulsion. Meaning, through an external occurrence."
+        },
+        {
+          "i": 1,
+          "text": "Even though it did not emerge outside. See the beginning of siman 188 re…"
+        }
+      ]
+    },
+    {
+      "id": "yd1/siman185/seif-004/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "segment count OK; fresh translate complete",
+      "flags": [],
+      "gpt_notes": "Fresh translation of both Hebrew slots.",
+      "proposed_preview": [
+        {
+          "i": 0,
+          "text": "Mishnah, Shevuos, daf 14, and Rambam, chapter 4, halacha 18."
+        },
+        {
+          "i": 1,
+          "text": "The statement of Rav Huna in the name of Rava there, daf 18a, and the Mo…"
+        }
+      ]
+    }
+  ]
+}
