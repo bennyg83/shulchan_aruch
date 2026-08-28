@@ -1,0 +1,414 @@
+{
+  "meta": {
+    "kind": "mixed",
+    "tier": "rescan_remaining",
+    "mode": "fresh_multi_segment_translate",
+    "purpose": "Editorial en_trunc still open (parts 02-06 + part01 holds)",
+    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "rescan_totals": {
+      "pairs": 197982,
+      "issues": 333,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 128,
+        "en_truncated_vs_multi_he": 135,
+        "en_has_more_segments": 9,
+        "en_missing": 2
+      }
+    },
+    "exclusions": [
+      "he_missing (59) — held per user"
+    ],
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T12:23:32.008Z",
+    "kit": "EN_TRUNC_EDITORIAL_REMAINING",
+    "counts": {
+      "total": 81,
+      "by_volume": {
+        "oc1": 3,
+        "yd1": 47,
+        "cm1": 31
+      },
+      "by_kind": {
+        "en_truncated_vs_multi_he": 81
+      },
+      "by_fp_pattern": {
+        "true_en_truncated": 59,
+        "true_likut_en_merged": 20,
+        "true_beer_degree_split": 2
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.\n\nINPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\nTRANSLATION NORMS\n- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.\n\nCONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nFRESH_TRANSLATE (this kit):\n- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.\n- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.\n- {Rama: ...} format for Rama glosses; no additions beyond source.\n- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.\n- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs. No corpus edits.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.",
+      "",
+      "INPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.",
+      "TRANSLATION NORMS",
+      "- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.",
+      "",
+      "CONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
+      "",
+      "UNIVERSAL — any EN segment text:",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "",
+      "JSON OUTPUT (mandatory):",
+      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
+      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
+      "- Prefer returning en_segments[] without embedding he in strings when possible.",
+      "- en_segments.length MUST equal heSegs for every case.",
+      "",
+      "FRESH_TRANSLATE (this kit):",
+      "- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.",
+      "- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.",
+      "- {Rama: ...} format for Rama glosses; no additions beyond source.",
+      "- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.",
+      "- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "segments.length === heSegs. No corpus edits."
+    ],
+    "chunk_index": 5,
+    "chunk_total": 5,
+    "case_offset": 68,
+    "cases_in_chunk": 13,
+    "parent_pack": "EN_TRUNC_EDITORIAL_REMAINING.json",
+    "parent_sha256": "001557c92c1dfb6f078d5a3fae7d6ac3a229f96fe8570b5b54226eb53581cc61"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman192/seif-013/netivot-hamishpat-beurim",
+      "volume": "cm1",
+      "siman": 192,
+      "seif": 13,
+      "slug": "netivot-hamishpat-beurim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 11,
+      "enSegs": 1,
+      "he_deficit": 10,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן בשכירות יש לעיין בשכירות במה הוא החזקה שלו והנה המהרי\"ט חלק א' סי' ס\"ח הוכיח דלשכירות ושאלת קרקע בעינן ג\"כ חזקה שנעל גדר ופרץ והביא ראיה מגיטין ר\"פ הזורק דאמר התם תיזיל ותיחוד ותפתח וכו' וגם מביא ראיה מהא שכתבו התוספות בב\"ב פ\"ה בד\"ה כגון שהיה בעלה מוכר קלתות ובפ\"ק דמציעא גבי מקומו מושכר שכתבו התוספות דבעינן קנין בשאלה ושכירות מקום ומהא שכתב הר\"ן בקידושין גבי היה סלע של שניהם ע\"ש וכן בב\"ב דף פ\"ז בתוס' ד\"ה לך וייפה לך קרקע ע\"ש משמע דבעינן דוקא נעל גדר פרץ והנה ראיות אלו לכאורה תמוהין דהא שם היו החפצים שבתוכה של המקנה והקונה לא נתן דבר לתוך החצר משלו ולא היה עושה הלוקח שום שימוש משלו בחצר ובמה יקנה משא\"כ כשהשתמש בו השוכר בחפצים שלו אפשר דקנה ואחר כך מצאתי בקצה\"ח שהקשה זה בסימן קפ\"ט וכוונת מהרי\"ט נראה דמוכח מהא דאמר בגיטין תיזיל ותיחוד ותפתח ולא אמר שתניח איזה דבר משלה לתוכו וגם מהא שכתבו התוס' בב\"ב היה בעלה מוכר קלתות יש ראיה ברורה דשם היה קלתה דידה מונח על המקום ואפ\"ה כתבו התוספות דבעינן נעל גדר ע\"ש אמנם ראיתי בספר מחנה אפרים שמביא ראיה דבשכירות בתים בהכנסת כלים לתוכו ג\"כ קנה כיון דאין לו זכייה רק לפירות דהיינו להשתמש בו כדרך תשמישו כן דרך קנייתו כמו בשביל של כרמים דעביד להילוך דקנה בהילוך והביא ראיה מב\"ק דף מ\"ח באמר כנוס שורך דאמר התם אקנויי אקני ליה מקום בחצירו וה\"ל חצר השותפין אלמא דבחזקת תשמישים לבד הוי חזקה אף שלא עשה בו חזקה דנעל גדר ופרץ ע\"ש וכעת אין ספר זה תחת ידי ואינו זוכר מה שכתב עוד שם ולפענ\"ד נראה דודאי הדין עם מחנה אפרים דבשכירות קנה בתשמישים לבד תדע דהא לעיל בסימן קנ\"ג מבואר דכמי גשמים או בהעמדת סולמות או בנעיצת קורות דכשנשתמש בפניו ושתק דקנה אלמא דקנה בשימוש לבד וכ\"כ בקצה\"ח סימן קפ\"ט אך הטעם שכתב שם המחנה אפרים דהטעם הוא דהוי כמו שביל של כרמים דקונה בהילוך לא נהירא לי דהא בצחיח סלע אף דלא עבידי רק למישטח בה פירא אפ\"ה אינו קונה להראב\"ד והטעם דבשביל של כרמים קונה בהילוך הוא משום דגופו נהנה מהן כמ\"ש בתשובה משאת בנימין סימן ל\"א הביאו הט\"ז כאן. לכן נלפענ\"ד דהוא מטעם אחר דהא כתב המגיד משנה בפרק ה' מה' שכנים הלכה ז' הטעם דקונה בשתיקה משום דהיא רק מחילת שיעבודא ע\"ש אלמא דבתשמישים לית ביה קנין גמור רק שמשעבד גוף הקרקע לתשמישין שעליו לכך המחילה אינו רק מחילת שיעבוד וכיון דאין בו קנין הגוף רק שיעבוד בעלמא ולכך נקנה בחזקה דהתחלת תשמישים בלבד ולא שייך ביה כלל חזק' דנעל גדר כיון דאין לו קנין הגוף כלל אבל לענין שיהיה כחצירו שיקנה לו ע\"י החצר זה מציא' או מקח הכא לתוכו אינו קונה כשאין לו בחצר רק שיעבוד הגוף להתשלומין תדע דהא ודאי דבאותו חצר שיש לו רשות להורדת מי גשמים או העמדת סולמות שאין חצר זה קונה להשוכר ועש\"ך סי' קצ\"ח ס\"ק ו' ע\"ש ולכן כשירצה שיהיה חצר שלו אפילו לענין שיקנ' לו מה שבתוכו צריך שיהיה לו קנין הגוף ממש לפירות וכיון דיש לו קנין הגוף ממש בעינן חזק' דנעל גדר שיהיה התיקון מועיל לגוף הקרקע כיון דהגוף שלו (ובזה אפשר ליישב הא דפסק בסי' שי\"ג שחצר המושכר קונה להמשכיר שתמה שם הסמ\"ע בס\"ק ה' ע\"ש דיש לומר דשם מיירי שלא עשה קנין דנעל גדר רק שהכניס בהמות לתוכו שלא נקנה לו גוף החצר רק שנשתעבד לו כנ\"ל ובסי' ר\"ס מיירי שעשה קנין דנעל גדר דנקנה לו גוף החצר): ולפ\"ז א\"ש הכל דבגיטין ובב\"ב וב\"מ מיירי לענין לקנות ע\"י חצירו ולהתגרש על ידו ובעינן שיהיה לו קנין הגוף בחצר ולכך בעינן חזקה דנעל גדר משא\"כ בב\"ק מ\"ה הנ\"ל דא\"צ לקנות הגוף רק שיהי' לו רשות להשתמש בו דכיון שיש לשניהם רשות שימוש בלבד שוב לא מיקרי חצר הניזק ולכך סגי בקנין של התחל' תשמישין וכן מעשים בכל יום כששוכרין מקום להכניס שם תבואה דא\"י לחזור בו ואפילו שכרו לשנה והוציא פירות הראשונים שהניח לתוכו בשעת שכירות יש לו רשות להכניס פירות אחרים וקנה עד הזמן ותמיה לי על המהרי\"ט סי' הנ\"ל שכתב דאפילו אם נקנה לו החצר להפירות מ\"מ כשהוציא הפירות לא נשתעבד לו לפירות אחרים הוא נגד המבואר דאפילו בהעמדת סולמות והורדת גשמים וחזקת חלונות דיש לו קנין אפילו נגד אחרים עד הזמן שנתן לו רשות והוא פשוט ולפ\"ז נראה דהא דבשביל של כרמים קנה בהילוך מיירי בכה\"ג שלא מכר לו רק להילוך ואין לו בו קנין הגוף כלל לחפור ולזרוע רק שיעבוד לדריסת רגל ולכך קנה בהילוך וכן בישיבת מקום ביהכ\"נ שגוף הקרקע והבהכ\"נ הוא של הציבור ואין לכל אחר רק שיעבוד ישיבה על המקום לכך נקנה בישיבה משא\"כ בצחיח סלע שקונה גם הגוף לכך בעינן קנין גמור לדעת הראב\"ד אמנם זה פשוט דאף שבתשמישין כאלה דאין לו רק שיעבוד מ\"מ אינו מועיל לדבר שלא בא לעולם דהא דיכול לשעבד דבר שלא בא לעולם הוא רק בהלואה ומשום נעילת דלת וכן בשוכר חמור סתם או בית סתם דחייב להעמיד לו בית אפי' אין לו בית וחמור מכל מקום בשעת שכירות בעינן שיהיה לו וכיון דחל השיעבוד על זה חל ג\"כ על גופו להעמיד לו משא\"כ כשאין לו כלל ומשם ג\"כ מוכח דשכירות יש בו ג\"כ משום שיעבוד כמו שהארכתי בזה בה' שכירות:",
+        "שאלה א' קנה בית ישן לסותרו ולבנות במקומו חדש וקודם שקיבלו בק\"ס הלך הלוקח עפ\"י ידיעת המוכר לסתור ולבנות הבית ואחר שסתר ב' הכתלים של בית החורף הגדול פינה מקומם והסיר העפרורי' כדי להניח במקומם חדשים וגם הביא סטעמפלין להעמיד תקרת הבית והגג שלא יפלו מחמת סתירת הכתלים וקודם הסתירה הי' הבית ראוי לדור בו כמה שנים ועתה רוצה הלוקח לחזור בו והמוכר טוען שהלוקח קנאה בחזק' בסתירת הכתלים ובפינוי מקומם כמו בהסרת גבשושי' שכ' הרמ\"א בסי' קצ\"ב סעיף י\"א וגם בהעמדת סטעמפלין להעמיד הגג שלא יפול. ע\"כ השאלה:",
+        "תשובה לפענ\"ד נראה דזה לא הוי חזקה דל\"מ להרא\"ש בסי' ער\"ה סעיף כ\"א דחפיר' היסודו' לא קנה וע' ברא\"ש פ' חזק' הטעם דבעינן שיגמור תיקון הקרקע למה שהוא רוצה לעשות בו אבל הכא דחופר היסוד כדי לבנות הבית ועדיין לא נגמר למה שהוא רוצה לדור בו וכו' כ\"ש הכא דלא הוי חזקה בנטילת העפר וסתיר' הכתלי' אף שתיקנו לבנין ולהך דיעה נטיל' גבשושי' לא קנה רק בשדה העומד לזריע' א\"נ בבי' באופן שאבא' לקמן ואפי' להך דיע' דס\"ל שם דחפיר' יסודו' קנה מ\"מ נרא' דהכא לא קנה דהא עיקר הטעם דחפירת יסודות קנה כתב המגיד כיון שעש' מעש' בגוף הקרקע ואף דהבנין שע\"ג הקרקע והקרקע לגוף א' יחשב דהא צר צורה בנכסי הגר שהוא בבנין שע\"ג הקרקע קנה גם הקרקע וה\"נ נימא כיון שסתר הכתלים של בנין שע\"ג הקרקע דמי לנטל גבשושי' מגוף הקרקע ז\"א דהבנין שע\"ג הקרקע לא חשיב גוף א' עם הקרקע רק בבנין שכבר נגמר ויש להקרקע תועלת וצורך בהבנין שעליו דהיינו שהבנין הוא כבר עם דלתות וראוי' לדיר' או שהוא חצר וראוי' להשתמש בתוכה ואז אפי' צר צורה בהבנין קנה גם הקרקע שהקרקע והבנין הם גוף א' ממש וכן אפי' נטל גבשושי' מהבנין שיש בו דלתות או מקרקע והשביח בזה הדירה לפי ראות עיני הדיין ג\"כ קונה כמו צר צורה אבל כל זמן שאין בהבנין דלתות לא נחשב כגוף לגוף הקרקע וליבני בעלמא הוא דאיקרי וכדאמרי' הל' התם בש\"ס ליבני בעלמ' הוא דאפיך ולא נעש' גוף א' עם הקרקע:",
+        "ותדע דאלת\"ה רק תיכף כשנעש' אף מקצת בנין נחשב גוף א' עם הקרקע א\"כ אם מצא פלטרין בלא דלתות וחקק בהמשקוף ובמזוזות שיהי' ראוי להעמיד דלתות ומכ\"ש כשחקק החורין שהדלת תסוב על צירה יקנ' דחקיקה בבנין חשוב כחפירת יסודות וכנטילת גבשושי' והרי משביח הקרקע למה שרוצה לעשות בה דהיינו בנין דבלא חקיקה לא הי' הקרקע ראוי לבנין ואחקיק' זו ראוי לגמור הבנין וכן בכל בנין ודאי דחוקק כמה פעמים כדי לחבר עץ א' בחבירו וקודח במקדח לחבר א' בחבירו יקנה דהא בשבת הקודח במקדח הוי בונה ודמי להא דלמד המרדכי נטילת גבשושי' משבת לבנין וכן הדין בקרקע אם מילא גומא בקרקע שיהי' ראוי לזריעה או לבנין קנה כדאמר התם מוליא במוליא נצא בנצא וכו' א\"כ ה\"נ יקנ' בהנחת פודוואלניס ופלאטוויס שחיבר בקרקע שיהי' ראוי לבנין היינו להעמיד גג ודלתות דא\"א להעמיד גג ודלתות זולתם והרי תיקן הקרקע לבנין דמה לי שנטל וסתר בנין מהקרקע כדי שיהי' ראוי לבנות או שהניח וחיבר בנין ע\"ג קרקע שיהי' ראוי לגמור בנין טוב אלא ודאי כמ\"ש שכל זמן שהבנין לא נגמר ליבני בעלמא מיקרי ולא חשיב גוף הקרקע ואנן בעינן מעשה בגוף הקרקע וכי יעלה על הדעת דבונה פלטרין בלא דלתות לא קנה ואם סתר דבר א' מהפלטרין כדי ליתן בו טוב ממנו קנה אף בלא דלתות וא\"ל כיון שבלא סתירה הוא בנין טוב שראוי לדירה והי' חשיב כגופו של קרקע וכשסותר כדי לבנות הוי הסתירה בהבנין כעוש' מעש' בגוף הקרקע ז\"א דבשלמא ציור מחשיב הבנין משא\"כ סתיר' מקלקל הבנין והקרקע בשעת הסתיר' דהא קודם הסתיר' הי' הקרקע עם הבנין שוה אלף ועכשיו הקרקע עם העצי' המונחי' אינן שויין רק ת\"ת וא\"כ אין זה נחשב שבח קרקע רק קילקול הקרקע דהא בעינן שבשעת מעש' שלו יהי' שבח לקרקע כמבוא' כמה פעמים בסי' ער\"ה והכא בשעת עשייתן אדרבה קילקל להקרקע ולא השביח:",
+        "ומטעם זה ג\"כ לא דמי כלל לנטל גבשושי' דבשלמא בנטיל' גבשושי' נשבח הקרקע בשע' עשייתו משא\"כ בסתיר' ע\"מ לבנו' בשעת הסתיר' אינו משביח אדרב' נתקלקל בשע' עשייתו והוא פשוט לכל הישר הולך ולא יחלוק בזה רק מתעקש ואינו מודה האמת:",
+        "וגם כשעוש' מעש' לסתור הוי תרתי דסתרי לומר דהוי הבנין כגופו של כל קרקע מטעם דיש תועלת לצורך הקרקע בהבנין וגם לו' דהוי כמתקן הקרקע בהקילקול של סתירה וגם תיכף כשמתחיל לקלקל בטל שם קרקע מהבנין ועדיין אינו ראוי לבנות בו עד שסותר הכל נמצא בשעה שמשביח אינו עוש' מעשה בגוף הקרקע:",
+        "ועוד דבחפירות היסודו' דקנה ודאי דלא קנה עד שיחפור כל היסודות של הכתלים שיהי' גמר תיקון הקרקע שיהי' ראוי לבנין ודוקא בקרקע העומד לזריע' קונה במכוש א' דכל פורתא חזי לזרוע בה כרכמא רישקא וכיון שהשביח חלק קרקע זה קנה כל הקרקע עד המצר משא\"כ בחפר יסוד מכותל א' עדיין לא נגמר שבח הקרקע אל מה שרוצה לעשות בו דהיינו הבנין וכן במשביח קרקע לחרישה ודאי דבעינן שיעור הולכת המחרישה כי בכ\"מ בעינן גמר שבח והתחל' השבח לא מהני: וכן בפרץ בסי' ער\"ה בעי' שיפרוץ עד שיכנוס בריוח והתחל' לא מהני וא\"כ הכא לא סתר רק שני כתלים וצריך הוא שיסתור כל הכתלים שיהי' יכול לבנו' בנין החדש כי חדא כותלא חדתא בכולא ביתא עתיקא לא קאי כמבוא' בב\"ב וגם הא הי' דעתו לסתור הכל א\"כ עדיין לא נגמר שבח הקרקע שיהי' ראוי להבנין חדש ולא קנה וגם הבו דלא לוסיף על סברת הר\"י מיג\"ש שהוא נגד דעת התוס' והרא\"ש שהן רבים ובכ\"מ הלכ' כתוס':",
+        "ונקיון העפר שנפל שם ג\"כ לא הוי חזקה דהא דזכי זכיא בב\"ב שם דקנ' שכ' הרשב\"ם דהיינו המכבד השדה מקסמין ועשבים נראה דהיינו דוקא בקסמין ועשבים שהן מחוברין בגוף הקרקע ונתדבקו לקרקע באופן שהי' בשבת חייב על נקיון כיוצא בזה משום חורש הוי כעוש' מעש' בגוף הקרקע וקונ' בחזקה זו תדע דהא המרדכי למד נטיל' גבשושי' משבת לקנין אלמא דאינו קונה בחזק' רק בדבר שחייב בשבת דאלת\"ה הי' לו לומר סתם דנטילת גבשושית לא גרע מזכי זכיא אבל ודאי דמפנ' מטלטלין מהשדה לצורך חרישה לא נקרא עושה מעש' בגוף הקרקע רק למציל ומפריש העיכוב מהקרקע וכמגרש בהמה מהשד' כדי לחרוש וגרע ממבריח ארי דלא קנה ואינו חייב בשבת רק באשווי גומות בדבר שמבטל לי' כמבואר במ\"א סי' שי\"ג סעיף יו\"ד ע\"ש והוא ש\"ס ערוכה בשבת דדוקא כשנתבטל אז אסור ליטלו משם ובסי' רמ\"ד במ\"א ס\"ק ח' דנטילת זבל מרחוב הוא ג\"כ חשיב מלאכה משום דזבל מבטלו בשעת השליכה ונתדבק בקרקע וגם לפי מש\"ל פינוי עפר של בנין לצורך בנין לא קנה כמו סתירת גוף הכתלים וגם פינוי העפר הוא מקלקול שעשה בעצמו ועליו לתקן. וגם הסמיכו' שעשה שלא יפול דמי למבריח ארי וגם לא עדיף מבנין הבית שלא נגמר ע\"כ ל' התשובה: עוד רצה חכם א' לסתור דבריו מתוך תשובתי יתבאר הדברים שכ' אלי וז\"ל (תשובתי אליו) תשובתו דמר קבלתי והנה מה שהוכיח מכ\"ת מדברי הרא\"ש סתירה לדברי מפרק חזקת הבתים בהא דאמר בגיטין שתפתח ותיחוד ע\"ש אלמא דהיכא דאם קלקל קודם בעצמו ותיקנו הוי חזקה ולפענ\"ד אין כאן שום ראי' דודאי אם המוכר אמר להלוקח שיפתח הדלת ואח\"כ ינעלנו לשום חזקה בודאי כשחוזר קודם נעילה אין מחוייב לנועלו דהא המוכר ציוו' לו לפותחו ועוד דשם בגיטין במתנ' מיירי וכשחוזר בו אינו חייב לשלם הקלקול דמה חסרו ומה היזיקו במה שאינו רוצה לקבל המתנה ועיקרמה שכתבתי הוא לענין אם עשה חזקה בפניו דאז אצ\"ל חזק וקני ועשה מקודם קילקול בפני המוכר דאז אף ששתק המוכר וודאי כשהלוקח יחזור בו מחויב לתקן את אשר עיוות וזה פשוט וא\"צ לראי' ולזה אם תיקן אח\"כ ג\"כ בפני המוכר א\"י כוונת הלוקח אם לחזק' לקנותו ואם לתקן את אשר עיוות שהוא מחוייב בדבר וחילוק גדול יש בין ציווה לו בפיו לקלקל ובין עשה מעצמו קילקול ותיקון בפניו: ועוד דנעילה עדיף ממבריח ארי והוא מטעם אחר כמו שכתבו התוס' והרא\"ש דנראה כאדם העושה בשלו שמונע כל אדם מלכנוס בו: וגם מ\"ש מכ\"ת לסתור דברי בהא דזכי זכיא שכתבתי דבעינן שיהי' הקיסמין והאבנים מחוברין לקרקע דנקרא תיקון הקרקע נגד מלאכת השבת וכ' מכ\"ת לסתור זה מהא דמציע מצעות דהוי חזקה משום דמייפה הקרקע אף דלית ביה משום מלאכת שבת ואיני רואה בזה שום סתיר' דודאי להך דיעה דס\"ל דהמציע מצעות קנה משום יפוי קרקע בכל דבר שמייפה הקרקע קנה אבל להי\"א שהביא הרב בהג\"ה בסי' ער\"ה סעיף ט\"ו דלא קנה בייפוי הקרקע במצעות הואיל והוא דבר שאינו של קיימא א\"כ ה\"נ כשמונח דבר שאינו של קיימא על הקרקע שממאס הקרקע ומסלק המיאוס לא קנה בזה כי מה לי שמייפהו בדבר שאינו של קיימא או שמסלק המיאוס של דבר שאינו של קיימא ואדרבא סילוק המיאוס גרע מייפוי דהוי רק כמבריח ארי. ועוד נרא' דאפי' מאן דס\"ל דהמציע מצעות קנה ע\"כ לא מירי בקרקע העומד לבנין או לחריש' דבאלו לא שייך ייפוי קרקע והוא פשוט לבר בי רב דחד יומא רק דמיירי בבתי' בנויין עם דלתות דומיא דצר צורה בנכסי הגר דמיירי בבתים בנויין עם דלתו' דוקא דקני משום ייפוי ופליגי הנך פוסקים אי מהני ג\"כ במציע מצעות כדרך שעושים בבית השרים והמלכים אי קנה בזה דהי\"א ס\"ל דוקא בייפוי בדבר של קיימא כגון צר צורה קנה אבל מציע מצעות שהוא דבר שאינו של קיימא לא קנה והמחבר ס\"ל דמ\"מ קונה אבל בקרקע העומד לבנין או לחריש' דלא קני משום ייפוי רק בתיקון קרקע וודאי בעינן תיקון גמור שיהי' נקרא תיקון קרקע:",
+        "גם מ\"ש ליישב דברי המרדכי שכ' הטעם משום בונה שהוא משום שכ' דינו בבית לא ידענא מאי קאמר דמ\"מ לפי דברי מכ\"ת הקנין הוא משום ייפוי הקרקע ולפ\"ד מכ\"ת אפי' לא הסיר גבשושית שהוא מגוף הקרקע רק שהי' מונח על הקרקע איזה דבר והסירו קנה ולמה נקט המרדכי הטע' משום דחייב בזה בשבת וגם ל' הש\"ס קשה לדברי מכ\"ת דלא הי' למינקט הל' דזכי זכיא רק המכבד את הקרקע כדאמרי' בכל דוכת' בל' כיבוד הבית ול' זכי זכיא נגזר מל' זך שגוף הקרקע אינו זכה וזיכך אותה בהסרת קוצים ואבנים המושרשי' בתוכו שאי אפשר לזרוע מבלי הסרתן:",
+        "ומה שהביא מכ\"ת ראי' משביעית דאסור לסלק אבנים לא ידענא היאך מביא ראיה ממה שאסרו חז\"ל מפני מראית העין שהוא נראה כמתקן ארץ אבל לענין קנין בעינן דבר שיש בו תיקון ארץ ממש ולא שיהי' נראה כמתקן ארץ וכל מה שאינו נקרא תיקון הארץ לענין שבת לא מיקרי תיקון הקרקע לענין קנין ושפיר הוצרך המרדכי להביא ראי' על הנוטל גבשושית משום דהוי בונה לענין שבת וגם הוצרך למינקט גבשושית שהוא מחובר בקרקע ולא נקט סתם המסיר דבר המונח על הקרקע א\"ו דהמסיר דבר המונח על הקרקע או המגרש בהמות ואפי' אריות מהקרקע כדי שיהי' יכול לחרוש ולזרוע לא הוי חזקה דזה לא הוי תיקון גוף הקרקע דהקרקע מיתקן וקאי רק אריה הוא על הקרקע ומבריחו:",
+        "אכן כל הפלפולים שבעניינים האלו המה אך למגן כי לא סמכתי על שום א' מהעניינים הנ\"ל כי יש בכל ענין מקום עיון רב והעיקר שאני סומך עליו מה שאין לו שום ספק ונדנוד עליו הוא הא דחפירת יסודות לא קנה והסרת גבשושית הוא בבית עם דלתות כמו בצר צורה בנכסי הגר שהוא בבית עם דלתות דוקא ומ\"ש מכ\"ת להוכיח מל' הרב בהג\"ה בסי' קצ\"ב שכ' הי' גבשושי' ונטל' או גומא וסתמה הוי חזקה וכו' אבל אם חפר מעט לא קנה אלא בשדה העומד לחרישה ומזה הוכיח דברישא מיירי בשדה העומד לבנין לא ידעתי לו ענין כלל ומעולם לא שמענו שדה העומד לבנין וכי לא הי' לאשכוחי גוונא אחריני רק בשדה העומד לבנין הא משכחת לה בשדה העומד למישטח ביה פירא או להעמיד בו גורן קבוע דקנה בהשוה פני הארץ כמבואר ברשב\"ם בב\"ב וכיוצא בו הרבה אך הפשט הפשוט דאפי' בשדה העומד לזריעה באתרא דמוברי ונטל גבשושית שעשה בו תיקון לעולם קנה אבל חפר בה מעט שאין בזה תיקון עולמית לא מהני רק בשדה שהוא עומד לחרישה עכשיו והחפיר' מועטת הוא התחלת חרישה ותקנה לזריעה אבל בזמן שמוברה חפירה מועטת לא קנה ותמה אני על מכ\"ת לומר כן בבונה פלטרין גדולים מיסוד התהום עד רום רקיע לא קנה ואם הסיר גבשושית להניח הלבנים והעצים קנה ומ\"ש מכ\"ת דחפירת היסודות עשוי למלאות משא\"כ בהסרת גבשושית שהארץ יהי' כך ולעולם עומדת תמה אני דהא ודאי דלא מיירי בהסרת גבשושית שבאמצע הבית שייפה הקרקע דזה בודאי לא קנה בבית שאין בו דלתות וע\"כ צ\"ל דמיירי במקום שבונה עליו שיהי' יכול לבנות בטוב והרי הוא ג\"כ עשוי למלאות דהיינו שיניח עליו גבשושית אחרי' מאבנים ולבנים ועצים ועוד דהא כ' הרב בהג\"ה שם או שהי' בו גומא וסתמה וע\"כ כשחפר עד היסוד וסתמה באבנים ובלבנים הרי הי' בו גומא וסתמו כמ\"ש מכ\"ת ואף שעשה הגומא בעצמו כמ\"ש מכ\"ת בפתח ונעל ואם הי' קונה בהשואת הקרקע לבנין היאך כתבו בסתם דבונה פלטרין ואפי' חפר היסודו' לא קנה ולא כתבו דין מחודש כזה בסי' ער\"ה דמ\"מ אם השוה פני הארץ לבנין קנה בשלמא הסרת גבשושית בבית גמור לא איצטריך לאשמועינן בסי' ער\"ה דלא גרע מצר צורה וידוע הוא דסתם בונה משוה הארץ קודם וא\"א בלעדו על הרוב כללא דמילתא כי לפענ\"ד מי שאומר שבבנין לא קנה ובסתירת הבנין קנה הוא אצלי כאומר על אבן שהוא זהב:"
+      ],
+      "en_segments": [
+        "The same applies to rental. One must determine what constitutes chazakah for rental. Maharit, part 1, siman 68, proves that rental and borrowing of land also require the formal chazakah of locking, fencing, or breaching. He cites Gittin, where the woman is told to go lock and open the place; Tosafot in Bava Batra and Bava Metzia, who require a kinyan for borrowing or renting a place; Ran in Kiddushin; and Tosafot in Bava Batra 87. At first glance these proofs are difficult because those cases concern objects belonging to the transferor inside the courtyard, while the renter placed nothing of his own there and performed no use of his own. Perhaps actual use by the renter with his own property would itself acquire. Ketzot HaChoshen raises this in siman 189. Maharit seems to rely particularly on the fact that in Gittin the Gemara said to lock and open rather than simply place one of her own objects there, and on the case in Bava Batra where her basket was already resting in the place yet Tosafot still required locking or fencing. Machaneh Ephraim, however, proves that a house can be rented by bringing one's utensils into it. Since the renter acquires only the right of use, acquisition occurs through the ordinary form of that use, like a vineyard path acquired by walking. He cites Bava Kamma 48, where permission to bring an ox into a courtyard is treated as transferring a place in the courtyard sufficient to make it jointly usable, showing that use alone can establish such a right. In my view Machaneh Ephraim's practical ruling is correct, but not because it is identical to a vineyard path. Raavad holds that barren rock is not acquired merely by spreading fruit even though that is its use. A vineyard path is different because one's body itself derives the benefit of walking, as Masat Binyamin explains. The better rationale is that Maggid Mishneh, chapter 5 of Hilchot Shekhenim, explains neighbor-use rights as mere waiver of a servitude. In these forms of use there is no full acquisition of the body of the land, only a servitude of use imposed upon it. Such a right can arise through commencement of the use itself, and the formal chazakah of locking, fencing, or breaching is irrelevant because the body of the property is not being acquired. But if the renter seeks such dominion that the courtyard should function as his own courtyard to acquire found objects or purchases for him, a mere servitude of use is insufficient. He must acquire a true right in the body of the courtyard for its fruits, and for that formal chazakah is required. Thus a person who merely has a right to drain rainwater, place ladders, or similar use plainly does not thereby own a courtyard capable of acquiring objects for him. This can also reconcile the law that a rented courtyard sometimes acquires for the landlord: where the renter merely introduced animals and thereby acquired a use-servitude, the body remains the landlord's; in siman 260, where the renter performed formal chazakah, the body for its fruits may be vested in the renter. This distinction resolves the sugyot. Gittin, Bava Batra, and Bava Metzia deal with making the courtyard legally his domain for acquisition or divorce, and therefore require full chazakah. Bava Kamma 48 requires only permission of use sufficient to remove the status of the injured party's exclusive courtyard; commencement of use suffices. Daily practice likewise shows that one who rents a place to store produce and actually places produce there cannot retract, and even after removing the first produce he may place other produce there throughout the rental term. Maharit therefore seems incorrect in saying that after the first produce is removed the servitude ends. The same is obvious from rights to ladders, rainwater, windows, and other uses that continue for the agreed term. Accordingly, a vineyard path acquired by walking can be understood as a case where only a right of passage was transferred, not the body of the land for digging or planting. The same is true of a synagogue seat: the synagogue and underlying land belong to the public, while the individual receives only a servitude of sitting at that place, so sitting itself acquires. Barren rock is different where the body itself is being acquired; Raavad therefore requires a formal act. It is also clear that this type of servitude cannot make a davar shelo ba la'olam effective. The limited ability to impose a lien on future-acquired property exists in loan law because of the need to preserve credit. Even where one rents \"a house\" or \"a donkey\" without specifying an existing item and the lessor must ultimately provide one, at the time the rental obligation is created there must be a legally cognizable obligation upon his person. If there is nothing at all to which it can attach, mere use-language does not create a present property right. A practical case was asked: a buyer purchased an old house intending to demolish it and build anew. Before receiving it by kinyan sudar, with the seller's knowledge he began demolition, removed two walls of the large winter room, cleared the debris from their sites to prepare new walls, and placed supports under the ceiling and roof so they would not fall. Before demolition the house was habitable for years. The buyer now wishes to retract, while the seller argues that he acquired by chazakah through demolition, clearing the sites like removal of mounds, and installing supports. In my view this is not chazakah. According to Rosh, digging foundations does not acquire because the improvement must be completed to the point of serving the intended use. If one merely digs in order later to build, the property is not yet improved for residence. All the more so, removing soil and demolishing walls is not chazakah merely because it is preparatory to construction. Even according to the view that digging foundations can acquire because it is an act in the body of the land, the present demolition does not. A building above the land is treated as one body with the land only when it is already a completed useful structure, with doors and fit for residence or as a usable courtyard. Then even beautifying the building can acquire the land. Before completion, however, the structure is merely loose building material, as the Gemara says. If partial building were automatically one body with the soil, then carving door sockets in an unfinished palace, drilling holes to join beams, or placing foundational members necessary for a roof should acquire the land, yet the Gemara says that building a palace without doors does not acquire. The reason is that until completion the construction is not yet a completed body of land-improvement. Moreover, demolition is not improvement at the moment of the act. Before demolition the land and house may have been worth one thousand, and afterward the land with dismantled materials only eight hundred. Chazakah requires that the act itself improve the property. Removing a mound improves the ground immediately; demolishing in order to rebuild causes immediate deterioration. It is contradictory to say that the existing building counts as part of the land because it benefits the land, while at the same time destruction of that beneficial building counts as improvement of the land. Once demolition begins, the building ceases to function as the completed improvement, yet the new construction is not ready. Clearing the debris does not help either. Removing debris one created himself is at most correcting one's own damage, and the seller's silence does not show consent to acquisition because the buyer is obligated to restore what he damaged if he retracts. Nor is the installation of temporary supports a proprietary improvement; it is merely preventing the roof from falling, comparable to driving away a lion, and in any event no better than unfinished construction. A scholar attempted to challenge this conclusion from the case in Gittin where one opens and then closes a door. There is no proof. If the seller explicitly tells the buyer to open and then close the door as an act of chazakah, the buyer is not independently liable for opening it, because the seller ordered him to do so. The case in Gittin also concerns a gift, where refusal to accept causes no compensable damage. My argument concerns a buyer who, in the seller's presence, first independently damages the property and later repairs it. The later repair is ambiguous: is he acquiring, or merely repairing what he already must repair? Locking is also stronger than merely preventing a loss because it visibly excludes everyone else like an owner. Nor is there proof from the rule that spreading bedding can acquire through beautification of property. According to the view that temporary beautification does not acquire, removing temporary refuse likewise cannot acquire, and removing an obstacle is in any event weaker than positive beautification. Even according to the view that bedding can acquire, the case concerns a completed house with doors where beautification is a natural use of the existing structure. Land intended for building or plowing requires a genuine physical improvement to the land itself, not temporary cleanup. Mordechai's proof from Shabbat concerning removal of a mound likewise shows that the object removed must be integrated into the ground in a way whose removal is legally treated as building or land repair. Simply removing something lying on the surface, or chasing animals away so one can plow, is no acquisition. The ground was already physically fit; one merely removed an external obstruction. Shemittah prohibitions based on appearance are no proof for ownership acquisition, which requires actual land improvement. In truth, these secondary debates are unnecessary. The decisive point is that digging foundations does not acquire under Rosh, and removal of mounds as an acquisition concerns an actual completed house or a field where the act produces an enduring finished land-improvement. The reading that a person who constructs an enormous palace from foundation to roof acquires nothing, but one who merely removes a mound in preparation for construction acquires, is no more plausible than calling stone gold."
+      ],
+      "fp_pattern": "true_en_truncated",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman205/seif-003/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 205,
+      "seif": 3,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעיף יא בהגה\"ה אם חזר וביטל וכו' נ\"ב עיין בתשובת מוהרי\"ט ח\"ב חלק חו\"מ ס\"ס מ\"ג שהאריך בטעמו של דבר למה מהני גם העלה שם לדינא דאם תחלה נשבע בשעת המודעא שלא יחזור מהמודעא כל זמן דלא יקרע את המודעא אז ל\"מ כל הביטולין כיון שנשבע גם לא קרעו עדיין עיי\"ש ותבין ועיין בחיבורי עה\"ת פ' עקב שנת תר\"י מה שהוכחתי מדברי התוס' פ\"ט דשבת ד\"ה מכאן מודעא רבא לאורייתא ממ\"ש בלשונם ושמא אח\"כ יהיו חוזרין בהם מדלא כתבו בדרך וי\"ל דאח\"כ חזרו בהן ולמה כתבו בלשון שמא וגם למה כתבו יהיו אח\"כ חוזרין בהם הו\"ל אח\"כ חזרו בהם לשון עבר מוכח דבאמת לא חזרו בהם כלל רק דחשש הקב\"ה שמא יחזרו בהם לכך כפה אותם שלא יחזרו בהם. והנה מזה נלמוד חדש באם נתרצה למכור לחברו איזה דבר וטרם גמר הקנין במעשה נתירא הלוקח פן יחזור בו המוכר והתחיל לאונסו לגמור המכירה וכן עשה המוכר אז הוי בו מודעא ונחשב אונס אף אם לא חזר בו תחלה כל המוכר ומיהו במכר לא משכחת לה זה דהרי צריך מסירת מודעא תחלה וממ\"נ אם מסר מודעא תחלה הרי חזר בו ואם לא עשה מסירת מודעא תחלה בלא\"ה לא הוי אונס רק נ\"מ למתנה או להתרצה למכור פחות משויו בענין דלא בעינן מסירת מודעא ואף דנתרצה תחלה ליתן לו ולא ראינו חזרה כלל מ\"מ כל דבשעת גמר המתנה והקנין אנסו המקבל מחשש שמא יחזור בו נחשב אונס ולא נחשב המעשה של הנתינה לכלום ובטלה הניתנה והוא חידוש דין לפענ\"ד:",
+        "שם סי\"א בהג\"ה בד\"א במכר אבל במתנה וכו'. נ\"ב ה\"ה מזה למדתי בעזה\"י בדין אחד דאף דפשרה דינה כמכר מ\"מ היינו רק אם מוסר מודעא על גוף הפשרה אז כיון דטוענין זה כנגד זה נחשב כמכר אבל אם כבר נעשה הפשרה המועיל עפ\"י דין ולא רצה אחד לקיים הפשרה וההכרח לוותר לו הבע\"ד השני עוד מן הפשרה בזה כיון דאין אחר הפשרה כלום. שוב המותר הוי רק כעין מחילה ומתנה ואף דביטל כל הבטולין מהני מודעא אף שביטל יפסל כל העדים כיון דהוי הכל באונס ודו\"ק:"
+      ],
+      "en_segments": [
+        "He said, “If you come back, then you will be able to see what you are doing, and you will be able to do it.” But Hashem’s promise is not in any way that Hashem will not return to them. And here is a new measure in which he is willing to sell to his friend what is and the end of the canine in the act of the scholar who will return to the seller and start the sale, and the seller did, so that he is aware of it and is considered rape if he does not return to the seller and who is not forgotten to him, he must be given a conscious transfer of his illness and if he is not known to him To give it to him and we did not see any return from the date of the gift and the anthropy of the recipient, fearing that he would return to him as a rape and not considered the act of giving to the bride and annihilation, and that he was renewing a law to the bell: the name of the G-d in the mine, but in the gift and so on. This is what I have learned in Gaza in one sentence that Dafna was a miner of only if he had been informed of the settlement body, then that he was not afraid of it against it was considered a mine, but if it had already been made a courteous settlement, and did not want one to make a compromise and the necessity to give him the other Attorney General another away from the compromise that there is no other compromise. Once again, only as an eye of pardon and pardon And even Debustle all the concrete of my self-consciousness, though the bat will be sculpted by all witnesses as John Devi everything in rape and DCO:"
+      ],
+      "fp_pattern": "true_en_truncated",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman227/seif-022/beur-hagra",
+      "volume": "cm1",
+      "siman": 227,
+      "seif": 22,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המוכר כו'. עבה\"ג וכמש\"ש פ\"א:",
+        "(ליקוט) המוכר חפץ כו'. עברמב\"ם פט\"ו די\"א מכאן אני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "The seller is so. It is called the Holy One, and it is the same. “And I am here.”"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman232/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 232,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המוכר כו'. זהו רישא דשם. היה בה מום א' ניכר והראהו כו'. זהו סיפא דשם. אבל יש בה מומים הנכרים בין כו'. זהו מש\"ש א\"ל רב אחא כו' הכי אמרי' כו'. כ\"מ וכ\"כ בדרישה:",
+        "(ליקוט) המוכר כו' וס\"ט היה כו'. כ\"ז הוא לשון הטור והנה רש\"י פי' דברישא דא\"ל פרה כו' משום דסנפו כו' ולא היה בו כל המומין ה\"ז מקח טעות אבל בסיפא מום זה כו'. אע\"ג שלא היה בו מום אחר כיון שהזכיר לבדו ה\"ל לבדוק א\"ל ר\"א כו' היו בה כו' ואינו מקפיד אלא על הא' דאל\"כ מאי קמיבעיא ליה דהא ל\"ל מדהא ליתא אידך נמי ליתא ובברייתא קתני בהדיא והיה בה מום אחד אבל תוס' בד\"ה היו פי' דבסיפא מום זה כו' מיירי שיש בה גם המום האחר ואינו מזכיר אלא שני מומין מום זה שמקפיד ומום אחר שיש בה ואינו מקפיד ולכך קמיבעיא ליה אי דוקא שני מומין אבל היה בה כל המומין ה\"ז מקח טעות א\"ד אפי' כל המומין בה ג\"כ אינו מקח טעות ול\"ד מום זה ומום אחר אלא משום דאית בה שני המומין וה\"ה לכולם וקא' ומום אחר שבה וז\"ש תוס' והא דקתני מום זה ומום אחר ה\"ה כו' ורש\"י מחק אפי' בד\"ה אפילו וכן הוא ברמב\"ם כיון שקאי ארישא לא שייך אפי' אבל לפי' תוס' שייך שפיר אפי' ואח\"כ כ' תוס' דבתוספתא מ' דבשני מומין אפי' האחר אין בה אינו מקח טעות ובזה אתי שפיר דקתני כאן ומום אחר ולשני הפי' של תוס' מ\"ש מום זה ומום אחר הוא דלא כפירש\"י שהזכיר לבדו ועוד כו' אלא שלא אמר רק שני מומין ומ\"ש שם ומום זה ומום אחר אין זה מקח טעות כיון שאינו מזכיר אלא אחר ר\"ל כיון שאינו מזכיר רק שנים ורי\"ף ורא\"ש פי' דרישא שלא היה בה א' מכל המומין הנזכרין כאן והיה בה מום אחר שאינו ניכר כגי' בגמ' והיה בה מום אחר ואין נ\"מ בזה לגי' שלנו מום אחד וגם אלו המומין הנזכרין כאן אינן ניכרין ובסיפא שא\"ל מום א' ניכר ומום א' שאינו ניכר והיה בה שני המומין ועוד אמר בה הרבה מומין שאינן ניכרין ולא היו בה ואילו לא אמר מום הניכר היה מקח טעות שזהו הרישא אבל כיון דהראה לו מום ניכר ה\"ל לבדוק ג\"כ בשני ורמב\"ם פי' בע\"א וגריס ברישא ואמר בה מום אחר ר\"ל שא' מאלו שאינן ניכרין היו בה אבל אמר בה עוד מומין אחרים הניכרין ואין בה אבל כולם ניכרין או כולם אינן ניכרין אינו מקח טעות וז\"ל בפט\"ו מה\"מ המוכר פרה לחבירו ומנה בה מומין גלויים ומומין שאינן ניכרין ולא היו בה מאותן מומין הגלוין שמנה ונמצא בה מום מאותן שאינן ניכרין ה\"ז מקח טעות וחוזר ואע\"פ שפירש המום שנמצא שהרי הלוקח אומר כשראיתי שאין בה אלו המומין שנראין שמנה אמרתי כך אין בה אלו שאינן נראין שמנה ואינו מפרש מומין אלו אלא כדי להשביח דעתי כיצד פרה זו עורת היא חגרת היא נשכנית היא רבצנית היא ונמצאת רבצנית בלבד או נשכנית ה\"ז מקח טעות היו בה כל המומין שמנה אין זה מקח טעות והוא הבעיא הנ\"ל ול\"ד כל המומין אלא א' מהמומין הניכרין וא' מהמומין שאינן ניכרין כיון שיש ג\"כ מהניכרין אינו מקח מעות גם על שאינן ואמר כל המומין ר\"ל אותן שהזכיר בברייתא ומומין האחר שאמר וז\"ש הרמב\"ם שם וכן אם היתה חגרת ונמצא נשכנית אע\"פ שאינה עורת אין זה מקח טעות וכ' הראה לו המום שיש בה וא\"ל מום זה יש בה ומום פלוני ומום פלוני אע\"פ שאותן המומין שמנה נראין ונמצאו בה כולן או מקצתן אין זה מקח טעות והוא סיפא דברייתא ולדבריו כל שנראין כולן או אינן נראין כולן בלא\"ה אינו מקח טעות אלא הברייתא מלתא אחריתי קמ\"ל אע\"פ שכולן נראין ולא הראה אלא א' דלא מצי לומר מדלא הראה אלא א' ש\"מ שהנשארין אין בה קמ\"ל דלא והנה הטוש\"ע בס\"ח הן דברי הרמב\"ם אבל בס\"ט שהוא פי' לסיפא דברייתא א\"י להולמן כלל ואמר אפי' היה כו' שהוא כגי' התוס' ורא\"ש דגרסי שם אפי' ומפ' שקאי אסיפא וכ\"ז א\"י להולמן והנה הב\"ח ודו\"פ פי' ברי\"ף ורמב\"ם וטור פי' דחוקים מאד ונלאיתי לכתוב הדחוקים והקושיות שיש בדבריהם וגם בתוס' נדחק הב\"ח ע\"ש (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who sells, etc. The opening clause is the baraita's case where one obvious defect was present and disclosed. The concluding clause concerns the Gemara's inquiry where some defects are visible and others are not. Rashi explains that if the seller listed several defects that were not all present, yet another undisclosed defect was present, the sale is mistaken. If he singled out the actual defect, the purchaser should have examined it. Tosafot explain differently: the seller mentioned the actual defect together with another defect that was also present, and the question is whether the rule applies only when two defects were mentioned or even when every listed defect was present. The Tosefta implies that mentioning two defects suffices even if the second is absent. Rif and Rosh explain that in the first clause none of the listed defects was present but another hidden defect was, while in the second clause the seller disclosed one visible and one hidden defect and both were present, together with additional hidden defects that were not present. Since the purchaser saw that one visible defect was accurately disclosed, he was expected to investigate the hidden defect as well. Rambam adopts another reading. He distinguishes a mixture of visible and hidden defects from a list consisting entirely of one category. If the seller lists both visible and hidden defects, none of the visible defects exists, and one hidden defect does exist, the purchaser may say that he assumed the hidden defects were also merely promotional exaggeration. If visible defects were actually present, that argument fails. Rambam further rules that where the seller points out the actual defect and lists others, the sale stands even if all or some of the others are also present. Shulchan Aruch's seif 8 follows Rambam, but the wording of seif 9 appears to follow Tosafot and Rosh, and the various attempts of Bach and the commentators to reconcile the texts are highly strained. See the cited discussions. References 81 and 340."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman268/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 268,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם היה כו'. עבה\"ג:",
+        "(ליקוט) ואם היה צבי כו'. עבה\"ג ס\"ק ס' וכ\"מ לכאורה בגמ' מדאיבעיא ליה אדברי ר' יוחנן ולא אמתני' צבי רץ כו'. אבל לנר\"כ דא\"כ מאי קאמר שם ח\"ל ר\"פ לרבא כו' לאו היינו מתני' אדרבה משם מוכח להיפך דהא זרק ארנקי דמי' לצבי רץ כדרכו (ע\"כ):",
+        "(ליקוט) ואם היה צבי כו'. צ\"ע דהא אמרינן שם מתגלגל קאמרת כו' וכן הקשה בע\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "And if it was, etc. See Baer HaGolah. The Gemara's question is raised on Rabbi Yochanan's statement rather than directly on the Mishna concerning a running deer, but the passage about a rolling purse creates difficulty and requires study."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman269/seif-001/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעיף א'. המגביה מציאה לחברו קנה וכו'. נ\"ב הנה אם היה מונח תוך ד\"א שלו מציאה. או בחצרו ואמר הלה יזכה חצרו או ד\"א שלי לפלוני את המציאה הזאת אם קונה או לא. עיין בהר\"ן בפירושו למס' נדרים דל\"ד ע\"ב ד\"ה היתה לפניו ככר של הפקר מוכח שם מדבריו דבכה\"ג קנה חברו והטעם ביארתי בחיבורי כ\"ז שם דאף אם אומר שיקנה חצרו לפלוני דבר דהוי כבר שלו לא מהני זה עדיף כיון דעדיין לא זכה בו הוא. ואם רצה הוא יכול לזכות בו לכך מגו דזכה לנפשיה זכה נמי לחברי' וכמו דעדיף משליחות דקיי\"ל התופס לבע\"ח במקום שחב לאחרים לא קנאו אף בעשאו שליחו מ\"מ במגביה מציאה לחברו קנה מכח מגו דזכי לנפשיה כן ה\"נ בקנין חצר וד\"א דנהי דחצר מטעם שליחות הוא ולכך לאחר שאינו בעל החצר א\"י החצר להיות שלוחו מ\"מ היכי דעדיין לא הוי החפץ שלו רק דיכול לזכות בו עתה אמרינן מגו דאי בעי זכי לנפשי' זכי נמי לחברי' וכן מוכח משיטת הר\"ן שם אבל משיטת שאר המפרשים שם משמע דס\"ל דלכתחלה יכוון לקנותו ואח\"כ יחול ההקדש משמע דס\"ל דאינו יכול לזכות בו תיכף לומר דיקנה הד\"א להקדש. מיהו יש לומר לדינא מודים להר\"ן דלחברי' מצי זכי ע\"י ד\"א רק להקדש ס\"ל כאן דד\"א קונות מטעם חצר. וקיי\"ל בחצר מטעם יד ואין יד להקדש כמ\"ש המג\"א בסי' קנ\"ד באו\"ח בשם האגודה דמצא דבר בחצר בהכ\"נ זכה בו. ולכך ה\"נ האיך יקנה הד\"א להקדש הרי אין חצר ויד להקדש ואם היו ממש הד\"א חצר של הקדש לא היה זוכה בו משא\"כ בנדון כזה. אבל אם הזוכה לחבירו בענין דאם היה חברו כאן אצל הד\"א אם היה החצר של חברו היה זוכה בו שפיר אף באם הוא עומד אצל הד\"א נמי יכול לומר דיזכה חצרו או ד\"א שלי לפלוני מכח מגו דבעי זכה לנפשי' זכה נמי לחברי' ומודו בזה הכל להר\"ן דלמעט בפלוגתא עדיף ואדרבא על הר\"ן קשה האיך מפרש דכוונתו הוי לזכות הד\"א להקדש הלא אין חצר להקדש ויהיה מוכח מן הר\"ן להיפך דס\"ל יש חצר להקדש דלא כדעת האגודה ואין פנאי להאריך אולי יזכני ד' בזמן אחר לבאר יותר ודוק בזה: סעיף ד' נ\"ב עיין בחיבורי ליו\"ד מהדורא ה' סי' ע\"ז מ\"ש בזה ודוק:",
+        "סעיף א' נ\"ב עיין בקצה\"ח סי' זה ובאבני מלואים סי' ל\"ז מ\"ש ראיה דאב זוכה במתנת בתו ועיין בחיבורי באה\"ע מהדורא טית סימן קכ\"ז בהלכות קידושין מ\"ש לדחות דבריו בעזה\"י מלבד מ\"ש ע\"ז בחיבורי הגדול על ה' קידושין ודוק:"
+      ],
+      "en_segments": [
+        "Seif 1. One who lifts a found object for another acquires it for him. Note: If a found object lies within a person's four cubits or in his courtyard, and he says, \"Let my courtyard or my four cubits acquire this object for so-and-so,\" does the other person acquire it? Ran to Nedarim 34 implies that he does. Although a courtyard cannot ordinarily transfer to another person property already owned by the courtyard owner, here the object has not yet become his. Since he could acquire it for himself, we apply the principle that because he could acquire it for himself, he can also acquire it for his fellow. This is stronger than ordinary agency, just as one may lift a found object for another even where ordinary seizure for a creditor would fail because it harms third parties. Other commentators on Nedarim appear to require him first to intend to acquire the object himself and only afterward consecrate it. They may nevertheless agree with Ran regarding acquisition for another person, while disagreeing only about consecration because a courtyard is treated as an extension of the hand and consecrated property has no \"hand.\" Magen Avraham, citing Agudah, similarly rules that one who finds something in a synagogue courtyard may acquire it. Thus all may agree that for an ordinary person one can use one's own courtyard or four cubits to acquire a found object for him, because the owner of those four cubits could have acquired it personally. Ran's treatment of consecration might, however, imply that he holds consecrated property does have acquisition through a courtyard, contrary to Agudah. I have no time to expand. Seif 4. See my Yoreh Deah, fifth edition, siman 77. Seif 1. See Ketzot HaChoshen here and Avnei Miluim, siman 37, regarding the claim that a father acquires a gift given to his daughter. In my Even HaEzer, ninth edition, siman 127, laws of kiddushin, I rejected that proof, in addition to what I wrote in my larger work on kiddushin."
+      ],
+      "fp_pattern": "true_en_truncated",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman269/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג\"ט כו' ג\"ט כו'. תוס' ורא\"ש וכדברי המפ' דאין הגבהה בפחות מג\"ט:",
+        "(ליקוט) שגבוה ג\"ט כו'. נראה דזהו לדעת רש\"י וע\"ל סי' קצח ס\"ב (ע\"כ):"
+      ],
+      "en_segments": [
+        "J.T. K. K. K. K. K. Yasss and Rashi, and as the words of the map, Do not have responded to less than G-d, which is high. It seems to be known as Rashi and the IDF"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman275/seif-029/beur-hagra",
+      "volume": "cm1",
+      "siman": 275,
+      "seif": 29,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גר כו'. הרמב\"ם מפ' מ\"ש א\"ב ששמעו בו שמת. ר\"ל הגר ר\"ל בתחלה קודם שבזבזו הנכסים. ולא מת. קאי אשמעו ר\"ל שאח\"כ שמעו שלא מת ורפיא בידם הירושה אז דלא כפי' רשב\"ם. ואח\"כ מת. קאי נמי אשמעו ששמעו אח\"כ שמת ששמועה ראשונה היתה אמת לרבא המחזיק בראשונה לא קנה כיון דרפיא בידו ולאביי קנה ובלא הי\"ל בן ועובר כלל וכן מש\"ש רבא שאני התם כו' ר\"ל בשעה ששמעו שיש לו בן כו' וז\"ש ג' בבות ישמעו שעדיין לא מת הוא הא\"ב או כו' הוא הנז' בברייתא וה\"ה די\"ל א\"ב במיתת הבן ועובר אלא דיותר רבותא קמ\"ל דאפי' לא היה עובר כלל דלאביי בראשונה לא קנה אינו אלא משום העובר ועמ\"מ ודבריו מגומגמין מאד ועלח\"מ:",
+        "(ליקוט) גר כו' ואח\"כ כו'. לשון הרמב\"ם ועמ\"מ שהאריך בה והכל שלא לצורך וכבר השיגו מש\"ל אבל דברי הרמב\"ם תמוהין מצד אחר שלא כ' הנ\"מ שבין אביי לרבא דקא' שם בגמ' אבל גי' הרמב\"ם שם א\"ב ששמעו בו שמת ולא מת ומת ור\"ל מתחלה שמעו שמת הגר ואח\"כ שמעו שלא מת הגר ואח\"כ חזרו ושמעו ששמועה ראשונה היתה אמת שמת הגר מכבר וז\"ש הרמב\"ם ושמעו שעדיין לא מת כו' ואח\"כ שמעו ששמועה ראשונה אמת היתה ובראשונה מת שכ\"ז לא נזכר בגמ' לפי גי' שלנו דבמיתת הגר לא קמיירי כלל דלגי' שלנו ק' שמעו שהפילה הל\"ל כלשון הברייתא אבל לפי' הרמב\"ם קאי על הגר וה\"ה להפילה ומת הבן אלא דדבר פשוט יותר נקט ועתוס' קמב ב' ד\"ה והלכתא כו' פי' ריב\"ם כו' וכ\"פ הרא\"ש שם ובפ' אלמנה לכ\"ג וכ' שם שכ\"פ הרמב\"ם ודחק בפ' אלמנה שם לפרושי הא דרבא דפליג אאביי וס\"ל ירושה הבאה מאליה לא קני כמ\"ש מאי בינייהו כו' ודחק שם מאד והג\"א בב\"ב שם ד\"ה גר כו' כ' דהלכה כאביי לדברי ריב\"ם ורמב\"ם אבל לפי הנ\"ל הכל ניחא דרבא ל\"פ אאביי בזה וז\"ש מאי בינייהו דהא רבא מודי לאביי וכ\"מ לכאורה הסוגיא דנדה מג א' דקא' ודוקא בן כו' דהוא מיית ברישא כו' ואם איתא הא בלא\"ה עובר לא קני אבל יש לדחות דהוא הכל מדברי רבששת והוא אזיל לטעמיה דס\"ל בב\"ב שם דא' זה וא' זה קנה ובזה מתי' קושית תוס' דשם ובב\"ב שם ד\"ה נוחל כו' תימא כו' אבל בזה ניחא דודאי ידע נוחל בנכסי אם כו' אבל לא ידע מ\"ש דהוא מיית כו' ורב ששת תי' אהא דנדה נוחל בנכסי כו' וחהא דב\"ב דהוא כו' וגמ' קבען יחד מ\"מ גי' הרמב\"ם נכונה כנ\"ל (ע\"כ):"
+      ],
+      "en_segments": [
+        "A convert, etc. Rambam explains the passage as follows: first they heard that the convert had died and took possession of the property; afterward they heard that he had not died, which weakened their claim; then they again heard that the first report had been true. According to Rava, the first possessor did not acquire because his possession was uncertain, while according to Abaye he did. Rambam's text differs from ours and resolves the discussion without assuming that Rava disputes Abaye concerning an inheritance that comes automatically. See 26, 40, and 41."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman281/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 281,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם כו'. וכ\"פ הרי\"ף ורא\"ש ור\"ה דלא כר\"ח:",
+        "(ליקוט) אם היה כו'. כ\"כ הרי\"ף ור\"ה גאון דלא איפשיטא הבעיא ולקולא ולשון הרי\"ף והביאו הרא\"ש ושקיל וטרי בגמ' בלשון ודלמא ולא איבריר לן פשיטותא וכ' הרא\"ש אבל ר\"ח כ' כיון דמסיק ב\"ד בתרא אב\"ד קמא תקון א\"כ איפשיטא בעיא ר\"ל כיון דמסיק דבתרי ב\"ד איתקין א\"כ ע\"כ א\"א לאוקמי כרבנן לזה בירושה ולזה במתנה וע\"כ כריב\"ב אתיא וכן הקשה עליו הרז\"ה אבל הרי\"ף סובר כיון דאיתמר בלשון ודלמא לא איפשיטא וי\"ל בחד ב\"ד איתקין ועוד הקשה הרז\"ה דכל השקלא וטריא אינו מדחה פשיטות הבעיא דאיפשטא מדברי ר\"ן דאי לאו דשמיע לה דריב\"ב דאמר בבריא כו' וכן תמה הרמב\"ן וכ\"כ הרשב\"ם שם א' בד\"ה א\"ל ר\"פ כו' ושם ב' ד\"ה לעולם כו' אבל הרי\"ף מפ' כפי' תוס' שם ד\"ה וש\"מ כו' דכל השקליא וטריא הוא על פשיטות הבעיא וכ\"כ במלחמות ועוד פי' שם ובחידושיו דר\"נ בלשון שאלה אמר שניתם כו' וא\"ל סבורים אתם אפי' בבריא נמי ועיקר פשיטותא ממסקנא דרבי דאמר ירתון וממתני' דמתני' ע\"כ ס\"ל כן וז\"ש מאן שמעת כו' דאי מדברי ר\"נ ל\"צ לכ\"ז דהא איהו בהדיא אמר כן שניתם כו' ע\"ש ושם (ע\"כ):"
+      ],
+      "en_segments": [
+        "If, etc. Rif, Rosh, and Rav Hai Gaon rule this way, unlike Rabbeinu Chananel. Rif explains that the question was not conclusively resolved and therefore the lenient rule applies. Rabbeinu Chananel understood the final discussion as resolving it, but Rif and Ramban explain that the give-and-take itself remained uncertain. The issue turns on whether the enactments were made by one court or by two courts and whether Rabbi Yochanan ben Beroka's rule applies to a healthy person. See the full discussion in the Milchemet and the commentaries. See 100."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman354/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 354,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והא כו'. ממש\"ש אנא פטימנא כו' מ' דוקא בפטמה וערא\"ש שם ועבטור כל החילוקים:",
+        "(ליקוט) והא מפטימנא כו' מ' דוקא בפטמה ואע\"ג ודו\"ה ה\"ה נמי לענין קרן כמש\"ש בהוקרה אבל דעת התוס' אינו כן וכמש\"ש בד\"ה אנא כו' וכן מאליה ואע\"ג דשם בד\"ה מה לי כו' נסתפקו בזה וכ' ולפ\"ז ה\"ה בהוכחשה כו' ולפי טעם זה כו' היינו לסוגיא דכאן אבל לפי האמת ה\"ה בזה הכל כעין שגנב כמ\"ש בד\"ה אנא כו' וכ\"כ רש\"א וכ\"כ שם ס\"ו א' ד\"ה טלאים כו' או איפכא כו' אבל להרי\"ף הא נמי כזולא דמי ומשלם קרן כדמעיקרא וכפל ודו\"ה כדהשתא ולא כ' הרב בזה משום דבקרן ל\"פ בזה וכ' הרא\"ש וטעמו של הרי\"ף משום דלא קי\"ל כר\"ח דאמר תורא גנבי כו' אלא כר' אלעא כו' ודבריו צע\"ג הא ע\"כ הוצרך לדר\"ח הברייתא סבר שינוי לא קניא וע\"כ משום תורא גנבי כו' וכמש\"ש ע\"כ ל\"פ כו' א\"ר טלאים כו' ולענין כחושה והשמינה או שמנה והכחישה לד\"ה הכל כעין שגנב ולענין יוקרא וזולא אם הוזלה קרן כעין שגנב תשלומי כפל ודו\"ה כשעת העמדה בדין ואם הוקרה אם שחטה הכל כשעת העמדה בדין ואם מתה מאליה דעת הרמב\"ם והטור דהכל כשעת גניבה אבל דעת תוס' דכפל כשעת העמדה בדין ועתוס' ד\"ה טלאים הנ\"ל ושיטת ר\"ת דמ\"ש רב כפל וד' וה' כשה\"ב היינו בהוזלה אבל בהוקרה וכן בנתפטמה כפל וד' וה' כעין שגנב ועתוס' ד\"ה הנ\"ל וכ' הרא\"ש והטור מ\"ש בכפל וד' וה' כשה\"ב בכפל כ\"ה אבל בד' וה' הטביחה וכ' הטור דקרן ה\"ה ככפל אבל ברמב\"ם מ' גם בטביחה כשעת העמדה בדין וכ\"פ ביש\"ש סימן ג' ע\"ש (ע\"כ):",
+        "(ליקוט) דברי רמב\"ם וטור שכ' דבהוקרה ומתה מאליה משלם אף כפל כעין שגנב תמוה מאד דזה לא תלוי בדינא דרבה ואמר שם לימא פליגא דרב אדרבה כו' מ' אי הוה פליג וס\"ל דטבחה הוי כמתה מאליה ניחא אלמא דכפל ודו\"ה כשה\"ב וכן שם ס\"ו א' ע\"כ ל\"פ כו' ופ' לרב וכ' רש\"י שם ס\"ה ב' אבל לרבה לא פריך דרבה ל\"ק אלא בקרן כו' ודברי תוס' וסמ\"ג הן מחוורין מאד דאין חילוק בכפל ודו\"ה דלעולם כשה\"ב ביוקרא וזולא וכ\"כ הרא\"ש דמ\"ש תורה חיים לא להורות אקרן אלא אכפל ד' וה' כשה\"ב. ושיטת ר\"ת דכפל ודו\"ה לעולם לקולא ואע\"ג דגמ' פריך לימא פליגא דרב אדרבה כו' ומ' אבל לענין כפל וד' וה' ניחא היינו לס\"ד ובן פריך שם ס\"ו ע\"כ ל\"פ כו' אבל גמ' שני התם א\"ר טלאים כו' והנה הכלל בדינים אלו דהשמינה והכחישה בידים הכל כעין שגנב ויוקרא וזולא כפל וד' וה' לעולם כשה\"ב וקרן הכל לחומרא והוכחשה ונתפטמה מאליה לרי\"ף הוי כמו יוקרא וזולא ולר\"י כמו בידים. ושיטת ר\"ת בזה כמו הרי\"ף אלא דס\"ל בין מאליה בין יוקרא וזולא כפל ודו\"ה הכל לקולא והנה הרא\"ש כ' דאף לדברי ר\"י דמאליה הוי כבידים דוקא בכפל וד' וה' אבל לענין קרן מודה דהוי כיוקרא וזולא ולפ\"ז היו דברי הרמ\"א בכאן ככ\"ע אבל בתוס' שם ד\"ה טלאים כו' לא מ' כן שכ' נראה לר\"י כו' כמו קרן והנה לדינא פ' הרא\"ש והטור כהרי\"ף וכ\"פ ביש\"ש (ע' כ):"
+      ],
+      "en_segments": [
+        "And this, etc. The Gemara's phrase, 'I fattened it,' implies that the rule applies specifically when the robber fattened it. Rosh and Tur enumerate the distinctions. According to Rif and Rosh, the robber receives such improvement, while Tosafot discusses whether the same applies to natural appreciation. See 3."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman355/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 355,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הגונב כו'. כר' יוחנן דקי\"ל דכל רב ושמואל ור\"י הלכה כר\"י ור\"ח ל\"פ עליה דר\"י אלא בבע\"ח. אבל בכמה מקומות כ' הרי\"ף בכה\"ג דהלכה כשמואל דאין הלכה כר\"י במקום ששניהם פליגי עליה ובלדעת ס\"ל ר\"י כשמואל ובשלא לדעת ס\"ל רב כוותיה וכן דר\"ח י\"ל כשמואל אח\"כ מצאתי במלחמות שהקשה ג\"כ על הרי\"ף כן. עוד הקשו הרז\"ה וש\"פ על הרי\"ף הא אמרינן לימא כתנאי הגונב כו' א\"ר זביד כו' אבל בסלע א\"א לאוקמי לר\"ע אלא כרב והרי\"ף פ' בעצמו בפ\"ג דב\"מ כר\"ע א\"כ הלכה כרב ולכן פ' הרז\"ה כרב ואף בבע\"ח ע\"ש ותי' נ\"י בשם הרמב\"ן דלא אמרינן א\"צ דעת אלא בשהחזיר למקום שגנב משא\"כ כאן דכלתה שמירתו וצריך להחזיר לרשות בעלים כו' ע\"ש וז\"ש בס\"ג כיס או טלה וראיה שהרי ר' יוחנן גופא פסק כר\"ע בב\"מ מ\"ג ב' וע' במאור ומלחמות וכ' שם וכן הני תנאי דהגוזל והבליע כו' ע\"כ ס\"ל דלא כרב מדקא' הגוזל ול\"ק הגונב מ' לדעת וההיא ברייתא הלכתא היא מסוגיא דב\"מ ס\"ד א' כמ\"ש הרי\"ף ע\"ש וז\"ש לפיכך כו' וכתי' בתרא שם וערש\"י שם ד\"ה אית ליה כו' וכ\"כ רא\"ש וטור. והרי\"ף פי' להיפך באית ליה יצא דאדם עשוי למשמש ובל\"ל לא יצא דכיון דל\"ל לא ממשמש ביה והמחבר הרכיב ב' הפירושים וכ\"כ הרשב\"א דס\"ל דגם הרי\"ף מודה לרש\"י אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע המנין מאותו טעם דאדם עשוי למשמש:",
+        "(ליקוט) הגונב חפץ כו' עד שאדם עשוי הוא לשון הטור וכפירש\"י שאדם כו' והרי מצא כו' הוא ג\"כ ע\"ד פרש\"י והטור אבל לפי' הרי\"ף שאדם כו' קאי ג\"כ על קודם שהחזיר וידע מנין המעות וז\"ש אבל אם כו' והוא לשון הרמב\"ם וכפי הרי\"ף וכמ\"ש הרשב\"א דגם הרי\"ף מודה לרש\"י אם לא ידע המנין מקודם אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע שאדם כו' וערשב\"א ומ\"מ פליגי דלהרי\"ף מסתמא יודע ולרש\"י והטור מסתמא לא ידע ופ' המחבר בזה כרש\"י אבל הרשב\"א הכריע כהרי\"ף ממ\"ש בב\"מ כ\"א ב' ת\"ש מעות כדר' יצחק כו' ובאין בו כלום נמי פליגי רש\"י והרי\"ף לכאורה אבל ליתא דרי\"ף מפ' שהגזלן החזיר הגניבה לכיס שלו ובזה ל\"פ רש\"י דרש\"י מפ' שהבליע לו במעותיו והבעלים החזירו הכל לכיס ובזה מודה הרי\"ף שהרי עשוי למשמש בשביל המעות שהחזיר ולפיכך כ' המחבר ב' הפי' על הא דל\"ל כו' פירש\"י אם יודע מנין כו' כמ\"ש הטור ופי' הרי\"ף אבל אם כו' ששניהם אמת לפרש\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who steals, etc. The ruling follows Rabbi Yochanan. Although Rav and Shmuel generally prevail jointly against Rabbi Yochanan, their views divide depending on whether the owner knew, and Rabbi Chisda's position is not decisive. Raza rules like Rav, but Ramban reconciles the sugyot by distinguishing return to the place from which it was stolen from return after the original guarding arrangement ended. The Shulchan Aruch combines Rashi's and Rif's explanations: ordinarily a person checks his purse and notices the return, but where he did not previously know the count, mere replacement is insufficient. The phrase, 'therefore,' follows the latter answer in the Gemara."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman359/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אלא כו'. וכ\"כ תוס שם ועבה\"ג:",
+        "(ליקוט) אפי' כו' אלא כו'. עבה\"ג וערש\"י ביומא פ\"ג ב' ד\"ה חפתיה כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Only, etc. Tosafot likewise write this. See Be'er HaGolah and Rashi, Yoma 83b."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman361/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. מנסכא דר\"א ועסי' ע\"ה סי\"ג בהג\"ה ממ\"ש ה\"ל כגזלן וס' ראשונה מפרשים שם בעדי ראיה. וראיה ממ\"ש בכתובות י\"ח א' וליתני כו' והא קי\"ל כו' ואם איתא ליתני בגזלן. וס' האחרונה דקדק המ\"מ מדברי רמב\"ם שהביא ש\"ע בסי' שס\"ד ס\"ד ועבה\"ג שם ור\"ל מדלא כ' בעדי ראיה ואין הכרח שהרמב\"ם נקט לשון הגמ' ס\"ה ועמ\"ש בסי' שנ\"ז ס\"א ועש\"ך:",
+        "(ליקוט) וי\"א שצריך. וכ\"כ הרא\"ש שם ואם אמרו גדולים יודעים אנו כו' ומיירי כו' כיון שידוע כו' ועודה בידו דאב כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say, etc. This is derived from the case of Rabbi Abba's ingot. See siman 75, seif 13. The first opinion limits the case to witnesses who saw the object. Maggid Mishneh infers the latter opinion from Rambam, but the inference is not compelling because Rambam merely uses the Gemara's wording. See simanim 3, 75, 357, and 364."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    }
+  ]
+}

@@ -102,6 +102,67 @@ const KITS = [
     jsonSingle: "GLUED_STILL_OPEN_9_KIT.json",
     promptField: "prompt",
   },
+  // --- Rescan _REMAINING kits (2026-08-28) ---
+  {
+    md: "EN_MISSING_2_REMAINING.md",
+    kit: "EN_MISSING_2_REMAINING",
+    failureBlock: [UNIVERSAL, FRESH_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "EN_HAS_MORE_REMAINING.md",
+    kit: "EN_HAS_MORE_REMAINING",
+    failureBlock: [UNIVERSAL, GLUED_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "EN_TRUNC_MODERATE_REMAINING.md",
+    kit: "EN_TRUNC_MODERATE_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "EN_TRUNC_EDITORIAL_REMAINING.md",
+    kit: "EN_TRUNC_EDITORIAL_REMAINING",
+    failureBlock: [UNIVERSAL, FRESH_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "BEER_DEGREE_SPLIT_REMAINING.md",
+    kit: "BEER_DEGREE_SPLIT_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "EN_TRUNC_REMAINING.md",
+    kit: "EN_TRUNC_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "HE_HAS_MORE_LIKUT_REMAINING.md",
+    kit: "HE_HAS_MORE_LIKUT_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "HE_HAS_MORE_EDITORIAL_REMAINING.md",
+    kit: "HE_HAS_MORE_EDITORIAL_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES, MERGE_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "HE_HAS_MORE_LIKUT_MERGED_REMAINING.md",
+    kit: "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
+  {
+    md: "HE_HAS_MORE_OFFSET_REMAINING.md",
+    kit: "HE_HAS_MORE_OFFSET_REMAINING",
+    failureBlock: [UNIVERSAL, SPLIT_RULES, FRESH_GAP_RULES, MERGE_RULES].join("\n\n"),
+    insertBefore: "OUTPUT — JSON array only",
+  },
 ];
 
 function sha256File(p) {

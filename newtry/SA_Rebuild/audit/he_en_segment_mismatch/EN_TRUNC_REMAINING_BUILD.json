@@ -1,0 +1,41 @@
+{
+  "kit": "EN_TRUNC_REMAINING",
+  "mode": "resegment_or_fresh",
+  "purpose": "Other en_truncated not in moderate/editorial/beer kits",
+  "cases": 10,
+  "parts": 3,
+  "max_part_bytes": 69115,
+  "full_bytes": 171246,
+  "full_sha256": "1594ec5636a0997cf45e7010894f4201fa087f8c25c2aa84da616d3ecf9e0740",
+  "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.json",
+  "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.md",
+  "parts_detail": [
+    {
+      "part": 1,
+      "file": "EN_TRUNC_REMAINING_part01.json",
+      "cases": 3,
+      "case_offset": 0,
+      "bytes": 55206,
+      "sha256": "293803816ee8fec683d302be3d277c282ed083279f1be75b6b83fe9ed98cf24d",
+      "segments_truncated_in_part": false
+    },
+    {
+      "part": 2,
+      "file": "EN_TRUNC_REMAINING_part02.json",
+      "cases": 2,
+      "case_offset": 3,
+      "bytes": 53921,
+      "sha256": "e8b4499c47de5da1f66d7d0319e5e87047c9e6bc0bbf35087f66cd8d6288bcdd",
+      "segments_truncated_in_part": false
+    },
+    {
+      "part": 3,
+      "file": "EN_TRUNC_REMAINING_part03.json",
+      "cases": 5,
+      "case_offset": 5,
+      "bytes": 69115,
+      "sha256": "43a76cc22780af5903f5eb809d20ae0a4cac97a634fca6cc4a9b5ffa4e73744e",
+      "segments_truncated_in_part": false
+    }
+  ]
+}

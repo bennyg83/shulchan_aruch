@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "kind": "mixed",
+    "tier": "rescan_remaining",
+    "mode": "split_en_beer_degree",
+    "purpose": "beer-hagolah degree/footnote EN under-split",
+    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "rescan_totals": {
+      "pairs": 197982,
+      "issues": 333,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 128,
+        "en_truncated_vs_multi_he": 135,
+        "en_has_more_segments": 9,
+        "en_missing": 2
+      }
+    },
+    "exclusions": [
+      "he_missing (59) — held per user"
+    ],
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T12:23:32.008Z",
+    "kit": "BEER_DEGREE_SPLIT_REMAINING",
+    "counts": {
+      "total": 7,
+      "by_volume": {
+        "yd1": 7
+      },
+      "by_kind": {
+        "en_truncated_vs_multi_he": 7
+      },
+      "by_fp_pattern": {
+        "true_beer_degree_split": 7
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild BEER-HAGOLAH DEGREE SPLIT REMAINING — SPLIT EN AT DEGREE MARKERS.\n\nINPUTS: BEER_DEGREE_SPLIT_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\n\nCONTEXT: beer-hagolah degree/footnote splits — HE has 2+ segments, EN under-split. Split EN at degree markers matching HE; do not merge HE.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nSPLIT_EXISTING_EN / RESEGMENT (this kit):\n- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.\n- Do NOT normalize citations (e.g. \"32a\"→\"daf 32\"), synonym-swap (\"halachic authorities\"→\"poskim\"), or reword \"where possible\".\n- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.\n- Do NOT paraphrase, summarize, compress, or \"improve\" prose on preserved splits — change ONLY by splitting/joining.\n- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.\n\nFRESH_TRANSLATE (gap slots only):\n- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.\n- {Rama: ...} format for Rama glosses; no additions beyond source.\n- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs. No corpus edits.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild BEER-HAGOLAH DEGREE SPLIT REMAINING — SPLIT EN AT DEGREE MARKERS.",
+      "",
+      "INPUTS: BEER_DEGREE_SPLIT_REMAINING.json (or one part) + full_dictionary.md",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.",
+      "",
+      "CONTEXT: beer-hagolah degree/footnote splits — HE has 2+ segments, EN under-split. Split EN at degree markers matching HE; do not merge HE.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
+      "",
+      "UNIVERSAL — any EN segment text:",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "",
+      "JSON OUTPUT (mandatory):",
+      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
+      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
+      "- Prefer returning en_segments[] without embedding he in strings when possible.",
+      "- en_segments.length MUST equal heSegs for every case.",
+      "",
+      "SPLIT_EXISTING_EN / RESEGMENT (this kit):",
+      "- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.",
+      "- Do NOT normalize citations (e.g. \"32a\"→\"daf 32\"), synonym-swap (\"halachic authorities\"→\"poskim\"), or reword \"where possible\".",
+      "- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.",
+      "- Do NOT paraphrase, summarize, compress, or \"improve\" prose on preserved splits — change ONLY by splitting/joining.",
+      "- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.",
+      "",
+      "FRESH_TRANSLATE (gap slots only):",
+      "- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.",
+      "- {Rama: ...} format for Rama glosses; no additions beyond source.",
+      "- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "segments.length === heSegs. No corpus edits."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 1,
+    "case_offset": 0,
+    "cases_in_chunk": 7,
+    "parent_pack": "BEER_DEGREE_SPLIT_REMAINING.json",
+    "parent_sha256": "3494dc15766f9115d00cbbb59c9e4ddf6e1b3e59226870e77390ccb943f4dc66"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman123/seif-014/beer-hagolah",
+      "volume": "yd1",
+      "siman": 123,
+      "seif": 14,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הרא\"ש בתשובותיו וא\"ח בשם הראב\"ד.",
+        "(°) בב\"י כתוב בשם תשובת הרשב\"א ישמעאלים וכן הוא שם בתשובה ל\"ח ולא נמצא דין זה בהרא\"ש ואולי טעות נפל במ\"מ וצ\"ל הרשב\"א:"
+      ],
+      "en_segments": [
+        "The Rosh in his responsa, and Orach Chayyim in the name of the Raavad. (°) In Beit Yosef it is written in the name of a responsum of Rashba \"Ishmaelites,\" and so it is there in responsum 38; and this law is not found in the Rosh — perhaps an error fell in Kesef Mishnah, and it should read Rashba."
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman142/seif-011/beer-hagolah",
+      "volume": "yd1",
+      "siman": 142,
+      "seif": 11,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לשון הרמב\"ם בפרק ט\"ז מהמ\"א לענין עצי ערלה וכלאי הכרם:",
+        "(°) פי' אפי' לכתחל' משא\"כ ע\"ג גחלים דלכתחלה אסור כדלעיל סעיף א' ובדיעבד מותר כדלקמן סעיף ו':",
+        "לא נראה כן מהב\"י אלא אף זה אינו מותר אלא בדיעבד ודוק:"
+      ],
+      "en_segments": [
+        "The wording of the Rambam in chapter 16 of Hilchot Maachalot Assurot concerning wood of orlah and vineyard mixtures. Meaning: even initially, unlike cooking over coals, which is initially forbidden as stated above in seif 1, though permitted after the fact as stated below in seif 6. Beit Yosef, however, does not appear to permit this initially either. Rather, it too is permitted only after the fact. Examine carefully."
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman173/seif-018/beer-hagolah",
+      "volume": "yd1",
+      "siman": 173,
+      "seif": 18,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם בגמרא כיון דמחוסרי גוביינא כמאן דליתנהו דמי:",
+        "(°) בתוס' פירשו כגון פרה וטלית ונלענ\"ד דהטעם דכיון דנותן לו סתם אפרה וטלית ואין שומתן ידוע לא בשעה שמקבל המעות ולא בשעה שמחזירם ולא שייך בהם לומר יצא השער לא גזרו בזה חכמים דלא מחזי כרבית כיון שיכול ליתן לו איזה פרה שירצה שתהיה פחותה בשווי הדמים וכן בטלית:"
+      ],
+      "en_segments": [
+        "There in the Gemara. Since they still require collection, they are regarded as nonexistent. Tosafot explains the example as a cow or garment. In my humble opinion, since he gives the money without specifying a particular cow or garment, and their value is known neither when he receives the money nor when he returns it, the rule of an established market price does not apply. The Sages therefore did not decree, because it does not appear as interest, since he may give him whichever cow or garment he chooses, even one of lesser value."
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman182/seif-002/beer-hagolah",
+      "volume": "yd1",
+      "siman": 182,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור בשם הרמב\"ם בסוף הלכות עבודת כוכבים:",
+        "(°) פי' ואפי' כעין תער. ב\"י:"
+      ],
+      "en_segments": [
+        "Tur cited Rambam at the end of the section on non-Jewish practices: (°) Peri Davar and so forth."
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman253/seif-012/beer-hagolah",
+      "volume": "yd1",
+      "siman": 253,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה דפ\"ה דפאה וכחכמים וכאשר הגהתי כן הוא ברמב\"ם וטור:",
+        "(°) וכן כתב הרמב\"ם פ\"ט:"
+      ],
+      "en_segments": [
+        "D.F.D. has been preached and wise, and when I have done so, it is in Rambam and column: (°) and also the Rambam"
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman294/seif-026/beer-hagolah",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 26,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מד' הרמב\"ם בפ\"י מהמ\"א ממשנה סוף מס' ערלה וכמ\"ש בכ\"מ ובבית יוסף:",
+        "(°) משום דמוכחא מילתא דמפירות הגן הם וליכא אלא חד ספיקא הר\"ן:",
+        "(°) פי' אפילו ללקוט ביד וכמ\"ש בכ\"מ ובבית יוסף לדעת הרמב\"ם בסעיף שאחריו:"
+      ],
+      "en_segments": [
+        "From Rambam, chapter 10 of Hilchot Maachalot Assurot, based upon the Mishnah at the end of tractate Orlah, as Kesef Mishneh and Beit Yosef explain. Since it is evident that the fruits came from the garden, there is only one uncertainty. The Ran. Meaning, even to gather them by hand, as Kesef Mishneh and Beit Yosef explain according to Rambam in the following seif."
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    },
+    {
+      "id": "yd1/siman296/seif-019/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 19,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ז' פ\"ז דכלאים:",
+        "(°) פי' יחתוך מלשון גודו אילנא:"
+      ],
+      "en_segments": [
+        "Mishnah 7, chapter 7 of Kilayim. 'He shall cut' is an expression meaning to sever, like 'cut down the tree.'"
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "beer-hagolah degree split pattern"
+    }
+  ]
+}
