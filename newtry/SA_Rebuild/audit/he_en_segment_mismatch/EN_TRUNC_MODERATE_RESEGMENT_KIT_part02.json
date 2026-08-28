@@ -1,0 +1,882 @@
+{
+  "meta": {
+    "created": "2026-08-28T08:05:13.691Z",
+    "kit": "EN_TRUNC_MODERATE_RESEGMENT_KIT",
+    "kind": "en_truncated_vs_multi_he",
+    "tier": "wave1_moderate",
+    "purpose": "Re-segment moderate en_trunc: map existing EN to HE slots; translate from HE only where EN missing for that slot. Output aligned he+en pairs for evaluation.",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "source_lists": {
+      "eval": "EN_TRUNC_PACK_ALL_REVIEW_EVAL.json",
+      "pack": "EN_TRUNC_PACK.json",
+      "apply_log": "en_trunc_wave1_apply_log.json"
+    },
+    "exclusions": {
+      "wave1_strict_applied": [
+        "oc1/siman1/seif-008/yad-ephraim",
+        "oc1/siman35/seif-001/ateret-zekenim",
+        "oc1/siman51/seif-003/shaarei-teshuvah",
+        "oc1/siman438/seif-001/chok-yaakov",
+        "yd1/siman84/seif-015/beur-hagra",
+        "yd1/siman84/seif-017/beur-hagra",
+        "yd1/siman123/seif-026/beur-hagra",
+        "yd1/siman125/seif-011/beur-hagra",
+        "yd1/siman127/seif-004/beur-hagra",
+        "yd1/siman134/seif-011/beer-hagolah",
+        "yd1/siman141/seif-006/beur-hagra",
+        "yd1/siman146/seif-002/beur-hagra",
+        "yd1/siman146/seif-012/beur-hagra",
+        "yd1/siman148/seif-008/beur-hagra",
+        "yd1/siman269/seif-008/beur-hagra",
+        "yd1/siman294/seif-005/beur-hagra",
+        "yd1/siman294/seif-007/beur-hagra",
+        "yd1/siman294/seif-010/beur-hagra",
+        "yd1/siman296/seif-045/beur-hagra",
+        "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+        "cm1/siman188/seif-001/ketzot-hachoshen"
+      ],
+      "wave1_strict_held": [
+        "yd1/siman173/seif-018/beer-hagolah",
+        "yd1/siman242/seif-036/siftei-kohen",
+        "cm1/siman358/seif-004/beur-hagra"
+      ],
+      "excluded_from_moderate_overlap": [],
+      "editorial_tier_excluded": "99 needs_editorial cases — separate kit later"
+    },
+    "counts": {
+      "total": 78,
+      "moderate_tier_raw": 78,
+      "by_volume": {
+        "oc1": 5,
+        "yd1": 43,
+        "cm1": 30
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 1,
+        "oc1/ateret-zekenim": 4,
+        "yd1/beer-hagolah": 33,
+        "yd1/beur-hagra": 7,
+        "yd1/baer-heitev": 1,
+        "yd1/turei-zahav": 2,
+        "cm1/chelkat-mechokek": 2,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/beur-hagra": 10,
+        "cm1/chokhmat-shlomo": 2,
+        "cm1/turei-zahav": 1,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-tumim": 1,
+        "cm1/netivot-hamishpat-beurim": 1,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      }
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en side-by-side per slot",
+      "legacy_mirror": "en_segments[] optional",
+      "segment_source": "split_existing_en | fresh_translate | partial"
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC MODERATE — RE-SEGMENT WITH ALIGNED HE+EN PAIRS.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_TRUNC_MODERATE_RESEGMENT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Tier: wave1_moderate — structural split is plausible (high EN/HE ratio) but lacks reliable auto-delimiters; sentence-boundary or semantic alignment required.",
+      "- Wave1 strict (24 ids) was already auto-applied or held separately; this kit excludes those.",
+      "- Goal: produce heSegs aligned EN segments mapped to each HE slot. Prefer splitting the existing EN blob; translate from HE only where the EN blob clearly lacks material for that HE slot.",
+      "",
+      "TRANSLATION NORMS (when fresh_translate needed)",
+      "- Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.",
+      "- No additions: no introductions, notes, \"Note:\", or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label, no markdown wrappers around segment text.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Align EN to HE slots (index 0 .. heSegs-1).",
+      "2) When the existing EN blob clearly contains the translation for a HE slot: split it out (source: split_existing_en). Preserve exact wording where possible.",
+      "3) When EN is missing for a HE slot (truncated blob, partial coverage): translate that slot from HE only (source: fresh_translate).",
+      "4) When a slot mixes preserved EN cut + gap-fill translation: source: partial.",
+      "5) If alignment is unsafe: action needs_human; still return segments[] with best-effort he+en if possible, or empty en for unclear slots.",
+      "",
+      "ACTIONS",
+      "- resegment — EN blob splits cleanly into heSegs pieces; no new translation needed.",
+      "- mixed_resegment_translate — some slots from EN split, some fresh from HE.",
+      "- needs_human — unsafe / ambiguous; flag for manual review.",
+      "",
+      "OUTPUT — JSON array only, same ids/order as input cases:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"resegment\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    {",
+      "      \"index\": 0,",
+      "      \"he\": \"...\",",
+      "      \"en\": \"...\",",
+      "      \"source\": \"split_existing_en\" | \"fresh_translate\" | \"partial\"",
+      "    }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length MUST equal that case's heSegs (and match he_segments 1:1).",
+      "- Each segment object MUST include both he and en side-by-side for evaluation.",
+      "- en_segments[] (legacy mirror) should match segments[].en in order when present.",
+      "- source on each segment documents whether EN came from blob split vs fresh translation.",
+      "- No corpus edits. Return JSON only."
+    ],
+    "warnings": [],
+    "chunk_index": 2,
+    "chunk_total": 4,
+    "case_offset": 29,
+    "cases_in_chunk": 29,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_MODERATE_RESEGMENT_KIT.json",
+    "parent_sha256": "e01791eb34abb90504dcd0bfab85489e1c05c5e426d6e0ece15d840bc1a97b33"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman216/seif-007/beer-hagolah",
+      "volume": "yd1",
+      "siman": 216,
+      "seif": 7,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה שם דף נ\"ז ע\"א ולא הוי דבר שלא בא לעולם דאוסר מעשה ידי אשתו לאחר שתעשה דדבר שיש בו ממש הוא.",
+        "(°) פי' אם נטעה אילן או נתנו לה פירות בשכר מעשה ידיה:"
+      ],
+      "en_segments": [
+        "Mishnah there, 57a. This is not considered a matter not yet in existence, because he prohibits the work of his wife after she performs it, and that work has substance. Meaning: if she planted a tree or received fruit as wages for her handiwork."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman234/seif-051/beer-hagolah",
+      "volume": "yd1",
+      "siman": 234,
+      "seif": 51,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הרשב\"א בתשובות",
+        "(°) וסיים שם כיון דחכם עוקר הנדר מעיקרו הרי עקר הקמה מעקרא ונמצא ההפרה במקומה עומדת:"
+      ],
+      "en_segments": [
+        "Rashba in a responsum. He concludes that since a sage uproots the vow from its inception, the prior confirmation is likewise uprooted retroactively and the husband's annulment remains effective."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman238/seif-012/beer-hagolah",
+      "volume": "yd1",
+      "siman": 238,
+      "seif": 12,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרבא שם דף כ\"ד ע\"ב:",
+        "(°) פי' אם לא נתרצית קודם פסח ונתרצית אחר הפסח אינו מחויב לקדשה כיון שעבר הזמן וכמ\"ש לעיל בסי' רכ\"ח סעיף מ\"א שאם לא הי' מחוייב בדבר בלא שבועה זו ועבר היום שוב אין חיוב שבועה עליו ומיגו דחיילא אאחר הפסח חיילא נמי אקודם הפסח באיסור כולל וכשהשבועה היא לתועלת האשה או ע\"י שידוכין שבלי ספק היה לתועלתה וכדי שלא תתבייש אזי צריך התרה אפילו עבר הזמן כדעת הי\"א שם וכמ\"ש שם בשם הריב\"ש לדעת הרא\"ש כנלע\"ד:"
+      ],
+      "en_segments": [
+        "The statement of Rava there, Shevuot 24b. If she did not consent before Pesach but consented afterward, he is not obligated to betroth her, because the designated time has passed. As explained above in siman 228, seif 41, when he had no independent obligation apart from the oath and the day passed, the oath no longer obligates him. Since the oath could take effect regarding the period after Pesach, it also took effect regarding the period before Pesach through an inclusive prohibition. If, however, the oath was undertaken for the woman's benefit, or through a match arranged for her benefit so that she would not be embarrassed, release is required even after the time has passed, according to the first opinion there and the Rivash's explanation of the Rosh."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman239/seif-010/beer-hagolah",
+      "volume": "yd1",
+      "siman": 239,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פ\"ג מהל' שבועות",
+        "(°) ע\"ש סעיף י\"ד בהג\"ה דבמקום שיש עונש מיתה מקרי שבועת אונס ולא חילק אם יש חילול השם בדבר ובאונס ממון שלא כדין כתב והוא דליכא חילול השם בדבר:"
+      ],
+      "en_segments": [
+        "Rambam, chapter 3 of Hilchot Shevuot. See seif 14 in the gloss: where there is a threat of death, it is considered an oath under compulsion, without distinguishing whether desecration of Hashem's Name is involved. Concerning unlawful monetary compulsion, however, he writes that this applies only where no desecration of Hashem's Name is involved."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman251/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 251,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "טור ולשון סמ\"ג בשם רא\"ם דכיון דעבר במזיד יצא מכלל האחוה ע\"ש הכתוב וחי אחיך עמך ומה שמשמע בגיטין דף מ\"ז ע\"א שרב אמי היה רוצה לפדות מומר אוכל נבלות לפנים משורת הדין הוא דעבד:",
+        "(°) ברייתא גיטין דף ס\"א ע\"א:"
+      ],
+      "en_segments": [
+        "The Tur and the wording of Semag in the name of the Yereim. Since he transgressed intentionally, he left the category of brotherhood, as indicated by the verse, 'Your brother shall live with you.' The implication in Gittin 47a that Rav Ami wished to redeem an apostate who ate non-kosher meat reflects conduct beyond the letter of the law. See also the baraita, Gittin 61a."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman263/seif-004/turei-zahav",
+      "volume": "yd1",
+      "siman": 263,
+      "seif": 4,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "למבדקה יפה. פי' שמא יש שם ערלה כבושה דהיינו שהעור נדבק מאד בבשר:",
+        "ומ\"ש ולא בפרזלא כתוב בפרישה אבדיקה קאי שלא תהיה בברזל ולא כי\"מ שאמילה קאי שיעשה חריץ בצפורן:"
+      ],
+      "en_segments": [
+        "Beautiful testing. P. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman267/seif-030/beer-hagolah",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 30,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ל' הרמב\"ם בפ\"א מהל' עבדים מהא דאמר רב פפא לרבא חזי מר הני רבנן וכו' שם וכפירושו במ\"ש ומשעבדי בהו טפי:",
+        "(°) פי' כעבד כנעני:"
+      ],
+      "en_segments": [
+        "The wording of Rambam, chapter 1 of Hilchot Avadim, from Rav Pappa's statement to Rava, 'Master, see these sages,' and so forth. He explains 'they enslave them excessively' as meaning like a Canaanite slave."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman267/seif-034/beer-hagolah",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 34,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פשוט בכמה מקומות בתלמוד:",
+        "(°) פי' דלא נאמר לא תרדה בו בפרך אלא בעבד עברי:"
+      ],
+      "en_segments": [
+        "This is obvious from many places in the Talmud. The prohibition, 'You shall not rule over him with rigor,' was stated only regarding a Hebrew slave."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman286/seif-022/beur-hagra",
+      "volume": "yd1",
+      "siman": 286,
+      "seif": 22,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וה\"ה כו'. ממש\"ש תנ\"ה כו':",
+        "(ליקוט) וה\"ה כו'. כמ\"ש בשבת קל\"א ב' הואיל ובידו להפקירן ור\"ל אפילו לדור בהן ודר בהן פטור דטלית שאולה פטור וכן בית שאולה וא\"צ לדחוק שס\"ל דכלי קופסא חייבין בציצית דהא לטליתו ופתחו סתמא קאמר דמשמע בכ\"ע אסור (עברשב\"א בשבת שם ובתוס' דמנחות מ\"ד א' סד\"ה טלית וצ\"ע) והא דאמרינן ר\"פ ראשית הגז אלא ביתך ל\"ל ה\"מ למימר למעוטי דר בבית שאינו שלו וכמ\"ש שם בציצית אלא כסותך ל\"ל כו' אלא חדא מתרי טעמי נקט (רשב\"א בשבת שם ועתוס' דעבודת כוכבים כ\"א סד\"ה הא. ואע\"ג דדרשינן כו'. ובמנחות מ\"ד א' בד\"ה טלית כו') (ע\"כ):"
+      ],
+      "en_segments": [
+        "And likewise, etc. — as written in Tanhuma, etc.; (Addition) And likewise, etc. — as in Shabbat 131b: since he can renounce them, meaning even to dwell in them and he dwells in them he is exempt, for a borrowed cloak is exempt, and so a borrowed house; and one need not force that he holds vessels in a box are obligated in tzitzit, for regarding his cloak and doorway he spoke unspecifiedly implying in all cases forbidden (see Rashba in Shabbat there and Tosafot Menachot 44a dh \"cloak\" — requires study); and that which we say in the first chapter of Rosh Hashanah \"but your house\" — why? It is to exclude one who dwells in a house that is not his, as written there regarding tzitzit \"but your garment\" — why? etc.; rather one of two reasons he cited (Rashba in Shabbat there and Tosafot Avodah Zarah 21a dh \"Ha.\" And even though we expound, etc.; and in Menachot 44a dh \"cloak,\" etc.) (end)."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman289/seif-003/turei-zahav",
+      "volume": "yd1",
+      "siman": 289,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גובה השער. דכתיב וקשרתם וכתבתם מה קשירה בגובה אף כתיבה בגובה ומה קשירה אינו בגובה ממש למעלה אף כתיבה צריכ' להרחיק טפח ממשקוף וזהו לכתחלה אבל בדיעבד כשר בלא הרחקה מלמעלה כ\"כ ב\"י אבל בהרחיקה מלמעלה יותר משליש כתב ב\"י בשם הרמב\"ם דאפי' דיעבד פסול ולא כהטור שכתב דאם שינה גם בזה אין מעכב בדיעבד ומש\"ה כתב רמ\"א דקאי אסעיף ב' דכשר בדיעבד דמשמע דבזה אפילו דיעבד פסול. ומה שמבואר בטור דאף אם עשאה אחורי הדלת אינו מעכב בדיעבד לא אשכחן מאן דפליג על זה כיון שבימין הוא ומבואר בב\"י בשם המרדכי דאם היא גבוה הרבה אין לעשות המזוזה גבוה מכתיפיו דאז אינה נראה לעיניו בכניסה ויציאה וסמך לדבר נ\"ל בפסוק ולבנימין וגו' ובין כתיפיו שכן להורות שארצו ישכון לבטח טפי משאר ארצות דאילו בשאר אין השראת השכינה אלא במקום מזוזה שהיא בין כתפיו של אדם אבל בנימין חופף עליו כל היום מלבד ובין כתפיו שכן:",
+        "ומ\"ש על ימין הנכנס דכתיב ביתך היינו דרך ביאתך וסתם אדם עקר כרעא ימינא ברישא ואף אם הוא איטר מ\"מ אחר רוב בני הבית אזלינן:"
+      ],
+      "en_segments": [
+        "The height of the gate. For it is written \"and you shall bind them\" and \"you shall write them\" — just as binding is at height, so writing is at height; and just as binding is not at an exact height at the top, so too writing must be distanced a handbreadth from the lintel — and this is initially; but after the fact, it is valid without distancing from above. But if it was distanced from above by more than a third — Beit Yosef wrote in the name of Rambam: even after the fact it is invalid; and not like the Tur who wrote that if he changed this as well, it does not invalidate after the fact. And therefore Rama wrote regarding seif 2 — that it is valid after the fact — implying that in this case even after the fact it is invalid. And what is explained in the Tur that even if he placed it behind the door it does not invalidate after the fact — I find no one who disputes this since it is on the right. And it is explained in Beit Yosef in the name of Mordechai: if it is very high, one should not make the mezuzah higher than his shoulders, for then it is not visible to his eyes at entrance and exit. The support for this seems to me in the verse \"and to Benjamin,\" etc., \"and between his shoulders he dwells\" — to indicate that his land would dwell in safety more than other lands; for in other lands the Divine Presence rests only at the level of the mezuzah, which is between a person's shoulders; but for Benjamin, He hovers over him all day. And as for what is written \"on the right of the one who enters\" — for it is written \"your house,\" meaning the way of your entering; and a person normally lifts his right foot first; and even if he is left-handed, nevertheless we follow the majority of household members."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman294/seif-024/beer-hagolah",
+      "volume": "yd1",
+      "siman": 294,
+      "seif": 24,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרבי אמי אמר ר' יוחנן קדושין דף ל\"ט ע\"א",
+        "(°) כ\"כ התוס' שם וש\"פ:"
+      ],
+      "en_segments": [
+        "The statement of Rabbi Ami in the name of Rabbi Yochanan, Kiddushin 39a. Tosafot there and the other authorities write likewise."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(°) מסעיף א' עד סעיף י\"ט הוא לשון הרמב\"ם בפ\"ה מהל' כלאים:",
+        "מסקנת הגמ' ברכות דף כ\"ב ע\"א ובכמה דוכתי דקי\"ל כרבי יאשיה דאינו לוקה עד שיזרע וכו':"
+      ],
+      "en_segments": [
+        "From seif 1 through seif 19, this is the wording of Rambam in chapter 5 of Hilchot Kilayim. The Gemara concludes in Berakhot 22a and in several places that the halachah follows Rabbi Yoshiyah, who holds that one is not liable to lashes until he sows, and so forth."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-005/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מנחות דף ט\"ו ע\"ב:",
+        "(°) פירש הכ\"מ שם הייינו שאינם עושים אלא לג' שנים כדתנן בפ\"ב דכלאים משנה ה' כמו שתבואת הכרם אינו ניתר עד ג' שנים והר\"ן כתב לפי שגדלים הרבה איכא ערבוביא ועושים אשכולות כגפנים אסורים משום כלאי הכרם ובא לאפוקי שאר זרעים שאינם נאכלים אבל תבואה וקטניות וירקות אסורים מן התורה:"
+      ],
+      "en_segments": [
+        "Menachot 15b. Kesef Mishneh explains that these are species that endure for three years, as taught in Mishnah 5, chapter 2 of Kilayim, just as vineyard produce is not permitted until three years. The Ran writes that because they grow extensively, create intermingling, and form clusters like vines, they are forbidden as diverse species in a vineyard. This excludes other inedible seeds, but grain, legumes, and vegetables are forbidden by Torah law."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-039/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 39,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ו' פרק ה'",
+        "(°) וכ' הרמב\"ם ע\"פ הירושל' שמשערין אם תיבש עד שלא תשאר בו ליחה במאה שעה אם נשתהה בארץ משהגיע לו חצי שעה הרי הוסיף במאתים לאסור והראב\"ד כתב בחצי שעה יכול לדעת כיצד עוקר שבלים כמה שירצה ושוקל אותם בשעת עקירה ולחצי שעה ישקול אותם ואם היו ב' אוקיות ועכשיו פחתו אוקיא הרי שבחצי שעה הוסיפו הנטיעות אוקיא:"
+      ],
+      "en_segments": [
+        "Mishnah 6, chapter 5. Rambam writes, based upon the Yerushalmi, that we estimate whether it would dry out in one hundred hours until no moisture remains. If it remained in the ground for half an hour after reaching this stage, it added one two-hundredth and prohibits. Raavad writes that one may determine this by uprooting stalks, weighing them immediately, and weighing them again after half an hour; if two ounces became one, the plants added one ounce during that half hour."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-042/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 42,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(°) מכאן עד סוף סעיף ל' הוא ל' הרמב\"ם ריש פ\"ו מהלכות כלאים:",
+        "ממשנה ה' פ\"ה דכלאים:"
+      ],
+      "en_segments": [
+        "From here through the end of seif 30, this is the wording of Rambam at the beginning of chapter 6 of Hilchot Kilayim. It is based upon Mishnah 5, chapter 5 of Kilayim."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-053/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 53,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם במשנה ב' פ\"ז וכר\"א בן צדוק ופי' שהבריך את הגפנים ולא כיסה כלום מן העיקר כדרך הברכה וכו':",
+        "(°) הטעם לפי שהוא מקפיד על הג' לצרפן לכרם ולא הב':"
+      ],
+      "en_segments": [
+        "There, Mishnah 2, chapter 7, following Rabbi Elazar bar Tzadok. He layered the vines without covering any part of the original trunk, in the ordinary manner of layering. The reason is that he is particular to combine the three with the vineyard, but not the other two."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-059/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 59,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם משנה ט'",
+        "(°) ומכאן עד סוף סעיף נ\"ה הוא לשון הרמב\"ם בפ\"ז:"
+      ],
+      "en_segments": [
+        "There, Mishnah 9. From here through the end of seif 55, this is the wording of Rambam in chapter 7."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman296/seif-069/beer-hagolah",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 69,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה ז' פ\"ד:",
+        "(°) פי' לא ט\"ז אמה כדרך הרבים אלא שביל הדרכים לרבים וכמו שכתב הראב\"ד שם וכמו שאמר רבינו בעצמו בסוף הסעיף:"
+      ],
+      "en_segments": [
+        "Mishnah 7, chapter 4. This does not mean a sixteen-cubit public thoroughfare, but a path used by the public, as Raavad writes there and as Rambam himself states at the end of the seif."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "yd1/siman297/seif-010/beer-hagolah",
+      "volume": "yd1",
+      "siman": 297,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מהירושלמי ריש כלאים גבי זינין:",
+        "(°) לאו דוקא אלא אפילו רוצה בקיומו למאכל בהמה כמו שנתבאר לעיל בהלכות כלאי הכרם סעיף י\"ד:"
+      ],
+      "en_segments": [
+        "From the Yerushalmi at the beginning of Kilayim concerning distinct species. This is not literal. Even if he desires their continued existence as animal food, the prohibition applies, as explained above in the laws of diverse species in a vineyard, seif 14."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman7/seif-008/chelkat-mechokek",
+      "volume": "cm1",
+      "siman": 7,
+      "seif": 8,
+      "slug": "chelkat-mechokek",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או שנשאת לפני ב\"ד ולא מיחו בה . מל' זה משמע שאם נשאת בצנעה בלא ידיעת ב\"ד ובאו עדי שביה תצא כשם שנשואה שבאו עליה עדי שביה תצא ה\"ה שבויה שנשאת תצא ואין לה היתר אלא שנשאת ע\"פ ב\"ד או לפני ב\"ד ולא מיחו בידה ובאמת יש לחלק בשלמ' נשואה אין מאמינים לה דהיא נוגעת בדעת אבל אשה שבויה שנשאת לא שבקת היתיר' ואכל' איסור' הלא הרשות בידה להנשא לישראל למי שתרצה ועי' בתשובת רד\"ך בית ח' שם כתב דאפילו נשאת בצנעה בלא ידיעת ב\"ד לא תצא:",
+        "בתשובות הרד\"ך כתב בסוף בית שמיני אעפ\"י שבעלה ידע בה שהיתה שבויה קודם שנשאת מאחר שלא היה ידוע הדבר לב\"ד בעדים מותרת לו דמ\"מ יש לה מיגו שהית' נשאת לאחר עיין עליו. ונראה אם נשואה נשבית ובעלה ידע שהיא שבויה אינה נאמנת לו' טהור' אני דהא ליכ' מיגו דאיבעי אמרה לא נשביתי דהא בעלה ידע שהיא שבויה וכן משמע מל' תשובת הרא\"ש כלל ל\"ב סי' ה' כיון שידוע לבעל שהית' בין הכותים אין לך עדי שבויה גדול מזה:"
+      ],
+      "en_segments": [
+        "Or she married before beit din and they did not object. This wording implies that if she married privately without beit din's knowledge and afterward witnesses came that she had been taken captive, she must leave the marriage. Just as a married woman against whom witnesses of captivity later appear must leave, so too a captive woman who married must leave unless she married by authorization of beit din or in their presence without objection. In truth, however, there is room to distinguish. A married woman is not believed because she is personally interested in remaining with her husband. A captive woman who has already married does not abandon a permitted option and deliberately choose a prohibited one, for she was free to marry any Israelite she wished. Responsa Radach, house 8, writes that even if she married privately without beit din's knowledge she need not leave. The Radach also writes that even if her husband knew before marriage that she had been captive, so long as the fact was not established before beit din by witnesses she remains permitted to him, because she had a migo that she could have married another man. It appears, however, that if a married woman was taken captive and her husband knew that fact, she is not believed to say she remained pure, because she has no migo to say she was never captive. This is also implied by Responsa Rosh, rule 32, siman 5: once the husband knows that she was among the gentiles, there can be no greater testimony of captivity than that."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman33/seif-009/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 33,
+      "seif": 9,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[שו\"ע] כשהי' חתנו. נ\"ב אם חתם בשטר עד שלא נעשה חתנו ואח\"כ נעשה חתנו דנין על חתימתו ולא הוי תחילתו בכשרות וסופו בפסול דעדים החתומים על השטר נעשה כמי שנחקרה עידותן בב\"ד והוי סופן ג\"כ בכשרות:",
+        "כשהי' חתנו ומתה. נ\"ב אף אם אז היתה בתו גוססת מ\"מ כיון דעוד לא שכיבא לא מקרי תחלתן בכשרות הגהת אשר\"י פ\"ד דשבועות:"
+      ],
+      "en_segments": [
+        "And when I got married. If he had signed a bill until he was not cut and then he was cut off by Danin on his signature and did not begin with training and was annexed by the unknowns on the bill, he was made as if he had been injured in B.D. and had been provided with the talent: ‘He was cut and died.’ Even if his daughter had been dying from the High Court, he would not have brought any chance of their replacement in the G-d's training:"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman43/seif-011/beur-hagra",
+      "volume": "cm1",
+      "siman": 43,
+      "seif": 11,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' ראו. ב\"מ י\"ב ב' י\"ט א':",
+        "(ליקוט) אפי' ראו כו'. כמ\"ש אייתי ראיה אימתי מטא כו' וכנ\"ל סי' ל\"ט סי\"ג (ע\"כ):"
+      ],
+      "en_segments": [
+        "My nose saw. In the U.S. . . . As a result, I have seen before I uttered my name, and I have been called the S.C. and I have been appointed to “T"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman46/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם קיימי. שם כי אתו לקמן כו' וע\"כ שכבר טען פרעתי דאל\"כ היה מעורכי הדיינים:",
+        "(ליקוט) ואם קיימו כו'. ר\"ל אפי' אחר שנשבע וכמ\"ש בפ\"ט דב\"ק (ע\"כ):"
+      ],
+      "en_segments": [
+        "What if Jamie. It is there that he is with him as a writer and as he has already claimed, I have been appointed as a lawyer, and if he had done so. He said, “I swear to you, and I swear to you.”"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman46/seif-009/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 9,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי'. סנה' ב' ב':",
+        "(ליקוט) ואפי' כו'. כמש\"ש כי אתו לקמן לדינא כו'. ואין מומחים בבבל (ע\"כ):"
+      ],
+      "en_segments": [
+        "epic. Sana B. B. (Lycott) and Affi. As a result, you will be able to make a mistake. There are no experts in the Babylonians"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman49/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 49,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בד\"א. וצ\"ע שהוא נגד הגמ' דשם וע' בטור וב\"ח ודו\"פ:",
+        "(ליקוט) בד\"א כו'. מדקאמר במתני' נמצא לאחד כו' ואח\"כ כיצד יעשו כו' מ' דקאי גם התקנה ע\"ז אע\"ג דלתי' דר' ירמי' קאי כיצד יעשו ישלשו על השובר דהא בשטר משולש קמיירי אבל לתי' דאביי א\"א לומר דקאי אשובר דהא של? (ע\"כ):"
+      ],
+      "en_segments": [
+        "In DNA. And he said that he was against the G-d, and that he was against the G-d, and that he was in prison. Madammar is in one of his sons, and then how will he be done by Dr. M. D.C. also installation by Dr. Jeremiah Kai, how will he be ashamed of the voucher in the square of a quarry triangle, but to J.A.A. to say Dr. A. A. Dea. (a)"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman66/seif-007/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 66,
+      "seif": 7,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעי' מ אבל מפסידין שכרן. נ\"ב ע' בנתיבות המשפט וע' בחיבורי לחו\"מ מהדורא ג' סי' רי\"א מ\"ש להקשו' ע\"ז גם מה שהעלה הש\"ך דלשבועה ל\"מ קנין ע' בתשו' הנ\"ל מ\"ש בזה על דברי המח\"א ודו\"ק ומ\"ש כאן המחבר ויש מחייבי בפשיעה טעמם דס\"ל פושע מזיק הוא וע' בחיבורי לאהע\"ז בהשמטות שם הוכחתי מן הש\"ס דע\"ז דל\"א ע\"ב דפושע מזיק הוא ע\"ש ודו\"ק: שם סעי' מ' ויש מחייבין בפשיעה. נ\"ב הנה זה הוא דעת הרמב\"ם והנה ל' הרמב\"ם בה' מעה\"ק פי\"ד הל' ה' וז\"ל מה בין נדרים לנדבות שהנודר אם הפריש קרבנו ואבד או נגנב חייב באחריותו עד שיקריב כמו שנדר והמתנדב אם מת או שנגנב אינו חייב באחריותו עכ\"ל והנה יש לדייק למה נקט במתנדב מת או שנגנב הול\"ל רבותא יותר דאפי' פשע בו פטור מוכח מזה דס\"ל דעכ\"פ דין ש\"ח יש לו עליו לחייב בפשיעה דלשיטתו אזיל דפושע מזיק הוא ואף דמזיק הקדש פטור היינו רק מקרבן מעילה ומחומש אבל קרן חייב ומ\"ש אח\"כ גבי ע\"מ שאקרבנו בבית חוניו דיצא ידי נדרו דהוי כאילו התנה ע\"מ שלא אתחייב באחריות אף דשם הזיקו בידים שהקריבו בבית חוניו התם שאני כיון דאמר ע\"מ שאקרבנו בבית חוניו הוי כאילו התנה בפי' שאפי' כשיזיקו בידים יהי' פטור אבל בסתמא אף באומר ה\"ז בהזיקו בידים או בפשע בו חייב והנה יש לעיין עוד באומר הרי עלי עול' אם מת באונס אם חייב להביא אחר דהנה מל' הרמב\"ם שכ' ברישא אם נאבד או נגנב ולא נקט אם מת מוכח דבאונס פטור אבל בסיפא דכתב אם מת או נגנב משמע דברישא דבנודר אפי' אם מת חייב. ובאמת צ\"ע מ\"ט לא נקט גם ברישא מת ואפשר לישב דקמ\"ל הרמב\"ם דחייב באחריותו ומחויב להביא תיכף ומיד כאילו גוף הקרבן קיים ומחיוב להביאו ברגל הראשון ואם לאו עובר בב\"ת. לכך ברישא קמ\"ל רבותא דאפי' כגנב או נאבד וא\"כ י\"ל דיהיה נמצא עוד דלא יעבור על ב\"ת כאילו היה קיים לזה קמ\"ל דחייב באחריותו כאלו היה קיים ועובר על ב\"ת וא\"י לו' שימתין אולי יהי' נמצא ובסיפא קמ\"ל דאפי' מת שבודאי לא יהי' עוד נמי פטור מלהביאו אחר ומה שנקט ונגנב היינו לרמז דמת דומיא דנגנב דלא הוי באונס נמי פטור וקמ\"ל בזה דאם היה מת באונס גם ברישא הי' פטור ומוכח מזה דבאונס גם בנודר פטור ועדיין צ\"ע בכ\"ז ובפרט דהרמב\"ם שינה מל' המשנ' דהמשנ' נקטה ומה בין נדר לנדב' נדר מת או נגנב חייב באחריותו נדב' מת או נגנב אינו חייב וכו' הרי דנקט בשניהם מת והראב\"ד שינה ונקט ברישא נאבד ובסיפא מת ע\"כ בכוונ' שינ' לרמז דבאונס פטור גם בהרי עלי ודו\"ק:",
+        "שם באותו סעיף ואם קנו מידו שיתחייב כדין שומרים וכו' נ\"ב ע' בש\"ך בדין אם קנו מידו שישבע דל\"מ דהוי קנין דברים. והנה ראיתי בס' מחנה אפרים ה' שומרים סי' כ\"ב דהביא דברי ת' מוהרא\"ש בזה ודברי הש\"ך ותמה עליהם ממש\"ל סי' כ\"ב דאם קנו מידי שישבע דחייב לשבע מוכח דלא הוה קנין דברים והניח בצ\"ע. והנה מה שהביא דברי מוהרא\"ש וכתב עליו שכ\"כ הש\"ך צ\"ע. דהנה הש\"ך בסי' רצ\"א בסופו הביא דברי מוהרא\"ש ולא כתב עליו כלום. ולמה לא ציין לעיין בסי' ס\"ו ובסי' ס\"ו כאן לא הביא ת' מוהרא\"ש כלל. ולכך נראה דהם ענינים נפרדים דבסי' ס\"ו מיירי אם קנו מידו להדיא שישבע אם מהני ומוהרא\"ש שם. שהביא הש\"ך סי' רצ\"א היינו דמסופק אם קיבל ק\"ס סתם להיות דינו כש\"ש אם יכול לומר דלא כוון כלל על השבועה או לא. וכוונתו לדעת הד\"מ והסמ\"ע דמהני קנין על השבועה. אך עדיין קשה למה נא ציין הש\"ך כלל דלעיל סי' ס\"ו כתב דל\"מ כלל קנין על השבועה אך נראה דא\"ש ונתרץ תחלה בעזה\"י קו' המח\"א מלעיל סי' כ\"ב והוא דלפי השקפ' הראשונה הי' נראה לדחות דברי הסוברים דהוי קנין דברים דאין ראיות הש\"ך ראיה כלל דכל ראיותיו הוו על מה דהוי רק קנין דברים אבל בשבועה הרי אם לא נשבע חייב לשלם. וא\"כ הוי קנין על הממון ושיעבוד נכסיו וכך ראיתי אח\"כ באו\"ת ונתיבות שכתבו כן. אך נראה כוונת הב\"י והש\"ך דהרי באמת הוי זה אסמכתא והוי ראוי שלא יועיל בזה קנין רק דלכך מהני בי' קנין מכח ההוא הנאה דמהימן לי' גמר ומשעבד נפשי'. וכן ראיתי בתומים כאן כן וא\"כ יש חילוק בין חד מי יימר לתרי מי יימר כעין שאיתא בב\"מ בפ\"ג לחלק בין חד מי יימר לתרי גבי דשלב\"ל. וכן ה\"נ כן הוא אם משעבד נפשי' לשלם הוי רק חד מי יימר דילמא לא יהי' נגנב. וא\"כ בזה מהני הסברא דבההיא הנאה גמר ומשעבד נפשי' וזה מהני לחד מי יימר ולא לתרי. אבל אם משעבד נפשי' לשבע א\"כ אמרי' ממ\"נ למה יחול הקנין אם על השבועה הרי הוי קנין דברים ואם על מה שמוכח ממנו שאם לא ישבע ישלם ה\"ז הוי תרי מי יימר דילמא לא יהי' נגנב ואם יהי' נגנב אולי ישבע וא\"כ שוב להיות חל הקנין על הממון הוי אסמכתא ולא מהני סברת בההיא הנאה לדחות תרי מי יימר. וא\"כ אין כאן התחל' לקו' המח\"א מסי' כ\"ב דהתם מיירי שאמר אשבע על טענה שכבר יש לכשנגדו ואין שם שייכות אסמכתא. לכך ע\"ז לא הוי קנין דברים דהרי אם לא ישבע ישלם וא\"ש. ולכך לא סתרי דברי הש\"ך אהדדי דבסי' ס\"ו מיירי דקבלת קניין הוי שישבע אם ע\"ז הוי הקנין שייך ה\"א דהוי קנין דברים ומכח ממ\"נ אבל בסי' רצ\"א בתשו' מוהרא\"ש מיירי דהקנין הי' לשלם וע\"ז ודאי חל הקנין כנ\"ל ולא הוי אסמכתא ובזה ראוי לומר כיון דאם יודה חייב לשלם ממילא חייב בשבועה בלי קבלת קנין שלו כדין כל חייבי ממון שממילא אם כופר חייב לשלם רק דנסתפק די\"ל כיון דחיובו ממון הוי רק מרצונו ודעתו. אפשר י\"ל דלא הוי דעתו רק כשיוד' אבל לא להתחייב לשלם רק מכח אומדנא והי' נחשב כאלו התנה שאם יכפור לא יצטרך לשבע ואין זה ענין לסי' ס\"ו כלל ודו\"ק היטב:"
+      ],
+      "en_segments": [
+        "Seif 40. But they lose their wages. See Netivot HaMishpat and what I wrote in my third-edition responsum on Choshen Mishpat, siman 211, where I raised a difficulty with this ruling. See there also regarding the Shach’s conclusion that a kinyan cannot create an obligation to swear, and what I wrote concerning the words of Machaneh Ephraim. The Mechaber’s statement here that some authorities impose liability for negligence is based on the view that one who is negligent is treated as one who directly causes damage. In my addenda to Even HaEzer I proved from Avodah Zarah 71b that negligence can indeed be treated as damaging. There, seif 40: some authorities impose liability for negligence. This is the Rambam’s view. In Hilchot Maaseh HaKorbanot 14:5 he writes that one who vows a korban and designates it remains responsible if it is lost or stolen until it is offered, whereas one who merely dedicates a voluntary offering is not responsible if it dies or is stolen. It is noteworthy that with the voluntary offering the Rambam writes “dies or is stolen,” rather than stating the stronger case that even if he was negligent he is exempt. This suggests that the Rambam regards him at least as a shomer chinam, liable for negligence, consistent with the Rambam’s broader position that negligent custodianship is a form of damaging. Although one who damages consecrated property is exempt from the laws of meilah and the added fifth, he can remain liable for the principal loss. The later case of one who says, “I undertake to offer it in the temple of Chonyo,” and nevertheless fulfills his vow, is different because by expressly stipulating that condition he is treated as having stipulated that he will not bear ordinary responsibility even if he causes the loss through the specified act. Without such an express condition, one who says “this animal is an offering” can still be liable if he damages it directly or is negligent. There is also room to examine whether one who says, “I undertake to bring an olah,” remains liable if the designated animal dies through a complete accident. The Rambam’s initial phrase mentions loss or theft and does not mention death, which could imply exemption for a true accident. Yet in the second clause he says that a voluntary offering is exempt if it dies or is stolen, implying by contrast that a vowed offering remains liable even if it dies. One can reconcile the wording by saying that in the first clause the Rambam wished to teach that the vower must replace the animal immediately even when it was merely lost or stolen and might later be found. He cannot postpone until after the festival on the hope that it will reappear, because his personal responsibility remains and he may violate bal te’acher. In the second clause the Rambam adds the case of death to teach that even where the animal certainly will never return, the voluntary donor has no further liability. His choice of theft there hints that the death contemplated is not necessarily a total accident, and perhaps a genuinely unavoidable death would exempt even the one who said “harei alai.” The Rambam also deliberately departs from the Mishna’s wording, which uses death in both clauses. This requires further study. There, in the same seif: if they made a kinyan that he would be obligated like custodians. The Shach writes that a kinyan to impose an oath is ineffective because it is merely a kinyan on words. Machaneh Ephraim cites Mahara’sh and the Shach and asks from siman 22, where a kinyan to swear is treated as binding. The matters must be distinguished. At first one might answer, as Urim VeTumim and Netivot do, that an undertaking to swear is ultimately monetary because if he refuses the oath he must pay, so the kinyan is on money rather than mere words. Yet the deeper point is that in our case the monetary liability is itself an asmachta. A kinyan works because, in return for the trust placed in him, the custodian genuinely undertakes responsibility. That reasoning is sufficient where there is only one uncertainty, whether the item will be stolen. But if the undertaking is framed as “I will swear if it is stolen,” and one seeks to derive a monetary obligation from failure to swear, there are two contingencies: perhaps it will never be stolen, and even if it is, perhaps he will swear. The benefit of being trusted is not enough to overcome such a double asmachta. Thus the kinyan cannot be sustained as a monetary undertaking, while as an undertaking merely to perform an oath it is a kinyan on words. Siman 22 is different because the claim already exists when the kinyan is made. There is no future contingency and no asmachta of this sort. Therefore a kinyan to swear there can be effective because refusal to swear immediately entails payment. This also explains why the Shach’s discussion in siman 291 does not contradict his words here. There the kinyan was to assume monetary liability as a paid custodian, which can take effect. The remaining question is only whether, by voluntarily accepting that monetary status, he also accepted the ordinary oath that accompanies it. Perhaps he intended liability only upon admission and not liability based upon an evidentiary presumption. That is a separate issue from whether a direct kinyan on a future oath can take effect. Examine this carefully."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN into 2 sequential pieces using the surviving internal note or discourse markers as boundaries corresponding to the HE segment order; preserve all English wording exactly.",
+      "review_notes": "Coverage is borderline, but surviving internal markers make the HE-to-EN split structurally plausible.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman71/seif-012/turei-zahav",
+      "volume": "cm1",
+      "siman": 71,
+      "seif": 12,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ע\"ש משלם המקצת שהודה בו) וכ' המגיד משנה שאין כאן ש\"ד שהרי האמינו והך היסת חייב בין בכופר הכל בין במודה במקצת ותמי' לרבים ע\"ז למה תהא האמנה זו עדיפא מתביע' בע\"פ דהא הנאמנות אינו עושה רק שיהא השטר בטל אבל לא האמינו לפטרו משבועה דאוריית' במודה מקצת ובספר ב\"ח תירץ דטעמא דש\"ד במודה מקצת משום דאין אדם מעיז פניו בבע\"ח כדאית' ריש בבא מציע' והכא שהאמינו מעיז ומעיז והלכך אפי' מודה מקצת נאמן בהיסת במגו בעי כפר כו' והוא תמוה דא\"כ היסת נמי לא ליבעי כדאי' בפ' הדיינים דף מ\"ב אבל בבנו מעיז ומעיז הילכך משיב אבידה הוא ומשיב אבידה פטור אפילו מהיסת:",
+        "(א\"ה אין הנדון דומה לראי' דשאני במוצא מציא' ממש מפני תיקון העולם וכן בבנו משום דמעיז אם אתה מצריכו שבועה לא יודה לו אף במקצת וה\"ל כמשיב אבידה לרש\"י או משום מגו לדברי התוס' ז\"ל ולעולם לא מיפטר אלא משבועה המתחדשת לו מחמת הודאתו במקצת אבל שיפטר מכח הודאתו במקצת מן אותה השבועה שהיה חייב בכופר בכל זה לא עלה על הדעת דבהדיא אמרי' רפ\"ק דב\"מ אי ס\"ד בשתים חייב בג' היכי פטר ליה ר\"ע האי איערומי קא מערים וכו' אימא ג' כי היכי דאיהוי כמשיב אבידה ומיפטר עכ\"ה) ולפע\"ד נראה כיון דבכלל הנאמנות של הלוה הוא בין שיאמר פרעתי כולו יבין פרעתו מקצתו דסתם נאמנות הוא כן כמ\"ש סי' פ\"ד ס\"ה וכי האי דבטוען כרעתי כולו דעתי שישבע היסת ה\"נ במקצת דהא בחדא מחתא מחתינהו ושוה הנאמנות בתרווייהו ואף על גב שכתב הטור והוה כתביע' בע\"פ מ\"מ לאו לגמרי אלא לענין שאין הנאמנות פוטר משבועה (א\"ה לעד\"נ טעם נכון משניהם דאם אתה מחייבו ש\"ד ממילא אינו יכול להפכ' על שכנגדו אם לא ירצה לישבע וע\"כ ישלם בלא שבועת המלוה ונמצא הנאמנות מגרע כחו לענין זה דאלו אין לו נאמנות אין המלוה נוטל בלא שבועה ועכשיו שיש לו נאמנות יצטרך לשלם בלא שבועת המלוה ולומר דתהא הבריר' ביד הלוה אם לישבע ש\"ד ולהיפטר או להשביע את המלוה אם רוצה לשלם ודאי לא מילתא היא דהא בהא תליא ודו\"ק עכ\"ה):"
+      ],
+      "en_segments": [
+        "(Ibid.: He pays the portion that he admits.) The Maggid Mishneh writes that no Torah oath applies because the debtor granted credibility, and that only a heset oath applies whether he denies everything or admits part. Many have wondered why this credibility should be stronger than an oral claim. Its effect is only to neutralize the document; it should not exempt a partial admitter from the Torah oath. The Bach answers that the Torah oath for partial admission rests on the presumption that a person does not brazenly deny his creditor. Here, because the creditor trusted him, he is willing to deny; therefore even on a partial admission he is believed with a heset oath through the migo that he could have denied all. This is difficult, for by that reasoning even a heset oath should not be required, as the Gemara says concerning a claim against one’s son: since a person is bold toward the son, a partial admitter is like one returning a lost object and is exempt even from heset. The glossator answers that the cases are not comparable. A finder is exempt for public policy, and a defendant against the son is exempt from the newly generated partial-admission oath, whether because of the lack of brazenness or because of a migo. But no one suggested that his partial admission should exempt him from the oath he would have owed had he denied everything. In my opinion, the ordinary credibility granted to the debtor includes both a claim that he paid all and a claim that he paid part, as explained in siman 84, seif 5. Just as one claiming full payment swears only heset, so too one claiming partial payment, for the clause treats both alike. Although the Tur says the matter becomes like an oral claim, he means only that the credibility clause does not exempt the debtor from an oath altogether. The glossator offers another sound reason. If the debtor were required to take a Torah oath, he could not reverse it onto the creditor. If he declined to swear, he would have to pay without any oath by the creditor. The credibility clause would thus worsen his position, because without it the creditor could not collect without swearing. It is untenable to make the debtor choose between a Torah oath and requiring the creditor to swear, since the two consequences are inseparable."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman72/seif-029/beur-hagra",
+      "volume": "cm1",
+      "siman": 72,
+      "seif": 29,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מלוה שטוען. דוקא בריא כמ\"ש בסי\"ד. סמ\"ע וש\"ך:",
+        "(ליקוט) בריא כו'. דוקא ברי שאז הוא כשאר התביעות ונאמן הלוה במגו שא\"ל בידי כלום שאין שבועת השומרין להוציא משא\"כ בשמא כמ\"ש בסי\"ד (ע\"כ):"
+      ],
+      "en_segments": [
+        "A friend who claims. It’s healthy as a “c” in the US. He said, “He is healthy.” So, he is the case of the claims and the trustee in the body that is not in the hands of anything that is not the oath of the guard to carry out such negotiations as the IDF"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman72/seif-037/beur-hagra",
+      "volume": "cm1",
+      "siman": 72,
+      "seif": 37,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן הדין. במכ\"ש ועסי' ס\"ו ס\"ח:",
+        "(ליקוט) וכן כו'. קמ\"ל דאין חזקתו שבחיי הגר מועיל עתה (ע\"כ):"
+      ],
+      "en_segments": [
+        "And yes, the judgment. In the book, and on the other hand, it is the same. He is not so strong that the living life is now beneficial"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "created": "2026-08-28T08:05:13.691Z",
+    "kit": "EN_TRUNC_MODERATE_RESEGMENT_KIT",
+    "kind": "en_truncated_vs_multi_he",
+    "tier": "wave1_moderate",
+    "purpose": "Re-segment moderate en_trunc: map existing EN to HE slots; translate from HE only where EN missing for that slot. Output aligned he+en pairs for evaluation.",
+    "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+    "split": "normalize consecutive <br> then split on <br>; strip tags for segment text",
+    "source_lists": {
+      "eval": "EN_TRUNC_PACK_ALL_REVIEW_EVAL.json",
+      "pack": "EN_TRUNC_PACK.json",
+      "apply_log": "en_trunc_wave1_apply_log.json"
+    },
+    "exclusions": {
+      "wave1_strict_applied": [
+        "oc1/siman1/seif-008/yad-ephraim",
+        "oc1/siman35/seif-001/ateret-zekenim",
+        "oc1/siman51/seif-003/shaarei-teshuvah",
+        "oc1/siman438/seif-001/chok-yaakov",
+        "yd1/siman84/seif-015/beur-hagra",
+        "yd1/siman84/seif-017/beur-hagra",
+        "yd1/siman123/seif-026/beur-hagra",
+        "yd1/siman125/seif-011/beur-hagra",
+        "yd1/siman127/seif-004/beur-hagra",
+        "yd1/siman134/seif-011/beer-hagolah",
+        "yd1/siman141/seif-006/beur-hagra",
+        "yd1/siman146/seif-002/beur-hagra",
+        "yd1/siman146/seif-012/beur-hagra",
+        "yd1/siman148/seif-008/beur-hagra",
+        "yd1/siman269/seif-008/beur-hagra",
+        "yd1/siman294/seif-005/beur-hagra",
+        "yd1/siman294/seif-007/beur-hagra",
+        "yd1/siman294/seif-010/beur-hagra",
+        "yd1/siman296/seif-045/beur-hagra",
+        "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+        "cm1/siman188/seif-001/ketzot-hachoshen"
+      ],
+      "wave1_strict_held": [
+        "yd1/siman173/seif-018/beer-hagolah",
+        "yd1/siman242/seif-036/siftei-kohen",
+        "cm1/siman358/seif-004/beur-hagra"
+      ],
+      "excluded_from_moderate_overlap": [],
+      "editorial_tier_excluded": "99 needs_editorial cases — separate kit later"
+    },
+    "counts": {
+      "total": 78,
+      "moderate_tier_raw": 78,
+      "by_volume": {
+        "oc1": 5,
+        "yd1": 43,
+        "cm1": 30
+      },
+      "by_volume_slug": {
+        "oc1/yad-ephraim": 1,
+        "oc1/ateret-zekenim": 4,
+        "yd1/beer-hagolah": 33,
+        "yd1/beur-hagra": 7,
+        "yd1/baer-heitev": 1,
+        "yd1/turei-zahav": 2,
+        "cm1/chelkat-mechokek": 2,
+        "cm1/rabbi-akiva-eiger": 4,
+        "cm1/beur-hagra": 10,
+        "cm1/chokhmat-shlomo": 2,
+        "cm1/turei-zahav": 1,
+        "cm1/siftei-kohen": 1,
+        "cm1/urim-vetumim-urim": 2,
+        "cm1/ketzot-hachoshen": 1,
+        "cm1/urim-vetumim-tumim": 1,
+        "cm1/netivot-hamishpat-beurim": 1,
+        "cm1/haggahot-imrei-barukh": 1,
+        "cm1/beer-hagolah": 4
+      }
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en side-by-side per slot",
+      "legacy_mirror": "en_segments[] optional",
+      "segment_source": "split_existing_en | fresh_translate | partial"
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC MODERATE — RE-SEGMENT WITH ALIGNED HE+EN PAIRS.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_TRUNC_MODERATE_RESEGMENT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term (e.g. muktzeh, melacha, kli rishon, yad soledes bo, psik reisha, d'oraisa, d'rabbanan, l'chatchila, b'dieved).",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- Tier: wave1_moderate — structural split is plausible (high EN/HE ratio) but lacks reliable auto-delimiters; sentence-boundary or semantic alignment required.",
+      "- Wave1 strict (24 ids) was already auto-applied or held separately; this kit excludes those.",
+      "- Goal: produce heSegs aligned EN segments mapped to each HE slot. Prefer splitting the existing EN blob; translate from HE only where the EN blob clearly lacks material for that HE slot.",
+      "",
+      "TRANSLATION NORMS (when fresh_translate needed)",
+      "- Complete: translate every clause; no omissions, summarizing, or paraphrasing away content.",
+      "- No additions: no introductions, notes, \"Note:\", or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label, no markdown wrappers around segment text.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Align EN to HE slots (index 0 .. heSegs-1).",
+      "2) When the existing EN blob clearly contains the translation for a HE slot: split it out (source: split_existing_en). Preserve exact wording where possible.",
+      "3) When EN is missing for a HE slot (truncated blob, partial coverage): translate that slot from HE only (source: fresh_translate).",
+      "4) When a slot mixes preserved EN cut + gap-fill translation: source: partial.",
+      "5) If alignment is unsafe: action needs_human; still return segments[] with best-effort he+en if possible, or empty en for unclear slots.",
+      "",
+      "ACTIONS",
+      "- resegment — EN blob splits cleanly into heSegs pieces; no new translation needed.",
+      "- mixed_resegment_translate — some slots from EN split, some fresh from HE.",
+      "- needs_human — unsafe / ambiguous; flag for manual review.",
+      "",
+      "OUTPUT — JSON array only, same ids/order as input cases:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"resegment\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    {",
+      "      \"index\": 0,",
+      "      \"he\": \"...\",",
+      "      \"en\": \"...\",",
+      "      \"source\": \"split_existing_en\" | \"fresh_translate\" | \"partial\"",
+      "    }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length MUST equal that case's heSegs (and match he_segments 1:1).",
+      "- Each segment object MUST include both he and en side-by-side for evaluation.",
+      "- en_segments[] (legacy mirror) should match segments[].en in order when present.",
+      "- source on each segment documents whether EN came from blob split vs fresh translation.",
+      "- No corpus edits. Return JSON only."
+    ],
+    "warnings": [],
+    "chunk_index": 3,
+    "chunk_total": 4,
+    "case_offset": 58,
+    "cases_in_chunk": 17,
+    "hard_cap_utf8_bytes": 85000,
+    "parent_pack": "EN_TRUNC_MODERATE_RESEGMENT_KIT.json",
+    "parent_sha256": "e01791eb34abb90504dcd0bfab85489e1c05c5e426d6e0ece15d840bc1a97b33"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman78/seif-001/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 78,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעיף א' הקובע זמן לחברו ותבעו בתוך הזמן נ\"ב ע' בחיבורי על חו\"מ מהדורא ב' בסופו סי' קפ\"ב והוכחתי שם שלדעת רש\"י נהי דלדינא קי\"ל דאמרינן מגו במקו' חזקה עכ\"פ שבועה בעי מן התורה ע\"ש בטעמו כי טוב הוא ודו\"ק:",
+        "סעיף א הקובע זמן לחברו וכו'. נ\"ב ע' בש\"ך סק\"א מה שמשיג על הסמ\"ע ולפענ\"ד דבריו תמוהין דודאי צדקו דברי הסמ\"ע דבטוען המלוה שמא נאמן הלוה אף בתוך זמנו. כיון דחזקת ממון מסייע לו אמרינן ברי ושמא ברי עדיף. דבהדי חזקה אמרי' ברי עדיף וכמ\"ש הש\"ס בפ\"ק דכתובות גבי משארסתני נאנסתי דהיכי דאיכא חזקה דגופא בהדי ברי ושמא ברי עדיף אף דמצד עצמו הוי חזקה דממונא עדיף מחזקה דגופא מ\"מ בהצטרף בהדי ברי מהני ה\"ה נמי הכא. אף דת\"ז עדיף מחזקה דממונא מ\"מ בהצטרף בהדי ברי ושמא עדיף. ומה שמביא הש\"ך ראיה מיורשים דבריו תמוהין ובמחכת\"ה נעלם ממנו סוגית הש\"ס והרא\"ש וכל הקדמונים דרפ\"ב דכתובות דקאמר שם הש\"ס לימא מתני' דלא כר\"ג וכו'. ומשני אפי' תימא ר\"ג וכו'. ע\"כ לא קאמר ר\"ג אלא בברי ושמא אבל הכא ברי וברי היא. והקשו הכל דתינח נתגרשה אבל נתארמלה הרי טוענין היורשין שמא יתרצו כיון דאנן טענינן ליורשים כל מה דמצי אביהן למיטען חשוב כטענת ברי. וכ\"כ שם הרא\"ש להדיא ובשיטה מקובצת בשם כל הקדמונים א\"כ מוכרח דהיכי אמרינן ברי ושמא ברי עדיף מ\"מ טענות היורשים חשיב כטענת ברי ולכך גבי יורשים ודאי שייך הך חזקה דאין אדם פורע ת\"ז ולא כשהוא בעצמו היה טוען שמא וצדקו דברי הסמ\"ע. מיהו בחידושי משפט צדק לחו\"מ סימן נ\"ט שם העלתי דהיכי דהוא חוב בשטר ותו\"ז כיון דאיכא חזקות. חזקה דשטרי בידך מה בעי וחזקה דתו\"ז אז הדר ה\"ל חזקת ממון חדא במקום תרתי ולאו כלום הוא ושוב לא אמרי' ברי עדיף ובזה גובה המלוה אף כשטוען שמא. וז\"ב ונכון לדינא: שם ס\"א והניח יתומים אפי' קטנים. נ\"ב עבש\"ך סק\"ב מה שנסתפק בשם המוהרשד\"ם באם הגיע הזמן ונתחסד המלוה עם הלוה להאריך לו הזמן אם שייך בהזמן הב' אין אדם פורע תוך זמנו. והקצה\"ח פשט ליה מדברי הנ\"י שכ' בקבע זמן בשעת הלואה אז אח\"כ עש\"ה. והנה לדעתי אין זה כלום. דהנ\"י כוונתו כגון דתחלה לא קבעו זמן כלל רק הלוה לו סתם ולא שאלו על איזה זמן ואחר כך פגעו זה בזה וקבעו זמן אז בזה נחשב זה כקביעת זמן בשעת הלואה והוי כהוכיח סופו על תחלתו כאלו קבעו בשעת ההלואה כיון שלא היה קביעת זמן אחר תחלה דדרך כל הלואה לקבוע זמן ואם כן מה שקבעו אחר כך הוי כאילו קבעו תחלה וכ\"ש אם דברו בשעת הלואה שמלוה לו ע\"ת מה שיקבעו אחר כך זמן כשיהיה להם פנאי וזה הוי כקביעת זמן בשעת ההלואה. אבל אם מתחלה בשעת הלואה קבעו זמן ואח\"כ קבעו זמן שני בזה נ\"ל שפיר כדעת המוהרשד\"ם. אך מן הש\"ס יש להביא ראיה דמאי פריך שם אילימא בזמנו פשיטא אלא לאו תוך זמנו וכו'. ודילמא מיירי שקבעו זמן שני וקמ\"ל דאף שהוא תו\"ז שני נאמן לומר פרעתי ובע\"כ מוכח דאין חילוק בין זמן ראשון לזמן שני. ודוק היטב: שם סעיף א' בהג\"ה אבל אם היה מעות מופקדין בידו ועוסק בהם לצורך אחרים האי כשאר פקדון וכו' נ\"ב עיין כאן בש\"ך סק\"י מה שהשיג על המהר\"א ששון בדין סחור' אם שייך בי' אין אדם פורע ת\"ז ועיין בחיבורי לחו\"מ מהדורא ה' סימן קע\"ט מ\"ש להחזיק דברי המהר\"א ששון ועכ\"פ המוחזק יכול לומר קים לי' ע\"ש ודוק:"
+      ],
+      "en_segments": [
+        "Seif 1: One who fixes a time for his fellow and demands payment within the time. Note: See my second-edition work on Choshen Mishpat, at the end, siman 182, where I proved that according to Rashi, although as practical halacha we rule that a migo is accepted even against a presumption, nevertheless a Torah-level oath is required. See there for the reasoning. Seif 1: One who fixes a time for his fellow, etc. See Shach, seif katan 1, who challenges the Sema. In my humble opinion his words are difficult. The Sema is certainly correct that where the lender himself is uncertain, the borrower is believed even if he claims to have paid within the fixed time. Since the presumption of possession supports the borrower, the combination of a definite claim and an uncertain claim favors the definite claim. We find similarly in the first chapter of Ketubot concerning the claim “I was violated after betrothal”: where a bodily presumption supports the definite claimant against the other party’s uncertain claim, the definite claim prevails. Although a presumption of monetary possession is ordinarily stronger than a bodily presumption, when the latter is joined to a definite claim it can prevail. The same applies here. Although the presumption that a person does not pay within the time is stronger than ordinary monetary possession, when monetary possession is joined to a definite claim against an uncertain claim, it prevails. The Shach’s proof from heirs is also difficult. With respect, he overlooked the Gemara, the Rosh, and the early authorities at the beginning of the second chapter of Ketubot. The Gemara asks whether the Mishna is not in accordance with Rabban Gamliel and answers that even Rabban Gamliel may agree, because he rules only where one side is definite and the other uncertain, whereas here it is definite against definite. The commentators ask that this explains a divorced woman, but if she was widowed the heirs are uncertain. They answer that since we plead on behalf of heirs whatever their father could have pleaded, their plea is regarded as a definite plea. The Rosh says this expressly, and the Shita Mekubetzet cites all the early authorities accordingly. Thus, even where a definite claim would normally prevail against uncertainty, the heirs’ pleading is considered definite. Consequently, with heirs the presumption that a person does not pay within the time certainly applies, whereas it need not apply where the debtor himself admits uncertainty. The Sema is therefore correct. However, in my Chiddushei Mishpat Tzedek on Choshen Mishpat, siman 59, I concluded that where the debt is evidenced by a document and the claim is payment within the time, two presumptions support the lender: the presumption expressed by “why is your document in my hand?” and the presumption that a person does not ordinarily pay before the due date. The debtor’s monetary possession is then only one presumption against two and has no force. In such a case we no longer say that the definite claim prevails, and the lender collects even where he is uncertain. This is clear and correct as practical halacha. There, seif 1: and he left heirs, even minors. See Shach, seif katan 2, who cites Maharshal’s doubt where the original due date arrived and the lender graciously extended the term, whether during the second term we still apply the presumption that a person does not pay before the due date. Ketzot HaChoshen resolves the issue from the Nimukei Yosef, who speaks of a time fixed at the time of the loan. In my opinion that proof is not decisive. The Nimukei Yosef can mean a case where originally no time was fixed at all. The lender made an ordinary loan without discussing a term, and only later when they met they fixed a due date. Since there had been no earlier term, and loans ordinarily contemplate a time for payment, the later fixing of the time reveals the original arrangement and is considered as though the term had been fixed at the loan’s inception. All the more so if at the time of the loan they expressly agreed that the loan would run until a time they would later fix when convenient. That too is effectively a term fixed at the loan’s inception. But where they originally fixed one due date and later agreed on a second due date, it seems to me that Maharshal’s doubt remains. Nevertheless, a proof may be brought from the Gemara. It asks, “If the case is at the due date, that is obvious; rather, is it not within the due date?” Why not answer that the case concerns a second fixed period, teaching that even within the second period the borrower is believed to say he already paid? It follows that there is no distinction between the first and second fixed terms. Examine this carefully. There, seif 1 in the gloss: but if money was deposited with him and he uses it for the needs of others, it is like any other deposit, etc. See Shach, seif katan 10, who challenges Maharam Alshakar regarding merchandise and whether the presumption that a person does not pay within the fixed time applies to it. See my fifth-edition work on Choshen Mishpat, siman 179, where I defended Maharam Alshakar. In any event, the party in possession can say that he relies upon that view."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman78/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 78,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הא דאמרי' כו'. דייקו ממ\"ש הקובע זמן דוקא בקובע ועסה\"ת שם:",
+        "(ליקוט) הא כו'. ודעת הרמב\"ן אינו כן כמ\"ש בסי' ל\"ט ס\"ד וכן הרמב\"ם כמ\"ש בר\"ס שי\"ז (ע\"כ):"
+      ],
+      "en_segments": [
+        "That which we say, etc. They infer from the wording 'one who fixes a time' that the rule applies only where a time was expressly fixed. See Sefer HaTerumot. Ramban and Rambam disagree, as stated in siman 39:4 and at the beginning of siman 317."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman88/seif-029/siftei-kohen",
+      "volume": "cm1",
+      "siman": 88,
+      "seif": 29,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' יש בו נאמנות כו'. ולפע\"ד דין זה צ\"ע לפי שנרא' שפסק המחבר כן ע\"פ מ\"ש בספרו ב\"ה דאפשר גם הרמב\"ם סובר כן ובאמת נלפע\"ד דעת הרמב\"ם דבכתב יד בנאמנות הוי הילך דכתב טעמא לפי שאינו יכול לכפור וכ\"כ ה' המגיד והנ\"י רפ\"ק דמציעא בשמו (ודלא כב\"ה לדעת הרמב\"ם) וכ\"כ בס' לח\"מ פ\"ד מה\"ט בדעת הרמב\"ם אך מה שהקש' שם הלח\"מ על הנ\"י שלא הבין דעת הרמב\"ם כן הוא תמוה לי שאדרב' הנ\"י כתב כדבריו שוב ראיתי בכסף משנה פ' כ\"ב מה' עדות דעתו גם כן דדעת הרמב\"ם כמו שכתבתי ע\"ש והבאתי דבריו לעיל סימן ל\"א ס\"ב גם ר' ירוחם כתב כן במסקנתו בנ\"ג ח\"ב וז\"ל ויש מי שכ' שכל זמן שהודה בדבר שלא הי' יכול לכפור כמו בכת\"י בנאמנות ה\"ל הילך ופטור מש\"ד וכ\"כ הרמב\"ם ז\"ל עכ\"ל וכ\"כ עוד ר' ירוחם שם בסתם בסוף החלק ההוא ע\"ש וכ\"כ הרא\"ש רפ\"ב דכתובות דבדבר שא\"י לכפור ה\"ל הילך ומביאו ב\"י לעיל ר\"ס פ\"ז וכן דעת ה' המגיד פ\"ה מה' טוען דלא כמו שנרשם כאן בגליון סמ\"ע ע\"ש ה' המגיד להפך וע\"ל סימן פ\"ז ס\"א בהג\"ה משמע ג\"כ הכי והוא מהטור ע\"ש ודוק וכ\"כ בסמ\"ג דף קפ\"א ע\"ג להדיא דשטר הוי הילך שהרי לא תועיל בו כפירתו ולא הזכיר שום שעבוד קרקעות ע\"ש וכ\"כ בס' מעד\"מ בריש ב\"מ שדעת הרא\"ש והרמב\"ם דכל שא\"י לכפור ואפי' אינו שטר לא הוי מ\"מ וכ\"כ הב\"ח שכן דעת הרמב\"ם והרא\"ש והטור ע\"ש:",
+        "שוב ראיתי בא\"ע סימן צ\"ו סט\"ו מביא הר\"ב גופיה דעת ה' המגיד פ' ט\"ז מה' אישות דס\"ל דבדבר שא\"י לכפור לא הוי מ\"מ אפי' ליכא שעבוד קרקעות ואזיל לטעמי' בפ\"ד מה' טוען ומביאו ב\"י שם ע\"ש וכן משמע בתשו' מבי\"ט ח\"ב ס\"ס ר\"ה ואם כן נרא' פשוט לענין דינא דאין לחייבו ש\"ד דלא יהא אלא ספיקא דדינא הוי קולא לנתבע:"
+      ],
+      "en_segments": [
+        "Even if it contains a clause of credibility, etc. In my humble opinion this ruling requires study. It appears that the Mechaber ruled this way based on what he wrote in Bedek HaBayis, that perhaps the Rambam also agrees. In truth, however, it appears to me that the Rambam holds that a handwritten obligation containing a credibility clause is heilech, because the Rambam explains the reason as being that the defendant cannot deny it. The Maggid Mishneh and Nimukei Yosef at the beginning of Bava Metzia also explain the Rambam this way, contrary to Bedek HaBayis's understanding. Lechem Mishneh, chapter 4 of Hilchos To'en, likewise understands the Rambam this way. His challenge there to the Nimukei Yosef, as though the Nimukei Yosef did not understand the Rambam that way, is puzzling, for the Nimukei Yosef actually writes exactly this. I later saw that the Kesef Mishneh in chapter 22 of Hilchos Edus likewise understands the Rambam as I have written, and I cited his words above in siman 31, seif 2. Rabbeinu Yeruham also reaches this conclusion in Nesiv 3, chelek 2, writing that some authorities hold that whenever one admits something he could not have denied, such as a handwritten obligation with a credibility clause, it is heilech and he is exempt from a Torah oath, and that the Rambam writes so. Rabbeinu Yeruham later states this ruling without qualification at the end of that section. The Rosh at the beginning of the second chapter of Kesubos likewise holds that something which the defendant cannot deny is heilech, as cited by the Beit Yosef above at the beginning of siman 87. The Maggid Mishneh in chapter 5 of Hilchos To'en holds the same, contrary to the marginal note here in the Sema that cites him for the opposite. See there. The gloss in siman 87, seif 1, likewise appears to rule this way, following the Tur. The Semag explicitly writes that a document is heilech because denial cannot avail against it, without mentioning any land lien. Maadanei Yom Tov at the beginning of Bava Metzia likewise writes that according to the Rosh and Rambam, whenever the defendant cannot deny the admitted portion it is not considered a partial admission, even without a formal document. The Bach also writes that this is the view of the Rambam, Rosh, and Tur. I later saw that in Even HaEzer, siman 96, seif 15, the Rama himself cites the Maggid Mishneh in chapter 16 of Hilchos Ishus as holding that where the defendant cannot deny a matter, it is not a partial admission even when there is no land lien, consistent with the Maggid Mishneh's approach in chapter 4 of Hilchos To'en, as cited by the Beit Yosef there. The responsa of Mabit, volume 2, end of siman 205, likewise appear to support this. Accordingly, the practical ruling is plainly that he cannot be obligated in a Torah oath. At the very least it is a matter of legal doubt, and in a doubt concerning an oath we rule leniently for the defendant."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman89/seif-004/urim-vetumim-urim",
+      "volume": "cm1",
+      "siman": 89,
+      "seif": 4,
+      "slug": "urim-vetumim-urim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(א ב ג חסר)",
+        "בנק\"ח תקנת חכמים היא משום כדי חייו דשכיר וגם הבעה\"ב שוכח דטרוד בעסקיו ופועליו ובקל יוכל לבוא לידי שכחה לכך תקנו חז\"ל שישבע שכיר ויטול אפילו בבעה\"ב דלא טרוד והשוו חז\"ל דבריהם ואפילו בכופר הכל ואם יש לבעה\"ב ע\"א מסייע עיין תומים ס\"ק ט\"ז דנראה דאין נשבע ונוטל וצ\"ע:"
+      ],
+      "en_segments": [
+        "While holding a sacred object. The first three subparagraphs are missing in the source here. This oath for a hired worker was instituted by the Sages for the worker's livelihood, and also because an employer is occupied with his affairs and workers and can easily forget whether he paid. The Sages applied the rule uniformly even to an employer who is not especially preoccupied, and even where the employer denies everything. If the employer has one supporting witness, see Tumim, seif katan 16, where it appears that the worker does not swear and collect. The matter requires study."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman128/seif-001/chelkat-mechokek",
+      "volume": "cm1",
+      "siman": 128,
+      "seif": 1,
+      "slug": "chelkat-mechokek",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שאלה מן הרב מהר\"ר יששכר אב\"ד דק\"ק ארלא לא\"א מ\"ו הרב המחבר ז\"ל וזה נוסחו . שלם לאהובי אדוני הגאון מהר\"ר משה ש\"ן בהיותי פה אירע כמה פעמים לסדר גט ומנעתי עצמי מלכתוב פה עבור קריאת שם המקום שחקרתי ודרשתי בכל שטרי כתובות וק\"ס שנכתבי' מקדמוני' פה נכתב כל ארלא באל\"ף תחלה וסוף ולפי ספרי הערכ\"י של כותים חקרתי ודרשתי שהוא נכתב ארלע בע' בסוף א\"כ איזה מהם לבד שנכתוב יש לחוש לשינוי שם עירו שהוא פסול גמור ובודאי שאין לדמות זה לרעד\"ש והרעד\"ש (הנזכר פה בסעיף ג') שהתם לא נשתנה קריאת שם העיר בנקודה בין שם ישראל לבין שם של כותים רק כותים קורין הרעדש בה' וישראל קורין רעדיש בלא ה' וזה אינו אלא קיצור לשון משא\"כ בנ\"ד שנשתנה בקריאת הנקודה כי א' בסוף אז הל' שלפניו נקרא בקמ\"ץ ואם ע' בסוף הקריא' של ל' היא כמו בסגול ולכן נראה דעתי שיש לכתוב ארלא דמתקרו ארלע ולא רציתי לסמוך למעשה על דעתי לבד יודיעני רום מכ\"ת דעתו בזה וגם יש כאן מים ואין לו שום שם אבל נראה שאין לחוש לזה בשביל שאינו רק מים הנקר' טיי\"ך בל\"א והוא בכלל מי מעינות כמו שהוא בתשובת מהרי\"ק וא\"כ יש לכתוב כאן מי בארות ומי מעינו' ולא שום שם נהר ולכן באתי לבקש שיודיענו רום מכ\"ת דעתו הרמה בכל זה ע\"כ השאלה:",
+        "תשובה ראיתי דברי מעלתך אשר נסתפק אם לכתוב בגט ארלא או ארלע הנה יעיין מעלתך בתשובת הר' מהרי\"ק ובפסקי מהרא\"י (אשר מהם נובעים דברי הרב בהג\"ה כאן) יראה להדיא ששם הקבוע לה בלשון העברי הוא העיקר והנה רוטנבורק הנקרא בלשון עברי בסוף בק' ובל' הכותי' לבסוף בג' יש הפרש ביניהם באות א' וכן טויברא וטוברא הנזכר שם בפסקי מהרא\"י יש הפרש ביניהם בשינוי נקודו' כמבואר שם וכן קאזמר דמתקרי קאזימרו בנוסח גט קראקא יש הפרש כמה אותיות אבל הפרש נקודה אחת ודאי אזלינן בתר ל' עברי ע\"כ מצאתי ובודאי עוד היה להרב א\"א מ\"ו המחבר מילין בדבר זה ונטרפ' השנה וה' ירוה צמאונינו והעתקתי דבריו המעטים להלכה ולא למעשה:"
+      ],
+      "en_segments": [
+        "A responsum from the eminent Rabbi Yissachar, av beit din of the holy community of Arla, to my father and teacher, the author. The question was: In Arla, when arranging a get, I refrained several times because of uncertainty about spelling the city's name. In old ketubot and other Jewish documents written here, the name is always written \"Arla,\" with alef at the beginning and end. In the gentile registers, however, I investigated and found it written \"Arle,\" with ayin at the end. If we write only one form, perhaps we change the city's name, which is a complete invalidation. This cannot be compared to the example of Radash and HaRadash mentioned here in seif 3, because there the pronunciation itself does not change materially; the gentiles pronounce one expanded form and the Jews a shortened form. In our case, however, the final letter changes the preceding vowel and therefore the pronunciation itself differs. It therefore appears to me that we should write, \"Arla, which is called Arle.\" I did not wish to rely on my own judgment alone and ask the master's view. There is also water here without a specific name. It appears unnecessary to name it, because it is only a pond and falls under ordinary springs as in Maharik. We should therefore write simply, \"waters of wells and waters of springs,\" without naming a river. Please instruct us. The author's answer was: Study Responsa Maharik and the rulings of Terumat HaDeshen, from which the Rama's gloss here derives. You will see explicitly that the established Jewish-language name is primary. Rothenburg is written in Jewish usage with a final kaf and in gentile usage with a final gimel; the examples of Teivra and Tovra likewise involve different vocalization; and Kazmir, which is called Kazimiro in the Cracow get formula, differs by several letters. Certainly, where the difference is merely one vowel point we follow the Jewish-language form. This is what I found. No doubt my father and teacher had more to say, but the year brought calamity and his words were lost. May Hashem quench our thirst. I copied these few words as halachic guidance, not as a practical ruling."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman141/seif-001/ketzot-hachoshen",
+      "volume": "cm1",
+      "siman": 141,
+      "seif": 1,
+      "slug": "ketzot-hachoshen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הרי אלו כשלשה שנים בכנה\"ג כת' בשם מוהרש\"ח שכ' דלדעת הרשב\"ם ז\"ל הלכה כרב דבעי שלימות אמנם יש לתמוה על מוהרש\"ח ז\"ל היכן בדברי הרשב\"ם דהלכה כרב דבעי שלש שנים שלימות ומיום ליום שרשב\"ם לא כת' אלא לפי ל' הזה אפי' שמואל לא בעי לגרוע משלש שנים והכי קי\"ל ע\"כ ולשון זה מתפרש והכי קי\"ל כשמואל ועוד שאפי' זה אינו מדברי רשב\"ם אלא מלשון ר\"ח אבל רשב\"ם עדיין אפשר דסובר דהלכה כשמואל ובג' אכילות אפי' בפחות משלש שנים הוי חזקה ע\"ש דבריו ז\"ל ולא ראיתי מי שפוסק כרב זולת מ\"ש מוהרש\"ח ז\"ל בביאורו וכתבתיו למעלה דרשב\"ם פוסק כרב וכבר כתבתי דלא היא ע\"כ:",
+        "ותמהני דהא הרשב\"ם כתבו להדיא ד\"ה דברי ר\"ע ור' ישמעאל כו' אבל חכמים אומרים חזקתן שלש שנים מיום ליום ואליבייהו דהני רבנן פרשינן בר\"פ טעמא דחזקת שלש שנים דעד תלתא מזדהר אינש בשטרו טפי לא מזדהר וכוותייהו דהני רבנן אליבא דרב קיימא כדמוכח סוגיא דלא אזיל בתר לקיטת שלש פירות של שלש שנים אלא שלש שנים שלימות בעינן בכל דבר ומשום דאין אדם נזהר בשטרו יותר משלש שנים עכ\"ל. גם הרמב\"ן בחידושיו כתב מדאמרינן עד שלש שנים מזדהר אינש בשטר הזקיקו לרשב\"ם לפסוק הלכתא כרב ע\"ש:"
+      ],
+      "en_segments": [
+        "These are like three years. Knesset HaGedolah writes in the name of Maharshal that according to Rashbam the halacha follows Rav, who requires complete years. This is surprising, for where in Rashbam do we find that the halacha follows Rav and requires three complete years from day to day? Rashbam wrote only that according to this formulation even Shmuel does not reduce the period below three years, and this is how we rule. That language can be understood to mean that we rule like Shmuel. Moreover, even that language is not Rashbam's but Rabbeinu Chananel's. Rashbam may still hold that the halacha follows Shmuel, so that three harvests create a chazakah even in less than three years. Maharshal says that he found no one who rules like Rav except what he himself wrote in explanation of Rashbam, and he already rejected that reading. Yet I am astonished, because Rashbam writes explicitly, s.v. 'the words of Rabbi Akiva and Rabbi Yishmael,' that the Sages say their chazakah is three years from day to day, and that the opening sugya explains the reason for three years as, 'until three years a person is careful with his document, afterward he is no longer careful.' Rashbam then says that we rule like these Sages according to Rav, as is demonstrated by the sugya, which does not follow the gathering of three fruits from three years but requires three complete years in every case, because a person does not preserve his document for more than three years. Ramban likewise writes in his novellae that the statement, 'until three years a person is careful with his document,' compelled Rashbam to rule like Rav. See there."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman147/seif-003/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 147,
+      "seif": 3,
+      "slug": "urim-vetumim-tumim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "חזרתי ולקחתי הרמב\"ם השמיט הך מימרא דר\"י דאם טען חזרתי ולקחתי ממני ותמה הב\"י למה השמיטו הרמב\"ם ז\"ל והרב הלח\"מ תי' דמילתא דפשיטא היא דס\"ל כפי' הרי\"ף דמיירי דהחזיקו יתומים ג\"ש ומורישם החזיק יום אחד ואם כן פשיטא דנאמן לקוח היא ולכך השמיטו, ובאמת צ\"ל בגמרא לשיטת הרי\"ף דמיירי בהחזיק ג\"ש מה קמ\"ל ר\"י דאי טען ואמר לקוח היא בידי דנאמן פשיטא וכי עד השתא לא ידעינן דאם החזיק ג\"ש וקטען לקחתי דנאמן הלא כל פ' חזקת הבתים היא מלא בכך דחזקה ג\"ש מהני לטעון לקוח ונאמן. ועכצ\"ל דמיירי דבא ראובן וערער באמרו ששמעון יושב בשדה שגזולה היא ממנו ומביא עדים שגזלה והוציאו ב\"ד ונתנו ברשות ראובן והחזיק בשדה ג\"ש ואחר כך בא שמעון בשטר הלזו שהודה ראובן כי חתם בשטר שעשה סימן לאחר נאמן ראובן לומר שלקחה משמעון לאחר שעשהו סי' לאחר דהוי כהודאה וכ\"כ הר\"ן ע\"ש ולכאורה קשה הא מתחילה בא בטענת גזלה וכל האומר גזלת ממני הרי מודה דלא לקחה הימנו דהא אמר גזל ממנו וא\"כ לאחר שנתברר ע\"י שטרו דעשהו סימן לאחר טוען חזרתי ולקחתי הרי הוחזק כפרן דהא כבר טען שדה זו בגזילה בידך ואיך יכול אחר כך לחזור ולטעון לקחתי ממך אבל ר\"י הודיע לנו דין זה דאמת דהוא שכתב ראובן רק תלם אחד היה של שמעון רק שלקחה אח\"כ ממנו אין זה בכלל טוען וחוזר וטוען דמה שאמר תחילה היה על כל השדה וזהו היה באמת גזולה ולא חש לדקדק מל תלם אחד ותלם ההוא באמת היה שלו רק חזר ולקחה וטובא קמ\"ל ר\"י בזה ולזה נתכוון הר\"ן דפי' דמתחילה הוציאה המערער והיינו ודאי בטענת גזולה ולפ\"ז חזר הקושי' על רמב\"ם בהשמטתו דאם לאו מילתא דפשיטא לר\"י איך הוא מילתא דפשיטא לדידן ותו' בב\"ב דף ל' ד\"ה לאו קמודית כתבו ג\"כ דהחזיק בה וקמ\"ל דס\"ד דלא מהימן הואיל וערער קודם שני חזקה שהוא שלו ולא עביד אינש ללוקחו והיינו כמש\"ל ונראה דרמב\"ם מפרש דמיירי דהמערער היה מוחזק בה מאז ומקדם וכעת אשר בא זה בשטרו דעשה סי' לאחר והוא חתם בעד דזה הודאה דהא שלו חוזר וטען ראובן המערער חזרתי ולקחתי ממך לאחר הודאה כי החזיק בשדה אח\"כ ג\"כ ג\"ש ולפירוש רשב\"ם ב\"ב דף ל\"ט ע\"ב גבי צריך למחות בכל ג\"ש דעתו דלא כי\"מ שפירש דלכך צריך למחות כל ג\"ש דלא יטעון אחר המחאה חזרתי ולקחתי ממך דזה אינו דכיון דמעיקרא לא בא לידו בתורת מכירה שוב אינו נאמן אחר כך לומר החזקתי בה בתורת מכירה. ולפ\"ז אף כאן דהא החזיק בה קודם שעשה סי' לאחר ואם כן הרי הודה אחר כך דלא נחית ביה כדין א\"כ תו לא מצי למטעון אחר כך בתורת מכירה בא לידי כיון דמתחילה קודם שעשהו סימן נחית ביה שלא כדין. ולכך קמ\"ל ר\"י הואיל וכל שדה באמת הוא שלו כמאז:",
+        "(מכאן חסר חסר בעו\"ה עד סימן קמ\"ט ס\"ק ח' וגם בסימן ק\"נ חסר איזה שעיפים וכמה מילי מעליותא היה נאמרים בו וחבל על דאבדן)"
+      ],
+      "en_segments": [
+        "I later repurchased it. The Rambam omits Rav Yehudah's statement that if the claimant says, \"I later repurchased it from him,\" he is believed. The Beit Yosef wonders why the Rambam omitted this law. The Lechem Mishneh answers that the rule was too obvious to require mention, because according to the Rif's interpretation the case is one where the orphans themselves held the field for three years and their predecessor held it for one day. In such a case it is self-evident that a claim of purchase is believed. But according to the Rif's reading, if the case already involves three years of possession, what does Rav Yehudah teach by saying that if he claims, \"I bought it,\" he is believed? Did we not already know throughout the entire chapter Chazakat HaBatim that one who possesses land for three years and claims purchase is believed? The statement must teach something additional. The case must therefore be that Reuven came and challenged Shimon, saying that Shimon occupied a field stolen from him, and Reuven brought witnesses that Shimon had stolen it. Beit din removed Shimon and restored the field to Reuven. Reuven then possessed it for three years. Afterward Shimon produced the earlier document in which Reuven had signed as a witness identifying the boundary as Shimon's field, which amounts to an admission of Shimon's ownership. Reuven is nevertheless believed to say that after making that boundary identification he later purchased the field from Shimon. The Ran explains similarly. At first glance this is difficult. Reuven initially came with a claim of robbery. One who says, \"you stole this field from me,\" necessarily says that he did not purchase it from the alleged robber. Once the signed boundary document establishes that Reuven had admitted Shimon's title, how can Reuven later change his story and say, \"I then bought it from you\"? Has he not already been established as contradicting himself by having claimed that the field was in Shimon's possession by robbery? Rav Yehudah therefore teaches a significant point. Reuven's earlier statement that the field was stolen concerned the field as a whole. He was not required to distinguish one narrow strip within it. That strip may indeed have belonged to Shimon at the time Reuven identified it as Shimon's boundary, and Reuven later purchased that strip from him. Reuven's later explanation is not considered retracting and asserting a new claim, because his original accusation of robbery addressed the field generally and did not necessarily deny Shimon's ownership of that particular strip. This is a substantial novelty and explains the Ran's statement that the challenger had earlier recovered the field, meaning necessarily on a robbery claim. Accordingly, the question regarding the Rambam returns. If Rav Yehudah's ruling is not obvious, why did the Rambam omit it? Tosafot on 30a likewise say that the claimant had possessed the property and that the novelty is that we might have thought he is not believed because he challenged the other person's ownership before the three years of chazakah, and people do not ordinarily purchase from someone whose ownership they have just disputed. This accords with what was explained. It appears that the Rambam understands the case differently. The challenger had already been in possession of the land from earlier times. Then the other person produced the boundary deed on which the challenger had signed as a witness, creating an admission that the strip belonged to the other. The challenger answers that after that admission he later repurchased the strip and then again possessed the field for three years. According to Rashbam's explanation on 39b regarding the requirement to renew a protest every three years, Rashbam rejects the view that the reason is lest the possessor later say, \"after your protest I bought it from you.\" Rashbam holds that once the possessor initially entered without a lawful purchase, he is not later believed merely by continued possession to say that he subsequently acquired it. Applied here, the challenger's possession before he made the boundary identification was effectively an admission that his earlier entry as to the disputed strip had not been lawful. One might therefore think that he could no longer claim that the strip later came into his hands by purchase, because before the boundary deed he had occupied it without valid title. Rav Yehudah teaches that since the field as a whole had genuinely been his from earlier times, his continued possession after the admission can support the claim that he later repurchased this particular strip. This may explain why the Rambam regarded the ruling as subsumed within broader principles and did not state it separately. From this point onward, unfortunately, material is missing from the manuscript until siman 149, seif katan 8, and some sections of siman 150 are likewise missing. Many valuable discussions were contained there. It is a great loss."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman147/seif-004/urim-vetumim-urim",
+      "volume": "cm1",
+      "siman": 147,
+      "seif": 4,
+      "slug": "urim-vetumim-urim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והגבה ז\"ל הריב\"ש ואין מעשה ב\"ד דבורא בעלמא דנימא דעביד אינש דמקרי ואמר אלא מעשה רבה הוא ואף על פי שלא חתמו הב\"ד בשטר גוביינא אלא צוו לעדים וחתמו שלוחן כמותן סמ\"ע:",
+        "(מכאן חסר עד סימן קמ\"ט ס\"ק י\"ח וחבל על דאבדן בעו\"ה)"
+      ],
+      "en_segments": [
+        "And beit din transferred it. Rivash writes that an act of beit din is not mere speech about which one can say a person happened to speak carelessly. It is a substantial judicial act. Even if the judges themselves did not sign the foreclosure deed but ordered witnesses to sign it, their agents are like themselves. Sema. The source text is missing from this point until siman 149, seif katan 18. It is a loss that cannot presently be repaired."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman155/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 155,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ומודד מהשפה. ירושלמי שם וכרבנן:",
+        "(ליקוט) ומודד כו'. ירושלמי שם שהן ד' מן השפה. ר' יודן בן פזי אמר מן השפה החיצונה ולפנים ורבנן אמרו מן השפה הפנימית ולחוץ (ע\"כ):"
+      ],
+      "en_segments": [
+        "robbed of the language. Jerusalem is there and as a rabbi, and is robbed. Jerusalem is the name of the language. Dr. Yoden Ben Pazi said from the language of wisdom and inwards, saying from the inner and foreign language"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman182/seif-011/netivot-hamishpat-beurim",
+      "volume": "cm1",
+      "siman": 182,
+      "seif": 11,
+      "slug": "netivot-hamishpat-beurim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בד\"א כשמכרה בשטר א' עסמ\"ע ס\"ק י\"ט והנה הרי\"ף והרמב\"ם לא חלקו כלל בין שטר א' לב' שטרות והרא\"ש וכל הפוס' תמהו ולפד\"נ דהעיקר כדברי הרי\"ף והרמב\"ם ועפ\"ז יתיישב ג\"כ הרבה קושיות בש\"ס כתובות דף צ\"ט וז\"ל הש\"ס שם כי תיבעי לך היכא דא\"ל זיל זבין כורא וזבין ליתכא מאי אמרינן דטבא לך כו' א\"ד אמר ליה לא ניחא לי דליפשו שטרי עילואי תא שמע נתן לו דינר של זהב להביא לו חלוק והביא לו בג' חלוק ובג' טלית שניהם מעלו אא\"כ שליח כה\"ג עושה שליחותו ומוסיף ע\"ד הוי מש\"ה בעה\"ב מעל אלא אי אמרת מעביר ע\"ד הוי אמאי מעל הב\"ע דאייתי ליה שוה שש בנ' כו' תא שמע היתה כתובתה ד' מאות זוז מכרה לזה במנה כו' ולאחרון יפה מנה ודינר במנה של אחרון בטל ושל כולן מכרן קיים בדאמר רב שישי בריה דרב אידי בקטיני ה\"נ בקטיני פשיטא אמר לאחד כו' סתמא מאי כו' רב הונא אמר לא' ולא לשנים רב חסדא ורבה בר רב הונא אמרי לא' ואפילו לשנים לא' ואפי' למאה עכ\"ל הגמרא ויש בזה הרבה קושיות. א' למה פושט תחלה ממתני' דמעילה ואח\"כ ממתני' דהכא. ב' קשה קושית רש\"י ותוס' הא גבי מעילה ליכא אפושי שטרי. ג' קושיא הב\"ש באה\"ע סימן ק\"ג על הטור שפסק בזבין לי כורא וזבין ליה ליתכא דמעביר ע\"ד הוי ולא הזכירו גבי אלמנה שהיתה כתובתה ת' (מאות) זוז דמיירי בקטיני ובגמרא משמע דאי מעביר ע\"ד הוי לא הוי מכירת הראשונים מכירה רק בקטיני. ד' קשה על הרי\"ף והרמב\"ם שפסקו דמעביר ע\"ד ופסקו כרב חסדא דלאחד אפילו לשנים ולא חילקו כמו שחילקו התוס':",
+        "ונראה ליישב דהנה לכאורה קשה על הא דנקט דאיבעיא דלהוסיף על דבריוהוי דמצי א\"ל דטבא לך וכו' דמשמע דאלו לא הי' טיבותא להמשלח הוי שינוי בשליחות ובסוף אמר או מעביר על דבריו הוי משום דלא ניחא ליה לאפושי שטרי משמע דאלו לא היה גריעותא להמשלח לא הוי שינוי בשליחות והדיוקים סתרי אהדדי לכ\"נ דהנה במ\"ל פ\"א מה' שלוחין הלכה ב' כתב דבדבר שלא יקשה זה יותר מזה והוא פלוגתא בב\"ב ד' קס\"ח ובכמה דוכתי אי אמרי' מראה מקום הוא לו או קפידא אבל כשהוא לשבח ודאי ליכא קפידא ואי איכא ריעותא להמשלח ודאי קפידא ע\"ש במ\"ל ולזה תפס בעל האיבעי' האיבעי' לשני המ\"ד וכאלו אמר תיבעי למ\"ד קפידא מ\"מ אפשר דהא טיבותא הוא או לא חשיב זה טיבותא ותיבעי למ\"ד מראה מקום אפשר דהא גריעותא הוא למשלח וקפידא הוא או לא חייש לאפושי שטרא ומראה מקום הוא לו ופשיט תחלה גוונא ראשונ' דנקיט באיבעי' וא\"ש אף דליכא בהא דחלוק חשש דאפושי שטרא מ\"מ נפשט בעי' דבעי דחשיב טיבותא דאי לא חשיב טיבותא קשה למ\"ד קפידא ממתני' דמעילה ועוד דא\"כ קשיא הילכתא אהילכתא דהא הילכתא כמשנה דמעילה דאפי' ר\"י לא פליג רק משום דחשיב ליה ריעותא וקי\"ל דקפידא הוא ועוד דברישא שם קתני בהביא מקום אחר משמע דקפידא הוי דלמ\"ד מראה מקום אפילו בגט כה\"ג כשר באמר התקבל לי מיום פ' כמבואר בב\"ב שם ואח\"כ רצה לפשוט האיבעיא דבעי למ\"ד מראה מקום דדילמא חשיב גריעותא הא דאפושי שטרי ומוכיח מאלמנה דלא חשיב גריעותא וכמו שפי' הריטב\"א הובא בש\"מ דאי הי' השיב גריעותא הא דאפושי שטרי לא הי' האלמנה יכול' למכור בכה\"ג אף דמוכרת היא ד' וה' פעמים היינו דוקא כשא\"צ למכור רק מעט אבל בצריכה למכור הכל ביום אחד אסור לה למכור בשני שטרות אלמא דלאו גריעותא הוא וממילא נפשט האיבעיא דבעי למ\"ד דמראה מקום דדילמא חשיב גריעות' דממתני' דהכא מוכח דזה לא חשיב גריעותא ומהא דקאמר דיקא נמי מסקינן דמעביר ע\"ד הוי כמ\"ש הרא\"ש ומוכיח דעכ\"פ לא חשיב טיבותא וא\"י לומר דטבא לך עבדי לך ולזה אף דמסיק רב חסדא דלא' אפילו לשנים אלמא דלא חשיב גריעותא הא דאפושי שטרי היינו משום דאמר סתמא אבל הא דאמר כור ודאי קפידא דהא נפשט מהאיבעיא דלא חשיב טיבותא במה שמוכר על יד וכיון דלא חשיב טיבותא מה שאמר כור ודאי קפידא הוא כדמוכח בסי' ר' גבי כור בשלשים ומכ\"ש בשליח דהא קי\"ל דכל היכא דליכא טיבותא ולא גריעותא להמשלח דהוי קפידא וכמ\"ד קפידא כמ\"ש המל\"מ פ\"א מה' שלוחין הנ\"ל וכיון דהקפיד שלא יהיה נגמר הקנין עד שיוגמר הקנין מכל הכור דמי ממש להא דסי' ר' דיכול לחזור אפילו בסאה אחרונה כיון דלא נגמר הקנין עדיין ומש\"ה אפי' הלוקח רוצה לקנות עוד לתך שני וליקח שטר אחד על שני הלתכים מ\"מ יכול לחזור בו אפי' בסאה אחרונה כמו בסי' ר' ושפיר סתמו הפוס' ולא חילקו בין אם כבר נתן השטר או לא. וא\"ש ג\"כ דברי הרי\"ף והרמב\"ם שפסקו כרב חסדא דס\"ל דלאחד אפילו לשנים דלא השיב לאפושי שטרי לריעותא כלל מ\"מ פסק בראשונה בזבין כורא וזבין ליתכא דיכול לחזור בו מטעם הנ\"ל דכור ודאי קפידא הוא להרא\"ש ולהרי\"ף דס\"ל דהוא איבעיא דלא איפשטא היא מטעם ספיקא ואוקי ממונא בחזקת מרי' וכ\"ז שלא נגמר הקנין מכל הכור יכול לחזור בו כמו בסי' ר' דאפילו החולקים שם מודים כאן דדוקא התם כתבו הפוס' הטעם משום דמשך והגביה כל סאה בפניו וזה ל\"ש כאן. וא\"ש נמי הא דבאה\"ע סי' ק\"ג דכיון דאלמנה לא חשיב שליח ומדרב חסדא מוכח דאפושי שטרי לאו ריעותא היא מכירתה קיימת אפי' בלא קטיני דל\"ש לומר קפידא באלמנה ולא הוצרך לו' דמיירי בקטיני רק למאן דחשיב אפושי שטרי לריעותא ומיושב בזה כל הקושיות הנ\"ל ולפ\"ז נראה בדעת הרי\"ף והרמב\"ם דלא כהמחבר רק דהעיקר תלוי דכששינה מדברי המשלח כגון שאמר כור והוא מכר לתך או שאמר מכור לאחד והוא מכר לשנים המקח בטל אף דאפושי שטרי לא חשיב ריעותא מ\"מ הא קי\"ל כמ\"ד קפידא במקום ששינה אף במקום דליכא ריעותא כל כמה דליכא טיבותא ולכך כשאמר מכור סתם אפילו מכרו לשנים המקח קיים כיון דלא שינה וקי\"ל דאפושי שטרי לא הוה ריעותא:"
+      ],
+      "en_segments": [
+        "When does this apply? When he sold it in one document. See Sema, seif katan 19. Rif and Rambam make no distinction at all between one deed and several deeds, and Rosh and other poskim question them. In my view Rif and Rambam are primary, and their approach resolves numerous difficulties in Ketubot 99. The Gemara asks: if a principal told an agent, \"Sell a kor,\" and he sold half a kor, do we say, \"You improved matters for me,\" or does the principal say, \"I do not want numerous documents against me\"? The Gemara first attempts proof from the Mishnah in Me'ilah where an agent was given a gold dinar to buy a cloak and bought a cloak for only part of the money and another item with the rest. The Mishnah says the owner commits me'ilah. If partial performance were a deviation, why should the owner be liable? The Gemara answers that the agent obtained goods worth the full amount for a reduced price. It then brings the Mishnah concerning a widow whose ketubah was four hundred zuz and who sold separate parcels worth one hundred, with only the last sale containing overcharge, and says the earlier sales stand. The Gemara ultimately distinguishes small parcels and then records the dispute whether an instruction to sell to \"one\" means exactly one buyer or allows several. The difficulty is that the initial formulation itself seems contradictory. If the only issue were whether partial sale benefits the principal, then absent benefit it should be a deviation. Yet the alternative formulation suggests that only an actual disadvantage, namely many deeds, makes it a deviation, implying that absent disadvantage the agent would not be treated as deviating. Mishneh LaMelech explains a general dispute in several places: where an agent departs from the principal's wording but the departure is neither beneficial nor harmful, is the wording merely descriptive or strictly limiting? If the change is beneficial, everyone agrees there is no insistence. If the change is harmful, everyone agrees the principal is particular. Accordingly, the Gemara's question is posed according to both views. According to the strict-wording view, perhaps selling gradually is nevertheless a benefit and therefore allowed. According to the descriptive-language view, perhaps the burden of multiple deeds is an actual disadvantage and therefore the principal is particular. The Gemara first resolves the first branch from Me'ilah. There, proliferation of documents is irrelevant, yet partial purchase counts as performance. This proves that partial execution can be considered beneficial. It also fits the general halachah that wording is strict where no benefit exists. The Gemara then turns to the second branch and tests whether multiple deeds are itself a genuine disadvantage. It cites the widow's sales. Ritva explains that if multiple deeds were considered a real disadvantage, a widow who needs to sell everything on one day should not be allowed to divide the sale among multiple deeds. The Mishnah therefore shows that multiple deeds are not regarded as a legal disadvantage. When the Gemara then says \"this too indicates,\" it concludes that the agent who sold only half a kor is nevertheless treated as deviating, because although multiple deeds are not a legal disadvantage, selling half is also not an actual benefit sufficient to override the principal's strict wording. Thus the principal's statement \"a kor\" is treated as limiting. This explains Rif and Rambam. They rule like Rav Chisda that an instruction \"to one\" can include several buyers, because multiple deeds are not considered a legal disadvantage. Yet they also rule that if one said \"sell a kor\" and the agent sold half, the agent deviated. There is no contradiction. The latter rule does not depend on the number of deeds. It depends on the principal's specific quantity instruction, which is controlling where the agent cannot show a genuine benefit. This also explains why they do not distinguish whether the first half was already transferred by a separate document or whether both halves might ultimately be included in one deed. Once \"a kor\" is treated as an exact instruction, the principal can retract from the partial transaction, just as in siman 200 one can retract even from the last se'ah where the unit price was stated for the entire kor. The halachah thus follows the strict-wording approach. Wherever the agent materially changes the principal's stated instruction, such as selling half when instructed to sell a whole kor, or selling to two when explicitly told \"to one,\" the transaction is void unless the change is shown to be an actual benefit. But if the principal merely said \"sell\" without specifying one buyer, a sale to several buyers stands, because there is no departure from the instruction and the multiplication of deeds is not itself treated as harm. This also resolves the question from Even HaEzer, siman 103, concerning the widow. A widow selling to satisfy her ketubah is not an ordinary agent subject to the principal's exact language. Therefore, once multiple deeds are shown not to be harmful, her prior sales stand even without limiting the Mishnah to unusually small parcels. The \"small parcels\" answer was necessary only under the intermediate assumption that multiple deeds might itself be harmful. Accordingly, in my view the halachah follows Rif and Rambam rather than Mechaber's distinction between one deed and several. The decisive factor is not the number of documents, but whether the agent changed an express instruction of the principal. When the principal said \"a kor\" and the agent sold half, or said \"to one\" and the agent sold to several, the sale is void because of the change. When the principal spoke without such limitation, the sale stands."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN into 2 sequential pieces using the surviving internal note or discourse markers as boundaries corresponding to the HE segment order; preserve all English wording exactly.",
+      "review_notes": "Coverage is borderline, but surviving internal markers make the HE-to-EN split structurally plausible.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman294/seif-001/haggahot-imrei-barukh",
+      "volume": "cm1",
+      "siman": 294,
+      "seif": 1,
+      "slug": "haggahot-imrei-barukh",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ש\"ך ו' ובזה ניחא דל\"ק מה שהקשה הב\"ח על הרמב\"ם. נ\"ב שיש לעיין דאפשר לומר דבכה\"ג שהלוה טוען דהמשכון שלו היה שוה ג' דינרין ולפ\"ד המלוה לא היה שוה רק שקל יכול הלוה לומר מתוך דבריך אלו הרי יש לי טענת ברי כנגדן שהגלימא שנשרפה בעדים לא היתה שלי דהא גלימא שלי היתה שוה ג' דינרין ואתה אומר שהגלימא שנשרפה לפני עדים לא היתה שוה רק שקל והרמ\"ה מיירי היכא שהנפקד טוען שמא כמבואר בטור עוד צע\"ג לפ\"ד הרמ\"ה דא\"כ כל שומר שנותן עיניו על הפקדון יכול לעשות בערמה לגרום שיהי' נאבד כלי כעין כלי הפקדון בפני עדים ועל הפסד הכלי שיתן לאיבוד לא יחוש כי יחזיק כנגדו הפקדון שנותן בו עיניו וע\"כ נוח לו בהפסד הכלי שמאבד:",
+        "אמנם דברי הרמ\"ה מורים שלא אמר דינא רק היכא שידוע בודאי שנאבד באונס שלא בגרם פשיעות הנפקד דבכה\"ג ליכא למחשדי' יש ליישב קושי' הב\"ח תירוצו של רבא שיש עדים שנשרפה ע\"כ מיירי בפשיעה לשיטת הפוסקים דמלוה על המשכון אינו חייב באונסים וכיון שפשע יש לחוש שמא מחמת שנתן עיניו על המשכון גרם שריפות גלימא שלו שלא היה שוה רק דבר מועט והיה נוח לו בהפסד זה למען ישאר לו המשכון שעינו עליו וכמ\"ש הרמב\"ם בפ' שבועות הדיינים המשנה המלוה על המשכון דאפי' אמר לבעל המשכון חשוב לי ביותר ממה שאתה טוען שהיה שוה לפי שתאמר שמא עיניו נתן בו:"
+      ],
+      "en_segments": [
+        "(Shach, seif katan 6) And this resolves the Bach's question against Rambam. Note: This requires examination. Perhaps where the borrower claims that his pledge was worth three dinarim, while according to the lender it was worth only a shekel, the borrower can say: \"According to your own words I have a certain claim against you that the garment burned before witnesses was not mine. My garment was worth three dinarim, while you say the garment that burned was worth only a shekel.\" The Ramah's case, however, is where the depositor himself is uncertain, as explained in the Tur. A further difficulty with the Ramah is that otherwise every guardian who sets his eyes on a deposit could fraudulently arrange for a similar object to be lost before witnesses. He would not care about the loss of that substitute object, because he would keep the deposited object he desires. It is therefore advantageous to him to sacrifice the lesser object. The Ramah's words indicate that he stated his rule only where it is certainly known that the object was lost through an unavoidable accident and not through negligence caused by the guardian. In such a case there is no basis for suspicion. This can answer the Bach's question: Rava's answer that there are witnesses that the garment burned must, according to authorities who hold a lender on a pledge is not liable for unavoidable accidents, concern negligence. Since there was negligence, one can suspect that because the lender desired the pledge he caused the burning of his own low-value garment so that he could retain the valuable pledge. Rambam writes in the chapter Shevuat HaDayanim, in the mishnah concerning one who lends on a pledge, that even if the lender says to the owner, \"I value it more than you claim it was worth,\" we still consider the possibility that he set his eyes upon it."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman304/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 304,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מכאן כו'. וכמש\"ש בדיגלא משלם כולה וכשיטתו דאפי' נשאו בב' ב\"א וה\"ה כאן:",
+        "(ליקוט) מכאן אתה כו'. הוא לגי' הרא\"ש דל\"ג בדיגלא משלם כולה וכן לא הזכיר למעלה הרמב\"ם וש\"ע לכן הצריכו ללמוד (ע\"כ):"
+      ],
+      "en_segments": [
+        "From here is . . As a whole of the fisheries, and as a result, Daphin married B.A. and “Here you are.” He is a fisherman who does not pay all the money and does not mention the above of the Rambam and that “for this reason, you have to learn.”"
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman329/seif-001/beer-hagolah",
+      "volume": "cm1",
+      "siman": 329,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ל' הטור ממסקנת הגמ' בפ\"ט דב\"ב דף קט ע\"א בעובדא דרב יצחק וכו' ולאו מלתא היא וכמ\"ש הרא\"ש שם",
+        "פי' תן בידי השדה שהתחיל אבי לעשות בו מלאכתך ואני אגמרהו במקומו:"
+      ],
+      "en_segments": [
+        "The language of the Tur, from the conclusion of the Gemara in Bava Metzia 109a concerning the incident of Rav Yitzchak, where the Gemara rejects the proposed ruling, as the Rosh writes there. The meaning is: place in my hands the field on which my father began performing your work, and I will complete it in his place."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman346/seif-010/beer-hagolah",
+      "volume": "cm1",
+      "siman": 346,
+      "seif": 10,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "צ) שם סי\"ב בעיי' דרמי בר חמא שם ולא איפשטי וכמ\"ש ה\"ה שם ד\"ט שרש\"י ז\"ל פי' הד' בעיות ראשונות כשלא בבעלי' וז\"ל שאלה לרבע' הוא עצמו מי מחייב באונסי' ע\"כ והטעם מי אמרי' שאלה שחייבה התורה באונסי' דוקא כדשיילי אינשי וכן בכולן ולפי פי' כששאל' בבעלי' ודאי פטור ע\"כ ונלע\"ד מדבריו שחייב בגניבה ואבידה כש\"ש וכמ\"ש הטור בשם הרמ\"ה דאי איכא הנאה שוה פרוטה חייב כש\"ש",
+        "פירוש שיהא נראה עשיר חשוב ולא ימשכו בעלי בתים ידיהם להקיפו באמנה רש\"י"
+      ],
+      "en_segments": [
+        "tzadi) Ibid., seif 12, from Rami bar Chama's unresolved questions there. The Maggid Mishneh writes in law 9 that Rashi explains the first four questions where the owner was not present. His wording is: 'If he borrowed it for intercourse with it himself, is he liable for unavoidable accidents?' The issue is whether the borrowing for which the Torah imposed liability for unavoidable accidents is specifically ordinary borrowing, and similarly for the other cases. According to this explanation, if he borrowed it while the owner was present he is certainly exempt. In my humble opinion, Rashi's words imply that he remains liable for theft and loss like a paid guardian, as the Tur writes in the name of the Ramah, that if there is a benefit worth a perutah he is liable as a paid guardian. The explanatory phrase means that he wishes to appear wealthy and important, so that householders will not refrain from extending him credit, Rashi."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman358/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 358,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכן אם כו'. דברי המ\"מ כאן והביאו בה\"ג תמוהין דהא בפ\"ה מה' גזילה ולקמן בסי' שס\"ט ס\"ג פ' כשמואל וכן הקשה המ\"מ שם וכבר ישבו הכ\"מ וכמ\"ש בסמ\"ע ס\"ק ב' ולמד הרמב\"ם ממה דאתמר פלוגתייהו אגזלן ולא אכה\"ג ש\"מ דבהא ל\"פ:",
+        "(ליקוט) וכן כו'. למד ממש\"ש קי\"ג ב' הני דדיירי כו' וערשב\"א שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Likewise if, etc. Maggid Mishneh's explanation is difficult because Rambam elsewhere rules like Shmuel. Kesef Mishneh and Sema resolve the contradiction: the dispute was stated specifically regarding an established robber, implying that the authorities do not dispute this case. Rambam also derives the ruling from Bava Kamma 113b concerning those who dwell, etc. See siman 369."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman359/seif-002/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 2,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[ש\"ך בא\"ד] דאינו אלא מדרבנן. נ\"ב ורע\"ק דאף אחרי נמכר גאולה תהי' לו הוי אסמכתא כ\"כ היש\"ש שם ותמוה לי הא אמרי' בבכורות דף יג הניח' למ\"ד גזל נכרי אסור וכו' וכן בפ' המקבל גבי כרם רעיך הניח' למ\"ד גזל נכרי הרי מדמצרכי' קרא באונאה ובכרם מוכח דמ\"ד גזל נכרי אסור היינו מדאו' וצע\"ג:",
+        "גם ראיתי בדפוס ש\"ס הישנים (כי בדפוס החדשים השמיטו) דאית' שם בב\"ק ישראל ונכרי שבאו לדון באי' עליו בעקיפין דברי ר\"י רע\"ק אומר אין באי' מפני קידוש השם טעמא דאיכא קידוש השם הא ליכא ק\"ה באי' וכו' כאן בגזילה כאן בהפקעת הלואה הרי מפורש דלרע\"ק דאוריית' אסור:"
+      ],
+      "en_segments": [
+        "[Shach, continuation of his words] That it is only rabbinically prohibited. Note: Regarding Rabbi Akiva, that even after he has been sold, the verse, “he shall have redemption,” is merely an asmachta, so writes the Yam Shel Shlomo there. This is astonishing to me, for in Bechorot 13a the Gemara says: This is satisfactory according to the one who holds that robbing a non-Jew is prohibited, etc. Likewise, in Perek HaMekabel, regarding “your fellow’s vineyard,” it says: This is satisfactory according to the one who holds that robbing a non-Jew is prohibited. Since Scripture is required regarding overreaching and regarding a vineyard, it is evident that according to the view that robbing a non-Jew is prohibited, the prohibition is by Torah law. This requires great study. I also saw in the old printings of the Talmud, for it was omitted in the newer printings, that in Bava Kamma it states: If a Jew and a non-Jew came for judgment, one may circumvent him, according to Rabbi Yishmael; Rabbi Akiva says that one may not circumvent him because of sanctification of Hashem’s Name. The implication is that only where there is sanctification of Hashem’s Name is it prohibited, but where there is no sanctification of Hashem’s Name it is permitted, etc. The Gemara distinguishes: here it concerns robbery, and there it concerns evasion of a debt. Thus it is explicit that according to Rabbi Akiva, robbery is prohibited by Torah law."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    },
+    {
+      "id": "cm1/siman361/seif-002/rabbi-akiva-eiger",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 2,
+      "slug": "rabbi-akiva-eiger",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "[שו\"ע] מהראשון או מהשני. נ\"ב ראובן ראה שנכנס שמעון לבית לוי וגנב חפץ ובא אותו חפץ ליד ראובן והחזירו לשמעון אין לוי יכול להוציא ממנו בדין כיון ששמעון אמר שבדין נטלו מבית לוי מחמת תביעה שיש לו עליו תשו' הרא\"ש כלל סד:",
+        "עוד שם ראובן גנב ואחר שהגביהו סייעו שמעון להביא הגניבה לבית שמעון פטור ע\"ש:"
+      ],
+      "en_segments": [
+        "[Shulchan Aruch] From the first or from the second. Note: Reuven saw Shimon enter Levi’s house and steal an article. That article later came into Reuven’s possession, and Reuven returned it to Shimon. Levi cannot recover it from Reuven in beit din, since Shimon said that he lawfully took it from Levi’s house on account of a claim he had against him. Responsa Rosh, rule 64. It is further stated there: Reuven stole an item, and after he had lifted it, Shimon assisted him in bringing the stolen item into Shimon’s house. Shimon is exempt. See there."
+      ],
+      "tier": "wave1_moderate",
+      "review_action": "split_en",
+      "review_split_plan": "Split the existing EN at the internal transition where the translation moves from HE segment 0 to HE segment 1; preserve the exact English wording on both sides and use the corresponding lemma, collected-note, gloss, or citation opening as the boundary cue.",
+      "review_notes": "The EN blob appears long enough to contain the full multi-HE material and supports structural splitting.",
+      "eval_coverage_ratio": null,
+      "eval_cues": null
+    }
+  ]
+}
