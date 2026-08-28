@@ -1,0 +1,1265 @@
+{
+  "scannedAt": "2026-08-28T04:45:25.565Z",
+  "mode": "apply",
+  "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "wave": "HE_HAS_MORE_WAVE2_SPLIT_EN",
+  "splitRule": "Insert <br /> before internal (Likut)|(Collected)|(Supplement) markers; EN text unchanged; HE untouched",
+  "counts": {
+    "total": 56,
+    "applied": 38,
+    "held": 18,
+    "failed": 0,
+    "skipped": 0
+  },
+  "affectedSimanim": {
+    "yd1": [
+      "siman105",
+      "siman114",
+      "siman116",
+      "siman123",
+      "siman124",
+      "siman125",
+      "siman137",
+      "siman141",
+      "siman142",
+      "siman145",
+      "siman146",
+      "siman148",
+      "siman149",
+      "siman188",
+      "siman204",
+      "siman220",
+      "siman270",
+      "siman276",
+      "siman294",
+      "siman296",
+      "siman297"
+    ]
+  },
+  "applied": [
+    {
+      "id": "yd1/siman105/seif-001/beur-hagra",
+      "heSegs": 14,
+      "enSegsBefore": 11,
+      "enSegsAfter": 14,
+      "deficit": 3,
+      "hints": [
+        1,
+        8
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(collected)",
+          "markerPos": 312
+        },
+        {
+          "segIndex": 1,
+          "markerText": "(collected)",
+          "markerPos": 482
+        },
+        {
+          "segIndex": 8,
+          "markerText": "(collected)",
+          "markerPos": 873
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=3 hints=2 enAfterMin=13"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman114/seif-001/beur-hagra",
+      "heSegs": 9,
+      "enSegsBefore": 8,
+      "enSegsAfter": 9,
+      "deficit": 1,
+      "hints": [
+        6
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 6,
+          "markerText": "(Collected)",
+          "markerPos": 612
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman116/seif-005/beur-hagra",
+      "heSegs": 13,
+      "enSegsBefore": 12,
+      "enSegsAfter": 13,
+      "deficit": 1,
+      "hints": [
+        6
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 6,
+          "markerText": "(Likut)",
+          "markerPos": 39
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman123/seif-008/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(supplement)",
+          "markerPos": 1031
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman123/seif-009/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Supplement)",
+          "markerPos": 3169
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman123/seif-017/beur-hagra",
+      "heSegs": 7,
+      "enSegsBefore": 6,
+      "enSegsAfter": 7,
+      "deficit": 1,
+      "hints": [
+        4
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 4,
+          "markerText": "(supplement)",
+          "markerPos": 70
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman124/seif-011/beur-hagra",
+      "heSegs": 7,
+      "enSegsBefore": 5,
+      "enSegsAfter": 7,
+      "deficit": 2,
+      "hints": [
+        0,
+        4
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(supplement)",
+          "markerPos": 1793
+        },
+        {
+          "segIndex": 4,
+          "markerText": "(supplement)",
+          "markerPos": 572
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman124/seif-018/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(supplement)",
+          "markerPos": 195
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman124/seif-019/beur-hagra",
+      "heSegs": 10,
+      "enSegsBefore": 8,
+      "enSegsAfter": 10,
+      "deficit": 2,
+      "hints": [
+        0,
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(supplement)",
+          "markerPos": 256
+        },
+        {
+          "segIndex": 2,
+          "markerText": "(supplement)",
+          "markerPos": 288
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman124/seif-027/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(supplement)",
+          "markerPos": 125
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman125/seif-003/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Likut)",
+          "markerPos": 256
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman125/seif-007/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Likut)",
+          "markerPos": 705
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman137/seif-001/beur-hagra",
+      "heSegs": 8,
+      "enSegsBefore": 7,
+      "enSegsAfter": 8,
+      "deficit": 1,
+      "hints": [
+        6
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 6,
+          "markerText": "(Likut)",
+          "markerPos": 237
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman141/seif-001/beur-hagra",
+      "heSegs": 6,
+      "enSegsBefore": 5,
+      "enSegsAfter": 6,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Collected)",
+          "markerPos": 335
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman141/seif-003/beur-hagra",
+      "heSegs": 16,
+      "enSegsBefore": 13,
+      "enSegsAfter": 16,
+      "deficit": 3,
+      "hints": [
+        8,
+        11,
+        12
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 8,
+          "markerText": "(Collected)",
+          "markerPos": 200
+        },
+        {
+          "segIndex": 11,
+          "markerText": "(Collected)",
+          "markerPos": 142
+        },
+        {
+          "segIndex": 12,
+          "markerText": "(Collected)",
+          "markerPos": 166
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman141/seif-004/beur-hagra",
+      "heSegs": 9,
+      "enSegsBefore": 8,
+      "enSegsAfter": 9,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Collected)",
+          "markerPos": 2373
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman141/seif-005/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 69
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman142/seif-004/beur-hagra",
+      "heSegs": 9,
+      "enSegsBefore": 7,
+      "enSegsAfter": 9,
+      "deficit": 2,
+      "hints": [
+        3,
+        6
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Collected)",
+          "markerPos": 136
+        },
+        {
+          "segIndex": 6,
+          "markerText": "(Collected)",
+          "markerPos": 355
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman142/seif-010/beur-hagra",
+      "heSegs": 8,
+      "enSegsBefore": 7,
+      "enSegsAfter": 8,
+      "deficit": 1,
+      "hints": [
+        6
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 6,
+          "markerText": "(Collected)",
+          "markerPos": 147
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman145/seif-009/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 84
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman146/seif-005/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Collected)",
+          "markerPos": 64
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman148/seif-001/beur-hagra",
+      "heSegs": 7,
+      "enSegsBefore": 5,
+      "enSegsAfter": 7,
+      "deficit": 2,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 447
+        },
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 1467
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=6"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman148/seif-012/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 63
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman149/seif-001/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 3,
+      "enSegsAfter": 5,
+      "deficit": 2,
+      "hints": [
+        0,
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Collected)",
+          "markerPos": 260
+        },
+        {
+          "segIndex": 1,
+          "markerText": "(Collected)",
+          "markerPos": 742
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman149/seif-002/beur-hagra",
+      "heSegs": 9,
+      "enSegsBefore": 7,
+      "enSegsAfter": 9,
+      "deficit": 2,
+      "hints": [
+        2,
+        3
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Collected)",
+          "markerPos": 137
+        },
+        {
+          "segIndex": 3,
+          "markerText": "(Collected)",
+          "markerPos": 123
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman188/seif-006/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Likut)",
+          "markerPos": 595
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman204/seif-001/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Likut)",
+          "markerPos": 304
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman220/seif-008/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Likut)",
+          "markerPos": 177
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman270/seif-001/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Collected note)",
+          "markerPos": 94
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman276/seif-001/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Likut)",
+          "markerPos": 146
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman276/seif-009/beur-hagra",
+      "heSegs": 6,
+      "enSegsBefore": 5,
+      "enSegsAfter": 6,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Likut)",
+          "markerPos": 516
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-006/beur-hagra",
+      "heSegs": 20,
+      "enSegsBefore": 14,
+      "enSegsAfter": 20,
+      "deficit": 6,
+      "hints": [
+        3,
+        6,
+        8,
+        10,
+        13
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Likut)",
+          "markerPos": 185
+        },
+        {
+          "segIndex": 6,
+          "markerText": "(Likut)",
+          "markerPos": 2566
+        },
+        {
+          "segIndex": 6,
+          "markerText": "(Likut)",
+          "markerPos": 2683
+        },
+        {
+          "segIndex": 8,
+          "markerText": "(Likut)",
+          "markerPos": 558
+        },
+        {
+          "segIndex": 10,
+          "markerText": "(Likut)",
+          "markerPos": 1397
+        },
+        {
+          "segIndex": 13,
+          "markerText": "(Likut)",
+          "markerPos": 329
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=6 hints=5 enAfterMin=19"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-016/beur-hagra",
+      "heSegs": 8,
+      "enSegsBefore": 7,
+      "enSegsAfter": 8,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Likut)",
+          "markerPos": 2118
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-026/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Likut)",
+          "markerPos": 904
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman296/seif-004/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 2,
+          "markerText": "(Likut)",
+          "markerPos": 172
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman296/seif-058/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Likut)",
+          "markerPos": 1066
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman296/seif-060/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Likut)",
+          "markerPos": 345
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    },
+    {
+      "id": "yd1/siman297/seif-002/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 5,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "APPLY",
+      "reason": "clear_markers_exact_count",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(Likut)",
+          "markerPos": 810
+        }
+      ],
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "applied": true
+    }
+  ],
+  "held": [
+    {
+      "id": "yd1/siman124/seif-014/beur-hagra",
+      "heSegs": 7,
+      "enSegsBefore": 5,
+      "enSegsAfter": 6,
+      "deficit": 2,
+      "hints": [
+        1
+      ],
+      "tier": "HOLD",
+      "reason": "insufficient_markers enAfter=6<heSegs=7 deficit=2 hints=1",
+      "splitPlan": [
+        {
+          "segIndex": 1,
+          "markerText": "(supplement)",
+          "markerPos": 48
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=6"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman125/seif-010/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 3,
+      "enSegsAfter": 4,
+      "deficit": 2,
+      "hints": [
+        0
+      ],
+      "tier": "HOLD",
+      "reason": "insufficient_markers enAfter=4<heSegs=5 deficit=2 hints=1",
+      "splitPlan": [
+        {
+          "segIndex": 0,
+          "markerText": "(Likut)",
+          "markerPos": 61
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=4"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman151/seif-001/beur-hagra",
+      "heSegs": 10,
+      "enSegsBefore": 8,
+      "enSegsAfter": 8,
+      "deficit": 2,
+      "hints": [
+        0
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[0]",
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=9"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman151/seif-007/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 2,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[0]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman151/seif-010/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 2,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[0]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman155/seif-002/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[3]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman155/seif-003/beur-hagra",
+      "heSegs": 12,
+      "enSegsBefore": 10,
+      "enSegsAfter": 10,
+      "deficit": 2,
+      "hints": [
+        7
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[7]",
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=11"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman160/seif-012/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[2]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman177/seif-001/beur-hagra",
+      "heSegs": 7,
+      "enSegsBefore": 5,
+      "enSegsAfter": 5,
+      "deficit": 2,
+      "hints": [
+        4
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[4]",
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=6"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman177/seif-002/beur-hagra",
+      "heSegs": 13,
+      "enSegsBefore": 9,
+      "enSegsAfter": 9,
+      "deficit": 4,
+      "hints": [
+        0,
+        3
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[0]",
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=4 hints=2 enAfterMin=11"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman177/seif-004/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[1]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman177/seif-014/beur-hagra",
+      "heSegs": 8,
+      "enSegsBefore": 2,
+      "enSegsAfter": 2,
+      "deficit": 6,
+      "hints": [
+        1
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[1]",
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=6 hints=1 enAfterMin=3"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman201/seif-001/beur-hagra",
+      "heSegs": 14,
+      "enSegsBefore": 12,
+      "enSegsAfter": 13,
+      "deficit": 2,
+      "hints": [
+        3
+      ],
+      "tier": "HOLD",
+      "reason": "insufficient_markers enAfter=13<heSegs=14 deficit=2 hints=1",
+      "splitPlan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Likut)",
+          "markerPos": 62
+        }
+      ],
+      "soft": [
+        "SPLIT_MAY_NEED_MULTI_PIECE deficit=2 hints=1 enAfterMin=13"
+      ],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman259/seif-001/beur-hagra",
+      "heSegs": 4,
+      "enSegsBefore": 3,
+      "enSegsAfter": 3,
+      "deficit": 1,
+      "hints": [
+        2
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[2]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman267/seif-023/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 2,
+      "deficit": 1,
+      "hints": [
+        1
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[1]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman267/seif-026/beur-hagra",
+      "heSegs": 10,
+      "enSegsBefore": 8,
+      "enSegsAfter": 8,
+      "deficit": 2,
+      "hints": [
+        5,
+        7
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[5]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman267/seif-041/beur-hagra",
+      "heSegs": 5,
+      "enSegsBefore": 4,
+      "enSegsAfter": 4,
+      "deficit": 1,
+      "hints": [
+        3
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[3]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    },
+    {
+      "id": "yd1/siman271/seif-005/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 2,
+      "enSegsAfter": 2,
+      "deficit": 1,
+      "hints": [
+        0
+      ],
+      "tier": "HOLD",
+      "reason": "no_internal_marker_at_en[0]",
+      "soft": [],
+      "notes": "English contains an explicit internal note marker, so the affected EN segment should be split."
+    }
+  ],
+  "failed": [],
+  "skipped": []
+}
