@@ -1,10 +1,10 @@
 {
   "meta": {
-    "created": "2026-08-28T15:21:19.828Z",
+    "created": "2026-08-28T15:39:08.276Z",
     "kit": "EN_TRUNC_REMAINING",
     "kit_num": "05",
     "mode": "resegment_mixed",
-    "gpt_source": "C:/Users/binya/Downloads/EN_TRUNC_REMAINING_ALL_10_COMPLETED.json",
+    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING_GPT_RESULT.json",
     "gpt_result": "EN_TRUNC_REMAINING_GPT_RESULT.json",
     "kit_case_count": 10,
     "gpt_case_count": 10,
@@ -127,16 +127,16 @@
       "action": "fresh_translate",
       "confidence": "high",
       "verdict": "APPROVE",
-      "reason": "resegment OK",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
       "flags": [
         "FRESH_TRANSLATE_0",
         "FRESH_TRANSLATE_1",
         "FRESH_TRANSLATE_2"
       ],
-      "en_length_ratio": 1.87,
+      "en_length_ratio": 0.997,
       "exact_match": false,
-      "sig_match": false,
+      "sig_match": true,
       "gpt_notes": "The legacy English was garbled and could not be safely resegmented; all three Hebrew slots were freshly translated."
     },
     {
@@ -146,16 +146,16 @@
       "action": "fresh_translate",
       "confidence": "high",
       "verdict": "APPROVE",
-      "reason": "resegment OK",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
       "flags": [
         "FRESH_TRANSLATE_0",
         "FRESH_TRANSLATE_1",
         "FRESH_TRANSLATE_2"
       ],
-      "en_length_ratio": 1.56,
+      "en_length_ratio": 0.994,
       "exact_match": false,
-      "sig_match": false,
+      "sig_match": true,
       "gpt_notes": "The legacy English was garbled and could not be safely resegmented; all three Hebrew slots were freshly translated."
     },
     {
@@ -165,16 +165,16 @@
       "action": "fresh_translate",
       "confidence": "high",
       "verdict": "APPROVE",
-      "reason": "resegment OK",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
       "flags": [
         "FRESH_TRANSLATE_0",
         "FRESH_TRANSLATE_1",
         "FRESH_TRANSLATE_2"
       ],
-      "en_length_ratio": 1.81,
+      "en_length_ratio": 0.995,
       "exact_match": false,
-      "sig_match": false,
+      "sig_match": true,
       "gpt_notes": "The single legacy English blob collapsed the three Gra notes; all three were freshly translated for exact alignment."
     }
   ]

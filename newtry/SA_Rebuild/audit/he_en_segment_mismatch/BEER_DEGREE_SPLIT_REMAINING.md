@@ -8,26 +8,26 @@ Mode: `split_en_beer_degree` · Dictionary: attach **`full_dictionary.md`**
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **5** |
+| **Total cases** | **2** |
 
 ### By volume
 
 | Volume | Count |
 |--------|------:|
-| yd1 | 5 |
+| yd1 | 2 |
 
 ## Files
 
-- Full kit: [`BEER_DEGREE_SPLIT_REMAINING.json`](./BEER_DEGREE_SPLIT_REMAINING.json) (8,106 bytes, SHA `7394a73374cb…`)
+- Full kit: [`BEER_DEGREE_SPLIT_REMAINING.json`](./BEER_DEGREE_SPLIT_REMAINING.json) (4,474 bytes, SHA `cc0204442b41…`)
 - Parts: target ≤ 85,000 UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
 - Zip includes **full parent** `BEER_DEGREE_SPLIT_REMAINING.json` plus all parts
-- Created: 2026-08-28T15:24:45.294Z
+- Created: 2026-08-28T15:39:33.542Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `BEER_DEGREE_SPLIT_REMAINING_part01.json` | 5 | 0 | 8,341 | `f611f8650db6…` |  |
+| 1 | `BEER_DEGREE_SPLIT_REMAINING_part01.json` | 2 | 0 | 4,709 | `2248a1661904…` |  |
 
 
 

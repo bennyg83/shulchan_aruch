@@ -8,30 +8,28 @@ Mode: `resegment_offset_fix` · Dictionary: attach **`full_dictionary.md`**
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **39** |
+| **Total cases** | **16** |
 
 ### By volume
 
 | Volume | Count |
 |--------|------:|
-| yd1 | 24 |
-| cm1 | 15 |
+| yd1 | 16 |
 
 ## Files
 
-- Full kit: [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) (265,328 bytes, SHA `1b924320c882…`)
+- Full kit: [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) (168,446 bytes, SHA `fcca387a10a0…`)
 - Parts: target ≤ 85,000 UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
 - Zip includes **full parent** `HE_HAS_MORE_EDITORIAL_REMAINING.json` plus all parts
-- Created: 2026-08-28T15:24:45.294Z
+- Created: 2026-08-28T15:39:33.542Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `HE_HAS_MORE_EDITORIAL_REMAINING_part01.json` | 8 | 0 | 83,593 | `6a6cd502e5cd…` |  |
-| 2 | `HE_HAS_MORE_EDITORIAL_REMAINING_part02.json` | 8 | 8 | 64,298 | `2487db0ed3a5…` |  |
-| 3 | `HE_HAS_MORE_EDITORIAL_REMAINING_part03.json` | 10 | 16 | 82,054 | `2ed3fd5c2011…` |  |
-| 4 | `HE_HAS_MORE_EDITORIAL_REMAINING_part04.json` | 13 | 26 | 45,376 | `7f5148fc5420…` |  |
+| 1 | `HE_HAS_MORE_EDITORIAL_REMAINING_part01.json` | 8 | 0 | 79,465 | `85dbd1a7e95e…` |  |
+| 2 | `HE_HAS_MORE_EDITORIAL_REMAINING_part02.json` | 6 | 8 | 79,185 | `93939cfd5549…` |  |
+| 3 | `HE_HAS_MORE_EDITORIAL_REMAINING_part03.json` | 2 | 14 | 16,496 | `2a8c00dc1577…` |  |
 
 
 

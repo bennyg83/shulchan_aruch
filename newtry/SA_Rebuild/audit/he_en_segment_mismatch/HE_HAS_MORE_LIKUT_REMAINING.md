@@ -8,26 +8,26 @@ Mode: `split_en_not_merge_he` · Dictionary: attach **`full_dictionary.md`**
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **13** |
+| **Total cases** | **9** |
 
 ### By volume
 
 | Volume | Count |
 |--------|------:|
-| yd1 | 13 |
+| yd1 | 9 |
 
 ## Files
 
-- Full kit: [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) (55,171 bytes, SHA `31ee7487e5f7…`)
+- Full kit: [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) (38,985 bytes, SHA `ccf2bfc38f7a…`)
 - Parts: target ≤ 85,000 UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
 - Zip includes **full parent** `HE_HAS_MORE_LIKUT_REMAINING.json` plus all parts
-- Created: 2026-08-28T15:24:45.294Z
+- Created: 2026-08-28T15:39:33.542Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `HE_HAS_MORE_LIKUT_REMAINING_part01.json` | 13 | 0 | 55,407 | `799948981cf1…` |  |
+| 1 | `HE_HAS_MORE_LIKUT_REMAINING_part01.json` | 9 | 0 | 39,220 | `89257fe0113d…` |  |
 
 
 

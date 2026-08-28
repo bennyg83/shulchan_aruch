@@ -1,56 +1,73 @@
 {
   "meta": {
-    "created": "2026-08-28T15:21:20.083Z",
+    "created": "2026-08-28T15:39:08.436Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "kit_num": "10",
     "mode": "editorial",
-    "gpt_source": "C:/Users/binya/Downloads/HE_HAS_MORE_EDITORIAL_REMAINING_ALL_91_COMPLETED.json",
+    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_REMAINING_GPT_RESULT.json",
     "gpt_result": "HE_HAS_MORE_EDITORIAL_REMAINING_GPT_RESULT.json",
-    "kit_case_count": 91,
+    "kit_case_count": 39,
     "gpt_case_count": 91,
     "expected": 91,
-    "id_order_match": true,
+    "id_order_match": false,
     "missing_from_gpt": [],
-    "extra_in_gpt": [],
-    "summary": "HE_HAS_MORE_EDITORIAL_REMAINING: 52 APPROVE, 39 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+    "extra_in_gpt": [
+      "oc1/siman35/seif-001/kol-yaakov",
+      "oc1/siman294/seif-001/machatzit-hashekel",
+      "yd1/siman127/seif-001/siftei-kohen",
+      "yd1/siman127/seif-003/siftei-kohen",
+      "yd1/siman128/seif-001/siftei-kohen",
+      "yd1/siman131/seif-001/siftei-kohen",
+      "yd1/siman134/seif-003/turei-zahav",
+      "yd1/siman135/seif-004/siftei-kohen",
+      "yd1/siman135/seif-012/siftei-kohen",
+      "yd1/siman137/seif-001/siftei-kohen",
+      "yd1/siman137/seif-001/turei-zahav",
+      "yd1/siman137/seif-004/siftei-kohen",
+      "yd1/siman141/seif-003/siftei-kohen",
+      "yd1/siman141/seif-004/siftei-kohen",
+      "yd1/siman145/seif-001/siftei-kohen",
+      "yd1/siman145/seif-001/turei-zahav",
+      "yd1/siman148/seif-001/turei-zahav",
+      "yd1/siman151/seif-001/siftei-kohen",
+      "yd1/siman155/seif-001/siftei-kohen",
+      "yd1/siman157/seif-001/siftei-kohen",
+      "yd1/siman168/seif-013/siftei-kohen",
+      "yd1/siman170/seif-002/siftei-kohen",
+      "yd1/siman170/seif-002/turei-zahav",
+      "yd1/siman173/seif-006/siftei-kohen",
+      "yd1/siman184/seif-002/siftei-kohen",
+      "yd1/siman184/seif-012/siftei-kohen",
+      "yd1/siman189/seif-022/beer-hagolah",
+      "yd1/siman191/seif-001/siftei-kohen",
+      "yd1/siman204/seif-002/turei-zahav",
+      "yd1/siman226/seif-001/beur-hagra",
+      "yd1/siman236/seif-002/siftei-kohen",
+      "yd1/siman240/seif-024/beur-hagra",
+      "yd1/siman242/seif-016/beur-hagra",
+      "yd1/siman258/seif-013/beur-hagra",
+      "yd1/siman275/seif-002/turei-zahav",
+      "yd1/siman276/seif-009/turei-zahav",
+      "yd1/siman280/seif-001/beur-hagra",
+      "yd1/siman280/seif-001/turei-zahav",
+      "yd1/siman287/seif-002/turei-zahav",
+      "cm1/siman25/seif-001/urim-vetumim-tumim",
+      "cm1/siman56/seif-001/netivot-hamishpat-beurim",
+      "cm1/siman81/seif-014/meirat-einayim",
+      "cm1/siman85/seif-003/urim-vetumim-tumim",
+      "cm1/siman87/seif-001/meirat-einayim",
+      "cm1/siman87/seif-020/meirat-einayim",
+      "cm1/siman88/seif-012/ketzot-hachoshen",
+      "cm1/siman89/seif-005/meirat-einayim",
+      "cm1/siman90/seif-001/urim-vetumim-tumim",
+      "cm1/siman90/seif-011/meirat-einayim",
+      "cm1/siman91/seif-009/siftei-kohen",
+      "cm1/siman120/seif-002/beur-hagra",
+      "cm1/siman255/seif-003/siftei-kohen"
+    ],
+    "summary": "HE_HAS_MORE_EDITORIAL_REMAINING: 23 APPROVE, 16 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
   },
   "results": [
-    {
-      "id": "oc1/siman35/seif-001/kol-yaakov",
-      "slug": "kol-yaakov",
-      "heSegs": 144,
-      "enSegs": 94,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "All 144 Hebrew slots were recovered by splitting the 94 existing English segments at the corresponding prayer, formula, passage, and intention boundaries; no English wording was rewritten."
-    },
-    {
-      "id": "oc1/siman294/seif-001/machatzit-hashekel",
-      "slug": "machatzit-hashekel",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The three legacy English summaries did not preserve the full five Hebrew notes safely; all five slots were freshly translated from the complete rebuilt Hebrew."
-    },
     {
       "id": "yd1/siman108/seif-001/beur-hagra",
       "slug": "beur-hagra",
@@ -58,19 +75,12 @@
       "enSegs": 4,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_15",
-        "LIKUT_MARKER_MISS_22",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_15",
-        "LIKUT_MARKER_MISS_22"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "All four oversized legacy English blobs were split verbatim at explicit Gra lemma transitions, yielding exact 25-slot alignment without fresh translation."
     },
     {
@@ -81,14 +91,13 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_7"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -99,14 +108,13 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "The third existing English blob contained the main note and its Likkut in sequence; split verbatim at the explicit Likkut marker."
     },
     {
@@ -117,42 +125,14 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_17",
-        "LIKUT_MARKER_MISS_17"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The final existing English blob contained Hebrew slots 16-18 in order; split verbatim at the explicit Likkut and final-note markers."
-    },
-    {
-      "id": "yd1/siman127/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 20,
-      "enSegs": 9,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_11",
-        "FRESH_TRANSLATE_12",
-        "FRESH_TRANSLATE_13",
-        "FRESH_TRANSLATE_14",
-        "FRESH_TRANSLATE_15",
-        "FRESH_TRANSLATE_17",
-        "FRESH_TRANSLATE_19"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "The final existing English blob contained Hebrew slots 16-18 in order; split verbatim at the explicit Likkut and final-note markers."
     },
     {
       "id": "yd1/siman127/seif-003/beur-hagra",
@@ -162,120 +142,14 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_19",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_19"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman127/seif-003/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 10,
-      "enSegs": 7,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_8"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman128/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 4,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_3"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman131/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 15,
-      "enSegs": 9,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_10",
-        "FRESH_TRANSLATE_11",
-        "FRESH_TRANSLATE_12",
-        "FRESH_TRANSLATE_14"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman134/seif-003/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman135/seif-004/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 6,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
       "id": "yd1/siman135/seif-006/beur-hagra",
@@ -284,17 +158,12 @@
       "enSegs": 4,
       "action": "split_en",
       "confidence": "medium",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -304,38 +173,13 @@
       "enSegs": 4,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_5"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman135/seif-012/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 6,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
       "verdict": "APPROVE",
       "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_4"
-      ],
+      "flags": [],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "yd1/siman135/seif-015/beur-hagra",
@@ -344,203 +188,13 @@
       "enSegs": 7,
       "action": "split_en",
       "confidence": "medium",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_7"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman137/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 10,
-      "enSegs": 5,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman137/seif-001/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman137/seif-004/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman141/seif-003/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 12,
-      "enSegs": 9,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_10"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman141/seif-004/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 8,
-      "enSegs": 4,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_5"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman145/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman145/seif-001/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman148/seif-001/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman151/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 7,
-      "enSegs": 5,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_5"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman155/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 8,
-      "enSegs": 5,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_7"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
       "id": "yd1/siman157/seif-001/beur-hagra",
@@ -550,39 +204,14 @@
       "action": "split_en",
       "confidence": "medium",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_19",
-        "LIKUT_MARKER_MISS_19"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman157/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 14,
-      "enSegs": 8,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_10"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved where it clearly matches the Hebrew; one unrelated corrupted legacy fragment was not reused, and only uncovered Hebrew slots were freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "yd1/siman160/seif-005/beur-hagra",
@@ -592,17 +221,13 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_6",
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -613,20 +238,13 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -636,8 +254,8 @@
       "enSegs": 2,
       "action": "mixed_resegment_translate",
       "confidence": "medium",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
       "flags": [
         "FRESH_TRANSLATE_0",
@@ -646,15 +264,7 @@
         "FRESH_TRANSLATE_5",
         "FRESH_TRANSLATE_6",
         "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "LIKUT_MARKER_MISS_0",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_8",
-        "LIKUT_MARKER_MISS_0",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_8"
+        "FRESH_TRANSLATE_8"
       ],
       "exact_match": false,
       "sig_match": false,
@@ -717,26 +327,6 @@
       "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
-      "id": "yd1/siman168/seif-013/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 12,
-      "enSegs": 8,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_6"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
       "id": "yd1/siman168/seif-018/siftei-kohen",
       "slug": "siftei-kohen",
       "heSegs": 9,
@@ -772,136 +362,6 @@
         "FRESH_TRANSLATE_3",
         "FRESH_TRANSLATE_4",
         "SHORT_FRESH_EN_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman170/seif-002/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 8,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman170/seif-002/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_3"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman173/seif-006/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 5,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman184/seif-002/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman184/seif-012/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman189/seif-022/beer-hagolah",
-      "slug": "beer-hagolah",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman191/seif-001/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 11,
-      "enSegs": 8,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_7"
       ],
       "exact_match": false,
       "sig_match": false,
@@ -946,82 +406,6 @@
       "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
-      "id": "yd1/siman204/seif-002/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 4,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_3"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman226/seif-001/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 8,
-      "enSegs": 4,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_6"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman236/seif-002/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 6,
-      "enSegs": 4,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman240/seif-024/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 5,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Legacy English was too corrupted to preserve safely; Hebrew slots freshly translated."
-    },
-    {
       "id": "yd1/siman242/seif-004/beur-hagra",
       "slug": "beur-hagra",
       "heSegs": 8,
@@ -1043,28 +427,6 @@
       "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
-      "id": "yd1/siman242/seif-016/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 18,
-      "enSegs": 12,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_16",
-        "FRESH_TRANSLATE_17"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
       "id": "yd1/siman246/seif-004/beur-hagra",
       "slug": "beur-hagra",
       "heSegs": 9,
@@ -1072,14 +434,13 @@
       "action": "split_en",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "reason": "content_drift",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1089,15 +450,12 @@
       "enSegs": 25,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_8",
-        "LIKUT_MARKER_MISS_8"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1107,135 +465,15 @@
       "enSegs": 5,
       "action": "mixed_resegment_translate",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
       "flags": [
-        "FRESH_TRANSLATE_1",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_5"
+        "FRESH_TRANSLATE_1"
       ],
       "exact_match": false,
       "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "yd1/siman258/seif-013/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 6,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Legacy English was too corrupted to preserve safely; Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman275/seif-002/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman276/seif-009/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 4,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman280/seif-001/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 8,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Legacy English was too corrupted to preserve safely; Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman280/seif-001/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 4,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Legacy English was too corrupted to preserve safely; Hebrew slots freshly translated."
-    },
-    {
-      "id": "yd1/siman287/seif-002/turei-zahav",
-      "slug": "turei-zahav",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
     },
     {
       "id": "yd1/siman297/seif-051/beur-hagra",
@@ -1244,17 +482,12 @@
       "enSegs": 6,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1264,36 +497,13 @@
       "enSegs": 2,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_2"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "cm1/siman25/seif-001/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 7,
-      "enSegs": 4,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
       "verdict": "APPROVE",
       "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6"
-      ],
+      "flags": [],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "cm1/siman28/seif-017/beur-hagra",
@@ -1302,21 +512,12 @@
       "enSegs": 5,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_6",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_6"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1326,36 +527,13 @@
       "enSegs": 7,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_5"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "cm1/siman56/seif-001/netivot-hamishpat-beurim",
-      "slug": "netivot-hamishpat-beurim",
-      "heSegs": 11,
-      "enSegs": 10,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
       "verdict": "APPROVE",
       "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_5"
-      ],
+      "flags": [],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "cm1/siman65/seif-023/beur-hagra",
@@ -1364,17 +542,12 @@
       "enSegs": 3,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1384,29 +557,12 @@
       "enSegs": 15,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_0",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_6",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_14",
-        "LIKUT_MARKER_MISS_0",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_6",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_14"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1416,206 +572,13 @@
       "enSegs": 7,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_4"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "cm1/siman81/seif-014/meirat-einayim",
-      "slug": "meirat-einayim",
-      "heSegs": 11,
-      "enSegs": 6,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_10"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "All six legacy English fragments were preserved by recombining them into the two Hebrew notes they cover; the nine uncovered notes were freshly translated."
-    },
-    {
-      "id": "cm1/siman85/seif-003/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 7,
-      "enSegs": 6,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "cm1/siman87/seif-001/meirat-einayim",
-      "slug": "meirat-einayim",
-      "heSegs": 10,
-      "enSegs": 7,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The seven legacy English fragments all belong to the opening Hebrew note and were preserved together; the remaining nine notes were missing and freshly translated."
-    },
-    {
-      "id": "cm1/siman87/seif-020/meirat-einayim",
-      "slug": "meirat-einayim",
-      "heSegs": 13,
-      "enSegs": 6,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_10",
-        "FRESH_TRANSLATE_11",
-        "FRESH_TRANSLATE_12"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The six legacy fragments were all components of the opening note and were preserved together; the twelve absent notes were freshly translated."
-    },
-    {
-      "id": "cm1/siman88/seif-012/ketzot-hachoshen",
-      "slug": "ketzot-hachoshen",
-      "heSegs": 7,
-      "enSegs": 5,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
-    },
-    {
-      "id": "cm1/siman89/seif-005/meirat-einayim",
-      "slug": "meirat-einayim",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The merged legacy English was split and recombined without rewriting for slots 0-1; only slots 2-4 were freshly translated."
-    },
-    {
-      "id": "cm1/siman90/seif-001/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The first and third long legacy blobs each contained two consecutive Hebrew discussions and were split verbatim at their explicit argumentative transitions."
-    },
-    {
-      "id": "cm1/siman90/seif-011/meirat-einayim",
-      "slug": "meirat-einayim",
-      "heSegs": 11,
-      "enSegs": 9,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_0",
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FRESH_TRANSLATE_4",
-        "FRESH_TRANSLATE_5",
-        "FRESH_TRANSLATE_6",
-        "FRESH_TRANSLATE_7",
-        "FRESH_TRANSLATE_8",
-        "FRESH_TRANSLATE_9",
-        "FRESH_TRANSLATE_10"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The legacy English consisted of overlapping editorial summaries rather than safely assignable slot translations; all Hebrew notes were freshly translated for exact 1:1 alignment."
-    },
-    {
-      "id": "cm1/siman91/seif-009/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 5,
-      "enSegs": 2,
-      "action": "split_en",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The second legacy English blob covered Hebrew slots 1-4 continuously and was split verbatim at the Rabbenu Tam, Raavad, and Semag interpretation transitions."
     },
     {
       "id": "cm1/siman102/seif-002/beur-hagra",
@@ -1624,35 +587,16 @@
       "enSegs": 3,
       "action": "mixed_resegment_translate",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1",
-        "FRESH_TRANSLATE_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_4"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "cm1/siman120/seif-002/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 5,
-      "enSegs": 4,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
       "verdict": "APPROVE",
       "reason": "editorial resegment OK",
       "repair_candidate": false,
       "flags": [
-        "FRESH_TRANSLATE_1"
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_3"
       ],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "cm1/siman175/seif-058/beur-hagra",
@@ -1661,33 +605,13 @@
       "enSegs": 4,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_3"
-      ],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
-    },
-    {
-      "id": "cm1/siman255/seif-003/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 6,
-      "enSegs": 5,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
       "verdict": "APPROVE",
       "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_2"
-      ],
+      "flags": [],
       "exact_match": false,
       "sig_match": false,
-      "gpt_notes": "Existing English preserved verbatim where aligned; only missing Hebrew slots freshly translated."
+      "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
       "id": "cm1/siman267/seif-005/beur-hagra",
@@ -1696,15 +620,12 @@
       "enSegs": 2,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_1"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1714,17 +635,12 @@
       "enSegs": 3,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_4"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1734,17 +650,12 @@
       "enSegs": 5,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_5"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1754,15 +665,12 @@
       "enSegs": 2,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_2"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1772,21 +680,12 @@
       "enSegs": 7,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_6",
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_3",
-        "LIKUT_MARKER_MISS_4",
-        "LIKUT_MARKER_MISS_6"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1796,15 +695,12 @@
       "enSegs": 5,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_5"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     },
     {
@@ -1814,15 +710,12 @@
       "enSegs": 3,
       "action": "split_en",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "likut_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "editorial resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_2"
-      ],
+      "flags": [],
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English was preserved where it covered the Hebrew; missing Hebrew slots were freshly translated and merged blobs were split only at textual boundaries."
     }
   ]

@@ -3,40 +3,12 @@
   "mode": "resegment_or_fresh",
   "purpose": "Other en_truncated not in moderate/editorial/beer kits",
   "cases": 10,
-  "parts": 3,
-  "max_part_bytes": 73222,
-  "full_bytes": 175391,
-  "full_sha256": "21755dcc6e8d1bb4a5c270d40d58c8df5b18f3aab9bc5916788d46ee159d0e9a",
+  "parts": 0,
+  "max_part_bytes": 0,
+  "full_bytes": 7376,
+  "full_sha256": "e85ab590c1f74290c5ea88a81cab4a1e4806b9eba12d9db601962090aaca4f71",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.md",
-  "parts_detail": [
-    {
-      "part": 1,
-      "file": "EN_TRUNC_REMAINING_part01.json",
-      "cases": 3,
-      "case_offset": 0,
-      "bytes": 59313,
-      "sha256": "5a9ffc6c1b6de6256c77826fc30cd381cfa33f4ca1286840ba6eef93dfb08e56",
-      "exceeds_hard_cap": false
-    },
-    {
-      "part": 2,
-      "file": "EN_TRUNC_REMAINING_part02.json",
-      "cases": 2,
-      "case_offset": 3,
-      "bytes": 58028,
-      "sha256": "fab316e2100565dfc8cc0d556be1c2a6da255ffa957d917a3b7737ff77f072b1",
-      "exceeds_hard_cap": false
-    },
-    {
-      "part": 3,
-      "file": "EN_TRUNC_REMAINING_part03.json",
-      "cases": 5,
-      "case_offset": 5,
-      "bytes": 73222,
-      "sha256": "33bbea79699317e41482c255dd3fddb27231e24e0adbb69cc7deb7b34c7b1ca1",
-      "exceeds_hard_cap": false
-    }
-  ],
+  "parts_detail": [],
   "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

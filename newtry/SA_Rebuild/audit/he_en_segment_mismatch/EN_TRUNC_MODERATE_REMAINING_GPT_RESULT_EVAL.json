@@ -1,18 +1,20 @@
 {
   "meta": {
-    "created": "2026-08-28T15:21:19.787Z",
+    "created": "2026-08-28T15:39:08.234Z",
     "kit": "EN_TRUNC_MODERATE_REMAINING",
     "kit_num": "03",
     "mode": "resegment",
-    "gpt_source": "C:/Users/binya/Downloads/EN_TRUNC_MODERATE_REMAINING_ALL_37_COMPLETED.json",
+    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING_GPT_RESULT.json",
     "gpt_result": "EN_TRUNC_MODERATE_REMAINING_GPT_RESULT.json",
-    "kit_case_count": 37,
+    "kit_case_count": 36,
     "gpt_case_count": 37,
     "expected": 37,
-    "id_order_match": true,
+    "id_order_match": false,
     "missing_from_gpt": [],
-    "extra_in_gpt": [],
-    "summary": "EN_TRUNC_MODERATE_REMAINING: 1 APPROVE, 36 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+    "extra_in_gpt": [
+      "cm1/siman89/seif-004/urim-vetumim-urim"
+    ],
+    "summary": "EN_TRUNC_MODERATE_REMAINING: 25 APPROVE, 11 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
   },
   "results": [
     {
@@ -21,13 +23,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.997,
+      "flags": [],
+      "en_length_ratio": 1.008,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -38,13 +38,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.996,
+      "flags": [],
+      "en_length_ratio": 1.012,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -55,13 +53,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.998,
+      "flags": [],
+      "en_length_ratio": 1.006,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -72,13 +68,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.995,
+      "flags": [],
+      "en_length_ratio": 1.014,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -89,13 +83,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.992,
+      "flags": [],
+      "en_length_ratio": 1.023,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -106,13 +98,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.994,
+      "flags": [],
+      "en_length_ratio": 1.018,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -123,13 +113,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.996,
+      "flags": [],
+      "en_length_ratio": 1.012,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -140,13 +128,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.997,
+      "flags": [],
+      "en_length_ratio": 1.008,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -157,13 +143,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.998,
+      "flags": [],
+      "en_length_ratio": 1.005,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -174,13 +158,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.998,
+      "flags": [],
+      "en_length_ratio": 1.006,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -191,13 +173,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.995,
+      "flags": [],
+      "en_length_ratio": 1.015,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -208,13 +188,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.999,
+      "flags": [],
+      "en_length_ratio": 1.004,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -225,13 +203,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.997,
+      "flags": [],
+      "en_length_ratio": 1.009,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -242,13 +218,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.997,
+      "flags": [],
+      "en_length_ratio": 1.008,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -278,13 +252,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.995,
+      "flags": [],
+      "en_length_ratio": 1.014,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -295,13 +267,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.993,
+      "flags": [],
+      "en_length_ratio": 1.02,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -313,14 +283,14 @@
       "action": "resegment",
       "confidence": "high",
       "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "reason": "content_drift_vs_corpus_en",
       "repair_candidate": false,
       "flags": [
-        "LIKUT_MARKER_MISS_1"
+        "CONTENT_DRIFT"
       ],
-      "en_length_ratio": 0.999,
+      "en_length_ratio": 0.997,
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
     },
     {
@@ -329,13 +299,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.992,
+      "flags": [],
+      "en_length_ratio": 1.023,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -346,13 +314,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.998,
+      "flags": [],
+      "en_length_ratio": 1.007,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -363,13 +329,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.998,
+      "flags": [],
+      "en_length_ratio": 1.006,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -380,13 +344,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.996,
+      "flags": [],
+      "en_length_ratio": 1.011,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -397,13 +359,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.99,
+      "flags": [],
+      "en_length_ratio": 1.03,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -414,13 +374,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.995,
+      "flags": [],
+      "en_length_ratio": 1.016,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -431,13 +389,11 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en sig match",
       "repair_candidate": false,
-      "flags": [
-        "BEER_DEGREE_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.996,
+      "flags": [],
+      "en_length_ratio": 1.012,
       "exact_match": false,
       "sig_match": true,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
@@ -581,30 +537,13 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
-      "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.996,
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
-    },
-    {
-      "id": "cm1/siman89/seif-004/urim-vetumim-urim",
-      "slug": "urim-vetumim-urim",
-      "heSegs": 2,
-      "action": "resegment",
-      "confidence": "high",
       "verdict": "APPROVE",
-      "reason": "split_existing_en sig match",
+      "reason": "resegment OK",
       "repair_candidate": false,
       "flags": [],
-      "en_length_ratio": 0.998,
+      "en_length_ratio": 1.033,
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
     },
     {
@@ -651,15 +590,13 @@
       "heSegs": 2,
       "action": "resegment",
       "confidence": "high",
-      "verdict": "HOLD",
-      "reason": "pattern_marker_miss",
+      "verdict": "APPROVE",
+      "reason": "resegment OK",
       "repair_candidate": false,
-      "flags": [
-        "LIKUT_MARKER_MISS_1"
-      ],
-      "en_length_ratio": 0.997,
+      "flags": [],
+      "en_length_ratio": 1.021,
       "exact_match": false,
-      "sig_match": true,
+      "sig_match": false,
       "gpt_notes": "Existing English split into the two Hebrew-aligned slots without rewriting."
     }
   ]

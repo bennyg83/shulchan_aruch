@@ -26,7 +26,7 @@
     "created": "2026-08-28T15:24:45.294Z",
     "kit": "EN_TRUNC_EDITORIAL_REMAINING",
     "counts": {
-      "total": 2,
+      "total": 0,
       "by_volume": {
         "yd1": 1,
         "cm1": 1
@@ -57,56 +57,8 @@
       "[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "c3c6ec27377bf5494dad57417b26bec72dfa7166452f815b6de634ebc27b5dbe"
+    "parent_sha256": "dfee38e403b19ec844c8f7bc01c1b11d80302da79951145c118419530a230aae",
+    "note": "Cleared after marker-fix apply; 0 open in post-apply rescan"
   },
-  "cases": [
-    {
-      "id": "yd1/siman289/seif-005/beer-hagolah",
-      "volume": "yd1",
-      "siman": 289,
-      "seif": 5,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "מימרא דרב זירא א\"ר מתנא וכו' שם דף ל\"ג ע\"א וכדמפרש שם ריש ע\"ב:",
-        "(°) ואם הפתח גבוה מאוד לא יניתנו למעלה מכתיפיו דאינו נראה שם מרדכי:"
-      ],
-      "en_segments": [
-        "M.M. Dr. M. M. M. M. M. D. A. D. A.D., and if the opening is very high, we will not give up our mouths, we will see Mordechai:"
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    },
-    {
-      "id": "cm1/siman67/seif-028/beur-hagra",
-      "volume": "cm1",
-      "siman": 67,
-      "seif": 28,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "יתומים קטנים. דגדולים אין ב\"ד אביהם דהם ככל אדם. ריב\"ש:",
-        "(ליקוט) יתומים קטנים. ערש\"י בב\"מ ע' א' ד\"ה בדקנני כו' (ע\"כ):"
-      ],
-      "en_segments": [
-        "Small orphans. The great ones do not have their father’s blood as much as man. A small orphan. “And I am in the midst of Hashem.”"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    }
-  ]
+  "cases": []
 }

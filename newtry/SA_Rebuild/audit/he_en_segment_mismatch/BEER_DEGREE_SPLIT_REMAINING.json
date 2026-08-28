@@ -23,18 +23,18 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:24:45.294Z",
+    "created": "2026-08-28T15:39:33.542Z",
     "kit": "BEER_DEGREE_SPLIT_REMAINING",
     "counts": {
-      "total": 5,
+      "total": 2,
       "by_volume": {
-        "yd1": 5
+        "yd1": 2
       },
       "by_kind": {
-        "en_truncated_vs_multi_he": 5
+        "en_truncated_vs_multi_he": 2
       },
       "by_fp_pattern": {
-        "true_beer_degree_split": 5
+        "true_beer_degree_split": 2
       }
     },
     "hard_cap_utf8_bytes": 85000,
@@ -53,32 +53,9 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "7394a73374cb62c1236356c1649e45f7e1a1b7518d81c690b26d04ea42712bb2"
+    "parent_sha256": "71763918b8ff67fb3ccbf4cd2b0e9dbf687635aa9fc9c4c1aa86f4150640ffb9"
   },
   "cases": [
-    {
-      "id": "yd1/siman173/seif-018/beer-hagolah",
-      "volume": "yd1",
-      "siman": 173,
-      "seif": 18,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "שם בגמרא כיון דמחוסרי גוביינא כמאן דליתנהו דמי:",
-        "(°) בתוס' פירשו כגון פרה וטלית ונלענ\"ד דהטעם דכיון דנותן לו סתם אפרה וטלית ואין שומתן ידוע לא בשעה שמקבל המעות ולא בשעה שמחזירם ולא שייך בהם לומר יצא השער לא גזרו בזה חכמים דלא מחזי כרבית כיון שיכול ליתן לו איזה פרה שירצה שתהיה פחותה בשווי הדמים וכן בטלית:"
-      ],
-      "en_segments": [
-        "There in the Gemara. Since they still require collection, they are regarded as nonexistent. Tosafot explains the example as a cow or garment. In my humble opinion, since he gives the money without specifying a particular cow or garment, and their value is known neither when he receives the money nor when he returns it, the rule of an established market price does not apply. The Sages therefore did not decree, because it does not appear as interest, since he may give him whichever cow or garment he chooses, even one of lesser value."
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "beer-hagolah degree split pattern"
-    },
     {
       "id": "yd1/siman182/seif-002/beer-hagolah",
       "volume": "yd1",
@@ -121,53 +98,6 @@
       ],
       "en_segments": [
         "D.F.D. has been preached and wise, and when I have done so, it is in Rambam and column: (°) and also the Rambam"
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "beer-hagolah degree split pattern"
-    },
-    {
-      "id": "yd1/siman294/seif-026/beer-hagolah",
-      "volume": "yd1",
-      "siman": 294,
-      "seif": 26,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 3,
-      "enSegs": 1,
-      "he_deficit": 2,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "מד' הרמב\"ם בפ\"י מהמ\"א ממשנה סוף מס' ערלה וכמ\"ש בכ\"מ ובבית יוסף:",
-        "(°) משום דמוכחא מילתא דמפירות הגן הם וליכא אלא חד ספיקא הר\"ן:",
-        "(°) פי' אפילו ללקוט ביד וכמ\"ש בכ\"מ ובבית יוסף לדעת הרמב\"ם בסעיף שאחריו:"
-      ],
-      "en_segments": [
-        "From Rambam, chapter 10 of Hilchot Maachalot Assurot, based upon the Mishnah at the end of tractate Orlah, as Kesef Mishneh and Beit Yosef explain. Since it is evident that the fruits came from the garden, there is only one uncertainty. The Ran. Meaning, even to gather them by hand, as Kesef Mishneh and Beit Yosef explain according to Rambam in the following seif."
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "beer-hagolah degree split pattern"
-    },
-    {
-      "id": "yd1/siman296/seif-019/beer-hagolah",
-      "volume": "yd1",
-      "siman": 296,
-      "seif": 19,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "משנה ז' פ\"ז דכלאים:",
-        "(°) פי' יחתוך מלשון גודו אילנא:"
-      ],
-      "en_segments": [
-        "Mishnah 7, chapter 7 of Kilayim. 'He shall cut' is an expression meaning to sever, like 'cut down the tree.'"
       ],
       "fp_pattern": "true_beer_degree_split",
       "route_reason": "beer-hagolah degree split pattern"

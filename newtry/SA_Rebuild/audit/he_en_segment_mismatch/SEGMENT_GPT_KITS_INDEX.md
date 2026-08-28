@@ -2,7 +2,7 @@
 
 External AI kits for HE/EN `<br>`-segment mismatches. **Audit only — no corpus apply.**
 
-**Last rebuild:** 2026-08-28T15:24:45.294Z (rescan-driven _REMAINING kits)  
+**Last rebuild:** 2026-08-28T15:39:33.542Z (rescan-driven _REMAINING kits)  
 Corpus: `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/{oc1,yd1,eh1,cm1}/`  
 Rescan: [`SEGMENT_RESCAN_2026-08-28.json`](./SEGMENT_RESCAN_2026-08-28.json) · FP: [`SEGMENT_RESCAN_FP_ANALYSIS.json`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
 
@@ -39,19 +39,17 @@ Rescan: [`SEGMENT_RESCAN_2026-08-28.json`](./SEGMENT_RESCAN_2026-08-28.json) · 
 
 | Kit | Kind | Cases | Parts | Max part bytes | SHA-256 (prefix) | Path |
 |-----|------|------:|------:|---------------:|------------------|------|
-| `EN_TRUNC_MODERATE_REMAINING` | rescan_remaining | 36 | 1 | 47,710 | `ef7a399f0868…` | [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) |
-| `EN_TRUNC_EDITORIAL_REMAINING` | rescan_remaining | 2 | 1 | 5,154 | `c3c6ec27377b…` | [`EN_TRUNC_EDITORIAL_REMAINING.json`](./EN_TRUNC_EDITORIAL_REMAINING.json) |
-| `BEER_DEGREE_SPLIT_REMAINING` | rescan_remaining | 5 | 1 | 8,341 | `7394a73374cb…` | [`BEER_DEGREE_SPLIT_REMAINING.json`](./BEER_DEGREE_SPLIT_REMAINING.json) |
-| `HE_HAS_MORE_LIKUT_REMAINING` | rescan_remaining | 13 | 1 | 55,407 | `31ee7487e5f7…` | [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) |
-| `HE_HAS_MORE_EDITORIAL_REMAINING` | rescan_remaining | 39 | 4 | 83,593 | `1b924320c882…` | [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) |
-| `HE_HAS_MORE_LIKUT_MERGED_REMAINING` | rescan_remaining | 7 | 1 | 49,337 | `505039565d9f…` | [`HE_HAS_MORE_LIKUT_MERGED_REMAINING.json`](./HE_HAS_MORE_LIKUT_MERGED_REMAINING.json) |
+| `EN_TRUNC_MODERATE_REMAINING` | rescan_remaining | 11 | 1 | 16,983 | `f956afce095e…` | [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) |
+| `BEER_DEGREE_SPLIT_REMAINING` | rescan_remaining | 2 | 1 | 4,709 | `cc0204442b41…` | [`BEER_DEGREE_SPLIT_REMAINING.json`](./BEER_DEGREE_SPLIT_REMAINING.json) |
+| `HE_HAS_MORE_LIKUT_REMAINING` | rescan_remaining | 9 | 1 | 39,220 | `ccf2bfc38f7a…` | [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) |
+| `HE_HAS_MORE_EDITORIAL_REMAINING` | rescan_remaining | 16 | 3 | 79,465 | `fcca387a10a0…` | [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) |
+| `HE_HAS_MORE_LIKUT_MERGED_REMAINING` | rescan_remaining | 1 | 1 | 5,290 | `117eed565f85…` | [`HE_HAS_MORE_LIKUT_MERGED_REMAINING.json`](./HE_HAS_MORE_LIKUT_MERGED_REMAINING.json) |
 
-**Total cases in rebuilt kits:** 102 (of 274 actionable; 0 unassigned)
+**Total cases in rebuilt kits:** 39 (of 274 actionable; 0 unassigned)
 
 ### One-line purpose
 
 - **EN_TRUNC_MODERATE_REMAINING**: Moderate kit HOLD+REJECT still en_truncated
-- **EN_TRUNC_EDITORIAL_REMAINING**: Editorial en_trunc still open (parts 02-06 + part01 holds)
 - **BEER_DEGREE_SPLIT_REMAINING**: beer-hagolah degree/footnote EN under-split
 - **HE_HAS_MORE_LIKUT_REMAINING**: 13 Likut kit HOLD (content_drift) still open
 - **HE_HAS_MORE_EDITORIAL_REMAINING**: 91 editorial HOLD still he_has_more
@@ -73,7 +71,7 @@ Older kits without _REMAINING suffix reflect pre-rescan state. Use _REMAINING ki
 ## Apply log
 
 - **2026-08-28 AM:** EN_MISSING 18/20; EN_TRUNC wave1; HE_HAS_MORE wave1/wave2; Likut 40/53.
-- **2026-08-28 PM:** Post-apply rescan → _REMAINING kit rebuild (102 cases across 6 kits).
+- **2026-08-28 PM:** Post-apply rescan → _REMAINING kit rebuild (39 cases across 5 kits).
 
 ## Deduplication
 

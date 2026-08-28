@@ -120,6 +120,22 @@ export function enStartsWithMarker(en, marker) {
   return false;
 }
 
+/** Strip leading Beer/Likut-style EN markers for drift comparison only. */
+export function stripLeadingEnMarker(en) {
+  return stripHtml(en)
+    .replace(/^\(°\)\s*/i, "")
+    .replace(/^\(?°\)?\s*/i, "")
+    .replace(/^Meaning[:,]?\s*/i, "")
+    .replace(
+      /^\((?:Likkut|Likut|Extract|Anthology|Collection|Collected|Supplement|Additional note|Addition|Luke|Lycott)\)\s*/i,
+      ""
+    );
+}
+
+export function sigIgnoreMarkersFromSegs(segs) {
+  return sig((segs || []).map((s) => stripLeadingEnMarker(s)).join(" "));
+}
+
 export function detectQuoteBreak(gptCase, proposed, enLegacy) {
   const segEn = gptCase?.segments?.map((s) => s.en ?? "") || [];
   const flags = [];

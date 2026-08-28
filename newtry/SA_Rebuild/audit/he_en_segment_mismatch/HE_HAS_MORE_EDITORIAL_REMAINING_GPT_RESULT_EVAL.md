@@ -1,7 +1,7 @@
 # HE_HAS_MORE_EDITORIAL_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:21:20.083Z  
-**Kit cases:** 91  
+**Created:** 2026-08-28T15:39:08.436Z  
+**Kit cases:** 39  
 **GPT cases:** 91  
 **Mode:** editorial
 
@@ -9,30 +9,25 @@
 
 | Verdict | Count |
 |---------|------:|
-| APPROVE | 52 |
-| HOLD | 39 |
+| APPROVE | 23 |
+| HOLD | 16 |
 | REJECT | 0 |
 | REPAIR_CANDIDATE | 0 |
 | SKIP_APPLIED | 0 |
 
 ## Summary
 
-HE_HAS_MORE_EDITORIAL_REMAINING: 52 APPROVE, 39 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE
+HE_HAS_MORE_EDITORIAL_REMAINING: 23 APPROVE, 16 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE
 
 ## HOLD / REJECT sample (first 20)
 
-- `yd1/siman108/seif-001/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman109/seif-001/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman115/seif-002/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman127/seif-001/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman127/seif-003/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman135/seif-006/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman135/seif-008/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman135/seif-015/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman157/seif-001/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman160/seif-005/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman161/seif-002/beur-hagra` — **HOLD**: likut_marker_miss
-- `yd1/siman162/seif-002/beur-hagra` — **HOLD**: likut_marker_miss
+- `yd1/siman109/seif-001/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman115/seif-002/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman127/seif-001/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman127/seif-003/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman157/seif-001/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman160/seif-005/beur-hagra` — **HOLD**: content_drift
+- `yd1/siman161/seif-002/beur-hagra` — **HOLD**: content_drift
 - `yd1/siman165/seif-001/beer-hagolah` — **HOLD**: fresh_translate_quality
 - `yd1/siman165/seif-001/siftei-kohen` — **HOLD**: fresh_translate_quality
 - `yd1/siman166/seif-001/siftei-kohen` — **HOLD**: fresh_translate_quality
@@ -41,5 +36,6 @@ HE_HAS_MORE_EDITORIAL_REMAINING: 52 APPROVE, 39 HOLD, 0 REJECT, 0 REPAIR_CANDIDA
 - `yd1/siman197/seif-002/siftei-kohen` — **HOLD**: fresh_translate_quality
 - `yd1/siman199/seif-003/siftei-kohen` — **HOLD**: fresh_translate_quality
 - `yd1/siman242/seif-004/beur-hagra` — **HOLD**: fresh_translate_quality
+- `yd1/siman246/seif-004/beur-hagra` — **HOLD**: content_drift
 
 Machine eval: `HE_HAS_MORE_EDITORIAL_REMAINING_GPT_RESULT_EVAL.json`

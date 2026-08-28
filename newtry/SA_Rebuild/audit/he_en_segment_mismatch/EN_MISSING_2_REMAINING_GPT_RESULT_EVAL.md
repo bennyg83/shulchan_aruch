@@ -1,6 +1,6 @@
 # EN_MISSING_2_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:21:19.747Z  
+**Created:** 2026-08-28T15:39:08.197Z  
 **Kit cases:** 2  
 **GPT cases:** 2  
 **Mode:** fresh_translate

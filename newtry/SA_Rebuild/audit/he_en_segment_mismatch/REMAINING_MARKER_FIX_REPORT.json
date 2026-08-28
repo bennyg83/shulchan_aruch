@@ -1,0 +1,38 @@
+{
+  "scannedAt": "2026-08-28T15:45:00.000Z",
+  "summary": {
+    "startingHold": 102,
+    "markerSlotsFixed": 136,
+    "holdFlippedToApprove": 63,
+    "stillHold": 39,
+    "appliedEnHtmlCells": 63,
+    "openAfterRescan": 39
+  },
+  "flipsByKit": {
+    "EN_TRUNC_MODERATE_REMAINING": 25,
+    "BEER_DEGREE_SPLIT_REMAINING": 3,
+    "HE_HAS_MORE_LIKUT_REMAINING": 4,
+    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 6,
+    "EN_TRUNC_EDITORIAL_REMAINING": 2,
+    "HE_HAS_MORE_EDITORIAL_REMAINING": 23
+  },
+  "stillHoldByReason": {
+    "unjustified_fresh_translate": 12,
+    "content_drift": 18,
+    "content_drift_vs_corpus_en": 1,
+    "fresh_translate_quality": 8
+  },
+  "stillHoldByKit": {
+    "EN_TRUNC_MODERATE_REMAINING": 11,
+    "BEER_DEGREE_SPLIT_REMAINING": 2,
+    "HE_HAS_MORE_LIKUT_REMAINING": 9,
+    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 1,
+    "HE_HAS_MORE_EDITORIAL_REMAINING": 16
+  },
+  "notes": [
+    "Beer degree: prepend/normalize EN to (°)",
+    "Likut: normalize EN to (Likkut) including Extract/Collection/Supplement variants",
+    "Eval: marker-only drift ignored via sigIgnoreMarkersFromSegs",
+    "Did not force-APPROVE real content_drift / fresh_translate_quality / unjustified_fresh_translate"
+  ]
+}

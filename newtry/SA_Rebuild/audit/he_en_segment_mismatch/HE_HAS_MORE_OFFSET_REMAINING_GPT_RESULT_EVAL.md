@@ -1,6 +1,6 @@
 # HE_HAS_MORE_OFFSET_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:21:19.933Z  
+**Created:** 2026-08-28T15:39:08.388Z  
 **Kit cases:** 6  
 **GPT cases:** 6  
 **Mode:** editorial

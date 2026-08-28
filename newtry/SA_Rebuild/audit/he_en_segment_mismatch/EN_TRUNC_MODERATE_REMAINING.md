@@ -8,27 +8,27 @@ Mode: `resegment_split_en` · Dictionary: attach **`full_dictionary.md`**
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **36** |
+| **Total cases** | **11** |
 
 ### By volume
 
 | Volume | Count |
 |--------|------:|
-| yd1 | 25 |
-| cm1 | 11 |
+| yd1 | 2 |
+| cm1 | 9 |
 
 ## Files
 
-- Full kit: [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) (47,474 bytes, SHA `ef7a399f0868…`)
+- Full kit: [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) (16,747 bytes, SHA `f956afce095e…`)
 - Parts: target ≤ 85,000 UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
 - Zip includes **full parent** `EN_TRUNC_MODERATE_REMAINING.json` plus all parts
-- Created: 2026-08-28T15:24:45.294Z
+- Created: 2026-08-28T15:39:33.542Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `EN_TRUNC_MODERATE_REMAINING_part01.json` | 36 | 0 | 47,710 | `450272e78f76…` |  |
+| 1 | `EN_TRUNC_MODERATE_REMAINING_part01.json` | 11 | 0 | 16,983 | `f3ec9233bbd3…` |  |
 
 
 

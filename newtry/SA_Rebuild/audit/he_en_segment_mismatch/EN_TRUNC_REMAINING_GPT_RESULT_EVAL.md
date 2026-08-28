@@ -1,6 +1,6 @@
 # EN_TRUNC_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:21:19.828Z  
+**Created:** 2026-08-28T15:39:08.276Z  
 **Kit cases:** 10  
 **GPT cases:** 10  
 **Mode:** resegment_mixed

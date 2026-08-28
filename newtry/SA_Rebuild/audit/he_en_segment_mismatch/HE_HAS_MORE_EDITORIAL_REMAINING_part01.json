@@ -23,19 +23,18 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:24:45.294Z",
+    "created": "2026-08-28T15:39:33.542Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "counts": {
-      "total": 39,
+      "total": 16,
       "by_volume": {
-        "yd1": 24,
-        "cm1": 15
+        "yd1": 16
       },
       "by_kind": {
-        "he_has_more_segments": 39
+        "he_has_more_segments": 16
       },
       "by_fp_pattern": {
-        "true_likut_en_merged": 31,
+        "true_likut_en_merged": 8,
         "true_beer_degree_split": 1,
         "true_offset_editorial": 7
       }
@@ -56,67 +55,15 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "1b924320c8826b7b275864a075c8fe565fba67036b0f0f384e62c2f5a079f394",
+    "parent_sha256": "ab03561eb7e1bccb9d820340737031296243505895fa7cbab663305dfe99a953",
     "chunk_index": 1,
-    "chunk_total": 4,
+    "chunk_total": 3,
     "case_offset": 0,
     "cases_in_chunk": 8,
     "parent_pack": "HE_HAS_MORE_EDITORIAL_REMAINING.json",
     "note": "Full segment text — no truncation"
   },
   "cases": [
-    {
-      "id": "yd1/siman108/seif-001/beur-hagra",
-      "volume": "yd1",
-      "siman": 108,
-      "seif": 1,
-      "slug": "beur-hagra",
-      "kind": "he_has_more_segments",
-      "heSegs": 25,
-      "enSegs": 4,
-      "he_deficit": 21,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אין כו' ואם כו'. כלוי דרבא בע\"ז ס\"ו ב' כוותיה ועוד דברייתא אין צולין כו' כוותיה דייקא דלרב צריך לחסורי דלא כגאונים ור\"ת שפסקו כרב משום דתני רב כהנא כוותיה ורבא מפרזקיא עבד עובדא וכן מר בר ר\"א מדקאמר אפילו במילחא משמע דמודה לקמייתא וכתב רי\"ף דכולהו אתיין אף כלוי דכל הני לכתחלה ולוי לא שרי אלא בדיעבד דהא שצלאו קאמר ול\"ק צולין [ואדרבה מדבריהם משמע דס\"ל כלוי דלרב אף במילחא יש לאסור כמ\"ש בפ\"ב (ל' ועתוס' שם א' ד\"ה ואפי') שם אין טשין כו' ואם כו'] ואף שהר\"ן הקשה ע\"ז דא\"כ מאי פריך מיתיבי אין צולין כו' וכן הקשו התוס' שם ד\"ה מאי כו' ועוד דרבא דאזיל בשיטתיה מתיר בבת תיהא לכתחלה ועוד דבירושלמי פ\"י דתרומות הלכה ב' מהו לצלות שני שפודין אחד של בשר שחוטה ואחד של בשר נבילה בתנור אחד רב ירמיה בשם רב אסור ושמואל בשם לוי מותר פליגא מתני' על רב אין צולין שני פסחים בתנור אחד מפני התערובת לא אמרו אלא מפני דתערובת הא שלא מפני התערובת לא וכן הקשה הרשב\"א מ\"מ כתב הרשב\"א שיש לחוש לסברת הראשונים לאסור לכתחלה [ותירץ בש\"ד סי' ל\"ה דהא דרבא דמתיר לכתחלה בת תיהא שאני דלא מפטמא ולא עביד לריחא ועתוס' בע\"ז שם והא דפריך מיתיבי כו' כתב הרשב\"א כיון דתרווייהו התירא הוא יש להתיר אף לכתחלה וההיא דירושלמי קשיא מ\"מ כיון דבגמ' דידן משמע דיעבד דוקא] וער\"ן שיישב ודחה ראיית ר\"ת בענין אחר וכתב הרי\"ף עוד ואע\"ג דר\"ל דאמר בפת חמה כו' כלוי הוא כמ\"ש והאי נמי כו' לית הלכתא כר\"ל נגד לוי ורבא וליתא להא דר\"ל כלל ובכולהו פליגי והלכה כרבי יהודה לגבי ר\"מ כמ\"ש בפ\"ד דעירובין (מ\"ו ב' נ\"ב א') וגם ר' יוסי ס\"ל דל\"פ על ר\"י אלא מפני שהשעורים שואבות עצמו של יין ולאו ריחא הוא וראיה דר\"מ אסר ולא מפרש טעמיה ור' יוסי הוצרך לפרש וכ\"פ הרמב\"ם וכר' יוסי ועס\"ד וכזה י\"ל גם אהא דרב כהנא ורבא מפרזקיא דאדחו מקמא רבא דבתרא הוא ומר בר ר\"א לא מודה להו וכ\"כ הר\"ן:",
-        "ואם התנור כו' ופיו כו'. תוספות בע\"ז שם ד\"ה רבא אף לרב:",
-        "ובלבד כו'. דאפי' בצונן אמרו בר\"פ כ\"ה ק\"ז כ' ובלבד כו':",
-        "ואם א' כו' דהוי כעין שתי קדירות דשרי אפילו לרב תוספות פסחים ד\"ה אסרה כו':",
-        "וה\"ה כו'. כמ\"ש שם תני רב כהנא כו':",
-        "ונוהגין כו'. כ\"פ או\"ה וס\"ל דמ\"ש תוספות לחלק בין תנור גדול לקטן היינו בדיעבד לרב אבל לדידן דקי\"ל כלוי אין נ\"מ בזה אבל כל הפוסקים כתבו כמ\"ש בש\"ע ועב\"י סי' צ\"ז:",
-        "ואם אפה כו'. כנ\"ל מהא דתני רב כהנא ועבד רבא כו':",
-        "וכן אם כו'. דמה שהתיר לוי בשל ישראל דהוי דיעבד:",
-        "מותר בשניהם. ר\"ל אפילו בבב\"ח שלא כדעת הרי\"ף שכתב עוד טעם אחר על הא דרב כהנא משום דכיון דאפשר לאכלו בלא כותח הוי דשיל\"מ ואפילו באלף לא בטיל ובכה\"ג מודה לוי וכשיטתו שכתב דרב דאוסר אזיל לטעמיה דס\"ל מין במינו במשהו ולהכי לא קי\"ל כרב דקי\"ל בששים אבל בכה\"ג מודה לרב. אבל הקשו עליו דכה\"ג לא מקרי דשיל\"מ כמ\"ש ביבמות פ\"ב א' ועוד דדשיל\"מ בשא\"מ בטיל ועוד דא\"כ דגים שעלו בקערה למה מותר ועוד דהא אף בפ\"ע מתיר דבא בבת תיהא ואף שי\"ל כל הקושיות ב' קושיות הראשונות עבר\"ן פ\"ו דנררים (נ\"ב א') ומדגים אין קושיא דשם אף משהו ליכא ומבת תיהא לא קשיא כמ\"ש בש\"ד כנ\"ל מ\"מ העיקר כתירוץ הראשון של הרי\"ף כנ\"ל אבל בעיקר דינא השיג בד\"מ ובת\"ח דהא שמן ודבש של עובדי כוכבים מותר לכתחלה לקנותם משום נטל\"פ כמ\"ש בפ\"ב דע\"ז ולא אמרינן שהוא לכתחלה וגם מה שהתיר הרב גם בבב\"ח צ\"ע כיון דאפשר לאכלו בלא חלב הוי לכתחלה כמ\"ש הרי\"ף וכ\"פ הרמב\"ם בפ\"מ דאסור ולא חילק אף שפסק כלוי בפט\"ו וכן בגמ' סתמו אסור לאכלו בכותח:",
-        "י\"א דאין כו'. דדמי לפת חמה וחבית פתוחה דאסור כמ\"ש בס\"ד דאף לוי מודה (וע\"ל ס\"ק ל'):",
-        "ובמקום כו'. כסברת כל הפוסקים שחולקים עליו:",
-        "ואם האיסור כו'. בזה מתורץ דר\"ל ל\"פ אלוי ורבא דלא כרי\"ף ורמב\"ם וכמ\"ש תוס' בע\"ז שם דבפת חמה וחבית פתוחה אף רבא מודה וכמ\"ש הטוש\"ע בס\"ד:",
-        "וכ\"ש אם כו'. עסי' קכ\"ב ס\"ג בהג\"ה י\"א דבדברים כו' אבל כו':",
-        "(ליקוט) וכ\"ש אם כו'. כן למד מדברי או\"ה כמ\"ש בסי' קכ\"ב ס\"ג בהג\"ה אבל אם כו' ודבריו תמוהין מהא דפ\"י דתרומות חסית כו' וע\"כ צריך לחלק בין בעין ובין איסור הבלוע ועמ\"ש שם (ע\"כ):",
-        "אבל אם א' כו'. כנ\"ל בש\"ע וכמו פת חמה וחבית מכוסה:",
-        "(ליקוט) אבל אם א' מהם כו'. מהבית סתומה דמותר אף בפת חמה ואף לר' יוסי אין אסור אלא בשעורים שהם שואבות אבל בלא\"ה כמו בחטים מותר וכן קי\"ל בס\"ד (ע\"כ):",
-        "אם אפו או כו'. כ\"כ באו\"ה והוא אזיל לשיטתו דאפילו בתנור סתום אוסר בדיעבד משום דהוי כי הבית פתוחה ופת חמה וכ\"כ ש\"ד בשם ראב\"ן וז\"ש מגולין כנ\"ל אבל מדברי תוס' בע\"ז שם משמע דדוקא לרב שכתבו ולענין ריחא דהתם כו' ה\"מ כו' וה\"ה כו' וז\"ש לעיל ובמקום הפסד כו' ואעפ\"כ לא רצה להקל כאן:",
-        "וה\"ה אם כו'. שדין א' להם כנ\"ל:",
-        "אבל בזא\"ז כו'. כמ\"ש בע\"ז שם שאני התם דמקליא כו' ואע\"ג שנשאר הריח בתנור ואף אביי מודה:",
-        "אא\"כ כו'. כנ\"ל מהא דמכשירין:",
-        "ולצורך הפסד כו'. אבל בלא\"ה צריך בכל חתיכה ס' דלא ידעינן לאיזה צד הלך הריח אלא כיון דהכל בספק כולם מצטרפין כמ\"ש בסי' קי\"א ס\"ז והרב הולך לשטתו שכתב שם ג\"כ ולצורך הפסד ואע\"ג שכ' שם ומיהו אין לאכלו כו' בריחא יש להקל כמ\"ש באו\"ה:",
-        "י\"א דאיסור כו'. כ\"כ תוס' בע\"ז שם וכ\"ד הרי\"ף שכתב דלכך לא קי\"ל כרב לפי דאזיל לטעמיה כנ\"ל וכן הא דאסרו למיכל בכותחא משום דהוי דשיל\"מ:",
-        "(ליקוט) י\"א דאיסור האוסר כו' פלוגתא זו תליא בפלוגתא דרי\"ף ותוס' דרי\"ף מביא ראיה דהלכה כלוי מהא דע\"ז בבת תיהא ושם איתא לאיסורא בעינא ואפ\"ה מותר כ\"ש בתערובת כיון דבעיניה לא אסור כלל וכמו שהקשה הר\"ן על הרי\"ף בפ' ג\"ה על מ\"ש דרב אזיל לטעמיה כו' וכן כותחא דאסור משום דדשיל\"מ הוא ע\"ש אבל לתוס' דס\"ל דלא תליא בהא דע\"ז דאף למ\"ד לאו מילתא היא שם אסור דבעיניה הוא ורבא דמתיר משום דמזיק וכמ\"ש תוס' שם ד\"ה אביי וד\"ה רבא ע\"ש ולהכי אסרי תוס' בזילוף שם ולדברי רי\"ף היה מותר אבל לפי' אסור משום דנהנה וכן בתערובת ובזה תליא פלוגתא אם הלכה כרב או כלוי וכן ההיא דס\"ד אתיא כתוס' אבל לרי\"ף ליתא דר\"ל כלל ואפילו בחבית פתוחה ופת חמה מותר דלאו מילתא היא ואפילו בעיניה מותר וכמ\"ש הרי\"ף שם וכ\"פ הרמב\"ם וגם מ\"ש בס\"ה בהג\"ה ואסור לזלוף כו' כנ\"ל ומ\"ש בס\"ו שק כו' ועבה\"ג שם ולכאורה תמוה דא\"כ גם באכילה יהא מותר ועוד מה בכך שאינו מכוין פסיק רישא הוא ועתוס' בפ' כ\"ש כ\"ה ב' ד\"ה לא אפשר כו' ומיירי כו' אלא דרשב\"א אזיל לשיטתו שכתב בהא דס\"ז בשמים כו' דאסור ומחלק בין וורד והדם דעיקרו לריח דאסור משא\"כ ביין דאין עיקרו לריח להכי לאו מילתא וכשיטת הרי\"ף דמדמי להא דפ' כ\"צ דשם ג\"כ הבשר עיקרו לאו לריח אבל תוס' לא ס\"ל האי חילוק אלא בבת תיהא משום דמזיקו וכמ\"ש תוס' שם ושם י\"ב ב' ד\"ה אלא כו' וכמ\"ש בס\"ז ולפ\"ז אסור כאן (ע\"כ):",
-        "אם כו'. דלא כתוס' שם ועש\"ך:",
-        "וי\"א כו'. וראייתו מלחמי תודה שהיו כולן נאפות בתנור אחד דלא מצינו נאפות בפ\"ע אלא שתי הלחם ולחם הפנים כמ\"ש ברפי\"א דמנחות וס\"ל דאין לחלק בין תנור גדול לקמן דאל\"כ הא מחזיק עשרים עשרונים היה וגם לפי מ\"ש הרשב\"א דפלוגתייהו דוקא בא' מהן שמן כמ\"ש בגמ' וכ\"כ תוס' שם ד\"ה נימא אין ראיה משם. ונ\"ל ראיה מדפריך שם לרב מאין צולין כו' דלמא רב לא אסר אלא מין במינו וגדי וטלה מץ בשא\"מ הוא כמ\"ש ב\"י סי' צ\"ח בשם האגור אלאע\"כ דאין חילוק וז\"ש שם מ\"ל גדי וגדי ומ\"ל כו' ודלא כרי\"ף וכן דקאמר שם לרב נימא כו' הא בכה\"ג אף רב מורה וכן בע\"ז פריך מכמון של תרומה ומדפריך בפשיטות ש\"מ דאין לחלק:"
-      ],
-      "en_segments": [
-        "One may not, etc. And if, etc. Nullified of Rava in Avodah Zarah 66b is like him; and the baraita one may not roast, etc., is like him — precisely according to Rav one must subtract not like Geonim and Rabeinu Tam who ruled like Rav because Rav Kahana taught like him and Rava of Parzika acted, and so Mar bar Rav Ashi — from that he said even in salt it implies he agrees to the first view; and Rif wrote that all these come even nullified of all these l'chatchila and Levi permits only b'dieved for he said they roasted; and there is no contradiction roasting [rather from their words it implies they hold nullified of Rav even in salt one should forbid as written in chapter 2 that one may not cover, etc., and if, etc.] — and even though Ran challenged on this that if so what does it challenge from the baraita one may not roast, etc., and Tosafot challenged there — and Rava who follows his approach permits his daughter l'chatchila; and in Yerushalmi Terumot chapter 10 halachah 2: how to roast two spits one of shechted meat and one of nevelah in one oven — Rav Yirmiyah in name of Rav forbids and Shmuel in name of Levi permits — contradicts the mishnah on Rav one may not roast two Pesachim in one oven on account of mixture — they said only on account of mixture of bodies, not on account of mixture otherwise not — and Rashba challenged; nevertheless Rashba wrote one should be concerned for the early ones to forbid l'chatchila [and resolved in ShaDa siman 35 that Rava who permits his daughter l'chatchila is different for it does not season and does not make smell; and Tosafot in Avodah Zarah there and the baraita challenged wrote Rashba since both are heter one may permit even l'chatchila — and the Yerushalmi is difficult; nevertheless since in our Gemara it implies b'dieved specifically]; and Or Zarua resolved and rejected Rabeinu Tam's proof on another matter; and Rif wrote further even though R' Levi said hot bread, etc., nullified as written — and this too, etc., the halachah is not like R' Levi against Levi and Rava and R' Levi does not exist at all and in all of them they disagree; and the halachah is like R' Yehudah against R' Meir as written in Eruvin chapter 4; and R' Yossi holds not to disagree on R' Yehudah except because barley draws the wine itself and it is not reicha; and proof R' Meir forbade and did not explain his reason and R' Yossi needed to explain — and so Rambam and like R' Yossi and investigate; and likewise one may say on Rav Kahana and Rava of Parzika who rejected the first Rava — the latter is he and Mar bar Rav Ashi did not agree with them — and so Ran: And if the oven, etc., and its mouth, etc. Tosafot in Avodah Zarah there s.v. Rava even according to Rav: Provided, etc. For even cold they said in beginning of chapter 25 siman 107 wrote provided, etc.: And if one, etc., for it is like two pots which is permitted even according to Rav — Tosafot Pesachim s.v. it forbade, etc.: And the same applies, etc. As written there Rav Kahana taught, etc.: And we practice, etc. So too Issur VeHeter and he holds that what Tosafot wrote to distinguish between large and small oven is b'dieved for Rav — but for us who establish nullified there is no difference; but all poskim wrote as in Shulchan Aruch and ben yomo siman 97: And if he baked, etc. As above from Rav Kahana taught and Rava acted, etc.: And likewise if, etc. For what Levi permitted of an Israelite is b'dieved: Permitted in both. Meaning even in gentile cooking unlike Rif who wrote another reason on Rav Kahana because since it is possible to eat without kutach it is something that has a permitted aspect and even in a thousand it is not nullified — in such a case Levi agrees and according to his approach that Rav who forbids goes according to his taste because he holds min b'mino in any amount — therefore we do not establish like Rav because we establish in sixty — but in such a case he agrees to Rav. But they challenged him that such a case is not called something that has a permitted aspect as in Yevamot chapter 2; and something that has a permitted aspect in min she'eino mino is nullified; and if so fish that came up to the bowl why permitted; and behold even by itself he permits in his daughter; and even if the first two questions were answered in chapter 6 of Nedarim and regarding fish there is no question for there is not even any amount and from his daughter there is no question as in ShaDa as above — nevertheless the main point is Rif's first answer as above; but in the main law Darkei Moshe and Turei Chayim challenged — behold oil and honey of gentiles permitted l'chatchila to buy on account of nat bar lichtamei as in chapter 2 of Avodah Zarah and we do not say it is l'chatchila; and also what the Rav permitted even in gentile cooking requires study since it is possible to eat without milk it is l'chatchila as Rif wrote and so Rambam in chapter 8 of forbidden and did not distinguish even though he ruled nullified in forbidden foods — and so in the Gemara they concluded forbidden to eat in kutach: Some say there is no, etc. For it is similar to hot bread and open barrel which is forbidden as written in seif 4 that even Levi agrees (and see s.k. 30): And in a place, etc. According to the view of all poskim who disagree with him: And if the issur, etc. With this is resolved that R' Levi does not disagree with Levi and Rava unlike Rif and Rambam and as Tosafot in Avodah Zarah there in hot bread and open barrel even Rava agrees and as Shulchan Aruch wrote in seif 4: And all the more if, etc. See siman 122 seif 3 in hagahah some say in things, etc., but, etc.",
-        "(Likut) And all the more if, etc. So he learned from Issur VeHeter as in siman 122 seif 3 in hagahah but if, etc., and his words are astonishing from Terumot chapter 10 chasis, etc., and one must distinguish between in the substance and absorbed issur — see there (end): But if one, etc. As above in Shulchan Aruch and like hot bread and covered barrel.",
-        "(Likut) But if one of them, etc. From covered house which is permitted even in hot bread and even according to R' Yossi it is forbidden only in barley which draws — but otherwise like wheat permitted and so we establish in seif 4 (end): If they baked or, etc. So Issur VeHeter wrote and he follows his approach that even in closed oven he forbids b'dieved because it is like the house open and hot bread — and so ShaDa in name of Raavan and what he wrote uncovered as above; but from Tosafot in Avodah Zarah there it implies specifically according to Rav as they wrote and regarding reicha there, etc., this applies, etc., and the same, etc., and what he wrote above and in place of loss, etc., and nevertheless he did not want to be lenient here: And the same if, etc. For they have one law as above: But one after the other, etc. As in Avodah Zarah there it is different there because it weakens, etc., and even though smell remains in the oven even Abbaye agrees: Unless, etc. As above from we kasher: And for need of loss, etc. But otherwise each piece needs sixty for we do not know to which side the smell went; but since all are in doubt all join as written in siman 111 seif 7; and the Rav follows his approach that he wrote there too and for need of loss; and even though he wrote there nevertheless one may not eat, etc., in reicha one may be lenient as Issur VeHeter wrote: Some say issur, etc. So Tosafot in Avodah Zarah there and so Rif who wrote therefore we do not establish like Rav because he goes according to his taste as above; and the fact they forbade eating in kutach because it is something that has a permitted aspect.",
-        "(Likut) Some say issur that forbids, etc. This dispute depends on the dispute of Rif and Tosafot — Rif brings proof halachah is nullified from Avodah Zarah in his daughter and there it is issur in substance and nevertheless permitted — all the more in mixture since in substance it is not forbidden at all; and as Ran challenged Rif in chapter Gid on what Rif wrote Rav goes according to his taste, etc.; and kutach forbidden because something that has a permitted aspect — see there; but for Tosafot who hold it does not depend on Avodah Zarah there — even for one who says it is not significant there it is forbidden in substance and Rava who permits because it harms as Tosafot there s.v. Abbaye and s.v. Rava — see there — therefore Tosafot forbid ziluf there and according to Rif it would be permitted but his explanation is forbidden because one benefits; and likewise in mixture — and on this depends whether halachah is like Rav or nullified; and the matter in seif 4 comes like Tosafot but for Rif it does not exist and R' Levi at all and even in open barrel and hot bread permitted for it is not significant and even in substance permitted as Rif wrote and so Rambam; and what is written in seif 5 in hagahah and forbidden to ziluf, etc., as above; and what is written in seif 6 sack, etc., and Be'er HaGolah there — and at first glance it is astonishing for if so also in eating it should be permitted; and furthermore what is it that he does not intend — it is pesik reisha; and Tosafot in chapter 25 daf 25 s.v. not possible, etc., deals, etc., except Rashba follows his approach that he wrote in seif 7 in spices, etc., forbidden and distinguishes between rose and blood whose essence is for smell which is forbidden unlike wine whose essence is not for smell therefore it is not significant; and according to Rif who compares to chapter 25 there too meat's essence is not for smell; but Tosafot do not hold this distinction except in his daughter because it harms as Tosafot there and there 12b s.v. except, etc., and as in seif 7 — and accordingly forbidden here (end): If, etc. Not like Tosafot there and Shach: And some say, etc. And his proof from Lechem HaPanim that all were baked in one oven — we do not find baked separately except the two loaves and Lechem HaPanim as in Rif chapter 1 of Menachot; and he holds one should not distinguish between large and small oven below — otherwise behold it holds twenty tenths; and also according to Rashba their dispute is specifically when one of them is fatty as in the Gemara and so Tosafot there s.v. let us say there is no proof from there. And it seems proof from that it challenges Rav from one may not roast, etc. — perhaps Rav forbade only min b'mino and kid and lamb is min she'eino mino as Beit Yosef siman 98 in name of Agur — if so there is no distinction and what is written there let us say kid and kid and let us say, etc., unlike Rif; and that it says there for Rav let us say, etc., even in such a case Rav instructs; and likewise in Avodah Zarah it challenges from terumah cumin and from the simple challenge it implies there is no distinction:"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
-    },
     {
       "id": "yd1/siman109/seif-001/beur-hagra",
       "volume": "yd1",
@@ -316,66 +263,129 @@
       ]
     },
     {
-      "id": "yd1/siman135/seif-006/beur-hagra",
+      "id": "yd1/siman157/seif-001/beur-hagra",
       "volume": "yd1",
-      "siman": 135,
-      "seif": 6,
+      "siman": 157,
+      "seif": 1,
       "slug": "beur-hagra",
       "kind": "he_has_more_segments",
-      "heSegs": 5,
-      "enSegs": 4,
-      "he_deficit": 1,
+      "heSegs": 21,
+      "enSegs": 18,
+      "he_deficit": 3,
       "en_deficit": 0,
       "he_file_present": true,
       "en_file_present": true,
       "he_segments": [
-        "אם הם כו'. בכתובות ק\"ז ב' איפסק כר\"ז:",
-        "(ליקוט) דינם ככ\"נ מפני כו'. שם משום דמצריף וערש\"י שם ד\"ה ירוקא כו':",
-        "דינם כשאר כ\"ח. דל\"ל ככלי נתר דהא אין בהם ממחפורת של צריף אלא משום דבלעי וכמש\"ש דבעו מיניה מאמימר כו' דודאי בלעי כו' התורה העידה על כ\"ח כו' אלמא מטעם כלי חרס הוא אלא שבצונן אינן בולעין כי אם בבקעים וכמש\"ש ס\"ה ב' במתני' ובגמ' (ע\"כ):",
-        "(ליקוט) דינם ככ\"נ כו' דינם כשאר כ\"ח כו'. וכ\"כ הר\"נ שם ועמש\"ש (ע\"כ):",
-        "והא כו'. כמש\"ש ל\"ד א' ובפ\"ב דפסחים וכ\"ת חמץ כו' זה תשמישו כו' ועתוס' דזבחים צ\"ה ב' (בד\"ה עירה) מיהו אין ראיה משם כו' וכ\"כ בעבודת כוכבים ע\"ד ב' ושם ל\"ג ב' ובשבת מ\"ב ב':"
+        "חוץ כו'. שם בסנהדרין ואע\"ג דר' ישמעאל פליג קי\"ל כר' יוחנן דאמר נמנו וגמרו וכ\"ה הסוגיא בפ\"ב דפסחים ובפ\"ב דכתובות (י\"ט א') ובפ' בתרא דיומא וש\"מ:",
+        "אם הוא בצנעה כו'. גמ' שם:",
+        "ואם ירצה כו'. כמ\"ש ברפי\"ט דשבת כל מצוה שמסרו כו' ואלישע בעל בנפים בפ\"ד (ורפי\"ט) דשבת ור\"ע וריב\"ב וכל הרוגי מלכות שמסרו עצמן על מצות פרטיות ואמרינן בשוחר טוב מה המכות האלה בין ידיך ואמר אשר הכיתי בית מאהבי המכות האלה גרמו לי ליאהב לאבי שבשמים מה לך יוצא ליסקל על ששמרתי את השבת מה לך יוצא לישרף על שאכלתי את המצה מה לך יוצא ליהרג על שמלתי את בני כו' ובפסחים נ\"ג ב' מה ראו כו' ועתוס' שם בד\"ה מה. ומפר\"ת דצלם כו' והרמב\"ם אוסר ומפרש דכל הנ\"ל בשעה צריכה לכך וכמ\"ש בנ\"י בסנהדרין שם ובחנניה מישאל ועזריה בלא\"ה ל\"ק דפרהסיא אפילו אערקתא דמסאנא כו' וכ\"כ תוס' בכתובות ל\"ג ב' אבל מ\"מ אינו מיושב דשם להנאתו ודניאל שמסר עצמו על התפלה בביתו ועוד הביא הרא\"ש ראיה שם בעבודת כוכבים מירושלמי ר' אבא בר זימנא הוה חייט אצל עובד כוכבים וא\"ל אכול נבילות ואי לא קטילנא לך א\"ל אי בעית למקטיל קטול דלא אכילנא ומסתמא בצנעה היה בביתו של עובד כוכבים אלא שרי\"ו כתב דוקא כשהעובד כוכבים מתכוין להעביר על דת וכן מיירי ההיא דירושלמי וכן ההיא דדניאל אבל דחנניה מישאל ועזריה לא משמע כן כנ\"ל ומתוס' משמע כדברי רי\"ו שכתבו בעבודת כוכבים כ\"ז ב' סד\"ה יכול. ואם רצה להחמיר כו' כמו ר' אבא כו' ובסנהדרין ע\"ד ב' ד\"ה קטול כ' ההוא עובדא כו' משום דלהנאתו היה כמ\"ש תוס' שם ועבר\"ן פ\"ד דשבת:",
+        "ואם יוכל כו'. דאפילו שבות דשבת אסור בהפסד ממון כמ\"ש בפט\"ז דשבת (קכ\"א א') א\"א כבה כו' ובפ\"ב די\"ט (כ\"ב א') כי קמיבעיא לי משום הפסד ממון ובפ' בתרא דע\"ז (ע' א') כמה כיסי משתכחי כו' ולא ידענא כו' וכיוצא בו הרבה:",
+        "ובמקום כו'. כמ\"ש בר\"פ בתרא דקדושין (ע\"א א') ישבו ובדקו כו' ופירשו ואפילו בממונו ממ\"ש בסנהדרין ע\"ג א' אי מהתם ה\"א בנפשיה אבל כו' אלמא אי לאו קרא ה\"א דאפילו להציל נפש חבירו אינו מחוייב להוציא ממונו אבל משמע שם מדבריו דאכל מל\"ת אינו מחוייב להוציא ממונו דהוכיח מדכתבה תורה בכל מאדך בע\"ז והוא שלא כדברי הר\"ן הנ\"ל:",
+        "דהיינו כו' מישראל. שם:",
+        "אם העובד כוכבים כו'. גמ' שם והא אסתר כו':",
+        "(ליקוט) אם העובד כוכבים מכוין כו'. טור ולא כ' אלא גבי פרהסיא כתי' הגמ' שם אבל רש\"י שם ד\"ה שדי כו' כ' בפרהסיא וכן בגזירת המלכות (וכ\"כ הרמב\"ן בכתובות ג' ב' דלא כהראב\"ד ע\"ש) ובהג\"א פ\"א דכתובות ס\"ד ד\"ה ולקמן נסתפק בזה אבל רש\"י ס\"ל אף בג' עבירות להנאת עצמן שרי וע\"ש בד\"ה הני קוקי כו' (וע\"ל ס\"ק י\"ב וס\"ק י\"ד) (ע\"כ):",
+        "אפי' על כו'. שם:",
+        "על ישראל לבדם. מדפריך שם והא אסתר פרהסיא הוה ולא פריך דגזירת המלכות היתה:",
+        "ודוקא כו'. דהרי אלישע בעל כנפים נטלן מראשו והטעם דהרי יכולין להעבירו בע\"כ שיטלוהו מראשו ויושיבוהו בבית האסורין וז\"ש בסנהדרין שם קרקע עולם היא ור\"ל שיכולין לכוף אותה בע\"כ והקשה שם הר\"ן היאך מסר עצמו אלישע בתחלה וכן דניאל בשביל התפלה וכן כל הנך שכ' לעיל במדרש ש\"ט מה לך כו' ותי' דרשאי להחמיר על עצמו למסור במקום שא\"צ כמש\"ל וכ\"כ נ\"י בסנהדרין שם על מש\"ש דקרקע עולם כו' כנ\"ל וכתב דאסור למסור עצמו במקום שא\"צ והא דאלישע בעל כנפים וכן חנניה מישאל ועזריה ומדרש ש\"ט הנ\"ל היינו מפני שהיתה השעה צריכה לכך וכ\"כ בד\"מ משמו וז\"ש כאן מיהו אם כו' וצ\"ע שהרי בש\"ע פסק שלא כדברי נ\"י כמש\"ל ואם ירצה כו' ולא הגיה שם כלום ודא ודא אחת היא:",
+        "אפילו כו' ושלא כו'. גמ' שם:",
+        "ואפילו אין העובד כוכבים כו'. דהא אפילו להתרפאות משלשה דברים אלו אסור ואמרינן בסנהדרין שם (ע\"ה א') מעשה כו' בשלמא אשת איש כו' ואע\"ג דמשום הנאתו ובפ' בתרא דיומא (פ\"ב א') עוברה שהריחה כו' שאין לך דבר כו'. ר\"ן בפ' כ\"ש ע\"ש (שכתב וקשה קצת כו' ואלו הקושיות כו'):",
+        "ודוקא כו'. תוס' דיבמות נ\"ג ב' ד\"ה אין אונס כו' ובכתובות ג' ב' ד\"ה ולידרוש כו' ובסנהדרין שם ע\"ד ב' ד\"ה והא כו' וש\"מ:",
+        "וכל איסור עבודת כוכבים כו'. דהא אשירה דאין מתרפאין מהן אינו אלא לאו בעלמא לא ידבק כו' כמ\"ש בפ\"ג דפסחים (מ\"ח א') וסוף מכות וש\"מ וכן ההוא מעשה דסנהדרין הנ\"ל לא היתה אלא לאו דלא תקרבו וי\"א דרק מדרבנן וכנ\"ל (ע\"ל סי' ק\"נ ס\"ק ד' וסי' קנ\"ה ס\"ק ט\"ז י\"ז כ\"ב) אלא דקשה הא דאמרינן בסנהדרין שם דאלת\"ה הני קוואקי כו' אלמא דל\"ק אלא משום דפרהסיא הוא ואסור אף בשאר מצות דמשום עבודת כוכבים לא משני מידי דשם אף בהנאת עצמן אסור כנ\"ל תי' הר\"ן ונ\"י שם דשם כיון שהוא משום לפני עור כו' אינו בכלל עבודת כוכבים וז\"ש אבל אלאו כו':",
+        "ועובד כוכבים כו'. כ\"כ ר\"ת בתוס' דסנהדרין הנ\"ל ובכתובות בד\"ה הנ\"ל דפריך ולידרוש כו' ובסנהדרין שם דפריך והא אסתר כו' ולא פריך גילוי עריות הוי וגם התי' לא היה עולה הנאת עצמן כנ\"ל וכ\"כ הרמב\"ן ועבר\"ן פ' כ\"ש ובפ' בתרא דיומא אבל תוס' תי' משום דקרקע עולם היתה כנ\"ל ופליגי אר\"ת וכן ש\"פ:",
+        "עובדי כוכבים כו'. ירושלמי פ\"ח דתרומות והביאו הר\"ש שם מתני' י\"ב וכר' יוחנן והרמב\"ם פסק כר\"ל משום ההוא עובדא דריב\"ל שם וצ\"ע:",
+        "וכן כו'. מתני' שם:",
+        "כ\"מ כו'. סנהדרין ס\"א וכרבא:",
+        "(ליקוט) כ\"מ שנא' יהרג כו' ופטור. כרבא בסנהדרין דאמר פטור וכתי' ראשון בתוס' שם אבל הרא\"מ פי' כתי' השני שלא נעשה מעולם לשם עבודת כוכבים אלא מאהבת ויראת אדם כגון אנדרטי והמן דלתי' הראשון קשה דתנן הפוער כו' אע\"ג דמתכוין לבזוייה והזורק כו' אע\"ג דמתכוין למרגמיה. הג\"מ פ\"ג ס\"ק ב' ע\"ש והריב\"ש תירץ הקושיא והביאו כ\"מ ע\"ש (ע\"כ):",
+        "ודוקא שלא יוכל לברוח כו'. ואף שתחלתן באונס כמ\"ש בספ\"ד דכתובות (נ\"א ב') הני נשי דגנבי כו' ודאי שבקינהו כו'. הריב\"ש (ע\"כ):"
       ],
       "en_segments": [
-        "If they are, etc. In Ketubot 107b it was decided like Razah.",
-        "(Likut) Their law like all earthenware because, etc. There because it combines; and Rashi there s.v. \"yeruka,\" etc.",
-        "Their law like other earthenware. For it is not like a natron vessel, for there is not in them earth from a tsarif pit, but because they absorb; and as written they asked from Ameimar, etc. ; certainly they absorb, etc. \"The Torah testified about all earthenware,\" etc. ; evidently due to earthenware vessel law, except that when cold they do not absorb except in cracks; and as written seif 65 in the mishnah and Gemara ; end [Likut: their law like all earthenware, etc. ; their law like other earthenware, etc.; and likewise Ran there, and as written ; end].",
-        "And behold, etc. As written 34a, and in perek 2 of Pesachim; and \"chametz,\" etc. \"this is its use,\" etc.; and Tosafot Zevachim 95b (s.v. \"irah\") ; however there is no proof from there, etc.; and likewise regarding idolatry 74b, and there 33b, and Shabbos 42b."
+        "Except, etc. There in Sanhedrin; and although R. Yishmael disagrees we rule like R. Yochanan who said they counted and concluded; and so the sugya in chapter 2 of Pesachim and chapter 2 of Ketubot (19a) and the last chapter of Yoma ; learn from this.",
+        "If he is in private, etc. Gemara there.",
+        "And if he wishes, etc. As stated in end of chapter 19 of Shabbat ; every mitzvah they handed over, etc.; and Elisha ba'al kenafayim in chapter 4 (end) of Shabbat; and R. Akiva and R. Yehudah ben Bava and all martyrs of the kingdom who gave themselves for private mitzvot; and we say in Shochar Tov ; what are these wounds between your hands; and he said those who struck me in my lovers' house ; these wounds caused me to love my Father in heaven; why do you go out to be stoned for keeping Shabbat, to be burned for eating matzah, to be killed for circumcising my son, etc.; and in Pesachim 53b ; what did they see, etc.; and Tosafot there s.v. mah. And from Rabbenu Chananel ; image, etc.; and Rambam forbids and explains all the above when the hour requires it as Nekudot Yosef wrote in Sanhedrin there regarding Chananiah Mishael and Azariah ; otherwise no difficulty of public [even a cloak of fine wool, etc.]; and so Tosafot in Ketubot 33b; but nevertheless it is not settled for there for his benefit; and Daniel who gave himself for prayer in his house; and Rosh brought proof there in Avodah Zarah from Yerushalmi ; R. Abba bar Zavina was a tailor with a gentile who said eat nevelah or I kill you; he said if you wish to kill ; kill for I will not eat; and presumably in private in the gentile's house; but Rashi wrote specifically when the gentile intends to make him transgress religion; and so is that Yerushalmi case and Daniel's case; but Chananiah Mishael and Azariah do not imply so as stated; and from Tosafot implies like Rashi's view who wrote in Avodah Zarah all this 27b s.v. yachol. And if he wishes to be stringent, etc. like R. Abba, etc.; and in Sanhedrin 74b s.v. ktol he wrote that incident, etc. ; because it was for his benefit as Tosafot wrote there and Ramban chapter 4 of Shabbat.",
+        "And if he can, etc. For even rabbinic Shabbat violation is forbidden with monetary loss as stated in end of chapter 19 of Shabbat (121a) it is impossible to extinguish, etc.; and in chapter 2 of Yom Tov (22a) for I am asked because of monetary loss; and in last chapter of Avodah Zarah (70a) how many purses are found, etc. and I do not know, etc.; and many similar.",
+        "And in a place, etc. As stated in last chapter of Kiddushin (71a) they sat and examined, etc.; and they explained even with his money from what is stated in Sanhedrin 73a if from there you would say for himself ; but, etc.; evidently if not for a verse you would say even to save another's life he is not obligated to give his money; but it implies there from his words that for all negative commandments he is not obligated to give his money ; he proved from Torah writing \"with all your might\" regarding idolatry; and this is not like Ran cited above.",
+        "That is, etc. , of Israel. There.",
+        "If the gentile intends, etc. Gemara there ; but Esther, etc.: (Extract) If the gentile intends, etc. Tur and the Gemara only wrote regarding public; but Rashi there s.v. shedei, etc. wrote in public; and so regarding royal decree (and so Ramban in Ketubot 3b unlike Ra'avad ; see there); and in Hagahot Ashri chapter 1 of Ketubot 64 s.v. velakman I was uncertain on this; but Rashi holds even for three prohibitions for their own benefit it is permitted ; see there s.v. hani kuki, etc. (and see s.k. 12 and 14) (end).",
+        "Even upon, etc. There.",
+        "Upon Israel alone. From the fact that it challenges there \"but Esther was in public\" ; and does not challenge that it was a royal decree.",
+        "And specifically, etc. For Elisha ba'al kenafayim took them from his head; and the reason ; they can force him to remove them from his head and seat him in prison; and this is what is stated in Sanhedrin there ; the world is ground (meaning they can force it against his will); and Ran challenged there how did Elisha initially give himself up; and likewise Daniel for prayer; and likewise all those cited above in midrash Shochar Tov ; what do you, etc.; and they explain one may be stringent on himself to give up life where not necessary as stated; and so Nekudot Yosef in Sanhedrin there on what is stated the world is ground, etc. as stated; and he wrote forbidden to give oneself up where not necessary; and that Elisha ba'al kenafayim and Chananiah Mishael and Azariah and midrash Shochar Tov cited ; because the hour required it; and so Darkei Moshe in his name; and this is what he wrote here however if, etc.; and requires study for behold in Shulchan Aruch he ruled not like Nekudot Yosef as stated; and if he wishes, etc. and he emended nothing there ; certainly one matter.",
+        "Even so, and not so. Gemara there.",
+        "And even if the gentile, etc. For it is forbidden even to obtain healing through any of these three transgressions. Sanhedrin 75a relates the incident, etc.; the Gemara explains that this is understandable in the case of a married woman, etc., even though the coercer's purpose was his own gratification. Likewise, at the end of Yoma, regarding a pregnant woman who smelled food, etc., it states that nothing stands before danger to life, etc. See the Ran in the chapter Kol Sha'ah, who writes that this is somewhat difficult, etc., and discusses these questions, etc.",
+        "Specifically, etc. Tosafot to Yevamos 53b, s.v. “There is no coercion,” etc.; Kesubos 3b, s.v. “Let them expound,” etc.; and Sanhedrin 74b, s.v. “But Esther,” etc. This proves the ruling.",
+        "And every idolatry prohibition, etc. For the asheirah from which one is not healed is only a plain negative commandment lo yidbak, etc. as stated in chapter 3 of Pesachim (48a) and end of Makot ; learn from this; and likewise that incident in Sanhedrin cited was only negative commandment of lo tikravu; and some say only rabbinically as stated (see siman 150 s.k. 4 and siman 155 s.k. 16, 17, 22); except it is difficult that we say in Sanhedrin there ; if so these kuki, etc.; evidently no difficulty except because it is public and forbidden even for other mitzvot because of idolatry makes no difference ; there even for their own benefit forbidden as stated; Ran and Nekudot Yosef explained there since it is because of lifnei iver, etc. it is not in the category of idolatry ; and this is what he wrote but a plain prohibition, etc.",
+        "And a gentile, etc. So Rabbeinu Tam in Tosafot of Sanhedrin cited and in Ketubot s.v. cited who challenges and to expound, etc.; and in Sanhedrin there who challenges but Esther, etc. and does not challenge gilui arayot; and also the explanation was not for their own benefit as stated; and so Ramban and Ramban chapter 21 and last chapter of Yoma; but Tosafot explain because the world was ground as stated; and they disagree with Rabbeinu Tam; and so Shach.",
+        "And likewise, etc. Mishnah there.",
+        "As is stated kill, etc. and exempt. Like Rava in Sanhedrin who said exempt; and the first version in Tosafot there; but Ra'avan explained the second version that it was never for idolatry but from love and fear of man such as monuments and Haman whose first door is difficult for our mishnah one who exposes, etc. even though he intends to disgrace; Hagahot Maimoniyot chapter 3 s.k. 2 ; see there; and Rivash resolved the difficulty and Knesset HaGedolah brought it ; see there (end).",
+        "Specifically where he cannot escape, etc. This applies even though the matter began under coercion, as stated at the end of the fourth chapter of Kesubos 51b regarding women who were abducted, etc.: certainly, if their captors released them, etc. Rivash."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_19",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_19",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_1",
+        "LIKUT_MARKER_MISS_19"
+      ]
+    },
+    {
+      "id": "yd1/siman160/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 4,
+      "he_deficit": 3,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפילו כו'. ממש\"ש ע\"ה א' ת\"ח כו' ועתוס' שם ד\"ה מתנה כו' ואפילו כו':",
+        "(ליקוט) אפי' אם כו'. כמ\"ש במתני' ע\"ה ב' ולקמן בס\"ו כיצד כו' לו דורון בשביל מעותיו שהיו בטילות כו'. מרדכי (ע\"כ):",
+        "אבל כו'. ממ\"ש בב\"ק צ\"ד ב' ת\"ר הגזלנין ומלוי כו' ר\"ל אלא ימחלו להם משום נעילת דלת כמש\"ש אלמא מועיל. רמב\"ם ע\"ש:",
+        "(ליקוט) אבל אם כו'. ראיית הרמב\"ם מרפ\"ט דב\"ק הגזלנין כו' וסה\"ת והג\"מ סתרו ראייתו דשם משום דחכמים הפקיעו כו' ומ\"מ דברי הרמב\"ם נכונים ממש\"ש וכי מאחר שאין מקבלין כו' לצאת י\"ש אלמא יוצא י\"ש במה שנותן לו ואינו מקבל וע\"כ מחמת מחילה (ע\"כ):",
+        "(ליקוט) אפי' כו' אבל כו'. ערש\"י ס\"ו ב' ד\"ה הכא הלואה כו' ולא מהני מחילה וכן פי' הרא\"ש ומתרץ קושית תוס' דמיירי שניהם שם דידע ומחיל ע\"ש (ע\"כ):",
+        "כמו בכל גזל. שם במתני' ק\"ג א':",
+        "(ליקוט) מתנה כו'. דהוא מעות כמ\"ש בפ\"ק דקדושין (ו' ב') דבמכר קנה ובתרומה כו' ואף אשה כו' אם לא משום חליפין (ע\"כ):"
+      ],
+      "en_segments": [
+        "Even, etc. As stated 75a Torah scholar, etc.; and Tosafot there s.v. matanah, etc.; and even, etc.: (Extract) Even if, etc. As stated in mishnah 75b and below seif 6 how, etc. ; gift for his money that was idle, etc. Mordechai (end).",
+        "But, etc. From what is stated Bava Kamma 94b ; Rabbis taught robbers and lenders, etc. ; meaning they forgive them because of closing the door as stated ; evidently it helps. Rambam there: (Extract) But if, etc. Rambam's proof from end of Bava Kamma robbers, etc.; and Sefer HaTerumah and Hagahot Maimoniyot rejected his proof for there because sages annulled, etc.; nevertheless Rambam's words are correct from what is stated and since they do not accept, etc. to leave Israel ; evidently he gives in what he gives and does not accept and therefore because of forgiveness (end): (Extract) Even, etc. but, etc. Rashi 66b s.v. haka halvah, etc. and forgiveness does not help; and so Rosh explained and resolved Tosafot's difficulty that both deal where he knew and forgave ; see there (end).",
+        "Like every theft. Named in mishnah 103a.",
+        "(Extract) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale acquires; and in terumah, etc.; and even woman, etc. unless because of exchange (end)."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_flags": [
         "LIKUT_MARKER_MISS_3"
       ]
     },
     {
-      "id": "yd1/siman135/seif-008/beur-hagra",
+      "id": "yd1/siman161/seif-002/beur-hagra",
       "volume": "yd1",
-      "siman": 135,
-      "seif": 8,
+      "siman": 161,
+      "seif": 2,
       "slug": "beur-hagra",
       "kind": "he_has_more_segments",
       "heSegs": 6,
-      "enSegs": 4,
-      "he_deficit": 2,
+      "enSegs": 2,
+      "he_deficit": 4,
       "en_deficit": 0,
       "he_file_present": true,
       "en_file_present": true,
       "he_segments": [
-        "יש מי כו'. הרא\"ש פ\"ה סל\"ב בשם הרמב\"ן:",
-        "(ליקוט) יש מי כו'. ממש\"ש ע\"ד ב' ומודה ר' בקנקנים כו' ומה הפרש כו' מכלל דלרבנן הן שוין ואפ\"ה בעץ ואבן ינגב ואי אמרת דגם עץ בעי עירוי מאי ומורה רבי גם לחכמים קשה דהא אין חומר בקנקנים מפני שהן של חרס ואין ההודאה ממין הטענה. ר\"נ אבל כ' שדעת כל הראשונים אינו כן אלא כולן צריכים עירוי (ע\"כ):",
-        "ויש מוסיפים כו'. לאפוקי מתכת וזכוכית דלכן אמרו ל\"ג ב' מאני דקוניא חוורי ואוכמי שרי וכמ\"ש בס\"ו:",
-        "ויש מי כו'. הרא\"ש שם:",
-        "אבל כו'. עבא\"ח סי' תנ\"א סכ\"ו:",
-        "(ליקוט) יש מי כו' ויש כו' אבל כו'. ממ\"ש ל\"ג ב' הני חצבי כו' הני פתוואתא כו' ופי' הרא\"ש שם אפי' במכניסו לקיום שאינן בולעין וכ\"ש לכלי זכוכית וער\"נ שם (ע\"כ):"
+        "ואם בא כו'. דאבק רבית לר\"א הוא כמו רבית קצוצה לר' יוחנן ושם ודאי חייב לצאת י\"ש ממש\"ש למורא ניתן ר\"ל לצאת י\"ש וכן פי' ריב\"ן אבל תוס' ס\"ב א' ד\"ה תנאי כו' חולקין על ריב\"ן וכן בב\"ק צ\"ד א'. ועוד הביאו ראיה מתוספתא המלוה את חבירו ברבית ועשה תשובה חייב להחזיר ומדקאמר ועשה תשובה משמע דאתי כר' יוחנן:",
+        "(ליקוט) ואם בא כו'. אבל תוס' בב\"ק צ\"ד ב' ד\"ה אי כו' וד\"ה לצאת כו' חולקין ע\"ז אבל הם (הרמב\"ן וש\"פ) מפרשים בפי' ריב\"ן בתוס' שם (שפי') למורא ניתן כו' ועוד קשה להם קושית תוס' דמאי פריך גמ' מאי בעי גביה כיון שא\"צ להחזיר אף לצאת י\"ש בשלמא ההיא דב\"ק שם י\"ל כתירוץ ראשון של תוס' וי\"ל דאם החזיר כו' או כתי' השני א\"נ כו' ולא ניחא להם בתי' השלישי של תוס' ועי\"ל כו' דקושית הגמ' היתה אקרי כאן כו' אי עשה תשובה ואי כתירוצם אינו תולה בנשיא בעמך אבל תוס' ס\"ל כתי' השלישי כמ\"ש תוס' שם (ע\"כ):",
+        "(ליקוט) ואם בא כו'. וכ\"ד הרמב\"ן במלחמות והרא\"ש בשמו סי\"ז וכתב הרמב\"ן כו' וכ\"ש הלוהו כו' ואף לצאת כו'. וע\"ל סי' קס\"ו ס\"א (ע\"כ):",
+        "(ליקוט) הרשב\"א חולק ע\"ז וכתב בב\"ק ע\"ה א' מהא דאמרינן שם אין בדבריך כלום כר' דייקינן בירושלמי בעלמא דקנס כל שאין עדים אפילו לצאת י\"ש אינו חייב דאל\"כ יוציא ר\"ג לחירות כדי לצאת י\"ש וכתב וה\"ה לאבק רבית וכ\"מ בפ\"ה דב\"מ (ס\"ד ס\"ה) בעובדא דרב יוסף ב\"ה דקאמר הדרי בי ר\"ל מכאן ואילך ולא אשכחן דאהדר להו אגרי דעבדי (לפי דברי הרמב\"ן והרא\"ש סי' י\"ז אין ראיה מזה) (ע\"כ):",
+        "(ליקוט) ואם בא כו'. דאית נ\"י מתוספתא אינה מוכרחת דהכי תניא שם ספ\"ה המלוה את חבירו ברבית ועשה תשובה חייב להחזיר מת והניח לפני בניו לא יחזירו בניו ע\"ז נאמר יכין רשע וצדיק ילבש אבל הניח להן אביהם פרה שדה וטלית וכ\"ד שיש בו אחריות חייבין להחזיר ואמר עשה תשובה משום סיפא כמ\"ש בב\"ק רפ\"ט ובב\"מ שם (ע\"כ):",
+        "(ליקוט) מלבד רבית כו'. דהא במתנה יהבה כמש\"ש במתני' (ע\"ה ב') דורון כו' (ע\"כ):"
       ],
       "en_segments": [
-        "There is one who, etc. Rosh perek 5 132 in the name of Ramban [Likut: there is one who, etc. ; from what is written 74b \"and Rabbi admits regarding flasks,\" etc. \"and what is the difference,\" etc. ; from which it implies that according to the rabbis they are equal; and nevertheless in wood and stone it dries, and if you said wood also requires pouring ; what? And Rabbi teaches also to the Sages it is difficult, for there is no stringency in flasks because they are of earthenware, and the admission is not from the type of the claim. Ran ; but he wrote that all the Rishonim's view is not so, but all require pouring ; end].",
-        "Some add, etc. This excludes metal and glass. Therefore they said on 33b that white and black glazed vessels are permitted, as stated in seif 6.",
-        "There is one who says, etc. The Rosh there.",
-        "But, etc. Orach Chaim siman 451 s\"k 26 [Likut: there is one who, etc., and there is one who, etc., but, etc. ; from what is written 33b \"these jugs,\" etc. \"these lids,\" etc.; and Rosh's explanation there ; even when putting in for permanence they do not absorb; and all the more so for glass vessels; and Ran there ; end]."
+        "And if he comes, etc. Avak ribbit for R. Eliezer is like fixed ribbit for R. Yochanan, and there certainly obligated to fulfill Heaven ; meaning to fulfill Heaven; and so Ribban explained; but Tosafot 62a s.v. tnai, etc. disagree with Ribban ; and so Bava Kamma 94a. And further they brought proof from Tosefta: one who lends at ribbit and repents is obligated to return ; and since it says \"and repented\" implies like R. Yochanan. (Extract) And if he comes, etc. But Tosafot Bava Kamma 94b s.v. i, etc. and s.v. letzet, etc. disagree on this; but they (Ramban and Shach) explain Ribban's explanation in Tosafot there (that he explained) \"for fear it was given,\" etc.; and further difficult for them Tosafot's question why does Gemara ask what does he want with him since he need not return even to fulfill Heaven ; unless first answer of Tosafot or second text, or third; and one can answer Gemara's question was on \"if he repented\" ; and if their answer does not depend on \"with your people\" but Tosafot holds third answer as Tosafot there (end). (Extract) And if he comes, etc. And so Ramban in Milchamot and Rosh in his name siman 17; and Ramban wrote, etc., and all the more one who lent him, etc., even to fulfill, etc.; and below siman 166 s.a. (end). (Extract) Rashba disagrees and wrote in Bava Kamma 75a from what we say there \"your words are nothing\" ; we infer in Yerushalmi generally a penalty: wherever there are no witnesses even to fulfill Heaven he is not obligated, for otherwise R. Gamliel would free for sake of Heaven; and wrote the same regarding avak ribbit ; and so Bava Metzia 64, 65 regarding Rav Yosef's case who said return from now on and we do not find he returned wages they did (per Ramban and Rosh siman 17 no proof from this) (end). (Extract) And if he comes, etc. For N.Y. from Tosefta is not necessary ; for thus it is taught there end ch. 5: one who lends at ribbit and repents must return; if he died and left before his sons they need not return ; on this it says \"the wicked prepares and the righteous wears\"; but if father left them a cow, field, and garment with liability they must return; and it says \"repented\" due to the end as stated Bava Kamma ch. 9 and Bava Metzia there (end).",
+        "(Extract) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75b) doron, etc. (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
       "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
@@ -383,50 +393,42 @@
       "prior_eval_reason": "LIKUT_MARKER_MISS_1",
       "prior_eval_flags": [
         "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_5"
+        "LIKUT_MARKER_MISS_2",
+        "LIKUT_MARKER_MISS_4"
       ]
     },
     {
-      "id": "yd1/siman135/seif-015/beur-hagra",
+      "id": "yd1/siman165/seif-001/beer-hagolah",
       "volume": "yd1",
-      "siman": 135,
-      "seif": 15,
-      "slug": "beur-hagra",
+      "siman": 165,
+      "seif": 1,
+      "slug": "beer-hagolah",
       "kind": "he_has_more_segments",
-      "heSegs": 9,
-      "enSegs": 7,
+      "heSegs": 4,
+      "enSegs": 2,
       "he_deficit": 2,
       "en_deficit": 0,
       "he_file_present": true,
       "en_file_present": true,
       "he_segments": [
-        "כלי כו'. ע\"ד ב' דרש רבא כו':",
-        "וכ\"ה כו'. ממש\"ש ל\"ג ב' קנקנים כו' כיון כו' וכנ\"ל סי\"ד ומצינו הגעלה לכ\"ח כמש\"ל ס\"ס קי\"ג ועוד דלא גרע מעירוי שאינו מפליט אלא כ\"ק ואפ\"ה מהני בכ\"ח כמש\"ש א'. ת\"ה:",
-        "(ליקוט) וכלי חרס. דלא כהר\"נ פ\"ב בשם הרמב\"ן שכתב שאינו מועיל לכ\"ח הגעלה כלל:",
-        "ואפילו מכניסו לקיום. כ\"כ הר\"נ שם שאף הרמב\"ן מודה בזה בכלי עץ ושאר כלים:",
-        "ככלי ראשון. דוקא הרשב\"א והר\"נ וכמ\"ש בפ\"ב דפסחים (ל' ב') ברותחין ובכלי ראשון (ע\"כ):",
-        "(ליקוט) בכלי ראשון. כ\"כ הר\"נ שם בשם הרמב\"ן ושכן פיר\"ח נעוה ארתחו ע\"ג האור (ע\"כ):",
-        "וי\"מ כו'. תוס' שם בד\"ה קינסא כו':",
-        "(ליקוט) ויש מתירין כו'. עתוס' דעבודת כוכבים ע\"ד ב' ד\"ה דרש כו' אבל הרשב\"א כ' דוקא כלי גת שאינן מכניסין לקיום שא\"צ אלא ניגוב מותרין בעירוי אבל כלים שמכניסן לקיום שאינן ניתרין אלא בעירוי צריכין הגעלה מכ\"ר ועתוס' ל\"ג ב' ד\"ה קינסא כו' (ע\"כ):",
-        "ואפילו כו'. כמ\"ש בא\"ח סי' תנ\"א ס\"ו בהג\"ה:"
+        "בעיא דרבא מרב חסדא ופשטא בב\"ק דף צ\"ו ופירש\"י המלוה את חבירו שום פרקמטיא על המטבע שקצץ לו מעות והטור העתיק המלוה לחבירו סכום מטבע:",
+        "מימרא דרב אשי שם:",
+        "שם כעובדא דעביד רב פפא ורב הונא בריה דרבי יהושע וכו' ובהא הוא דפשט רב חסדא דנותן לו מטבע היוצא באותה שעה דבהוסיפו חומש אין שבח לענין נסכא בחשבון חסרון ההיתוך ושכר הצורף הרא\"ש:",
+        "הרי\"ף והרא\"ש וכ\"כ הרמב\"ם בפ\"ד מה\"מ וכ\"כ בה\"ת בחלק ח':"
       ],
       "en_segments": [
-        "Vessel, etc. 74b ; Rava expounded, etc.",
-        "And such is the law, etc. This follows from 33b: ‘jars,’ etc., ‘since,’ etc., and as above, seif 14. We also find that hagalah is effective for earthenware vessels, as stated above at the end of siman 113. Moreover, it is no worse than soaking, which extracts taste only to the depth of a peel, yet is effective for earthenware, as stated there on 33a. Torat HaBayit.",
-        "(Likut) And an earthenware vessel. This rejects the Ran in perek 2, citing Ramban, who wrote that hagalah is never effective for earthenware.",
-        "Even if it is used for long-term storage. The Ran there wrote that even Ramban concedes this regarding wooden vessels and all other vessels.",
-        "Like a first vessel. Specifically Rashba and Ran; and as written in perek 2 of Pesachim (31b) in hot and in a first vessel ; end [Likut: in a first vessel ; likewise Ran there in the name of Ramban, and so Pirkei Rach explained \"heated on the fire\" ; end].",
-        "And there are those who say, etc. Tosafot there s.v. \"kansa,\" etc. [Likut: and there are those who permit, etc. ; Tosafot Avodah Zarahh 74b s.v. \"darsh,\" etc.; but Rashba wrote specifically winepress vessels that are not put in for permanence, that drying suffices and they are permitted through pouring; but vessels put in for permanence are not permitted except through pouring ; from the Rav; and Tosafot 33b s.v. \"kansa,\" etc. ; end].",
-        "And even, etc. As written in Orach Chaim siman 451 seif 6 in Hagah."
+        "In Isaiah’s words, Hashem’s mercy and mercy, and Hashem’s promise of Hashem’s mercy, and Hashem’s promise of His mercy, and His mercy, and Hashem’s mercy, and His wrath is a blessing:",
+        "I'm going to say:"
       ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_2",
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "editorial eval HOLD: FRESH_TRANSLATE_2",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_2",
+      "prior_eval_reason": "FRESH_TRANSLATE_2",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_5",
-        "LIKUT_MARKER_MISS_7"
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FAILURE_FRESH_2:the craft",
+        "MIXED_INFLATED_3.209"
       ]
     }
   ]

@@ -24,7 +24,9 @@ import {
   preview,
   readCorpusEnPlain,
   sig,
+  sigIgnoreMarkersFromSegs,
   stripHtml,
+  stripLeadingEnMarker,
   writeEvalOutputs,
 } from "./_eval_remaining_shared.mjs";
 
@@ -309,12 +311,20 @@ function evalResegment(kitCase, gptCase, { allowFresh = false } = {}) {
   const corpusNorm = norm(corpusEn);
   const exactMatch = joinedNorm === corpusNorm;
   const sigMatch = sig(joinedProposed) === sig(corpusEn);
+  const corpusSegs =
+    Array.isArray(kitCase.en_segments) && kitCase.en_segments.length
+      ? kitCase.en_segments
+      : [corpusEn];
+  const sigMatchIgnoreMarkers =
+    sigIgnoreMarkersFromSegs(proposed) ===
+    sigIgnoreMarkersFromSegs(corpusSegs);
   const enLengthRatio = Number(
     (joinedNorm.length / Math.max(corpusNorm.length, 1)).toFixed(3)
   );
 
   if (splitIdx.length && freshIdx.length === 0) {
-    if (!exactMatch && !sigMatch) flags.push("CONTENT_DRIFT");
+    if (!exactMatch && !sigMatch && !sigMatchIgnoreMarkers)
+      flags.push("CONTENT_DRIFT");
     if (enLengthRatio < 0.92) flags.push(`TRUNCATED_${enLengthRatio}`);
     if (enLengthRatio > 1.08) flags.push(`INFLATED_${enLengthRatio}`);
   } else if (freshIdx.length) {
@@ -361,11 +371,11 @@ function evalResegment(kitCase, gptCase, { allowFresh = false } = {}) {
   } else if (flags.includes("HAS_FRESH_TRANSLATE") && !allowFresh) {
     verdict = "HOLD";
     reason = "unjustified_fresh_translate";
-  } else if (flags.includes("CONTENT_DRIFT") && !sigMatch && !freshIdx.length) {
+  } else if (flags.includes("CONTENT_DRIFT") && !sigMatch && !sigMatchIgnoreMarkers && !freshIdx.length) {
     verdict = "HOLD";
     reason = "content_drift_vs_corpus_en";
   } else if (flags.some((f) => /BEER_DEGREE|LIKUT_MARKER/.test(f))) {
-    verdict = sigMatch || freshIdx.length ? "HOLD" : "REJECT";
+    verdict = sigMatch || sigMatchIgnoreMarkers || freshIdx.length ? "HOLD" : "REJECT";
     reason = "pattern_marker_miss";
   } else if (
     freshIdx.length &&
@@ -455,9 +465,17 @@ function evalEditorial(kitCase, gptCase) {
   const corpusNorm = norm(corpusKit);
   const exactMatch = joinedNorm === corpusNorm;
   const sigMatch = sig(joinedProposed) === sig(corpusKit);
+  const corpusSegs =
+    Array.isArray(kitCase.en_segments) && kitCase.en_segments.length
+      ? kitCase.en_segments
+      : [corpusKit];
+  const sigMatchIgnoreMarkers =
+    sigIgnoreMarkersFromSegs(proposed) ===
+    sigIgnoreMarkersFromSegs(corpusSegs);
 
   if (splitIdx.length && freshIdx.length === 0) {
-    if (!exactMatch && !sigMatch) flags.push("CONTENT_DRIFT");
+    if (!exactMatch && !sigMatch && !sigMatchIgnoreMarkers)
+      flags.push("CONTENT_DRIFT");
   }
 
   for (let i = 0; i < heSegs; i++) {
@@ -495,7 +513,7 @@ function evalEditorial(kitCase, gptCase) {
   ) {
     verdict = "REJECT";
     reason = "truncated_or_quote_break";
-  } else if (flags.includes("CONTENT_DRIFT") && !sigMatch && !freshIdx.length) {
+  } else if (flags.includes("CONTENT_DRIFT") && !sigMatch && !sigMatchIgnoreMarkers && !freshIdx.length) {
     verdict = "HOLD";
     reason = "content_drift";
   } else if (
@@ -505,7 +523,7 @@ function evalEditorial(kitCase, gptCase) {
     verdict = "HOLD";
     reason = "fresh_translate_quality";
   } else if (flags.some((f) => /LIKUT_MARKER_MISS/.test(f))) {
-    verdict = sigMatch || freshIdx.length ? "HOLD" : "REJECT";
+    verdict = sigMatch || sigMatchIgnoreMarkers || freshIdx.length ? "HOLD" : "REJECT";
     reason = "likut_marker_miss";
   } else if (gptCase.confidence === "low") {
     verdict = "HOLD";
