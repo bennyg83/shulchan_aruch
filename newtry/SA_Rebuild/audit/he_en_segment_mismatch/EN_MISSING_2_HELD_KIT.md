@@ -64,6 +64,26 @@ TRANSLATION NORMS
 - Plain English only — no "Translation:" label.
 - Where norms and full_dictionary.md conflict, full_dictionary.md wins.
 
+FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)
+
+UNIVERSAL — any EN segment text:
+- Do NOT add editorial notes, "Note:", "Meaning:", explanations, or confidence commentary inside EN output.
+- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN ("TBD", "translation pending", etc.).
+- Do NOT wrap the response in markdown fences or add prose outside valid JSON.
+
+JSON OUTPUT (mandatory):
+- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.
+- Valid JSON only — escape every " as \" inside strings; use straight ASCII quotes only (no smart quotes).
+- Prefer returning en_segments[] without embedding he in strings when possible.
+- en_segments.length MUST equal heSegs for every case.
+
+FRESH_TRANSLATE (this kit):
+- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.
+- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.
+- {Rama: ...} format for Rama glosses; no additions beyond source.
+- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.
+- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.
+
 OUTPUT — JSON array only, same ids/order:
 [{
   "id": "...",

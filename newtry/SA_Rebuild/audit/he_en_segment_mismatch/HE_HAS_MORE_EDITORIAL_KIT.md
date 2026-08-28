@@ -110,6 +110,35 @@ TASK (pick best per case)
 3) mixed_resegment_translate — split EN where possible + fresh_translate gaps from HE.
 4) needs_human — ambiguous / unsafe.
 
+FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)
+
+UNIVERSAL — any EN segment text:
+- Do NOT add editorial notes, "Note:", "Meaning:", explanations, or confidence commentary inside EN output.
+- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN ("TBD", "translation pending", etc.).
+- Do NOT wrap the response in markdown fences or add prose outside valid JSON.
+
+JSON OUTPUT (mandatory):
+- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.
+- Valid JSON only — escape every " as \" inside strings; use straight ASCII quotes only (no smart quotes).
+- Prefer returning en_segments[] without embedding he in strings when possible.
+- en_segments.length MUST equal heSegs for every case.
+
+SPLIT_EXISTING_EN / RESEGMENT (this kit):
+- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.
+- Do NOT normalize citations (e.g. "32a"→"daf 32"), synonym-swap ("halachic authorities"→"poskim"), or reword "where possible".
+- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.
+- Do NOT paraphrase, summarize, compress, or "improve" prose on preserved splits — change ONLY by splitting/joining.
+- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.
+
+FRESH_TRANSLATE (gap slots only):
+- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.
+- {Rama: ...} format for Rama glosses; no additions beyond source.
+- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.
+
+MERGE_GROUPS (only when explicitly allowed):
+- merge_groups ONLY for true HE continuation (same lemma body split across <br>); never glue distinct notes or Likut blocks.
+- Do NOT output merge_groups that reduce heSegs on Likut cases — split EN instead.
+
 OUTPUT — JSON array only, same ids/order:
 [{
   "id": "...",

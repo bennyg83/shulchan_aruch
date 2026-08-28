@@ -80,7 +80,7 @@ TRANSLATION NORMS (when fresh_translate needed)
 TASK
 For each case:
 1) Align EN to HE slots (index 0 .. heSegs-1).
-2) When the existing EN blob clearly contains the translation for a HE slot: split it out (source: split_existing_en). Preserve exact wording where possible.
+2) When the existing EN blob clearly contains the translation for a HE slot: split it out (source: split_existing_en). Preserve exact wording VERBATIM — cut/join only; no rewording.
 3) When EN is missing for a HE slot (truncated blob, partial coverage): translate that slot from HE only (source: fresh_translate).
 4) When a slot mixes preserved EN cut + gap-fill translation: source: partial.
 5) If alignment is unsafe: action needs_human; still return segments[] with best-effort he+en if possible, or empty en for unclear slots.
@@ -89,6 +89,31 @@ ACTIONS
 - resegment — EN blob splits cleanly into heSegs pieces; no new translation needed.
 - mixed_resegment_translate — some slots from EN split, some fresh from HE.
 - needs_human — unsafe / ambiguous; flag for manual review.
+
+FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)
+
+UNIVERSAL — any EN segment text:
+- Do NOT add editorial notes, "Note:", "Meaning:", explanations, or confidence commentary inside EN output.
+- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN ("TBD", "translation pending", etc.).
+- Do NOT wrap the response in markdown fences or add prose outside valid JSON.
+
+JSON OUTPUT (mandatory):
+- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.
+- Valid JSON only — escape every " as \" inside strings; use straight ASCII quotes only (no smart quotes).
+- Prefer returning en_segments[] without embedding he in strings when possible.
+- en_segments.length MUST equal heSegs for every case.
+
+SPLIT_EXISTING_EN / RESEGMENT (this kit):
+- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.
+- Do NOT normalize citations (e.g. "32a"→"daf 32"), synonym-swap ("halachic authorities"→"poskim"), or reword "where possible".
+- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.
+- Do NOT paraphrase, summarize, compress, or "improve" prose on preserved splits — change ONLY by splitting/joining.
+- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.
+
+FRESH_TRANSLATE (gap slots only):
+- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.
+- {Rama: ...} format for Rama glosses; no additions beyond source.
+- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.
 
 OUTPUT — JSON array only, same ids/order as input cases:
 [{

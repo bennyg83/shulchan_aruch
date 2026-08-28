@@ -84,6 +84,25 @@ Allowed actions (pick one primary):
 - needs_human: cannot safely decide structure or rewrite.
 - pair_then_merge: structure-only confirm of pair_map without new EN text (discouraged here — prefer rewrite).
 
+FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)
+
+UNIVERSAL — any EN segment text:
+- Do NOT add editorial notes, "Note:", "Meaning:", explanations, or confidence commentary inside EN output.
+- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN ("TBD", "translation pending", etc.).
+- Do NOT wrap the response in markdown fences or add prose outside valid JSON.
+
+JSON OUTPUT (mandatory):
+- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.
+- Valid JSON only — escape every " as \" inside strings; use straight ASCII quotes only (no smart quotes).
+- Prefer returning en_segments[] without embedding he in strings when possible.
+- en_segments.length MUST equal heSegs for every case.
+
+REWRITE_EN_BY_HE_SLOT (this kit):
+- corrected_en[i] must be a complete fresh translation of he_segments[i]; one segment per HE slot.
+- Use full_dictionary.md for halachic terms; expand abbreviations; Arabic numerals; {Rama: ...} for Rama glosses.
+- You may use paired EN stubs as draft material but output clean halachic English — no MT garbage, no Hebrew in EN.
+- Do NOT invent HE content; do NOT drop a HE slot; do NOT fabricate EN on needs_human cases.
+
 OUTPUT JSON array only, same ids/order:
 [{
   "id": "...",
