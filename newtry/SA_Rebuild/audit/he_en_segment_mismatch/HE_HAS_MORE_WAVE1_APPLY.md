@@ -59,3 +59,7 @@
 
 - Rebundled affected volumes (oc1 / yd1 / cm1) with `BUNDLE_CONCURRENCY=1`.
 - Remaining HE_HAS_MORE (pack baseline 395 − 62 Wave1) ≈ **333** pending other actions (Likut / split_en / editorial / human).
+
+## Commit
+
+- **SHA:** `07b4315ea5` (pushed to `origin/main`)

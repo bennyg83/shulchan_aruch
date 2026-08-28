@@ -23,27 +23,25 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T12:23:32.008Z",
+    "created": "2026-08-28T15:24:45.294Z",
     "kit": "EN_TRUNC_EDITORIAL_REMAINING",
     "counts": {
-      "total": 81,
+      "total": 2,
       "by_volume": {
-        "oc1": 3,
-        "yd1": 47,
-        "cm1": 31
+        "yd1": 1,
+        "cm1": 1
       },
       "by_kind": {
-        "en_truncated_vs_multi_he": 81
+        "en_truncated_vs_multi_he": 2
       },
       "by_fp_pattern": {
-        "true_en_truncated": 59,
-        "true_likut_en_merged": 20,
-        "true_beer_degree_split": 2
+        "true_beer_degree_split": 1,
+        "true_likut_en_merged": 1
       }
     },
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
-    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.\n\nINPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\nTRANSLATION NORMS\n- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.\n\nCONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nFRESH_TRANSLATE (this kit):\n- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.\n- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.\n- {Rama: ...} format for Rama glosses; no additions beyond source.\n- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.\n- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs. No corpus edits.",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.\n\nINPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\nTRANSLATION NORMS\n- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.\n\nCONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs. No corpus edits.",
     "instructions_for_reviewer": [
       "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.",
       "",
@@ -55,173 +53,48 @@
       "",
       "CONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.",
       "",
-      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
-      "",
-      "UNIVERSAL — any EN segment text:",
-      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
-      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
-      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
-      "",
-      "JSON OUTPUT (mandatory):",
-      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
-      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
-      "- Prefer returning en_segments[] without embedding he in strings when possible.",
-      "- en_segments.length MUST equal heSegs for every case.",
-      "",
-      "FRESH_TRANSLATE (this kit):",
-      "- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.",
-      "- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.",
-      "- {Rama: ...} format for Rama glosses; no additions beyond source.",
-      "- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.",
-      "- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.",
-      "",
       "OUTPUT — JSON array only:",
       "[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "85549c88ea4991238e5a7355b1e33b91f936e9240c6f84040a267ac452e89223",
+    "parent_sha256": "c3c6ec27377bf5494dad57417b26bec72dfa7166452f815b6de634ebc27b5dbe",
     "chunk_index": 1,
-    "chunk_total": 6,
+    "chunk_total": 1,
     "case_offset": 0,
-    "cases_in_chunk": 16,
+    "cases_in_chunk": 2,
     "parent_pack": "EN_TRUNC_EDITORIAL_REMAINING.json",
     "note": "Full segment text — no truncation"
   },
   "cases": [
     {
-      "id": "oc1/siman162/seif-007/peri-megadim",
-      "volume": "oc1",
-      "siman": 162,
-      "seif": 7,
-      "slug": "peri-megadim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 4,
-      "enSegs": 1,
-      "he_deficit": 3,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "נטל ידו אחת כו׳ עט״ז הביא דברי הב״י בכאן יע״ש והנה מ״ש בב׳ ידיו כ״א בפ״ע א״צ לפרש משיורי טהרה זה אמת ויציב עמ״ש במ״א אות ט״ו וי״ו אמנם מה שפירש דמיירי ששפך מים שניים ושפשפה בראשו אפ״ה טמא כשחזר ונגע בהם לא זכיתי להבינם שזה היפך מ״ש הר״ש בפ״ב מ״ב דידים והרע״ב פ״א מ״א ומ״ש הר״ש ומיהו אפשר שפשוף בעי לעולם לומר ניגוב דל״ת כל האוכל בלי ניגע מיירי בלא היה מים שניים אבל הוא ז״ל נראה שפירש דמסופק הר״מ דאפילו בשפך מים ב״ת ונגע אח״כ טמאה וצ״ע ועא״ר אות י״ח וצ״ע כעת. עיין קס״ה אות ב׳ מזה אי״ה:",
-        "אמר הכותב כפי הפרטים המבוארים בסימן זה ובסימנים הקודמים כי רבים המה צריך האדם בינוני להתבונן ולומר אולי מיומא לא משאי ידי כראוי והנה בשפיכה בעלמא סגי עפ״י הרוב אין כל היד מה שצריך נטילה בא המים בכל המקומות וכ״ת מיעוט דמיעוט אין כ״כ קפידא הא בורכא והרי טבילה כל שמיעוט הגוף חוץ למים מ״ה לא הוי טבילה ואי קשיא מיעוט המקפיד מ״ה הוי טבילה או רובו שאין מקפיד דמ״מ כל בשרו במים קרינן ביה משא״כ כשהושיט אצבע א׳ חוץ למים מ״ה לא הוי טבילה ומינה לנט״י כל שמקום א׳ לא באו המים לא הוי נטילה וכמ״ש הב״ח כאן בס״א ראשי אצבעות לרש״י יע״ש ובין אצבעות שצריך שיבואו המים בכל מקום והיה נראה שמש״ה צריך לשפשפם אחר נטילה כמ״ש הר״ב בס״ג ובט״ז ד׳ כי יש מקומות שלא באו המים וכשמשפשף יבואו והרי מים ראשונים עם שפשוף ניגוב די כמ״ש המ״א י״ו (ועט״ז כאן) גם בט׳ קבין א״י אם לא יבואו המים בכל הגוף בלי מקום פנוי א״י מה תועלת:",
-        "גם בקס״א בס״ד י״א עד הזרוע וי״א עד חיבור אצבעות לכף היד ועט״ז אות וי״ו והנה לפ״ז מהגודל ג״כ צריך עד סוף ב׳ קשרים ומ״ש הב״י עד קשר א׳ היינו אם נאמר לחולין ב׳ קשרים משא״כ לרא״ש ג׳ קשרים ומגודל ב׳ קשרים. והיותר נכון שיטול עד הזרוע רביעית על כל יד בפני עצמו ולית מים טמאים ועכ״ז צריך זהירות וצ״ע:",
-        "מ״ש הט״ז שנבלעו במפה עיין ברכות נו״ן ב׳ במפה על השולחן:"
-      ],
-      "en_segments": [
-        "If he washed one hand. See Taz, who cites Beis Yosef here. When both hands were washed separately with a reviis on each, there is no need to explain the ruling as involving residual water of purity. This is correct. Rema, Magen Avraham, and the commentators discuss how rubbing can be effective when the hands touch each other. The case must be one in which sufficient water remains upon them, or where the second hand is washed from the first hand’s residual water in the manner described by the Rishonim. If each hand received less than a reviis, the first water becomes impure and can render the other hand impure when they touch. If each hand received a full reviis at once, the water does not become impure and the hands may touch. When one hand was washed and then rubs the other before the second washing, he must be careful that the unwashed hand not render the washed hand impure. See siman 165, seif katan 2. The essential distinction is between water that remains first water and water that has already become impure through contact with an unwashed hand. The language of Shulchan Aruch and the Tur should be understood accordingly. See siman 12. See siman 140."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "oc1/siman252/seif-001/peri-megadim",
-      "volume": "oc1",
-      "siman": 252,
-      "seif": 1,
-      "slug": "peri-megadim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 5,
-      "enSegs": 1,
-      "he_deficit": 4,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "והמגיס עט״ז בשי״ח אות כ״ב וכ״ג צמר או דצריך בישול רב (וזה נראה דעת המחבר כאן ובמ״א אי״ה באות ב׳ יבואר) או צובע. ועיין רא״ש פ״ק דשבת י״ח ב׳ הביא פירש רש״י מגיס מבשל ובפ׳ כירה ד״מ ע״ב הביא בסימן י״א שם פירושים מגיס מבשל אף ע״ג דאין בישול אחר בישול סמנין לצבוע בהן צריך בישול לעולם א״נ צובע שמגיס מכניס הסמנין בצמר וז״ש הט״ז בשי״ח אות כ״ב שצמ״ר צריך הרבה בישול ל״ד סמנין צריך הרבה בישול ויש בהם בישול אחר בישול תמיד ונ״מ המגיס ביורה סמנים שאין בהם צמר כו׳ ויבואר אי״ה בשי״ח וכאן במ״א ב׳: אמר מר והנמהר ראיתי לכתוב כאן קצת דברים פרטיים בענין זה. רש״י שבת ח״י ב׳ ד״ה מגיס והמבשל הוה בישול פירוש הרא״ש שם דחייב משום בישול אבל הב״ח דקדק מלת ובמבש״ל לומר בתבשיל הוה בישול וכאן משום צובע וכמ״ש התוס׳ ד״ה דילמא וכן פירש מהרש״ל עכ״ל. הנה מלת ובמבש״ל י״ל כ״ז שיס״ב וכ״ר אבל כ״ש או אין יס״ב אף מגיס אין פועל בו בישול וכרא״ש. ולב״ח משמע כל דליכא מבשל ליכא צובע אבל לקמן אבאר אי״ה די״ל אף כ״ש וכדומה מגיס נכנס הסמנים בצמר וכדכתיבנא. עי״ד בסימן ס״ט בש״ך או׳ ל״ח ול׳״ז דחומץ וציר י״ל מבשל בכ״ש וא״כ אותם המטמינים בשר ובצלים וחומץ חריף ומערין לכ״ש אסור להגיס כ״ז שיס״ב אם אין מבושל כל צרכו אבל כ״צ שרי כמ״ש בסימן שי״ח סי״ח ובאין יס״ב ראוי להקל שם וכאן. ולהר״ב בשי״ח ה״ה בכ״צ בכ״ש כה״ג:",
-        "והנה הר״מ ז״ל פרק שלישי הי״א מה״ש אסו״ר להכניס מגריפה לקדירה והיא על האש מפני שמגיס בה וזה מצרכי בישול ונמצא כמבשל בשבת ופ״ט שס ה״ד מגיס מבשל ופכ״א הי״ג מותר לגמור שחיקת הריפות אחר שמורידין הקדירה מעל האש ועיין מ״מ וכ״מ ולח״מ פ״ג ולאחר התבוננות היטב בדבריהם הוא דהלח״מ הבין במ״מ דתחיבת המגריפה לאו מגיס הוא אלא דגזור אטו יגיס ויהפוך בה הלכך במבושל כ״צ דליתן על האש איכא איסור דרבנן (יבואר אי״ה בסמוך) תחיבת המגריפה מותר הא הגסה ממש אסור מדרבנן ובלא כ״צ חייב חטאת ומגיס נמי הילכך תחיבת המגריפה אסור שמא מגיס וכתב רבינו דין זה כאן ולא בפרק תשיעי ששם מקומו משום דלמדה מהך דצמר ליורה דילמא יגיס כמ״ש המ״מ והיינו אע״ג דהתם דילמא מגיס והוה צובע מ״מ דמי ליה לגז״ר כמו התם דילמא מגיס ה״נ דרך להפך המגריפה הילכך הוצאה ותחיבה נמי אסור וכ״ז על הא״ש הא עקורה אף כ״ר ויס״ב אין הגסה פועלת בישול הילכך מותר מגריפה ושמש״ה כתבו התוספות שם שבת י״ח ב׳ ד״ה דילמא משום צובע לא בישול ברייתא ביצה ל״ד אלא בעקורה אין הגסה פועלת בישול אף בכ״ר. וא״ש ההיא דפכ״א הריפות אחר שמורידין מאש מהפכין בה אע״ג הגסה ממ״ש אסור מדרבנן עכ״פ להר״מ ז״ל בכ״צ כמ״ש המ״מ בעקורה אין פועלת כלל ובעודה על הא״ש אה״נ מדרבנן אסור. אבל הכ״מ שם פ״ג הבין דלכ״ע בעקורה וכ״ר יס״ב הגסה בבישול דמ״ש על האש כו׳ התוספות שכתבו צובע לא בישול דקשיא להו מה פריך דסתמא סמנים כבר מבושלים כי כן דרך הצובעים ואח״כ נותנים צמר ליורה ומתירין ב״ה אע״ג שעדיין לא קלט העין דא״כ מגיס אין בישול אחר בישול (בצמר ל״ש בישול רק בסמנים) (עמש״ל בט״ז שי״ח אות כ״ב) לכן כתבנו צובע וכתי׳ הב׳ של הרא״ש פ׳ כירה דף מ״ם ב׳ סי׳ י״א: וכתב רבינו ר״ן דלמדה ג״כ והלא מגיס מבשל וז״ש הרמ״ך הביאו הכ״מ שם יע״ש. אלא דיקשה ההיא דפכ״א הי״ג דאסור בעל האש לגמור שחיקת הריפות למגיס במבושל כ״צ עכ״פ מדרבנן אסור ולמה התיר אחר שמורידין כו׳ והן אמת פ״ט ה״ג המבשל על האור מבושל כ״צ פטור משמע אבל אסור והחילוק יש שי״ל בין נצטנן או לאו מבוארים ומ״מ לכ״מ דכתב בפשיטות כן קשה ואי״ה בסימן רנ״ג במ״א אות כ״ב ול״ב ובשי״ח ס״ד וסט״ו יבואר הדין להמחבר בזה:",
-        "עוד רגע אדבר בהגהות פ״ג אות ו׳ דחלק אסה״ת במבושלת כ״צ מפרשים דהר״ח בכ״צ מיירי ותחיבת מגריפה מגיס ממש הוא ואסור על האש כ״צ או מ״ה אף ע״ג דאין בישול אחר בישול הגסה פועלת יותר או מדרבנן עכ״פ ויתיישב כמבש״ל בכף הדמיון ועמ״א שי״ח מ״ב ולדינא יבואר שם אי״ה בזה:",
-        "ועדיין פש גבן לברורי כי שלש טעמים יש ביורה עקורה מגיס אחד בישול כפירש״י וכרא״ש פרק כירה מ״ם ב׳ סי״א בב״ח סימן (הוא שי״ח) דסמנים לעולם צריכין בישול ולפ״ז דוקא בכ״ר ויס״ב השני תי׳ הב׳ ברא״ש צובע כשמגיס נכנסו הסמנים בצמר ויש לכ״א לכאורה קולא וחומרא לתי׳ הא׳ קולא בכ״ש או אין יס״ב חומרא אף קלט העי״ן אסור כי הסמנים צריכין לעולם בישול ולתירוץ הב׳ קולא בקלט העי״ן מבע״י ל״ש צובע תו וחומרא אף בכ״ש י״ל מגיס צובע. ואמנם טעם השלישי למדתי מר״ן ז״ל לשבת שכן דרך הצובעים להגיס שלא יחרוך וכ״מ בירושלמי ומשמע מטעם צביעה הוא כי היא מלאכת הצביעה שלא יחרוך הצמר הילכך אף שקלט העי״ן אסור אבל בכ״ש י״ל ל״ש שמחריך ושרי אפשר אף בלא קלט העי״ן באופן שיש לכ״א מהפירושים קולא וחומרא ויבואר אי״ה במ״א אות ב׳:",
-        "ומנא הא מילתא דאמרי רבנן אף כ״ר שהעבירו מעל האש הגסה פועלת בה מתורתו של הר״ן ומההיא דילמא מגיס בה אף בעקורה (דכ״ר מבשל יליף ממשנה אלפס וקדירה שהעבירן מרותחין בשבת כו׳) ולתירוץ צובע לא מוכח מידי ולזה י״ל דסברא היא בלא ילפותא דכ״ר מבשל אף הוסר ומגיס כבישול מה לי הוסר. אמנם בר״ן קשה דכתב ומכאן למידין ואח״כ כתב מטעם מלאכת הצביעה א״כ אין ראיה ומירושלמי צ״ע וכבר עמד הגאון המפרש בירושלמי עלה דהך שלמד הירושלמי יע״ש גם דברי הירושלמי גופא צ״ע לי ומה אעשה שעוונותי גרמו שלא זכיתי להבין כל זה ואי״ה במ״א ב׳ יבואר עוד:"
-      ],
-      "en_segments": [
-        "One who stirs. See Taz in seif katan 18, paragraphs 22 and 23. Wool may require extensive cooking, and this appears to be the Mechaber’s view here. Magen Avraham will be discussed, with God’s help, in seif katan 2. The same applies to other materials whose processing requires heat. Stirring a pot hastens and improves the cooking, and therefore constitutes cooking even when the food was already placed on the fire. Where the contents are fully cooked and no further cooking is possible, the prohibition depends on whether stirring improves the mixture or causes another prohibited effect. The Rishonim disagree concerning a pot removed from the fire and concerning food that has not yet reached the degree of maachal ben Derusai. One must therefore distinguish between a vessel on the fire, a first vessel removed from the fire, and a second vessel; between raw, partially cooked, and fully cooked contents; and between merely moving the food and actively mixing it so that the heat is distributed. The Mechaber’s language indicates that actual stirring is forbidden while the food still requires cooking. Even removing a portion with a spoon can resemble stirring when the contents are thick, because the remaining material is displaced and mixed. Where there is no cooking concern, one must still consider dyeing, kneading, or selecting, according to the substance involved. The practical rule is to avoid stirring a pot on the fire and to remove it before serving whenever the food is not unquestionably fully cooked. The detailed distinctions stated by Taz and Magen Avraham should be followed in their respective cases. See siman 1. See siman 8. See siman 11. See siman 69. See siman 90. See siman 253. See siman 318."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "oc1/siman292/seif-002/machatzit-hashekel",
-      "volume": "oc1",
-      "siman": 292,
-      "seif": 2,
-      "slug": "machatzit-hashekel",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 6,
-      "enSegs": 1,
-      "he_deficit": 5,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "(ס\"ק ב) ג' אנשים כו' שאין כאן במה להפסיק כו' דאחר ובא לציון אומרים קדיש ואחר הקריאה קודם תפלת י\"ח אומרים ג\"כ קדיש. וא\"כ אם נאמר הקדיש על הבימה אחרי הקריאה. איך יאמר שוב קדיש קודם תפלת י\"ח. והא אין ענין מפסיק בין שני הקדישים בשלמ' בשחרית איכ' הפסק בין ב' הקדישים אשרי שאומרים אחר קדיש שעל הקריאה אבל במנחה שכבר אמרו אשרי קודם הקריאה ואין אומר ואין דברי' אחרי הקריאה. ואפי' במנחה בתענית ס\"ד שיאמרו קדיש אחר שקראו ג' בתור' קודם שיאמר הפטר' ותהיה ההפטרה הפסק בין הקדישים לזה כ' מ\"א דההפטרה שייכ' אל הקריא' ונפטרה ההפטרה בקדיש שלפני ההפטר' א\"כ קדיש שלפני י\"ח למה הוא בא:",
-        "וכ' הריב\"ש כו' דבמקו' שאין ס\"ת א\"א קדיש שלפני י\"ח דהא כבר אמרו קדיש אחר ובא לציון וא\"כ קדיש שני על מה יאמרוהו. והקשה בס' א\"ר לפמ\"ש מ\"א סס\"י קמ\"ג דאפי' במקום שאין ס\"ת יקרא החזן בקול רם מתוך החומש וא\"כ תהיה הקריאה מתוך החומש הפסק וגם בס' ת\"ש כ' גם בעיני יפלא למה יגרע מפסוקי תהלים וצריך לחלק בין קדיש של ש\"ץ לקדיש יתום עכ\"ל ת\"ש. ולענ\"ד י\"ל דלא מצינו קדיש יתום או ש\"ץ כ\"א על תחנה ותפל' או שיר ושבח אבל על לימוד התורה אומרי' קדיש דרבנן. רק כשקוראים בס\"ת כתקנות עזרא אומרים קדיש על קיום מצות תקנות חכמים משא\"כ במקום שאין ס\"ת והחזן קורא מתוך החומש שלא תשתכח תורת קריאה אין לה מתקנת חכמים אלא מנהג בעלמא ע\"ז לא שייך קדיש כ\"א קדיש דרבנן על הלימוד וזה ניתקן בצבור:",
-        "שלא יאמרו גם כן ואני תפלתי כמש\"ל בס\"ק שלפני זה לטעם ש\"ל שם:",
-        "א\"ל שיאמרו ואני תפלתי ויאמרו קדיש עליו. ר\"ל לטעם שני שלא להפסיק כו' הוא יש לזה תקנה שיאמרו אחר ואני כו' קדיש שנית:",
-        "מ\"ד איהללו. ר\"ל מ\"ש לעיל דמה\"ט א\"א קדיש במנח' אחרי הקריא' דאין דבר להפסיק בין קדיש שלאחר הקריאה ובין קדיש שלפני י\"ח והא איכ' הפסק אמירת יהללו שאומרים בשעה שמכניסים ספר תורה להיכל אע\"כ דפסוק א' ל\"מ הפסק:",
-        "או יאמרוהו כו' ר\"ל אם אעפ\"כ רצונם לו' ואני יאמרוהו מיד אחר סיום ובא לציון ויאמרוהו אחר זה קדיש ולא יהי' הפסק. מ\"מ לטעם הש\"ל שכ' בס\"ק א' אפי' מיד אחר סיום ובא לציון אין לאמרו:"
-      ],
-      "en_segments": [
-        "Three men, etc. There is no interruption here, because after U'va LeTzion they recite Kaddish, and after the Torah reading, before Minchah, they also recite Kaddish. If Kaddish were recited at the bimah after the reading, how could another Kaddish be recited immediately before Minchah? There would be nothing between the two Kaddishes. At Shacharis, Ashrei is recited after the Kaddish that follows the Torah reading, and this serves as an interruption. At Minchah, however, Ashrei was already recited before the Torah reading and is not repeated afterward. Therefore, no Kaddish is recited after the reading. Even at Minchah on a fast day, one might have thought that Kaddish should be recited after the three aliyos and before the haftarah, with the haftarah serving as an interruption before the Kaddish preceding the Amidah. Magen Avraham therefore clarifies that this is not the practice."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman129/seif-009/siftei-kohen",
+      "id": "yd1/siman289/seif-005/beer-hagolah",
       "volume": "yd1",
-      "siman": 129,
-      "seif": 9,
-      "slug": "siftei-kohen",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "וארובה מהעלייה לבית. דמצי למחזי לכ\"ע הא לא\"ה דהך גיסא ודהך גיסא אסור וכ\"כ הרשב\"א ב\"י וד\"מ ופשוט הוא מלעיל סימן קכ\"ח ס\"ג:",
-        "הואיל ולא ידע כו'. כ\"כ בד\"מ בשם תשובת הרא\"ש כלל י\"ט סי' י\"ג וכן נרשם בש\"ע ותימה דבהדיא איתא בתשוב' הרא\"ש שם להיפך דאפילו ידע שמפליג הישראל וז\"ל נ\"ל דחמרא שרי וראיה מפרק בתרא דעבודת כוכבים ההוא ישראל ועובד כוכבים דיתבי בארבא ושתו חמרא שמע ישראל קל שיפורי דבי שמשי קם סליק אמר רבא חמרא שרי אימא אמר עובד כוכבים השתא קמדכר ליה לחמרא ואתי ואי משום שבתא הא אמר לי איסור גיורא כי הוינא בארמיותא אמינא יהודאי לא נטרי שבתא וכ\"ש בנדון זה דשרי דמימר אמר עובדי כוכבים השתא מידכר ישראל שלא סגר במפתח ואתי ול\"מ אם לא הודיע לעובד כוכבים שהוא מפליג דשרי דמימר אמר השתא אתי כל שעה ושעה ומירתת אלא אפילו הודיע לעובד כוכבים שהוא מפליג שרי דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת עובד כוכבים כו' עכ\"ל הרי בהדיא דאפילו הודיעו שהוא מפליג מותר ובאמת ניכרים הדברים שהיה לפני הרב תשו' הרא\"ש דפוס ישן ויניציאה שנדפס בשנת שי\"ב שכתוב שם בזה הלשון וכ\"ש בנדון זה דשרי דמימר אמר עובדי כוכבים השתא מידכר ישראל שלא סגר במפתח ואתי ול\"מ אם לא הודיע לעובד כוכבים שהוא מפליג דשרי דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת עובד כוכבים כו' עכ\"ל ודברים אלו נראים מוטעים והגיה הרב דוקא אם לא הודיע לעובד כוכבים שמפליג שרי אבל האמת יורה דרכו שגם בדפוס ישן ר\"ל כמו בדפוס חדש שבויניציאה כאשר העתקתי למעלה ועוד שהרי מביא הרא\"ש ראיה מההוא ישראל ועובד כוכבים דשתו חמרא כו' והתם אפי' כשהודיעו שהוא מפליג שרי מטעם שיאמר העובד כוכבים עתה יזכור יינו ויבא וכמ\"ש בס\"ק י\"ט ך' ועוד דלפי טעם שכתב הרא\"ש דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת ודאי אפילו הודיעו שהוא מפליג מותר מה\"ט וכ\"נ מדברי המחבר וצ\"ע:"
-      ],
-      "en_segments": [
-        "And he closed, etc. And at night we say presumably he closed, and it is forbidden, since the gentile has ownership in the house, as below at the end of siman 130."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman145/seif-002/turei-zahav",
-      "volume": "yd1",
-      "siman": 145,
-      "seif": 2,
-      "slug": "turei-zahav",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "ציפויו אסור. שנאמר לא תחמוד כסף וזהב אשר עליהם:",
-        "משמשי הר הוי כציפויו. לפי שמשמשי אליל נפקא לן פ' ר' ישמעאל (עבודה זרה דף נ\"ב) מפסוק אבד תאבדון את כל המקומות אשר עבדו שם הגוים את אלהיהם על ההרים והאי המקומות אם אינו ענין לגופו שהרי לא מתסרי דכתי' אלהיהם על ההרים ולא ההרי' אלהיהם תנהו ענין לכלים ש\"מ דאף בהרים נאסרו הכלים אבל תקרובת דהר לא נאסר וכתבו התוספות שם הטעם דבפ' כל הבשר נפקא לן איסור תקרובת דכתיב ויאכלו מזבחי מתים וקרא כי כתיב בפעור כתי' ופעור היה תלוש:"
-      ],
-      "en_segments": [
-        "Its plating is forbidden. For it is said \"you shall not covet the silver and gold upon them.\""
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman147/seif-005/beur-hagra",
-      "volume": "yd1",
-      "siman": 147,
+      "siman": 289,
       "seif": 5,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרב זירא א\"ר מתנא וכו' שם דף ל\"ג ע\"א וכדמפרש שם ריש ע\"ב:",
+        "(°) ואם הפתח גבוה מאוד לא יניתנו למעלה מכתיפיו דאינו נראה שם מרדכי:"
+      ],
+      "en_segments": [
+        "M.M. Dr. M. M. M. M. M. D. A. D. A.D., and if the opening is very high, we will not give up our mouths, we will see Mordechai:"
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    },
+    {
+      "id": "cm1/siman67/seif-028/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 28,
       "slug": "beur-hagra",
       "kind": "en_truncated_vs_multi_he",
       "heSegs": 2,
@@ -231,255 +104,13 @@
       "he_file_present": true,
       "en_file_present": true,
       "he_segments": [
-        "מותר כו'. רמב\"ם בפי' ספ\"ה דגיטין מש\"ש בגמ' ס\"ב א' אחזוקו:",
-        "אלקיך. צ\"ל אלקים וכ\"ה בנוסחא שלפנינו ברמב\"ם שם ונוסחא מוטעת נזדמנה לו להרב:"
+        "יתומים קטנים. דגדולים אין ב\"ד אביהם דהם ככל אדם. ריב\"ש:",
+        "(ליקוט) יתומים קטנים. ערש\"י בב\"מ ע' א' ד\"ה בדקנני כו' (ע\"כ):"
       ],
       "en_segments": [
-        "It's allowed to go. The Rambam in the P.S.S., D.C., D.C., has been removed:"
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 REJECT",
-      "prior_eval_verdict": "REJECT"
-    },
-    {
-      "id": "yd1/siman150/seif-002/beur-hagra",
-      "volume": "yd1",
-      "siman": 150,
-      "seif": 2,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אלא ישב. רמב\"ם:",
-        "או כו' או כו'. רש\"י ד\"ה ואם אינו כו':"
-      ],
-      "en_segments": [
-        "But sitting. Rambam:"
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman153/seif-003/beur-hagra",
-      "volume": "yd1",
-      "siman": 153,
-      "seif": 3,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 4,
-      "enSegs": 1,
-      "he_deficit": 3,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "היה לעובד כוכבים כו'. טור וכר\"י אבל הרמב\"ם פסק כת\"ק:",
-        "ומ\"מ כו'. רש\"י שם ד\"ה לא יהא כו':",
-        "לעולם. רש\"י שם ד\"ה ואל ישוח כו':",
-        "במקום כו'. פר\"א פ' ב\"ט ולמה מלן בשביל הטהרה שכל מי שאוכל עם העובד כוכבים כו' וכל הנוגע בו כנוגע במת וכל הרוחץ עמו כרוחץ עם המצורע וכתב המרדכי בעבודת כוכבים מ\"ד ב' דאמרינן שם דר\"ג רחץ כו' שם שקדם העובד כוכבים וכתב בד\"מ ומה שאין נזהרין האידנא משום שהולכין במכנסים וכמ\"ש האגודה בפ\"ד דפסחהים וכמ\"ש בא\"ע סימן כ\"ג ס\"ו בהג\"ה אבל לא דמי לשם וכבר כתבו האחרונים שבפר\"א אומר משום טהרה וגם נראה דשם מיירי באמבטי אחת ולכן ל\"ק ג\"כ הא דר\"ג הנ\"ל:"
-      ],
-      "en_segments": [
-        "He belonged to a gentile, etc. Tur; and like R. Yosi; but Rambam ruled like the first opinion."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman153/seif-004/beur-hagra",
-      "volume": "yd1",
-      "siman": 153,
-      "seif": 4,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אפילו הם רבים. גמ' שם כ\"ה ב':",
-        "ונשותיהם עמהם. שם וסתמו הרי\"ף והרמב\"ם ולא כתבו פלוגתת ר\"י ור\"א משום דס\"ל כפירש\"י דלרב אידי בכל ענין אסור ותניא כוותיה דר\"א אבל לפי' תוספות שם ד\"ה א\"ב והרא\"ש שם דבין העובדות כוכבים לעולם מותרת להתייחד ואשה חשובה אפילו עם העובדי כוכבים מותרת דקי\"ל כרב אידי כנ\"ל:"
-      ],
-      "en_segments": [
-        "Even they are many. G-d is called “B”:"
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman156/seif-001/siftei-kohen",
-      "volume": "yd1",
-      "siman": 156,
-      "seif": 1,
-      "slug": "siftei-kohen",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "בתער. דשכיחא היזקא אבל במספריים דלא שכיח היזקא שרי אם יש עמו אחר תוס' שם ופי' הב\"ח דאם אין עמו אחר בלא\"ה אסור להתייחד עם העובד כוכבי' (כדלעיל סי' קנ\"ג ס\"ב) עכ\"ל וכן מפורש בתוס' שם בדיבור הקודם וז\"ל אבל בינו לבינו אסור להסתפר פי' במקום שאין רגילין בני אדם כ\"כ אבל בייחוד ממש לא איצטריך דתיפוק ליה אף בלא מסתפר אסור להתייחד עמהם משום שפיכת דמים ע\"כ:",
-        "ונהגו להקל כו'. ז\"ל הדרישה כ' רמ\"א ויש מחמירין כו' עד ונהגו להקל ע\"כ ונראה הא דנהגו להקל היינו משום דאנו נותנים להם שכר וכתב הגה\"א דבשכר מותר עכ\"ל וקשה א\"כ מאי ונהגו להקל כסברא הראשונה אלא ר\"ל דסברא הראשונה מתיר במקום שבני אדם מצויין שם אפי' בלא מראה וע\"ז סמכו להקל וכן הוא הסכמת הפוסקים כמ\"ש בבית יוסף ואותן בני אדם שמסתפרים מן העובד כוכבים בינם לבין עצמן לאו שפיר עבדי דבלא\"ה אסור להתייחד עמהן כ\"ש במסתפר:"
-      ],
-      "en_segments": [
-        "With a razor. For harm is common; but with scissors where harm is uncommon it is permitted if another is with him — Tosafot there; and the Bach explained that if another is not with him it is in any case forbidden to seclude with a gentile (as above siman 153 seif 2) — end; and so is explained explicitly in Tosafot there in the previous heading: but between him alone it is forbidden to have one's hair cut — meaning in a place where people are not often found; but actual seclusion does not need to be stated — for it is derivable that even without the haircut it is forbidden to seclude with them on account of bloodshed — end."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman167/seif-001/beur-hagra",
-      "volume": "yd1",
-      "siman": 167,
-      "seif": 1,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "מלוה כו'. כמו בטרשא דרב חמא הרא\"ש וש\"פ. וכ\"ה בירושלמי ר\"ח יהיב דינר לחד ב\"נ א\"ל מה דהינון מיכן ועד חנוכה דידי מתמן ולהלן לית לי עסק עמך אין פחתין ואין יתרין דידך כו':",
-        "(ליקוט) מלוה כו'. ולא דמי להא דרב חמא (ס\"ט ב') דמוגיר זוזי וקיבל כל האחריות דשם היה כל העסק בשביל המקבל וקצץ לנותן דבר ידוע וכמש\"ל בסי' קע\"ז ס\"ו אבל כאן הוא כל העסק בשביל הנותן והוי כשלוחו ומ\"מ צריך שיהא האחריות על הנותן כיון שעושה בשביל טובתו שיהיה אח\"כ מלוה בידו והריוח שלו אלא כיון שנותן לו שכר עמלו ומזונו מותר לעסוק בפקדונו אע\"ג שיהיה אח\"כ מלוה בידו וכמו ההיא דרב חמא וכמ\"ש בעיסקא דמותר לעסוק בחלק פקדון אע\"ג שעושה בשביל חלק מלוה כיון שנותן לו שכר עמלו וכמו ההיא דירושלמי שהבאתי שאמר עד חנוכה כו' אבל מ\"מ דין זה אינו נ\"ל וכמש\"ש לא מצא מותר שליש כו' ואב\"א כו' ולא דמי לההיא דירושלמי דשם אמר אחר חנוכה יהיה שלך אף שלא ירויח או יפסיד קודם חנוכה וכן בטרשא דרב חמא דלא איכפת להו כלל בהולכה אם יהיה ריוח או לא מ\"מ בחזרתן הוא שלהם הריוח משא\"כ כאן. ועוד נ\"ל דאינו מותר אלא בנותן לו בעיסקא אבל בהלואה אסור וגדולה מזו בסי' קע\"ז סי\"ד האומר כו' דאע\"ג דמותר מן הדין וכמש\"ש בסי\"ח המוכר כו' מ\"מ אסור בהלואה כמש\"ש הרשב\"א דבדרך הלואה אסור ע\"ש ועוד כתב הטור שם סל\"ד הנותן עיסקא לחבירו כו' לא יכתוב עליו שט\"ח דהוי מלוה כו'. ומה מהני שנותן לו שכר עמלו הא אפילו חצר דלא קיימא לאגרא וגברא דלא עביד למיגר אסור לדור בחצרו וכ\"ש הלוני ודור כו' כ\"ש שמתנה עמו שיעסוק בפקדונו בשביל הלואתו אף שנותן לו שכר וכמ\"ש בסי' ק\"ס סכ\"ג המלוה כו' וה\"ה להיפך שע\"מ שכל מלאכה שיתן ללוה שיקבל ממנו ג\"כ אסור. ואינו מותר כאן אלא בעיסקא וכה\"ג דירושלמי או כמ\"ש בהג\"ה כאן (ע\"כ): ובלבד כו'. הרא\"ש שם וכמו בטרשא דר\"ח דנקט להו כו' וכמ\"ש הרא\"ש שם וכ\"ת כיון דאחריות הדרך כו' וי\"ל כו' ועתוס' ס\"ה א' ד\"ה נקטיה כו' ושם ע\"ג א' ד\"ה ברשות כו' וד\"ה החמרים כו' וד\"ה מ\"ט כו': ואם התנה כו'. כמש\"ל סי' קע\"ז ס\"ג ע\"ש:"
-      ],
-      "en_segments": [
-        "And if you have been called. As a result of the S.C.:"
+        "Small orphans. The great ones do not have their father’s blood as much as man. A small orphan. “And I am in the midst of Hashem.”"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman183/seif-001/turei-zahav",
-      "volume": "yd1",
-      "siman": 183,
-      "seif": 1,
-      "slug": "turei-zahav",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "באונס. פירוש על ידי קפיצה. ברצון פירוש כפי טבע האשה מחמת עצמה:",
-        "אע\"פ שלא יצא לחוץ. עיין ריש סימן קפ\"ח מדינים אלו. בטור שמא תראה האשה בימי נדתה יש מגיהין ושמא כו' משום קושיות ב\"י ולא נייח לי דא\"כ לא היה צריך לכתוב אח\"כ בין זיבה לנדה אלא הוי ליה למימר כדי שלא תטעה בימי נדה עצמה דזיבה מאן דכר שמיה ע\"כ נראה דצ\"ל בטור משום שמא יבאו לטעות באיסור כרת החמירו לטמא כל מראה אדום ושמא תראה כו' כנ\"ל להגיה ולפי זה דבריו הם מסודרים היטב שעל חשש טעות במראה הדמים החמירו לטמא כל מראה אודם רק שיש חשש עוד מחמת זה שמא תראה אשה כו' וצריכה עוד ז' ימים פירוש עם יום הראי' דם טמא היינו עוד ו' ימים ובאמת אף שכאן מיירי מימי נדה מ\"מ צריכה שיהיו נקיים דאם תראה בהם יהיה גם בהם הספק דשמא עד יום האחרון עדיין לא ראתה דם טמא אלא צריך שיהיו הו' ימים שאח\"כ נקיים ולפ\"ז לא צריכה אלא ו' נקיים מ\"ה לא זכר כאן נקיים וכללו במ\"ש אחר כך וכדי שלא יבואו לטעות בין ימי נדה לזיבה דשמא בימי זיבה היא וראתה דם טמא ג' ימים וצריכה ז' ימים נקיים דוקא וזהו שסיים הטור תשב עליה ז' נקיים ר\"ל בלא יום הראיה כזבה גדולה משא\"כ לעיל כ' וצריכה עוד ז' ימים ר\"ל בצירוף היום הראיה האחרון שלפניו ופי' דברי רבינו כך הוא דג' חששות יש כאן. הא' במראה דם שיטעו לטהר ע\"כ החמירו לטמא כל מראה אודם ועוד חשש לענין ימי נדה כמו שזכרנו על כן היה צריך ו' נקיים ועוד חשש שתטעה בימים בין זיבה לנדה ע\"כ צריכה ז' נקיים וא\"ל למה לי חשש האמצעי י\"ל דמהי תיתי לחשוש לטעות בין נדה לזיבה ע\"כ כתב חשש האמצעי דמחמתו צריכה עכ\"פ ו' נקיים וא\"כ יש מקום לטעות בין נקיים דנדה לנקיים דזיבה ע\"כ צריכה בכל מקום שבעה נקיים:"
-      ],
-      "en_segments": [
-        "Rape. It means by jumping. In desire, it means the nature of the woman herself:"
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit part01 HOLD",
-      "prior_eval_verdict": "HOLD"
-    },
-    {
-      "id": "yd1/siman187/seif-010/turei-zahav",
-      "volume": "yd1",
-      "siman": 187,
-      "seif": 10,
-      "slug": "turei-zahav",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "בביאה הראשונה שאחר טבילתה. זה אינה דומה למה שכתב הש\"ע בסמוך בענין חשש ראיית ליל טבילה דשמה תלוי החשש באותו לילה דוקא ואח\"כ מותרת אבל כאן איכא החשש מחמת ביאה ראשונה שאחר הטבילה אע\"פ שהוא זמן רב אחר הטבילה אלא דקשה בזה פשיטא שאסורה ככל אשה שראתה ג\"פ רצופים ע\"כ צ\"ל דמיירי אע\"פ שבינתיים היו ביאות של היתר וזה מהני בדין שאח\"כ מ\"מ כאן לא מהני דגם שם לא מהני אלא דאמרינן מכח זה דדם הראשון שאחר לידה היה מחמת הלידה כמבואר שם וזה לא שייך בליל טבילה ועיין מה שכתבתי בסעיף י\"א:",
-        "או ראתה אחר כל לידה ג\"פ כו'. דברי רמ\"א א\"א ליישבן אם לא נאמר שיש כאן ט\"ס. תחילה נעתיק דעת מהר\"ר יוחנן בהגהת ש\"ד שמשם לוקח דין זה דעת מהר\"ר יוחנן באשה שראתה פעם אחת שאחר לידתה ואח\"כ שמשה ולא ראתה וכן מנהגה עד ג' לידות ופסק שם כיון שהוחזקה בביאות של היתר בינתיים איכא למימר דמה שראתה פעם אחת אחר הלידה הוא מחמת שהוכו הצדדין מחמת הלידה והוי ליה כמכה דלעיל סעיף ה' זהו כלל דבריו שם משמע דאם לא הוחזקו ביאות היתר בינתיים אלא לא היו רק שלש ביאות לחוד דהיינו ביאה אחת אחר הלידה וראתה ותו לא שמשה כלל עד אחר לידה ג' וראתה דפשיטא שאסורה ולא אמרינן בזה דכל ראייתה הוה מחמת מכת הצדדין אע\"ג שכל אחת תכופה ללידה ואם כן ק\"ו הוא אם שמשה וראתה ג' פעמים רצופים אחר לידה אחת דאסורה עד בדיקתה בשפופרת דהא כאן חמיר טפי בשתי ביאות שאחר ביאה הראשונה שהם אינם תכופים ללידה ותו משמע אם אירע לה כך ג\"פ אחר לידה דהיינו שבכל פעם אחר לידה ראתה ג' רצופים והיא נאסרה כמו שאמרנו ועברה ושמשה אחר אותן הג\"פ אחר כל לידה דלא מהני לה וכ\"ש דבדיקת שפופרת לא מהני דלא מהני תיקון שפופרת או ביאה ולא ראתה אלא במקום שיש חשש באותה ביאה לאיסור אז אמרינן כיון דנתקנה על ידי שפופרת מה שראתה ע\"י תשמיש הוא מחמת צדדין כדלעיל משא\"כ כאן אף את\"ל שניתקנה והותרה אח\"כ היינו עד לידה רביעית אבל אחר שנתחזקה לראות ג\"פ אחר כל לידה לראות ג\"פ רצופים ובזה לא מהני לומר הוכו הצדדין לא מהני לה אף אם יבוא עליה באיסור אחר אותן הג\"פ להתירה אחר לידה רביעית דהא אתחזקה באיסור ג\"פ אחר כל לידה בג\"פ רצופים ובודאי תראה גם בפעם הרביעית אחר הלידה ג\"פ ויהיה ודאי איסור לפנינו וכאן לא שייך לומר כיון שיש בינתיים ביאות של היתר דהא ג\"פ רצופים ראת' אחר כל לידה והוא עכשיו אחר לידתה כמו ליל טבילתה דלעיל אלא אם עבר ובא עליה באיסור אחר לידתה ולא ראתה אז מהני ואזלה חזקת איסור לראות אחר לידתה. כל זה נראה ברור ופשוט וגם פסקי רמ\"א יורו על זה אלא שקשה בדבריו דמה שכתב או ראתה אחר כל לידה ג\"פ כו' דמשמע רצופין דאם לא כן מה זה שכתב אח\"כ וכל זה אם כבר עברה ושמשה כו' למה כתב עברה והלא בהיתר שמשה דלא נאסרה כיון שלא ראתה ג\"פ רצופין אחר שום לידה אלא ע\"כ שראתה שלש פעמים רצופין אחר כל לידה ועל זה קאי אם עברה כו' ואם כן קשה מאי מסיים אח\"כ אבל אם ראתה ג\"פ רצופים אחר לידה לא תלינן בלידה דהא גם ברישא מיירי מרצופין ובלבוש הוסיף כאן תיבה וזה לשונו אבל לכתחלה אם ראתה שלש פעמים רצופים כו' ורצונו לומר דקא משמע לן דלא מצינו תשמיש בינתיים שלא ראתה אלא כשעברה ועשתה כן אבל באמת אינו מותר והג\"ה זאת אינה נכונה דא\"כ לא היה לו לרמ\"א לכתוב אלא אבל באמת אסורה היא ומה לו להזכיר כאן לא תלינן בלידה גם למה לו להזכיר אבל אם ראתה ג\"פ רצופים והא לעיל ג\"כ מיירי ממנו ותו דלמה לא כ' לעיל בעיקר הדין תיבת רצופים והיותר קשה מן הכל דלפי זה משמע אם כבר ראתה רצופין ג\"פ אחר כל לידה מהני לה מה שעברה ושמשה אח\"כ ולא ראתה בין לידה ללידה שתהיה מותרת אפילו אחר לידה רביעית וחלילה לומר כן שהרי הוחזקה בביאות איסור ג\"פ אחר כל לידה בלי החזקת ביאות היתר ביניהם ומהר\"ר יוחנן לא התיר לעיל אלא שראת' פעם א' אחר כל לידה ממילא הופסקו ביאות היתר בין אותן ביאות שרוצים לעשות האיסור דהיינו הצירוף של כל אחר לידה להדדי דהא קודם לידה השניה אין כאן איסור משא\"כ כאן שיש ג\"פ איסור שהרי הם רצופים אחר כל לידה ויש איסור אפי' קודם לידה השניה ולא מהני בזה הוכו הצדדים וא\"כ הוחזקה בכך והוה אחר לידתה כליל טבילתה דלעיל ואסורה אחר כך אחר לידתה רביעית ומה שכתב רמ\"א אח\"כ בסוף דבמקום שצריך בדיקה מהני עברה ושמשה היינו בעברה ושמשה אחר לידה הרביעית וכ\"כ בהדיא בד\"מ אבל לא מהני לה מה ששימשה ולא ראתה קודם לידה הרביעית שזכרנו וזה ברור לכל מבין ע\"כ נראה שיש כאן ט\"ס וצ\"ל וכ\"ז אם כבר שמשה ותיבת עברה אינו נכון כאן ונמצאו דברי רמ\"א ממש כדברי מהר\"ר יוחנן ומ\"ש או ראתה אחר כל לידה ג\"פ מיירי באינם רצופין ויש ביאות היתר ביניהם ועל זה אמר אם שמשה כבר ור\"ל בהיתר אז לא אמרי' שהוחזקה לראות אחר כל לידה ותלינן בהוכו הצדדין ונמצא שפיר מסיק אח\"כ אבל אם ראתה ג\"פ רצופין אפי' אחר לידה אחת צריכה שפופרת ולא מהני לה אם תעבור ותשמש באיסור אח\"כ אלא לענין תשמיש שמכאן ואילך עד לידה רביעית דהיינו שאחר לידה שלישית מותרת עד שתגיע לידה הרביעית ואז אסורה אע\"פ ששימשה בינתיים ולא ראתה כי דרכה של אשה זו לראות דוקא אחר לידתה והוה לה וסת בזה. גם מו\"ח ז\"ל כתב דהג\"ה זאת מיירי ברישא באינן רצופים ולא ידעתי למה לא הרגיש לפרש מ\"ש וכל זה אם עברה דהא אין כאן עברה וע\"כ כמו שהגהתי כן צריך להיות ועיקר הדין נתבאר בסייעתא דשמיא בכל פרטיו. ומ\"ש מיהו כל מקום כו' פי' הן כאן בראתה ג\"פ דהיינו אחר כל לידה פעם אחת ולא הוחזקה בביאות היתר בינתיים שלא ראתה ממילא היא כשאר אשה שראתה ג\"פ רצופים ועברה ושמשה אח\"כ ולא ראתה מהני לה שלא תחשוש עוד אבל אי הוחזקה בביאות היתר בינתיים אין כאן חשש וכן אם ראתה ג\"פ אחר לידה בשלש לידות ועברה ושמש' אחר לידה הרביעית מהני לה אבל לא מהני לה מה שעברה ושמשה באיסור בין לידה ללידה כיון דהוקבע לה וסתות ללידות צריכה תיקון אחר לידה הרביעית דוקא וכן בכל אשה שראתה דם מחמת תשמיש ג\"פ שצריכה שפופרת כמ\"ש סימן קפ\"ו כ\"ש שמהני לה אם עברה ושמשה באיסור והוא סברת רמ\"א בד\"מ ונכונה היא:"
-      ],
-      "en_segments": [
-        "During the first act of relations following her immersion. This is not comparable to what the Shulchan Aruch writes shortly afterward regarding concern that she may see blood on the night of immersion. There the concern depends specifically upon that night, and afterward she is permitted. Here, however, the concern is caused by the first act of relations after immersion, even if it occurs a long time after the immersion. Yet this itself is difficult, for it is obvious that she is forbidden like any woman who saw blood during three consecutive acts of relations. We must therefore say that this applies even though there were permitted acts of relations between those occurrences. Although those permitted acts are effective for the law stated afterward, they are not effective here. There they are effective only because we say on their basis that the first blood following childbirth was caused by the childbirth, as explained there. That reasoning does not apply to the night of immersion. See what I wrote in seif 11."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    },
-    {
-      "id": "yd1/siman188/seif-005/siftei-kohen",
-      "volume": "yd1",
-      "siman": 188,
-      "seif": 5,
-      "slug": "siftei-kohen",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אבל אם יש עליהם כו'. ול\"ד לדלעיל סעיף (ב') [ג] דאם ראתה דם בחתיכה אפילו מבוקעת טהורה דהתם הדם הוא בתוך החתיכות אלא שהוא בבקעים מה שאין כן הכא שהלחלוח הדם הוא ע\"ג החתיכות. כן כ' בספר מע\"מ שם:",
-        "ודוקא כו'. צ\"ע דלא נמצא בשום פוסק דמחלק הכא בין שעת וסת או לא ול\"ד לדלעיל סימן קפ\"ז ס\"ה דהתם כיון דרואה דם להדיא לא תלינן במכתה בשעת וסתה מטעם דאל\"כ לא תהיה טמאה לעולם אבל הכא הרי אינה רואה דם אלא דברים יבשים והלכך אפילו בשעת וסתה טהורה וצל\"ע שוב מצאתי בספר אפי רברבי דף פ\"ט ע\"ב וז\"ל ול\"נ כיון שעיקר הטעם דאינו דם רק בריה טהורה אף בשעת וסתה דאף גבי דם מכה ס\"ל לרמב\"ם ורשב\"א דטהורה אף בשעת וסתה דקי\"ל וסתות דרבנן וכ\"ש בכה\"ג דטהורה לכ\"ע:"
-      ],
-      "en_segments": [
-        "But if they have upon them etc. And not comparable to above seif 3, where if she saw blood in a piece even if it split open — she is pure; for there the blood is inside the pieces, only it is in the crevices; but here the blood moisture is on top of the pieces — so wrote the Sefer Ma’adanei Melech there."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    },
-    {
-      "id": "yd1/siman189/seif-005/tiferet-yisrael",
-      "volume": "yd1",
-      "siman": 189,
-      "seif": 5,
-      "slug": "tiferet-yisrael",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "סעיף ה עמ\"ש הגאון אמוז\"ל בסק\"ד על הש\"ך בסקכ\"ו דהעלה אם ראתה אשה ר\"ח שבט אדר ניסן ואח\"כ סירג' וראתה סיון ואח\"כ אב דחשבינן ניסן לוסת הקבוע ואין כאן רק ב\"פ לסירוג והק' ז\"ל הא בגמ' דב\"ק בעי' לי' שור נגח ה' ו' שבת שבת ושבת שבת קמיית' ליומא קמא שדינן ואייעד לכולא יומא או לשבת בתריית' שדינן ולא אייעד אלא לשבתות ועלתה בתיקו וכן הרמב\"ם פ\"ו מנ\"מ כתב דהוא ספק וא\"כ הדברים דומים בלי הבדל כלל וא\"א בתיקו במלתא דרבנן ספיקא לקולא א\"כ יש לילך לקולא לכל צד ולומר דקבעה וסת לסירוג ולא לחודש וא\"צ לחוש אלא מב' לב' חדשים וכו' ע\"ש וטרם אעלה אמרתי להתבונן אם יש נ\"מ לדינא לדברי הש\"ך דהחמיר ולדברי אמו\"ז הגז\"ל דהוכיח להקל כי לכאורה העיקר פלפול בהך נדון אשה שראתה שבט אדר ניסן ואח\"כ סיון אב א\"כ כל הספק אם הגיע לחודש אלול אי כדברי הש\"ך דשדינן ניסן לוסת החודש א\"כ אסור' אלול מכח וסת החודש דלא דלגה רק ב\"פ וא\"א כדברי אמוז\"ל דשדינן ניסן לוסת הסירוג לקולא א\"כ יהיה ר\"ח מותרת אבל יותר לכאורה אין נ\"מ דממנ\"פ אם רואה באלול איגלאי מילתא דבוסת החודש קיימא דהא כל סברתו להתיר מכח ספק והשתא ע\"י ראית אלול אתברר לנו דבוסת קמיית' קיימא דשכיח וכרוב נשים חזית וא\"כ הספק רק על אלול ואף כי צעיר ישראל לימים ולחכמה ואיני כדאי להכניס ראשי בין שני הרים גדולים מ\"מ לעצור במילין מי יכול אמרתי לכאורה כ\"ע מודה דאסור' באלול דאף דאזלינן לקולא שקבעה וסת לסירוג כדברי אמו\"ז הגז\"ל דכבר הבאתי בס\"ק הקודם דברי הרמב\"ם בפ\"ח מהא\"ב דפסק דאף דוודאי תקבע וסת הדילוג דמ\"מ חוששת לחודש הבא אולי תקבע וסת החודש ולעיל הק' הג' אמוז\"ל על המחבר למה השמיט דעת הרמב\"ם דכן הוא דעת התו' וא\"א כמש\"ל דרמב\"ם איירי בספק קביעות וסת לדילג ולזה כ\"ע מודה א\"כ גם כאן דאיכא ספק' טובי ובאת להתיר רק מכח ספיק' לקולא פשיטא דצריך לחוש ופשיט' אם הרמב\"ם איירי בוסת הדילוג גמור א\"כ כאן דאיכא ספק טובי כ\"ע מודה לדינא דרמב\"ם ותוס' דאסור' לעולם בר\"ח אלול הבא א\"כ ברור דאסור' באלול הבא ובאלול אתברר לנו הספק אך באמת ק' על הש\"ך מנ\"מ אם שדינן ניסן לוסת החודש הקבוע או לא דהא לפ\"ד הנ\"ל ר\"ח אלול לעולם אסורה לשמש ובהגיע תור אלול אתברר לנו הספק וא\"ל אם לא שדינן ניסן לוסת החודש הקבוע ס\"ל להש\"ך דגם לוסת הסירוג לא שדינן רק הוי כאשה שאין לה וסת כלל וצריך בדיקה לפני תשמיש וכה\"ג צריך לחוש להפלגה וכדומה חדא זה דוחק וחומר' יתיר' דהא ודאי אית לה וסת או חודש או דילוג ובלא\"ה בזה ודאי אזלינן לקולא ועוד לדברי הש\"ך סקפ\"ד דס\"ל אפי' אשה שאין לה וסת תוך למ\"ד הוי כאשה שיש לה וסת וא\"צ בדיקה לבעלה ובלמ\"ד נתברר לנו הספק כנ\"ל וא\"ל אף דאלול באסור' קיימא מחמת חשש דלמא תקבע וסת החודש מ\"מ סמוך לוסתה מותרת ואינה אסורה רק אותה עונה ממש משא\"כ אם אסורה מחמת וסת קבוע אסורה לשמש אפי' סמוך לוסתה הא מבואר לעיל בסקפ\"ד שצריך לפרוש סמוך לוסת' אפי' לא ראתה רק פ\"א ודוחק לחלק דכ\"ז אם אותו ראיה מקדם אין לתלות כלל בוסת אחר אבל במקום ספק יוכל לומר שזה הראי' היה וסת דילוג ואף דניחוש אולי היה לקביעות אחר אז א\"צ סמוך לוסתה לפרוש כיון דבלא\"ה הוא רק דרבנן וספיק' לקולא זה דוחק גדול וצ\"ל בדוחק דוודאי א\"א כדעת הש\"ך דהוי קבוע א\"כ בעברה וסתה אסור לבוא עלי' בלי שאלת פי' כמבואר לעיל בסי' קפ\"ד דלא כהרי\"ף ורמב\"ם דמתירין לבוא עלי' אפי' ישינה משא\"כ אם הוא רק מחמת חשש כ\"ע מודה לדינא דרמב\"ם והרי\"ף דמותר לבוא עלי' אפי' ישינה דהוי בכלל ס\"ס אולי ניסן שדינן לוסת דילוג ואין זמנ' לראות ואת\"ל לוסת חודש שדינן מ\"מ אולי לא ראתה ומותרת וזה יהיה כוונת אמו\"ז הגאון זצ\"ל אבל בגוף הדין אין כאן נ\"מ דבר\"ח אלול ודאי אסורה דלמא לא נחוש בספק וסת דילוג מה שהרמב\"ם ותוס' חוששין אפילו בלי ספק כלל ובהגיע תור אלול נתברר לנו הספק דודאי אם ראתה חזינן דוסת החודש קבעה לוסת ואם לא ראתה פשיטא דקבעה וסת לדילוג וצ\"ל דכל ההפרש הוא אם בעלה צריך לשאול אותה או מותר לבוא עלי' בלי שאלת פי' כדעת הרי\"ף והרמב\"ם וזה יהי' כוונת הש\"ך דכתב בפשיטות דניסן לוסת החודש שדינן וא\"כ אסורה ותמה עליה הא הוא עלתה בתיקו וספיק' לקולא וא\"כ א\"צ לחוש רק מב' לב' חדשים וא\"כ פשיטא דמותר לבוא עלי' בלי שאלת פי' בעברה עונת אלול אבל בגוף הדין דר\"ח אלול אסור' לשמש גם אמוז\"ל מודה זד\"ג אך י\"ל דאיכא נ\"מ טובא בניהם לענין עקיר' ודאי אם לא ראתה בר\"ח אלול הבע\"ל מותרת מ\"מ אם תראה אח\"כ כ' תשרי ובר\"ח תשרי לא ראתה לדעת הש\"ך עדיין יש לה וסת קבוע לר\"ח דהא לא עקרה עדיין ג\"פ כסדרן ולדעת אמו\"ז הגאון ז\"ל א\"צ עקיר' כלל לוסת החודש וצריך עקיר' ג\"פ לוסת הסירוג דקבעה וצ\"ע כי יש לדחות גם זה:",
-        "אמנם בגוף הקו' נראה להליץ בעד הגאון הש\"ך דלכאורה קו' אמו\"ז הגז\"ל קשה ביותר על הגמ' ב\"ק ותפשוט מסוגיא דנדה כי לכאורה דברי הש\"ך מבוארים מגמ' וכאשר אבאר דאי' שם ב\"ק דף ל\"ד אבעי להו שור שנגח שבת שבת ושבת יום א' וב' מהו שבת בתריית' לשבת שדינן ואייעד לשבתות ולא לימי חול א\"ד בתר שני ימים אחר שבת שדינן ואייעד לכולא יומא נגח בה' ובו' שבת שבת וכו' שבת קמיית' וכו' והנה לכאורה קשה הא הגמ' מדמי נגיחות לפלוגת' דרב ושמואל בוסת והא אי' בנדה דף ס\"ד אתיבי' היתה למודה לראות בט\"ו ושינת' לט\"ז וכו' שינת' לי\"ז וכו' שינתה לי\"ח הותרו כולן ואינו נאסרה אלא מי\"ח ואילך וק' לרב א\"ל רב למודה שאני ופי' רש\"י ודאי למודה לראות בט\"ו ראיות ט\"ו שדינין לט\"ו הקודמים כי קאמרינן אלא אם התחילה לראות או באשה שאין לה וסת עכ\"ל א\"כ לפ\"ז אם ראתה אשה ב\"פ בט\"ו לחודש והיום ראתה בט\"ו דקבעה בה וסת דא\"צ יותר מג\"פ ושינת' אח\"כ לט\"ז ואח\"כ לי\"ז מודה רב דצריך עוד דילוג לח\"י כמבואר ברש\"י דראי' ט\"ו שדינן לוסת קבוע רק הוא אומר דסגי בב' דילוגים היינו אם התחילה לראות אבל לא אם תשליש היום בראי' ט\"ו הזה לוסת קבוע א\"כ מ\"פ הגמ' גבי נגיחות נגח ה' ו' שבת שבת ושבת הא זה דומה לוסת ומודה רב דראי' ט\"ו שדינן לוסת קבוע א\"כ גם גבי נגיחות שדינן שבת קמיית' לנגיחות ה' ו' ואייעד לכולא יומא וק' ותפשוט וד\"ל דאף אם זה הראי' ט\"ו שהיא למודה לראות בהם הי' ג' לראית' לוסת קבוע לא שדינן וברייתא דלמודה מיירי דראתה כבר ג\"פ ורש\"י לא חש וכתב רק דאנא קאמר' בתחילה ראי' וה\"ה אם זה ראי' ט\"ו היא פעם ג' מ\"מ לא שדינן לראי' קמיית' ורש\"י או או קאמר מלבד דזה דוחק כי לא מצינן במשנה רק כשתקבע ג\"פ וק' הא לפעמים ל\"ת עד שראתה ד\"פ כנ\"ל אף גם לכאורה מוכח דברייתא הכא דלמוד' ט\"ו איירי דווקא עם הראי' שראה היום בט\"ו קבעה ג\"פ דאל\"כ ק' לשמואל דס\"ל דלעולם צריך ג\"פ האי מתני' דתקשה לרב ק' ג\"כ לשמואל דקתני היתה למודה לראות ט\"ו ושינת' וק' טעמא דלמודה הא אינו למודה א\"צ ג\"פ וסגי בב\"פ וקשי' לשמואל והלא זה סוגי' בכל הש\"ס ויותר ק' להנך פוסקים כשמואל דצריך ג\"פ כיון דתני כוותו שינת' לכ\"א וכו' עיין בהרא\"ש וק' הא אליבי' דרב נמי איירי בלמודה לראות בכ' א\"כ גם כרב אתי' ואף די\"ל כיון דסתם גמ' דחק' דייקא נמי דשבקינן וכו' זה דוחק ועיין בהה\"מ פ\"ח הנ\"ל שכתב כיון דתני' כוותו וזה יוכל להיות גם כרב וביותר כיון דקתני דווקא למודה ובפרט הא הלכה כרב באיסור' וצ\"ע) וע\"ק האי למודה מאי למימרא אליבי' דשמואל הא בלא למוד' ג\"כ צריך ג\"פ לרב ניחא דאשמעינן דווקא למודה וא\"ל דאשמעינן למודה כמו דמתרץ הגמ' על קו' דקארי לי' מ\"ק לי' דה\"א דעוקרת בתרתי הא זה מפורש במתני' דהכא דאין וסת נעקר עד שתקבענו וכו' ובאמת על סתם גמ' ג\"כ ק' דמתרץ למודה אצטריך דה\"א דעקרת' בב\"פ הא זה מתני' מופרשת וא\"ל דברייתא מפרש דברי המתני' הא זה כבר תנא לי' בברייתא שינתה וכו' וצ\"ע. לכן י\"ל דהכא איירי למודה דראתה מקדם ב\"פ בט\"ו והיות תשלש הוסת הקבוע ובחודש שלאחריו שינתה לט\"ז וס\"ל לרב ושמואל דשדינן זה הט\"ו לוסת הקבוע וא\"כ שפיר אשמעינן רבות' דלמוד' דה\"א דשדינן זה הט\"ו לוסת הדילג ולאחריו כאבעי' הגמ' בב\"ק גבי נגיחות כיון דרואים דדילג עוד פעמים אשמועינן דשדינן ראי' ט\"ו לוסת הקבוע וצריך עוד ג\"פ בין לרב ובין לשמואל וז\"ש רב למודה שאני כיון דבחודש הזה שראתה בו לט\"ו נקבע וסת קבוע הוי למודה ואינו מהמנין ופריך הגמ' ודקארי לי' וכו' הא זה הוי לי' למודה ומשני ה\"א דעקרת' בב\"פ דה\"א דאינו דומה למתני' כיון דאיכא ספק לא שדינן ראי' ט\"ו לוסת החודש אלא לדילג קמ\"ל וא\"ש ולפ\"ז דברי הרש\"י בדיוק נאמר' אנא קאמרינן דוקא בהתחילה לראות ודברי הש\"ך על נכון כי דבריו נאמר' בפירוש בגמ' ולק\"מ אך עדיין יהי' קו' הנ\"ל על הגמ' בב\"ק במ\"ע ותפשוט מהכא לכן נראה לי בעיני הק' לתרץ דוודאי גבי וסת שפיר שדינן ראי' ט\"ו לוסת החודש הקודם ולא לוסת הדילג דלמה נדחה וסת החודש דשכיח מפני וסת הדילוג דאינו שכיח אך גבי נגיחות בב' ימי חול י\"ל מ\"מ שדינן שבת לשארי שבתות דבלא\"ה איכא סברא דשבת אינו מהמנין לימי חול כלל דאי' במתני' שם מועד לשבתות וכו' ופירש\"י דשבת נח ממלאכתו וזחה דעתו משא\"כ בחול והירושלמי כתב כיון דרואה בגד נקי ולבן ואיכא ג\"כ סברה להיפך כיון דכבר נגח ב\"פ בימי חול אך בב' ימים לא נעשה מועד וכיון דעבר' ימי חול ולא נגח וכמ\"ש המהרש\"א לשם דאיירי דראה בימי חול ולא נגח א\"כ איגלא מילתא דלא אייעד לימי חול רק לשבתות ובודאי שבת קמיית' לא שדינן לימי חול הקודמי' אבל גבי וסת שדינן ראי' ט\"ו לראי' ט\"ו הקודמים חדא התם גבי אשה הא בלא\"ה צריך להפסיק ולהמתין זמן מה לראות פעם ב' ומה לי אם תמתין למ\"ד יום או ל\"א יום ועוד התם ראי' ט\"ו ראי' מעליא ואיכא לשדינן לוסת החודש כמו לוסת הדילג ומהכ\"ת ידח' שכיח וכו' משא\"כ הכא דאיכא סברא דראי' שבת אינו מהמנין כנ\"ל ואינו דומה כלל לוסת בזה הענין ולק\"מ וצדקו דברי הש\"ך וק\"ל:"
-      ],
-      "en_segments": [
-        "Seif 5. See Gaon Imrei Moshe s.k. 26 on Shach s.k. 226 who raised if woman saw Rosh Chodesh Shevat Adar Nisan and then alternated and saw Sivan and Av — we count Nisan for fixed veset and here only twice for alternation; and Gaon challenged from Bava Kamma Gemara ox gored five six Shabbat Shabbat — first for first day we judge and established for all days or second Shabbat we judge and established only for Shabbatot — unresolved; and Rambam Laws of Monetary Damages ch. 6 wrote it is doubt; and matters similar without distinction — and in rabbinic matter doubt to leniency — if so go to leniency all sides and say she fixed alternation veset not every month — need only be concerned from two to two months, etc.; and before I raised I thought whether relevance for law per Shach who was stringent and per Gaon who proved leniency — apparently main analysis whether if Elul arrives per Shach we judge Nisan for month veset — forbidden Elul from month veset for she only skipped twice; impossible per Gaon we judge Nisan for alternation veset leniently — Rosh Chodesh permitted; but more apparently no relevance — necessarily if she sees in Elul revealed fixed first veset is common like most women saw — and now doubt only on Elul; and though young Israel for days and wisdom I am unworthy to insert head between two great mountains — nevertheless I said apparently all agree forbidden in Elul for even going lenient she fixed alternation veset per Gaon as I brought previous s.k. Rambam ch. 8 Laws of Forbidden Relations ruled certainly she fixes skipping veset nevertheless concerned for coming month lest she fix month veset; and above Gaon challenged Mechaber why omitted Rambam view for Tosafot agree impossible as stated Rambam deals doubtful skipping fixation — all agree; if so here great doubt all agree Rambam and Tosafot law forbidden forever on coming Rosh Chodesh Elul — if Rambam deals complete skipping veset here great doubt all agree Rambam and Tosafot law; if so clear forbidden in coming Elul and in Elul doubt revealed for us — but truly difficulty on Shach what relevance whether we judge Nisan fixed month veset or not — per above view Rosh Chodesh Elul always forbidden and when Elul arrives doubt revealed; and one can say if we do not judge Nisan fixed month veset per Shach — also alternation veset not judged — she is like woman without veset needing examination before relations and such must be concerned for interval etc. — one strained stringency for certainly she has veset month or skipping and otherwise certainly lenient; and per Shach s.k. 84 even woman without veset within thirty days is like woman with veset — husband need not examine; and in thirty days doubt revealed as stated; and one can say though Elul remains forbidden from concern lest fix month veset — nevertheless near her veset permitted and forbidden only that onah unlike if forbidden from fixed veset forbidden even near veset — clear above s.k. 84 must separate near veset even if saw only once; strained to divide all this if that sight early cannot attribute other veset — but in doubt place can say this sight was skipping veset and though concern lest other fixation then need separate near veset since otherwise only rabbinic and doubt to leniency — great strain; must say strained certainly impossible per Shach view it is fixed — if so when her veset passes forbidden to come without asking as above siman 184 unlike Rif and Rambam who permit even sleeping; if only from concern all agree Rambam and Rif law permit even sleeping — general \"perhaps\"; if we judge Nisan skipping veset and no time to see — and one can say month veset we judge nevertheless perhaps did not see and permitted — this would be Gaon's intent; but in essence no relevance — Rosh Chodesh Elul certainly forbidden lest we not be concerned for skipping doubt what Rambam and Tosafot concern even without doubt; and when Elul arrives doubt revealed if she saw we see month veset fixed; if not saw plainly she fixed skipping veset; all difference whether husband must ask or permitted without asking per Rif and Rambam — Shach's intent wrote plainly we judge Nisan month veset — if so forbidden; and wonder on him — behold unresolved doubt to leniency — need only be concerned from two to two months — plainly permitted without asking when Elul onah passes; but in essence Rosh Chodesh Eluf forbidden to have relations — Gaon agrees; one can say great relevance between them for uprooting — if she did not see on Rosh Chodesh Elul husband permitted nevertheless if she sees 20th Tishrei and on Rosh Chodesh Tishrei did not see per Shach still has fixed veset for Rosh Chodesh for not uprooted twice in order; per Gaon no uprooting needed for month veset — need twice uproot alternation veset she fixed — requires study; rejection possible too."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    },
-    {
-      "id": "yd1/siman190/seif-038/torat-hashlamim",
-      "volume": "yd1",
-      "siman": 190,
-      "seif": 38,
-      "slug": "torat-hashlamim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "לח אא\"כ היה בדוק לה. ואפי' עד בינוני שמבואר לעיל בסעיף ל\"ו ג\"כ מקרי בדוק לענין כתם אם יש בו כגריס ועוד ואינו בדוק היינו שאינו בדוק כלל רק שלקחתו מן השוק ונמצא בו שהוא בחזקת מלוכלך. ט\"ז ודלא כב\"ח:",
-        "בדקה חלוקה. כן הוא לשון הטור והא דנקט בדקה ליכא למימר דמ\"ה אצטריך לומר בדקה דאל\"כ פשיטא שהיא טהורה אף בלא השאילתו לחברתה. דמ\"מ קשה למה לי למתני בדקה אף אם לא בדקה מ\"מ כיון שלקחתו מן השוק ושלא היה בחזקת מלוכלך ג\"כ הוי כבדוק לענין כתם אם יש בו כגריס ועוד וכמ\"ש לעיל ס\"ק ל\"ז (ואף דעת הב\"ח כן הוא דודאי לא יחלוק על הטור והרשב\"א שכתבו כן להדיא רק שדעתו דאף בחזקתו מלוכלך ממש מ\"מ בקנוח ובדיקה טמאה מיותר כגריס ועוד אבל באמת זה אינו וכמ\"ש הט\"ז בס\"ק כ\"ט) וצ\"ל דוקא נקט בדקתו להראות דדוקא כשבדקו פעם שנית כשפשטתו טהורה אבל לא בדקתו פעם ב' אע\"פ שבדקתו כשלבשתו (פי' כ\"ש כשלא בדקתו ממש אבל מ\"מ היה בחזקת בדוק דאל\"כ שתיהן טהורות וק\"ל) שתיהן טמאות כל זה נ\"ל פשוט שזה תמיהות הפרישה והב\"ח על הטור וכוונת הב\"ח בישוב דברי הטור כמ\"ש ונסתלק בזה דברי הט\"ז והש\"ך מה שתירצו בזה ומתמיהים על הב\"ח ולפי מה שכתבתי הכל נכון אכן דברי הב\"ח בסעיף ל\"ח צע\"ק לפ\"ז:"
-      ],
-      "en_segments": [
-        "Moist unless it was examined for her. Even medium ed explained above seif 36 also called examined for stain if lentil and more; unexamined means not examined at all only took from market and found in presumption of soiled. Taz unlike Bach: examined garment. If she examined garment — why need teach examined; otherwise plain tehorah even without lending to friend; if never examined when taking from market also not in presumption of clean — examined for stain if lentil and more as above s.k. 37 (even Bach agrees certainly not disputing Tur and Rashba who wrote explicitly; his view even presumption of soiled nevertheless with wiping and examination tamei beyond lentil and more; but actually not so as Taz s.k. 29); must say specifically taught examined to show specifically when examined second time upon removing tehorah; but did not examine second time even though examined when dressing (meaning all the more if never truly examined but nevertheless presumption of examined since otherwise both tehorot — clear) — both tamei; all this plain resolving Perishah and Bach's wonder on Tur; their words align with Bach's intent; per what I wrote all correct; though Bach's words seif 38 require study per this."
-      ],
-      "fp_pattern": "true_en_truncated",
       "route_reason": "editorial kit parts 02-06",
       "prior_eval_verdict": "not_run"
     }

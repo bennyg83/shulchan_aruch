@@ -1,77 +1,31 @@
 {
-  "created": "2026-08-28T12:23:32.008Z",
+  "created": "2026-08-28T15:24:45.294Z",
   "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
   "rescan_source": "SEGMENT_RESCAN_2026-08-28.json",
-  "scan_open_actionable": 274,
+  "scan_open_actionable": 102,
   "scan_total_issues": 333,
   "excluded_he_missing": 59,
   "kits": [
     {
-      "kit": "EN_MISSING_2_REMAINING",
-      "mode": "fresh_translate",
-      "purpose": "2 en_missing still open in rescan",
-      "cases": 2,
-      "parts": 1,
-      "max_part_bytes": 8282,
-      "full_bytes": 8052,
-      "full_sha256": "9b482c6b6e456383ed9e5f6ab87a3224bce4ff6c5fdf0753120d6d303235dbbf",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "EN_MISSING_2_REMAINING_part01.json",
-          "cases": 2,
-          "case_offset": 0,
-          "bytes": 8282,
-          "sha256": "374dab60a6eeacd405a95f8e2106a9a2249e1b46d3344fd5928a8317c35bfd7c",
-          "segments_truncated_in_part": false
-        }
-      ]
-    },
-    {
-      "kit": "EN_HAS_MORE_REMAINING",
-      "mode": "rewrite_en_by_he_slot",
-      "purpose": "9 en_has_more / glued oversplit still open",
-      "cases": 9,
-      "parts": 1,
-      "max_part_bytes": 64414,
-      "full_bytes": 64185,
-      "full_sha256": "a55e960fc2161b435b6ffc7399cf9c02a0f465143d885c1c11006237d382ead6",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_HAS_MORE_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_HAS_MORE_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "EN_HAS_MORE_REMAINING_part01.json",
-          "cases": 9,
-          "case_offset": 0,
-          "bytes": 64414,
-          "sha256": "35cc4cb4e59375b41590d26de2a8972b2c4622c0936d0ec471404d8a69c668b6",
-          "segments_truncated_in_part": false
-        }
-      ]
-    },
-    {
       "kit": "EN_TRUNC_MODERATE_REMAINING",
       "mode": "resegment_split_en",
       "purpose": "Moderate kit HOLD+REJECT still en_truncated",
-      "cases": 37,
+      "cases": 36,
       "parts": 1,
-      "max_part_bytes": 49401,
-      "full_bytes": 49165,
-      "full_sha256": "becbc57c9ccdd7241db60331c983efb68f276e3d696a8c52bd5fede293ab9a43",
+      "max_part_bytes": 47710,
+      "full_bytes": 47474,
+      "full_sha256": "ef7a399f0868e479e6376e70890ae3be05e9bff4e01911252835b98d9458f059",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "EN_TRUNC_MODERATE_REMAINING_part01.json",
-          "cases": 37,
+          "cases": 36,
           "case_offset": 0,
-          "bytes": 49401,
-          "sha256": "a0a83cd509d99c61b000fb8f64218c5879b629992630c503118b9adb677e7917",
-          "segments_truncated_in_part": false
+          "bytes": 47710,
+          "sha256": "450272e78f765922bb6933aaa927afd80821c68c5c9cdf80229b49bed880c808",
+          "exceeds_hard_cap": false
         }
       ]
     },
@@ -79,58 +33,22 @@
       "kit": "EN_TRUNC_EDITORIAL_REMAINING",
       "mode": "fresh_multi_segment_translate",
       "purpose": "Editorial en_trunc still open (parts 02-06 + part01 holds)",
-      "cases": 81,
-      "parts": 5,
-      "max_part_bytes": 82207,
-      "full_bytes": 357842,
-      "full_sha256": "001557c92c1dfb6f078d5a3fae7d6ac3a229f96fe8570b5b54226eb53581cc61",
+      "cases": 2,
+      "parts": 1,
+      "max_part_bytes": 5154,
+      "full_bytes": 4918,
+      "full_sha256": "c3c6ec27377bf5494dad57417b26bec72dfa7166452f815b6de634ebc27b5dbe",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "EN_TRUNC_EDITORIAL_REMAINING_part01.json",
-          "cases": 16,
-          "case_offset": 0,
-          "bytes": 77885,
-          "sha256": "8addd8291923216035610a5121a5e85ca66b45f356de457e6adef62896489b6b",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 2,
-          "file": "EN_TRUNC_EDITORIAL_REMAINING_part02.json",
-          "cases": 38,
-          "case_offset": 16,
-          "bytes": 81865,
-          "sha256": "20731569a752d69031e8d4d6070d6697c1e1aa13301d6217d89d9711ead32fa6",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 3,
-          "file": "EN_TRUNC_EDITORIAL_REMAINING_part03.json",
-          "cases": 12,
-          "case_offset": 54,
-          "bytes": 81949,
-          "sha256": "6c5c7597e793108ff711e4b5331203868c4a02213e73e3fc7ba0f8c5606b5421",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 4,
-          "file": "EN_TRUNC_EDITORIAL_REMAINING_part04.json",
           "cases": 2,
-          "case_offset": 66,
-          "bytes": 47704,
-          "sha256": "9200b2685768644621d89749d22f6e35de1b5b67e1d3872d16fbfb1564392dae",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 5,
-          "file": "EN_TRUNC_EDITORIAL_REMAINING_part05.json",
-          "cases": 13,
-          "case_offset": 68,
-          "bytes": 82207,
-          "sha256": "b85278ee3576624e8703cd3aad0925a2353c88d257395655707536eca577e47a",
-          "segments_truncated_in_part": false
+          "case_offset": 0,
+          "bytes": 5154,
+          "sha256": "b79611e7e1142bec247fa99719eab9aeddc0d1d12ebe6f3426233cb7f8ca1dd3",
+          "exceeds_hard_cap": false
         }
       ]
     },
@@ -138,63 +56,22 @@
       "kit": "BEER_DEGREE_SPLIT_REMAINING",
       "mode": "split_en_beer_degree",
       "purpose": "beer-hagolah degree/footnote EN under-split",
-      "cases": 7,
+      "cases": 5,
       "parts": 1,
-      "max_part_bytes": 10782,
-      "full_bytes": 10547,
-      "full_sha256": "3494dc15766f9115d00cbbb59c9e4ddf6e1b3e59226870e77390ccb943f4dc66",
+      "max_part_bytes": 8341,
+      "full_bytes": 8106,
+      "full_sha256": "7394a73374cb62c1236356c1649e45f7e1a1b7518d81c690b26d04ea42712bb2",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/BEER_DEGREE_SPLIT_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/BEER_DEGREE_SPLIT_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "BEER_DEGREE_SPLIT_REMAINING_part01.json",
-          "cases": 7,
-          "case_offset": 0,
-          "bytes": 10782,
-          "sha256": "a6c85d418c895074806525679a4888de543d33e8838ea905beeaeaec05cd3aff",
-          "segments_truncated_in_part": false
-        }
-      ]
-    },
-    {
-      "kit": "EN_TRUNC_REMAINING",
-      "mode": "resegment_or_fresh",
-      "purpose": "Other en_truncated not in moderate/editorial/beer kits",
-      "cases": 10,
-      "parts": 3,
-      "max_part_bytes": 69115,
-      "full_bytes": 171246,
-      "full_sha256": "1594ec5636a0997cf45e7010894f4201fa087f8c25c2aa84da616d3ecf9e0740",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "EN_TRUNC_REMAINING_part01.json",
-          "cases": 3,
-          "case_offset": 0,
-          "bytes": 55206,
-          "sha256": "293803816ee8fec683d302be3d277c282ed083279f1be75b6b83fe9ed98cf24d",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 2,
-          "file": "EN_TRUNC_REMAINING_part02.json",
-          "cases": 2,
-          "case_offset": 3,
-          "bytes": 53921,
-          "sha256": "e8b4499c47de5da1f66d7d0319e5e87047c9e6bc0bbf35087f66cd8d6288bcdd",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 3,
-          "file": "EN_TRUNC_REMAINING_part03.json",
           "cases": 5,
-          "case_offset": 5,
-          "bytes": 69115,
-          "sha256": "43a76cc22780af5903f5eb809d20ae0a4cac97a634fca6cc4a9b5ffa4e73744e",
-          "segments_truncated_in_part": false
+          "case_offset": 0,
+          "bytes": 8341,
+          "sha256": "f611f8650db629e34067f39ab359230126a088519fa41a589bd8a1be8a7eca4b",
+          "exceeds_hard_cap": false
         }
       ]
     },
@@ -206,7 +83,7 @@
       "parts": 1,
       "max_part_bytes": 55407,
       "full_bytes": 55171,
-      "full_sha256": "d3ce76992fd716ed46fb7ac80d0963c1da6c48f0d83beccaf76705f9688f6c58",
+      "full_sha256": "31ee7487e5f7a45e93844618892aedff91219ca4623da6566e2ab3ff5aad429b",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.md",
       "parts_detail": [
@@ -216,8 +93,8 @@
           "cases": 13,
           "case_offset": 0,
           "bytes": 55407,
-          "sha256": "b0f2da1e4d8ea7aaf06491a94f68aa03dd2f545a95620eb5731714574d6dc6ac",
-          "segments_truncated_in_part": false
+          "sha256": "799948981cf17085f472fe154e0bdb2735915c7ecd0fa0ef2d01085817ed1bc0",
+          "exceeds_hard_cap": false
         }
       ]
     },
@@ -225,166 +102,49 @@
       "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
       "mode": "resegment_offset_fix",
       "purpose": "91 editorial HOLD still he_has_more",
-      "cases": 91,
-      "parts": 17,
-      "max_part_bytes": 84354,
-      "full_bytes": 1158543,
-      "full_sha256": "58a918920b38e18309c24c43464a91338839a45308c8a35d9a95cb7bd4b816fc",
+      "cases": 39,
+      "parts": 4,
+      "max_part_bytes": 83593,
+      "full_bytes": 265328,
+      "full_sha256": "1b924320c8826b7b275864a075c8fe565fba67036b0f0f384e62c2f5a079f394",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part01.json",
-          "cases": 2,
+          "cases": 8,
           "case_offset": 0,
-          "bytes": 81647,
-          "sha256": "342a6e96b23b49d3e8a0e6a415a2f1155a518cb9b477e0d65cfb2c182b96c7a8",
-          "segments_truncated_in_part": false
+          "bytes": 83593,
+          "sha256": "6a6cd502e5cd756c4925bc07ff92e5782f708d4800efb7be236bbbb8d5221622",
+          "exceeds_hard_cap": false
         },
         {
           "part": 2,
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part02.json",
-          "cases": 4,
-          "case_offset": 2,
-          "bytes": 60590,
-          "sha256": "5c29e1e393afa5b38d949cd74f3ed2d0cb1aeaf4d5fe279d9dd3e6c79a6c1124",
-          "segments_truncated_in_part": false
+          "cases": 8,
+          "case_offset": 8,
+          "bytes": 64298,
+          "sha256": "2487db0ed3a5c5a8e96648ec287b2eca14b1fce776a31820a0d4ad3f5a2b9436",
+          "exceeds_hard_cap": false
         },
         {
           "part": 3,
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part03.json",
-          "cases": 4,
-          "case_offset": 6,
-          "bytes": 75769,
-          "sha256": "dfe9e13ef5ddfdbc0ee42af88cbfd49fea5e4e49098e6b3fa5bf9746871ba460",
-          "segments_truncated_in_part": false
+          "cases": 10,
+          "case_offset": 16,
+          "bytes": 82054,
+          "sha256": "2ed3fd5c20115b4d5b3c8440645998a4861ab029d71482b513b5d231c715ec7c",
+          "exceeds_hard_cap": false
         },
         {
           "part": 4,
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part04.json",
-          "cases": 11,
-          "case_offset": 10,
-          "bytes": 80094,
-          "sha256": "015e13994ecfea61e540da7f411f3df0d0c0d917f41d1deb32d129045b15f9c1",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 5,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part05.json",
-          "cases": 12,
-          "case_offset": 21,
-          "bytes": 83912,
-          "sha256": "c5d393d8ea36df5187f3c60833630325be1beba0d91bb8f9d8f19598510324ce",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 6,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part06.json",
-          "cases": 6,
-          "case_offset": 33,
-          "bytes": 81028,
-          "sha256": "5cfb2d25a8496aa21983bcaff32ac102fb69f175521a16e1c992e429cd581c6f",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 7,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part07.json",
           "cases": 13,
-          "case_offset": 39,
-          "bytes": 84306,
-          "sha256": "c2476fbfbb4959127be3b852042c8489e3a476c41d5f2bac802ae5b28a2c0f6c",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 8,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part08.json",
-          "cases": 12,
-          "case_offset": 52,
-          "bytes": 73385,
-          "sha256": "6368b5b8438c8133fd0aee5509b953c3a1a4ce1204b1bff5f347cc90b870cc07",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 9,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part09.json",
-          "cases": 3,
-          "case_offset": 64,
-          "bytes": 82925,
-          "sha256": "b79656a2a34140ccfcac9fb424aedc201760827232ec2ecac6a5ce2f81e2f7a3",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 10,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part10.json",
-          "cases": 5,
-          "case_offset": 67,
-          "bytes": 82132,
-          "sha256": "2c878487b14f6ed105488f85b772667d2ece8cc88f65a878ed6400d49321cc2b",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 11,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part11.json",
-          "cases": 2,
-          "case_offset": 72,
-          "bytes": 79456,
-          "sha256": "26271e28578a682095e7e6cd8ca27f5b3f032a0f4a9e49cb1fc96bb76be21b3a",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 12,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part12.json",
-          "cases": 3,
-          "case_offset": 74,
-          "bytes": 62249,
-          "sha256": "121c3773e5d3664a173307eb51d430e9c59c19f7f1cb80f3bb4fc6bce93d4c7f",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 13,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part13.json",
-          "cases": 2,
-          "case_offset": 77,
-          "bytes": 82085,
-          "sha256": "33b3cb8e2d2d030dfd79186523e47f0e3c5e19701b03207a67368646494ed014",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 14,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part14.json",
-          "cases": 2,
-          "case_offset": 79,
-          "bytes": 78235,
-          "sha256": "7efc5805e12e777f1157ec6df47dd56908dbe6c00007214a17aaa893bfb2e8ed",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 15,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part15.json",
-          "cases": 2,
-          "case_offset": 81,
-          "bytes": 16412,
-          "sha256": "a2c18f42f21c067e91ab312c07395d0722e82e4668d0c7a9f15d598687871ac5",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 16,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part16.json",
-          "cases": 2,
-          "case_offset": 83,
-          "bytes": 84354,
-          "sha256": "7ce2fa32ede47a8f9273ed19f2de6af8f29e9d2437458cc4f8c0381a9ba051da",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 17,
-          "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part17.json",
-          "cases": 6,
-          "case_offset": 85,
-          "bytes": 22550,
-          "sha256": "0c9d28bb5e7c0f44a0b8f1b5692eeec6e2231c23919d30791dbea0bc5727a72b",
-          "segments_truncated_in_part": false
+          "case_offset": 26,
+          "bytes": 45376,
+          "sha256": "7f5148fc542079e70c5212bb5c15a2438d7481ff65ebd1cbb4124da9a62d41b9",
+          "exceeds_hard_cap": false
         }
       ]
     },
@@ -392,196 +152,42 @@
       "kit": "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
       "mode": "split_en_likut_merged",
       "purpose": "true_likut_en_merged he_has_more not in other kits",
-      "cases": 18,
-      "parts": 2,
-      "max_part_bytes": 82850,
-      "full_bytes": 113831,
-      "full_sha256": "1f62a603ae6de4cfaa4492352f9925c426342cf031ee4a049fc62a8854d7420f",
+      "cases": 7,
+      "parts": 1,
+      "max_part_bytes": 49337,
+      "full_bytes": 49095,
+      "full_sha256": "505039565d9f075aeea92f88553ef11a2c3a258e09aed475e707738cd60e2bd4",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "HE_HAS_MORE_LIKUT_MERGED_REMAINING_part01.json",
-          "cases": 11,
-          "case_offset": 0,
-          "bytes": 82850,
-          "sha256": "2e5e9d4097b61045b6a611392ac75acca0e8f13a4dd9e8817874be5e6989f85c",
-          "segments_truncated_in_part": false
-        },
-        {
-          "part": 2,
-          "file": "HE_HAS_MORE_LIKUT_MERGED_REMAINING_part02.json",
           "cases": 7,
-          "case_offset": 11,
-          "bytes": 34461,
-          "sha256": "c9547d73bc5db58c7e78ab56dadd46cd5c091292e9856b57537ea6c815e723e9",
-          "segments_truncated_in_part": false
-        }
-      ]
-    },
-    {
-      "kit": "HE_HAS_MORE_OFFSET_REMAINING",
-      "mode": "resegment_offset_fix",
-      "purpose": "Residual he_has_more (offset editorial)",
-      "cases": 6,
-      "parts": 6,
-      "max_part_bytes": 82241,
-      "full_bytes": 751219,
-      "full_sha256": "bc72dbb7df72a3e45947957f5ef27180b78c9553cc554215b116e5ef0b87614f",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_OFFSET_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_OFFSET_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part01.json",
-          "cases": 1,
           "case_offset": 0,
-          "bytes": 82241,
-          "sha256": "7082b39d2ffd61ec43f6e5f7d4fd37bb665298941a921adabfcde163e42dce11",
-          "segments_truncated_in_part": true
-        },
-        {
-          "part": 2,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part02.json",
-          "cases": 1,
-          "case_offset": 1,
-          "bytes": 63678,
-          "sha256": "7288b58219d25d560383b07b06e570cbc3d6abb0e813269c4c02d0ea5f7a82da",
-          "segments_truncated_in_part": true
-        },
-        {
-          "part": 3,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part03.json",
-          "cases": 1,
-          "case_offset": 2,
-          "bytes": 36379,
-          "sha256": "3ec96aa3b16e1d846131f2e754d9cd41c9c71890131074cf3d48dc862765f276",
-          "segments_truncated_in_part": true
-        },
-        {
-          "part": 4,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part04.json",
-          "cases": 1,
-          "case_offset": 3,
-          "bytes": 63501,
-          "sha256": "9dff7ee36568e2a60eab76967e0c5affb6139269b742c547280d299085fcad89",
-          "segments_truncated_in_part": true
-        },
-        {
-          "part": 5,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part05.json",
-          "cases": 1,
-          "case_offset": 4,
-          "bytes": 67653,
-          "sha256": "93bcf5c2c1fd233f31431f7249434abfc47f5692ffe35f28a0e1854d40b84989",
-          "segments_truncated_in_part": true
-        },
-        {
-          "part": 6,
-          "file": "HE_HAS_MORE_OFFSET_REMAINING_part06.json",
-          "cases": 1,
-          "case_offset": 5,
-          "bytes": 74771,
-          "sha256": "06d39d0e8fba65e17590c1851533a02eb95460787d9a36d6a98f54c259d24dee",
-          "segments_truncated_in_part": true
+          "bytes": 49337,
+          "sha256": "aa5631bb3813f5a7e1b2fc9695aed73839bbcca426a1dd324b8cc9a6ea32a5eb",
+          "exceeds_hard_cap": false
         }
       ]
     }
   ],
   "bucket_counts": {
-    "EN_MISSING_2_REMAINING": 2,
-    "EN_HAS_MORE_REMAINING": 9,
-    "EN_TRUNC_MODERATE_REMAINING": 37,
-    "EN_TRUNC_EDITORIAL_REMAINING": 81,
-    "BEER_DEGREE_SPLIT_REMAINING": 7,
-    "EN_TRUNC_REMAINING": 10,
+    "EN_MISSING_2_REMAINING": 0,
+    "EN_HAS_MORE_REMAINING": 0,
+    "EN_TRUNC_MODERATE_REMAINING": 36,
+    "EN_TRUNC_EDITORIAL_REMAINING": 2,
+    "BEER_DEGREE_SPLIT_REMAINING": 5,
+    "EN_TRUNC_REMAINING": 0,
     "HE_HAS_MORE_LIKUT_REMAINING": 13,
-    "HE_HAS_MORE_EDITORIAL_REMAINING": 91,
-    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 18,
-    "HE_HAS_MORE_OFFSET_REMAINING": 6
+    "HE_HAS_MORE_EDITORIAL_REMAINING": 39,
+    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 7,
+    "HE_HAS_MORE_OFFSET_REMAINING": 0
   },
-  "total_cases_in_kits": 274,
+  "total_cases_in_kits": 102,
   "unassigned_count": 0,
   "unassigned_ids": [],
   "routing_sample": [
-    {
-      "id": "yd1/siman173/seif-001/yad-avraham",
-      "bucket": "EN_MISSING_2_REMAINING",
-      "reason": "en_missing still open",
-      "kind": "en_missing",
-      "fp_pattern": "true_en_missing"
-    },
-    {
-      "id": "yd1/siman210/seif-001/yad-avraham",
-      "bucket": "EN_MISSING_2_REMAINING",
-      "reason": "en_missing still open",
-      "kind": "en_missing",
-      "fp_pattern": "true_en_missing"
-    },
-    {
-      "id": "yd1/siman106/seif-002/baer-heitev",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman245/seif-006/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman263/seif-005/baer-heitev",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman269/seif-003/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman308/seif-003/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman331/seif-034/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman334/seif-042/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "yd1/siman334/seif-045/beur-hagra",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
-    {
-      "id": "cm1/siman275/seif-003/ketzot-hachoshen",
-      "bucket": "EN_HAS_MORE_REMAINING",
-      "reason": "glued kit still open",
-      "kind": "en_has_more_segments",
-      "fp_pattern": "true_en_oversplit"
-    },
     {
       "id": "yd1/siman114/seif-010/beer-hagolah",
       "bucket": "EN_TRUNC_MODERATE_REMAINING",
@@ -640,6 +246,83 @@
     },
     {
       "id": "yd1/siman178/seif-003/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman198/seif-043/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman234/seif-051/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman238/seif-012/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman239/seif-010/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman251/seif-001/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman263/seif-004/turei-zahav",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_en_truncated"
+    },
+    {
+      "id": "yd1/siman267/seif-030/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman267/seif-034/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman286/seif-022/beur-hagra",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman294/seif-024/beer-hagolah",
+      "bucket": "EN_TRUNC_MODERATE_REMAINING",
+      "reason": "moderate eval HOLD",
+      "kind": "en_truncated_vs_multi_he",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman296/seif-005/beer-hagolah",
       "bucket": "EN_TRUNC_MODERATE_REMAINING",
       "reason": "moderate eval HOLD",
       "kind": "en_truncated_vs_multi_he",

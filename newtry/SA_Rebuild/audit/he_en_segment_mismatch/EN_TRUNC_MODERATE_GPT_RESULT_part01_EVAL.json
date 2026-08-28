@@ -1,0 +1,546 @@
+{
+  "meta": {
+    "created": "2026-08-28T08:33:16.033Z",
+    "kit": "EN_TRUNC_MODERATE_RESEGMENT_KIT_part01.json",
+    "gpt_result": "EN_TRUNC_MODERATE_GPT_RESULT_part01.json",
+    "part01_case_count": 29,
+    "gpt_case_count": 29,
+    "id_order_match": true,
+    "counts": {
+      "APPROVE": 3,
+      "HOLD": 13,
+      "REJECT": 13
+    },
+    "parse_note": "GPT paste had unescaped quotes in he/en JSON strings; parser uses brace-matched segment objects. Truncation artifacts correlate with embedded ASCII quotes in EN.",
+    "recommendation": {
+      "apply_approved_only": true,
+      "approved_count": 3,
+      "do_not_apply_hold_or_reject": true,
+      "re_prompt_guidance": "Re-run GPT with instruction to escape quotes in JSON output, or return en_segments only without he fields; must preserve exact EN wording (split_existing_en only)."
+    }
+  },
+  "results": [
+    {
+      "id": "oc1/siman1/seif-009/yad-ephraim",
+      "slug": "yad-ephraim",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated parse — seg0 only 44 chars; ~88% EN lost (quote-break in pasted JSON)",
+      "en_length_ratio": 0.125,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Seif katan 12. Some emend the text to read: ",
+      "seg1_preview": "What remains difficult in my humble opinion is that Magen Avraham and Olat Shabb"
+    },
+    {
+      "id": "oc1/siman51/seif-009/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "Exact EN preserved; clean split after Zohar/Beit Yosef siman 50 vs Erev Yom Kippur block",
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "One does not recite Mizmor LeSodah on Shabbos or Yom Tov. Nine additional Tehill",
+      "seg1_preview": "On the eve of Yom Kippur one does not recite Mizmor LeSodah. Some say that it is"
+    },
+    {
+      "id": "oc1/siman55/seif-003/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "Exact EN preserved; split Kedushah/U'va LeTzion vs Maariv paragraph",
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "If some of the congregation leave after the chazzan has begun the repetition alo",
+      "seg1_preview": "The same principle applies to Maariv. If they began Vehu Rachum with ten and som"
+    },
+    {
+      "id": "oc1/siman128/seif-043/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated — seg1 only 'The prayer beginning'; quote-break destroyed EN",
+      "en_length_ratio": 0.085,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "He should leave the synagogue. The same applies if he is the only kohen present.",
+      "seg1_preview": "The prayer beginning "
+    },
+    {
+      "id": "oc1/siman440/seif-001/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated — seg0 ends mid-quote; ~64% EN missing",
+      "en_length_ratio": 0.362,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Jew is liable when he tells the non-Jew, ",
+      "seg1_preview": "Even if he later deposited it with another non-Jew, etc. This is from Hagahos Al"
+    },
+    {
+      "id": "yd1/siman114/seif-010/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split boundary but editorial rewording (32a→daf 32, etc.) — not split_existing_en",
+      "en_length_ratio": 1.008,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Tosafos there, daf 32. The reason is that it causes the product to set quickly. ",
+      "seg1_preview": "The Beit Yosef cites Mordechai in the name of Avi HaEzri regarding a case in whi"
+    },
+    {
+      "id": "yd1/siman116/seif-004/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Correct Tur/(°) Taz split but minor editorial (Orach Chaim spelling)",
+      "en_length_ratio": 1.008,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Tur in the name of his father, the Rosh. See Orach Chayyim, siman 173.",
+      "seg1_preview": "Even sixty times the quantity does not nullify it, because danger is treated mor"
+    },
+    {
+      "id": "yd1/siman134/seif-003/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated — seg0='From the passage,' seg1 gloss only; ~72% lost",
+      "en_length_ratio": 0.277,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "From the passage, ",
+      "seg1_preview": "Meaning: it is permitted for benefit but forbidden for drinking, as in the follo"
+    },
+    {
+      "id": "yd1/siman134/seif-013/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Correct split but editorial ('poskim' for 'halachic authorities')",
+      "en_length_ratio": 0.977,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Like the latter version of Rav Shmuel bar Yehudah there in the Gemara, in accord",
+      "seg1_preview": "Beit Yosef, however, rules unlike the Rambam and does not distinguish between ac"
+    },
+    {
+      "id": "yd1/siman139/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "medium",
+      "verdict": "REJECT",
+      "reason": "Truncated + rewritten seg0; seg1 Likut block incomplete",
+      "en_length_ratio": 0.304,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "If he slaughtered, etc. The Tur rules like R' Yehuda and follows the approach of",
+      "seg1_preview": "(Likkut) If he slaughtered, etc. The approach of Rashi and Tosafos is that Rav N"
+    },
+    {
+      "id": "yd1/siman139/seif-012/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Rewrote seg0 (Be'er HaGadol, new wording); seg1 Likut truncated mid-s.v.",
+      "en_length_ratio": 0.957,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "And some say, etc. See Be'er HaGolah. The Ramban, however, wrote that they disag",
+      "seg1_preview": "(Likkut) And some say, etc. Tosafos in the above s.v. "
+    },
+    {
+      "id": "yd1/siman168/seif-017/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split; minor editorial ('money upon it' vs 'upon the collateral')",
+      "en_length_ratio": 0.971,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Tur in the name of his father, the Rosh, in a responsum, kelal 108, simanim ",
+      "seg1_preview": "There is nevertheless no prohibition, because perhaps the non-Jew lent money upo"
+    },
+    {
+      "id": "yd1/siman168/seif-022/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "Split OK but editorial ('Ri'→'R' Yitzchak') — violates preserve wording",
+      "en_length_ratio": 1.129,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Tur in the name of R' Yitzchak, and that the Ramban likewise agrees in this ",
+      "seg1_preview": "This is the correct reading, as I emended it in the Beit Yosef."
+    },
+    {
+      "id": "yd1/siman173/seif-019/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "(°) gloss over-compressed to 'This is stated there in the Gemara' — semantic loss",
+      "en_length_ratio": 0.895,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The statement of Rav, according to the latter version there, daf 64a, in accorda",
+      "seg1_preview": "This is stated there in the Gemara."
+    },
+    {
+      "id": "yd1/siman175/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Both Likut blocks truncated/paraphrased (~30% missing; Mishneh LaMelech→Maggid Mishneh)",
+      "en_length_ratio": 0.697,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "(Likkut) They were, etc. According to our version in the Gemara. Rashi there, ho",
+      "seg1_preview": "(Likkut) They were, etc. According to our version and the version of the Rif and"
+    },
+    {
+      "id": "yd1/siman177/seif-004/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated — Rashi gloss seg1 cut mid-sentence (~49% lost)",
+      "en_length_ratio": 0.508,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The wording of the Rambam in chapter 6 of Hilchos Sheluchin VeShutafin, halacha ",
+      "seg1_preview": "Rashi explains that if he was a smith or carpenter, one estimates how much a per"
+    },
+    {
+      "id": "yd1/siman177/seif-012/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Correct (°) split; added 'Meaning:' prefix (minor editorial)",
+      "en_length_ratio": 1.036,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Tur in the name of Rabbeinu Yeshayah. The reason is that it appears as an in",
+      "seg1_preview": "Meaning: this applies even where he accepts an obligation to give the fixed amou"
+    },
+    {
+      "id": "yd1/siman177/seif-016/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "medium",
+      "verdict": "REJECT",
+      "reason": "Truncated Likut block — seg1 ends abruptly (~47% lost)",
+      "en_length_ratio": 0.528,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "If he is obligated, etc. This is not comparable to the case above in seif 14, be",
+      "seg1_preview": "(Likkut) If he is obligated, etc., and even though if, etc. As written there on "
+    },
+    {
+      "id": "yd1/siman177/seif-018/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Seg1 truncated before Rama/Darkei Moshe ending",
+      "en_length_ratio": 0.904,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "This too is stated there. He writes that we do not say that because, according t",
+      "seg1_preview": "The same is written in Choshen Mishpat, siman 82, seif 10. In my humble opinion,"
+    },
+    {
+      "id": "yd1/siman177/seif-020/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Correct (°) split; editorial ('householder' for 'borrower')",
+      "en_length_ratio": 1.014,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Mordechai in chapter 5 of Bava Metzia, in the name of a responsum of Maharam.",
+      "seg1_preview": "Meaning: although it appears to be a circumvention, since the householder will c"
+    },
+    {
+      "id": "yd1/siman177/seif-021/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "medium",
+      "verdict": "REJECT",
+      "reason": "Truncated — seg0/seg1 fragments only (~92% lost)",
+      "en_length_ratio": 0.081,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "If he gives, etc. There on daf 68b; see Tosafos there, s.v. ",
+      "seg1_preview": "(Likkut) If, etc. The version of Rabbeinu Chananel, the Rif, and other poskim in"
+    },
+    {
+      "id": "yd1/siman177/seif-027/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Truncated — seg0 tiny; bulk in seg1 but ~62% missing overall",
+      "en_length_ratio": 0.385,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "If they stipulated, etc. Rambam; and as written there, ",
+      "seg1_preview": "(Likkut) If they stipulated, etc. There is another approach according to the Sem"
+    },
+    {
+      "id": "yd1/siman177/seif-036/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split; minor spelling (halachah→halacha)",
+      "en_length_ratio": 0.969,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Rambam, chapter 5 of Hilchos Malveh, halacha 10. The Maggid Mishneh writes that ",
+      "seg1_preview": "Meaning: perhaps the venture suffered a loss, in which case the investor should "
+    },
+    {
+      "id": "yd1/siman177/seif-040/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split; minor editorial ('the Ramban', hyphenation)",
+      "en_length_ratio": 1.014,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The students of the Rashba in the name of the Ramban. See Beit Yosef.",
+      "seg1_preview": "Meaning: he takes one-quarter of the profit, and in addition one-third of the ot"
+    },
+    {
+      "id": "yd1/siman178/seif-003/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split; minor article insertions ('the Rambam')",
+      "en_length_ratio": 1.013,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "In chapter 11, the Rambam writes that one leaves the hair loose behind, based on",
+      "seg1_preview": "He further writes that anyone who performs one of these practices or anything si"
+    },
+    {
+      "id": "yd1/siman198/seif-015/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "Exact EN preserved; Tosefta vs (°) marelakin/kaltines gloss",
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Tosefta. She is particular about it so that she should not become unattractive t",
+      "seg1_preview": "These are called marelakin or kaltines."
+    },
+    {
+      "id": "yd1/siman198/seif-043/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Good (°) split; minor typo-level drift (Raavyah)",
+      "en_length_ratio": 1.03,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "There in the name of Ravyah, citing the Geonim. The reason is that the fingernai",
+      "seg1_preview": "I heard that this applies only as long as she has not yet had marital relations "
+    },
+    {
+      "id": "yd1/siman198/seif-045/baer-heitev",
+      "slug": "baer-heitev",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "Correct Shach vs (מה*) immersion-note split; editorial (chatzitzah, b'dieved)",
+      "en_length_ratio": 1.047,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "Remove them. This implies that whenever she can remove them, they constitute a c",
+      "seg1_preview": "Another immersion is required without a blessing. Bach and Shach."
+    },
+    {
+      "id": "yd1/siman206/seif-005/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "REJECT",
+      "reason": "Seg1 truncated at 'The Ran explains that' — quote-break",
+      "en_length_ratio": 0.774,
+      "exact_match": false,
+      "sig_match": false,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "seg0_preview": "The Rosh there, and likewise the Ran; the Ramban agrees. But in an unspecified c",
+      "seg1_preview": "The Ran explains that "
+    }
+  ]
+}

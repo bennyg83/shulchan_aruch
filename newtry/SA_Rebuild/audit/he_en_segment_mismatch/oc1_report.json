@@ -1,23 +1,13 @@
 {
   "volume": "oc1",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "scannedAt": "2026-08-27T17:17:22.418Z",
+  "scannedAt": "2026-08-28T15:21:36.029Z",
   "pairs": 89911,
-  "issues": 107,
+  "issues": 59,
   "byKind": {
-    "en_has_more_segments": 22,
-    "he_missing": 59,
-    "en_truncated_vs_multi_he": 14,
-    "he_has_more_segments": 12
+    "he_missing": 59
   },
   "bySlug": {
-    "biur-halacha": {
-      "issues": 5,
-      "byKind": {
-        "en_has_more_segments": 4,
-        "he_has_more_segments": 1
-      }
-    },
     "eshel-avraham": {
       "issues": 5,
       "byKind": {
@@ -25,12 +15,9 @@
       }
     },
     "machatzit-hashekel": {
-      "issues": 11,
+      "issues": 3,
       "byKind": {
-        "he_missing": 3,
-        "he_has_more_segments": 4,
-        "en_has_more_segments": 3,
-        "en_truncated_vs_multi_he": 1
+        "he_missing": 3
       }
     },
     "dagul-merevavah": {
@@ -45,40 +32,16 @@
         "he_missing": 2
       }
     },
-    "yad-ephraim": {
-      "issues": 14,
-      "byKind": {
-        "en_truncated_vs_multi_he": 2,
-        "en_has_more_segments": 1,
-        "he_missing": 11
-      }
-    },
-    "ateret-zekenim": {
-      "issues": 14,
-      "byKind": {
-        "he_has_more_segments": 2,
-        "en_truncated_vs_multi_he": 5,
-        "he_missing": 7
-      }
-    },
-    "kol-yaakov": {
-      "issues": 1,
-      "byKind": {
-        "he_has_more_segments": 1
-      }
-    },
     "shaarei-teshuvah": {
-      "issues": 14,
+      "issues": 12,
       "byKind": {
-        "en_truncated_vs_multi_he": 2,
         "he_missing": 12
       }
     },
-    "turei-zahav": {
-      "issues": 5,
+    "ateret-zekenim": {
+      "issues": 7,
       "byKind": {
-        "en_has_more_segments": 4,
-        "he_missing": 1
+        "he_missing": 7
       }
     },
     "baer-heitev": {
@@ -88,10 +51,9 @@
       }
     },
     "beur-hagra": {
-      "issues": 12,
+      "issues": 4,
       "byKind": {
-        "he_missing": 4,
-        "en_has_more_segments": 8
+        "he_missing": 4
       }
     },
     "magen-avraham": {
@@ -106,6 +68,18 @@
         "he_missing": 4
       }
     },
+    "yad-ephraim": {
+      "issues": 11,
+      "byKind": {
+        "he_missing": 11
+      }
+    },
+    "turei-zahav": {
+      "issues": 1,
+      "byKind": {
+        "he_missing": 1
+      }
+    },
     "chokhmat-shlomo": {
       "issues": 3,
       "byKind": {
@@ -117,39 +91,9 @@
       "byKind": {
         "he_missing": 1
       }
-    },
-    "peri-megadim": {
-      "issues": 5,
-      "byKind": {
-        "en_has_more_segments": 2,
-        "en_truncated_vs_multi_he": 3
-      }
-    },
-    "chok-yaakov": {
-      "issues": 5,
-      "byKind": {
-        "en_truncated_vs_multi_he": 1,
-        "he_has_more_segments": 4
-      }
     }
   },
   "samples": [
-    {
-      "volume": "oc1",
-      "siman": 1,
-      "seif": "seif-001",
-      "slug": "biur-halacha",
-      "kind": "en_has_more_segments",
-      "heSegments": 5,
-      "enSegments": 10,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 5651,
-      "enBytes": 6382,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman1/seif-001/biur-halacha"
-    },
     {
       "volume": "oc1",
       "siman": 1,
@@ -217,22 +161,6 @@
     {
       "volume": "oc1",
       "siman": 1,
-      "seif": "seif-008",
-      "slug": "yad-ephraim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 3148,
-      "enBytes": 3605,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman1/seif-008/yad-ephraim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 1,
       "seif": "seif-009",
       "slug": "levushei-serad",
       "kind": "he_missing",
@@ -245,246 +173,6 @@
       "heHasHebrew": false,
       "enHasLatin": true,
       "path": "oc1/siman1/seif-009/levushei-serad"
-    },
-    {
-      "volume": "oc1",
-      "siman": 1,
-      "seif": "seif-009",
-      "slug": "yad-ephraim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 3422,
-      "enBytes": 3768,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman1/seif-009/yad-ephraim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 5,
-      "seif": "seif-001",
-      "slug": "ateret-zekenim",
-      "kind": "he_has_more_segments",
-      "heSegments": 3,
-      "enSegments": 2,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 951,
-      "enBytes": 1140,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman5/seif-001/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 12,
-      "seif": "seif-001",
-      "slug": "ateret-zekenim",
-      "kind": "he_has_more_segments",
-      "heSegments": 3,
-      "enSegments": 2,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 1110,
-      "enBytes": 1208,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman12/seif-001/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 27,
-      "seif": "seif-004",
-      "slug": "machatzit-hashekel",
-      "kind": "he_has_more_segments",
-      "heSegments": 7,
-      "enSegments": 6,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 3021,
-      "enBytes": 3321,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman27/seif-004/machatzit-hashekel"
-    },
-    {
-      "volume": "oc1",
-      "siman": 27,
-      "seif": "seif-006",
-      "slug": "machatzit-hashekel",
-      "kind": "en_has_more_segments",
-      "heSegments": 3,
-      "enSegments": 6,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 4725,
-      "enBytes": 5571,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman27/seif-006/machatzit-hashekel"
-    },
-    {
-      "volume": "oc1",
-      "siman": 32,
-      "seif": "seif-005",
-      "slug": "yad-ephraim",
-      "kind": "en_has_more_segments",
-      "heSegments": 2,
-      "enSegments": 4,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 2149,
-      "enBytes": 2372,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman32/seif-005/yad-ephraim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 35,
-      "seif": "seif-001",
-      "slug": "ateret-zekenim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 581,
-      "enBytes": 1152,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman35/seif-001/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 35,
-      "seif": "seif-001",
-      "slug": "kol-yaakov",
-      "kind": "he_has_more_segments",
-      "heSegments": 144,
-      "enSegments": 94,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 38320,
-      "enBytes": 46997,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman35/seif-001/kol-yaakov"
-    },
-    {
-      "volume": "oc1",
-      "siman": 42,
-      "seif": "seif-003",
-      "slug": "biur-halacha",
-      "kind": "he_has_more_segments",
-      "heSegments": 14,
-      "enSegments": 13,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 17696,
-      "enBytes": 14938,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman42/seif-003/biur-halacha"
-    },
-    {
-      "volume": "oc1",
-      "siman": 51,
-      "seif": "seif-003",
-      "slug": "shaarei-teshuvah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 3,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 1594,
-      "enBytes": 1704,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman51/seif-003/shaarei-teshuvah"
-    },
-    {
-      "volume": "oc1",
-      "siman": 51,
-      "seif": "seif-007",
-      "slug": "machatzit-hashekel",
-      "kind": "en_has_more_segments",
-      "heSegments": 4,
-      "enSegments": 5,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 3383,
-      "enBytes": 3755,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman51/seif-007/machatzit-hashekel"
-    },
-    {
-      "volume": "oc1",
-      "siman": 51,
-      "seif": "seif-009",
-      "slug": "ateret-zekenim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 566,
-      "enBytes": 666,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman51/seif-009/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 55,
-      "seif": "seif-003",
-      "slug": "ateret-zekenim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 1345,
-      "enBytes": 1637,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman55/seif-003/ateret-zekenim"
-    },
-    {
-      "volume": "oc1",
-      "siman": 128,
-      "seif": "seif-003",
-      "slug": "turei-zahav",
-      "kind": "en_has_more_segments",
-      "heSegments": 2,
-      "enSegments": 3,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 5604,
-      "enBytes": 2830,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman128/seif-003/turei-zahav"
-    },
-    {
-      "volume": "oc1",
-      "siman": 128,
-      "seif": "seif-043",
-      "slug": "ateret-zekenim",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegments": 2,
-      "enSegments": 1,
-      "heOnlySlots": 0,
-      "enOnlySlots": 0,
-      "heBytes": 2089,
-      "enBytes": 2411,
-      "heHasHebrew": true,
-      "enHasLatin": true,
-      "path": "oc1/siman128/seif-043/ateret-zekenim"
     },
     {
       "volume": "oc1",
@@ -773,6 +461,278 @@
       "heHasHebrew": false,
       "enHasLatin": true,
       "path": "oc1/siman135/seif-006/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-006",
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 401,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-006/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-007",
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 2917,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-007/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-007",
+      "slug": "eshel-avraham",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 721,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-007/eshel-avraham"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-007",
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 82,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-007/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-008",
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 203,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-008/beur-hagra"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-008",
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 185,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-008/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-008",
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 758,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-008/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-009",
+      "slug": "beur-hagra",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 308,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-009/beur-hagra"
+    },
+    {
+      "volume": "oc1",
+      "siman": 135,
+      "seif": "seif-009",
+      "slug": "yad-ephraim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 915,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman135/seif-009/yad-ephraim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 202,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/ateret-zekenim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "baer-heitev",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 5,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 1478,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/baer-heitev"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "chokhmat-shlomo",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 459,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/chokhmat-shlomo"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "dagul-merevavah",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 603,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/dagul-merevavah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "magen-avraham",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 3,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 268,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/magen-avraham"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "netiv-chayim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 66,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/netiv-chayim"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-001",
+      "slug": "shaarei-teshuvah",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 230,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-001/shaarei-teshuvah"
+    },
+    {
+      "volume": "oc1",
+      "siman": 137,
+      "seif": "seif-002",
+      "slug": "ateret-zekenim",
+      "kind": "he_missing",
+      "heSegments": 0,
+      "enSegments": 1,
+      "heOnlySlots": 0,
+      "enOnlySlots": 0,
+      "heBytes": 2,
+      "enBytes": 840,
+      "heHasHebrew": false,
+      "enHasLatin": true,
+      "path": "oc1/siman137/seif-002/ateret-zekenim"
     }
   ],
   "simanimScanned": 697

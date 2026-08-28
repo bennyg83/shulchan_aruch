@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "created": "2026-08-28T15:21:19.747Z",
+    "kit": "EN_MISSING_2_REMAINING",
+    "kit_num": "01",
+    "mode": "fresh_translate",
+    "gpt_source": "C:/Users/binya/Downloads/EN_MISSING_2_REMAINING_COMPLETED.json",
+    "gpt_result": "EN_MISSING_2_REMAINING_GPT_RESULT.json",
+    "kit_case_count": 2,
+    "gpt_case_count": 2,
+    "expected": 2,
+    "id_order_match": true,
+    "missing_from_gpt": [],
+    "extra_in_gpt": [],
+    "summary": "EN_MISSING_2_REMAINING: 2 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+  },
+  "results": [
+    {
+      "id": "yd1/siman173/seif-001/yad-avraham",
+      "slug": "yad-avraham",
+      "heSegs": 1,
+      "action": "fresh_translate",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "fresh_translate complete",
+      "repair_candidate": false,
+      "flags": [],
+      "gpt_notes": "Fresh translation from Hebrew."
+    },
+    {
+      "id": "yd1/siman210/seif-001/yad-avraham",
+      "slug": "yad-avraham",
+      "heSegs": 1,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "fresh_translate complete",
+      "repair_candidate": false,
+      "flags": [],
+      "gpt_notes": "Fresh translation; one OCR-damaged token was resolved from the cited Rashba ruling."
+    }
+  ]
+}

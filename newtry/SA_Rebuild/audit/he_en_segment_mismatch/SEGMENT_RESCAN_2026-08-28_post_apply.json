@@ -1,0 +1,80 @@
+{
+  "scannedAt": "2026-08-28T15:24:33.343Z",
+  "label": "post_apply",
+  "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "volumes": ["oc1", "yd1", "eh1", "cm1"],
+  "totals": {
+    "pairs": 197982,
+    "issues": 161,
+    "actionable_excluding_he_missing": 102,
+    "byKind": {
+      "he_missing": 59,
+      "he_has_more_segments": 59,
+      "en_truncated_vs_multi_he": 43,
+      "en_has_more_segments": 0,
+      "en_missing": 0
+    }
+  },
+  "byVolume": [
+    {
+      "volume": "oc1",
+      "pairs": 89911,
+      "issues": 59,
+      "byKind": { "he_missing": 59 }
+    },
+    {
+      "volume": "yd1",
+      "pairs": 25946,
+      "issues": 75,
+      "byKind": {
+        "he_has_more_segments": 44,
+        "en_truncated_vs_multi_he": 31
+      }
+    },
+    {
+      "volume": "eh1",
+      "pairs": 11939,
+      "issues": 0,
+      "byKind": {}
+    },
+    {
+      "volume": "cm1",
+      "pairs": 70186,
+      "issues": 27,
+      "byKind": {
+        "he_has_more_segments": 15,
+        "en_truncated_vs_multi_he": 12
+      }
+    }
+  ],
+  "baseline": {
+    "source": "SEGMENT_RESCAN_2026-08-28.json (pre _REMAINING apply)",
+    "totals": {
+      "issues": 333,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 128,
+        "en_truncated_vs_multi_he": 135,
+        "en_has_more_segments": 9,
+        "en_missing": 2
+      }
+    }
+  },
+  "deltaFromBaseline": {
+    "totalIssues": -172,
+    "actionable_delta": -102,
+    "byKind": {
+      "he_missing": 0,
+      "he_has_more_segments": -69,
+      "en_truncated_vs_multi_he": -92,
+      "en_has_more_segments": -9,
+      "en_missing": -2
+    }
+  },
+  "apply_session": {
+    "cells_applied": 172,
+    "kits": "01-10 _REMAINING GPT batches",
+    "eval_summary": "REMAINING_GPT_EVAL_SUMMARY.json",
+    "apply_log": "REMAINING_GPT_ALL_APPLY.json"
+  }
+}

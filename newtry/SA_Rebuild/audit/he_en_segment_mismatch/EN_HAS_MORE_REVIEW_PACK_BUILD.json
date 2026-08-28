@@ -1,0 +1,54 @@
+{
+  "total": 68,
+  "byTag": {
+    "heSegs_zero": 59,
+    "glued_still_open": 9
+  },
+  "byVol": {
+    "oc1": 59,
+    "yd1": 8,
+    "cm1": 1
+  },
+  "byTagVol": {
+    "heSegs_zero|oc1": 59,
+    "glued_still_open|yd1": 8,
+    "glued_still_open|cm1": 1
+  },
+  "full": {
+    "path": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\EN_HAS_MORE_REVIEW_PACK.json",
+    "bytes": 138566,
+    "sha256": "929dda0b77de9e6e7923c4b4db683de5e90642fe6ad3e5f969c38ed7ced0e837"
+  },
+  "parts": [
+    {
+      "part": 1,
+      "file": "EN_HAS_MORE_REVIEW_PACK_part01.json",
+      "group": "heSegs_zero",
+      "cases": 59,
+      "case_offset": 0,
+      "bytes": 78190,
+      "characters": 76999,
+      "sha256": "e2a26a46c09c305a3812ec7499702b91425bab4afd4c264717737add3f8b15f7",
+      "tags": {
+        "heSegs_zero": 59
+      }
+    },
+    {
+      "part": 2,
+      "file": "EN_HAS_MORE_REVIEW_PACK_part02.json",
+      "group": "non_zero_he",
+      "cases": 9,
+      "case_offset": 59,
+      "bytes": 64400,
+      "characters": 51237,
+      "sha256": "eec55581fcc9f2af6b7493aa43f20beb7c175a4c2136d97755d53bf4257d6418",
+      "tags": {
+        "glued_still_open": 9
+      }
+    }
+  ],
+  "md": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\EN_HAS_MORE_REVIEW_PACK.md",
+  "scannedBoth": 118852,
+  "enPresentHeAbsent": 0,
+  "prompt": "SA_Rebuild EN_HAS_MORE structure review. INPUT: one EN_HAS_MORE_REVIEW_PACK_partNN.json (this chunk only).\n\nCONTEXT\n- Each case has enSegs > heSegs after the same <br>-normalize/split used in corpus audits.\n- Tags: heSegs_zero | glued_still_open | other_en_has_more.\n- Goal is STRUCTURE only: how EN segments should map to HE slots. Do NOT invent Hebrew. Do NOT rewrite English text in this pass (notes may flag rewrite needed).\n\nRULES BY TAG / heSegs\n1) If heSegs === 0 (tag heSegs_zero):\n   - EN rejoin / merge_groups CANNOT create HE.\n   - Do NOT invent merge_groups to \"match\" 0 HE slots.\n   - action MUST be needs_he_restore or skip_structure.\n   - merge_groups, pair_map, drop_indices = null.\n   - Optional short notes (e.g. empty HE file vs missing HE).\n\n2) If heSegs > 0:\n   - Prefer contiguous merge_groups: array of EN-index arrays, length === heSegs, partitioning 0..enSegs-1 in order. Only merge true continuations; never glue distinct HE lemmas/notes.\n   - If stubs/bodies are non-contiguous, use action pair_map with pair_map as array of EN-index groups per HE slot (non-contiguous OK), length === heSegs.\n   - If clear duplicate/extra EN junk, action drop_en_indices with drop_indices (0-based), remaining must be alignable.\n   - If unsafe: needs_editorial or needs_human; merge_groups/pair_map/drop_indices null as appropriate.\n   - skip only if out of scope / already fixed.\n\nOUTPUT JSON array only, same ids/order as this part's cases:\n[{\"id\":\"...\",\"action\":\"needs_he_restore\"|\"skip_structure\"|\"merge_groups\"|\"pair_map\"|\"drop_en_indices\"|\"needs_editorial\"|\"needs_human\"|\"skip\",\"merge_groups\":null|[[0],[1,2]],\"pair_map\":null|[[0,3],[1,4]],\"drop_indices\":null|[2],\"notes\":\"short\"}]\n\nConservative when unsure. No new case ids. No corpus edits."
+}

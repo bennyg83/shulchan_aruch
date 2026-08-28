@@ -1,0 +1,2526 @@
+{
+  "meta": {
+    "created": "2026-08-28T09:16:20.940Z",
+    "kit_parts": [
+      "EN_TRUNC_MODERATE_RESEGMENT_KIT_part01.json",
+      "EN_TRUNC_MODERATE_RESEGMENT_KIT_part02.json",
+      "EN_TRUNC_MODERATE_RESEGMENT_KIT_part03.json",
+      "EN_TRUNC_MODERATE_RESEGMENT_KIT_part04.json"
+    ],
+    "gpt_result": "EN_TRUNC_MODERATE_GPT_RESULT_ALL.json",
+    "gpt_source": "C:/Users/binya/Downloads/EN_TRUNC_MODERATE_RESEGMENT_ALL_COMPLETED.json",
+    "kit_case_count": 78,
+    "gpt_case_count": 78,
+    "id_order_match": true,
+    "missing_from_gpt": [],
+    "extra_in_gpt": [],
+    "skip_applied_count": 12,
+    "counts": {
+      "APPROVE": 29,
+      "HOLD": 36,
+      "REJECT": 1,
+      "SKIP_APPLIED": 12
+    },
+    "by_part": {
+      "part01": {
+        "total": 29,
+        "APPROVE": 7,
+        "HOLD": 10,
+        "REJECT": 0,
+        "SKIP_APPLIED": 12,
+        "REPAIR_CANDIDATE": 0
+      },
+      "part02": {
+        "total": 29,
+        "APPROVE": 7,
+        "HOLD": 22,
+        "REJECT": 0,
+        "SKIP_APPLIED": 0,
+        "REPAIR_CANDIDATE": 0
+      },
+      "part03": {
+        "total": 17,
+        "APPROVE": 12,
+        "HOLD": 4,
+        "REJECT": 1,
+        "SKIP_APPLIED": 0,
+        "REPAIR_CANDIDATE": 0
+      },
+      "part04": {
+        "total": 3,
+        "APPROVE": 3,
+        "HOLD": 0,
+        "REJECT": 0,
+        "SKIP_APPLIED": 0,
+        "REPAIR_CANDIDATE": 0
+      }
+    },
+    "repair_candidate_count": 0,
+    "repair_candidate_ids": [],
+    "recommendation": {
+      "new_approve_ready": 29,
+      "repair_candidate": 0,
+      "need_re_prompt": 1,
+      "hold_fresh_translate": 10,
+      "hold_pattern_marker": 26,
+      "skip_applied": 12,
+      "do_not_apply_yet": true,
+      "note": "Evaluation only — no corpus apply"
+    }
+  },
+  "results": [
+    {
+      "id": "oc1/siman1/seif-009/yad-ephraim",
+      "slug": "yad-ephraim",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "oc1/siman51/seif-009/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "oc1/siman55/seif-003/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "oc1/siman128/seif-043/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "oc1/siman440/seif-001/ateret-zekenim",
+      "slug": "ateret-zekenim",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman114/seif-010/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Tosafot there, 32a. The reason is that it causes the product to set quic…"
+        },
+        {
+          "i": 1,
+          "text": "The Beit Yosef cites Mordechai in the name of Avi HaEzri regarding a cas…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman116/seif-004/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The Tur in the name of his father, the Rosh. See Orach Chaim, siman 173."
+        },
+        {
+          "i": 1,
+          "text": "Even sixty times the quantity does not nullify it, because danger is tre…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman134/seif-003/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman134/seif-013/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Like the latter version of Rav Shmuel bar Yehudah there in the Gemara, i…"
+        },
+        {
+          "i": 1,
+          "text": "Beit Yosef, however, rules unlike the Rambam and does not distinguish be…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman139/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "If he slaughtered, etc. Tur and perek like R' Yitzchak, and like the Raa…"
+        },
+        {
+          "i": 1,
+          "text": "(Extract) If he slaughtered, etc. ; Rashi and Tosafot's position: R' Nac…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman139/seif-012/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And some say, etc. Beit HaGadol; but the Ramban wrote that it is not so,…"
+        },
+        {
+          "i": 1,
+          "text": "(Extract) And some say, etc. ; Tosafot in the passage \"we require\" above…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman168/seif-017/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The Tur in the name of his father, the Rosh, in a responsum, kelal 108, …"
+        },
+        {
+          "i": 1,
+          "text": "There is nevertheless no prohibition, because perhaps the non-Jew lent u…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman168/seif-022/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.992,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The Tur in the name of Ri, and that Ramban likewise agrees in this case."
+        },
+        {
+          "i": 1,
+          "text": "This is the correct reading, as I emended it in Beit Yosef."
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman173/seif-019/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.994,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The statement of Rav, according to the latter version there, page 64a, i…"
+        },
+        {
+          "i": 1,
+          "text": "This is explained there in the Gemara."
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman175/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) They were, etc. As our version in the Gemara; but Rashi there w…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) They were, etc. As our version and the version of Rif and other…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman177/seif-004/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman177/seif-012/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The Tur in the name of Rabbeinu Yeshayah. The reason is that it appears …"
+        },
+        {
+          "i": 1,
+          "text": "This applies even where he accepts an obligation to give the fixed amoun…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman177/seif-016/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "If obligated, etc. And it is not similar to that above seif 14, for here…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) If obligated, etc., and even though if, etc. As written seif 5 …"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman177/seif-018/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman177/seif-020/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Mordechai in chapter 5 of Bava Metzia, in the name of a responsum of Mah…"
+        },
+        {
+          "i": 1,
+          "text": "Meaning: although it appears to be a circumvention, since the borrower w…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman177/seif-021/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman177/seif-027/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman177/seif-036/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Rambam, chapter 5 of Hilchot Malveh, halachah 10. The Maggid Mishneh wri…"
+        },
+        {
+          "i": 1,
+          "text": "The concern is that perhaps the venture suffered a loss, in which case t…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman177/seif-040/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The students of the Rashba in the name of Ramban. See Beit Yosef."
+        },
+        {
+          "i": 1,
+          "text": "Meaning: he takes one quarter of the profit, and in addition one third o…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman178/seif-003/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "In chapter 11, Rambam writes that one leaves the hair loose behind, base…"
+        },
+        {
+          "i": 1,
+          "text": "He further writes that anyone who performs one of these practices or any…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman198/seif-015/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman198/seif-043/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "There in the name of Raavyah, citing the Geonim. The reason is that the …"
+        },
+        {
+          "i": 1,
+          "text": "I heard that this applies only before she has had marital relations with…"
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman198/seif-045/baer-heitev",
+      "slug": "baer-heitev",
+      "kit_part": 1,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.994,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Remove them. This implies that whenever she can remove the objects, they…"
+        },
+        {
+          "i": 1,
+          "text": "Another immersion is required without a blessing. Bach and Shach."
+        }
+      ],
+      "gpt_notes": "Existing English blob splits cleanly across the two Hebrew slots."
+    },
+    {
+      "id": "yd1/siman206/seif-005/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 1,
+      "heSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "Already applied to corpus in prior session",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "action": "resegment",
+      "confidence": "high"
+    },
+    {
+      "id": "yd1/siman216/seif-007/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Mishnah there, 57a. This is not considered a matter not yet in existence…"
+        },
+        {
+          "i": 1,
+          "text": "Meaning: if she planted a tree or received fruit as wages for her handiw…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman234/seif-051/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Rashba in a responsum."
+        },
+        {
+          "i": 1,
+          "text": "He concludes that since a sage uproots the vow from its inception, the p…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman238/seif-012/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The statement of Rava there, Shevuot 24b."
+        },
+        {
+          "i": 1,
+          "text": "If she did not consent before Pesach but consented afterward, he is not …"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman239/seif-010/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Rambam, chapter 3 of Hilchot Shevuot."
+        },
+        {
+          "i": 1,
+          "text": "See seif 14 in the gloss: where there is a threat of death, it is consid…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman251/seif-001/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The Tur and the wording of Semag in the name of the Yereim. Since he tra…"
+        },
+        {
+          "i": 1,
+          "text": "See also the baraita, Gittin 61a."
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman263/seif-004/turei-zahav",
+      "slug": "turei-zahav",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.469"
+      ],
+      "en_length_ratio": 1.469,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "To examine it carefully. Meaning, lest there be a concealed foreskin, th…"
+        },
+        {
+          "i": 1,
+          "text": "And regarding what is written, \"and not with iron,\" the Prisha writes th…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "yd1/siman267/seif-030/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The wording of Rambam, chapter 1 of Hilchot Avadim, from Rav Pappa's sta…"
+        },
+        {
+          "i": 1,
+          "text": "He explains 'they enslave them excessively' as meaning like a Canaanite …"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman267/seif-034/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.993,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "This is obvious from many places in the Talmud."
+        },
+        {
+          "i": 1,
+          "text": "The prohibition, 'You shall not rule over him with rigor,' was stated on…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman286/seif-022/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "LIKUT_MARKER_MISS_1",
+      "repair_candidate": false,
+      "flags": [
+        "LIKUT_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And likewise, etc. — as written in Tanhuma, etc.;"
+        },
+        {
+          "i": 1,
+          "text": "(Addition) And likewise, etc. — as in Shabbat 131b: since he can renounc…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman289/seif-003/turei-zahav",
+      "slug": "turei-zahav",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The height of the gate. For it is written \"and you shall bind them\" and …"
+        },
+        {
+          "i": 1,
+          "text": "And as for what is written \"on the right of the one who enters\" — for it…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman294/seif-024/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.992,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The statement of Rabbi Ami in the name of Rabbi Yochanan, Kiddushin 39a."
+        },
+        {
+          "i": 1,
+          "text": "Tosafot there and the other authorities write likewise."
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-001/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "From seif 1 through seif 19, this is the wording of Rambam in chapter 5 …"
+        },
+        {
+          "i": 1,
+          "text": "The Gemara concludes in Berakhot 22a and in several places that the hala…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-005/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Menachot 15b."
+        },
+        {
+          "i": 1,
+          "text": "Kesef Mishneh explains that these are species that endure for three year…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-039/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Mishnah 6, chapter 5."
+        },
+        {
+          "i": 1,
+          "text": "Rambam writes, based upon the Yerushalmi, that we estimate whether it wo…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-042/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.994,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "From here through the end of seif 30, this is the wording of Rambam at t…"
+        },
+        {
+          "i": 1,
+          "text": "It is based upon Mishnah 5, chapter 5 of Kilayim."
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-053/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "There, Mishnah 2, chapter 7, following Rabbi Elazar bar Tzadok. He layer…"
+        },
+        {
+          "i": 1,
+          "text": "The reason is that he is particular to combine the three with the vineya…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-059/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.99,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "There, Mishnah 9."
+        },
+        {
+          "i": 1,
+          "text": "From here through the end of seif 55, this is the wording of Rambam in c…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman296/seif-069/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Mishnah 7, chapter 4."
+        },
+        {
+          "i": 1,
+          "text": "This does not mean a sixteen-cubit public thoroughfare, but a path used …"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "yd1/siman297/seif-010/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "BEER_DEGREE_SPLIT_MISS",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_SPLIT_MISS"
+      ],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "From the Yerushalmi at the beginning of Kilayim concerning distinct spec…"
+        },
+        {
+          "i": 1,
+          "text": "This is not literal. Even if he desires their continued existence as ani…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman7/seif-008/chelkat-mechokek",
+      "slug": "chelkat-mechokek",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Or she married before beit din and they did not object. This wording imp…"
+        },
+        {
+          "i": 1,
+          "text": "The Radach also writes that even if her husband knew before marriage tha…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman33/seif-009/rabbi-akiva-eiger",
+      "slug": "rabbi-akiva-eiger",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.578"
+      ],
+      "en_length_ratio": 1.578,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "[Shulchan Aruch] When he was his son-in-law. Note: If he signed a docume…"
+        },
+        {
+          "i": 1,
+          "text": "When he was his son-in-law and she died. Note: Even if his daughter was …"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman43/seif-011/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.179"
+      ],
+      "en_length_ratio": 1.179,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Even if they saw. Bava Metzia 12b and 19a."
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) Even if they saw, etc. As stated there: \"Bring proof when it re…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman46/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.562"
+      ],
+      "en_length_ratio": 1.562,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And if they authenticated it. There, regarding \"when they came before us…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And if they authenticated it, etc. Meaning, even after he swore…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman46/seif-009/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.258"
+      ],
+      "en_length_ratio": 1.258,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Even, etc. Sanhedrin 2b."
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And even, etc. As stated there: \"When they come before us for j…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman49/seif-008/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "needs_human",
+      "confidence": "low",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "ACTION_NEEDS_HUMAN",
+        "ACTION_needs_human",
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_2.015"
+      ],
+      "en_length_ratio": 2.015,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "When does this apply? This requires study, for it is contrary to the Gem…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) When does this apply, etc. From the Mishnah's statement, \"it wa…"
+        }
+      ],
+      "gpt_notes": "Final Hebrew words in slot 1 are corrupt and the existing English blob is unusable."
+    },
+    {
+      "id": "cm1/siman66/seif-007/chokhmat-shlomo",
+      "slug": "chokhmat-shlomo",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Seif 40. But they lose their wages. See Netivot HaMishpat and what I wro…"
+        },
+        {
+          "i": 1,
+          "text": "There, in the same seif: if they made a kinyan that he would be obligate…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman71/seif-012/turei-zahav",
+      "slug": "turei-zahav",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Ibid.: He pays the portion that he admits.) The Maggid Mishneh writes t…"
+        },
+        {
+          "i": 1,
+          "text": "The glossator answers that the cases are not comparable. A finder is exe…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman72/seif-029/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.794"
+      ],
+      "en_length_ratio": 1.794,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A lender who claims. Specifically when his claim is definite, as written…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) A definite claim, etc. Specifically where the claim is definite…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman72/seif-037/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.361"
+      ],
+      "en_length_ratio": 1.361,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And the same law applies. All the more so. See siman 66, seif 8."
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And likewise, etc. It teaches that his chazakah during the conv…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman78/seif-001/chokhmat-shlomo",
+      "slug": "chokhmat-shlomo",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Seif 1: One who fixes a time for his fellow and demands payment within t…"
+        },
+        {
+          "i": 1,
+          "text": "Seif 1: One who fixes a time for his fellow, etc. See Shach, seif katan …"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman78/seif-008/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "LIKUT_MARKER_MISS_1",
+      "repair_candidate": false,
+      "flags": [
+        "LIKUT_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "That which we say, etc. They infer from the wording 'one who fixes a tim…"
+        },
+        {
+          "i": 1,
+          "text": "Ramban and Rambam disagree, as stated in siman 39:4 and at the beginning…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman88/seif-029/siftei-kohen",
+      "slug": "siftei-kohen",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Even if it contains a clause of credibility, etc. In my humble opinion t…"
+        },
+        {
+          "i": 1,
+          "text": "I later saw that in Even HaEzer, siman 96, seif 15, the Rama himself cit…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman89/seif-004/urim-vetumim-urim",
+      "slug": "urim-vetumim-urim",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "REJECT",
+      "reason": "TRUNCATED_0.896",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "TRUNCATED_0.896"
+      ],
+      "en_length_ratio": 0.896,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Items 1, 2, and 3 are missing.)"
+        },
+        {
+          "i": 1,
+          "text": "This oath for a hired worker was instituted by the Sages for the worker'…"
+        }
+      ],
+      "gpt_notes": "Missing source marker translated; covered English preserved for the remaining slot."
+    },
+    {
+      "id": "cm1/siman128/seif-001/chelkat-mechokek",
+      "slug": "chelkat-mechokek",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A responsum from the eminent Rabbi Yissachar, av beit din of the holy co…"
+        },
+        {
+          "i": 1,
+          "text": "The author's answer was: Study Responsa Maharik and the rulings of Terum…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman141/seif-001/ketzot-hachoshen",
+      "slug": "ketzot-hachoshen",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "These are like three years. Knesset HaGedolah writes in the name of Maha…"
+        },
+        {
+          "i": 1,
+          "text": "Yet I am astonished, because Rashbam writes explicitly, s.v. 'the words …"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman147/seif-003/urim-vetumim-tumim",
+      "slug": "urim-vetumim-tumim",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "I later repurchased it. The Rambam omits Rav Yehudah's statement that if…"
+        },
+        {
+          "i": 1,
+          "text": "From this point onward, unfortunately, material is missing from the manu…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman147/seif-004/urim-vetumim-urim",
+      "slug": "urim-vetumim-urim",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And beit din transferred it. Rivash writes that an act of beit din is no…"
+        },
+        {
+          "i": 1,
+          "text": "The source text is missing from this point until siman 149, seif katan 1…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman155/seif-008/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.345"
+      ],
+      "en_length_ratio": 1.345,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And he measures from the edge. The Jerusalem Talmud there, in accordance…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And he measures, etc. The Jerusalem Talmud there states that th…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman182/seif-011/netivot-hamishpat-beurim",
+      "slug": "netivot-hamishpat-beurim",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "When does this apply? When he sold it in one document. See Sema, seif ka…"
+        },
+        {
+          "i": 1,
+          "text": "The difficulty is that the initial formulation itself seems contradictor…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman294/seif-001/haggahot-imrei-barukh",
+      "slug": "haggahot-imrei-barukh",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Shach, seif katan 6) And this resolves the Bach's question against Ramb…"
+        },
+        {
+          "i": 1,
+          "text": "The Ramah's words indicate that he stated his rule only where it is cert…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman304/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "HOLD",
+      "reason": "FRESH_TRANSLATE_0",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "CONTENT_DRIFT",
+        "INFLATED_1.757"
+      ],
+      "en_length_ratio": 1.757,
+      "exact_match": false,
+      "sig_match": false,
+      "kit_sig_match": false,
+      "corpus_file_present": true,
+      "sources": [
+        "fresh_translate",
+        "fresh_translate"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "From here, etc. As stated there, regarding a digla he pays the entire am…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) From here you learn, etc. This follows the Rosh's version, whic…"
+        }
+      ],
+      "gpt_notes": "Existing English blob is corrupted; both slots translated fresh from Hebrew."
+    },
+    {
+      "id": "cm1/siman329/seif-001/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The language of the Tur, from the conclusion of the Gemara in Bava Metzi…"
+        },
+        {
+          "i": 1,
+          "text": "The meaning is: place in my hands the field on which my father began per…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman346/seif-010/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "tzadi) Ibid., seif 12, from Rami bar Chama's unresolved questions there.…"
+        },
+        {
+          "i": 1,
+          "text": "The explanatory phrase means that he wishes to appear wealthy and import…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman358/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "LIKUT_MARKER_MISS_1",
+      "repair_candidate": false,
+      "flags": [
+        "LIKUT_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Likewise if, etc. Maggid Mishneh's explanation is difficult because Ramb…"
+        },
+        {
+          "i": 1,
+          "text": "Rambam also derives the ruling from Bava Kamma 113b concerning those who…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman359/seif-002/rabbi-akiva-eiger",
+      "slug": "rabbi-akiva-eiger",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.999,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "[Shach, continuation of his words] That it is only rabbinically prohibit…"
+        },
+        {
+          "i": 1,
+          "text": "I also saw in the old printings of the Talmud, for it was omitted in the…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman361/seif-002/rabbi-akiva-eiger",
+      "slug": "rabbi-akiva-eiger",
+      "kit_part": 3,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "[Shulchan Aruch] From the first or from the second. Note: Reuven saw Shi…"
+        },
+        {
+          "i": 1,
+          "text": "It is further stated there: Reuven stole an item, and after he had lifte…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman380/seif-003/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 4,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "heh) The language of the Tur, seif 4, and so writes the Rambam in chapte…"
+        },
+        {
+          "i": 1,
+          "text": "The explanation is that the pursued person could have been saved by taki…"
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman389/seif-008/beer-hagolah",
+      "slug": "beer-hagolah",
+      "kit_part": 4,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "peh) The language of the Rambam, law 6. The Maggid Mishneh writes that t…"
+        },
+        {
+          "i": 1,
+          "text": "The foreign-language term means a polecat."
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    },
+    {
+      "id": "cm1/siman427/seif-001/rabbi-akiva-eiger",
+      "slug": "rabbi-akiva-eiger",
+      "kit_part": 4,
+      "heSegs": 2,
+      "action": "resegment",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "EN preserved (sig match); minor punctuation/spacing only",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": true,
+      "kit_sig_match": true,
+      "corpus_file_present": true,
+      "sources": [
+        "split_existing_en",
+        "split_existing_en"
+      ],
+      "quote_break": false,
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "[Shulchan Aruch] A parapet for his roof. Note: He recites the blessing, …"
+        },
+        {
+          "i": 1,
+          "text": "End."
+        }
+      ],
+      "gpt_notes": "Existing English split at the semantic boundary without rewording."
+    }
+  ]
+}

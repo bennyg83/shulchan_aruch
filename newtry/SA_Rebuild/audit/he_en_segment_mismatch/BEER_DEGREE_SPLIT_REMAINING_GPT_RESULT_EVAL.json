@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "created": "2026-08-28T15:21:19.795Z",
+    "kit": "BEER_DEGREE_SPLIT_REMAINING",
+    "kit_num": "04",
+    "mode": "split_en",
+    "gpt_source": "C:/Users/binya/Downloads/BEER_DEGREE_SPLIT_REMAINING_ALL_7_COMPLETED.json",
+    "gpt_result": "BEER_DEGREE_SPLIT_REMAINING_GPT_RESULT.json",
+    "kit_case_count": 7,
+    "gpt_case_count": 7,
+    "expected": 7,
+    "id_order_match": true,
+    "missing_from_gpt": [],
+    "extra_in_gpt": [],
+    "summary": "BEER_DEGREE_SPLIT_REMAINING: 2 APPROVE, 5 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+  },
+  "results": [
+    {
+      "id": "yd1/siman123/seif-014/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en verbatim",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "gpt_notes": "Existing English split verbatim at degree-note boundaries."
+    },
+    {
+      "id": "yd1/siman142/seif-011/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "APPROVE",
+      "reason": "split_existing_en verbatim",
+      "repair_candidate": false,
+      "flags": [],
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "gpt_notes": "Existing English split verbatim at degree-note boundaries."
+    },
+    {
+      "id": "yd1/siman173/seif-018/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "pattern_marker_miss",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "gpt_notes": "Existing English split verbatim at degree-note boundaries."
+    },
+    {
+      "id": "yd1/siman182/seif-002/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "unjustified_fresh_translate",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "BEER_DEGREE_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 1.365,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Legacy English was corrupted; Hebrew slots freshly translated."
+    },
+    {
+      "id": "yd1/siman253/seif-012/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "unjustified_fresh_translate",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "HAS_FRESH_TRANSLATE",
+        "BEER_DEGREE_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 1.486,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Legacy English was corrupted; Hebrew slots freshly translated."
+    },
+    {
+      "id": "yd1/siman294/seif-026/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "pattern_marker_miss",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_MARKER_MISS_1",
+        "BEER_DEGREE_MARKER_MISS_2"
+      ],
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "gpt_notes": "Existing English split verbatim at degree-note boundaries."
+    },
+    {
+      "id": "yd1/siman296/seif-019/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 2,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "pattern_marker_miss",
+      "repair_candidate": false,
+      "flags": [
+        "BEER_DEGREE_MARKER_MISS_1"
+      ],
+      "en_length_ratio": 1,
+      "exact_match": true,
+      "sig_match": true,
+      "gpt_notes": "Existing English split verbatim at degree-note boundaries."
+    }
+  ]
+}

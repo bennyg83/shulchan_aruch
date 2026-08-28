@@ -1,0 +1,240 @@
+{
+  "scannedAt": "2026-08-28T12:03:33.953Z",
+  "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "gitHead": "861e11374d (includes 8c2f076f17 Likut marker fix)",
+  "volumes": [
+    "oc1",
+    "yd1",
+    "eh1",
+    "cm1"
+  ],
+  "totals": {
+    "pairs": 197982,
+    "issues": 333,
+    "byKind": {
+      "he_missing": 59,
+      "he_has_more_segments": 128,
+      "en_truncated_vs_multi_he": 135,
+      "en_has_more_segments": 9,
+      "en_missing": 2
+    }
+  },
+  "byVolume": [
+    {
+      "volume": "oc1",
+      "pairs": 89911,
+      "issues": 65,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 2,
+        "en_truncated_vs_multi_he": 4
+      }
+    },
+    {
+      "volume": "yd1",
+      "pairs": 25946,
+      "issues": 187,
+      "byKind": {
+        "he_has_more_segments": 92,
+        "en_has_more_segments": 8,
+        "en_truncated_vs_multi_he": 85,
+        "en_missing": 2
+      }
+    },
+    {
+      "volume": "eh1",
+      "pairs": 11939,
+      "issues": 0,
+      "byKind": {}
+    },
+    {
+      "volume": "cm1",
+      "pairs": 70186,
+      "issues": 81,
+      "byKind": {
+        "en_truncated_vs_multi_he": 46,
+        "he_has_more_segments": 34,
+        "en_has_more_segments": 1
+      }
+    }
+  ],
+  "baseline": {
+    "source": "Session baseline (start of day 2026-08-28)",
+    "byKind": {
+      "en_truncated_vs_multi_he": 194,
+      "he_has_more_segments": 295,
+      "en_has_more_segments": 9,
+      "en_missing": 2,
+      "he_missing": 59
+    }
+  },
+  "deltaFromBaseline": {
+    "byKind": {
+      "en_truncated_vs_multi_he": -59,
+      "he_has_more_segments": -167,
+      "en_has_more_segments": 0,
+      "en_missing": 0,
+      "he_missing": 0
+    },
+    "totalIssues": -226
+  },
+  "approxFixedToday": {
+    "en_truncated_vs_multi_he": 59,
+    "he_has_more_segments": 167,
+    "en_has_more_segments": 0,
+    "en_missing": 0,
+    "he_missing": 0
+  },
+  "likutKit": {
+    "kitCases": 53,
+    "appliedToCorpus": 40,
+    "holdRemaining": 13,
+    "evalPostfix": "HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL_EVAL_POSTFIX.json",
+    "evalBreakdown": {
+      "APPROVE": 22,
+      "SKIP_APPLIED": 18,
+      "HOLD": 13
+    },
+    "commits": [
+      "8c2f076f17 (40 approved incl marker fix)",
+      "861e11374d (18 approved)"
+    ]
+  },
+  "falsePositiveAnalysis": {
+    "analyzedAt": "2026-08-28T12:08:37.730Z",
+    "likelyFalsePositive": 59,
+    "likelyTrueMismatch": 274,
+    "topFpPatterns": [
+      {
+        "pattern": "fp_zero_he_by_design",
+        "count": 59,
+        "examples": [
+          {
+            "id": "oc1/siman1/seif-001/eshel-avraham",
+            "kind": "he_missing",
+            "heSegs": 0,
+            "enSegs": 1
+          },
+          {
+            "id": "oc1/siman1/seif-001/machatzit-hashekel",
+            "kind": "he_missing",
+            "heSegs": 0,
+            "enSegs": 1
+          }
+        ]
+      }
+    ],
+    "topTruePatternsStillOpen": [
+      {
+        "pattern": "true_likut_en_merged",
+        "count": 99,
+        "examples": [
+          {
+            "id": "yd1/siman108/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 25,
+            "enSegs": 4
+          },
+          {
+            "id": "yd1/siman109/seif-001/beur-hagra",
+            "kind": "he_has_more_segments",
+            "heSegs": 11,
+            "enSegs": 4
+          }
+        ]
+      },
+      {
+        "pattern": "true_en_truncated",
+        "count": 69,
+        "examples": [
+          {
+            "id": "oc1/siman162/seif-007/peri-megadim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 4,
+            "enSegs": 1
+          },
+          {
+            "id": "oc1/siman252/seif-001/peri-megadim",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 5,
+            "enSegs": 1
+          }
+        ]
+      },
+      {
+        "pattern": "true_offset_editorial",
+        "count": 61,
+        "examples": [
+          {
+            "id": "oc1/siman294/seif-001/machatzit-hashekel",
+            "kind": "he_has_more_segments",
+            "heSegs": 5,
+            "enSegs": 3
+          },
+          {
+            "id": "oc1/siman35/seif-001/kol-yaakov",
+            "kind": "he_has_more_segments",
+            "heSegs": 144,
+            "enSegs": 94
+          }
+        ]
+      },
+      {
+        "pattern": "true_beer_degree_split",
+        "count": 34,
+        "examples": [
+          {
+            "id": "yd1/siman114/seif-010/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1
+          },
+          {
+            "id": "yd1/siman116/seif-004/beer-hagolah",
+            "kind": "en_truncated_vs_multi_he",
+            "heSegs": 2,
+            "enSegs": 1
+          }
+        ]
+      },
+      {
+        "pattern": "true_en_oversplit",
+        "count": 9,
+        "examples": [
+          {
+            "id": "yd1/siman106/seif-002/baer-heitev",
+            "kind": "en_has_more_segments",
+            "heSegs": 3,
+            "enSegs": 6
+          },
+          {
+            "id": "yd1/siman245/seif-006/beur-hagra",
+            "kind": "en_has_more_segments",
+            "heSegs": 4,
+            "enSegs": 8
+          }
+        ]
+      }
+    ],
+    "byFpPattern": {
+      "true_likut_en_merged": 99,
+      "true_en_truncated": 69,
+      "true_offset_editorial": 61,
+      "fp_zero_he_by_design": 59,
+      "true_beer_degree_split": 34,
+      "true_en_oversplit": 9,
+      "true_en_missing": 2
+    }
+  },
+  "artifacts": {
+    "volumeReports": [
+      "oc1_report.json",
+      "yd1_report.json",
+      "eh1_report.json",
+      "cm1_report.json"
+    ],
+    "combined": "ALL_volumes.json",
+    "summary": "SUMMARY.md",
+    "fpAnalysis": "SEGMENT_RESCAN_FP_ANALYSIS.json"
+  }
+}
