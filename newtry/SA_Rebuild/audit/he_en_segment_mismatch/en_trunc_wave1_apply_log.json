@@ -1,0 +1,473 @@
+{
+  "scannedAt": "2026-08-28T07:18:07.263Z",
+  "mode": "apply",
+  "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "wave": "EN_TRUNC_WAVE1_SPLIT_EN",
+  "strictCount": 24,
+  "strictIds": [
+    "oc1/siman1/seif-008/yad-ephraim",
+    "oc1/siman35/seif-001/ateret-zekenim",
+    "oc1/siman51/seif-003/shaarei-teshuvah",
+    "oc1/siman438/seif-001/chok-yaakov",
+    "yd1/siman84/seif-015/beur-hagra",
+    "yd1/siman84/seif-017/beur-hagra",
+    "yd1/siman123/seif-026/beur-hagra",
+    "yd1/siman125/seif-011/beur-hagra",
+    "yd1/siman127/seif-004/beur-hagra",
+    "yd1/siman134/seif-011/beer-hagolah",
+    "yd1/siman141/seif-006/beur-hagra",
+    "yd1/siman146/seif-002/beur-hagra",
+    "yd1/siman146/seif-012/beur-hagra",
+    "yd1/siman148/seif-008/beur-hagra",
+    "yd1/siman173/seif-018/beer-hagolah",
+    "yd1/siman242/seif-036/siftei-kohen",
+    "yd1/siman269/seif-008/beur-hagra",
+    "yd1/siman294/seif-005/beur-hagra",
+    "yd1/siman294/seif-007/beur-hagra",
+    "yd1/siman294/seif-010/beur-hagra",
+    "yd1/siman296/seif-045/beur-hagra",
+    "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+    "cm1/siman188/seif-001/ketzot-hachoshen",
+    "cm1/siman358/seif-004/beur-hagra"
+  ],
+  "priorLiveEnTrunc": 215,
+  "splitRule": "Insert <br /> before internal (Likut|Collection|Collected|Supplement), <b> lemma, or transition (There:/Regarding/Ibid./Through speech./etc.); EN text unchanged; HE untouched; conservative hold if marker count ≠ heSegs−1",
+  "counts": {
+    "total": 24,
+    "applied": 21,
+    "held": 3,
+    "failed": 0,
+    "skipped": 0
+  },
+  "applied": [
+    {
+      "id": "oc1/siman1/seif-008/yad-ephraim",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 1895,
+          "type": "transition",
+          "text": "Regarding"
+        }
+      ],
+      "candidates": 3,
+      "applied": true
+    },
+    {
+      "id": "oc1/siman35/seif-001/ateret-zekenim",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 603,
+          "type": "transition",
+          "text": "In the head"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "oc1/siman51/seif-003/shaarei-teshuvah",
+      "heSegs": 3,
+      "enSegsBefore": 1,
+      "enSegsAfter": 3,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 874,
+          "type": "transition",
+          "text": "The same responsum"
+        },
+        {
+          "index": 1040,
+          "type": "bold_open",
+          "text": "<b>"
+        }
+      ],
+      "candidates": 3,
+      "applied": true
+    },
+    {
+      "id": "oc1/siman438/seif-001/chok-yaakov",
+      "heSegs": 6,
+      "enSegsBefore": 1,
+      "enSegsAfter": 6,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 613,
+          "type": "bold_open",
+          "text": "<b>"
+        },
+        {
+          "index": 1185,
+          "type": "bold_open",
+          "text": "<b>"
+        },
+        {
+          "index": 3272,
+          "type": "bold_open",
+          "text": "<b>"
+        },
+        {
+          "index": 3413,
+          "type": "transition",
+          "text": "If a child"
+        },
+        {
+          "index": 3542,
+          "type": "bold_open",
+          "text": "<b>"
+        }
+      ],
+      "candidates": 6,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman84/seif-015/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 51,
+          "type": "note_marker",
+          "text": "(Collection)"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman84/seif-017/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 188,
+          "type": "note_marker",
+          "text": "(Collection)"
+        }
+      ],
+      "candidates": 3,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman123/seif-026/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 831,
+          "type": "note_marker",
+          "text": "(Supplement)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman125/seif-011/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 231,
+          "type": "note_marker",
+          "text": "(Likut)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman127/seif-004/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 24,
+          "type": "note_marker",
+          "text": "(Collection)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman134/seif-011/beer-hagolah",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 614,
+          "type": "transition",
+          "text": "Regarding"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman141/seif-006/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 1020,
+          "type": "note_marker",
+          "text": "(Collected)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman146/seif-002/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 1304,
+          "type": "note_marker",
+          "text": "(Collected)"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman146/seif-012/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 79,
+          "type": "note_marker",
+          "text": "(Collected)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman148/seif-008/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 61,
+          "type": "note_marker",
+          "text": "(Collected)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman269/seif-008/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 2,
+          "type": "note_marker",
+          "text": "(Collection)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-005/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 3049,
+          "type": "note_marker",
+          "text": "(Likut)"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-007/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 1,
+      "enSegsAfter": 3,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 3086,
+          "type": "note_marker",
+          "text": "(Likut)"
+        },
+        {
+          "index": 3394,
+          "type": "note_marker",
+          "text": "(Likut)"
+        }
+      ],
+      "candidates": 3,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman294/seif-010/beur-hagra",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 138,
+          "type": "note_marker",
+          "text": "(Likut)"
+        }
+      ],
+      "candidates": 1,
+      "applied": true
+    },
+    {
+      "id": "yd1/siman296/seif-045/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 1,
+      "enSegsAfter": 3,
+      "tier": "APPLY",
+      "reason": "exact_marker_count",
+      "splitPlan": [
+        {
+          "index": 56,
+          "type": "note_marker",
+          "text": ". Likut:"
+        },
+        {
+          "index": 156,
+          "type": "note_marker",
+          "text": ". Likut:"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    },
+    {
+      "id": "cm1/siman66/seif-033/netivot-hamishpat-hidushim",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 195,
+          "type": "transition",
+          "text": "Under responsibility"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    },
+    {
+      "id": "cm1/siman188/seif-001/ketzot-hachoshen",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 2,
+      "tier": "APPLY",
+      "reason": "best_priority_combo",
+      "splitPlan": [
+        {
+          "index": 633,
+          "type": "transition",
+          "text": "In siman"
+        }
+      ],
+      "candidates": 2,
+      "applied": true
+    }
+  ],
+  "held": [
+    {
+      "id": "yd1/siman173/seif-018/beer-hagolah",
+      "heSegs": 2,
+      "enSegsBefore": 1,
+      "enSegsAfter": 1,
+      "tier": "HOLD",
+      "reason": "insufficient_markers found=0 need=1",
+      "splitPlan": [],
+      "candidates": 0
+    },
+    {
+      "id": "yd1/siman242/seif-036/siftei-kohen",
+      "heSegs": 28,
+      "enSegsBefore": 1,
+      "enSegsAfter": 1,
+      "tier": "HOLD",
+      "reason": "insufficient_markers found=10 need=27",
+      "splitPlan": [],
+      "candidates": 10
+    },
+    {
+      "id": "cm1/siman358/seif-004/beur-hagra",
+      "heSegs": 3,
+      "enSegsBefore": 1,
+      "enSegsAfter": 1,
+      "tier": "HOLD",
+      "reason": "insufficient_markers found=0 need=2",
+      "splitPlan": [],
+      "candidates": 0
+    }
+  ],
+  "failed": [],
+  "skipped": [],
+  "postRescan": {
+    "en_trunc": 194
+  }
+}
