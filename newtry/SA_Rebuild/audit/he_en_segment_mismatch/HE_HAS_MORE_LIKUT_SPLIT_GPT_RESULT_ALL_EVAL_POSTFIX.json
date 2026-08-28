@@ -1,0 +1,2024 @@
+{
+  "meta": {
+    "created": "2026-08-28T11:56:29.412Z",
+    "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+    "kit_parts": 4,
+    "gpt_result": "HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL.json",
+    "gpt_source": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL.json",
+    "kit_case_count": 53,
+    "gpt_case_count": 53,
+    "id_order_match": true,
+    "missing_from_gpt": [],
+    "extra_in_gpt": [],
+    "counts": {
+      "APPROVE": 22,
+      "HOLD": 13,
+      "REJECT": 0,
+      "REPAIR_CANDIDATE": 0,
+      "SKIP_APPLIED": 18
+    },
+    "by_part": {
+      "part01": {
+        "APPROVE": 3,
+        "HOLD": 10,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 2,
+        "total": 15
+      },
+      "part02": {
+        "APPROVE": 10,
+        "HOLD": 3,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 8,
+        "total": 21
+      },
+      "part03": {
+        "APPROVE": 6,
+        "HOLD": 0,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 7,
+        "total": 13
+      },
+      "part04": {
+        "APPROVE": 3,
+        "HOLD": 0,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 1,
+        "total": 4
+      }
+    },
+    "by_action": {
+      "split_en": {
+        "APPROVE": 0,
+        "HOLD": 13,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 0,
+        "total": 13
+      },
+      "missing": {
+        "APPROVE": 0,
+        "HOLD": 0,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 18,
+        "total": 18
+      },
+      "mixed_resegment_translate": {
+        "APPROVE": 22,
+        "HOLD": 0,
+        "REJECT": 0,
+        "REPAIR_CANDIDATE": 0,
+        "SKIP_APPLIED": 0,
+        "total": 22
+      }
+    },
+    "top_failure_patterns": [
+      [
+        "CONTENT_DRIFT",
+        13
+      ],
+      [
+        "HOLD:content_drift_vs_corpus_en",
+        13
+      ]
+    ],
+    "repair_candidate_count": 0,
+    "repair_candidate_ids": [],
+    "skip_applied_count": 18,
+    "skip_applied_ids": [
+      "yd1/siman96/seif-001/beur-hagra",
+      "yd1/siman98/seif-001/beur-hagra",
+      "cm1/siman28/seif-005/beur-hagra",
+      "cm1/siman34/seif-023/beur-hagra",
+      "cm1/siman72/seif-005/beur-hagra",
+      "cm1/siman77/seif-010/beur-hagra",
+      "cm1/siman79/seif-003/beur-hagra",
+      "cm1/siman92/seif-007/beur-hagra",
+      "cm1/siman96/seif-003/beur-hagra",
+      "cm1/siman105/seif-004/beur-hagra",
+      "cm1/siman129/seif-010/beur-hagra",
+      "cm1/siman264/seif-004/beur-hagra",
+      "cm1/siman267/seif-018/beur-hagra",
+      "cm1/siman270/seif-001/beur-hagra",
+      "cm1/siman304/seif-001/beur-hagra",
+      "cm1/siman334/seif-001/beur-hagra",
+      "cm1/siman339/seif-010/beur-hagra",
+      "cm1/siman353/seif-002/beur-hagra"
+    ],
+    "recommendation": {
+      "approve_ready": 22,
+      "new_approve_ready": 22,
+      "repair_candidate": 0,
+      "hold": 13,
+      "reject": 0,
+      "skip_applied": 18,
+      "needs_human": 0,
+      "do_not_apply_yet": true,
+      "note": "Evaluation only — no corpus apply. Apply APPROVE rows after parent sign-off; repair REPAIR_CANDIDATE by copying segments[].en → en_segments. SKIP_APPLIED = corpus already has matching he/en segment counts."
+    }
+  },
+  "results": [
+    {
+      "id": "yd1/siman84/seif-006/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 7,
+      "enSegs": 6,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 7,
+      "en_length_ratio": 0.99,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 7,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Worms, etc. Per Shmuel at the beginning of that perek, chapter 58, who h…"
+        },
+        {
+          "i": 1,
+          "text": "And it, etc.—for we require \"that creeps.\" There:"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) And it stirred, etc. But in Terumat HaDeshen, part 2, he argues…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 7,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman96/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 11,
+      "enSegs": 9,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=11_en=11_match_heSegs=11",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 11,
+        "en": 11,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman98/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 9,
+      "enSegs": 7,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=9_en=9_match_heSegs=9",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 9,
+        "en": 9,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman115/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 9,
+      "enSegs": 8,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 9,
+      "en_length_ratio": 0.998,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 9,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The butter, etc. Thus the Rambam: butter of gentiles — some Geonim permi…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) The butter, etc. — now chapter 6 folio 2 that forbids, and he e…"
+        },
+        {
+          "i": 2,
+          "text": "And in a place, etc. Language of the Rambam: it appears to me that if on…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 9,
+        "en": 8,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman128/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 7,
+      "enSegs": 6,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 7,
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 7,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "House, etc. In Rashi there s.v. this, etc., and the Rif states explicitl…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) House, etc. ; it is the first case there 70a ; that house, etc.…"
+        },
+        {
+          "i": 2,
+          "text": "If you come as a. :"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 7,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman128/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 2,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 4,
+      "en_length_ratio": 0.977,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "House, etc. There 70a ; that house, etc., and in Rashi there s.v. permit…"
+        },
+        {
+          "i": 1,
+          "text": "And some say, etc. Hagahot there 69 in s.v. and where that, etc.:"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) And some say that nowadays, etc.; however if, etc. ; Tosafot 70…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 4,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman135/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 9,
+      "enSegs": 8,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 9,
+      "en_length_ratio": 1.001,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 9,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) Between, etc. ; excluding earthenware; and as written in Shulch…"
+        },
+        {
+          "i": 1,
+          "text": "Thoroughly. See above, siman 121, seif 1, and below, seif 11."
+        },
+        {
+          "i": 2,
+          "text": "Between, etc. From the aforementioned; and further the girsa of Ri'f and…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 9,
+        "en": 8,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman146/seif-011/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 3,
+      "en_length_ratio": 1.087,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Idolatry, etc. As stated there on daf 49b, according to everyone, etc., …"
+        },
+        {
+          "i": 1,
+          "text": "Therefore, etc. Unlike Shmuel there; and as we said siman 141 62:"
+        },
+        {
+          "i": 2,
+          "text": "And if it was, etc. This follows Rav there, 49b, according to the latter…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman160/seif-016/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 8,
+      "enSegs": 6,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 8,
+      "en_length_ratio": 0.994,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 8,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And it, etc. Rosh and Tur; and Rosh brought proof from chapter 7 90b ; r…"
+        },
+        {
+          "i": 1,
+          "text": "And he does not rely, etc. For otherwise it is like what is stated 12b; …"
+        },
+        {
+          "i": 2,
+          "text": "Some say, etc. Tosafot Kiddushin cited s.v. darvach, etc. for even if we…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 8,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman160/seif-017/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 4,
+      "en_length_ratio": 0.997,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Things of, etc. up to fifth. There the lender one hundred peppers, etc.;…"
+        },
+        {
+          "i": 1,
+          "text": "Provided, etc. Tosafot there s.v. matanah, etc.; and so Rambban who hold…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) Provided, etc. From incident of Rav Mari; and Tosafot 73b s.v. …"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman160/seif-020/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 4,
+      "en_length_ratio": 0.995,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "If he transgressed, etc. For it is like robber and feeds his children, e…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) If he transgressed and fed, etc. Implies specifically he fed; a…"
+        },
+        {
+          "i": 2,
+          "text": "And also the guardian, etc. He is not in the reckoning, for he took noth…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman160/seif-023/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 4,
+      "en_length_ratio": 0.996,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "The lender, etc. As stated 64b even courtyard not standing, etc.; and Ro…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) The lender, etc. Tur learned from Rosh in name of Ramban siman …"
+        },
+        {
+          "i": 2,
+          "text": "And for one who says, etc. As Rif stated there who distinguishes between…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman190/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 6,
+      "enSegs": 5,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_5",
+        "MIXED_INFLATED_1.347"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 5,
+      "en_length_ratio": 1.347,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 5,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Not, etc. — as explained in the Gemara \"but it appears,\" etc., and the e…"
+        },
+        {
+          "i": 1,
+          "text": "Like a gris and more. Following R' Chanina's version of R' Eliezer's vie…"
+        },
+        {
+          "i": 2,
+          "text": "Joe and his class. There is a name in my son:"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 6,
+        "en": 5,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman201/seif-040/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 6,
+      "enSegs": 5,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 5,
+      "en_length_ratio": 1.073,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 5,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A vessel, etc. See everything I wrote above in seif 7."
+        },
+        {
+          "i": 1,
+          "text": "A vessel, etc. See [note] 27, as I wrote above in seif 7."
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) First finger. Meaning thumb finger next to index; as in Tosefta…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 6,
+        "en": 5,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman240/seif-007/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 1,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 4,
+      "en_length_ratio": 1.018,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And if the father, etc. There the question is raised but not resolved, a…"
+        },
+        {
+          "i": 1,
+          "text": "And if the son etc. As written in Rif and Tosafot s.v. Rif etc."
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) Likut: and if etc. — Kesef Mishnah on Rif's case there and Tosa…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman246/seif-026/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 5,
+      "en_length_ratio": 0.971,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 5,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "When he completes, etc. Shabbat 119a."
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) When he completes a tractate, etc. As stated in Bava Batra 121b…"
+        },
+        {
+          "i": 2,
+          "text": "And it is forbidden, etc. Megillah 28a, and see there."
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman296/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 5,
+      "en_length_ratio": 1.003,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 5,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "It is forbidden, etc., and they become forbidden, etc. This is explicit …"
+        },
+        {
+          "i": 1,
+          "text": "For benefit, as it is stated, etc. This is taught at the end of the seco…"
+        },
+        {
+          "i": 2,
+          "text": "And even the straw etc. Baer Hagolah and Tosafot Pesachim 25a s.v. ikran…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "yd1/siman296/seif-032/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift_vs_corpus_en",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "fresh_slots": 0,
+      "split_slots": 3,
+      "en_length_ratio": 1.004,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 0
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And how much etc. Yerushalmi chapter 4 halachah 1 ; R' Zeira, R' Yisa in…"
+        },
+        {
+          "i": 1,
+          "text": "And likewise if there were three etc. Ruled like the Sages, but specific…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) Likut: and likewise if there were three etc. ; in this case the…"
+        }
+      ],
+      "gpt_notes": "Existing English split at Gra Likkut boundaries without rewriting preserved text.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman20/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 11,
+      "enSegs": 8,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_6",
+        "FRESH_TRANSLATE_8",
+        "MIXED_INFLATED_1.41"
+      ],
+      "fresh_slots": 3,
+      "split_slots": 8,
+      "en_length_ratio": 1.41,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 8,
+        "fresh_translate": 3
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A FIFA is already over. He said, “I will be able to do this.” He was sho…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) Even though, etc. The Jerusalem Talmud there states: even after…"
+        },
+        {
+          "i": 2,
+          "text": "Even if he paid. The Gemara there says: one might have thought, etc., bu…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 11,
+        "en": 8,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman28/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 7,
+      "enSegs": 6,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=7_en=7_match_heSegs=7",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 7,
+        "en": 7,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman28/seif-006/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 4,
+      "en_length_ratio": 1.159,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "They must. Shevuot there, page 32, and Yerushalmi, Sanhedrin, chapter 6:…"
+        },
+        {
+          "i": 1,
+          "text": "Replaced. Jesssss is a sign of Hashem’s mercy. He was brought to him, an…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) L'chatchila. The Jerusalem Talmud, cited by Tosafos at the begi…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman33/seif-006/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "MIXED_INFLATED_1.877"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 2,
+      "en_length_ratio": 1.877,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 2,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) and he is a quaint. This is (for)"
+        },
+        {
+          "i": 1,
+          "text": "and N. D.D. A.C. (L.C.) and N. He and his servants, he and his servants"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) And it appears to me. He is not comparable to his close compani…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman34/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "MIXED_INFLATED_1.501"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 2,
+      "en_length_ratio": 1.501,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 2,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) Even if he transgressed, etc. As stated in Tanna D'Vei Eliyahu:…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) Even if he violated, etc. As stated in Tanna Devei Eliyahu: 'fo…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) \"He who came here.\" D. How is it possible for all cases of evid…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman34/seif-023/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=3_en=3_match_heSegs=3",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 3,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman43/seif-007/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_3",
+        "MIXED_INFLATED_1.408"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 3,
+      "en_length_ratio": 1.408,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "Therefore, etc.; and if he claims, etc. There, the concern is a decree, …"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And he may not collect, etc. This follows from the statement, '…"
+        },
+        {
+          "i": 2,
+          "text": "VA. Deplin M. completely and saw the first S. S. in the name of T. D.C. …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman43/seif-018/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "MIXED_INFLATED_1.39"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 2,
+      "en_length_ratio": 1.39,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 2,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) And similarly, when they write, etc.; one to whom it was delive…"
+        },
+        {
+          "i": 1,
+          "text": "Who. Finally, who if they are. \"We bought a lot like Welch and we were f…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) However, if, etc. One can explain \"we acquired\" as \"and we acqu…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman46/seif-006/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "MIXED_INFLATED_1.464"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 2,
+      "en_length_ratio": 1.464,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 2,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And some say that even. Bava Metzia 17a, concerning one who claims, etc.…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And some say, etc. His statement is not equivalent to witnesses…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) A trust document. It is like payment together with a clause of …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman65/seif-010/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 4,
+      "en_length_ratio": 1.092,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And I'll say. It is written as “Gaven B” and “A” and “A”. \"Arise, and be…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And he need not say, etc. The Tur, following the Rosh's approac…"
+        },
+        {
+          "i": 2,
+          "text": "But. The name of May 2, May Arith as:"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman67/seif-033/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1",
+        "MIXED_INFLATED_1.941"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 2,
+      "en_length_ratio": 1.941,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 2,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "If not. “And if not.” Dea Effi in \"D. opens up to him and is not afraid …"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) And if not, etc. For even beit din itself may open the argument…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) But if they are. It is certainly a reward for the sake of a deg…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 3,
+        "en": 2,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman71/seif-014/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_4"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 4,
+      "en_length_ratio": 1.067,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "If the witnesses. This is stated in the Yerushalmi and cited by Ran at t…"
+        },
+        {
+          "i": 1,
+          "text": "Since. In any event the practice is followed, as stated in siman 61, sei…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) Since there is no custom, etc. Beit Yosef writes this to avoid …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman72/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 4,
+      "enSegs": 3,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=4_en=4_match_heSegs=4",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 4,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman77/seif-010/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 5,
+      "enSegs": 4,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=5_en=5_match_heSegs=5",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 5,
+        "en": 5,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman79/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 3,
+      "enSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=3_en=3_match_heSegs=3",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 3,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman92/seif-007/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 6,
+      "enSegs": 5,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=6_en=6_match_heSegs=6",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 6,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman96/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 9,
+      "enSegs": 8,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=9_en=9_match_heSegs=9",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 9,
+        "en": 9,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman105/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 2,
+      "heSegs": 6,
+      "enSegs": 4,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=6_en=6_match_heSegs=6",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 6,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman115/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 12,
+      "enSegs": 11,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_11"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 11,
+      "en_length_ratio": 1.235,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 11,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) When he comes... According to the Rosh and Geonim, where a cred…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) The approach... Tosafos generally follows the Rosh concerning p…"
+        },
+        {
+          "i": 2,
+          "text": "If he wrote... Bava Basra 157b. See above, siman 112 seif 1, where this …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 12,
+        "en": 11,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman117/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 11,
+      "enSegs": 10,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_6"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 10,
+      "en_length_ratio": 1.037,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 10,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "To a creditor, or to a woman for her ketubah. This follows the baraita, …"
+        },
+        {
+          "i": 1,
+          "text": "But all this, etc. This is derived from the Gemara's specification, 'and…"
+        },
+        {
+          "i": 2,
+          "text": "Only with money. This applies even to an explicit apotiki, as the Tur an…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 11,
+        "en": 10,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman129/seif-010/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 7,
+      "enSegs": 6,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=7_en=7_match_heSegs=7",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 7,
+        "en": 7,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman167/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_3",
+        "MIXED_INFLATED_1.425"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 3,
+      "en_length_ratio": 1.425,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "From its trunk. This follows the text of Rambam and the Rosh, who do not…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) If the arm, etc. See Baer HaGolah, and the statement at 119a, '…"
+        },
+        {
+          "i": 2,
+          "text": "Not taking. He is the chief of judgment, but all that he deserves is an …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman186/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_3",
+        "MIXED_INFLATED_1.259"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 3,
+      "en_length_ratio": 1.259,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "And some say, etc. Tosafot there, s.v. ata, etc."
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) Except through theft, etc. As stated above, siman 185, seif 7, …"
+        },
+        {
+          "i": 2,
+          "text": "And if it's a bit. Yes, M. Bandars and Dr. Dobbies, where they both do n…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman202/seif-013/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1",
+        "MIXED_INFLATED_1.318"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 3,
+      "en_length_ratio": 1.318,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 3,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "There is an authority who says, etc. This follows the language of Rosh a…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) There is an authority who says, etc. The Tur writes this, follo…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) There is an authority who says, etc. Tur followed Rosh, but the…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 4,
+        "en": 3,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman207/seif-018/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 4,
+      "en_length_ratio": 1.121,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A deed, etc. In the third chapter of Bava Batra the Gemara required acqu…"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) A document, etc. See Rashbam on Bava Basra, daf 44b, s.v. \"and …"
+        },
+        {
+          "i": 2,
+          "text": "Some disagree, etc. Their proof is the passage in the third chapter of B…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman264/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 8,
+      "enSegs": 7,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=8_en=8_match_heSegs=8",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 8,
+        "en": 8,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman267/seif-018/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 5,
+      "enSegs": 4,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=5_en=5_match_heSegs=5",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 5,
+        "en": 5,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman270/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=4_en=4_match_heSegs=4",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 4,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman304/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 3,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=4_en=4_match_heSegs=4",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 4,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman334/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 6,
+      "enSegs": 5,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=6_en=6_match_heSegs=6",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 6,
+        "en": 6,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman339/seif-010/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 3,
+      "heSegs": 4,
+      "enSegs": 3,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=4_en=4_match_heSegs=4",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 4,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman346/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 4,
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_4"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 4,
+      "en_length_ratio": 1.115,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 4,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) At the time he drew it into his possession. As stated there, th…"
+        },
+        {
+          "i": 1,
+          "text": "“There was a quaint. C. B:"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) While he waters it. This excludes a later time, like one who sa…"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 5,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman353/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 4,
+      "heSegs": 4,
+      "enSegs": 2,
+      "verdict": "SKIP_APPLIED",
+      "reason": "corpus_he=4_en=4_match_heSegs=4",
+      "flags": [
+        "SKIP_APPLIED"
+      ],
+      "corpus": {
+        "he": 4,
+        "en": 4,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman354/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 4,
+      "heSegs": 8,
+      "enSegs": 5,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_6",
+        "FRESH_TRANSLATE_7",
+        "MIXED_INFLATED_1.993"
+      ],
+      "fresh_slots": 3,
+      "split_slots": 5,
+      "en_length_ratio": 1.993,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 5,
+        "fresh_translate": 3
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "(Likkut) A thief, etc. This follows Rashi and Tosafos there. Rashbam in …"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) A thief, etc. Rashi and Tosafot hold that the broken object its…"
+        },
+        {
+          "i": 2,
+          "text": "(Likkut) And he broke it, etc., or it broke, etc. In damages the broken …"
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 8,
+        "en": 5,
+        "found": true
+      }
+    },
+    {
+      "id": "cm1/siman389/seif-008/beur-hagra",
+      "slug": "beur-hagra",
+      "kit_part": 4,
+      "heSegs": 7,
+      "enSegs": 6,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed resegment + fresh_translate OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_4"
+      ],
+      "fresh_slots": 1,
+      "split_slots": 6,
+      "en_length_ratio": 1.078,
+      "exact_match": false,
+      "sig_match": false,
+      "quote_break": false,
+      "sources_summary": {
+        "split_existing_en": 6,
+        "fresh_translate": 1
+      },
+      "seg_previews": [
+        {
+          "i": 0,
+          "text": "A.D. if they are. Despite this:"
+        },
+        {
+          "i": 1,
+          "text": "(Likkut) By goring or, etc. This is the meaning of the statement concern…"
+        },
+        {
+          "i": 2,
+          "text": "And even, etc. In this case even Rabbi Eliezer agrees, as stated there."
+        }
+      ],
+      "gpt_notes": "Split existing English at Gra Likkut boundaries; freshly translated only Hebrew slots absent from the legacy English.",
+      "corpus": {
+        "he": 7,
+        "en": 6,
+        "found": true
+      }
+    }
+  ]
+}
