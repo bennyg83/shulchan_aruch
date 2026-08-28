@@ -86,12 +86,13 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
+    "parent_sha256": "8de5ce728a6ed04218964f6c357f59040408471ce931c97dcdeb57085be5947d",
     "chunk_index": 5,
-    "chunk_total": 17,
+    "chunk_total": 19,
     "case_offset": 21,
-    "cases_in_chunk": 12,
+    "cases_in_chunk": 10,
     "parent_pack": "HE_HAS_MORE_EDITORIAL_REMAINING.json",
-    "parent_sha256": "58a918920b38e18309c24c43464a91338839a45308c8a35d9a95cb7bd4b816fc"
+    "note": "Full segment text — no truncation"
   },
   "cases": [
     {
@@ -465,74 +466,6 @@
         "LIKUT_MARKER_MISS_1",
         "LIKUT_MARKER_MISS_2",
         "LIKUT_MARKER_MISS_4"
-      ]
-    },
-    {
-      "id": "yd1/siman162/seif-002/beur-hagra",
-      "volume": "yd1",
-      "siman": 162,
-      "seif": 2,
-      "slug": "beur-hagra",
-      "kind": "he_has_more_segments",
-      "heSegs": 9,
-      "enSegs": 2,
-      "he_deficit": 7,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "(ליקוט) מאותו המין. דוקא ועבס\"ה בהג\"ה (ע\"כ):",
-        "ואם אין כו'. כמ\"ש ספ\"ד דגטין (ל\"ז א') ובפ' בתרא דשביעית:",
-        "או ילוהו כו'. ורשב\"א חולק ע\"ז:",
-        "(ליקוט) או ילוהו כו'. ב\"י דלא כרשב\"א ולכאורה ראיה לדבריו ממ\"ש ע\"ה טיפת יין כו' וכ' הטעם דטפה ראשונה שהלוה נחשבת כשלו כו' ועט\"ז סי' קס\"ג ס\"ק ב' והוא מדברי הרשב\"א וכאן לא ס\"ל ועט\"ז (ע\"כ):",
-        "היה ללוה כו' אבל כו'. ס\"ג ב' ל\"צ כו' קמ\"ל כיון כו' משא\"כ בפקדון ולכן אמר אשראי וכמ\"ש בפ' בתרא דפסחים (קי\"ג א') וע\"ל סי' רנ\"ח ס\"ז:",
-        "וכן אם כו'. כמש\"ש ע\"ג א' המוליך כו' באותו מקום דוקא:",
-        "לוה כו'. עסי' קס\"ג ס\"א (בס\"ק ה'):",
-        "(ליקוט) לוה שאמר כו'. כמ\"ש בפ\"ד דגטין (ל\"ז ב') בפרוזבול נאמן כו' לא שביק כו' וה\"ה כאן שיכול ליקח מעט במתנה או בהלואה כנ\"ל וע\"ל סי' קס\"ט סכ\"ה ראובן שאמר כו' וכן בשאר טענות כו' ע\"ש (ע\"כ):",
-        "(ליקוט) הא דמותר להלוות כו'. כמש\"ש ס\"ד א\"ל רב שרביא לאביי כו' ועתוס' שם ד\"ה אי תקפה כו' וי\"ל דלעולם כו' וז\"ש ג\"כ בס\"ג והא כו':"
-      ],
-      "en_segments": [
-        "And if there is none, etc. As stated end of chapter 4 of Gittin (37a) and in the last chapter of Shevi'it.",
-        "He had, etc. but, etc. 63b — no need, etc. — teaches us: since, etc. — unlike a deposit; and therefore he said credit, and as stated in the last chapter of Pesachim (113a) and see above siman 258 seif 7."
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
-    },
-    {
-      "id": "yd1/siman165/seif-001/beer-hagolah",
-      "volume": "yd1",
-      "siman": 165,
-      "seif": 1,
-      "slug": "beer-hagolah",
-      "kind": "he_has_more_segments",
-      "heSegs": 4,
-      "enSegs": 2,
-      "he_deficit": 2,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "בעיא דרבא מרב חסדא ופשטא בב\"ק דף צ\"ו ופירש\"י המלוה את חבירו שום פרקמטיא על המטבע שקצץ לו מעות והטור העתיק המלוה לחבירו סכום מטבע:",
-        "מימרא דרב אשי שם:",
-        "שם כעובדא דעביד רב פפא ורב הונא בריה דרבי יהושע וכו' ובהא הוא דפשט רב חסדא דנותן לו מטבע היוצא באותה שעה דבהוסיפו חומש אין שבח לענין נסכא בחשבון חסרון ההיתוך ושכר הצורף הרא\"ש:",
-        "הרי\"ף והרא\"ש וכ\"כ הרמב\"ם בפ\"ד מה\"מ וכ\"כ בה\"ת בחלק ח':"
-      ],
-      "en_segments": [
-        "In Isaiah’s words, Hashem’s mercy and mercy, and Hashem’s promise of Hashem’s mercy, and Hashem’s promise of His mercy, and His mercy, and Hashem’s mercy, and His wrath is a blessing:",
-        "I'm going to say:"
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "editorial eval HOLD: FRESH_TRANSLATE_2",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_2",
-      "prior_eval_flags": [
-        "FRESH_TRANSLATE_2",
-        "FRESH_TRANSLATE_3",
-        "FAILURE_FRESH_2:the craft",
-        "MIXED_INFLATED_3.209"
       ]
     }
   ]

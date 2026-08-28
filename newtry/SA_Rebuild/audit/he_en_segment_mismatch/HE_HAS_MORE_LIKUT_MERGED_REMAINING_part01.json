@@ -78,12 +78,13 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No merge_groups on HE. No corpus edits."
     ],
+    "parent_sha256": "233f0b38201e186590b3cd0ce0e4c39afd6d54c3e0f7b0ea279118b83a27d156",
     "chunk_index": 1,
     "chunk_total": 2,
     "case_offset": 0,
-    "cases_in_chunk": 11,
+    "cases_in_chunk": 10,
     "parent_pack": "HE_HAS_MORE_LIKUT_MERGED_REMAINING.json",
-    "parent_sha256": "1f62a603ae6de4cfaa4492352f9925c426342cf031ee4a049fc62a8854d7420f"
+    "note": "Full segment text — no truncation"
   },
   "cases": [
     {
@@ -402,33 +403,6 @@
         "And likewise if he said to him, etc. This is Rav's law there and we rule like him; and all the more so with Shmuel that Rav agrees with him.",
         "And if he was, etc. From the incident of Rabbi Eliezer of Gerona according to his explanation; but Tur did not write it; and likewise Shulchan Arukh that they explain like Rashi there that with a partner he need not give wages at all; and likewise Semag; and this is what is written in the gloss \"and all this when one,\" etc.",
         "And one must, etc. , and not like, etc., see Tosafot 7a s.v. \"for he,\" etc.; and Shach."
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "true_likut_en_merged"
-    },
-    {
-      "id": "yd1/siman177/seif-004/beur-hagra",
-      "volume": "yd1",
-      "siman": 177,
-      "seif": 4,
-      "slug": "beur-hagra",
-      "kind": "he_has_more_segments",
-      "heSegs": 4,
-      "enSegs": 3,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "הנותן כו'. הוא טעות המחבר וטעה בזה ואינו לא דעת הרי\"ף ולא דעת הטור כנ\"ל וזהו לשון הרמב\"ם שם הלכה ג' ועוד תקנו חכמים שכל הנותן מעות לחבירו להתעסק בהן ופחתו או הותירו ולא רצה ליתן לו שכר עמלו בכל יום ולא התנו ביניהן שום תנאי שיהיה שכר המתעסק בחצי הפקדון שליש כו' והמחבר הוסיף מדעתו ואם ה\"ל עסק כו' וטעה טעות גדול כנ\"ל וסדור לשון הרמב\"ם אטעיתיה שסבור שדברי הרמב\"ם על כל הנ\"ל שבס\"ב וליתא וכמש\"ל:",
-        "יהיה שכר כו'. רמב\"ם וס\"ל דמ\"ש פלגא באגר כו' שהברירה ביד המתעסק אבל רש\"י בפ' המקבל (בבא מציעא ק\"ד ב)' ד\"ה חד עיסקא כתב שבסתם הוא פלגא בהפסד ותרי תילתא באגר וכ\"כ הרי\"ף שם ורא\"ש ורמב\"ן ורשב\"א וסמ\"ג וש\"פ וכן עיקר כמ\"ש פלגא מלוה ופלגא פקדון ור\"ל לענין אחריות בין אונסא בין זולא ובאגר יטול מותר לשכר עמלו ועוד יש שיטות אחרות דעת רבותיו של הרמב\"ם להיפך פלגא באגר ותרי תילתא בהפסד וכבר כ' הרמב\"ם שהוא מעות ועוד דעת הראב\"ד שהברירה ביד הנותן וכבר דחו אותה תלמידי הרשב\"א:",
-        "(ליקוט) הנותן כו'. עמש\"ש שר' שיטות כאן ושיטת רש\"י היא המחוורת וכן הכריח הסמ\"ג ורשב\"א וש\"פ ממ\"ש בפ' המקבל האי עיסקא פלגא מלוה כו' אלמא בסתמא הוא אחריות על שניהם בשוה להפסד ועוד שיטה ה' שיטת הרמ\"ה באם כ' בשטר בהדיא פלגא באגר ובהפסד ע\"ש (ע\"כ):",
-        "שליש ריוח הפקדון. עמ\"ש בסכ\"ז:"
-      ],
-      "en_segments": [
-        "The giver, etc. It is the Mechaber's error and he erred in this; and it is neither the Rif's opinion nor Tur's opinion as above; and this is the Rambam's language there law 3: and further the Sages enacted that whoever gives money to his fellow to deal with them and they decreased or increased and he did not wish to give him his labor wages every day and they did not stipulate any condition that the dealer's wages on half the deposit shall be a third, etc.; and the Mechaber added of his own mind \"and if he had a business,\" etc., and erred a great error as above; and the arrangement of the Rambam's language misled him that he thought the Rambam's words apply to all the above in seif 2, and it is not so, as written above.",
-        "The wages shall be, etc. Rambam; and he holds that what is written half in profit, etc., the choice is in the dealer's hand; but Rashi in chapter HaMekabel (Bava Metzia 104b) s.v. one iska wrote that in an unspecified case it is half in loss and two-thirds in profit; and likewise the Rif there and Rosh and Ramban and Rashba and Semag and Shulchan Arukh; and likewise is primary as written half loan and half deposit, meaning regarding liability whether accidents or depreciation; and in profit he takes more than his labor wages; and there are other methods, the Rambam's teachers' opinion to the contrary: half in profit and two-thirds in loss; and the Rambam already wrote that it is money; and further Raavad's opinion that the choice is in the giver's hand, and the Rashba's students already rejected that. (Likkut) The giver, etc. As written above that there are many methods here; and Rashi's method is the clear one; and likewise Semag and Rashba and Shulchan Arukh compelled from what is written in chapter HaMekabel \"this iska half loan,\" etc., evidently in an unspecified case liability is on both equally for loss; and a fifth method, Maharam's method: if it is written explicitly in the document half in profit and in loss, see there (end).",
-        "One third of the profit from the deposit portion. See what I wrote in seif 27."
       ],
       "fp_pattern": "true_likut_en_merged",
       "route_reason": "true_likut_en_merged"

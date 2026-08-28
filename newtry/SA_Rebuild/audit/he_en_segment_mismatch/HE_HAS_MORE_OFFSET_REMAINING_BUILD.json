@@ -5,8 +5,8 @@
   "cases": 6,
   "parts": 6,
   "max_part_bytes": 218186,
-  "full_bytes": 755509,
-  "full_sha256": "90a3e615d9d0febcd9bc8bef5b81494ff1ca1c666f626d2276409767eac57c09",
+  "full_bytes": 756060,
+  "full_sha256": "d18c6e36ad0757e4f9b1e9d0ddda2361772ecc4adba0029423cf549f35c7779b",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_OFFSET_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_OFFSET_REMAINING.md",
   "parts_detail": [
@@ -16,7 +16,7 @@
       "cases": 1,
       "case_offset": 0,
       "bytes": 218186,
-      "sha256": "e133f5eb8d7661069b0e863971f296ef859e8093a757c1dde30a9fd242c3ad98",
+      "sha256": "fbbe328becb510ae3a04e2f760990560b2ad8fce1ac2409501c640491c8abe01",
       "exceeds_hard_cap": true
     },
     {
@@ -25,7 +25,7 @@
       "cases": 1,
       "case_offset": 1,
       "bytes": 100986,
-      "sha256": "39a11c7546ac5930784b7af2ac05296e06d46df574cb63de45c1a9f38d02f35f",
+      "sha256": "57d30bc28902d22b481eb53109dd650b0062f0870a66d4be5c3663f9d5578369",
       "exceeds_hard_cap": true
     },
     {
@@ -34,7 +34,7 @@
       "cases": 1,
       "case_offset": 2,
       "bytes": 91184,
-      "sha256": "4b31bd8b792514f9755369735b987afc12225b57bb54f43cbc771dbfedc49ddb",
+      "sha256": "080092c5a7678b872c2438f84e5587f2f7824f24e35f756998e6db296eab6d43",
       "exceeds_hard_cap": true
     },
     {
@@ -43,7 +43,7 @@
       "cases": 1,
       "case_offset": 3,
       "bytes": 115449,
-      "sha256": "9c74e60fcb7117e9d3e6a294f55c3c019111dde798fb534845a399ff57824c0d",
+      "sha256": "a5f5396ca4fc186fc49db9222fec55053a7e2481de0e12062faee5efced9b8ee",
       "exceeds_hard_cap": true
     },
     {
@@ -52,7 +52,7 @@
       "cases": 1,
       "case_offset": 4,
       "bytes": 173295,
-      "sha256": "d84d102a1b46c45fc031b0c3c16f7d437ad3cafd51589603a721c55e9a204da1",
+      "sha256": "34a90f8650cf13548e8cc62477aa065f6f9e3c848c443831e6631423a54f00b5",
       "exceeds_hard_cap": true
     },
     {
@@ -61,9 +61,9 @@
       "cases": 1,
       "case_offset": 5,
       "bytes": 96178,
-      "sha256": "8832e5bb547949d9f958a0e3fa8c8407b281d800254827f85cf30ca16df3d370",
+      "sha256": "494212b3703b2d4f20adbdfd2d97dc4ff71c9b7e24ccc993da40c5cb03824a6b",
       "exceeds_hard_cap": true
     }
   ],
-  "rebuild_note": "2026-08-28 — removed segment truncation; full text in parts + parent JSON in zip"
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

@@ -1,0 +1,341 @@
+{
+  "meta": {
+    "kind": "mixed",
+    "tier": "rescan_remaining",
+    "mode": "resegment_offset_fix",
+    "purpose": "91 editorial HOLD still he_has_more",
+    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "rescan_totals": {
+      "pairs": 197982,
+      "issues": 333,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 128,
+        "en_truncated_vs_multi_he": 135,
+        "en_has_more_segments": 9,
+        "en_missing": 2
+      }
+    },
+    "exclusions": [
+      "he_missing (59) — held per user"
+    ],
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T12:23:32.008Z",
+    "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+    "counts": {
+      "total": 91,
+      "by_volume": {
+        "oc1": 2,
+        "yd1": 61,
+        "cm1": 28
+      },
+      "by_kind": {
+        "he_has_more_segments": 91
+      },
+      "by_fp_pattern": {
+        "true_offset_editorial": 55,
+        "true_likut_en_merged": 34,
+        "true_beer_degree_split": 2
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE EDITORIAL REMAINING — RESEGMENT / OFFSET FIX.\n\nINPUTS: HE_HAS_MORE_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\n\nCONTEXT: Prior editorial kit HOLD (91). Offset/structure fix; merge_groups only for true HE continuation.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nSPLIT_EXISTING_EN / RESEGMENT (this kit):\n- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.\n- Do NOT normalize citations (e.g. \"32a\"→\"daf 32\"), synonym-swap (\"halachic authorities\"→\"poskim\"), or reword \"where possible\".\n- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.\n- Do NOT paraphrase, summarize, compress, or \"improve\" prose on preserved splits — change ONLY by splitting/joining.\n- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.\n\nFRESH_TRANSLATE (gap slots only):\n- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.\n- {Rama: ...} format for Rama glosses; no additions beyond source.\n- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.\n\nMERGE_GROUPS (only when explicitly allowed):\n- merge_groups ONLY for true HE continuation (same lemma body split across <br>); never glue distinct notes or Likut blocks.\n- Do NOT output merge_groups that reduce heSegs on Likut cases — split EN instead.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nWhen segments[] returned, length === heSegs. No corpus edits.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE EDITORIAL REMAINING — RESEGMENT / OFFSET FIX.",
+      "",
+      "INPUTS: HE_HAS_MORE_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.",
+      "",
+      "CONTEXT: Prior editorial kit HOLD (91). Offset/structure fix; merge_groups only for true HE continuation.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
+      "",
+      "UNIVERSAL — any EN segment text:",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "",
+      "JSON OUTPUT (mandatory):",
+      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
+      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
+      "- Prefer returning en_segments[] without embedding he in strings when possible.",
+      "- en_segments.length MUST equal heSegs for every case.",
+      "",
+      "SPLIT_EXISTING_EN / RESEGMENT (this kit):",
+      "- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.",
+      "- Do NOT normalize citations (e.g. \"32a\"→\"daf 32\"), synonym-swap (\"halachic authorities\"→\"poskim\"), or reword \"where possible\".",
+      "- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.",
+      "- Do NOT paraphrase, summarize, compress, or \"improve\" prose on preserved splits — change ONLY by splitting/joining.",
+      "- Eval REJECTs truncated segments (broken JSON quotes) and HOLDs content_drift / unjustified fresh_translate.",
+      "",
+      "FRESH_TRANSLATE (gap slots only):",
+      "- Complete translation of every Hebrew clause in gap slots; use full_dictionary.md; expand abbreviations; Arabic numerals.",
+      "- {Rama: ...} format for Rama glosses; no additions beyond source.",
+      "- Apply fresh_translate ONLY where EN blob lacks material — never on slots covered by existing EN text.",
+      "",
+      "MERGE_GROUPS (only when explicitly allowed):",
+      "- merge_groups ONLY for true HE continuation (same lemma body split across <br>); never glue distinct notes or Likut blocks.",
+      "- Do NOT output merge_groups that reduce heSegs on Likut cases — split EN instead.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "When segments[] returned, length === heSegs. No corpus edits."
+    ],
+    "parent_sha256": "8de5ce728a6ed04218964f6c357f59040408471ce931c97dcdeb57085be5947d",
+    "chunk_index": 19,
+    "chunk_total": 19,
+    "case_offset": 84,
+    "cases_in_chunk": 7,
+    "parent_pack": "HE_HAS_MORE_EDITORIAL_REMAINING.json",
+    "note": "Full segment text — no truncation"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman267/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 267,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בא כו'. כאוקימתא דר\"ן:",
+        "(ליקוט) עבה\"ג ס\"ק כ' ובבא ראשונה מבואר שם י\"ח ב' רא\"א כגון כו' מספקא כו' ושם ך\"ז ב' אב\"א דכ\"ע שומא כו' וזימנין דרבנן והכא כו' בבא ב' סימנים חשובים כו' שם ך\"ח א' ועתוס' ך\"ז ב' ד\"ה ואנא כו' ובכה\"ג מספקא להו אי סימנין דרבנן בבא ג' מבואר שם ך\"ז ב' ת\"ש אין כו' אמרי גופו כו' אב\"א כליו כו' (ע\"כ):",
+        "והרמאי כו'. ע\"כ צ\"ל כן דומיא דרישא:"
+      ],
+      "en_segments": [
+        "He came, etc. This follows Rav Nachman's explanation. The first clause is explained on 18b, the second concerns significant identifying marks on 28a, and the third is derived from the discussion on 27b concerning bodily marks and the marks of one's garments. See 140 and 150.",
+        "And the chemist is. And so, do you know that you are doing this:"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_1"
+      ]
+    },
+    {
+      "id": "cm1/siman269/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 3,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואין כו'. מדהוצרך ר\"י לאוקמיה דוקא בדאמר תנה ולא אוקים כמש\"ש דאמר תחלה:",
+        "(ליקוט) ואין המגביה כו'. הוא פשוט בעיני שלכאורה ק' מ\"ש זכה לי מתנה לי אם הגביה לחבירו הרי קנה לו אפי' לא א\"ל כלל וה\"ה בא\"ל תנה לי ואם לא הגביה בשבילו אף בא\"ל זכה לי מאי הוה אלא דס\"ד של הגמ' שהגביה בשבילו וז\"ש ולימא מעני לעני כו' וערש\"י שם ד\"ה ואמר אני כו' קס\"ד כו' ומשני א\"ל מתני' דאמר כו' ואר\"י המגביה כו' וא\"ת משנתינו כו' דודאי ע\"כ מתני' בדקא' תחלה אלא בא\"ל זכה לי אינו נאמן לומר שזכה בו תחלה דמסתמא עשה שליחותו כיון ששתק והגביה אבל אם א\"ל תנה לי אין מתחיל השליחות עד הנתינה והרי חזר מקודם ואמר אני זכיתי תחלה וע\"ל סי' קפג ס\"ד ראובן כו' בד\"א כו' (ע\"כ):",
+        "י\"א כו'. דקני לי הוי כזכי לי:",
+        "וי\"א כו'. עבה\"ג ועסמ\"ע:",
+        "(ליקוט) ראובן כו'. וס' הראשונה עיקר דהטעם הוא במציאה דודאי עשה שליחותו כ\"ז שלא חזר בהדיא וכמש\"ל סי' קפג ס\"ד ואף ראבי\"ה לא חלק בהדיא רק אמר רפיא בידי אבל אין בה שום פקפוק וע\"ל ס\"ב בהג\"ה ודוקא כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And the lifter does not, etc. The distinction is that when the owner says 'acquire it for me,' the person who silently lifts it is presumed to have fulfilled the agency and cannot later claim that he first acquired it for himself. If he says only 'give it to me,' the agency begins at delivery, so before delivery the lifter may retract and claim it. See 183.",
+        "A.S. Let me be like me:",
+        "Some say, etc. The first view is primary. With a found object, one who silently accepts the instruction is presumed to have acted as agent until he expressly retracts. Raavyah did not clearly dispute this, but only wrote that the matter was uncertain to him. See 183."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_1",
+        "LIKUT_MARKER_MISS_4"
+      ]
+    },
+    {
+      "id": "cm1/siman285/seif-007/beur-hagra",
+      "volume": "cm1",
+      "siman": 285,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפי' אמר כתבו כו'. זו פי' אחר על עיטרא וכ' הרמב\"ם שני הפירושים כדרכו:",
+        "וכ\"ז כו'. תוס' בב\"ב קמג בד\"ה השביחו כו':",
+        "וי\"א עוד כו'. בזה מתורץ קו' תוס' בד\"ה ש\"מ וקשה כו' והטעם דאין חזקה אלא באכילת פירות:",
+        "(ליקוט) וי\"א עוד כו'. ממ\"ש בגטין אין ממנין אפוטרופוס נשים כו' ול\"ק ולא קרובים. הרשב\"א בתה\"א ומביאו ב\"י. אבל ברא\"ש כ' שם ריש סי\"ד דלמא שכיבא כו' ואפי' בתורת אפטרופוס ומ\"ש מתחלה לוקמינהו כו' לאכול הפירות טעמא דס\"ד מפרש למה קס\"ד ליקום בידא דאחתא (ע\"פ):",
+        "וכן כו'. שלכן מחלק בין אחי מאבא לאחי מאימא ואף למסקנא דוקא משום הרחקה",
+        "(ליקוט) וכן אם כו'. שם בתשו' דלא שייך שמא יחזיק:"
+      ],
+      "en_segments": [
+        "And he said, ‘Oh,’ he wrote. This is another aspect of the two verses:",
+        "And all this, etc. Tosafot on Bava Batra 143b, s.v. 'they improved, etc.'",
+        "Some further say, etc. This resolves Tosafot's difficulty. Possessory title is established only through consumption of produce.",
+        "(Supplement) Some further say, etc. Gittin states that women are not appointed as guardians, but does not exclude relatives. Rashba in Torat HaBayit explains accordingly. Rosh, however, writes that concern for the grandmother's death applied even to appointment as guardian. (End of supplement.) See 4.",
+        "And yes, yes. Your brother, from my father, is divided from my mother, and even from Scanna, because of her exclusion, and if he is. There is no name in Hashem’s name:"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_3",
+        "LIKUT_MARKER_MISS_5"
+      ]
+    },
+    {
+      "id": "cm1/siman359/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' כו' בין כו'. כת' בסי' שמ\"ח ס\"א וס\"ב:",
+        "ואם כו'. כ\"מ בירושלמי שם ועבה\"ג וכ\"ה בירושלמי שם:",
+        "(ליקוט) אפי' כו' ואם כו'. ירושלמי פ\"ג דדמאי על מתני' הלוקח ירק מן השוק ונמוך כו' כיצד הוא עושה נוטל מן העלין ומתקן ואינו אסור משום גזל כהדא ר\"ש בר כהנא הוה מסמיך לר\"א עברון על חד כרם א\"ל אייתי לי חד קיסם מחצד שיניי חזר ואמר ליה לא תיתי לי כלום אמר דאין אייתי כל בר נש ובר נש מיעבד כן הא אזיל סייגא דגוברא ר' חגי הוה מיסמך לר\"ז עבר חד טעון חד מיבל דקיסין א\"ל אייתי לי חד קיסם מחצד שיניי חזר אמר ליה לא תיתי לי כלום דאין אייתי כל בר נש ובר נש מיעבד כן הא אזיל מיכלא דגוברא לא ר\"ז כשר כל כך אלא מילין דיוצרן שמע לן מיעבדינן. מביא ראיה שמותר בדבר שאין מקפידין והם מחמירים ומדקדק בעצמן (ע\"כ):"
+      ],
+      "en_segments": [
+        "Even, etc., whether, etc. This was explained in siman 348, seifim 1 and 2.",
+        "And if, etc. This appears from the Yerushalmi. The Yerushalmi proves that taking a trivial item to which people ordinarily do not object is technically permitted, though the Sages acted stringently for themselves lest universal repetition destroy the owner's fence or food supply. See 14 and 50."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_2",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_2",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_2"
+      ]
+    },
+    {
+      "id": "cm1/siman360/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 360,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כל כו'. ס\"ו א' אם כעין כו':",
+        "(ליקוט) כל הגוזל חייב כו'. ערש\"י דסנהדרין ע\"ב א' ד\"ה אבל כו' (ע\"כ):",
+        "ואם אבדה. מכות ט\"ז א' וש\"מ:",
+        "(ליקוט) כל הגוזל כו' ואם אבדה כו'. תוספתא ספ\"י גנבים כו' טול דמי פרתך טול דמי טליתך אין שומעין לו נגנבו או אבדו נותן לו דמיהן (ע\"כ):",
+        "(ליקוט) בין שהודה כו'. ר\"ל אע\"ג דקרא אשר גזל דיליף שינוי ממנה משתעי בהודה מעצמו מ\"מ ה\"ה בעדים דהא אמרינן שינוי ג\"כ לענין כפל ודו\"ה (ע\"כ):",
+        "גזל קרקע כו'. כ\"א א' ההוא גברא כו' זיל פייסינהו כו' פי' הרשב\"א בשביל שכירות הקרקע דא\"י לגבות יציאותיו מהיתומים עד שיגדלו ואפי' כשיגדלו אפשר שיאמרו טול עציך ואבניך כו' ע\"ש (ע\"כ):",
+        "(ליקוט) גזל קרקע כו'. עמש\"ש ועמש\"ל בסי' שע\"ה ש\"ו:",
+        "דלא עשו כו'. עתוס' צ\"ו א' ד\"ה כל כו':"
+      ],
+      "en_segments": [
+        "Every, etc. See Bava Kamma 66a and Rashi, Sanhedrin 72a.",
+        "(Supplement) Every robber is obligated, etc. The verse's formulation does not limit the rule to voluntary admission. (End of supplement.)",
+        "If it is lost. All the groves are circulated, and if they are lost. Hashem’s promise is that Hashem’s promise is not to be stolen or lost",
+        "(Supplement) Whether he admitted, etc. Although the verse from which change is derived speaks of one who admitted voluntarily, the same rule applies when witnesses testify, since change also governs double and fourfold or fivefold payment. (End of supplement.)",
+        "He robbed land, etc. See Bava Kamma 21a. Rashba explains that the robber must appease the heirs concerning the land's rental value, because he cannot collect his expenses from minor heirs until they mature, and even then they may tell him to remove his materials. See simanim 61 and 375.",
+        "(Supplement) He robbed land, etc. See what I wrote there. (End of supplement.)",
+        "Do not do so. A. D.C.:"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_1",
+        "LIKUT_MARKER_MISS_3",
+        "LIKUT_MARKER_MISS_4",
+        "LIKUT_MARKER_MISS_6"
+      ]
+    },
+    {
+      "id": "cm1/siman378/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 378,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כ\"מ כו' בין כו'. מתני' ל\"ב ב' המבקע כו'",
+        "ואפי' כו'. מ\"ח א':",
+        "ל\"ש בגופו כו. ר\"ל גופו של ניזק כמש\"ו ל\"ש ממונו של ניזק וכמש\"ש וא\"ר הכניס כו' וא\"ר נכנס כו' אלמא דשוין ה\"ה לענין הזיקו בע\"ה ודוקא בממלא חצר חבירו אמרו שם כ\"ח א' משבר ויוצא כו' ועתוס' שם ד\"ה משבר כו':",
+        "ודוקא במזיקו כו' היו שניהם ברשות כו'. כ\"ז לשון הטור והן תמוהים שהרכיב שיטת רש\"י עם הרמב\"ם וכן הקשה הלח\"מ שיטת הרמב\"ם דברשות המזיק או שניהם ברשות או שלא ברשות שוין דבכוונה חייבין והיינו בזדון וע\"ש פ\"ו מה' חובל הל' ג' ושלא בכונה פטורין אבל הזיקו לבע\"ה דהיינו ברשות הניזק אפי' שלא בכוונה חייב כנ\"ל ופי מש\"ש נכנס לחצר כו' והזיק כו' ר\"ל בכוונה הוזק ר\"ל שלא בכונה אר\"פ לא אמרן כו' לא ידע היינו שלא בכוונה ידע היינו בכוונה ובא לפרש מ\"ש הזיקו בע\"ה פטור היינו הוזק בו ואזדו כו' הזיקו כו' הוזקו כו' ג\"כ כנ\"ל בכוונה שלא בכוונה טעמא כו' משום סיפא שלא ברשות חייב אפי' הוזק ר\"ל שלא בכוונה כנ\"ל אבל ברשות שוה לשניהם כו'. ושיטת רש\"י דבשניהם ברשות או שלא ברשות אפי' שלא בכוונה חייב אם הזיק בידים הוזק ממילא פטור וברשות הניזק לעולם חייב וברשות המזיק לעולם פטור והוא דלא ידע ואם ידע ביה הוי כשניהם ברשות וז\"ש הרמב\"ם וש\"ע בס\"ד כל אלו כו' ר\"ל דוקא ברשות הניזק אבל בר\"ה שוה לרשות המזיק דוקא במתכוון וכמ\"ש הרמב\"ם שם בפ\"ו בד\"א ברשות הניזק אבל ברשות המזיק כו' וכן אם היו שניהן ברשות או שניהן שלא ברשות והזיק א' מהן ממון חבירו שלא בכוונה פטור וכן הזיקו את גופו כמש\"ש בפ\"א אלא דבפ\"ו איירי בממון אבל בש\"ע לא סיים רק ברשות המזיק משום דלרש\"י בר\"ה אפי' שלא בכוונה חייב וערש\"י שם ד\"ה חייבין כו' והא דתנן כו' אבל להרמב\"ם ניחא דאפי' הזיקו אלא דהזיקו בע\"ה פטור ניחא לרש\"י יותר ומ\"ש אבל ברשות המזיק כו' לרש\"י דוקא בדלא ידע ביה כנ\"ל וע\"ש בד\"ה דברשות פטור כו':",
+        "ויש מי כו'. הרמ\"ה ס\"ל כשיטת רש\"י אלא שמוסיף בידע הוי שניהם ברשות לגמרי אפי' גבי נכנס ואם הוזק בו בע\"ה פטור ומ\"ש ר\"פ לא אמרן כו' ל\"ד אסיפא דה\"ה ארישא אלא דעיקר רבותא אסיפא וז\"ש ואזדו כו' ר\"ל דידע הוי כשניהם ברשות ולפ\"ז מש\"ש ך\"ז א' ובא אחר כו' ואם הוזק כו' הכל בדלא ידע ומ\"ש ודוקא במזיקו כו' הוא שיטת הרמב\"ם ומ\"ש וי\"א הוא לפי שיטת רש\"י ועמ\"ש בס\"ז:",
+        "(ליקוט) עמש\"ש דלהרמ\"ה אם ידע ביה הוי כשניהם ברשות אבל ט\"ס הוא וצ\"ל כשניהם שלא ברשות והוא פשוט א\"צ לפנים ומתני' דשם היה בעל כו' הי' בעל כו' הוי שניהם ברשות ואם עמד כו' ואם עמד כו' הוי א' ברשות וא' שלא ברשות ואם א\"ל כו' ואם א\"ל כו' שניהם שלא ברשות (ע\"כ):"
+      ],
+      "en_segments": [
+        "It's like a quaint between a quake. \"And thou shalt beat him.\"",
+        "and O'D. A:",
+        "Whether with his body, etc. Meaning the injured party's body, as explained below, and likewise the injured party's property. This is as stated there concerning one who brought an object in and one who entered, showing that the rules are equal. The same applies where the householder caused the damage. Only where one filled another's courtyard did they say that the owner may break his way out. See Tosafot there.",
+        "And specifically where he damaged him, etc.; if both had permission, etc. This entire passage is Tur's wording, but it is difficult, because it combines Rashi's approach with Rambam's. Lechem Mishneh already raised this issue. According to Rambam, where the damager has permission, where both have permission, or where neither has permission, the laws are equal: intentional damage is liable, and unintentional damage is exempt. When the damage occurs in the injured party's domain, however, the damager is liable even unintentionally. This is Rambam's explanation of the Gemara. Rashi's approach differs: where both have permission or neither has permission, one who actively damages is liable even without intent, but one who is injured automatically is exempt. In the injured party's domain the entrant is always liable, while in the damager's domain he is always exempt unless he knew of the entrant, in which case it is as though both had permission. Thus Rambam and Shulchan Aruch in seif 4 refer specifically to the injured party's domain. In the public domain, Rambam equates it with the damager's domain, requiring intent, whereas Rashi imposes liability for active damage even without intent. This also explains the different readings of the Gemara. See 50 and 81.",
+        "And some say, etc. Ramah follows Rashi's approach, but adds that if the householder knew of the entrant, both are treated as having equal permission even regarding the entrant, so if the householder was injured through him he is exempt. Rav Pappa's distinction applies to both clauses, though its principal novelty concerns the latter. The statement that where he knew they are both 'with permission' should read 'both without permission.' This is clear from the Mishna: where each proceeds normally, both have permission; if one stops, one has permission and the other does not; if one warns the other, both are without permission. See 80 and 81."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_5",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_5",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_5"
+      ]
+    },
+    {
+      "id": "cm1/siman390/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 390,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ופטור כו'. ג' ב' י\"ט א':",
+        "ואם כו'. ג' ב' וכר\"פ דבתרא הוא ועוד לא שבקינן פשוטותיה משום ספיקא דרבא:",
+        "(ליקוט) משלם מהיפה כו'. מדקא' סתמא דגמ' שם ואמאי כו' לר\"פ פשיטא ליה ואע\"ג שי\"ל דגם ר\"פ ס\"ל כרבא ולפוטרו ברה\"ר (ע\"כ):",
+        "ודבר כו'. שם:"
+      ],
+      "en_segments": [
+        "A.J.A.:",
+        "And if they are.” J. B. and P. Dovra is and no more simply because Spike Darba is paying off the beautiful spot. Madka Seth Samma is a name, and my mother is called to R&D R. P.S.A., and I will call on the R.S. model and be fired at the chair",
+        "And a word like.” Name:"
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_2",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "LIKUT_MARKER_MISS_2",
+      "prior_eval_flags": [
+        "LIKUT_MARKER_MISS_2"
+      ]
+    }
+  ]
+}

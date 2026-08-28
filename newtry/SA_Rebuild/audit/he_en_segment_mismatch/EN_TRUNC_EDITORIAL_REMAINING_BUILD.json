@@ -3,10 +3,10 @@
   "mode": "fresh_multi_segment_translate",
   "purpose": "Editorial en_trunc still open (parts 02-06 + part01 holds)",
   "cases": 81,
-  "parts": 5,
-  "max_part_bytes": 82207,
-  "full_bytes": 357842,
-  "full_sha256": "001557c92c1dfb6f078d5a3fae7d6ac3a229f96fe8570b5b54226eb53581cc61",
+  "parts": 6,
+  "max_part_bytes": 84756,
+  "full_bytes": 360598,
+  "full_sha256": "85549c88ea4991238e5a7355b1e33b91f936e9240c6f84040a267ac452e89223",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_REMAINING.md",
   "parts_detail": [
@@ -15,45 +15,55 @@
       "file": "EN_TRUNC_EDITORIAL_REMAINING_part01.json",
       "cases": 16,
       "case_offset": 0,
-      "bytes": 77885,
-      "sha256": "8addd8291923216035610a5121a5e85ca66b45f356de457e6adef62896489b6b",
-      "segments_truncated_in_part": false
+      "bytes": 80692,
+      "sha256": "ca5fa87ea91f250e4c425779a01dd2e44404054528db2b92a1071cbd3e093581",
+      "exceeds_hard_cap": false
     },
     {
       "part": 2,
       "file": "EN_TRUNC_EDITORIAL_REMAINING_part02.json",
       "cases": 38,
       "case_offset": 16,
-      "bytes": 81865,
-      "sha256": "20731569a752d69031e8d4d6070d6697c1e1aa13301d6217d89d9711ead32fa6",
-      "segments_truncated_in_part": false
+      "bytes": 84672,
+      "sha256": "b59c6bf3e1504ac6c574daabf3bc335068c4b7a6300bb9425a6bd621fef642f2",
+      "exceeds_hard_cap": false
     },
     {
       "part": 3,
       "file": "EN_TRUNC_EDITORIAL_REMAINING_part03.json",
       "cases": 12,
       "case_offset": 54,
-      "bytes": 81949,
-      "sha256": "6c5c7597e793108ff711e4b5331203868c4a02213e73e3fc7ba0f8c5606b5421",
-      "segments_truncated_in_part": false
+      "bytes": 84756,
+      "sha256": "56ca16e382779a58b04ce7e845dedbdf884882b45e778ec290529e896ae57bff",
+      "exceeds_hard_cap": false
     },
     {
       "part": 4,
       "file": "EN_TRUNC_EDITORIAL_REMAINING_part04.json",
       "cases": 2,
       "case_offset": 66,
-      "bytes": 47704,
-      "sha256": "9200b2685768644621d89749d22f6e35de1b5b67e1d3872d16fbfb1564392dae",
-      "segments_truncated_in_part": false
+      "bytes": 50511,
+      "sha256": "7085df0a3cb547e555ca5b7145b09a4f2cdfe96d3563e1a30e818b9a61a36690",
+      "exceeds_hard_cap": false
     },
     {
       "part": 5,
       "file": "EN_TRUNC_EDITORIAL_REMAINING_part05.json",
-      "cases": 13,
+      "cases": 12,
       "case_offset": 68,
-      "bytes": 82207,
-      "sha256": "b85278ee3576624e8703cd3aad0925a2353c88d257395655707536eca577e47a",
-      "segments_truncated_in_part": false
+      "bytes": 83359,
+      "sha256": "2d9c0840d0f95abd187bab92418820bc4500f2bd3beeaa3a41fea69b3d3e6336",
+      "exceeds_hard_cap": false
+    },
+    {
+      "part": 6,
+      "file": "EN_TRUNC_EDITORIAL_REMAINING_part06.json",
+      "cases": 1,
+      "case_offset": 80,
+      "bytes": 7844,
+      "sha256": "ab4b65022374900bc4de4dbc3300781d6e6b8f3f2d301594ec5d1555d2429533",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

@@ -86,14 +86,83 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
+    "parent_sha256": "8de5ce728a6ed04218964f6c357f59040408471ce931c97dcdeb57085be5947d",
     "chunk_index": 6,
-    "chunk_total": 17,
-    "case_offset": 33,
-    "cases_in_chunk": 6,
+    "chunk_total": 19,
+    "case_offset": 31,
+    "cases_in_chunk": 7,
     "parent_pack": "HE_HAS_MORE_EDITORIAL_REMAINING.json",
-    "parent_sha256": "58a918920b38e18309c24c43464a91338839a45308c8a35d9a95cb7bd4b816fc"
+    "note": "Full segment text — no truncation"
   },
   "cases": [
+    {
+      "id": "yd1/siman162/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 2,
+      "he_deficit": 7,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) מאותו המין. דוקא ועבס\"ה בהג\"ה (ע\"כ):",
+        "ואם אין כו'. כמ\"ש ספ\"ד דגטין (ל\"ז א') ובפ' בתרא דשביעית:",
+        "או ילוהו כו'. ורשב\"א חולק ע\"ז:",
+        "(ליקוט) או ילוהו כו'. ב\"י דלא כרשב\"א ולכאורה ראיה לדבריו ממ\"ש ע\"ה טיפת יין כו' וכ' הטעם דטפה ראשונה שהלוה נחשבת כשלו כו' ועט\"ז סי' קס\"ג ס\"ק ב' והוא מדברי הרשב\"א וכאן לא ס\"ל ועט\"ז (ע\"כ):",
+        "היה ללוה כו' אבל כו'. ס\"ג ב' ל\"צ כו' קמ\"ל כיון כו' משא\"כ בפקדון ולכן אמר אשראי וכמ\"ש בפ' בתרא דפסחים (קי\"ג א') וע\"ל סי' רנ\"ח ס\"ז:",
+        "וכן אם כו'. כמש\"ש ע\"ג א' המוליך כו' באותו מקום דוקא:",
+        "לוה כו'. עסי' קס\"ג ס\"א (בס\"ק ה'):",
+        "(ליקוט) לוה שאמר כו'. כמ\"ש בפ\"ד דגטין (ל\"ז ב') בפרוזבול נאמן כו' לא שביק כו' וה\"ה כאן שיכול ליקח מעט במתנה או בהלואה כנ\"ל וע\"ל סי' קס\"ט סכ\"ה ראובן שאמר כו' וכן בשאר טענות כו' ע\"ש (ע\"כ):",
+        "(ליקוט) הא דמותר להלוות כו'. כמש\"ש ס\"ד א\"ל רב שרביא לאביי כו' ועתוס' שם ד\"ה אי תקפה כו' וי\"ל דלעולם כו' וז\"ש ג\"כ בס\"ג והא כו':"
+      ],
+      "en_segments": [
+        "And if there is none, etc. As stated end of chapter 4 of Gittin (37a) and in the last chapter of Shevi'it.",
+        "He had, etc. but, etc. 63b — no need, etc. — teaches us: since, etc. — unlike a deposit; and therefore he said credit, and as stated in the last chapter of Pesachim (113a) and see above siman 258 seif 7."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "gpt_needs_human",
+      "prior_eval_flags": []
+    },
+    {
+      "id": "yd1/siman165/seif-001/beer-hagolah",
+      "volume": "yd1",
+      "siman": 165,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_deficit": 2,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בעיא דרבא מרב חסדא ופשטא בב\"ק דף צ\"ו ופירש\"י המלוה את חבירו שום פרקמטיא על המטבע שקצץ לו מעות והטור העתיק המלוה לחבירו סכום מטבע:",
+        "מימרא דרב אשי שם:",
+        "שם כעובדא דעביד רב פפא ורב הונא בריה דרבי יהושע וכו' ובהא הוא דפשט רב חסדא דנותן לו מטבע היוצא באותה שעה דבהוסיפו חומש אין שבח לענין נסכא בחשבון חסרון ההיתוך ושכר הצורף הרא\"ש:",
+        "הרי\"ף והרא\"ש וכ\"כ הרמב\"ם בפ\"ד מה\"מ וכ\"כ בה\"ת בחלק ח':"
+      ],
+      "en_segments": [
+        "In Isaiah’s words, Hashem’s mercy and mercy, and Hashem’s promise of Hashem’s mercy, and Hashem’s promise of His mercy, and His mercy, and Hashem’s mercy, and His wrath is a blessing:",
+        "I'm going to say:"
+      ],
+      "fp_pattern": "true_beer_degree_split",
+      "route_reason": "editorial eval HOLD: FRESH_TRANSLATE_2",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "FRESH_TRANSLATE_2",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FAILURE_FRESH_2:the craft",
+        "MIXED_INFLATED_3.209"
+      ]
+    },
     {
       "id": "yd1/siman165/seif-001/siftei-kohen",
       "volume": "yd1",
@@ -266,39 +335,6 @@
         "In their law sue guarantor first. Beit Yosef brought dispute Rashi and Rashba and poskim: Rashi stringent no heter Israel guarantee gentile unless lender accepts not to sue guarantor until no borrower assets; if may sue guarantor though gentile borrower assets — forbidden; Rashba and poskim permit prohibition only arev shaluf doz lender no power sue borrower can push to guarantor; Beit Yosef Tur's words closed no ruling whom holds; from end Raavad heter not push to guarantor implies their law arev shaluf doz borrower can push lender to guarantor — holds like Rashba; Darkei Moshe challenged from beginning not sue guarantor first implies Rashi heter is not suing until no borrower assets; if may sue both forbidden; left tzaruch iyun; resolve also beginning holds Rashba: accepted not to act per gentile law pushing borrower to guarantor first but sue whomever wishes; halachah Beit Yosef lechatchila instruct Rashi b'dieved where money exists leave per doubt; implies if guarantee in clear prohibition even if paid extract; if lender said from whomever I wish I will collect forbidden Rashi permitted Rashba if not paid do not extract if paid do not extract from lender; Rama Darkei Moshe: seems even no doubt do not extract no worse than avak ribbit; Tur why obligate pay in prohibition; if paid certainly do not extract; Rama Hagah here; wonder per Rama Gemara Ribbit: do not take neshech tarbit but be guarantor — if gentile's guarantor gentile law follows guarantor he takes ribbit; if per Rama only avak ribbit what difficulty brayta permitted Torah guarantor derives verse avak ribbit rabbinic; hard also R. Y. Korkosa explained below; seems clear Torah ribbit wherever clear prohibition in this guarantee; Beit Yosef correct; Tur Rama will explain; if so Rama Yesh Im Mi forbidden only arev shaluf doz b'dieved as said lechatchila forbidden even mi she'irtzeh efra per Rashi; Beit Yosef generation poskim like Rashi lenient b'dieved.",
         "And if transgressed became guarantor etc. Tur and R. Y. Korkosa: where lender did not accept not sue guarantor first became guarantor pays on his behalf must pay all loss only lechatchila forbidden b'dieved pays loss since lost because of him; not seems since side of prohibition why obligate pay in prohibition certainly all loss from him like his coercion must pay not told give ribbit; must understand R. Y. Korkosa why lenient since Gemara on brayta he takes ribbit who says lechatchila; seems guarantee prohibition if in prohibition called one-sided ribbit when guarantee in prohibition not certain borrower himself might pay gentile no prohibition borrower to guarantor; Beit Yosef siman 172 and 174 head poskim some hold one-sided ribbit fixed when prohibition side comes some not fixed; Shulchan Aruch stringent head siman 174 sale field one-sided ribbit; explains Tur R. Y. Korkosa holds one-sided ribbit only rabbinic therefore forbidden only lechatchila though avak ribbit certainly do not rule borrower pay lender here different loses because of him as if already gave avak ribbit not extracted here may give even lechatchila no benefit money not increased; R. Y. Korkosa concedes one who says borrow from gentile siman 169 seif 17 no collateral forbidden certainly if borrower paid extract lender fixed ribbit there no borrower connection paying gentile gentile only knew other Israel lender to this — cannot say avak ribbit; R. Y. Korkosa only avak ribbit where guarantor at least borrower against gentile guarantor makes prohibition borrower might pay gentile not push to guarantor one-sided avak ribbit for him; Maharach wrote likewise Israel said borrow from gentile borrower pays loss; R. Y. Korkosa's view; Tur holds every one-sided ribbit Torah ribbit poskim Beit Yosef Bar Shetet siman 305 fixed ribbit only after clarified came to ribbit before only rabbinic lest come to ribbit; Tur here since side prohibition why obligate; precise language side prohibition not prohibition — not like R. Y. Korkosa lenient one-sided ribbit leniency; before clarified prohibition before guarantor forced pay gentile doubt side prohibition; now side prohibition fixed ribbit how rule pay from loss R. Y. Korkosa's leniency only loss prohibition for him only avak ribbit even extract from borrower like avak ribbit not extract from lender if paid unlike Tur fixed ribbit even if guarantor paid ribbit extract; Tur only lechatchila not obligate pay does not prove about R. Y. Korkosa who said must pay since loss here; Tur challenges if paid do not extract from guarantor should say lechatchila give since loss like Korkosa; truly fixed ribbit loss does not help if guarantor paid ribbit certainly extract; clear as sun Tur's view halachah as him proved from Talmud fixed ribbit from verse do not take neshech; Maharach seems like R. Y. Korkosa clear to all siman 174 seif 1 widespread halachah one-sided ribbit fixed; Rama ruled here Tur need not return ribbit; what wrote if paid do not extract avak ribbit cannot rely only Beit Yosef; clear evidence true even if paid extract only where doubt dispute Rashi Rashba there only do not extract — clear.",
         "But need not give ribbit. From here appears one making arrangement with fellow if not pay debt by limited time pays all damages lender borrows elsewhere permissibly for profit borrower need not pay profits lender gives others — borrower liable guarantor damages yet need not give ribbit though guarantor gives permissively to gentile; even stipulated explicitly take money on profit permissibly he pays — prohibition even if paid extract; also mention many partners one takes from gentile at ribbit for partnership pays ribbit from partnership divides profit — fixed ribbit gentile only knows borrower; unlike Rama above siman this trustees of community permitted for mitzvah; even per Rama guarantor only avak ribbit here different he is main borrower second like borrower from Israel took from gentile; both must borrow from gentile sign bill; if one borrows from Israel in iska gives to partnership may pay profit from partnership; partner taking from gentile can first cover gentile ribbit remainder divide — no loan ever only profit and loss reach loan amount ribbit to gentile part of loss or reduces profit share; if one deposits money partner alone manages depositor took from gentile at ribbit for partnership cannot take from partnership pay ribbit not managing partner cannot say ribbit reduces profit share like depositing from pocket for partnership. Question: Reuven paid Shimon wage to be arev kablan for Levi lending — ribbit concern Shimon pays Levi lent Reuven Reuven becomes borrower of Shimon wage ribbit. Answer: per Rashba Beit Yosef head siman 170 Israel guarantor for gentile for Israel principal and ribbit forbidden only arev shaluf doz gentile cannot sue borrower; where gentile lender may sue whomever — here permitted lender may sue whomever no lender status on Shimon regarding Reuven both borrowers against Levi; cannot say after Shimon pays Levi falls lender status on him — same permitted gentile guarantor not shaluf doz may sue whomever; we follow loan at that time guarantor not lender of borrower guarantor receives payment afterward like borrower at that hour sum paid gentile for him was borrower must return what paid for him since initially heter; likewise wage at giving wage not his lender both borrowers of lender now becomes borrower anew borrower of guarantor new faces; cannot say here worse gentile guarantor no ribbit receipt from borrower arev receives no more than gave gentile no prohibition new loan between them unlike here gives wage first — wage for if must pay becomes his borrower concern wage counts ribbit like advance ribbit; not so forbidden accept wage even stam guarantor lest must pay lender borrower of guarantor; Rosh responsum Beit Yosef end CM 129 one promising wage to be guarantor needs kinyan — complete heter accepting wage to be guarantor; wage not tied to loan but arev makes lender give borrower arev accepts money responsibility lender more secure — never thought arev would pay if thought would not guarantee; wage not ribbit for being his lender; like end siman 173 promised hundred litrin; per this even Rashi Beit Yosef head siman 170 Israel guarantor gentile for Israel no heter unless accepts not sue guarantor first — where gentile may sue first forbidden; here accepting wage for Israel guarantee concedes permitted wage not tied to ribbit for loan afterward; but one paying arev to give note alone to lender certainly forbidden immediately borrower of him not lender; one paying fellow to give note to buyer distrusting seller asks give note to seller pays wage — remedy arev tells seller I give note I am buyer then gives buyer as purchase — plain complete heter."
-      ],
-      "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
-    },
-    {
-      "id": "yd1/siman170/seif-002/siftei-kohen",
-      "volume": "yd1",
-      "siman": 170,
-      "seif": 2,
-      "slug": "siftei-kohen",
-      "kind": "he_has_more_segments",
-      "heSegs": 8,
-      "enSegs": 2,
-      "he_deficit": 6,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אסור לישראל להיות. ע\"ק אפי' אינו ערב שלוף דוץ משום דנמצא שממונו של מלוה מתרבה אצל הקבלן ואשתכח דישראל מישראל קא שקיל אבל לעיל ס\"א בישראל הלוה מן העובד כוכבים אע\"פ שממונו של מלוה מתרבה אצל הקבלן לית לן בה דהא עובד כוכבים מישראל קא שקיל רבית ושרי לדעת הי\"א שאינו אסור אלא בשלוף דוץ ועיין בתשובת מהר\"מ גאלנטי סימן כ\"ב:",
-        "שיש לו לפרוע. וירצה לשלם לאפוקי אלם או ברח וכה\"ג וכמ\"ש בס\"ק א' בשם הב\"י:",
-        "שערב לו בעד הרבית. ובדקנו מידו. ב\"ח. ור\"ל משום דאל\"כ הוי ערב שלא בשעת מתן מעות לגבי הרבית כדכתב המרדכי בשם הראב\"ן ומביאו ב\"י וד\"מ מיהו היכא דזקף עובד כוכבים הקרן עם הרבית דכתב הרב לקמן דחשוב הכל כקרן פשיטא דאף לגבי הרבית הוי כמו שעת מתן מעות כמו הקרן וכ\"מ בתשובת הר\"מ שבמרדכי פרק א\"נ בענין המלצר ע\"ש:",
-        "אבל אם ישראל ערב ולקחן מידו כו'. כן הוציא בד\"מ מת\"ה סי' ש\"א וע\"ש דמדמי לה לאומר תנם לחברך והפטר (לעיל סימן קס\"ט ס\"א) דאסור אע\"פ שהעובד כוכבים המלוה מתנה ברבית עם הישראל השני והישראל השני נותן הרבית רק ליד העובד כוכבים אפ\"ה אסור משום דהמעות ניתנים מיד ישראל ליד ישראל הב' ונראה כנותן רבית וה\"ה בנ\"ד ע\"כ ולפ\"ז משמע דאפילו לא נעשה ע\"ק אסור וגם נראה דאפי' לא נעשה ערב כלל אסור דכיון שאין שליחות לעובד כוכבים א\"כ אין הישראל הלוקח המעות אלא לוה וכיון דלוקח המעות מיד ישראל אסור ומ\"מ נראה דהא דאסור כשהישראל לוקח המעות אפי' אינו ערב רק בעד הקרן היינו כשישראל נותן אח\"כ הרבית אבל אם העובד כוכבים נותן הרבית שרי וכן משמע בת\"ה שם ע\"ש ודוק. ועוד נ\"ל דהא מותר לומר לחבירו הילך זוז והלוה י' דינרין לפלוני דלא אסרה תורה אלא רבית הבא מיד לוה למלוה כדלעיל סימן ק\"ס סי\"ג כל שכן הכא דעדיף טפי ודוק שוב עיינתי בעט\"ז משמע בדבריו להדיא כמ\"ש ע\"ש:",
-        "ודוקא בלא משכון. וי\"א דבלא משכון אפי' נטל העובד כוכבים המעות מיד המלוה ואפי' לא ערב הישראל אלא בעד הרבית לבדו אסור לישראל להיות ע\"ק בעד העובד כוכבים שכיון שאמר ליה הישראל כ\"ז שמעותי ביד עובד כוכבים אתה נותן לי דינר בחודש הרי כ\"ז שאין העובד כוכבים פורע הוא חייב ליתן לו רבית נמצא שאחריות הקרן ג\"כ עליו עד שיפרענו והרי זה כלוה מעות מישראל וא\"ל כ\"ז שאני נותן לך דינר רבית לחודש לא יהא לך רשות לכופני לפרוע לך הקרן עכ\"ל עט\"ז. והב\"ח השיג עליו וכתב דדבריו הם מבה\"ת והבה\"ת מיירי שהישראל לוקח המעות מהמלוה ואין זה השגה דמדתלי טעמא דכיון שאם אין העובד כוכבים פורע הוא חייב ליתן לו רבית נמצא אחריות הקרן עליו כו' משמע דאין חילוק אבל נראה דדברי בה\"ת אינם ענין לכאן דהתם מיירי להדיא באומר בהדיא כ\"ז שמעותי ביד עובד כוכבים אתה נותן לי דינר בחודש כו' והלכך כיון שאין בידו לכופו לשלם לו כ\"ז שנותן לו הרבית כדמסיק וה\"ז כלוה כו' לא יהא רשות לכופני כו' א\"כ הרי אחריות הקרן עליו והרי הוא ערב בעד הקרן והרבית אבל היכא דאין אחריות הקרן כלל על הישראל שרי כדכתב בד\"מ דהוי כהילך זוז והלוה לפלוני דשרי נ\"ל ודו\"ק:",
-        "אבל אם נותן משכון כו'. ודוקא כשערב לו בעד הרבית אבל כשערב לו בעד הקרן ג\"כ אסור וכ\"כ הב\"ח וכתב עוד ודוקא בסרסור וכה\"ג דמביא המשכון מעובד כוכבים לישראל אבל משכונו של עובד כוכבים שהלוה עליו ישראל כבר ואח\"כ הביאו לישראל חבירו שילוה עליו דאין כאן צד שליחות אלא מכירה כדכתב ר\"ת ודאי אפילו לא ערב לו אלא בעד הרבית אסור משום דהוי קרוב לשכר ורחוק להפסד עכ\"ל מיהו היינו דוקא במכרו לו להדיא ובגוונא דלא שרי אלא מטעם מכירה אבל בסתם דכתבתי לעיל בסימן קס\"ט דלא שרי מטעם מכירה אלא משום שהוא משכונו של עובד כוכבים ולא נחלט לישראל אפי' הישראל נותן הרבית שרי וכן היכא שמוכרו לו אין איסור אלא להיות ערב אבל היכא שלא נעשה ערב והמלוה מתרצה אח\"כ להחזירו לו מותר ליתן לו הרבית וכמו שבארתי כ\"ז בסי' קס\"ט ס\"ק נ\"ה ועיין עוד מדינים אלו בסימן קס\"ט ס\"ק ל\"ד ומ\"ז ונ\"ב וס\"ב:",
-        "צריך לשלם לו כל הקרן והרבית. וא\"צ לתבוע לא את הלוה ולא הערב עובד כוכבים ובמשכון אפילו לא קנו מידו צריך לשלם כיון דעל פיו החזיר המשכון ה\"ל כערב בשעת מתן מעות וכמ\"ש הטור בח\"מ סי' ק\"א ס\"ה מיהו בפטר הערב צ\"ע אי בעי קנין או לו דאע\"ג דכ' המרדכי פרק א\"נ והוא בהג\"ה בח\"מ סימן קכ\"ט ס\"ג דאם פטר הלוה ע\"פ הערב ה\"ל כשעת מתן מעות י\"ל דדוקא פטר הלוה וכמ\"ש בסמ\"ע שם ס\"ק ט' וז\"ל פי' שפטר המלוה ללוה מיד ע\"פ ערבותו לגמרי שא\"ל מעתה לא יהיה לי עסק עמך כ\"א עם הערב כו' אבל הכא שפטר רק הערב ועדיין יש לו עסק עם הלוה הרי לא נפטר לגמרי ונ\"ל שזהו שכ' בהג\"א פרק א\"נ בשם ראבי\"ה ישראל שנעשה ערב לחבירו כו' הקרן ישלם לו ואפי' לא הקנה לו דערב בשעת מתן מעות לא בעי קנין כו' ואם ישראל פדה לעובד כוכבים משכונו שהיה לו בעד ישראל עבור הקרן ורבית חייב ליתן לו גם הרבית שהרי היה לו משכון על הרבית מן העובד כוכבים ואם פדה את ערב העובד כוכבים שהיה ערב לישראל מן העובד כוכבים ונתערב הישראל במקומו בזה יש להסתפק עכ\"ל ונ\"ל דנסתפק אי הוי ערב בשעת מתן מעות כמו במשכון או בעי קנין דוקא דלא כב\"י שמפרש בע\"א. מיהו כ\"ז בסתם ערב אבל ע\"ק דינו כלוה עצמו והרי הוא כאילו פטר הלוה עצמו וק\"ל:",
-        "אבל לא הרבית כו'. אפילו קנו מידו. ב\"י:"
-      ],
-      "en_segments": [
-        "That he has the means to pay. And he wishes to pay — to exclude one who is mute, or fled, and such — as stated in s.k. 1 in the name of Beit Yosef.",
-        "But not the interest etc. Even if they performed kinyan from his hand — Beit Yosef."
       ],
       "fp_pattern": "true_offset_editorial",
       "route_reason": "editorial eval HOLD: gpt_needs_human",

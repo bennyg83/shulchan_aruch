@@ -79,12 +79,13 @@
       "[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
+    "parent_sha256": "85549c88ea4991238e5a7355b1e33b91f936e9240c6f84040a267ac452e89223",
     "chunk_index": 5,
-    "chunk_total": 5,
+    "chunk_total": 6,
     "case_offset": 68,
-    "cases_in_chunk": 13,
+    "cases_in_chunk": 12,
     "parent_pack": "EN_TRUNC_EDITORIAL_REMAINING.json",
-    "parent_sha256": "001557c92c1dfb6f078d5a3fae7d6ac3a229f96fe8570b5b54226eb53581cc61"
+    "note": "Full segment text — no truncation"
   },
   "cases": [
     {
@@ -381,30 +382,6 @@
       ],
       "en_segments": [
         "Only, etc. Tosafot likewise write this. See Be'er HaGolah and Rashi, Yoma 83b."
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial kit parts 02-06",
-      "prior_eval_verdict": "not_run"
-    },
-    {
-      "id": "cm1/siman361/seif-008/beur-hagra",
-      "volume": "cm1",
-      "siman": 361,
-      "seif": 8,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "וי\"א כו'. מנסכא דר\"א ועסי' ע\"ה סי\"ג בהג\"ה ממ\"ש ה\"ל כגזלן וס' ראשונה מפרשים שם בעדי ראיה. וראיה ממ\"ש בכתובות י\"ח א' וליתני כו' והא קי\"ל כו' ואם איתא ליתני בגזלן. וס' האחרונה דקדק המ\"מ מדברי רמב\"ם שהביא ש\"ע בסי' שס\"ד ס\"ד ועבה\"ג שם ור\"ל מדלא כ' בעדי ראיה ואין הכרח שהרמב\"ם נקט לשון הגמ' ס\"ה ועמ\"ש בסי' שנ\"ז ס\"א ועש\"ך:",
-        "(ליקוט) וי\"א שצריך. וכ\"כ הרא\"ש שם ואם אמרו גדולים יודעים אנו כו' ומיירי כו' כיון שידוע כו' ועודה בידו דאב כו' (ע\"כ):"
-      ],
-      "en_segments": [
-        "And some say, etc. This is derived from the case of Rabbi Abba's ingot. See siman 75, seif 13. The first opinion limits the case to witnesses who saw the object. Maggid Mishneh infers the latter opinion from Rambam, but the inference is not compelling because Rambam merely uses the Gemara's wording. See simanim 3, 75, 357, and 364."
       ],
       "fp_pattern": "true_likut_en_merged",
       "route_reason": "editorial kit parts 02-06",

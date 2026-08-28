@@ -4,9 +4,9 @@
   "purpose": "Moderate kit HOLD+REJECT still en_truncated",
   "cases": 37,
   "parts": 1,
-  "max_part_bytes": 49401,
-  "full_bytes": 49165,
-  "full_sha256": "becbc57c9ccdd7241db60331c983efb68f276e3d696a8c52bd5fede293ab9a43",
+  "max_part_bytes": 53190,
+  "full_bytes": 52903,
+  "full_sha256": "8368c9aa1f1165e1bd26634388ea4753812835b0387cdf60c5b1be01e851ead0",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.md",
   "parts_detail": [
@@ -15,9 +15,10 @@
       "file": "EN_TRUNC_MODERATE_REMAINING_part01.json",
       "cases": 37,
       "case_offset": 0,
-      "bytes": 49401,
-      "sha256": "a0a83cd509d99c61b000fb8f64218c5879b629992630c503118b9adb677e7917",
-      "segments_truncated_in_part": false
+      "bytes": 53190,
+      "sha256": "50c6ea48e1022d9ecee473cc3920ed056d699e9e1abc0dd2a5dc0dfd86c10a44",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

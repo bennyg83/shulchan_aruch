@@ -4,29 +4,30 @@
   "purpose": "true_likut_en_merged he_has_more not in other kits",
   "cases": 18,
   "parts": 2,
-  "max_part_bytes": 82850,
-  "full_bytes": 113831,
-  "full_sha256": "1f62a603ae6de4cfaa4492352f9925c426342cf031ee4a049fc62a8854d7420f",
+  "max_part_bytes": 82007,
+  "full_bytes": 117569,
+  "full_sha256": "233f0b38201e186590b3cd0ce0e4c39afd6d54c3e0f7b0ea279118b83a27d156",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.md",
   "parts_detail": [
     {
       "part": 1,
       "file": "HE_HAS_MORE_LIKUT_MERGED_REMAINING_part01.json",
-      "cases": 11,
+      "cases": 10,
       "case_offset": 0,
-      "bytes": 82850,
-      "sha256": "2e5e9d4097b61045b6a611392ac75acca0e8f13a4dd9e8817874be5e6989f85c",
-      "segments_truncated_in_part": false
+      "bytes": 82007,
+      "sha256": "521dfec3d30e0e3050ea978bc747dd8860dcd2985d9b25ab89bbbb9c2980ba85",
+      "exceeds_hard_cap": false
     },
     {
       "part": 2,
       "file": "HE_HAS_MORE_LIKUT_MERGED_REMAINING_part02.json",
-      "cases": 7,
-      "case_offset": 11,
-      "bytes": 34461,
-      "sha256": "c9547d73bc5db58c7e78ab56dadd46cd5c091292e9856b57537ea6c815e723e9",
-      "segments_truncated_in_part": false
+      "cases": 8,
+      "case_offset": 10,
+      "bytes": 42882,
+      "sha256": "9d00e880879260d6713156ed8ebce677a44a6da399a5ad5765a8e79614db372f",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

@@ -4,9 +4,9 @@
   "purpose": "2 en_missing still open in rescan",
   "cases": 2,
   "parts": 1,
-  "max_part_bytes": 8282,
-  "full_bytes": 8052,
-  "full_sha256": "9b482c6b6e456383ed9e5f6ab87a3224bce4ff6c5fdf0753120d6d303235dbbf",
+  "max_part_bytes": 11089,
+  "full_bytes": 10808,
+  "full_sha256": "fcf693f4d62a26562eef6147ad821c6c7ef530b0ac9e026bb5d336eda689e783",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_REMAINING.md",
   "parts_detail": [
@@ -15,9 +15,10 @@
       "file": "EN_MISSING_2_REMAINING_part01.json",
       "cases": 2,
       "case_offset": 0,
-      "bytes": 8282,
-      "sha256": "374dab60a6eeacd405a95f8e2106a9a2249e1b46d3344fd5928a8317c35bfd7c",
-      "segments_truncated_in_part": false
+      "bytes": 11089,
+      "sha256": "97cc45e7454d69ca42dfffadf491dcd9df30d1c4994ffc17507797b0ce06ccad",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

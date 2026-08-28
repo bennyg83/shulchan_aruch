@@ -4,9 +4,9 @@
   "purpose": "13 Likut kit HOLD (content_drift) still open",
   "cases": 13,
   "parts": 1,
-  "max_part_bytes": 55407,
-  "full_bytes": 55171,
-  "full_sha256": "d3ce76992fd716ed46fb7ac80d0963c1da6c48f0d83beccaf76705f9688f6c58",
+  "max_part_bytes": 59196,
+  "full_bytes": 58909,
+  "full_sha256": "743cff030202b575de30a21d4a07d6e8c2e21250fe0152b6280779c8d7cc8b5c",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.md",
   "parts_detail": [
@@ -15,9 +15,10 @@
       "file": "HE_HAS_MORE_LIKUT_REMAINING_part01.json",
       "cases": 13,
       "case_offset": 0,
-      "bytes": 55407,
-      "sha256": "b0f2da1e4d8ea7aaf06491a94f68aa03dd2f545a95620eb5731714574d6dc6ac",
-      "segments_truncated_in_part": false
+      "bytes": 59196,
+      "sha256": "e12db76faa45b0c680a9634c2e913a125300885d8e764d7d67028b211e22d304",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }

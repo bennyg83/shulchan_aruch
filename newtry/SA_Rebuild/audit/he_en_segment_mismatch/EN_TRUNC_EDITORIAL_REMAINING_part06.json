@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "kind": "mixed",
+    "tier": "rescan_remaining",
+    "mode": "fresh_multi_segment_translate",
+    "purpose": "Editorial en_trunc still open (parts 02-06 + part01 holds)",
+    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "rescan_totals": {
+      "pairs": 197982,
+      "issues": 333,
+      "byKind": {
+        "he_missing": 59,
+        "he_has_more_segments": 128,
+        "en_truncated_vs_multi_he": 135,
+        "en_has_more_segments": 9,
+        "en_missing": 2
+      }
+    },
+    "exclusions": [
+      "he_missing (59) — held per user"
+    ],
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T12:23:32.008Z",
+    "kit": "EN_TRUNC_EDITORIAL_REMAINING",
+    "counts": {
+      "total": 81,
+      "by_volume": {
+        "oc1": 3,
+        "yd1": 47,
+        "cm1": 31
+      },
+      "by_kind": {
+        "en_truncated_vs_multi_he": 81
+      },
+      "by_fp_pattern": {
+        "true_en_truncated": 59,
+        "true_likut_en_merged": 20,
+        "true_beer_degree_split": 2
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.\n\nINPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md\nDICTIONARY (mandatory — full_dictionary.md)\n- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.\nTRANSLATION NORMS\n- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.\n\nCONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nFRESH_TRANSLATE (this kit):\n- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.\n- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.\n- {Rama: ...} format for Rama glosses; no additions beyond source.\n- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.\n- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs. No corpus edits.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC EDITORIAL REMAINING — FRESH MULTI-SEGMENT TRANSLATE.",
+      "",
+      "INPUTS: EN_TRUNC_EDITORIAL_REMAINING.json (or one part) + full_dictionary.md",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.",
+      "TRANSLATION NORMS",
+      "- Complete translation; no omissions. No additions beyond source. {Rama: ...} for Rama glosses. Plain English only.",
+      "",
+      "CONTEXT: needs_editorial en_trunc still open after part01 apply + parts 02-06 never run.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
+      "",
+      "UNIVERSAL — any EN segment text:",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "",
+      "JSON OUTPUT (mandatory):",
+      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
+      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
+      "- Prefer returning en_segments[] without embedding he in strings when possible.",
+      "- en_segments.length MUST equal heSegs for every case.",
+      "",
+      "FRESH_TRANSLATE (this kit):",
+      "- Complete translation of every Hebrew clause; no omissions or paraphrasing away content.",
+      "- Use full_dictionary.md for halachic terms and commentator names; expand all abbreviations; Arabic numerals for numbers.",
+      "- {Rama: ...} format for Rama glosses; no additions beyond source.",
+      "- Do NOT preserve garbled MT from unreliable EN blob when fresh translate is required.",
+      "- Eval REJECTs empty/truncated EN slots and HOLDs short_en / kit_he_truncated flags.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"action\":\"fresh_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "segments.length === heSegs. No corpus edits."
+    ],
+    "parent_sha256": "85549c88ea4991238e5a7355b1e33b91f936e9240c6f84040a267ac452e89223",
+    "chunk_index": 6,
+    "chunk_total": 6,
+    "case_offset": 80,
+    "cases_in_chunk": 1,
+    "parent_pack": "EN_TRUNC_EDITORIAL_REMAINING.json",
+    "note": "Full segment text — no truncation"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman361/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. מנסכא דר\"א ועסי' ע\"ה סי\"ג בהג\"ה ממ\"ש ה\"ל כגזלן וס' ראשונה מפרשים שם בעדי ראיה. וראיה ממ\"ש בכתובות י\"ח א' וליתני כו' והא קי\"ל כו' ואם איתא ליתני בגזלן. וס' האחרונה דקדק המ\"מ מדברי רמב\"ם שהביא ש\"ע בסי' שס\"ד ס\"ד ועבה\"ג שם ור\"ל מדלא כ' בעדי ראיה ואין הכרח שהרמב\"ם נקט לשון הגמ' ס\"ה ועמ\"ש בסי' שנ\"ז ס\"א ועש\"ך:",
+        "(ליקוט) וי\"א שצריך. וכ\"כ הרא\"ש שם ואם אמרו גדולים יודעים אנו כו' ומיירי כו' כיון שידוע כו' ועודה בידו דאב כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say, etc. This is derived from the case of Rabbi Abba's ingot. See siman 75, seif 13. The first opinion limits the case to witnesses who saw the object. Maggid Mishneh infers the latter opinion from Rambam, but the inference is not compelling because Rambam merely uses the Gemara's wording. See simanim 3, 75, 357, and 364."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "editorial kit parts 02-06",
+      "prior_eval_verdict": "not_run"
+    }
+  ]
+}

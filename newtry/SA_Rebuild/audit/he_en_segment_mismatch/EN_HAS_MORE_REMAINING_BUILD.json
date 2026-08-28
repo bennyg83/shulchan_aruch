@@ -4,9 +4,9 @@
   "purpose": "9 en_has_more / glued oversplit still open",
   "cases": 9,
   "parts": 1,
-  "max_part_bytes": 64414,
-  "full_bytes": 64185,
-  "full_sha256": "a55e960fc2161b435b6ffc7399cf9c02a0f465143d885c1c11006237d382ead6",
+  "max_part_bytes": 67169,
+  "full_bytes": 66889,
+  "full_sha256": "a8bcf731504f337aa8a3cdd0bd7fe30dd5482c428bfa08245d54f0f60a62041e",
   "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_HAS_MORE_REMAINING.json",
   "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_HAS_MORE_REMAINING.md",
   "parts_detail": [
@@ -15,9 +15,10 @@
       "file": "EN_HAS_MORE_REMAINING_part01.json",
       "cases": 9,
       "case_offset": 0,
-      "bytes": 64414,
-      "sha256": "35cc4cb4e59375b41590d26de2a8972b2c4622c0936d0ec471404d8a69c668b6",
-      "segments_truncated_in_part": false
+      "bytes": 67169,
+      "sha256": "fce43925a4e36f767cfe834e3cedb411c50b93cd82adbf777ee404ceb85f5f00",
+      "exceeds_hard_cap": false
     }
-  ]
+  ],
+  "rebuild_note": "2026-08-28 — no segment truncation; parent JSON in numbered zip"
 }
