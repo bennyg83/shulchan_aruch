@@ -18,33 +18,36 @@ Mode: `resegment_offset_fix` · Dictionary: attach **`full_dictionary.md`**
 
 ## Files
 
-- Full kit: [`HE_HAS_MORE_OFFSET_REMAINING.json`](./HE_HAS_MORE_OFFSET_REMAINING.json) (751,219 bytes, SHA `bc72dbb7df72…`)
-- Parts: each ≤ 85,000 UTF-8 bytes
+- Full kit: [`HE_HAS_MORE_OFFSET_REMAINING.json`](./HE_HAS_MORE_OFFSET_REMAINING.json) (755,509 bytes, SHA `90a3e615d9d0…`)
+- Parts: one case per part; **full** segment text (no truncation; may exceed 85k target)
+- Zip includes **full parent** `HE_HAS_MORE_OFFSET_REMAINING.json` plus all parts
 - Created: 2026-08-28T12:23:32.008Z
 
 ## Parts
 
-| Part | File | Cases | Offset | Bytes | SHA (prefix) | Trunc |
-|------|------|------:|-------:|------:|--------------|-------|
-| 1 | `HE_HAS_MORE_OFFSET_REMAINING_part01.json` | 1 | 0 | 82,241 | `7082b39d2ffd…` | yes* |
-| 2 | `HE_HAS_MORE_OFFSET_REMAINING_part02.json` | 1 | 1 | 63,678 | `7288b58219d2…` | yes* |
-| 3 | `HE_HAS_MORE_OFFSET_REMAINING_part03.json` | 1 | 2 | 36,379 | `3ec96aa3b16e…` | yes* |
-| 4 | `HE_HAS_MORE_OFFSET_REMAINING_part04.json` | 1 | 3 | 63,501 | `9dff7ee36568…` | yes* |
-| 5 | `HE_HAS_MORE_OFFSET_REMAINING_part05.json` | 1 | 4 | 67,653 | `93bcf5c2c1fd…` | yes* |
-| 6 | `HE_HAS_MORE_OFFSET_REMAINING_part06.json` | 1 | 5 | 74,771 | `06d39d0e8fba…` | yes* |
+| Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
+|------|------|------:|-------:|------:|--------------|------|
+| 1 | `HE_HAS_MORE_OFFSET_REMAINING_part01.json` | 1 | 0 | 218,186 | `e133f5eb8d76…` | over cap |
+| 2 | `HE_HAS_MORE_OFFSET_REMAINING_part02.json` | 1 | 1 | 100,986 | `39a11c7546ac…` | over cap |
+| 3 | `HE_HAS_MORE_OFFSET_REMAINING_part03.json` | 1 | 2 | 91,184 | `4b31bd8b7925…` | over cap |
+| 4 | `HE_HAS_MORE_OFFSET_REMAINING_part04.json` | 1 | 3 | 115,449 | `9c74e60fcb71…` | over cap |
+| 5 | `HE_HAS_MORE_OFFSET_REMAINING_part05.json` | 1 | 4 | 173,295 | `d84d102a1b46…` | over cap |
+| 6 | `HE_HAS_MORE_OFFSET_REMAINING_part06.json` | 1 | 5 | 96,178 | `8832e5bb5479…` | over cap |
 
-\* 6 part(s) truncated to fit 85k; full text in parent pack.
+\* 6 part(s) exceed 85k target — full segment text preserved (no truncation).
 
 ## ChatGPT prompt
 
 ```
 SA_Rebuild HE_HAS_MORE OFFSET REMAINING — RESEGMENT / OFFSET FIX.
 
-INPUTS: HE_HAS_MORE_OFFSET_REMAINING.json (or one part) + full_dictionary.md
+INPUTS: HE_HAS_MORE_OFFSET_REMAINING.json (full parent pack — attach even when reviewing one part) + full_dictionary.md
 DICTIONARY (mandatory — full_dictionary.md)
 - Expand abbreviations; halachic terms per dictionary; commentator names exact; Arabic numerals; connectives per dictionary.
 
 CONTEXT: Residual he_has_more (true_offset_editorial) not in likut/editorial kits.
+CORPUS TEXT: he_segments[] and en_segments[] are COMPLETE from live corpus (no truncation). If alignment remains ambiguous after review, mark needs_human with a short reason.
+
 
 FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)
 

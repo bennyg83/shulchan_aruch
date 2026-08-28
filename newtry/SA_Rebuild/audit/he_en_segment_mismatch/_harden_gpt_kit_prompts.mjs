@@ -237,9 +237,13 @@ function listKitPartFiles(kit) {
 
 function zipContents(def) {
   const files = [def.md];
+  const parentJson = `${def.kit}.json`;
   if (def.jsonSingle) {
     files.push(def.jsonSingle);
   } else {
+    if (fs.existsSync(path.join(AUDIT, parentJson))) {
+      files.push(parentJson);
+    }
     files.push(...listKitPartFiles(def.kit));
   }
   files.push("full_dictionary.md");

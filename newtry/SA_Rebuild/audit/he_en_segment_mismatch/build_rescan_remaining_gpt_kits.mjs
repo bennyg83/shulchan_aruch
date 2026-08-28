@@ -223,12 +223,6 @@ function kitIds(file) {
   return new Set((d?.cases ?? []).map((c) => c.id));
 }
 
-function truncateSeg(s, maxChars) {
-  const t = String(s ?? "");
-  if (t.length <= maxChars) return t;
-  return `${t.slice(0, maxChars)}…[truncated ${t.length - maxChars} chars; full in parent pack]`;
-}
-
 function removeStaleParts(prefix, keepCount) {
   for (let n = keepCount + 1; n <= 99; n++) {
     const stale = path.join(AUDIT, `${prefix}_part${String(n).padStart(2, "0")}.json`);
@@ -255,29 +249,6 @@ function packCases(cases, packBaseName, packMetaBase, fullSha) {
       null,
       2
     );
-  }
-
-  function fitCaseForPart(c) {
-    let maxChars = 8000;
-    for (let attempt = 0; attempt < 24; attempt++) {
-      const fitted = {
-        ...c,
-        segments_truncated_in_part: true,
-        full_text_in_parent_pack: `${packBaseName}.json`,
-        he_segments: c.he_segments.map((s) => truncateSeg(s, maxChars)),
-        en_segments: c.en_segments.map((s) => truncateSeg(s, maxChars)),
-      };
-      const text = buildPartJson([fitted], 1, 1, 0);
-      if (Buffer.byteLength(text, "utf8") <= MAX_PART_BYTES) return fitted;
-      maxChars = Math.max(200, Math.floor(maxChars * 0.6));
-    }
-    return {
-      ...c,
-      segments_truncated_in_part: true,
-      full_text_in_parent_pack: `${packBaseName}.json`,
-      he_segments: c.he_segments.map((_, i) => `[omitted he[${i}]; see parent pack]`),
-      en_segments: c.en_segments.map((_, i) => `[omitted en[${i}]; see parent pack]`),
-    };
   }
 
   const chunks = [];
@@ -308,11 +279,8 @@ function packCases(cases, packBaseName, packMetaBase, fullSha) {
         bytes = Buffer.byteLength(text, "utf8");
       }
     }
-    if (bytes > MAX_PART_BYTES && slice.length === 1) {
-      slice = [fitCaseForPart(slice[0])];
-      text = buildPartJson(slice, 1, 1, i);
-      bytes = Buffer.byteLength(text, "utf8");
-    }
+    // Never truncate segment text — GPT reviewers need full HE/EN for offset fixes.
+    // Single-case parts may exceed hard_cap; parent pack also ships in zip.
     chunks.push({ cases: slice.slice(), offset: i, bytes });
     i += slice.length;
   }
@@ -332,7 +300,7 @@ function packCases(cases, packBaseName, packMetaBase, fullSha) {
       case_offset: ch.offset,
       bytes,
       sha256: sha256(text),
-      segments_truncated_in_part: ch.cases.some((c) => c.segments_truncated_in_part),
+      exceeds_hard_cap: bytes > MAX_PART_BYTES,
     });
   }
   removeStaleParts(packBaseName, chunks.length);
@@ -380,11 +348,11 @@ function buildKit(def) {
   const partTable = partInfos
     .map(
       (p) =>
-        `| ${p.part} | \`${p.file}\` | ${p.cases} | ${p.case_offset} | ${p.bytes.toLocaleString()} | \`${p.sha256.slice(0, 12)}…\` | ${p.segments_truncated_in_part ? "yes*" : ""} |`
+        `| ${p.part} | \`${p.file}\` | ${p.cases} | ${p.case_offset} | ${p.bytes.toLocaleString()} | \`${p.sha256.slice(0, 12)}…\` | ${p.exceeds_hard_cap ? "over cap" : ""} |`
     )
     .join("\n");
   const maxPartBytes = partInfos.reduce((m, p) => Math.max(m, p.bytes), 0);
-  const truncParts = partInfos.filter((p) => p.segments_truncated_in_part).length;
+  const overCapParts = partInfos.filter((p) => p.exceeds_hard_cap).length;
 
   const md = `# ${mdTitle}
 
@@ -407,16 +375,17 @@ ${volRows}
 ## Files
 
 - Full kit: [\`${kit}.json\`](./${kit}.json) (${fullBytes.toLocaleString()} bytes, SHA \`${fullSha.slice(0, 12)}…\`)
-- Parts: each ≤ ${MAX_PART_BYTES.toLocaleString()} UTF-8 bytes
+- Parts: target ≤ ${MAX_PART_BYTES.toLocaleString()} UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
+- Zip includes **full parent** \`${kit}.json\` plus all parts
 - Created: ${def.created}
 
 ## Parts
 
-| Part | File | Cases | Offset | Bytes | SHA (prefix) | Trunc |
-|------|------|------:|-------:|------:|--------------|-------|
+| Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
+|------|------|------:|-------:|------:|--------------|------|
 ${partTable}
 
-${truncParts ? `\\* ${truncParts} part(s) truncated to fit 85k; full text in parent pack.` : ""}
+${overCapParts ? `\\* ${overCapParts} part(s) exceed 85k target — full segment text preserved (no truncation).` : ""}
 
 ## ChatGPT prompt
 
@@ -586,10 +555,11 @@ segments.length === heSegs. No merge_groups on HE. No corpus edits.`
     "HE_HAS_MORE_OFFSET_REMAINING",
     `SA_Rebuild HE_HAS_MORE OFFSET REMAINING — RESEGMENT / OFFSET FIX.
 
-INPUTS: HE_HAS_MORE_OFFSET_REMAINING.json (or one part) + full_dictionary.md
+INPUTS: HE_HAS_MORE_OFFSET_REMAINING.json (full parent pack — attach even when reviewing one part) + full_dictionary.md
 ${DICT}
 
 CONTEXT: Residual he_has_more (true_offset_editorial) not in likut/editorial kits.
+CORPUS TEXT: he_segments[] and en_segments[] are COMPLETE from live corpus (no truncation). If alignment remains ambiguous after review, mark needs_human with a short reason.
 
 OUTPUT — JSON array only:
 [{"id":"...","action":"split_en"|"merge_groups"|"mixed_resegment_translate"|"needs_human","segments":[{"index":0,"he":"...","en":"...","source":"..."}],"en_segments":["..."],"notes":"short","confidence":"high"|"medium"|"low"}]
@@ -981,7 +951,7 @@ Older kits without _REMAINING suffix reflect pre-rescan state. Use _REMAINING ki
 
 ${master.dedup_note} Priority: en_missing → en_has_more → moderate HOLD → editorial kit → likut HOLD → editorial HOLD → beer degree → likut merged → en_trunc catch-all → he_has_more catch-all.
 
-Zips: \`zips/*_REMAINING.zip\` (prompt + parts + full_dictionary.md). See [\`zips/ZIPS_MANIFEST.md\`](./zips/ZIPS_MANIFEST.md).
+Zips: \`zips/*_REMAINING.zip\` (prompt + full parent JSON + parts + full_dictionary.md). See [\`zips/ZIPS_MANIFEST.md\`](./zips/ZIPS_MANIFEST.md).
 `;
 
 writeAtomic(path.join(AUDIT, "SEGMENT_GPT_KITS_INDEX.md"), indexMd);

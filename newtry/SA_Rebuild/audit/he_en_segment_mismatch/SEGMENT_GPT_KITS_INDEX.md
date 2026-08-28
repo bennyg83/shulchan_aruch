@@ -48,7 +48,7 @@ Numbered zip files in `zips/` (`01_`–`10_`) match this sequence:
 | 5 | `EN_TRUNC_REMAINING` | `05_EN_TRUNC_REMAINING.zip` | rescan_remaining | 10 | 3 | 69,115 | `1594ec5636a0…` | [`EN_TRUNC_REMAINING.json`](./EN_TRUNC_REMAINING.json) |
 | 6 | `HE_HAS_MORE_LIKUT_REMAINING` | `06_HE_HAS_MORE_LIKUT_REMAINING.zip` | rescan_remaining | 13 | 1 | 55,407 | `d3ce76992fd7…` | [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) |
 | 7 | `HE_HAS_MORE_LIKUT_MERGED_REMAINING` | `07_HE_HAS_MORE_LIKUT_MERGED_REMAINING.zip` | rescan_remaining | 18 | 2 | 82,850 | `1f62a603ae6d…` | [`HE_HAS_MORE_LIKUT_MERGED_REMAINING.json`](./HE_HAS_MORE_LIKUT_MERGED_REMAINING.json) |
-| 8 | `HE_HAS_MORE_OFFSET_REMAINING` | `08_HE_HAS_MORE_OFFSET_REMAINING.zip` | rescan_remaining | 6 | 6 | 82,241 | `bc72dbb7df72…` | [`HE_HAS_MORE_OFFSET_REMAINING.json`](./HE_HAS_MORE_OFFSET_REMAINING.json) |
+| 8 | `HE_HAS_MORE_OFFSET_REMAINING` | `08_HE_HAS_MORE_OFFSET_REMAINING.zip` | rescan_remaining | 6 | 6 | 218,186 | `90a3e615d9d0…` | [`HE_HAS_MORE_OFFSET_REMAINING.json`](./HE_HAS_MORE_OFFSET_REMAINING.json) |
 | 9 | `EN_TRUNC_EDITORIAL_REMAINING` | `09_EN_TRUNC_EDITORIAL_REMAINING.zip` | rescan_remaining | 81 | 5 | 82,207 | `001557c92c1d…` | [`EN_TRUNC_EDITORIAL_REMAINING.json`](./EN_TRUNC_EDITORIAL_REMAINING.json) |
 | 10 | `HE_HAS_MORE_EDITORIAL_REMAINING` | `10_HE_HAS_MORE_EDITORIAL_REMAINING.zip` | rescan_remaining | 91 | 17 | 84,354 | `58a918920b38…` | [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) |
 
@@ -84,9 +84,10 @@ Older kits without _REMAINING suffix reflect pre-rescan state. Use _REMAINING ki
 
 - **2026-08-28 AM:** EN_MISSING 18/20; EN_TRUNC wave1; HE_HAS_MORE wave1/wave2; Likut 40/53.
 - **2026-08-28 PM:** Post-apply rescan → _REMAINING kit rebuild (274 cases across 10 kits).
+- **2026-08-28 PM (fix):** `HE_HAS_MORE_OFFSET_REMAINING` — removed segment truncation in parts; zip now includes full parent JSON (444 KB zip; parts up to 218 KB).
 
 ## Deduplication
 
 Each open cell assigned to exactly one kit via priority routing; same id never appears in multiple kits. Priority: en_missing → en_has_more → moderate HOLD → editorial kit → likut HOLD → editorial HOLD → beer degree → likut merged → en_trunc catch-all → he_has_more catch-all.
 
-Zips: `zips/01_*` … `10_*_REMAINING.zip` (numbered by run order; prompt + parts + full_dictionary.md). See [`zips/ZIPS_MANIFEST.md`](./zips/ZIPS_MANIFEST.md).
+Zips: `zips/01_*` … `10_*_REMAINING.zip` (numbered by run order; prompt + full parent JSON + parts + full_dictionary.md). See [`zips/ZIPS_MANIFEST.md`](./zips/ZIPS_MANIFEST.md).
