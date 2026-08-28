@@ -1,0 +1,622 @@
+{
+  "created": "2026-08-28T08:18:49.559Z",
+  "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
+  "kits": [
+    {
+      "kit": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT",
+      "mode": "fresh_multi_segment_translate",
+      "purpose": "EN truncated/garbled blob — fresh multi-segment translate from HE (needs_editorial tier)",
+      "cases": 99,
+      "parts": 6,
+      "max_part_bytes": 84368,
+      "full_bytes": 409293,
+      "full_sha256": "f5910cf438138ae0d71a83e6a7ed9864cab669c7ac756a19d88c84ebe9b5dfbe",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.md",
+      "parts_detail": [
+        {
+          "part": 1,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part01.json",
+          "cases": 30,
+          "case_offset": 0,
+          "bytes": 84368,
+          "sha256": "085f7c95d94582a01792ff31aadc6d7ebad1ce73156b48ecfead37f066217544",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 2,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part02.json",
+          "cases": 22,
+          "case_offset": 30,
+          "bytes": 82775,
+          "sha256": "08e60ef7fd61ab46565e68e32fd5e1f7773e6796c4e88eb321e111436578b710",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 3,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part03.json",
+          "cases": 24,
+          "case_offset": 52,
+          "bytes": 79820,
+          "sha256": "a1a6d2eff1588469ce258aea2438e372d719213bbcb586f53dd9e4ca8ac75e49",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 4,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part04.json",
+          "cases": 9,
+          "case_offset": 76,
+          "bytes": 75280,
+          "sha256": "55acd95de366abdd054d0c1a37036920773092f6bc12f2a2cfd529f9bb6ebe4c",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 5,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part05.json",
+          "cases": 4,
+          "case_offset": 85,
+          "bytes": 77172,
+          "sha256": "f477a777cef8e5f4782b22b558985211a4f79b11e7b7cf301505b14ba1b0dbf7",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 6,
+          "file": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT_part06.json",
+          "cases": 10,
+          "case_offset": 89,
+          "bytes": 43754,
+          "sha256": "9c56c9eb592e54a08d6ae8fa4c1db2378ab559315e80d9b9f120db725359a0a4",
+          "segments_truncated_in_part": false
+        }
+      ]
+    },
+    {
+      "kit": "HE_HAS_MORE_WAVE2_HELD_KIT",
+      "mode": "resegment_split_en",
+      "purpose": "Wave2 split_en held (18 Gra) — resegment EN to match HE Likut/lemma slots",
+      "cases": 18,
+      "parts": 2,
+      "max_part_bytes": 70055,
+      "full_bytes": 126174,
+      "full_sha256": "f70a55b6719d20250c919ceec3c04dfee39f082b896a6339aa49003f683e892e",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_WAVE2_HELD_KIT.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_WAVE2_HELD_KIT.md",
+      "parts_detail": [
+        {
+          "part": 1,
+          "file": "HE_HAS_MORE_WAVE2_HELD_KIT_part01.json",
+          "cases": 9,
+          "case_offset": 0,
+          "bytes": 61910,
+          "sha256": "4e4e14215bb2dc89b9091fbac85ffbf880b45510219425a2765216e33405272d",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 2,
+          "file": "HE_HAS_MORE_WAVE2_HELD_KIT_part02.json",
+          "cases": 9,
+          "case_offset": 9,
+          "bytes": 70055,
+          "sha256": "5497aec81127a2d5a5c33abf74fd50c5925689b735d9c756e7dc9f3882d81d61",
+          "segments_truncated_in_part": false
+        }
+      ]
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT",
+      "mode": "split_en_not_merge_he",
+      "purpose": "53 Gra Likut cases — split EN to match HE; reject wrong merge_groups",
+      "cases": 53,
+      "parts": 4,
+      "max_part_bytes": 84868,
+      "full_bytes": 243032,
+      "full_sha256": "ea5ccb0dbb2780fcd944c987de25268391708c75fccaee3728d345621b17f018",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_SPLIT_KIT.md",
+      "parts_detail": [
+        {
+          "part": 1,
+          "file": "HE_HAS_MORE_LIKUT_SPLIT_KIT_part01.json",
+          "cases": 15,
+          "case_offset": 0,
+          "bytes": 84868,
+          "sha256": "4ee9c85ba4e5eaa353680a2a197022b98227302301bc09e34e5479d804b254a3",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 2,
+          "file": "HE_HAS_MORE_LIKUT_SPLIT_KIT_part02.json",
+          "cases": 21,
+          "case_offset": 15,
+          "bytes": 68173,
+          "sha256": "8bcb25596a14c97e8df044c4c59ce665cd56ca8dc63b8ff4725c3aa2d66b53a3",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 3,
+          "file": "HE_HAS_MORE_LIKUT_SPLIT_KIT_part03.json",
+          "cases": 13,
+          "case_offset": 36,
+          "bytes": 84466,
+          "sha256": "6518aa787770b30a46cda419e2336ca9fe9291e1d8e223a9f2c6a5e6d95853fe",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 4,
+          "file": "HE_HAS_MORE_LIKUT_SPLIT_KIT_part04.json",
+          "cases": 4,
+          "case_offset": 49,
+          "bytes": 22917,
+          "sha256": "06d6e4574799d2855bd389f142339198ac655b8d65694d306f09e88260315d31",
+          "segments_truncated_in_part": false
+        }
+      ]
+    },
+    {
+      "kit": "EN_MISSING_2_HELD_KIT",
+      "mode": "fresh_translate",
+      "purpose": "2 held en_missing — fresh translate with citation/HE fixes",
+      "cases": 2,
+      "parts": 1,
+      "max_part_bytes": 10679,
+      "full_bytes": 10450,
+      "full_sha256": "c718864e6ff0bc5e8a98c7c95e0593dc2b86c21eb9179c4c4d9344746da37b27",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_HELD_KIT.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_HELD_KIT.md",
+      "parts_detail": [
+        {
+          "part": 1,
+          "file": "EN_MISSING_2_HELD_KIT_part01.json",
+          "cases": 2,
+          "case_offset": 0,
+          "bytes": 10679,
+          "sha256": "027340e456bb4de2c552d9e00c1dd4cc69d98f58e197f156d3b37f662d3962d6",
+          "segments_truncated_in_part": false
+        }
+      ]
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_KIT",
+      "mode": "resegment_offset_fix",
+      "purpose": "218 needs_editorial he_has_more — resegment/offset fix or human escalation",
+      "cases": 218,
+      "parts": 46,
+      "max_part_bytes": 84750,
+      "full_bytes": 2440400,
+      "full_sha256": "3f53accaee9334658a7568f4b97c4351d742975f89ceb819f2e37f2715be6e9a",
+      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_KIT.json",
+      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_KIT.md",
+      "parts_detail": [
+        {
+          "part": 1,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part01.json",
+          "cases": 2,
+          "case_offset": 0,
+          "bytes": 30637,
+          "sha256": "fae6da94e8da19af2dd0abf180bd3b9ea1e361f035746338de43f8524c636641",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 2,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part02.json",
+          "cases": 1,
+          "case_offset": 2,
+          "bytes": 83250,
+          "sha256": "d82085e51043bf1f4773424491d2271ebd6a3d616b7bb6369fce914858354386",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 3,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part03.json",
+          "cases": 6,
+          "case_offset": 3,
+          "bytes": 84046,
+          "sha256": "b2416a83207777198abae383d97dde1ea921b71dd23eca211af533b179f67674",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 4,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part04.json",
+          "cases": 3,
+          "case_offset": 9,
+          "bytes": 72577,
+          "sha256": "5afd81a20c825a64dfbb8bd9503861e917b1d27b6322ac81c4a704c299a9541c",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 5,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part05.json",
+          "cases": 2,
+          "case_offset": 12,
+          "bytes": 55681,
+          "sha256": "40d557a421874679fd750d398261fbace3a084cf128507dc42d2192922a19174",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 6,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part06.json",
+          "cases": 2,
+          "case_offset": 14,
+          "bytes": 82944,
+          "sha256": "31aab18802007f674560732d7aadc29a9faa213e83291ad9c42e00de1904352b",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 7,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part07.json",
+          "cases": 2,
+          "case_offset": 16,
+          "bytes": 72244,
+          "sha256": "9b5aebe7751b910d971b712cf014bcfe1cbd8892221dbf7ac37670f22d55c141",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 8,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part08.json",
+          "cases": 2,
+          "case_offset": 18,
+          "bytes": 83215,
+          "sha256": "06a1351aa5eac81673982279e98843661b831e4a536accaa8ed5b7a61da94ffd",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 9,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part09.json",
+          "cases": 10,
+          "case_offset": 20,
+          "bytes": 83881,
+          "sha256": "bfafcf080120d699899dcea3d72c06aa4da8862b58962a65ba522c9650884a56",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 10,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part10.json",
+          "cases": 11,
+          "case_offset": 30,
+          "bytes": 79875,
+          "sha256": "d83d88e5a6c40484b2fb252f7f862152f63c8c343f298b497447e42e3117882a",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 11,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part11.json",
+          "cases": 6,
+          "case_offset": 41,
+          "bytes": 83823,
+          "sha256": "8140a4799d83bc9988bb3886aa9aaf256acea34747f5f877492652c92d730579",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 12,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part12.json",
+          "cases": 14,
+          "case_offset": 47,
+          "bytes": 84750,
+          "sha256": "6acfcfa7e704032a7781c429b9ea562494e1360b9944d78487fd25a18421f967",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 13,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part13.json",
+          "cases": 10,
+          "case_offset": 61,
+          "bytes": 81421,
+          "sha256": "7ad6d27bfdd28fc3b129efdd36f4e34428fc2009ec359ce3424c4966fd57c2fa",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 14,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part14.json",
+          "cases": 14,
+          "case_offset": 71,
+          "bytes": 77479,
+          "sha256": "f79ff77f530672dcd0abef18d1f16978678eaacfda9371a3c727791025411aa1",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 15,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part15.json",
+          "cases": 5,
+          "case_offset": 85,
+          "bytes": 84136,
+          "sha256": "34435feb33e424b04baf9aef58192b9a646a2fb0d565a3ae1306dd1d541608f9",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 16,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part16.json",
+          "cases": 15,
+          "case_offset": 90,
+          "bytes": 82565,
+          "sha256": "43521559e5c46fbb5721dd7780dc56d09c45a50d2fa0b00a180232e976798557",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 17,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part17.json",
+          "cases": 8,
+          "case_offset": 105,
+          "bytes": 80153,
+          "sha256": "9988cb81396402efb12eefb111fcc9234956829501ecdbd831c8493bf7158dd6",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 18,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part18.json",
+          "cases": 13,
+          "case_offset": 113,
+          "bytes": 82263,
+          "sha256": "0c593876317a9bc2027fe47027770c264b8a82f8d72cb1449c3ad00d68fb7679",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 19,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part19.json",
+          "cases": 17,
+          "case_offset": 126,
+          "bytes": 83877,
+          "sha256": "bc487e577d75bfb773f3721b9efeeda26a11d1be0fc1389c775a44097acd2aa5",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 20,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part20.json",
+          "cases": 12,
+          "case_offset": 143,
+          "bytes": 83014,
+          "sha256": "472117fabe58ef6dd5c1c50847162240b89b2a91b682d57e3bbdd60c4dec40d0",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 21,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part21.json",
+          "cases": 11,
+          "case_offset": 155,
+          "bytes": 65098,
+          "sha256": "c0f4a667e3e6bb03890577c77188c192ce22f957043d0ac18aaab6588f293401",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 22,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part22.json",
+          "cases": 1,
+          "case_offset": 166,
+          "bytes": 56062,
+          "sha256": "ce1b7731093a05a415f3bd08f393d6566fd34f08d54c1806d54b263d77806004",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 23,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part23.json",
+          "cases": 1,
+          "case_offset": 167,
+          "bytes": 71806,
+          "sha256": "5ecc623d5c4dc440c0d442f50e41f74030a0e820e27687a8a9c71ea37110d059",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 24,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part24.json",
+          "cases": 2,
+          "case_offset": 168,
+          "bytes": 25287,
+          "sha256": "65dc1c39fecb4fb34aa8c93850d0c77e1393faf85e65deacbccdff7dae16e3e0",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 25,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part25.json",
+          "cases": 2,
+          "case_offset": 170,
+          "bytes": 83946,
+          "sha256": "9767ba453c98d7ce2ccb4676a95165bac034c4ce50a86520fed6639188535b87",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 26,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part26.json",
+          "cases": 4,
+          "case_offset": 172,
+          "bytes": 57626,
+          "sha256": "637414c4a3e45c9f789999524fe1d6756050f6b86adb2a396c85fe2a779df748",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 27,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part27.json",
+          "cases": 1,
+          "case_offset": 176,
+          "bytes": 76422,
+          "sha256": "21f1f44198f2153f9af6207d9052e4a473fcf36c5e942ce8b5fd637106a8929b",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 28,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part28.json",
+          "cases": 3,
+          "case_offset": 177,
+          "bytes": 67889,
+          "sha256": "e75d25743ab214f6664acfb62a5c0d81a1c8f2eb25439b7b8599b0b2453cbfa9",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 29,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part29.json",
+          "cases": 1,
+          "case_offset": 180,
+          "bytes": 70503,
+          "sha256": "4039dc82bfaac6e39badc918a77fde997178c907b02b38bad6b2ab294e264f2b",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 30,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part30.json",
+          "cases": 2,
+          "case_offset": 181,
+          "bytes": 80204,
+          "sha256": "6a6b40b951ee62961f4ba4bdc508fa253e280d872b1748c5c2568276b1772e4c",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 31,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part31.json",
+          "cases": 2,
+          "case_offset": 183,
+          "bytes": 30463,
+          "sha256": "5068e873dc85b45fc8d5b54d7e4c3df237369a1d3220745d307c663542d5a7ad",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 32,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part32.json",
+          "cases": 1,
+          "case_offset": 185,
+          "bytes": 76685,
+          "sha256": "db91ff5889afac4d96e6b4e774422d13e5b6302fa894bb043cd760d8b15d6549",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 33,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part33.json",
+          "cases": 2,
+          "case_offset": 186,
+          "bytes": 33881,
+          "sha256": "63d5b8e49496f731ccf61fe79ea359a6035ba492370236518c75b6d822873bee",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 34,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part34.json",
+          "cases": 1,
+          "case_offset": 188,
+          "bytes": 63299,
+          "sha256": "0763d6babdab56b8f893317bbfece2afa320e9e5be526c463a65cf9453df4256",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 35,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part35.json",
+          "cases": 1,
+          "case_offset": 189,
+          "bytes": 71348,
+          "sha256": "0e218cfab4427090c3c838ab6ddf96edb60047d4bc111518a004a21298ffff2d",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 36,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part36.json",
+          "cases": 2,
+          "case_offset": 190,
+          "bytes": 76083,
+          "sha256": "8f0965ad1c88fa03c7abf16f08a1860ddaa7198f196fbee27b97e8a4a82a47b0",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 37,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part37.json",
+          "cases": 3,
+          "case_offset": 192,
+          "bytes": 76132,
+          "sha256": "364ecfa0a3f0f43c745bc12595a88e2dc48a1a0a2c13f3e1de3bb72ea680672b",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 38,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part38.json",
+          "cases": 2,
+          "case_offset": 195,
+          "bytes": 61584,
+          "sha256": "61016711673b568005fd9e845955a7f33c6f4719335436f219f9364ab9bb1216",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 39,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part39.json",
+          "cases": 2,
+          "case_offset": 197,
+          "bytes": 83350,
+          "sha256": "7cb9175f8c4b6db410456ac7f05572e6b91ee606ac459c9cf16444957b9772d9",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 40,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part40.json",
+          "cases": 2,
+          "case_offset": 199,
+          "bytes": 55988,
+          "sha256": "eef4e9797bebb23196338fcbda0120067a5df6945dcb39db532d5a0f4185ea2d",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 41,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part41.json",
+          "cases": 1,
+          "case_offset": 201,
+          "bytes": 73623,
+          "sha256": "482cc4eecd94bb9e010640d2a4ca7d79427bfba8ceb249b803a36b0a3316f497",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 42,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part42.json",
+          "cases": 1,
+          "case_offset": 202,
+          "bytes": 78649,
+          "sha256": "5d87a1321888ff86bf4b8516922c2c5d83a00f2aa7a48929aca881c4e4789442",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 43,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part43.json",
+          "cases": 3,
+          "case_offset": 203,
+          "bytes": 84309,
+          "sha256": "560f04197544b8c64c94ea3a876696966098f65d475b50598046029690d1e07d",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 44,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part44.json",
+          "cases": 3,
+          "case_offset": 206,
+          "bytes": 61270,
+          "sha256": "4fdc61ad571a343cdd0833b67656bcb29b2f0c1f23e87e2dc91ac044cf3e8bf8",
+          "segments_truncated_in_part": false
+        },
+        {
+          "part": 45,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part45.json",
+          "cases": 1,
+          "case_offset": 209,
+          "bytes": 75626,
+          "sha256": "ebbf5497bfd73108ae8c72caeb37b5553c32c884d5d4d9e741cad7dcee81faf0",
+          "segments_truncated_in_part": true
+        },
+        {
+          "part": 46,
+          "file": "HE_HAS_MORE_EDITORIAL_KIT_part46.json",
+          "cases": 8,
+          "case_offset": 210,
+          "bytes": 49614,
+          "sha256": "6a68ccbedb3da4a28dcaf10265960ecfb5f6801132e7a67dda3e60863906333e",
+          "segments_truncated_in_part": false
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "en_trunc_editorial": 99,
+    "wave2_held": 18,
+    "likut_split": 53,
+    "en_missing_held": 2,
+    "he_has_more_editorial": 218
+  },
+  "crossLinks": {
+    "GLUED_STILL_OPEN_9_KIT": {
+      "file": "GLUED_STILL_OPEN_9_KIT.json",
+      "bytes": 69557,
+      "sha256": "a51a8c4c8b6293cb02430ad7406aed188083f50a5a609f750f2c989456efb051",
+      "exists": true
+    }
+  }
+}

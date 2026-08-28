@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "kind": "he_has_more_segments",
+    "tier": "wave2_held",
+    "mode": "resegment_split_en",
+    "purpose": "Wave2 split_en held (18 Gra) — resegment EN to match HE Likut/lemma slots",
+    "source_lists": {
+      "apply_log": "he_has_more_wave2_apply_log.json",
+      "review": "HE_HAS_MORE_PACK_ALL_REVIEW.json"
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "HE_HAS_MORE_WAVE2_HELD_KIT",
+    "counts": {
+      "total": 18,
+      "by_volume": {
+        "yd1": 18
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE WAVE2 HELD — RESEGMENT / SPLIT EN TO MATCH HE.\n\nINPUTS (both required)\n1) HE_HAS_MORE_WAVE2_HELD_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Wave2 auto split_en apply held these 18 Gra (beur-hagra) cases: marker-based EN split was insufficient (missing markers, multi-piece deficit, or no internal marker at hinted index).\n- heSegs > enSegs; HE must NOT be merged down. Split EN (or resegment with semantic alignment) until counts match.\n- Use HE (ליקוט) / lemma positions and en_segments[] from the kit; wave2 held reason is in hold_reason.\n\nTASK\nFor each case:\n1) Map each HE slot to one EN segment (split existing EN where possible; fresh_translate gaps from HE only).\n2) Prefer splitting EN at (Likut)|(Collected)|(Supplement) markers matching HE dual-likut patterns.\n3) If unsafe: action needs_human; still return best-effort paired segments[].\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length MUST equal heSegs.\n- Do NOT propose merge_groups on HE.\n- No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE WAVE2 HELD — RESEGMENT / SPLIT EN TO MATCH HE.",
+      "",
+      "INPUTS (both required)",
+      "1) HE_HAS_MORE_WAVE2_HELD_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Wave2 auto split_en apply held these 18 Gra (beur-hagra) cases: marker-based EN split was insufficient (missing markers, multi-piece deficit, or no internal marker at hinted index).",
+      "- heSegs > enSegs; HE must NOT be merged down. Split EN (or resegment with semantic alignment) until counts match.",
+      "- Use HE (ליקוט) / lemma positions and en_segments[] from the kit; wave2 held reason is in hold_reason.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Map each HE slot to one EN segment (split existing EN where possible; fresh_translate gaps from HE only).",
+      "2) Prefer splitting EN at (Likut)|(Collected)|(Supplement) markers matching HE dual-likut patterns.",
+      "3) If unsafe: action needs_human; still return best-effort paired segments[].",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length MUST equal heSegs.",
+      "- Do NOT propose merge_groups on HE.",
+      "- No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 2,
+    "chunk_total": 2,
+    "case_offset": 9,
+    "cases_in_chunk": 9,
+    "parent_pack": "HE_HAS_MORE_WAVE2_HELD_KIT.json",
+    "parent_sha256": "f70a55b6719d20250c919ceec3c04dfee39f082b896a6339aa49003f683e892e"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman177/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 13,
+      "enSegs": 9,
+      "he_deficit": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הנותן כו'. כל סעיף זה הוא לשון הרמב\"ם וכן ס\"ד. והנה מ\"ש ואם היה לו עסק כו' וכן אם כו' הואיל כו' הוא כמש\"ש ס\"ט א' אמר רב מותר שליש כו' אלא אמר שמואל קוצץ כו' וכאב\"א שם כי קאמר רב כו' וסובר דשמואל גמי בהאי גוונא דהא בהדא עניינא איתמר ומפרש מ\"ש מותר שליש כו' ר\"ל מהמותר על הקרן יהיה שליש שלך ר\"ל שליש השכר שלך מותר וא\"צ ליתן לו כפועל ושמואל פליג על זה שמא לא יהיה לו שכר כלל וה\"ה דפליג על מילתיה דרבא שם פלגא באגר כו' דרבא קאמר אליבא דהלכתא דהלכה כרב וכמ\"ש הרי\"ף דקי\"ל כרב באיסורי ומותר שליש מפרש דל\"ד ה\"ה פחות ומפרש דכ\"ז שלא פסק לו מתחלה אלא כשבאין לחלוק נותן לו וכמ\"ש בס\"ג בד\"א כו' וכן ס\"ל להרמב\"ם כמ\"ש למטה וכן מילתיה דשמואל דרב מודה לו דכ\"ש בכה\"ג מותר וג\"כ אף שלא פסק מתחלה כיון די\"ל עסק אחר וה\"ה דיכול להקשות על שמואל לס\"ד אלא דהיה יכול לומר דשמואל ס\"ל כר' יהודה אפילו לא טיבל כו' אבל למסקנא הוא אף לר\"מ ור\"ש ומפרש מש\"ש ר\"א מהגרוניא כו' א\"ל עד האידנא זוזי כו' דלא כפירש\"י משום דהשתא לאו עיסקא הוא שהרמב\"ם כתב בהדיא רפ\"ו דכה\"ג נמי הוא עיסקא. אלא משום דכיון שחצי בהמה שלו א\"צ ליתן לו בחצי האחר אלא כדין אם יש לו עסק אחר אלא שמ\"מ צריך ליתן לו דבר מועט ובזה כיון שהוא אריסו א\"צ ליתן לו כלל וזש\"ש השתא שותפי כו' אמרי אינשי כו' וז\"ש כאן ואם היה המתעסק כו' ומפרש מש\"ש אי פלגא באגר כו' באינו רוצה ליתן לו כלל אז פוסקין לו ב\"ד תרי תילתא באגד כו' בין ה\"ל עסק אחר או לא וכ\"ז שלא פסק עמו מתחלה כלל אבל בפסק עמו מתחלה אפילו לא ה\"ל עסק אחר מותר במה שפסק אפילו בפחות משתות וכמ\"ש בפ\"ו הלכה ז' וכן אם התנו שאם יהיה שם שכר כו' ורבותי הורו שאין כו' ולא יראה לי זה וטעמו ממש\"ש ריש עגלא לפטומא אע\"ג שאין מגיע לשתות השכר וכן לשכרו כפועל ומפרש בהתנה מתרלה וז\"ל ברפ\"ח וכן השם בהמה על המפטם להיות מפטם אותה והשכר לאמצע צריך ליתן עמלו כפועל בטל ואם א\"ל הרי הראש והאליה שלך בעמלך יתר על מחצית השכר מותר. וכתב ה\"ל למפטם בהמות אחרות שמפטם אותם עם זו השומא אצלו כו' הואיל והוא מתעסק בשלו ובשל חבירו אפילו לא העלה לו אלא דבר מועט בכל ימי השותפות הזאת דיו דחולק בשכר בשוה [ור\"ל אפילו לא התנה מתחלה כנ\"ל] ואם היה אריסו הואיל והוא מטפל בשלו ובשל בעל השדות א\"צ להעלות כלום. והטור מפרש ג\"כ מותר שליש כפי' הרמב\"ם וכן מפ' הרי\"ף והרא\"ש וש\"פ ומפ' מותר שליש לאו דוקא אלא דבר מועט וכמ\"ש ברי\"ף אבל דאית ליה עיסקא אחרינא ולא קמבטיל ליה מיניה לא בעי באגריה כולי האי כדאמרינן א\"ר מותר שליש כו' ואב\"א כו' וכ\"כ הטור וה\"מ שצריך כו' אבל כו' כגון רועה כו' וכן מפרש הכל בדרך הרמב\"ם ואמר ותקנת חכמים הוא למי כו' ר\"ל אם לא ירצח ליתן לו כפועל אלא שדעתו דוקא באין לו עסק אחר דזהו שיעור טרחו קרוב לשכרו כפועל ולכן כתב ותקנת חכמים כו' קודם וה\"מ שצריך כו' וה\"מ שצריך קאי אשניהם בין שכרו כפועל או פלגא באגר כו' ששניחם הוא שכר טרחו וכ\"ה ברי\"ף ורא\"ש מיהא הא דאר\"מ כו' ואי בעי למיפסק כו' ואח\"כ כ' וה\"מ בחנוני כו' אלא שדעת הרי\"ף והרא\"ש דפלגא באגר כו' לא מהני אלא בפסק עמו מתחלה בכה\"ג ודוקא פלגא כאגר כו' הא פחות מכאן לא והוא דעת רבותיו של הרמב\"ם כמש\"ש אבל לא פסק עמו מתחלה לא אא\"כ נותן לו כפועל וכמ\"ש הרא\"ש והא דקאמר ר\"מ כו' והוא שלא פסק תנאי עמו כו' אבל אי כו' וה\"מ בחנוני כו' אבל מאן כו' ר\"ל בין פסק עמו בתחלה בין לא פסק סגי בכ\"ש וכ\"ה דעת הטור בזה כנ\"ל אבל הטור חולק עליהם וס\"ל דבסוף פלגא באגר כו' אבל בתחלה אף בדינר א' סגי וכדברי הרמב\"ם שחלק עליהם ומ\"ש בדינר א' סגי דבריו לקוחים ממ\"ש קוצץ לו דינר וס\"ל דרב בלחוד אתמר באית ליה עסקא אחריתא אבל שמואל מיירי בקוצץ מתחלה ואף באין לו עסק אחר וט\"ס כאן בטור שכתב או כיוצא בזה שנותן לו דינר כל ימי משך העסק. מתיבת שנותן עד העסק צ\"ל למעלה אחר ואפילו בדינר אחר רשאי שנותן לו דינר כו' של\"ת דינר כל יום ומ\"ש כאן או כיוצא בזה ר\"ל ל\"ד פלגא באגר כו' אלא ה\"ה בגוונא אחרינא רק שיהא שתות יותר בריוח מבהפסד ולדינא שיטתו כשיטת הרמב\"ם אבל שיטת הרי\"ף הוא כדברי הרא\"ש שאם לא פסק מתחלה דוקא כפועל ואם פסק פלגא באגר כו' באין לו עסק אחר רק שדברי הרי\"ף מגומגמין קצת מש\"ש והיינו דקאמר בין כו' כדפסקו כו' דודאי ליתן שכרו כפועל א\"צ פיסוק מתחלה ואפשר דס\"ל דאם לא פסק מתחלה אסור ליקח לגמרי משום רבית כיון דמתחלה היה באיסור וכמש\"ל סכ\"ה והטור לקח שיטת הרמב\"ם רק בי\"ל עסק אחר ס\"ל כהרי\"ף ורא\"ש דאין שייך שם פלגא באגר כו' ודבריו נכונים דהיאך שיערו פלגא באגר כו' לשכרו כפועל ולשכרו כ\"ש [ועמ\"ש בס\"ד שגם דעת הרמב\"ם כהטור] ובב\"י ודרישה פירשו כאן דרכים רחוקים ע\"ש ושם ועכשיו אפרש אחת לאחת:",
+        "(ליקוט) הנותן כו'. עמש\"ש ששיטת הרמב\"ם והטור אחת לדינא ומ\"ש בס\"ד ואם ה\"ל עסק כו' הוא תוספת המחבר ושגה בזה רק מ\"ש הרמב\"ם ואם היה מתעסק אריסו כו' לא כ' הטור שס\"ל כפירש\"י וכמ\"ש בס\"ג בהג\"ה (ע\"כ):",
+        "(ליקוט) הרי\"ף כתב דנותן כפועל בטל ואי בעי למיפסק כדרבא פלגא באגר כו' וה\"מ בחנוני וכיוצא כו' ופי' בשערים וסמ\"ג שבחנוני פוסק עמו בא' מג' תנאים או כפועל או פלגא באגר ותילתא בהפסד או פלגא בהפסד ותרי תילתא באגר ולא חילקו בין פסק בתחלה או לא וכ\"כ הרשב\"א ופי' דבנותן לו מיניה וביה ואפשר דהוה ביה רווחא טובא דמטו ליה כפועל בטל או טפי לא הקפידו חכמים בדבר ובי\"ל עסק אחר סגי במותר שליש ומפ' סמ\"ג כפירש\"י וכ' ההיא דריש עגלא וקוצץ דינר בל\"ל עסק אחר אלא שהוא אדם בטל וא\"א לשער כפועל בטל וז\"ש בברייתא בין מרובה בין מועט רק שיתן לו דבר מה כו' איירי בכה\"ג. והרא\"ש פי' דברי רי\"ף שבלא פסק נותן כפועל בטל ובפסק סגי כדרבא פלגא כו' וה\"מ כו' ולכ\"ע אפי' פסק לא סגי בפחות מכדרבא אבל שיטת הרמב\"ם וטור דרבא הוא בלא פסק ואינו רוצה ליתן כפועל אבל בפסק סגי אפי' בדינר אלא שמחולקין בפירוש הגמ' בפי' קוצץ להרמב\"ם ביש לו עסק אחר ולהטור בל\"ל עסק אחר ופוסק בתחלה וכן בפי' עובדא רר\"א השמיטו הטור (ע\"כ):",
+        "ו הנותן מעות כו'. מתני' שם ולא יתן מעות כו':",
+        "שכל עיסקא כו'. שם ק\"ד ב' וז\"ש בתורת עיסקא כו':",
+        "(ליקוט) שבכל יום כו'. כ\"כ הרי\"ף דפועל הוא שכירות וכל יום הוא לבדו (ע\"כ):",
+        "כפועל בטל כו'. גמ' שם והנה בזה ג' שיטות שיטת רש\"י ע\"ש ד\"ה אמר אביי כו'. ושיטת תוס' דנותן לו כפי אותה מלאכה שבטיל ממנה ויושב עכשיו בטל לגמרי ועתוס' שם ר\"ה ונותן כו' וכ\"ד הרא\"ש ועתוס' דבכורות כ\"ט ב' ד\"ה כפועל כו'. ושיטת הרשב\"א ונ\"י הוא כפיר\"ח שם ור\"ח פי' שם כמות שבשאר ימות השנה כו' (עמ\"ש בח\"מ סימן רס\"ה בליקוט) [ועוד שיטה רביעית לטור שנותן לו שכר על העסק ולא על מלאכה ראשונה]:",
+        "(ליקוט) בטל של כו'. כסתם מתני' והוא כר\"מ. רי\"ף וע' במלחמות בשם תשובת הרי\"ף שהאריך להוכיח דהלכה כר\"מ וכן בסמ\"ג ע\"ש (ע\"כ):",
+        "ואם ה\"ל כו'. זהו דשמואל שם ס\"ט א' וכאב\"א:",
+        "(ליקוט) אלא אפילו כו'. קל בתרתי שדינר לבד סגי ואף לכל ימי השותפות ביחד וכן הגהתי בטור שצ\"ל שנותן כו' קודם ותקנת כו' (כנ\"ל ס\"ק ו') (ע\"כ):",
+        "וכן אם א\"ל כו'. זהו דרב שם וקי\"ל כוותיה וכ\"ש בדשמואל דרב מודה לו:",
+        "ואם היה כו'. מעובדא דר\"א מהגרוניא כפירושו אבל הטור לא כתבו וכן ש\"פ שמפרשים כפירש\"י שם דבשותף א\"צ ליתן שכר כלל וכ\"כ הסמ\"ג וז\"ש בהג\"ה וכ\"ז כשאחד כו':",
+        "וצריך כו' ודלא כו'. עתוס' ע' א' ד\"ה דקא כו' ועש\"ך:"
+      ],
+      "en_segments": [
+        "The giver, etc. This entire seif is the language of the Rambam and so is correct. And behold what is written \"and if he had a business,\" etc., and likewise \"if,\" etc., \"since,\" etc., is as written seif 9: Rav said permitted a third, etc.; rather Shmuel said he fixes, etc.; and as the first authority there, for Rav said, etc., and he holds Shmuel agrees in this manner, for it was stated in this context; and he explains what is written \"permitted a third,\" etc., meaning from what is permitted on the principal a third shall be yours, meaning a third of the wages is yours permitted, and he need not give him as an idle worker; and Shmuel disagrees on this lest he have no wages at all; and likewise he disagrees with Rava's words there \"half in profit,\" etc., for Rava speaks according to the halachah that the halachah is like Rav, and as the Rif wrote that we rule like Rav in prohibitions; and \"permitted a third\" he explains not specifically so but less as well; and he explains that all this is when he did not fix for him from the outset but when they come to divide he gives him, and as written in seif 3 \"in what case,\" etc.; and likewise holds the Rambam as written below; and likewise Shmuel's words that Rav agrees with him that all the more so in such a case it is permitted; and also even if he did not fix from the outset, since he has another business; and likewise one could challenge Shmuel according to his opinion, except he could say Shmuel holds like Rabbi Yehudah even if he did not dip, etc.; but to the conclusion it is even according to Rabbi Meir and Rabbi Shimon; and he explains what is written Rabbi Eliezer of Gerona, etc., he said to him until now money, etc., not like Rashi's explanation because now it is not an iska, for the Rambam wrote explicitly chapter 6 that in such a case it is also an iska. Rather because since half the animal is his he need not give him on the other half except according to the law if he has another business; but nevertheless he must give him something small; and with this since he is his sharecropper he need not give him anything at all. And this is what is written: now partners, etc., people say, etc.; and this is what is written here \"and if the dealer,\" etc.; and he explains what is written \"if half in profit,\" etc., when he does not wish to give him anything at all, then the court fixes for him two-thirds in profit, etc., whether he has another business or not; and all this when he did not fix with him from the outset at all; but if he fixed with him from the outset, even if he did not have another business, it is permitted in what he fixed even in less than a sixth, and as written in chapter 6 law 7; and likewise if they stipulated that if there will be wages there, etc.; and my teachers ruled there is not, etc., and it does not appear so to me; and the reason is from what is written at the beginning of the calf for fattening, even though it does not reach a sixth of the wages; and likewise for his wages as an idle worker; and he explains in the stipulation of the sharecropper, and this is what is written in chapter 8: and likewise one who places an animal on the fattener to fatten it and the wages are divided, he must give his labor as an idle worker; and if he said to him \"behold the head and tail are yours for your labor\" beyond half the wages, permitted. And he wrote: or for the fattener with other animals that he fattens with this appraisal with him, etc., since he deals with his own and his fellow's, even if he raised for him only something small in all the days of this partnership it suffices that he divide wages equally [meaning even if he did not stipulate from the outset as above]; and if he was his sharecropper, since he tends his own and the field owner's he need not raise anything. And Tur also explains \"permitted a third\" according to the Rambam's explanation; and likewise the Rif and Rosh and Shulchan Arukh explain; and \"permitted a third\" is not precise but something small, and as the Rif wrote; but if he has another business and does not abandon it for this he need not give him all this in his wages, as we say Rabbi said permitted a third, etc., and the first authority, etc.; and likewise Tur wrote; and \"this is when he must,\" etc.; but, etc., such as a shepherd, etc.; and likewise he explains everything in the Rambam's manner; and he said: and the Sages' enactment is for one, etc., meaning if he does not wish to give him as an idle worker but his intent is specifically when he has no other business, this is the measure of his trouble close to his wages as an idle worker; and therefore he wrote \"and the Sages' enactment,\" etc., first; and \"this is when he must,\" etc.; and \"this is when he must\" refers to both, whether his wages as an idle worker or half in profit, etc., that his intent is his labor wages; and likewise Rif and Rosh. However, that which Rabbi Meir said, etc., and if he wishes to fix, etc.; and afterward he wrote \"and this is in a shopkeeper,\" etc.; except that the Rif and Rosh's opinion is that half in profit, etc., does not help except when he fixed with him from the outset in such a case, and specifically half in profit, etc., behold less than this, no; and this is the opinion of the Rambam's teachers as written; but if he did not fix with him from the outset, not unless he gives him as an idle worker, and as the Rosh wrote. And that which Rabbi Meir said, etc., and he did not fix a condition with him, etc.; but if, etc., \"and this is in a shopkeeper,\" etc.; but who, etc., meaning whether he fixed with him initially or did not fix, it suffices with all this; and likewise is Tur's opinion in this as above; but Tur disagrees with them and holds that at the end half in profit, etc.; but initially even one dinar suffices, and like the Rambam's words who disagreed with them; and what is written \"one dinar suffices\", his words are taken from what is written \"he fixes for him a dinar\"; and he holds Rav was stated alone when he has another business; but Shmuel deals with fixing from the outset even without another business; and there is a scribal error here in Tur that wrote \"or similar to this that he gives him a dinar all the days of the iska's duration.\" From \"that gives\" until \"the iska\" should read \"above after\"; and even with another dinar he may give him a dinar, etc., not \"a dinar every day\"; and what is written here \"or similar to this\" means not specifically half in profit, etc., but likewise in another manner only that there should be a sixth more in profit than in loss; and for the law his method is like the Rambam's method; but the Rif's method is like the Rosh's words that if he did not fix from the outset, specifically as an idle worker; and if he fixed half in profit, etc., without another business, only the Rif's words are somewhat ambiguous from what is written; and this is what he says \"whether,\" etc., \"as they fixed,\" etc., that certainly to give his wages as an idle worker he need not fix from the outset; and it is possible he holds that if he did not fix from the outset it is forbidden to take entirely because of ribbis since initially it was in prohibition, and as written above seif 25; and Tur took the Rambam's method only when he has another business he holds like Rif and Rosh that half in profit, etc., is not applicable there; and his words are correct, how did they estimate half in profit, etc., for his wages as an idle worker and for his wages all the more so [and see in seif 4 that the Rambam's opinion is also like Tur]; and in Beit Yosef and Derishah they explained here distant paths, see there; and there \"and now I will explain one by one.\" (Likkut) The giver, etc. As written above that the Rambam's and Tur's methods are one for the law; and what is written in seif 4 \"and if he had a business,\" etc., is the Mechaber's addition and he erred in this, only what the Rambam wrote \"and if the dealer was his sharecropper,\" etc., Tur did not write that he holds like Rashi's explanation, and as written in seif 3 in the gloss (end). (Likkut) The Rif wrote that he gives as an idle worker; and if he wishes to fix like Rava half in profit, etc., \"and this is in a shopkeeper,\" etc.; and he explained in Sha'arim and Semag that with a shopkeeper he fixes with him in one of three conditions, either as an idle worker, or half in profit and a third in loss, or half in loss and two-thirds in profit; and they did not distinguish between fixing initially or not; and likewise Rashba; and he explained that when he gives him from himself and in himself, and it is possible there was great profit that reached him as an idle worker or more, the Sages were not strict in the matter; and when he has another business it suffices with \"permitted a third\"; and Semag explains like Rashi's explanation; and he wrote that incident of the calf and fixing a dinar without another business, only that he is an idle person and it is impossible to estimate as an idle worker; and this is what is written in the baraita \"whether much or little\", only that he give him something, etc., it deals with such a case. And the Rosh explained the Rif's words that without fixing he gives as an idle worker; and with fixing it suffices like Rava half, etc., \"and this is,\" etc.; and for all, even with fixing, it does not suffice with less than Rava's amount; but the Rambam's and Tur's method is that Rava is without fixing and he does not wish to give as an idle worker; but with fixing it suffices even with a dinar, only they disagree in explaining the Gemara in the explanation of \"he fixes\", for the Rambam when he has another business, and for Tur without another business and fixing initially; and likewise in explaining the incident of Rabbi Eliezer, Tur omitted it (end). And the giver money, etc. Mishnah there: and he shall not give money, etc.",
+        "For every iska, etc. There, 104b; and this is what is meant by, 'as an iska,' etc.",
+        "(Likkut) For each day, etc. The Rif likewise wrote that a worker's compensation is a daily hiring, and each day stands independently. (End.)",
+        "As an idle worker, etc. Gemara there; and behold in this there are three methods: Rashi's method there s.v. Abaye said, etc.; and Tosafot's method that he gives him according to that work from which he refrained and now sits completely idle; and Tosafot there Rosh Hashanah \"and gives,\" etc., and likewise the Rosh; and Tosafot in Bekhorot 29b s.v. as an idle worker, etc.; and Rashba's and Nekudot HaKesef's method is like Rashi HaChadash there; and Rashi HaChadash explained there as the amount on the other days of the year, etc. (see Choshen Mishpat siman 265 in Likkut) [and a fourth method for Tur that he gives him wages for the business and not for the first work]. (Likkut) Idle of, etc. Like the plain mishnah and it is Rabbi Meir. Rif, and see in Milchamot in name of the Rif's responsum that he elaborated to prove the halachah is like Rabbi Meir; and likewise in Semag, see there (end).",
+        "And if he had, etc. This is Shmuel's ruling there, 69a, according to the first version.",
+        "(Likkut) Rather, even, etc. It is more lenient in two respects: a single dinar suffices, and it suffices for all the days of the partnership together. I therefore emended the Tur so that the words 'that he gives,' etc., should precede 'and the enactment,' etc., as explained above in seif katan 6. (End.)",
+        "And likewise if he said to him, etc. This is Rav's law there and we rule like him; and all the more so with Shmuel that Rav agrees with him.",
+        "And if he was, etc. From the incident of Rabbi Eliezer of Gerona according to his explanation; but Tur did not write it; and likewise Shulchan Arukh that they explain like Rashi there that with a partner he need not give wages at all; and likewise Semag; and this is what is written in the gloss \"and all this when one,\" etc.",
+        "And one must, etc. , and not like, etc., see Tosafot 7a s.v. \"for he,\" etc.; and Shach."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 0,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        },
+        {
+          "en_index": 3,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[0]",
+      "wave2_deficit": 4,
+      "wave2_hints": [
+        0,
+        3
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 9,
+      "enSegs_after_auto": 9
+    },
+    {
+      "id": "yd1/siman177/seif-004/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הנותן כו'. הוא טעות המחבר וטעה בזה ואינו לא דעת הרי\"ף ולא דעת הטור כנ\"ל וזהו לשון הרמב\"ם שם הלכה ג' ועוד תקנו חכמים שכל הנותן מעות לחבירו להתעסק בהן ופחתו או הותירו ולא רצה ליתן לו שכר עמלו בכל יום ולא התנו ביניהן שום תנאי שיהיה שכר המתעסק בחצי הפקדון שליש כו' והמחבר הוסיף מדעתו ואם ה\"ל עסק כו' וטעה טעות גדול כנ\"ל וסדור לשון הרמב\"ם אטעיתיה שסבור שדברי הרמב\"ם על כל הנ\"ל שבס\"ב וליתא וכמש\"ל:",
+        "יהיה שכר כו'. רמב\"ם וס\"ל דמ\"ש פלגא באגר כו' שהברירה ביד המתעסק אבל רש\"י בפ' המקבל (בבא מציעא ק\"ד ב)' ד\"ה חד עיסקא כתב שבסתם הוא פלגא בהפסד ותרי תילתא באגר וכ\"כ הרי\"ף שם ורא\"ש ורמב\"ן ורשב\"א וסמ\"ג וש\"פ וכן עיקר כמ\"ש פלגא מלוה ופלגא פקדון ור\"ל לענין אחריות בין אונסא בין זולא ובאגר יטול מותר לשכר עמלו ועוד יש שיטות אחרות דעת רבותיו של הרמב\"ם להיפך פלגא באגר ותרי תילתא בהפסד וכבר כ' הרמב\"ם שהוא מעות ועוד דעת הראב\"ד שהברירה ביד הנותן וכבר דחו אותה תלמידי הרשב\"א:",
+        "(ליקוט) הנותן כו'. עמש\"ש שר' שיטות כאן ושיטת רש\"י היא המחוורת וכן הכריח הסמ\"ג ורשב\"א וש\"פ ממ\"ש בפ' המקבל האי עיסקא פלגא מלוה כו' אלמא בסתמא הוא אחריות על שניהם בשוה להפסד ועוד שיטה ה' שיטת הרמ\"ה באם כ' בשטר בהדיא פלגא באגר ובהפסד ע\"ש (ע\"כ):",
+        "שליש ריוח הפקדון. עמ\"ש בסכ\"ז:"
+      ],
+      "en_segments": [
+        "The giver, etc. It is the Mechaber's error and he erred in this; and it is neither the Rif's opinion nor Tur's opinion as above; and this is the Rambam's language there law 3: and further the Sages enacted that whoever gives money to his fellow to deal with them and they decreased or increased and he did not wish to give him his labor wages every day and they did not stipulate any condition that the dealer's wages on half the deposit shall be a third, etc.; and the Mechaber added of his own mind \"and if he had a business,\" etc., and erred a great error as above; and the arrangement of the Rambam's language misled him that he thought the Rambam's words apply to all the above in seif 2, and it is not so, as written above.",
+        "The wages shall be, etc. Rambam; and he holds that what is written half in profit, etc., the choice is in the dealer's hand; but Rashi in chapter HaMekabel (Bava Metzia 104b) s.v. one iska wrote that in an unspecified case it is half in loss and two-thirds in profit; and likewise the Rif there and Rosh and Ramban and Rashba and Semag and Shulchan Arukh; and likewise is primary as written half loan and half deposit, meaning regarding liability whether accidents or depreciation; and in profit he takes more than his labor wages; and there are other methods, the Rambam's teachers' opinion to the contrary: half in profit and two-thirds in loss; and the Rambam already wrote that it is money; and further Raavad's opinion that the choice is in the giver's hand, and the Rashba's students already rejected that. (Likkut) The giver, etc. As written above that there are many methods here; and Rashi's method is the clear one; and likewise Semag and Rashba and Shulchan Arukh compelled from what is written in chapter HaMekabel \"this iska half loan,\" etc., evidently in an unspecified case liability is on both equally for loss; and a fifth method, Maharam's method: if it is written explicitly in the document half in profit and in loss, see there (end).",
+        "One third of the profit from the deposit portion. See what I wrote in seif 27."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 1,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[1]",
+      "wave2_deficit": 1,
+      "wave2_hints": [
+        1
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 3,
+      "enSegs_after_auto": 3
+    },
+    {
+      "id": "yd1/siman177/seif-014/beur-hagra",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 14,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 2,
+      "he_deficit": 6,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "האומר כו' אסור מפני כו'. ר\"ל אע\"ג דמדינא מותר כמ\"ש בב\"ב קס\"ח א' במתני' מי שפרע כו' ול\"פ אלא באסמכתא כמש\"ש אבל משום רבית ליכא שאינו אגר נטר שאינו אלא על רגע אחד שאם יעבור זו הרגע יתן כו' וקנסא הוא מ\"מ הערמת רבית הוא וכנ\"ל ובמתני' שם י\"ל שנותן לו מעות הראשונות שפרע במתנה. רשב\"א ועריב\"ש סי' של\"ה:",
+        "(ליקוט) האומר כו'. רשב\"א סי' תרנ\"א וכ\"כ הר\"י מיגש בב\"ב קס\"ח א' כמתני' שם מי שפרע כו' (ע\"כ):",
+        "(ליקוט) האומר כו'. כמ\"ש מי שפרע מקצת חובו כו' ובב\"מ ס\"ה ב' הלוהו על שדהו כו' ואמרינן בגמ' דקנה הכל ואפילו יותר בכדי מעותיו ואפילו מאן דפליג היינו משום אסמכתא. הרשב\"א בתה\"א ס\"ב אלא שאח\"כ מגמגם לאסור לכתחלה משום הערמת רבית כמו בהערמת רבית דשם ס\"ב ב' וחכירי נרשאי ורבית מאוחרת כו' ומתני' הנ\"ל הלוהו כו' מכירה שאני דהוי כמכירה ומתני' דמי שפרע דשם פרעון הראשון למפרע מתנה ואפילו למ\"ד אכל שיעור זוזי מסלקינן ליה הכא מודה דגריע מאבק רבית וכרבית מאוחרת וקיל מיניה אלא שאסור לכתחלה מפני הערמת רבית וז\"ש בסי' קס\"א ס\"ב מלבד כו' (ע\"כ):",
+        "(ליקוט) האומר כו'. אבל מדינא לא הוי רבית כיון שאינו מתחייב כלל עד אותו הזמן ובשביל רגע א' נתחייב אע\"ג שבדעתו בשביל שמשתכר בכספו באורך הזמן וראיה ממ\"ש בכתובות ס\"ו א' פסקה להכניס כו' וערש\"י שם ד\"ה הוא פוסק כו' לפי כו' וכ' במרדכי שם ולא הוי רבית כיון שאם מגרשה מיד חייב לה וכ\"כ בהג\"א שם ד\"ה פירש כו' (ע\"כ):",
+        "(ליקוט) האומר כו'. עמש\"ש שכתבו דמותר מדינא כיון שאינו אלא ברגע אחת אלא שיש להחמיר שלא יערימו בכך ואינו ברור אצלי דהא אמרינן בב\"מ י\"ד ב' דלשמואל הוא רבית ולא אמרו מיחזי כרבית אלא משום דהוא זביני וכמש\"ש ט\"ו וכי מותר כו' התם הלואה כו' ועוד דלא נחית אדעתא דהכי ומשום זה סובר רב דמותר ואפשר לומר משום דמתנה תחלה שחייב מעכשיו וכמש\"ש ט\"ו א' וערש\"י שם ד\"ה שקנאו מידו כו' וז\"ש בהג\"ה ויש מתירין כו' וכמש\"ש וערש\"י שם ר\"ה כגון שיש כו' וכ\"כ הרא\"ש שם דלא מיחזי כרבית כיון שאין מחזיר לו מעות אבל עדיין צ\"ע כמש\"ש וכי מותר כו' וכי מותר כו' התם הלואה כו' אלמא דאינו מותר כ\"ז אלא בזביני ושם לא משום הערמת רבית בודאי דלאו אדעתא דהכי מכר לו וודאי דרב ל\"פ עליה בהלואה ועוד דלדברי הרשב\"א שהוכיח ממתני' דפ' ג\"פ וכי שמואל יפלוג על המתני' וצ\"ע ואפילו בהכיר שאינו שלו שכתב הרא\"ש שם בשם הרז\"ה שאם פירש לו השבח שיש לו שבח הא כתב משום דמ\"מ שמא דזבינא כו' ואף בזה נחלק הרא\"ש שם (ע\"כ):",
+        "(ליקוט) האומר כו'. הואיל ולא הוי בזמן כמו הלוהו כו' ס\"ה ב' אבל צ\"ע מ\"ש ממשכן לו בית משכן כו' שם בגמ' ועתוס' שם בד\"ה לא כו' וא\"ת כו' וכ\"כ הרא\"ש שם והג\"א בסכ\"ט סד\"ה התם (ע\"כ):",
+        "ויש מתירין כו'. כיון דנותן לו פירות הוי כמכירה וליכא משום הערמת דבית וכמש\"ש ס\"ב ב' וכמש\"ל סי\"ח:",
+        "(ליקוט) האומר כו' ויש כו'. ומדינא לד\"ה מותר כיון דלא תליא בהרחבת זמן וראיה ממ\"ש במתני' פ\"ו דכתובות פסקה לו אלף כו' ואמרינן בירושלמי הביאו הרי\"ף והרא\"ש וש\"פ משום שמרויח בהן וע' במרדכי והג\"א שם ד\"ה פירש הר\"ש בן ר\"ב לא הוי רבית כו' ואף שהתי\"ט כתב שם תי' אחר וכ' הם אמרו והם אמרו כו' דבריו דחוקין ל\"ל לרבנן להתיר כאן (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who says, etc. , forbidden because, etc., meaning even though by law it is permitted as written in Bava Batra 168a in the mishnah \"one who paid,\" etc., and some explain only regarding asmakhta as written, but for interest there is no waiting fee since it is only for one moment that if that moment passes he will give, etc., and it is a penalty, nevertheless it is interest evasion as above; and in the mishnah there one can say he gives him the first money he paid as a gift. Rashba and Rivash siman 335. (Extract) One who says, etc., Rashba siman 461 and so R. Yitzchak Migash in Bava Batra 168a like the mishnah there \"one who paid,\" etc. (end). (Extract) One who says, etc., as written \"one who paid part of his debt,\" etc.; and in Bava Metzia 65b \"he lent him on his field,\" etc., and the Gemara says he acquired everything even more in proportion to his money; and even one who disagrees, only because of asmakhta. Rashba in Teshuvot HaRashba 2: but afterward he wavers to forbid initially because of interest evasion like interest evasion there 2b and hired workers, deferred interest, etc.; and the mishnah \"he lent him,\" etc., sale is different for it is like a sale; and mishnah \"one who paid\", first payment retroactively a gift; and even for one who says any amount of zuz we remove him, here he admits it is worse than dust of interest and like deferred interest and lighter than it, except forbidden initially because of interest evasion, and this is what is written in siman 161 seif 2 \"apart from,\" etc. (end). (Extract) One who says, etc., but by law it is not interest since he is not obligated at all until that time and for one moment he became obligated even though in his mind it is because he profits with his money over time; proof from what is written in Ketubot 66a \"she assessed to bring in,\" etc., and Rashi there s.v. \"he assessed,\" etc., according to intent; and Mordechai wrote there it is not interest since if he divorces immediately he owes her; and so in Hagahot Ashiri s.v. \"he explained,\" etc. (end). (Extract) One who says, etc., as written above they wrote it is permitted by law since it is only one moment, except to be stringent lest they evade thus, and it is not clear to me, for we say in Bava Metzia 14b that for Shmuel it is interest and they did not say \"it appears like interest\" except because it is a sale as written 15; and when permitted, etc., there \"a loan,\" etc.",
+        "And there are those who permit, etc. Since he gives him produce it is like a sale and there is no concern of circumvention of a house; and as written seif 2 letter bet; and as written above seif 18. (Likkut) One who says, etc., and there are, etc. And for the law according to Beit David, permitted since it does not depend on extending time; and proof from what is written in the mishnah chapter 6 of Ketubot: he fixed for him a thousand, etc.; and we say in Yerushalmi, the Rif and Rosh and Shulchan Arukh brought it because he profits in them; and see in Mordechai and Hagahot Alfasi there s.v. Rash ben Rabbeinu explained it is not ribbis, etc.; and even though Taz wrote there another version and wrote \"they said and they said,\" etc., his words are strained; why did the rabbis need to permit here (end)."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 1,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[1]",
+      "wave2_deficit": 6,
+      "wave2_hints": [
+        1
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 2,
+      "enSegs_after_auto": 2
+    },
+    {
+      "id": "yd1/siman201/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 201,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 14,
+      "enSegs": 12,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין כו'. פ\"א דתענית (י\"ג א') ונדה ס\"ו ב':",
+        "ואפילו עלו כו'. פ\"ג דברכות (כ\"ב א') מה מ' סאה בטבילה כו' ופ\"א דשבת (י\"ד א'):",
+        "בבת אחת. ת\"כ פ' אמור:",
+        "במי מקוה. עי' סוף ע\"ז וש\"מ:",
+        "(ליקוט) במי מקוה. דא\"צ מים חיים אלא זב בלבד כמ\"ש בתוספתא רפ\"ג דזבים חומר בזב מבזבה שהזב טעון מים חיים והזבה אינה טעונה מים חיים והביאו רש\"י ותוס' בשבת ס\"ה ב' ותוס' בבכורות נ\"ה ב' ור\"ש בפ\"ד דזבים וש\"פ ובתוספתא פ\"א דמגילה אין בין זב לזבה אלא שהזב טעון מים חיים כו' והביאה הרא\"ש פ\"י ס\"ח (ע\"כ):",
+        "או מעיין. בת\"כ אך מעיין ובור מקוה כו':",
+        "שיש כו'. הנה בת\"כ שם אמר דמעיין מטהר בכ\"ש ומקוה במ' סאה והביאו רש\"י ותוס' בפ\"ו דשבת (ס\"ה ב') ובבכורות וש\"מ ובמתני' פ\"א דמקואות שוה למעיין לטהר בכ\"ש וכן ברפ\"ה שהמעיין מטהר בכ\"ש וכ\"פ הראב\"ד ועתוס' דפסחים י\"ז ב' ד\"ה אלא. ואור\"י כו'. אבל הרא\"ש בשם ר\"י כתב דוקא לכלים בכ\"ש אבל לאדם במ' סאה מקושית תוס' דפסחים הנ\"ל וכ\"כ הר\"ש בפ\"ה מתני' ב' ואי הוה אמרינן כו' אבל כתב ומיהו דבר תימא כו'. ולי אין ראייתו של ר\"י מובנת כלל דאטו שאובים לא יוכלו לילך בגידי הקרקע והרבה סילונות של מים שהולך בתוך הבור והבור לא נתמלא והמים הלכו בגידי הקרקע וכתבו בספרי הטבע שכמה פעמים מצאו דגים בתוך בורות מים מכונסים ועוד כתבו שהניחו בתוכן דגים ועשו בהם סימנים בטבעות כסף ומצאום בנהרות וכמה מעשים כזה ורשב\"א בריש שער ז' הביא ראיות אחרות בשם ר\"ת וגם המה אינן מוכרחין וכתב שם שהראב\"ד ורמב\"ם חולקים ומ\"מ כתב שיש להחמיר בשל תורה:",
+        "(ליקוט) או מעיין כו'. עבת\"ה בשם ר\"ת ראיה ממתני' ו' פ\"ה גל כו' וכבר תי' דאמר מ' סאה כדי להתכסות בו האדם ועט\"ז ס\"ק ו' וקמ\"ל דצריך להתכסות כולו כאחת בתוך הגל ואדרבה משם ראיה להיפך דמטהר בזוחלין אף לאדם וה\"ה לטהר בכ\"ש וכמ\"ש הריב\"ש דטעמא דמעיין מטהר בזוחלין משא\"כ במקוה משום דקטפרס אינו חיבור משא\"כ במעיין דמטהר בכ\"ש ודברי הש\"ך שם (בס\"ק כ') אינן ברורין ועוד מביא ראיה ממ\"ש ביומא פ' בתרא (ע\"ח א') כיון שמגיע לפתח ב\"ד כו' וקשה להולמו דאטו מקודם א\"י להטביל בו הא כל המעיין מחובר כאחד אלא משום שיהא יכולין להתכסות בהן (ע\"כ):",
+        "ושיעורה כו'. בפ\"ק דעירובין (ד' ב' י\"ד ב') וש\"מ:",
+        "במרובע. כן משמע בעירובין י\"ד ב':",
+        "באמה בת כו'. כן משמע בפ\"י דפסחים ק\"ט א':",
+        "וחצי אצבע. כרבא בעירובין ג' ב':",
+        "ואם רחב כו'. עי' ביומא ע\"ח א' ובזה מתורץ קושית תוספות בפסחים ק\"ט ב' ד\"ה אמתא וכ\"מ בריב\"ש סימן רצ\"ב בדברי השואל בשם תוספות:",
+        "וצריך (שיהיה) כו'. תוס' שם ד\"ה ברום כו':"
+      ],
+      "en_segments": [
+        "There is no, etc. — chapter 1 of Taanit (13 side a) and Niddah 66 side b.",
+        "And even if they rose, etc. — chapter 3 of Berachot (22 side a) \"just as 40 se'ah in immersion,\" etc.; and chapter 1 of Shabbat (14 side a).",
+        "At one time. Torat Kohanim parashat Emor.",
+        "In mikveh waters. See end of Avodah Zarah and Shulchan Aruch: (Likut) In mikveh waters — one does not need living waters except for zav alone, as in Tosefta chapter 3 of Zavim: zav is stricter than zavah, for zav requires living waters and zavah does not require living waters — brought by Rashi and Tosafot on Shabbat 65 side b and Tosafot Bechorot 55 side b and Rashi chapter 4 of Zavim and Shulchan Aruch; and in Tosefta chapter 1 of Megillah there is no difference between zav and zavah except that zav requires living waters, etc. — brought by Rosh chapter 10 siman 8 (end of citation).",
+        "Or a spring. In Torat Kohanim: \"only a spring and a cistern, a mikveh,\" etc.",
+        "Or a spring. In Torat Kohanim: \"only a spring and a cistern, a mikveh,\" etc.",
+        "And its measure. This is stated in the first chapter of Eruvin, 4b and 14b, and in other places.",
+        "in the quarter. Yes, in the city, he says:",
+        "With an amah of. This is implied in the tenth chapter of Pesachim, 109a.",
+        "A half finger. He was in the town of B:",
+        "And if wide etc. A. in Yoma A.H. 1 and in this the difficulty of Tosaf is explained in Pesachim KT 2 45 Amtha and KCM in the Ribash Siman Rzeb in the words of the questioner in the name of Tosaf:",
+        "And we have to do so. There's a name for Dr. Jethro:"
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 3,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "insufficient_markers enAfter=13<heSegs=14 deficit=2 hints=1",
+      "wave2_deficit": 2,
+      "wave2_hints": [
+        3
+      ],
+      "wave2_split_plan": [
+        {
+          "segIndex": 3,
+          "markerText": "(Likut)",
+          "markerPos": 62
+        }
+      ],
+      "enSegs_before": 12,
+      "enSegs_after_auto": 13
+    },
+    {
+      "id": "yd1/siman259/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 259,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דאין הצדקה כו'. גמ' שם:",
+        "ואין נושאין כו'. פ\"ד דשקלים:",
+        "שמא כו'. רפי\"ג רכתובות (ק\"ו ב') וז\"ש אבל כו':",
+        "(ליקוט) ואין נושאין כו' אבל כו'. דאמרינן בב\"מ ע' א' א\"ל רבה לרב יוסף כו' א\"ל מותיבנא כו' ור\"ל דמעות יתומים והקדש דין א' להם כמ\"ש ברפ\"ח דב\"ק אנן יד כו' דאר\"י א\"ש יתומים כו' וכי היכי דאין משתכרין בשל עניים ה\"נ בשל יתומים א\"ל בדקינן כו' דהוא כסף בכסף אלא אר\"א חזינן כו' ור\"ל שנותנין לו שיהא הקרן קיים ויאכל מהריוח וה\"ה בעניים ועסה\"ת שמ\"ו (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is no such justification. Jim is there:",
+        "There is no such thing. P. D.D.:",
+        "Perhaps, etc. Chapter 13 of Ketubot (106b), and so he wrote \"but\", etc. (Likkut) And one does not marry, etc. \"but\", etc. For we say in Bava Metzia 70a: Ravah said to R. Yosef, etc. — he said to him I will challenge, etc. — meaning orphans' money and consecrated property have one law, as stated in chapter 8 of Bava Kamma \"we have hand\", etc. — R. Yitzchak said to Rav Ashi: orphans, etc. — and just as they do not profit from the poor, likewise from orphans. He said to him: we examined, etc. — it is money for money; but R. Elazar said: we see, etc. — meaning we give him that the principal remain and he eat from the profit; and likewise regarding the poor. And in Etz Chaim siman 46 (end quote)."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 2,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[2]",
+      "wave2_deficit": 1,
+      "wave2_hints": [
+        2
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 3,
+      "enSegs_after_auto": 3
+    },
+    {
+      "id": "yd1/siman267/seif-023/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בין כו'. כמש\"ש בגמ' מנלן דכתיב והתנחלתם כו' אלמא אפי' אחר שהטבילו רבו ושם ר' יהודה הנדאה כו' א\"ל לעבדיה כו':",
+        "ודוקא אלו כו'. דהא נלמד מקרקעות ובקרקעות אין נקנה באכילת פירות ועבה\"מ סי' קצ\"ב סי\"א בהג\"ה. רמב\"ן ורשב\"א ורא\"ש אבל הרמב\"ם ובע\"ה חולקים שם וכמש\"ש בש\"ע ועמש\"ש:",
+        "(ליקוט) ודוקא כו'. דאל\"כ הוי אכילת פירות דאף בקרקע אינו קונה כמ\"ש בספ\"ג דב\"ב (נ\"ז א') והרי אכילת פירות כו' ודלא כהרמב\"ם הביאו ש\"ע בח\"מ סי' קצ\"ב. רא\"ש ור\"נ בקדושין שם בשם הרמב\"ן ע\"ש בר\"נ ועח\"מ סי' קצ\"ו ס\"ד ועבה\"ג שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Whether, etc. As written in Gemara ; whence do we know it is written \"and you shall take them as inheritance,\" etc. ; evidently even after they immersed their master; and there R' Yehuda HaNasi, etc. ; he said to his slave, etc.",
+        "And specifically these, etc. For we learn from land and in land one does not acquire through eating fruits; and Avodah HaMikdash siman 192 s.k. 11 in gloss. Ramban and Rashba and Rosh; but Rambam and Avodah HaGolah dispute there; and as written in Shulchan Aruch; and as written: (Likkut) And specifically, etc. ; for otherwise it is eating fruits, for even in land he does not acquire as written at end of chapter 3 of Bava Batra (57a) \"behold eating fruits,\" etc.; and unlike Rambam Shulchan Aruch brought in Choshen Mishpat siman 192; Rosh and Rosh in Kiddushin there in Ramban's name ; see there in Rosh; and Choshen Mishpat siman 196 s.k. 4; and Avodah HaGolah there (end)."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 1,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[1]",
+      "wave2_deficit": 1,
+      "wave2_hints": [
+        1
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 2,
+      "enSegs_after_auto": 2
+    },
+    {
+      "id": "yd1/siman267/seif-026/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 26,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 10,
+      "enSegs": 8,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או בראשי אברים. שם כ\"ד ב':",
+        "או בשטר. שם במתני':",
+        "כיצד כו'. שם:",
+        "או שוה כסף. שם ח' א':",
+        "וא\"צ כו'. שם כ\"ג א' ואף לר\"מ ואף בע\"כ דהא לר\"מ חוב הוא לו ואפ\"ה ש\"ד וכמש\"ש ושאני כסף כו' מקני כו' משא\"כ בשטר וכמש\"ל סמ\"א והר\"נ כתב שמדברי הרי\"ף ורמב\"ם נראה דגם בכסף בע\"כ לא וכ\"כ הרשב\"א בשמם וכמ\"ש הרי\"ף בכסף ע\"י אחרים אע\"פ שנתנו שלא מדעתו דקי\"ל זכות כו' וטעמו דמ\"ש אף בע\"כ דוקא לר\"מ אבל רבנן לא ממש\"ש וחכ\"א בכסף כו' ע\"י אחרים לא מכדי שמענא להו לרבנן כו' אלמא דוקא משום דזכות כו' ובעומד וצווח לא מהני כמ\"ש בפ\"ח דב\"ב קל\"ח א'. ועוד ממש\"ש א\"ה ויערבינהו כו' משמע דכסף ושטר שוין לגמרי לדידהו אבל הרשב\"א ורא\"ש כתבו דרבנן ל\"פ בזה אר\"מ ואף בע\"כ כנ\"ל וערשב\"א שם:",
+        "אם רצה כו'. דדעת הרב ודאי בעינן ועתוס' דגטין מ\"ם ב' סד\"ה וכתיב:",
+        "(ליקוט) אם רצה כו'. במכילתא פ' משפטים ר' ישמעאל אומר עבד כנעני אין לו פדיון לעולם ואינו יוצא אלא לרצון רבו שנאמר והתנחלתם אותם לפי דרכנו למדנו שעבד כנעני כשדה אחוזה לעולם אבל אם היה רבו רודהו והפיל את שינו וסימא את עינו או אחד מכל ראשי האברים גלוים ה\"ז קונה עצמו וז\"ש בסכ\"ז וכופין כו' ומשמע אפי' אינו מתכוין לאבר כל שמתכוין לעבד כמ\"ש רבו רודהו וז\"ש הרמב\"ם וש\"ע בסל\"ו לפיכך כו' דוקא לבהמה וכ' שהרי לא ידע דבר כו' אבל אם ידע מהעובר שם לא ומ\"ש טוש\"ע אבל אם כו' שהרי כיון לאבר ל\"ד אלא לעבד והטור נמשך אחר תוס' שס\"ל כן וע\"ש בד\"ה מיבעי כו' ולשון הרמב\"ם הרי נתכוין לנגוע באיברי העבד כו' ור\"ל בא' מאיבריו אע\"ג שלא כיון לאבר (ע\"כ):",
+        "ואם לא רצה כו'. כמש\"ש ורבנן סברי לדידיה נמי כו':",
+        "וי\"א כו'. גטין ל\"ט ב' ועתוס' שם אבל ר\"ח פי' שם בע\"א וערא\"ש שם וכ\"כ הרשב\"א משמו שם:",
+        "(ליקוט) וי\"א כו'. אבל הרשב\"א חולק ע\"ז מדל\"ק בקדושין שם ג\"כ אסיפא תנא אף בחליפין וכ\"כ בגטין שם בשם ר\"ח וכתב בשם הרמב\"ן דלדברי ר\"ח מש\"ש בגטין לא עשה ולא כלום ר\"ל להוציא מידי שיעבוד דבחליפין יצא מדי שיעבוד אבל צריך גט שחרור וכ\"כ הר\"ח בהדיא ובתוס' דחו ג\"כ הא דגטין די\"ל דשם היה בתורת דמים וכ\"ד הרמב\"ם אלא שהתוס' חזרו לומר כסברא ראשונה דקונה א\"ע בחליפין מהא דריש קדושין מניינא כו' כמש\"ש בגטין בד\"ה משום כו' עכ\"ל הרשב\"א שם (ע\"כ):"
+      ],
+      "en_segments": [
+        "Or through the tips of the limbs. Kiddushin there, folio 24b.",
+        "Or by a document. There in the Mishnah.",
+        "How so, etc. There.",
+        "Or the equivalent of money. There, folio 8a.",
+        "And he needs, etc. There 23a; and even for R' Meir and even against his will for R' Meir it is a debt to him and nevertheless \"give\" ; and as written \"and different is money,\" etc., acquires, etc.; unlike document; and as written siman 41; and Rosh wrote from Rif and Rambam's words it appears also through money against his will no; and so Rashba in their name; and as Rif wrote through money through others even though they gave not with his consent ; we rule \"right,\" etc.; and his reason what is written \"even against his will\" ; specifically for R' Meir; but Sages no as written; and some say through money through others ; since we heard them for Sages, etc. ; evidently specifically because of \"right,\" etc.; and standing and shouting does not help as written in chapter 8 of Bava Batra 138a. And further from what is written \"one who\" and he combined them, etc. ; it implies money and document are completely equal for them; but Rashba and Rosh wrote Sages do not explain thus according to R' Meir and even against his will as above; and Rashba there.",
+        "If he wished, etc. For master's opinion certainly we require; and Tosafot Gittin 40b s.v. vekhtiv: (Likkut) If he wished, etc. In Mekhilta parashat Mishpatim R' Yishmael says a Canaanite slave has no redemption ever and goes out only with his master's will, as stated \"and you shall take them as inheritance\" ; from their way we learn a Canaanite slave is like an ancestral field forever; but if his master afflicted him and knocked out his tooth or blinded his eye or one of all exposed limbs ; he acquires himself; and this is what is written in siman 27 \"and they compel,\" etc.; and it implies even if he did not intend for a limb as long as he intended for the slave as \"his master afflicted him\"; and this is what Rambam and Shulchan Aruch wrote in siman 36 \"therefore,\" etc. ; specifically for an animal; and he wrote since he did not know the matter, etc.; but if he knew from the fetus there no; and what Shulchan Aruch wrote \"but if,\" etc. ; since he intended for limb ; no; rather for the slave; and Tur followed Tosafot who hold thus ; see there s.v. mibai, etc.; and Rambam's language \"behold he intended to touch the slave's limbs,\" etc. ; meaning one of his limbs even though he did not intend for limb (end).",
+        "And if he did not wish, etc. As written and Sages hold for him too, etc.",
+        "And some say, etc. Gittin 39b; and Tosafot there; but R' Chananel explains there in one matter; and Rosh there; and so Rashba in his name there: (Likkut) And some say, etc. But Rashba disputes this from that which is brought in Kiddushin there also in the end \"tanna af b'chalipin\"; and so in Gittin there in R' Chananel's name; and he wrote in Ramban's name according to R' Chananel what is written in Gittin he did nothing ; meaning to remove from subjugation, for through exchange he left subjugation but needs bill of release; and so R' Chananel explicitly; and in Tosafot they rejected also that Gittin ; one can say there it was as monetary value; and so Rambam; only Tosafot returned to say like first reasoning he acquires himself through exchange from that at beginning of Kiddushin \"count,\" etc.; as written in Gittin s.v. mishum, etc. ; end Rashba there (end)."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 5,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        },
+        {
+          "en_index": 7,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[5]",
+      "wave2_deficit": 2,
+      "wave2_hints": [
+        5,
+        7
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 8,
+      "enSegs_after_auto": 8
+    },
+    {
+      "id": "yd1/siman267/seif-041/beur-hagra",
+      "volume": "yd1",
+      "siman": 267,
+      "seif": 41,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כיצד בשטר כו'. כמ\"ש (קדושין ט' א' כ\"ו א' וש\"מ) באשה ובמכירה:",
+        "הרי כו'. עבה\"ג:",
+        "או לאחר כו'. דקי\"ל כחכמים שם ובספ\"ק דגטין:",
+        "ואם מוחה כו'. דאינו אלא משום דזכות כו' וכמש\"ל סכ\"ו:",
+        "(ליקוט) ואם מוחה בידו כו'. כ\"כ הרא\"ש שם וכ\"ה בתוס' שם בד\"ה מהו שיעשה כו' וכ\"כ הר\"נ שם וכ\"כ הרשב\"א שם בשם הרמב\"ן וכ\"ש בפ' יש נוחלין (קל\"ח א') אבל הרשב\"א שם מפקפק בדבר זה וכתב שדעתו שאפי' בע\"כ ממש ולא דמי לממון דאינו מועיל ועוד טעמים אחרים ע\"ש בארוכה (ע\"כ):"
+      ],
+      "en_segments": [
+        "How with a document, etc. As written (Kiddushin 9a, 26a and Semag) regarding a woman and sale.",
+        "Behold, etc. See Be'er HaGolah.",
+        "Or to another person, etc. For we rule like the Sages there and at the end of the first chapter of Gittin.",
+        "And if he protests, etc. It is only because of \"right,\" etc.; and as written siman 26: (Likkut) And if he protests in his hand, etc. So too Rosh there; and so in Tosafot there s.v. mah sheya'aseh, etc.; and so Rosh there; and so Rashba there in Ramban's name; and all the more in chapter Yesh Nochalin (138a); but Rashba there questions this matter and wrote his opinion that even literally against his will and it is not comparable to money that it does not help; and other reasons there at length (end)."
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 3,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[3]",
+      "wave2_deficit": 1,
+      "wave2_hints": [
+        3
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 4,
+      "enSegs_after_auto": 4
+    },
+    {
+      "id": "yd1/siman271/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 271,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ס\"ת כו' ואם כו'. בירושלמי שם הל\"מ שיהו כותבין בעורות וכותבין בדיו ומסרגלין בקנה כו' וכן במ\"ס שם הלכה א' [ובויקרא רבה אמרינן קווצותיו תלתלים זה הסירגול שחורות כעורב אלו השיטות] ובמגילה ט\"ז ב' וערש\"י שם ד\"ה כאמתה כו' ודלא כר\"ת בתוס' דמנחות שם ד\"ה הא מורידין כו' ודחק שם אבל כל הפוסקים הסכימו לפירש\"י:",
+        "(ליקוט) ס\"ת צריך כו'. בספ\"ק דמגילה וכפירש\"י וכ\"ה בירושלמי שם הלכה א' ר' חלבו ר' ייסא בשם ר\"א נאמר כאן דברי שלום ואמת ונאמר להלן אמת קנה ואל תמכור ה\"ה כאמיתה של תורה מה זו צריכה שרטוט אף זו צריכה שרטוט מה זו ניתנה להדרש כו' (ע\"כ):",
+        "ולא ישרטט בעופרת. דז\"ש בירושלמי ובמ\"ס מסרגלין בקנה לא למעוטי סכין וכיוצא אלא עופרה וכיוצא. הרא\"ש בשם ר\"י וש\"פ:"
+      ],
+      "en_segments": [
+        "Torah scroll, etc. In Yerushalmi there Hilchot Lem — they write on hides and write with ink and rule with a reed, etc.; and so in Meseches Soferim there halachah 1 [and in Vayikra Rabbah we say — his locks are curled — this is the ruling, black as a raven these are the lines]; and Megillah 16b and Rashi there s.v. ke'amatah, etc., and unlike Rabbeinu Tam in Tosafot Menachot there s.v. ha moridin, etc., who strained there; but all the poskim agreed with Rashi's explanation: (Likkut) A Torah scroll needs, etc. At the end of chapter 1 of Megillah and as Rashi explained, and so Yerushalmi there halachah 1 — R' Chelbo, R' Yissa in the name of R' Eliezer: it says here words of peace and truth, and it says below \"truth is a reed\" — do not sell; so too the truth of Torah — just as this needs ruling, so too this needs ruling; just as this was given for exposition, etc. (end).",
+        "There is no vibration in lead. Dr. Khrushami and S. S. S. S. S. S. S. A.C. on the other hand, does not steal a knife and so on, but rather than aura and so on. It is called R&D:"
+      ],
+      "review_action": "split_en",
+      "review_notes": "English contains an explicit internal note marker, so the affected EN segment should be split.",
+      "review_merge_groups": null,
+      "review_split_hints": [
+        {
+          "en_index": 0,
+          "note": "internal Likut or supplement marker shows more than one Hebrew note inside this English segment"
+        }
+      ],
+      "wave2_tier": "HOLD",
+      "hold_reason": "no_internal_marker_at_en[0]",
+      "wave2_deficit": 1,
+      "wave2_hints": [
+        0
+      ],
+      "wave2_split_plan": null,
+      "enSegs_before": 2,
+      "enSegs_after_auto": 2
+    }
+  ]
+}

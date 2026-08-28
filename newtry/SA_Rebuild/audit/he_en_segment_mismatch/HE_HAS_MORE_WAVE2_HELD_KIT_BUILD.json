@@ -1,0 +1,32 @@
+{
+  "kit": "HE_HAS_MORE_WAVE2_HELD_KIT",
+  "mode": "resegment_split_en",
+  "purpose": "Wave2 split_en held (18 Gra) — resegment EN to match HE Likut/lemma slots",
+  "cases": 18,
+  "parts": 2,
+  "max_part_bytes": 70055,
+  "full_bytes": 126174,
+  "full_sha256": "f70a55b6719d20250c919ceec3c04dfee39f082b896a6339aa49003f683e892e",
+  "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_WAVE2_HELD_KIT.json",
+  "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_WAVE2_HELD_KIT.md",
+  "parts_detail": [
+    {
+      "part": 1,
+      "file": "HE_HAS_MORE_WAVE2_HELD_KIT_part01.json",
+      "cases": 9,
+      "case_offset": 0,
+      "bytes": 61910,
+      "sha256": "4e4e14215bb2dc89b9091fbac85ffbf880b45510219425a2765216e33405272d",
+      "segments_truncated_in_part": false
+    },
+    {
+      "part": 2,
+      "file": "HE_HAS_MORE_WAVE2_HELD_KIT_part02.json",
+      "cases": 9,
+      "case_offset": 9,
+      "bytes": 70055,
+      "sha256": "5497aec81127a2d5a5c33abf74fd50c5925689b735d9c756e7dc9f3882d81d61",
+      "segments_truncated_in_part": false
+    }
+  ]
+}

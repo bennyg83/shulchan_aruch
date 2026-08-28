@@ -1,0 +1,743 @@
+{
+  "meta": {
+    "kind": "he_has_more_segments",
+    "tier": "hold_semantic_likut_merge",
+    "mode": "split_en_not_merge_he",
+    "purpose": "53 Gra Likut cases — split EN to match HE; reject wrong merge_groups",
+    "source_lists": {
+      "eval": "HE_HAS_MORE_PACK_ALL_REVIEW_EVAL.json#likut_merge_ids",
+      "review": "HE_HAS_MORE_PACK_ALL_REVIEW.json"
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT",
+    "counts": {
+      "total": 53,
+      "by_volume": {
+        "yd1": 18,
+        "cm1": 35
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).\n\nINPUTS (both required)\n1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.\n- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.\n- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.\n\nCRITICAL\n- Do NOT output merge_groups that reduce heSegs.\n- Do NOT glue distinct HE Likut segments together.\n- Default action: split_en or mixed_resegment_translate.\n\nTASK\nFor each case:\n1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.\n2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.\n3) Use review merge_groups as anti-pattern (what NOT to do).\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs.\n- No merge_groups on HE. No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).",
+      "",
+      "INPUTS (both required)",
+      "1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.",
+      "- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.",
+      "- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.",
+      "",
+      "CRITICAL",
+      "- Do NOT output merge_groups that reduce heSegs.",
+      "- Do NOT glue distinct HE Likut segments together.",
+      "- Default action: split_en or mixed_resegment_translate.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.",
+      "2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.",
+      "3) Use review merge_groups as anti-pattern (what NOT to do).",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs.",
+      "- No merge_groups on HE. No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 3,
+    "chunk_total": 4,
+    "case_offset": 36,
+    "cases_in_chunk": 13,
+    "parent_pack": "HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+    "parent_sha256": "ea5ccb0dbb2780fcd944c987de25268391708c75fccaee3728d345621b17f018"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman115/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 115,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 12,
+      "enSegs": 11,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) כשבא כו'. הנה שיטת הרא\"ש והגאונים דבלקוחות ולא מסיק אלא שיעור ארעא אם לא עשאו אפותיקי א\"ל בשבח כלום ואם עשאו אפותיקי נוטל בע\"ח השבח ומחזיר ללוקח ההוצאה ויד הלוקח כדין יורד שלא ברשות דידו על התחתונה ובמסיק שיעור ארעא ושבחא ולא עשאו אפותיקי נוטל הבע\"ח חצי השבח ואינו מחזיר ללוקח כלום ואם עשאו אפותיקי נוטל כל השבח בלא כלום. וביתומים ומקבל מתנה כיון דא\"ל על מי לחזור אף מסיק שיעור ארעא ושבחא כדין מסיק שיעור ארעא לבד וכמו בלקוחות דבלא עשאי אפותיקי אינו נוטל כלום בשבח ובעשאו אפותיקי נוטל כל השבח אלא שמחזיר להם ההוצאה וידם על התחתונה ושבחא ממילא כדין שבח מחמת הוצאה בכולם אלא שאין שייך בה חזרת הוצאה נוטל בחנם. והרמב\"ם חולק דבלקוחות ומסיק שיעור ארעא ושבחא ולא עשאו אפותיקי מחזיר מחצי שלוקח הוצאה וכן בעשאו אפותיקי אף במסיק שיעור ארעא ושבחא מחזיר ההוצאה מכל השבח ועוד חולק דלשיטת הגאונים שבח דממילא הוא כדין מחמת הוצאה ובמסיק שיעור ארעא ושבחא ולא עשאו אפותיקי נוטל חצי השבח ולהרמב\"ם בשבחא דממילא נוטל כל השבח וכן ביתומי' ומקבל מתנה נוטל בשבחא דממילא במסיק שיעור ארעא ושבחא אף בלא עשאו אפותיקי ונוטל כל השבח. ושיטה אחרת לתוס' ביתומים עתוס' שם ובפ\"ט דב\"ק אבל הרא\"ש סתר דבריהם. ושיטת הרי\"ף כהרא\"ש אלא דביתומים ומקבל מתנה דעתו כדעת הרמב\"ם (ע\"כ):",
+        "(ליקוט) שיטת התוס' כהרא\"ש רק ביתומים דעתם דבמסיק שיעור ארעא ושבחא ולא עשאו אפותיקי גובה הכל בלא הוצאה אבל בעשאו אפותיקי צריך ליתן ההוצאה כמו במסיק שיעור ארעא לחוד ורצו לומר דבלקוחות ג\"כ בעשאו אפותיקי שוה מסיק שיעור ארעא ושבחה ומסיק שיעור ארעא לחוד דנותן ההוצא' וחזרו בהם ודעתם כדעת הרא\"ש והגאוני' בלקוחות וכ\"ה דעתם במתנה כד' הרא\"ש (ע\"כ):",
+        "אם כתב כו'. ב\"ב קנ\"ז ב' וע\"ל סי' קי\"ב ס\"א בש\"ע ודוקא כו':",
+        "בין כו' בין כו'. גמ' פ\"ק דב\"מ שם ועמליהון ושבחיהון פי' עמליהון שבח מחמת הוצאה ושבחיהון ממילא. בה\"ג ש\"ג בשם הראב\"ד:",
+        "אלא שאם כו' וי\"א כו'. הנה שיטת הרי\"ף ור\"ה גאון והרא\"ש לסוגיא דפ\"ק דב\"מ דאין חילוק בין שבחא דממילא למחמת הוצאה וכמו שגובה השבח היתר על הוצאה או כל השבח כן הדין בממילא וכן ביתומים ומקבל מתנה דאינו גובה השבח פ' הרא\"ש דאפי' בממילא אינו גובה. ודעת הרמב\"ם שאף שבשבח מחמת הוצאה אינו גובה אלא חצי שבח כמ\"ש בב\"ב קנ\"ז ב' אבל בשבח דממילא גובה כל השבח וראיה מדאית לשמואל בב\"מ דב\"ח גובה השבח ושם בב\"ב מיבעיא לשמואל אידאקני משתעבד ופשטו משבח קרקעות כו' ותי' הא מני ר' מאיר הוא אבל לרבנן ל\"ג שבח ומדאיבעי' אליבא דרבנן ש\"מ כרבנן ס\"ל כמ\"ש בהרבה מקומות ובכתובות נ\"ט א' פ' בהדיא כר' יוחנן הסנדלר וצ\"ל ע\"כ דשמואל מיירי בשבח דממילא דד\"צ לשיעבוד דאקני וכמ\"ש הנ\"י שם דבשבחא דממילא כגון דיקלא ואלים ארעא ואסקה שירטון או שהוקרה ב\"ח גובה כל השבח משום דלא חשבינן ליה כדשב\"ל כו' ומה\"ט גובה אפי' מיורש וממקבל מתנה וכמ\"ש הרי\"ף ז\"ל ע\"ש ומ\"ש כאן בש\"ע אם כ' לו כו' לא קאי אלא אשבח דמחמת הוצאה וכמ\"ש הנ\"י ולכן לא הזכיר הרמב\"ם שנ' דאקני וסמך אפי\"ח שם וראיה דגביא ממקבל מתנה ומיתומים דהא טעמא דמקבל מתנה משום דל\"ל אמאן ליהדר וא\"כ ה\"ה ניתומים דאף מלוקח לא הי\"ל לגבותו אם לא שכתב לו אנא איקום כו' ועתום' שם ט\"ו א' ד\"ה תדע וכ\"כ כל המפרשי' דיתומים דין מתנה להן וכמ\"ש בפ' המקבל (בבא מציעא ק\"י ב)' יתומים אומרים אנו כו' ובפ' יש בכור (בכורות נ\"ב א)' פריך והאמר שמואל בע\"ח גובה את השבח ושם איירי ביתומים כמ\"ש ולא הבנות במזונותיהן ותנן אין מוציאין כו' מנכסים משועבדים וצ\"ל דפריך שם דאמר שם דאף בשבחא דממילא לא גביא כמ\"ש שם וכולם כו' לאתויי שבחא דממילא והי\"ל להקשות שם אלא שמציין על פסקא דאשה בכתובתה אלמא בשבחא דממילא גביא מיתומים וה\"ה למתנה כנ\"ל אלמא דשמואל בשבחא דממילא איירי וכ\"כ הרי\"ף במסתברא אצל מקבל מתנה אבל שיטת הגאונים והרא\"ש דאין חילוק וקושיא על שמואל כבר הרגישו תוס' ותי' בב\"מ שם דשמואל דאמר גובה את השבח למסקנא דשם דדאקני קנה ובב\"ב קנ\"ז א' תירצו דלענין שיעבוד דאלים ס\"ל כר\"מ ע\"ש וההיא דפ' יש בכור תי' הרא\"ש בפ\"ק דב\"מ שם דאשה בכתובתה מ' בין מיתומים בין מלקוחות ופריך מלקוחות וגם בנות במזונותיהן כיון דעיקר חיובם על היתומים הל\"ל לגבו' מיתומים וראיה לדבריהם ממ\"ש בב\"מ שם על מילתא דשמואל תדע שכך כו' אלא מעתה מתנה כו' ואי ס\"ד בממילא איירי שמואל הא במתנה ס\"ל דגובה בשבחא דממילא ועוד שפריך שם והא שמואל במאי מוקים כו' אי בבע\"ח קשיא כו' מאי פריך הא שמואל לא איירי בשבחא דמחמת הוצאה ועתוס' שם ד\"ה תדע כו' אלא י\"ל מדמשלם כו' ולדברי הרמב\"ם אף במקום שאין משלם כמו ביתומים ומתנה גובה ועתש\"ל בישוב דברי הרמב\"ם:",
+        "מיהו אם כו'. דטעמא הוא משום דאקני לכך נוטל הלוקח חצי שבח כמ\"ש בב\"ב שם ודוקא שפי' בהדיא אבל סתמא אחריות אף על השבח ט\"ס שכ\"ז בכלל האחריות הוא אינון ועמליהון כו' וכן מוכח בב\"ב שם דפריך ואם איתא חצי שבח כו' ואם איתא דלמא שלא כ' ללוקח דאקנה וא\"ל מאי פסקא דהגמ' לא אתי לאשמעינן גבייתו השבח אלא לאשמעינן דגובה השבח מבני חורין וכ\"ה ברמב\"ם פכ\"א הל' ג' מפני שהמוכר כותב כו' ואפי' לא כתב דבר נודע שזה דין המוכר עם הלוקח כו' ובבע\"ח כ' שם הל' א' ובפי\"א הל' א' דוקא שפירש וכ\"כ סמ\"ע ס\"ק א' וסק\"ג ע\"ש דלא כש\"ך ס\"ק א' וכ\"מ מל' הרב בהג\"ה דאל\"כ ה\"ל להגיה על הש\"ע מ\"ש אם כ' לו כו' והל\"ל דאפי' בסתמא כ\"ז שלא התנה בהדיא וכן הש\"ע לא כ' שהתנה עם הלוקח דאקנה:",
+        "היתר על ההוצאה וי\"א כו'. כן היא שיטת כל הגאונים וכמ\"ש בב\"מ שם דבמסיק שיעור ארעא ושבחא גובה כל השבח בלא הוצאה אבל הרמב\"ם ס\"ל כמ\"ש בשם קצת גאונים וכ\"כ הרי\"ף בשם איכא מ\"ד כו' דשינוייא דגמ' שינויי דחיקא היא דאף במסיק שיעור ארעא ושבחא מ\"מ הלוקח לא גרע מיורד שלא ברשות אלא שהס\"ד דגמ' כאן דשמואל איירי אפי' בשבח שמחמת הוצאה כמ\"ש רבא תדע כו' וקאמר אלא מעתה מתנה כו' אבל למסקנא דגמ' דב\"ב משום דאקני הוא וע\"כ שמואל איירי בשבחא דממילא איירי ולכן קאמר שמואל דגובה כל השבח ול\"ק מברייתא א\"כ ברייתא ג\"כ איירי במסיק שיעור ארעא ושבחא ואעפ\"כ משלם לו הוצאה כנ\"ל בין באפותיקי בין בלא אפותיקי אלא שיש חילוק בין אפותיקי ובלא אפותיקי כמש\"ל ולכן לא הזכיר הרמב\"ם בכל הפרק וכן הש\"ע בכל הסימן הזה מדין מסיק שיעור ארעא לחוד כיון שאין דינו כ\"ז בביאור לפי הגמ' וסוגיא דב\"ב כנ\"ל אבל הגאונים לוקחים סוגיא דפ\"ק דב\"מ כפשטה וכנ\"ל:",
+        "וכ\"ז לא כו'. דגבייתו משבח הוא דחשבי' כאלו לקח המוכר השבח וחזר ומכרו לו כמ\"ש הרא\"ש ונ\"י שם משא\"כ כה\"ג:",
+        "(ליקוט) וכל הפירות שאכל כו'. אזיל לשיטתו דס\"ל דבגזלן כה\"ג גבי כמ\"ש בסי' שע\"ג ס\"ב אבל דעת רש\"י אינו כן וכמ\"ש המ\"מ שם ועבה\"ג שם ס\"ק ה' ומיהו מ\"ש כאן שאכל ל\"ד דאף שישנו בעין והם תלושים כמש\"ו אבל כו' והטעם דמטלטלין הן ואינן נגבין מהלוקח ועש\"ך יכ\"ה לשון הרי\"ף שם פי' הני פירות דלא גבי להו בע\"ח פירות דאכל לוקח נינהו א\"נ פירות דתלישי אבל פירות דאיתנהי האידנא מחברי לארעא גבי להו בע\"ח והיינו דאמרינן והא מעשים בכל יום כו' (ע\"כ):",
+        "אבל כו' אע\"פ כו'. כ\"פ הרי\"ף שם שבח המגיע לכתפים שא\"צ לקרקע וכ\"מ שם מדס\"ד לחלק בין מגיע או לא ולפרש\"י מאי ס\"ד הא בכה\"ג דכ\"ע מודה בין ר\"מ ורבנן דאין חילוק אלא בכה\"ג דפליגי [ר\"מ] ורבנן אבל רש\"י פי' קרוב ליקצר וצריכים עדיין לקרקע וערש\"י שם ושם י\"ד ב' ד\"ה לאכילת פירות כו' ועתוס' דב\"ב מ\"ב ב' ד\"ה שבח כו' ובב\"ק צ\"ה ב' ד\"ה שבח כו' ור\"ת פי' שם ושם כפי' הרז\"ה והרשב\"א ע\"ש ושם וכן פי' תוס' והרבה מפרשים וראייתם מכתובות נ\"א א' ס\"ס כל העומד ליגדר כו' ומשם פ' דכ\"ד הצריך לקרקע כקרקע ובא\"צ לאו כקרקע ועתוס' שם ובשבועות מ\"ג א' אבל הרמב\"ם והר\"י הלוי כ' דל\"ד ומחלקי' הרבה חילוקים וכמש\"ל סי' צ\"ה ס\"ב והרז\"ה והרשב\"א יש להם שיטה אחרת ומפ' שבח המגיע לכתפים מחמת עמל כו' ולפיכך פסקו דאפי' בצריכין אינו גובה וע' בבעל המאור שם ובמלחמות ובמ\"מ פכ\"א הל' ב':",
+        "ואם רוצה כו' אבל כו'. לשיטת הגאונים באפותיקי אפי' מסיק שיעור ארעא לחוד גובה השבח יתר על ההוצאה כמ\"ש בגמ' שם ועוד שגובה כל היתר על ההוצאה ואינן חולקין הוא ולוקח דלאו משום דאקני משתעבד דהא המלוה לא נשתעבד לו יותר על חובו אלא משום דאמר ארעאי אשבח ובמסיק שיעור ארעא ושבחא נוטל כל השבח בלא הוצאה לשיטתם דא\"צ להחזיר ההוצאה כיון שהמוכר חוזר לו הכל וכמ\"ש בגמ' תדע שכן כו' וכפי' תוס' שם כנ\"ל והלוקח נוטל הכל מלוה וב\"כ בהגה לקמן וכמ\"ש שם והרמב\"ם אע\"ג דלא ס\"ל תי' דגמ' שם מ\"מ ס\"ל דבאפותיקי נוטל הבע\"ח כל השבח היתר על ההוצאה ואינו חולק הלוקח עמו בשבח שכ' שם בהלכה ו' היתה השדה אפותיקי כו' ונתקשו הראב\"ד ומ\"מ שם אבל הוא ב' לפי שיטת הגאונים שאין נותן לו הוצאה בחצי שבח וכמש\"ל בהגה וי\"א דאין כו' וכ\"כ הרמב\"ם שם בראש הפרק אלא שאח\"כ כ' הורו חכמים גדולים כו' ולא החליט שם בהחלטה גמורה אלא שכ' ודברים של טעם כו' וכ' כאן לשיטת הרי\"ף והגאונים דחצי נוטל בלא הוצאה כיון דמסיק שיעור ארעא ושבחא וחצי של הלוקח כיון שעשאו אפותיקי לוקח השבח היתר על הוצאה וממילא לשיטתו נותן ללוקח כל הוצאה ולוקח כל השבח היתר על ההוצאה. וב\"י לפי שלא הבין דבריו כמ\"ש הראב\"ד ומ\"מ השמיטו וגם שיטת הגאונים דאפי' לא מסיק כו' וכנ\"ל ג\"כ לא כ' דס\"ל כשיטת הרמב\"ם לקח שיטה אחרת כאן וכמ\"ש המ\"מ שם ושטה אחרת י\"ל שלא יפה כח האפותיקי כו' אלא שיכול לסלק הלוקח בדמים כו' ע\"ש דנמצא אין חילוק בין אפותיקי או לא לענין גביית השבח אבל לקמן בס\"ו העתיק דברי הרמב\"ם בענין האפותיקי ודלא כשטה האחרת עמש\"ש:",
+        "(ליקוט) ואם רוצה כו'. כ' כשיטה אחרת שכ' המ\"מ שם סוף הל' ו' שאין חילוק בין אפותיקי או לא אלא לענין זה לסלוקי בזוזי וכפשטא דגמ' הניחא למ\"ד כו' וכן הבינו תוס' אבל הרי\"ף מפ' קו' הגמ' כקו' התוס' דלמה יטול השבח כלל וכ\"כ תוס' שם ולפי המסקנא כו' וכ\"כ ש\"פ וכ\"כ הרמב\"ם שם הל' ו' שבאפותיקי נוטל חצי שבח בלא הוצאה וחצי נוטל ומחזיר ההוצאה והוא כשיטת הרי\"ף שבמסיק שיעור ארעא ושבחא א\"צ להחזיר הוצאה אלא לפי מאי דקי\"ל דמשום דאקני נוטל רק חצי השבח נמצא שנוטל חצי שבח האחר מחמת אפותיקי וא\"כ ע\"כ מחזיר מזה החלק ההוצאה ודבריו נכונים לשיטת הרי\"ף אבל לשיטתו מחזיר מכולו ההוצאה ומ\"מ מלא אסיק אלא שיעור ארעא לא דבר כלום כי התחלת דבריו במסיק שיעור ארעא ושבחא כמש\"ש בראש הפרק כיצד כו' ע\"ש ע\"כ):"
+      ],
+      "en_segments": [
+        "(Collected notes) When he comes... According to the Rosh and Geonim, where a creditor collects from purchasers and the debt equals only the land's principal value, if the land was not made an apotiki he takes no improvement. If it was made an apotiki, he takes the improvement but reimburses the purchaser's expenditure, with the purchaser treated as one who improved another's field without permission. Where the debt equals both land and improvement, if there was no apotiki the creditor takes half the improvement without reimbursement; if there was an apotiki he takes all the improvement. Orphans and gift recipients differ because they have no seller from whom to recover, and therefore in some cases their position resembles a purchaser where the debt equals only the land's principal value. Rambam disagrees in several respects, particularly concerning reimbursement of expenditures and spontaneous appreciation. Tosafos has another position regarding orphans. The Rif largely follows the Rosh regarding purchasers but follows Rambam regarding orphans and gift recipients. (End of collected notes.)",
+        "(Collected notes) The approach... Tosafos generally follows the Rosh concerning purchasers, with a special rule for orphans. They initially considered equating an apotiki case whether the debt equaled only the land or land plus improvement, but retracted. Their final purchaser rule is essentially that of the Rosh and Geonim, and their rule for a gift recipient also follows the Rosh. (End of collected notes.)",
+        "If he wrote... Bava Basra 157b. See above, siman 112 seif 1, where this depends on express language in the document.",
+        "Whether... whether... The Gemara in the first chapter of Bava Metzia speaks of \"their labor and their improvement.\" Baal HaTerumos, citing the Raavad, explains \"labor\" as improvement created through expenditure and \"improvement\" as appreciation that arose on its own.",
+        "Except that if... and some say... Rif, Rav Hai Gaon, and the Rosh understand the first chapter of Bava Metzia as making no basic distinction between spontaneous appreciation and improvement caused by expenditure. Whatever portion of improvement is collectible in one category is likewise collectible in the other. With orphans and gift recipients, however, the Rosh may deny collection of improvement altogether in cases where there is no right of recourse. Rambam distinguishes: improvement created through expenditure may be only partly collectible, while spontaneous appreciation can be entirely collected. His proof is that Shmuel states that a creditor collects improvement, while Bava Basra raises a question whether after-acquired property is encumbered and resolves it through another opinion. Rambam therefore reads Shmuel as speaking of spontaneous appreciation, which does not require an after-acquired-property clause because it is treated as part of the land. Nimukei Yosef explains examples such as a palm that thickened, land increased by alluvium, or simple market appreciation. On this view the creditor may collect such appreciation even from heirs and gift recipients. The Geonim and Rosh reject this distinction and resolve Shmuel through the rules of after-acquired property. They also understand the Bechoros passage differently. The Gemara in Bava Metzia, which challenges from gift recipients, supports the Geonic approach, whereas Rambam requires a different reconciliation.",
+        "However, if... Because collection of improvement is rooted in the lien on after-acquired property, the purchaser ordinarily receives part of the appreciation where applicable. Express drafting matters for the creditor's lien, while the seller's ordinary responsibility toward a purchaser can include improvement even when not expressly written, because such responsibility is part of the standard sale. Rambam distinguishes these two contexts. Sema supports this reading, unlike the Shach.",
+        "The amount exceeding the expenditure, and some say... The Geonim read Bava Metzia to mean that where the debt equals land and improvement the creditor may take the entire improvement without reimbursing expenditure. Rambam follows authorities who regard that answer as strained and preserve the general rule that a purchaser who improved another's field is at least entitled to reimbursement of his expenditure. According to Rambam, Shmuel's statement about collecting all improvement refers to spontaneous appreciation. This is why Rambam and Shulchan Aruch do not explicitly frame every case by whether the debt equals land alone or land plus improvement, whereas the Geonim do.",
+        "And all this does not... The rationale for collection from improvement is that the seller is treated as having acquired the improvement and then transferred it to the purchaser. That rationale does not apply in the excluded case.",
+        "(Collected notes) And all the fruits he consumed... This follows the view that even in certain robber cases fruits can be recovered, as explained in siman 373. Rashi disagrees. Here the phrase \"he consumed\" is not literal; even detached fruits still present are movable property and are not collected from a purchaser. The Rif says expressly that fruits not collected by a creditor include fruits already eaten or detached, while attached fruits are collected. (End of collected notes.)",
+        "But... even though... The Rif explains \"improvement that has reached the shoulders\" as produce no longer needing the land. This distinction fits the Gemara's initial assumption. Rashi explains it as produce close to harvest but still needing the ground. Rabbeinu Tam, Baal HaMaor, Rashba, Tosafos, and many commentators offer differing definitions. Kesubos supports the rule that whatever still needs the ground is land, while what no longer needs it is movable property. Rambam and Rabbi Yosef HaLevi draw further distinctions. Baal HaMaor and Rashba also have another approach, treating the phrase as improvement resulting from labor.",
+        "And if he wishes... but... According to the Geonim, where the property was made an apotiki, even if the debt equals only the principal land value the creditor takes improvement beyond the expenditure, because he can say that his own land appreciated. If the debt equals land plus improvement, he takes the entire improvement under their approach, while the purchaser seeks recourse from the seller. Rambam, although rejecting part of the Geonic analysis, also gives an apotiki stronger effect regarding improvement. The Maggid Mishneh records another approach under which the only distinction of an apotiki is the purchaser's inability to remove the creditor by paying money. The Beit Yosef appears to have followed this other approach in part, but elsewhere quotes Rambam's explicit apotiki rule. (End of collected notes.)"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman117/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 117,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 11,
+      "enSegs": 10,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לבע\"ח או לאשה בכתובתה. ממ\"ש תניא אידך העושה שדהו כו' ופי' הרי\"ף בתשובה שמיירי באפותיקי סתם וכמ\"ש בירושלמי פ' בתרא דשביעית וכמ\"ש למטה:",
+        "אבל כ\"ז כו'. ממ\"ש ושטפה נהר דוקא וז\"ש אבל כ\"ז כו' אע\"ג דהמלוה יכול לגבות ממקום אחר אפי' כשהיא בידו כמ\"ש הר\"ן שם מ\"מ נקט לאשמעינן דהלוה א\"י לסלקו יעוד ממ\"ש רשב\"ג שם אשה אינו גובה כו' מ' בהדיא דא\"י לסלקו בשאר נכסים ואף בע\"ח וכן לת\"ק אשה ובע\"ח דגובין משאר נכסים היינו משום דמכר כמ\"ש בירושלמי שם המשעבד שדה לאשתו והלך ומכרה אם רצה לגבות ממנה משאר נכסים גובה חברייא בעיין לא תגבה אלא מנכסים משועבדים א\"ל ר' יוסי בני חורין לפניה ואת אמרת משועבדים מתני' בשלא אמר לא יהא לך פרעון אלא מזה אבל אם אמר לה לא יהא לך פירעון אלא מזה אינו גובה אלא ממנה אלמא אע\"ג דמיירי באפותיקי סתם מ\"מ אי לאו דמשועבדים היתה צריך לגבות ממנה וגם מ' דאפי' המלוה אין יכול לגבות ממקום אחר דלא כהר\"ן ודברי הר\"ן לקוחים מן הרשב\"א שם בחידושיו מהתוספת' דכתובות רשב\"ג אומר העושה שדהו אפותיקי לכתובת אשה ומכרה לאחר ידה על העליונה רצתה גובה ממנו רצתה גובה משאר נכסים אבל אין ראיה לשם דדוק' במכר ואדרבה מוכח להיפך מדקא' ידה על העליונה ול\"ק סתם שיכולה לגבות מלוקח ומאי אשמעינן הא בלא\"ה יכולה לגבות משאר נכסים אלא דוקא בכה\"ג וכן הרשב\"א שם לא אמר אלא במכר ע\"ש וכ \"מ פשטא דגמ' ושטפה נהר וכן במכרו כנ\"ל ואמרו בירוש' שם דשטר שיש בו אחריות משמט דא\"ר בא בשם רב ייחד לו קרקע משמט לא אמרו אלא ייחד לו כו' ואמרי' בב\"ק דעשה עבדו אפותיקי ומכרו בע\"ח גובה ממנה וכד מיתומים:",
+        "רק במעות. אפי' באפותיקי מפורש טור וכ\"כ כל הפוסקים דדוקא בלקוחות אמרי' בפ\"ק דב\"מ דא\"י לסלקו באפותיקי מפורש וכן ביתומים כמש\"ל סי' קט\"ו אבל בבע\"ח עצמו לא וראיה ממ\"ש בגטין שם מי שחררו א\"ר רבו ראשון שורת כו' כדרבא כו' ומיירי באפותיקי מפורש כמ\"ש תוס' שם ד\"ה במזיק כו' ועתוס' שם ד\"ה הקדש. וקשה לר\"ת ואור\"י דרבא לטעמיה כו' ואם איתא דא\"י לסלקו אפי' רבא מודה דלמפרע הוא גובה כמ\"ש כיון דה\"ל זוזי כו' ובתוס' שם ובפ' המניח אמר הקדישו כו' דכיון דא\"י לסלקו בזוזי כו' אלמא דאין הקדש מפקיע מידי שעבוד אלא במקום דיכול לסלקו ומדמי הקדש ושחרור בהדדי וכ\"ש באפותיקי סתם דאפי' הלוקח יכול כמ\"ש בב\"מ שם בשעשאו אפותיקי דח\"ל לא כו' והוצרך לאוקמי באפותיקי מפורש:",
+        "(ליקוט) רק במעות. עמ\"ש שם בשם הטור דאף באפותיקי מפורש כן וראיה ממ\"ש בפ\"ק דב\"ק ופ\"ק דב\"מ ראובן שמכר כו' ולא מצי למימר לאו בע\"ד דידי את והקשו בתוס' למאי נ\"מ ותי' ברא\"ש פ\"ק דב\"מ והרשב\"א והרא\"ה ומ\"מ וכל הפוסקים דמיירי באפותיקי מפורש דלוקח א\"י לסלקו ושאר כל התרוצים שתי' סתר הרא\"ה בב (ע\"כ):",
+        "ויש חולקין. ממ\"ש בגטין שם תניא אידך כו' וערש\"י ותוס' ד\"הגובין כו' ומדיכול למכור לכתחלה ש\"מ דיכול לסלקו אבל הר\"ן אזיל לשיטתו שפי' שם גובין אם מכרו וכן פי' כל המפ' וכמ\"ש בירושלמי:",
+        "ואם מכרה כו'. דוקא מכרה כנ\"ל:",
+        "(ליקוט) ואם מכרה לאחר כו'. אבל הוא עצמו יכול לסלקו וערא\"ש פ\"ק דב\"מ סל\"ח ונ\"מ כו' וכ\"כ הרשב\"א בפ\"ק דב\"ק והמ\"מ וענ\"י בב\"ק שם בסוגיא הנ\"ל ראובן שמכר כו' וא\"ת למה איכפת כו' (ע\"כ):",
+        "עשה שדהו כו' אבל כו'. כ\"כ תוס' בב\"ב מ\"ה ח' ד\"ה אי דאית כו' דאפותיקי מפורש הוי כמוכר שלא באחריות ועתוס' בב\"מ י\"ד ב' ד\"ה ושמואל כו' ובה\"ת בשמ\"ג חולק וכ' דאפי' נמצא שאינו שלו אינו גובה משאר נכסים מכח קו' תוס' דב\"ב שם וז\"ש י\"א:",
+        "עשה שדהו כו'. גמ' שם תניא אידך ופ' כת\"ק ופי' הרי\"ף בת' שמיירי באפותיקי סתם וכ\"ה בירושלמי דשביעית שם המשעבד שדה לחבירו והלך ומכרה ר' אחא אמר מכורה לשעה ר' יוסי אמר אינה מכורה לשעה כו' תני הכותב שדה אפותיקי לאשה בכתובת' ולבע\"ח בחובו ומכרה ה\"ז מכורה והלוקח יחוש לעצמו מתני' בשאמר לו יהא לך פרעון מזו מה פליגין בשאמר לו לא יהא לך פירעון אלא מזו והברייתא היא דברי ת\"ק הנ\"ל ובפ' אלמנה לכ\"ג הל' ח' ר' יעקב בר אחא אמר בעבדי צאן ברזל פליגין ר' יוחנן אמר מכרן אין מכורין א\"ל ר' אלעזר אוכלין תרומה מכוחו ואת אמרת מכרן אינן מוכרין כו' מה פליגין בשמכרן לעולם או בשמכרן לשעה כו' נשמעיניה מן הדא העושה שדהו אפותיקי לאשה בכתובתה ולבע\"ח בחובו מכרה ה\"ז מכורה והלוקח יחוש לעצמו רשב\"ג אומר לאשה בכתובתה אינה מכורה שלא עלה על דעת שתהא אשה מחזרת על בתי דינים אמרו אתיא דר\"א כרבין דר' יוחנן כרשב\"ג הוי בשמכרן לשעה אינן קיימין אבל אם מכרן לעולם ד\"ה אינן מוכרין והביא הרי\"ף שם בקוצר וז\"ש וכשיבא כו' בד\"א כו' ופי' הר\"ן ומ\"מ דבשני דברים נשתנה אפותיקי אפי' בסתם דמכרו ממכר עולם אינה מכורה והשני דאפי' לשעה אם לא ימצא בני חורין אפי' יש משועבדין שנמכרו אחר זה אפ\"ה גובה ממנה וז\"ש אם לא ימצא וז\"ש בירושלמי והלוקח יחוש כו' ועבה\"ג ועתוס' בב\"מ י\"ד ב' ד\"ה תריץ. וא\"ת אדרבה כו' וי\"ל כו' אך קשה כו' ויותר יש להקשות הא ע\"כ באפותיקי מיירי ככ\"ל אבל כמש\"ל דאף באפותיקי סתם גובה ממנה א\"כ יכול להיות באפותיקי סתם ואינו גובה השבח אלא מחמת דאקני דדוקא באפותיקי מפורש אמרו שם שגובה מחמת יורד לשדה חבירו כמ\"ש הב\"ע כגון כו' ועתוס' בב\"ב קנ\"ז ב' ד\"ה גובה כו' וצ\"ל ע\"כ באפותיקי סתם כנ\"ל והא דלא אוקים באפותיקי מפורש כקו' תוס' הנ\"ל דהברייתא הנ\"ל מפרש מתני' דר\"פ הנזקין אין מוציאין לאכילת פירות ולשבח קרקעות כו' ומפ' לאכילת פירות בגזלן כמ\"ש בפ\"ק דב\"מ י\"ד ב' משום דבע\"ח ל\"ל פירי ואם איתא דבאפותיקי מפורש אפי' בע\"ח אית ליה פירי למ\"ש הרא\"ש שם והטור סי' קט\"ו ובדין יורד לשדה חבירו שלא ברשות וכ\"מ בירושלמי דשביעית שאמר לא תגבה אלא מנכסים משועבדים א\"ל ר' יוסי בני חורין לשניה כו' דוקא משום דבני חורין לפניה ומ\"ש שם המשעבד שדה לחבירו והלך ומכרה ר' אחא אמר מכורה לשעה כו' ר\"ל אם מכרה לשעה היא מכורה וע\"ז אמר תני הכותב כו' ושם מיירי במכרו לשעה מתני' בשאמר כו' ולכך פ' כת\"ק אע\"ג דר' יוחנן ס\"ל כרשב\"ג מ\"מ מדפריך ממילתיה דת\"ק ורב אחא ור' יוסי פליגי אליביה:",
+        "אבל רוב כו'. גם הרמב\"ם מודה לזו דהרמב\"ם לא איירי אלא באפותיקי סתם ולא חידש אלא מ\"ש דקיים עד שעת טירפא אף במכרן לעולם אף במפורש וכ\"ש בסתם שהם מפרשים מ\"ש בירושלמי דיבמות אבל מכרן לעולם לא קאי אלא אעבדי נכסי צ\"ב דרישא אבל באפותיקי אפי' במפורש אין חילוק ומ\"ש בירושלמי דשביעית ר' אחא אמר מכורה לשעה כו' מיירי במכרן לעולם אלא דפליגי אם המכר בטל לאלתר או קיים עד שעת טירפא וכ' הרמב\"ן כיון דאנן לא קים לן הלכתא כמאן המכר קיים עד שעת גוביינא ופלוגתייהו באפותיקי מפורש כמ\"ש בירושלמי שם כנ\"ל. ומ\"ש דאפי' יש כו' כמ\"ש בירו' שם המשעבד שדה כו' בני חורין לפניה כו' אבל אם אמר כו' אינו גובה אלא ממנה כנ\"ל:",
+        "(ליקוט) אבל רוב כו'. ובזה תי' נ\"י בפ\"ק דב\"ק מש\"ש א\"א ראובן כו' באחריות כו' עלי דידי הדר והקשה א\"כ אם יש לו ב\"ח האיך גבי מלוקח ותי' דמיירי שעשאו אפותיקי מפורש (ע\"כ):"
+      ],
+      "en_segments": [
+        "To a creditor, or to a woman for her ketubah. This follows the baraita, 'One who designates his field, etc.' Rif explains in a responsum that it concerns an ordinary apotiki, as is also stated in the Jerusalem Talmud at the end of Sheviit, and as explained below.",
+        "But all this, etc. This is derived from the Gemara's specification, 'and a river swept it away.' Therefore, although the creditor may collect from another place even while the designated field remains in the debtor's possession, as Ran writes there, the law is stated to teach that the debtor cannot remove the creditor from the designated property by offering other property. Rabban Shimon ben Gamliel's statement there, that a woman does not collect, etc., expressly indicates that she cannot be removed to other property, and the same applies to a creditor. According to the first Tanna as well, when a woman or creditor collects from other property, that is because the designated field was sold, as the Jerusalem Talmud explains: one who encumbers a field to his wife and then sells it, if she wishes she may collect from other property. The colleagues asked whether she should not collect only from encumbered property. Rabbi Yose answered, 'Unencumbered property stands before her, and you say she should collect from encumbered property?' The mishna concerns a case where he did not say, 'You shall have payment only from this field.' But if he said, 'You shall have payment only from this field,' she collects only from it. Thus, even though the case concerns an ordinary apotiki, absent the sale she would have had to collect from that field. It also appears that even the creditor may not collect elsewhere, contrary to Ran. Ran's words are drawn from Rashba's novellae there, based on the Tosefta in Ketubot: Rabban Shimon ben Gamliel says that one who designates a field as an apotiki for a woman's ketubah and sells it to another places the choice in her hands; she may collect from the purchaser or from other property. But no proof follows, because that rule is specifically where it was sold. On the contrary, the expression 'the choice is in her hands' implies this limitation, for otherwise what novelty would there be in saying that she may collect from the purchaser when she could in any event collect elsewhere? Rashba too speaks only of a sale. The plain sense of the Bavli, 'and a river swept it away,' likewise supports this, as does the case where he sold it, as explained above. The Jerusalem Talmud there further says that a deed containing a property lien is subject to shemittah, for Rabbi Ba said in the name of Rav: if he designated land for the debt, shemittah releases it; the exception applies only where he designated, etc. Bava Kamma likewise states that if one made his slave an apotiki and sold him, the creditor collects from the slave, just as he collects from orphans. See citations 40 and 62.",
+        "Only with money. This applies even to an explicit apotiki, as the Tur and all the authorities write. Only with respect to purchasers does the first chapter of Bava Metzia state that they cannot remove the creditor from an explicit apotiki, and the same is true of orphans, as explained above in siman 115. But the debtor himself may remove the creditor by paying money. Proof follows from Gittin, where, concerning a master who freed a slave, Rav says that the first master is subject to the law stated there, in accordance with Rava. Tosafot explains that the case concerns an explicit apotiki. Yet if the debtor could not remove the creditor even by money, Rava too would agree that collection takes effect retroactively, as stated where the Gemara says, 'Since he had money, etc.' Tosafot there and in the chapter HaManiach explain that if one consecrated the property, the consecration is effective because the debtor can remove the creditor with money. Thus consecration displaces a lien only where the debtor can remove the creditor, and consecration and manumission are compared. Certainly this is so for an ordinary apotiki, since even a purchaser may remove the creditor, as Bava Metzia states. The Gemara therefore had to establish the other case as an explicit apotiki.",
+        "(Supplement) Only with money. See what is written there in the name of the Tur, that even an explicit apotiki may be redeemed with money. Proof also follows from the first chapters of Bava Kamma and Bava Metzia, in the case of Reuven who sold, etc., where the purchaser cannot say, 'You are not my litigant.' Tosafot asks what practical difference this makes. Rosh in the first chapter of Bava Metzia, Rashba, Raah, Maggid Mishneh, and the other authorities explain that the case is one of an explicit apotiki, where the purchaser cannot remove the creditor with money. Raah refutes the other proposed resolutions. See citation 115.",
+        "And some disagree. Their proof is the other baraita in Gittin. See Rashi and Tosafot there, s.v. 'they collect.' Since the owner may sell the property initially, this indicates that he may remove the creditor to other property. Ran, however, follows his own interpretation that 'they collect' means only if he already sold it. All the commentators explain likewise, in accordance with the Jerusalem Talmud.",
+        "And if he sold him. He sold the same, and if he sold it after his death. But he himself is able to remove him, and he will be blessed with him, and he will be blessed with him, and he will be blessed with him, and he will be able to do so with him",
+        "He made his field, etc.; but, etc. Tosafot in Bava Batra 45b writes that an explicit apotiki is like a sale without warranty. See also Tosafot, Bava Metzia 14b. Baal HaTerumot, Shaar 43, disagrees and writes that even if the field is discovered not to belong to the debtor, the creditor does not collect from other property, based on Tosafot's difficulty in Bava Batra. This is the basis of the opinion introduced as 'some say.' See citation 40.",
+        "He made his field, etc. This is the second baraita there, and the ruling follows the first Tanna. Rif explains in a responsum that the case concerns an ordinary apotiki. The Jerusalem Talmud in Sheviit likewise states: one who encumbers a field to another and then sells it, Rabbi Acha says the sale is effective temporarily, while Rabbi Yose says it is not effective even temporarily. It then teaches: one who writes a field as an apotiki for a woman's ketubah or for a creditor's debt and sells it, the sale is effective, but the purchaser must take account of the risk. The mishna concerns one who said, 'You shall have payment from this field'; their dispute concerns one who said, 'You shall have payment only from this field.' The cited baraita is the first Tanna's view. The Jerusalem Talmud in Yevamot similarly discusses property of a wife's melog or tzon barzel estate and distinguishes a permanent sale from a temporary one. It then derives the rule from the baraita concerning an apotiki for a ketubah or debt, where Rabban Shimon ben Gamliel says that a sale of a field designated for a ketubah is ineffective because a woman should not have to pursue litigation in the courts. Rif cites this briefly. Hence the ruling, 'and when he comes, etc.; when does this apply, etc.' Ran and Maggid Mishneh explain that even an ordinary apotiki differs from other property in two respects. First, a permanent sale does not prevent eventual collection from it. Second, even a temporary sale does not prevent collection if no unencumbered property remains, even though property sold later remains available. This is the meaning of, 'if he does not find,' and of the Jerusalem Talmud's warning that the purchaser must protect himself. See Baer HaGolah and Tosafot, Bava Metzia 14b. Tosafot's difficulty can be resolved because, as explained above, even an ordinary apotiki is collected first. It may therefore be an ordinary apotiki, and the creditor collects the improvement only through an after-acquired-property clause. Only with an explicit apotiki does the creditor collect improvement as an unauthorized improver, as explained in the Gemara. See also Tosafot, Bava Batra 157b. The case must concern an ordinary apotiki, because the baraita explains the mishna in Gittin that one does not collect for consumed produce or land improvement from encumbered property. The Gemara explains consumed produce in the case of a robber, because an ordinary creditor does not collect produce. If the case concerned an explicit apotiki, however, a creditor would collect produce according to Rosh and the Tur, as in the law of one who enters another's field without permission. The Jerusalem Talmud likewise says that unencumbered property stands before her, and only where he said, 'You shall have payment only from this field,' does she collect exclusively from it. The dispute between Rabbi Acha and Rabbi Yose is therefore within the first Tanna's position, and the law follows that Tanna. See citations 40, 62, 115, 133, and 241.",
+        "But most authorities, etc. Rambam also agrees to this rule. He speaks only of an ordinary apotiki and adds that a permanent sale remains effective until the moment of collection, even where the apotiki was explicit, and certainly where it was ordinary. These authorities explain the Jerusalem Talmud's statement, 'but if he sold them permanently, etc.,' as referring only to slaves of a wife's tzon barzel estate. With an apotiki, even an explicit one, there is no distinction between temporary and permanent sale. The Jerusalem Talmud's dispute whether the sale is effective temporarily concerns a permanent sale, and the dispute is whether the sale is void immediately or remains effective until collection. Ramban writes that because we do not know which opinion is authoritative, the sale remains effective until collection. Their dispute concerns an explicit apotiki, as explained there. The additional rule, that the creditor collects from it even where other encumbered property exists, follows from the Jerusalem Talmud's statement that if he said, 'You shall have payment only from this field,' he collects only from it, even though unencumbered property is present.",
+        "(Supplement) But most authorities, etc. Nimukei Yosef uses this principle in the first chapter of Bava Kamma to resolve the case of Reuven who sold with warranty. He asks how the creditor may collect from the purchaser if the debtor retained unencumbered property, and answers that the property was made an explicit apotiki. See citation 92."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "The collected note in HE6 continues the preceding if-he-sold-it lemma represented together in EN5.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman129/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 129,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם אין כו'. וז\"ל הרמב\"ן וזה כללו ש\"ד נכסוהי דב\"נ אינון ערבין ביה ודין הנכסים של לוה ודין הערב אחד וכמו שבנכסים כו':",
+        "כדי כו'. כמש\"ל סי' ק\"ו ס\"א ואע\"ג דבב\"ק קי\"ב ב' אמרי' עד דאזיל כו' שם הוא אחר קביעות שקבעו לו ולא בא וע\"ל סי' צ\"ח ס\"ג:",
+        "ואם הוא כו'. כמ\"ש בכתובות פ\"ח א' בנכסים ואפי' בע\"ח כו' וכן כאן:",
+        "(ליקוט) ואם הוא כו' ואם כו'. כמ\"ש בס\"פ הכותב בנפרעת שלא בפניו אפי' בע\"ח שלא כו' ונכסים הוא מדין ערב דאינון ערבין ליה. תה\"א סכ\"א וע\"ל ר\"ס ק\"ו (ע\"כ):",
+        "או אם כו' די\"ח כו'. כמ\"ש ל\"ש אלא שאין לו נכסים מ' דוקא כו' וס' ראשונה ס\"ל דכל שא\"י להפרע ממנו הוי כאין לו נכסים וכ\"כ רשב\"ם ותוס' שם ותדע שהרי לפום ס\"ד רצה לילף מיהודה:",
+        "טען הערב כו'. דלא הוקבע זמן ב\"ד ל' יום אלא מן הסתם ועתוס' דב\"ק מ\"ו ב' ד\"ה שאין כו' וא\"ת כו' וי\"ל וכמש\"ל סי' צ\"ח ס\"ד:",
+        "ומשיביאנו כו'. עסמ\"ע. וכמ\"ש בכתובות צ\"ה דאע\"ג דאשתדוף גובה מב\"ח אם בפשיעתו אינו גובה שאמר הנחתי כו':"
+      ],
+      "en_segments": [
+        "And if there is no, etc. Ramban writes that a person's property serves as guarantor for his debt. The law of the debtor's property and the law of a personal guarantor therefore follow the same structure. See citation 40.",
+        "In order to turn. As C.C. and N. D.C., he said, \"Arise, and behold,\" he said, \"he is a sign that he has given him, and he does not come and does not come.\"",
+        "And if he's called. As a result of Hashem’s promise, “And if he is called, and if he is.” As a writer in a rioter who is not in his face, he is not a lawyer and property is an Arab-Araban-Lea. And then, I will give you a lot of tea",
+        "Or if, etc.; there are those who disagree, etc. The Gemara's wording, 'only where he has no property,' implies a strict limitation. The first view holds that whenever collection from the debtor is impossible, the case is treated as though he has no assets. Rashbam and Tosafot so explain. The initial attempt to derive the rule from Judah also supports this. See citation 40.",
+        "He said this evening as a. No time has been established in D. L. A.D., but it is likely that Dov B. D.H. has not been called 'A.' and 'A.'",
+        "And when he brings him, etc. See Sema. Ketubot 95 teaches that although a creditor may collect from unencumbered property after land is destroyed, he may not do so where the loss resulted from his own negligence, because the debtor may say, 'I left property available to you.'"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman167/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 167,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מעיקרו. כגי' הרמב\"ם ורא\"ש דל\"ג בבעיא דר\"ע מגיעו לעיקרו ואין כו' וכמ\"ש למטה אבל אם מגיע לעיקרו לא קמבעיא ליה דודאי שלו:",
+        "(ליקוט) היתה יד כו'. עבה\"ג וכמש\"ש קיט א' ותנן כו' וערש\"י שם ד\"ה חייב כו' ר\"י ל\"פ אלא משום דל\"ל שדי נופו ב\"ע (ע\"כ):",
+        "לא יטול. סובר מעיקר הדין כר\"י אלא כל מה שמגיע הוא לעליון כיון שספק בהגעתו ובמעשה שלו נולד הספק ועט\"ז:",
+        "(ליקוט) לא יטול העליון. שהוא בחזקת תחתון דקי\"ל כר' יהודה במכירה ובערלה שש אלא דכל שיכול לפשוט כו' וקא' והשאר של תחתון והיינו כר' יהודה רק כל שיכול כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "From its trunk. This follows the text of Rambam and the Rosh, who do not read in R. Akiva's question, 'does it reach the trunk and he has no,' etc. As explained below, if it reaches the trunk there was no uncertainty, and it certainly belongs to him.",
+        "(Supplement) If the arm, etc. See Baer HaGolah, and the statement at 119a, 'we learned,' etc. See Rashi there, s.v. chayav. Rabbi Yehuda disagrees only because he does not hold that a tree casts its branches into the owner's domain. (End of supplement.)",
+        "Not taking. He is the chief of judgment, but all that he deserves is an insult to his arrival and his action is born of doubt and nonsense. He is in a thin lower possession of the Judean Brigade in the sale and in the cave of six, but a demon that can only be quantified and Kath, and the rest of the lower and we were only the Judean Brigade"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman186/seif-002/beur-hagra",
+      "volume": "cm1",
+      "siman": 186,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. תוס' שם ד\"ה אתא כו':",
+        "(ליקוט) אלא בגניבה כו'. כמש\"ל סי' קפ\"ה ס\"ז דש\"ש לעולם הוא אפי' בהנאת שניהם וכמש\"ש שמור לי ואשמור לך וכן השותפין וכיוצא (ע\"כ):",
+        "ואם קצב כו'. כן מ' בנדרים ועבתוס' דב\"מ שם דכל שהנאת שניהם אינו חייב באונסים וספסירא דנדרים אינו סרסור:",
+        "(ליקוט) ואם קצב כו'. כיון שהוא הנאת שניהם וכמ\"ש בנדרים שם מתנ' כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say, etc. Tosafot there, s.v. ata, etc.",
+        "(Supplement) Except through theft, etc. As stated above, siman 185, seif 7, a paid custodian remains such even where both parties benefit, as in 'Guard for me and I will guard for you,' partnerships, and similar cases. (End of supplement.)",
+        "And if it's a bit. Yes, M. Bandars and Dr. Dobbies, where they both do not need rapes and a DNA count is not snorable: For he is both of them, and as a result of Hashem’s name, he is called"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman202/seif-013/beur-hagra",
+      "volume": "cm1",
+      "siman": 202,
+      "seif": 13,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ויש מי שאומר כו'. נמשך אחר ל' הרא\"ש וטור וט\"ס שם ושם וצ\"ל לקנות את הכלים שעליה וצ\"ל בסי\"ד שהוא האיבעיא דגמ' ופ' הרא\"ש במציאה לקולת המוציא וכ\"כ בפרי' שמצא כן בנוס' רא\"ש ישן:",
+        "(ליקוט) ויש מי כו'. כ\"כ הטור ונמשך אחר דברי הרא\"ש אבל ל\"ד דאפי' בלקנות הכלים לבד קני דבהכי הוא הבעיא שם וכנ\"ל ברא\"ש לקנות את הכלים כו' וכ\"ה ברמזים שם וכ\"כ ב\"ח ופר' (ע\"כ):",
+        "(ליקוט) סי\"ג ואפי' כו'. צ\"ע דהא ע\"כ לא קני אלא מטעם חצר ולא משום משיכה כמו שפריך שם א\"ר אי א\"ל משוך קני כו' וכ\"כ הרא\"ש שם ובמקח וממכר אי א\"ל קני בהמה וקני כלים שעליה מחמת משיכת הבהמה לא קנה הכלים ומחמת חצר כו' דוקא בכפותה כו' ומטעם חצר. דאי קנה במשיכה לא היה פריר גמ' כלום וצ\"ע (ע\"כ):",
+        "(ליקוט) אפי' אינה כפותה. דלאו מטעם חצר קני לה אלא מטעם משיכה דזהו הבעיא דגמ' (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is an authority who says, etc. This follows the language of Rosh and Tur, but their text contains a scribal error. It should read, 'to acquire the utensils upon it,' and belongs in seif 14, which is the Gemara's unresolved question. Rosh rules leniently for the possessor in a found-object case. Perishah found this reading in an old manuscript of Rosh.",
+        "(Supplement) There is an authority who says, etc. Tur followed Rosh, but the qualification is imprecise. Even if he intends to acquire only the utensils, he acquires, for that is the Gemara's question. Rosh, his abridgment, Bach, and Perishah all read, 'to acquire the utensils,' etc. (End of supplement.)",
+        "(Lycott) C.J. and F. Dr. Dea did not buy but for a court, and not because of such a attraction as I would like to draw a kimonial and as such, he was sold and sold, I bought an abhorrent, and the instruments on which the withdrawal of the lament did not buy the tools and put a court in his hands and taste. Dalai bought the attraction was not a G-d of nothing and a cheque. Delo on behalf of a canned courtyard for her, but on the basis of the attraction of the Dalai La Dachm"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman207/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 207,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שטר כו'. ממה שהצריכו אג\"ק בפ\"ג דב\"ב אע\"פ שכ' דלא כאסמכתא כמש\"ש ולא מהני שם אלא משום דלא הוי אסמכתא ממש דעיקר הלואתו על הקרקע וכן מטלטלי כששעבד אג\"ק הוי כקרקע ולא הוי אסמכתא אלא משום דמטלטלי לחודייהו הוי אסמכתא דלא סמיך עלייהו שיכול למוכרם כ\"ז שלא שעבדן אג\"ק לכך הצריכו למכתב דלא כו' שלא יאמר שנכתב לשופרא דשטרא כדרך טופסי דשטרא ועברמב\"ן וברא\"ש כלל עב סז משא\"כ כאן וכ' בה\"ת שמ\"ג בשם גאון דדמי לגט שאמר פסול הוא אינו גט דלא אמר כלום כמ\"ש רפ\"ד דגטין וכ' דל\"ד להנ\"ל דהא ערב לאחר מתן מעות דלאו עליה קא סמיך ואפ\"ה משתעבד בקנין בלא בד\"ח וערש\"י בב\"מ ס\"ז ב' ד\"ה אין בע\"ח כו' ואי ירתי קרקעות כו':",
+        "(ליקוט) שטר כו'. ערשב\"ם בב\"ב מד ב' בד\"ה ומקשינן. אבל אקני ליה מטלטלי כו' דכל כו' אע\"ג דכ' דלא כאסמכתא (ע\"כ):",
+        "די\"ח כו'. מההיא דפ\"ג דב\"ב כנ\"ל:",
+        "(ליקוט) דיש חולקין. וראיה מב\"ב מד ב' וס' ראשונה ס\"ל דל\"ד לשם דשם לאו אסמכתא גמורה הוא דהא ערב לאחר מתן מעות דלאו עליה סמיך ואפ\"ה משתעבד בקנין אף בלא ב\"ד חשוב וערש\"י בב\"מ ס\"ז ב' ד\"ה אין בע\"ח כו' ואי ירתי קרקע ויש ראיה לס' ראשונה מדהצריכו לשעבוד מטלטלי באגב ואע\"ג דכ' דלא כאסמכתא (ע\"כ):",
+        "(ליקוט) אע\"ג די\"ח כו'. ערשב\"ם שם ד\"ה דלא כו' ודמי לאסמכתא כו' אבל ליתא דמשום דאינו אסמכתא ממש מש\"ה הוא דמועיל (ע\"כ):"
+      ],
+      "en_segments": [
+        "A deed, etc. In the third chapter of Bava Batra the Gemara required acquisition of movable property together with land even though the deed stated that the obligation was not an asmachta. That language helps there only because the arrangement is not a full asmachta: the original loan principally relies upon the land. Movable property alone would be an asmachta because the debtor could sell it unless it was subordinated together with land. Therefore the document must state that it is not an asmachta, so that the debtor cannot say the phrase was merely standard boilerplate. See Ramban and Responsa Rosh. This case differs. Baal HaTerumot cites a Gaon who compares it to one who merely declares a bill of divorce invalid, an ineffective declaration. It is not comparable to a guarantor after the money was given, who becomes obligated through a kinyan despite the lender's lack of reliance upon him. See Rashi, Bava Metzia 67b. See cited source 514.",
+        "Some disagree, etc. Their proof is the passage in the third chapter of Bava Batra.",
+        "(Supplement) Some disagree. The first opinion answers that the case there is not a complete asmachta, since a guarantor after disbursement may become obligated through a kinyan without an important beit din. See Rashi, Bava Metzia 67b. There is support for the first opinion from the requirement that movable property be subordinated together with land even where the document says it is not an asmachta. (End of supplement.)",
+        "(Supplement) Although some disagree, etc. See Rashbam there, who says it resembles an asmachta. This is not decisive, because it is precisely because it is not a full asmachta that the language is effective. (End of supplement.)"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman264/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 264,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 7,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ודוקא כו'. כמו המקיף משלש רוחותיו אע\"ג דגרם לו הקיפא יתירא כמ\"ש בב\"ק כ' ב' וערש\"י שם ד\"ה אין מחייבין כו':",
+        "אבל אם הציל כו'. כמו גדר מד' רוחותיו וקי\"ל בפ\"ק דב\"ב הכל לפי מה שגדר אפי' גדר מקיף וכמו ש\"ח שקדם ברועים ומקנות בשכר כמ\"ש תוס' בב\"ק שם בד\"ה הנ\"ל:",
+        "וכן כו' ואם לא כו'. כנ\"ל:",
+        "אע\"פ כו' מ\"מ כו'. כמו המקיף כו' אע\"ג די\"ל לדידי סגי בנטירא בר זוזא כמ\"ש בב\"ק שם מ\"מ הואיל ונהנה יותר בגדר אבנים נותן כפי מה שגדר:",
+        "ואם נראה כו' לכן כו'. כמו שפריך בפ\"ק שם תנן המקיף כו':",
+        "ונ\"ל כו'. כמו מי שיש לו בית בחצר אחרת וחצר בעיר אחרת בתוספתא הביא הרי\"ף ורא\"ש בפ\"ק דב\"ב:",
+        "וכן כל אדם כו'. כמ\"ש בירו' פ\"ה דב\"מ חד ב\"נ אושיל לחבריה דינרין אשריתיה גו ביתיה א\"ל הב לי דינרי א\"ל הב לי אגר ביתי אתא עובדא קומי ר' אבא בר זבדא ומריק ליה מאי דהוה חמי למשרייה ודוקא בפורע חובו של חבירו משום דהוה כמו מבריח ארי מנכסי חבירו פטרו וכמ\"ש תוס' בכתובות שם ובב\"ק שם וכן במפרנס אשת חבירו דהוי כפורע חובו כמ\"ש בגמ' שם ובר\"פ האומנין השוכר את הפועלים לעשות בשלו כו' ובפ' השואל היורד לתוך שדה חבירו כו' וכיוצא כנ\"ל:",
+        "(ליקוט) וכן כל אדם שעושה כו'. כמו יורד שלא ברשות ומקיף חבירו כו' והשוכר את הפועל והראהו בשל חבירו כו'. תוס' דב\"ק נ\"ח א' סד\"ה א\"נ. והיכא שמשביח כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "This applies specifically, etc. It is comparable to one who surrounds his fellow's field on three sides. Although he caused the other party an additional enclosure expense, he is not automatically charged for the full benefit. See Bava Kamma 20b and Rashi there.",
+        "But if he saved, etc. This is comparable to one who fenced all four sides, where the payment follows the quality of the fence, even if the surrounding owner built it. It is also like an unpaid custodian who hired shepherds and staffs in order to save the deposit.",
+        "“And if not.” Same as:",
+        "Although, etc., nevertheless, etc. As with the surrounding fence, even though the beneficiary could claim that minimal protection would have sufficed, since he in fact benefited from a stone wall he pays according to the wall that was built.",
+        "And if it appears, etc., therefore, etc. This follows the challenge raised in the first chapter there from the Mishna concerning one who surrounds his fellow's field.",
+        "It appears to me, etc. This is comparable to one who owns a house in another courtyard or a courtyard in another city, as taught in the Tosefta cited by Rif and Rosh in the first chapter of Bava Batra.",
+        "And likewise anyone, etc. The Yerushalmi relates that one who lent money and lodged in the borrower's house could be charged fair rent. Only one who merely pays another's debt is exempt, because he is viewed as merely driving away a lion from the other's property. The same applies to supporting another man's wife. By contrast, one who enters another's property and improves it, surrounds his field, or hires laborers and directs them to work on another's property is entitled to compensation for the benefit conferred. See 226."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman267/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 267,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וצריך כו'. בסי\"ז לשון הטור וכאן ל' הרמב\"ם והיא היא:",
+        "של צמר. כפי' הרי\"ף שם דלא כרש\"י וככל האוקימתות שם וכ\"כ הרי\"ף ורא\"ש:",
+        "(ליקוט) של צמר כו'. רי\"ף וש\"פ דלא כרש\"י שפי' להיפך והסוגיא מ' ברי\"ף כמש\"ש ועוד דלרש\"י לא הוי דכותי' דר' יוחנן שם דקא' מי שהניח לו אביו כו' (ע\"כ):",
+        "אבל לא כו'. לחומרא. הרא\"ש ורמב\"ם:",
+        "שמא תגנב. הרמב\"ם וכשיטתו לאחוז בכ\"מ תי' אחרון:"
+      ],
+      "en_segments": [
+        "We need to be. In the book, it is here for the Rambam and it is:",
+        "Of wool. This follows Rif's explanation, unlike Rashi, and fits all the Gemara's resolutions. Rif, Rosh, and the other authorities rule accordingly.",
+        "But not, etc. This is a stringency adopted by Rosh and Rambam.",
+        "Would you steal. The Rambam and its method to hold the last mile:"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman270/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 270,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ודוקא כו'. כמש\"ל סי' רמג סט\"ו:",
+        "(ליקוט) ודוקא כו'. ע\"ל סי' רמג סט\"ו בהג\"ה ועתוס' דקדושין יט א' בד\"ה אומר כו' וי\"ל דבדעת כו' וכ\"כ הרא\"ש שם (ע\"כ):",
+        "(ליקוט) ודוקא כו'. ע\"ל סי' רמג סט\"ו ועתוס' דסנהדרין סח ב' ד\"ה קטן כו' (ע\"כ):",
+        "שכירות. ע\"ל סי' פט ס\"ב בהג\"ה היה כו':"
+      ],
+      "en_segments": [
+        "And Duke is. As C. R. R.R.C., and Duke Choo. According to S. R. R. R.R., he says, “And he shall be blessed with him, and so shall he be blessed.” According to S. R. R.R.R., Dr. Sanhedrin, “A little boy is a little.”",
+        "Hire. See above, siman 89, seif 2, in the gloss."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman304/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המעביר כו'. כסתם מתני' כמ\"ש סתם במתני' כו':",
+        "דין כו' אבל כו'. גמ' שם:",
+        "שלא פשע בה. דמש\"ש היכי משתבע כו' היינו לר\"מ אבל אנן דקי\"ל כרבנן דנתקל לאו פושע משתבע שלא פשע ועבפ\"ג דב\"ק רי\"ף ורא\"ש:",
+        "(ליקוט) שלא פשע דמ\"ש רבא שלא בכוונה היינו לר\"מ אבל לרבנן מודה ר\"י ורבא לר\"א דהא רבא שם אורי גופא למעשה דישבע שלא פשע וכגי' הרי\"ף ורא\"ש שם אייתי סהדי דלא פשעת וכן העיד במלחמות פ\"ג וערי\"ף ורא\"ש ועמ\"ש בסי' תיג (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who transports, etc. This follows the unqualified Mishna, as the Gemara states that the ruling was taught anonymously in the Mishna.",
+        "\"A lawyer,\" he said. Jim there:",
+        "Not a crime in it. He said, “I am a sinner who is not a sinner, but I am a widower of Hashem’s promise that we are not committed to sin, and that we are not committed to sin, and that we are not committed to death.”"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman334/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 334,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "השוכר כו' וכן בכל כו'. הרא\"ש בפי' הגמ' שם:",
+        "ואם הוי כו'. עמש\"ש:",
+        "(ליקוט) ואם כו'. עהג\"א ד\"ה וגם ואם הביטול כו' (ע\"כ):",
+        "מי כו'. דבע\"ה כו'. ר\"ל דהוא לוקח השכירות ולכן דינו כפועל דה\"ל להמנות וכ' שם ול\"ד לספינה ע\"ט א' דאמרינן אלא בספינה סתם ויין זה כו' וכמ\"ש תוס' שם בד\"ה אלא כו' ותי' ריב\"ן כו' ומ\"מ מה שדר בו חייב כמש\"ש בחמור דא\"ל אילו בעית כו'. שם:",
+        "מיהו כו'. דשכירות ממכר הוא כמ\"ש בפ\"ד נ\"ו ב' ואמרינן דאין המשכיר יכול להוציאו כמש\"ל ר\"ס שי\"ב:",
+        "לכן כו'. בד\"מ כ' ובתה\"ד פ' כמהר\"מ אלא שמ' שם דאם הקדים השכר א\"צ להחזיר לו וז\"ש לכן כו' אבל במרדכי שם איתא להדיא כן שכ' אם לא נתנה כל השכירות היורשין פטורין כו' וכן נראה לפי מ\"ש הרא\"ש דטעמא דהוי פסידא דפועלים משום המע\"ה אלא דהרב סובר דטעמא משום דה\"ל להתנות וכמ\"ש במרדכי שם וכמ\"ש למעלה וה\"ל להתנות ולכן לא חילק ברישא בדין דפועל באם נתן או לא וא\"כ אפי' נתן יחזיר וז\"ש לכן כו' ר\"ל הואיל הוא פלוגתא דרבוותא וא\"ל דהרב נתכוון למ\"ש בתשובה שם דאם נתנה כל השכירות יש כח ביד היורשין להושיב בתוכה דכוותה כמ\"ש האי מאן כו' ושלים עבידתא בפלגא דיומא ואם לא יחזיר ליורשיו כמה אדם רוצה ליקח פחות כשלא היתה דרה בו כמ\"ש בפועל בטל דבזה ודאי ל\"פ הרשב\"א וכמש\"ל בסי' שי\"ו. אבל בתה\"ד שם ס\"ל דמדינא כ\"ה וכן י\"ל כוונת מהר\"מ וכמ\"ש בספינה שם ע\"ט ומתוס' שם ד\"ה אי אתה כו' וי\"ל כיון שנתן כו':"
+      ],
+      "en_segments": [
+        "One who hires, etc.; and likewise in every, etc. This follows Rosh's interpretation of the Gemara.",
+        "And if he is so. And if you do, and if you do. “And if you do not know what you are doing.”",
+        "Who, etc.; because the employer, etc. Meaning, the landlord receives the rent and therefore has the legal position of a worker, who should have stipulated against the contingency. This differs from the case of a ship on 79a, which concerns an unspecified ship and this particular wine, as Tosafot explain. Nevertheless, payment is owed for the period of actual use, as the Gemara states concerning the donkey: the owner can say that had the renter wished, etc.",
+        "Nevertheless, etc. A lease is a temporary sale, as stated on 56b, and the landlord therefore cannot remove the tenant during the term, as explained at the beginning of siman 312.",
+        "Therefore, etc. Darkei Moshe cites Terumat HaDeshen, who rules like Maharam but implies that if rent was prepaid it need not be returned. Mordechai states this explicitly regarding heirs. Yet according to Rosh, the workers' loss rests on the claimant's burden of proof, while Rama understands the reason as failure to stipulate. On that basis even prepaid rent should be returned. The word 'therefore' means that because the matter is disputed, the tenant may retain what he possesses. Alternatively, Rama may mean that the heirs may place a comparable tenant in the property, as in the case of a worker who completes his task early, and if they do not, the landlord must deduct the value of having the property vacant. Rashba certainly agrees to that deduction. See simanim 5 and 316."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman339/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 339,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וקבל כו' וזש\"ש חוזר או כו':",
+        "(ליקוט) וקבל כו'. דאל\"כ אין להם כלום על השלחני כיון שאין לו אצל השלחני (ע\"כ):",
+        "אפי' אין כו'. דאל\"כ ל\"ק רבה שחוזר דק\"ל דמעמד שלשתן קני רי\"ף וש\"פ וכמ\"ש בסי' קכ\"ו ס\"ב וירושלמי דקאמר הדא דתימא כו' ס\"ל כרב ששת וקי\"ל כרבה דמתני' דייקא כוותיה כמש\"ש מדקתני כו' שם וז\"ש ומ\"מ כו':",
+        "ואם קנו כו'. תוס' שם ד\"ה חוזר כו' וכמ\"ש בסנהדרין כ\"ד ב':"
+      ],
+      "en_segments": [
+        "\"And he shall receive a return, or a name.\" They do not have anything to do with the sender that he does not have",
+        "Even if there is no, etc. Otherwise Rabbah's ruling that he may retract would be difficult, since a transfer in the presence of all three parties effects acquisition. Rif and the other authorities rule so, as stated in siman 126, seif 2. The Yerushalmi that states, 'this was said, etc.,' follows Rav Sheshet, but we rule like Rabbah, because the Mishna's wording supports him. This is the meaning of, 'nevertheless, etc.' See siman 126.",
+        "And if they made a formal acquisition, etc. See Tosafot there, s.v. 'he retracts, etc.,' and Sanhedrin 24b."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    }
+  ]
+}

@@ -1,0 +1,885 @@
+{
+  "meta": {
+    "kind": "en_truncated_vs_multi_he",
+    "tier": "editorial",
+    "mode": "fresh_multi_segment_translate",
+    "purpose": "EN truncated/garbled blob — fresh multi-segment translate from HE (needs_editorial tier)",
+    "source_lists": {
+      "review": "EN_TRUNC_PACK_ALL_REVIEW.json",
+      "eval": "EN_TRUNC_PACK_ALL_REVIEW_EVAL.json",
+      "exclusions": "wave1 applied/held + moderate resegment kit ids"
+    },
+    "output_schema": {
+      "primary": "segments[] with index, he, en, source:fresh_translate",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT",
+    "counts": {
+      "total": 99,
+      "by_volume": {
+        "oc1": 4,
+        "yd1": 64,
+        "cm1": 31
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.\n\nINPUTS (both required)\n1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).\n- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.\n- Wave1 strict/moderate tiers excluded (already in other kits or applied).\n- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.\n\nTRANSLATION NORMS\n- Complete: translate every clause; no omissions or paraphrasing away content.\n- No additions: no introductions, notes, or explanations beyond the source.\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label.\n- Where norms and full_dictionary.md conflict, full_dictionary.md wins.\n\nTASK\nFor each case:\n1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).\n2) segments.length MUST equal heSegs (1:1 with he_segments).\n3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.\n\nOUTPUT — JSON array only, same ids/order as input cases:\n[{\n  \"id\": \"...\",\n  \"action\": \"fresh_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs; each segment includes paired he+en.\n- en_segments[] mirrors segments[].en in order.\n- source on each segment is fresh_translate (or partial if you must flag a slot).\n- No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.",
+      "- Wave1 strict/moderate tiers excluded (already in other kits or applied).",
+      "- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.",
+      "",
+      "TRANSLATION NORMS",
+      "- Complete: translate every clause; no omissions or paraphrasing away content.",
+      "- No additions: no introductions, notes, or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).",
+      "2) segments.length MUST equal heSegs (1:1 with he_segments).",
+      "3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.",
+      "",
+      "OUTPUT — JSON array only, same ids/order as input cases:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"fresh_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs; each segment includes paired he+en.",
+      "- en_segments[] mirrors segments[].en in order.",
+      "- source on each segment is fresh_translate (or partial if you must flag a slot).",
+      "- No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 6,
+    "case_offset": 0,
+    "cases_in_chunk": 30,
+    "parent_pack": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json",
+    "parent_sha256": "f5910cf438138ae0d71a83e6a7ed9864cab669c7ac756a19d88c84ebe9b5dfbe"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman162/seif-007/peri-megadim",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 7,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נטל ידו אחת כו׳ עט״ז הביא דברי הב״י בכאן יע״ש והנה מ״ש בב׳ ידיו כ״א בפ״ע א״צ לפרש משיורי טהרה זה אמת ויציב עמ״ש במ״א אות ט״ו וי״ו אמנם מה שפירש דמיירי ששפך מים שניים ושפשפה בראשו אפ״ה טמא כשחזר ונגע בהם לא זכיתי להבינם שזה היפך מ״ש הר״ש בפ״ב מ״ב דידים והרע״ב פ״א מ״א ומ״ש הר״ש ומיהו אפשר שפשוף בעי לעולם לומר ניגוב דל״ת כל האוכל בלי ניגע מיירי בלא היה מים שניים אבל הוא ז״ל נראה שפירש דמסופק הר״מ דאפילו בשפך מים ב״ת ונגע אח״כ טמאה וצ״ע ועא״ר אות י״ח וצ״ע כעת. עיין קס״ה אות ב׳ מזה אי״ה:",
+        "אמר הכותב כפי הפרטים המבוארים בסימן זה ובסימנים הקודמים כי רבים המה צריך האדם בינוני להתבונן ולומר אולי מיומא לא משאי ידי כראוי והנה בשפיכה בעלמא סגי עפ״י הרוב אין כל היד מה שצריך נטילה בא המים בכל המקומות וכ״ת מיעוט דמיעוט אין כ״כ קפידא הא בורכא והרי טבילה כל שמיעוט הגוף חוץ למים מ״ה לא הוי טבילה ואי קשיא מיעוט המקפיד מ״ה הוי טבילה או רובו שאין מקפיד דמ״מ כל בשרו במים קרינן ביה משא״כ כשהושיט אצבע א׳ חוץ למים מ״ה לא הוי טבילה ומינה לנט״י כל שמקום א׳ לא באו המים לא הוי נטילה וכמ״ש הב״ח כאן בס״א ראשי אצבעות לרש״י יע״ש ובין אצבעות שצריך שיבואו המים בכל מקום והיה נראה שמש״ה צריך לשפשפם אחר נטילה כמ״ש הר״ב בס״ג ובט״ז ד׳ כי יש מקומות שלא באו המים וכשמשפשף יבואו והרי מים ראשונים עם שפשוף ניגוב די כמ״ש המ״א י״ו (ועט״ז כאן) גם בט׳ קבין א״י אם לא יבואו המים בכל הגוף בלי מקום פנוי א״י מה תועלת:",
+        "גם בקס״א בס״ד י״א עד הזרוע וי״א עד חיבור אצבעות לכף היד ועט״ז אות וי״ו והנה לפ״ז מהגודל ג״כ צריך עד סוף ב׳ קשרים ומ״ש הב״י עד קשר א׳ היינו אם נאמר לחולין ב׳ קשרים משא״כ לרא״ש ג׳ קשרים ומגודל ב׳ קשרים. והיותר נכון שיטול עד הזרוע רביעית על כל יד בפני עצמו ולית מים טמאים ועכ״ז צריך זהירות וצ״ע:",
+        "מ״ש הט״ז שנבלעו במפה עיין ברכות נו״ן ב׳ במפה על השולחן:"
+      ],
+      "en_segments": [
+        "If he washed one hand. See Taz, who cites Beis Yosef here. When both hands were washed separately with a reviis on each, there is no need to explain the ruling as involving residual water of purity. This is correct. Rema, Magen Avraham, and the commentators discuss how rubbing can be effective when the hands touch each other. The case must be one in which sufficient water remains upon them, or where the second hand is washed from the first hand’s residual water in the manner described by the Rishonim. If each hand received less than a reviis, the first water becomes impure and can render the other hand impure when they touch. If each hand received a full reviis at once, the water does not become impure and the hands may touch. When one hand was washed and then rubs the other before the second washing, he must be careful that the unwashed hand not render the washed hand impure. See siman 165, seif katan 2. The essential distinction is between water that remains first water and water that has already become impure through contact with an unwashed hand. The language of Shulchan Aruch and the Tur should be understood accordingly. See siman 12. See siman 140."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "oc1/siman252/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 252,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 5,
+      "enSegs": 1,
+      "he_deficit": 4,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והמגיס עט״ז בשי״ח אות כ״ב וכ״ג צמר או דצריך בישול רב (וזה נראה דעת המחבר כאן ובמ״א אי״ה באות ב׳ יבואר) או צובע. ועיין רא״ש פ״ק דשבת י״ח ב׳ הביא פירש רש״י מגיס מבשל ובפ׳ כירה ד״מ ע״ב הביא בסימן י״א שם פירושים מגיס מבשל אף ע״ג דאין בישול אחר בישול סמנין לצבוע בהן צריך בישול לעולם א״נ צובע שמגיס מכניס הסמנין בצמר וז״ש הט״ז בשי״ח אות כ״ב שצמ״ר צריך הרבה בישול ל״ד סמנין צריך הרבה בישול ויש בהם בישול אחר בישול תמיד ונ״מ המגיס ביורה סמנים שאין בהם צמר כו׳ ויבואר אי״ה בשי״ח וכאן במ״א ב׳: אמר מר והנמהר ראיתי לכתוב כאן קצת דברים פרטיים בענין זה. רש״י שבת ח״י ב׳ ד״ה מגיס והמבשל הוה בישול פירוש הרא״ש שם דחייב משום בישול אבל הב״ח דקדק מלת ובמבש״ל לומר בתבשיל הוה בישול וכאן משום צובע וכמ״ש התוס׳ ד״ה דילמא וכן פירש מהרש״ל עכ״ל. הנה מלת ובמבש״ל י״ל כ״ז שיס״ב וכ״ר אבל כ״ש או אין יס״ב אף מגיס אין פועל בו בישול וכרא״ש. ולב״ח משמע כל דליכא מבשל ליכא צובע אבל לקמן אבאר אי״ה די״ל אף כ״ש וכדומה מגיס נכנס הסמנים בצמר וכדכתיבנא. עי״ד בסימן ס״ט בש״ך או׳ ל״ח ול׳״ז דחומץ וציר י״ל מבשל בכ״ש וא״כ אותם המטמינים בשר ובצלים וחומץ חריף ומערין לכ״ש אסור להגיס כ״ז שיס״ב אם אין מבושל כל צרכו אבל כ״צ שרי כמ״ש בסימן שי״ח סי״ח ובאין יס״ב ראוי להקל שם וכאן. ולהר״ב בשי״ח ה״ה בכ״צ בכ״ש כה״ג:",
+        "והנה הר״מ ז״ל פרק שלישי הי״א מה״ש אסו״ר להכניס מגריפה לקדירה והיא על האש מפני שמגיס בה וזה מצרכי בישול ונמצא כמבשל בשבת ופ״ט שס ה״ד מגיס מבשל ופכ״א הי״ג מותר לגמור שחיקת הריפות אחר שמורידין הקדירה מעל האש ועיין מ״מ וכ״מ ולח״מ פ״ג ולאחר התבוננות היטב בדבריהם הוא דהלח״מ הבין במ״מ דתחיבת המגריפה לאו מגיס הוא אלא דגזור אטו יגיס ויהפוך בה הלכך במבושל כ״צ דליתן על האש איכא איסור דרבנן (יבואר אי״ה בסמוך) תחיבת המגריפה מותר הא הגסה ממש אסור מדרבנן ובלא כ״צ חייב חטאת ומגיס נמי הילכך תחיבת המגריפה אסור שמא מגיס וכתב רבינו דין זה כאן ולא בפרק תשיעי ששם מקומו משום דלמדה מהך דצמר ליורה דילמא יגיס כמ״ש המ״מ והיינו אע״ג דהתם דילמא מגיס והוה צובע מ״מ דמי ליה לגז״ר כמו התם דילמא מגיס ה״נ דרך להפך המגריפה הילכך הוצאה ותחיבה נמי אסור וכ״ז על הא״ש הא עקורה אף כ״ר ויס״ב אין הגסה פועלת בישול הילכך מותר מגריפה ושמש״ה כתבו התוספות שם שבת י״ח ב׳ ד״ה דילמא משום צובע לא בישול ברייתא ביצה ל״ד אלא בעקורה אין הגסה פועלת בישול אף בכ״ר. וא״ש ההיא דפכ״א הריפות אחר שמורידין מאש מהפכין בה אע״ג הגסה ממ״ש אסור מדרבנן עכ״פ להר״מ ז״ל בכ״צ כמ״ש המ״מ בעקורה אין פועלת כלל ובעודה על הא״ש אה״נ מדרבנן אסור. אבל הכ״מ שם פ״ג הבין דלכ״ע בעקורה וכ״ר יס״ב הגסה בבישול דמ״ש על האש כו׳ התוספות שכתבו צובע לא בישול דקשיא להו מה פריך דסתמא סמנים כבר מבושלים כי כן דרך הצובעים ואח״כ נותנים צמר ליורה ומתירין ב״ה אע״ג שעדיין לא קלט העין דא״כ מגיס אין בישול אחר בישול (בצמר ל״ש בישול רק בסמנים) (עמש״ל בט״ז שי״ח אות כ״ב) לכן כתבנו צובע וכתי׳ הב׳ של הרא״ש פ׳ כירה דף מ״ם ב׳ סי׳ י״א: וכתב רבינו ר״ן דלמדה ג״כ והלא מגיס מבשל וז״ש הרמ״ך הביאו הכ״מ שם יע״ש. אלא דיקשה ההיא דפכ״א הי״ג דאסור בעל האש לגמור שחיקת הריפות למגיס במבושל כ״צ עכ״פ מדרבנן אסור ולמה התיר אחר שמורידין כו׳ והן אמת פ״ט ה״ג המבשל על האור מבושל כ״צ פטור משמע אבל אסור והחילוק יש שי״ל בין נצטנן או לאו מבוארים ומ״מ לכ״מ דכתב בפשיטות כן קשה ואי״ה בסימן רנ״ג במ״א אות כ״ב ול״ב ובשי״ח ס״ד וסט״ו יבואר הדין להמחבר בזה:",
+        "עוד רגע אדבר בהגהות פ״ג אות ו׳ דחלק אסה״ת במבושלת כ״צ מפרשים דהר״ח בכ״צ מיירי ותחיבת מגריפה מגיס ממש הוא ואסור על האש כ״צ או מ״ה אף ע״ג דאין בישול אחר בישול הגסה פועלת יותר או מדרבנן עכ״פ ויתיישב כמבש״ל בכף הדמיון ועמ״א שי״ח מ״ב ולדינא יבואר שם אי״ה בזה:",
+        "ועדיין פש גבן לברורי כי שלש טעמים יש ביורה עקורה מגיס אחד בישול כפירש״י וכרא״ש פרק כירה מ״ם ב׳ סי״א בב״ח סימן (הוא שי״ח) דסמנים לעולם צריכין בישול ולפ״ז דוקא בכ״ר ויס״ב השני תי׳ הב׳ ברא״ש צובע כשמגיס נכנסו הסמנים בצמר ויש לכ״א לכאורה קולא וחומרא לתי׳ הא׳ קולא בכ״ש או אין יס״ב חומרא אף קלט העי״ן אסור כי הסמנים צריכין לעולם בישול ולתירוץ הב׳ קולא בקלט העי״ן מבע״י ל״ש צובע תו וחומרא אף בכ״ש י״ל מגיס צובע. ואמנם טעם השלישי למדתי מר״ן ז״ל לשבת שכן דרך הצובעים להגיס שלא יחרוך וכ״מ בירושלמי ומשמע מטעם צביעה הוא כי היא מלאכת הצביעה שלא יחרוך הצמר הילכך אף שקלט העי״ן אסור אבל בכ״ש י״ל ל״ש שמחריך ושרי אפשר אף בלא קלט העי״ן באופן שיש לכ״א מהפירושים קולא וחומרא ויבואר אי״ה במ״א אות ב׳:",
+        "ומנא הא מילתא דאמרי רבנן אף כ״ר שהעבירו מעל האש הגסה פועלת בה מתורתו של הר״ן ומההיא דילמא מגיס בה אף בעקורה (דכ״ר מבשל יליף ממשנה אלפס וקדירה שהעבירן מרותחין בשבת כו׳) ולתירוץ צובע לא מוכח מידי ולזה י״ל דסברא היא בלא ילפותא דכ״ר מבשל אף הוסר ומגיס כבישול מה לי הוסר. אמנם בר״ן קשה דכתב ומכאן למידין ואח״כ כתב מטעם מלאכת הצביעה א״כ אין ראיה ומירושלמי צ״ע וכבר עמד הגאון המפרש בירושלמי עלה דהך שלמד הירושלמי יע״ש גם דברי הירושלמי גופא צ״ע לי ומה אעשה שעוונותי גרמו שלא זכיתי להבין כל זה ואי״ה במ״א ב׳ יבואר עוד:"
+      ],
+      "en_segments": [
+        "One who stirs. See Taz in seif katan 18, paragraphs 22 and 23. Wool may require extensive cooking, and this appears to be the Mechaber’s view here. Magen Avraham will be discussed, with God’s help, in seif katan 2. The same applies to other materials whose processing requires heat. Stirring a pot hastens and improves the cooking, and therefore constitutes cooking even when the food was already placed on the fire. Where the contents are fully cooked and no further cooking is possible, the prohibition depends on whether stirring improves the mixture or causes another prohibited effect. The Rishonim disagree concerning a pot removed from the fire and concerning food that has not yet reached the degree of maachal ben Derusai. One must therefore distinguish between a vessel on the fire, a first vessel removed from the fire, and a second vessel; between raw, partially cooked, and fully cooked contents; and between merely moving the food and actively mixing it so that the heat is distributed. The Mechaber’s language indicates that actual stirring is forbidden while the food still requires cooking. Even removing a portion with a spoon can resemble stirring when the contents are thick, because the remaining material is displaced and mixed. Where there is no cooking concern, one must still consider dyeing, kneading, or selecting, according to the substance involved. The practical rule is to avoid stirring a pot on the fire and to remove it before serving whenever the food is not unquestionably fully cooked. The detailed distinctions stated by Taz and Magen Avraham should be followed in their respective cases. See siman 1. See siman 8. See siman 11. See siman 69. See siman 90. See siman 253. See siman 318."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "oc1/siman289/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 289,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הוי שכר עט״ז הוקשה לו משום ברכה שאין צריכה הא לענין קדימה אף המוציא קודם לפה״ג כמבואר ברי״א ס״ה מ״מ י״ל דלענין קידוש יין חשוב קודם משא״כ לענין ברכה שא״צ כו׳ ותי׳ דהכרח הוא וברכה שא״צ דפת פוטר כל מיני משקין וי״ל דרכם היה לשתות יין לפני המזון לפתוח המעיים ומיהו קושייתו רק אשכר כו׳ ומ״ש יכוין שלא להוציא פת קשה דבר״ו ס״ב פסק המחבר דוקא נתכוין הא סתמא אין מוציא וכ״ש שכר לפת לחשוב אף בשוין בעינן כוונה. גם ממרוצת לשונו דהטעם שיכוין בלא להוציא כו׳ שיהא ניכר הקידוש דאם מכוין לפטור בשהכל פת אזי לא יהיה ניכר שמשום קידוש מברך שהכל הא בלא״ה לכתחלה צריך לברך כ״א ברכה הראוי לו עמ״א ר״ו אות ב׳ ובגמ׳ אם אמר דיעבד כו׳:",
+        "דע קידוש היום דרבנן ואפ״ה נשים חייבות בו וכמ״ש המ״א רצ״א אות י״א כל מילי דשבת איש ואשה שוין אף בדרבנן כל שישנו בשמירה מדרבנן מוקצה ושבותים ישנו בזכירה דקידוש היום ועיין סימן תקצ״ז מ״א ג׳ המתענה בשבת בקידושא רבה דרבנן אין מקדש בשחרית אבל בלילה קידוש היום ד״ת י״ל צריך לקדש ובפר״ח כתבנו מזה ולענין להוציא אחרים פה״ג בשחרית אם אין שותה עסי׳ רע״ג ט״ז ג׳ וקס״ז בס״ז ומ״א שם וב״י שם הביא ב׳ דיעות לענין פה״ג דשחרית יע״ש לכאורה דקידוש היום משום עונג שבת נגעו ביה מס״ה י״א דאין מוציא או דאין כ״כ שינוי ועמ״א וט״ז שם בקס״ז ועדיין צ״ע. והר״ב ברע״ג ס״ד פסק דמוציא בשחרית:",
+        "מ״ש המחבר ומטה מוצעת היינו למי שדרך לישב על מטה מוצעת ולדידן אם המטה בחדר שאוכל שם יציע בשחרית עמ״א סימן ש״ב אות וי״ו ועיין פרישה ושכ״ג בזה:",
+        "אם אין לו בשחרית יין כ״א פת דאסור לו לאכול דברים אחרים קודם המוציא כמ״ש המ״א אות ד׳ י״ל דיכול להוציא אחרים בהמוציא אעפ״י שאין אוכל עמהם עיין סימן רע״ג ט״ז ג׳ ומ״א קס״ז ס״א אבל להט״ז שם י״ז אין מוציא דליכא שינוי:"
+      ],
+      "en_segments": [
+        "It is considered wine. See Taz, who was troubled by the apparently unnecessary blessing. With respect to precedence, HaMotzi ordinarily comes before Borei Peri HaGafen, as explained in siman 211, seif 5. Nevertheless, the wine of Kiddush is of special importance and precedes the bread because Kiddush must be recited over it. When one wishes to avoid an unnecessary blessing, the order must be arranged so that the blessing required for Kiddush is not displaced. The Mechaber’s ruling concerns a person whose principal intention is to fulfill Kiddush and then begin the meal. If the bread is already covered, the wine is blessed first, both to avoid embarrassing the bread and because Kiddush establishes the meal. Beer or another beverage can serve only where the local beverage has the status of chamar medinah and wine is unavailable or inappropriate. Even then, the laws of precedence and the blessing over bread remain distinct. Taz’s question is therefore resolved by distinguishing the obligation of Kiddush from the ordinary rules governing which food or drink is blessed first. The blessing is not unnecessary, since it fulfills an independent obligation. See siman 273. See siman 302. See siman 597."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "oc1/siman292/seif-002/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 292,
+      "seif": 2,
+      "slug": "machatzit-hashekel",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 6,
+      "enSegs": 1,
+      "he_deficit": 5,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ס\"ק ב) ג' אנשים כו' שאין כאן במה להפסיק כו' דאחר ובא לציון אומרים קדיש ואחר הקריאה קודם תפלת י\"ח אומרים ג\"כ קדיש. וא\"כ אם נאמר הקדיש על הבימה אחרי הקריאה. איך יאמר שוב קדיש קודם תפלת י\"ח. והא אין ענין מפסיק בין שני הקדישים בשלמ' בשחרית איכ' הפסק בין ב' הקדישים אשרי שאומרים אחר קדיש שעל הקריאה אבל במנחה שכבר אמרו אשרי קודם הקריאה ואין אומר ואין דברי' אחרי הקריאה. ואפי' במנחה בתענית ס\"ד שיאמרו קדיש אחר שקראו ג' בתור' קודם שיאמר הפטר' ותהיה ההפטרה הפסק בין הקדישים לזה כ' מ\"א דההפטרה שייכ' אל הקריא' ונפטרה ההפטרה בקדיש שלפני ההפטר' א\"כ קדיש שלפני י\"ח למה הוא בא:",
+        "וכ' הריב\"ש כו' דבמקו' שאין ס\"ת א\"א קדיש שלפני י\"ח דהא כבר אמרו קדיש אחר ובא לציון וא\"כ קדיש שני על מה יאמרוהו. והקשה בס' א\"ר לפמ\"ש מ\"א סס\"י קמ\"ג דאפי' במקום שאין ס\"ת יקרא החזן בקול רם מתוך החומש וא\"כ תהיה הקריאה מתוך החומש הפסק וגם בס' ת\"ש כ' גם בעיני יפלא למה יגרע מפסוקי תהלים וצריך לחלק בין קדיש של ש\"ץ לקדיש יתום עכ\"ל ת\"ש. ולענ\"ד י\"ל דלא מצינו קדיש יתום או ש\"ץ כ\"א על תחנה ותפל' או שיר ושבח אבל על לימוד התורה אומרי' קדיש דרבנן. רק כשקוראים בס\"ת כתקנות עזרא אומרים קדיש על קיום מצות תקנות חכמים משא\"כ במקום שאין ס\"ת והחזן קורא מתוך החומש שלא תשתכח תורת קריאה אין לה מתקנת חכמים אלא מנהג בעלמא ע\"ז לא שייך קדיש כ\"א קדיש דרבנן על הלימוד וזה ניתקן בצבור:",
+        "שלא יאמרו גם כן ואני תפלתי כמש\"ל בס\"ק שלפני זה לטעם ש\"ל שם:",
+        "א\"ל שיאמרו ואני תפלתי ויאמרו קדיש עליו. ר\"ל לטעם שני שלא להפסיק כו' הוא יש לזה תקנה שיאמרו אחר ואני כו' קדיש שנית:",
+        "מ\"ד איהללו. ר\"ל מ\"ש לעיל דמה\"ט א\"א קדיש במנח' אחרי הקריא' דאין דבר להפסיק בין קדיש שלאחר הקריאה ובין קדיש שלפני י\"ח והא איכ' הפסק אמירת יהללו שאומרים בשעה שמכניסים ספר תורה להיכל אע\"כ דפסוק א' ל\"מ הפסק:",
+        "או יאמרוהו כו' ר\"ל אם אעפ\"כ רצונם לו' ואני יאמרוהו מיד אחר סיום ובא לציון ויאמרוהו אחר זה קדיש ולא יהי' הפסק. מ\"מ לטעם הש\"ל שכ' בס\"ק א' אפי' מיד אחר סיום ובא לציון אין לאמרו:"
+      ],
+      "en_segments": [
+        "Three men, etc. There is no interruption here, because after U'va LeTzion they recite Kaddish, and after the Torah reading, before Minchah, they also recite Kaddish. If Kaddish were recited at the bimah after the reading, how could another Kaddish be recited immediately before Minchah? There would be nothing between the two Kaddishes. At Shacharis, Ashrei is recited after the Kaddish that follows the Torah reading, and this serves as an interruption. At Minchah, however, Ashrei was already recited before the Torah reading and is not repeated afterward. Therefore, no Kaddish is recited after the reading. Even at Minchah on a fast day, one might have thought that Kaddish should be recited after the three aliyos and before the haftarah, with the haftarah serving as an interruption before the Kaddish preceding the Amidah. Magen Avraham therefore clarifies that this is not the practice."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman129/seif-009/siftei-kohen",
+      "volume": "yd1",
+      "siman": 129,
+      "seif": 9,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וארובה מהעלייה לבית. דמצי למחזי לכ\"ע הא לא\"ה דהך גיסא ודהך גיסא אסור וכ\"כ הרשב\"א ב\"י וד\"מ ופשוט הוא מלעיל סימן קכ\"ח ס\"ג:",
+        "הואיל ולא ידע כו'. כ\"כ בד\"מ בשם תשובת הרא\"ש כלל י\"ט סי' י\"ג וכן נרשם בש\"ע ותימה דבהדיא איתא בתשוב' הרא\"ש שם להיפך דאפילו ידע שמפליג הישראל וז\"ל נ\"ל דחמרא שרי וראיה מפרק בתרא דעבודת כוכבים ההוא ישראל ועובד כוכבים דיתבי בארבא ושתו חמרא שמע ישראל קל שיפורי דבי שמשי קם סליק אמר רבא חמרא שרי אימא אמר עובד כוכבים השתא קמדכר ליה לחמרא ואתי ואי משום שבתא הא אמר לי איסור גיורא כי הוינא בארמיותא אמינא יהודאי לא נטרי שבתא וכ\"ש בנדון זה דשרי דמימר אמר עובדי כוכבים השתא מידכר ישראל שלא סגר במפתח ואתי ול\"מ אם לא הודיע לעובד כוכבים שהוא מפליג דשרי דמימר אמר השתא אתי כל שעה ושעה ומירתת אלא אפילו הודיע לעובד כוכבים שהוא מפליג שרי דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת עובד כוכבים כו' עכ\"ל הרי בהדיא דאפילו הודיעו שהוא מפליג מותר ובאמת ניכרים הדברים שהיה לפני הרב תשו' הרא\"ש דפוס ישן ויניציאה שנדפס בשנת שי\"ב שכתוב שם בזה הלשון וכ\"ש בנדון זה דשרי דמימר אמר עובדי כוכבים השתא מידכר ישראל שלא סגר במפתח ואתי ול\"מ אם לא הודיע לעובד כוכבים שהוא מפליג דשרי דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת עובד כוכבים כו' עכ\"ל ודברים אלו נראים מוטעים והגיה הרב דוקא אם לא הודיע לעובד כוכבים שמפליג שרי אבל האמת יורה דרכו שגם בדפוס ישן ר\"ל כמו בדפוס חדש שבויניציאה כאשר העתקתי למעלה ועוד שהרי מביא הרא\"ש ראיה מההוא ישראל ועובד כוכבים דשתו חמרא כו' והתם אפי' כשהודיעו שהוא מפליג שרי מטעם שיאמר העובד כוכבים עתה יזכור יינו ויבא וכמ\"ש בס\"ק י\"ט ך' ועוד דלפי טעם שכתב הרא\"ש דמימר אמר עובד כוכבים כשיזכור ישראל שלא סגר במפתח ישוב לביתו ויסגור ומירתת ודאי אפילו הודיעו שהוא מפליג מותר מה\"ט וכ\"נ מדברי המחבר וצ\"ע:"
+      ],
+      "en_segments": [
+        "And he closed, etc. And at night we say presumably he closed, and it is forbidden, since the gentile has ownership in the house, as below at the end of siman 130."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman129/seif-020/siftei-kohen",
+      "volume": "yd1",
+      "siman": 129,
+      "seif": 20,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מותר. עיין בריב\"ש הביאו הב\"י מתיר מכמה טעמים ולבסוף כתב וכ\"ש בנדון זה שלא נמצא העובד כוכבים בצד היין ולא בתוך האוצר שאין לנו להאמינו שנכנס שם לא הוא ולא אחר וע\"ל סי' ק\"ל סוף ס\"ח בהג\"ה דאם היה חבית יין אצל העובד כוכבים ואמר שהיה מטפטף ותקנו ונגע בו אינו נאמן ועיין בתשובת מהרי\"ל סימן ל\"ח:",
+        "דאין העובדת כוכבי' נאמנת. אבל אם ידוע שלקחה מהיין שבמרתף אסור והיינו מדין הש\"ס א\"נ כגון שא\"א לה ליקח אם לא שתגע בידה כגון שאין ברזא בחבית וצריכה לשאוב מן החבית או מן הכוב' בידה וכה\"ג דאע\"ג דבכה\"ג נמי אפשר לה ליזהר שלא תיגע כגון שתשאוב בכלי ותשמור עצמה שלא תיגע בידה כלל מ\"מ חיישינן שמא נגעה בו דרך מתעסק וכדלעיל סימן קכ\"ח ס\"ד בהג\"ה אבל היכא דיש ברזא שלא נגעה בידה עצמה ביין שבחבית רק על ידי ברזא אפילו ידוע שלקחה היין מן היין שבמרתף שרי לדידן בזמן הזה במקום הפסד מטעמא דה\"ל מגע עובדי כוכבים ע\"י ד\"א שלא בכוונה וכדלעיל סימן קכ\"ד ולקמן ס\"ק שאח\"ז:",
+        "סימן קכ\"ה. כן הוא בספרים ובעט\"ז וכן הוא בד\"מ ולא ידעתי שום ענין שם לכאן ונראה דטעות הוא וצ\"ל סי' קכ\"ד או צ\"ל סי' קכ\"ח ור\"ל דשם סעיף ד' נתבאר דלא חיישינן שמא נגע לנסך אלא כשנגע להנאתו כיון שהעובדי כוכבים בזה\"ז אין מנסכים א\"כ ה\"נ לא חיישינן שמא נגעה בכוונה בידה לנסך דשם סעיף כ\"ד נתבאר דבזה\"ז דעובדי כוכבים לאו עובדי עבודת כוכבים הן אפי' הוציאה הברזא בכוונה שרי משום דכיון דאין כוונתה לנסך ה\"ל מגע עובדי כוכבים ע\"י ד\"א שלא בכוונה א\"כ ה\"ה הכא ולא חיישינן שמא נגעה בידה עצמה ביין שבחבית או נגעה במה שיצא לחוץ במה שמשכה דאז נאסר גם מה שבפנים ע\"י ניצוק דהא אינה צריכה לעשות כן וכן משמע להדיא במרדכי שם דמסיים אמעשה דטמנה המפתח דלעיל ואפילו משכה העובדת כוכבים והברזא יוצאת חוץ לקנה אם אין העובדת כוכבים יודעת ה\"ל כחה של עובד כוכבים שלא בכוונה עכ\"ל אלמא דלא חיישינן שמא נגעה בידה אלא דהצריך שאין העובדת כוכבים יודעת משום דא\"כ ה\"ל כחה אבל לדידן דקי\"ל לעיל סי' קכ\"ד דכחו ומגע עובד כוכבים ע\"י ד\"א שרי בזמן הזה א\"כ ה\"ה הכא מיהו היינו דוקא במקום הפסד וכמ\"ש שם ס\"ק ע\"א:"
+      ],
+      "en_segments": [
+        "For the gentile woman is not trusted. But if it is known she took from the wine in the cellar, it is forbidden — that is according to the Gemara's law; or such as where she cannot take without touching with her hand, such as when there is no tap in the barrel and she must draw from the barrel or from the vat with her hand, and similarly — for even though in such a case she can also be careful not to touch, such as drawing with a vessel and keeping her hand from touching at all — nevertheless we suspect perhaps she touched it incidentally, as above siman 128 seif 4 in Hagah; but where there is a tap and her hand did not touch the wine in the barrel itself except through the tap — even if it is known she took the wine from the cellar, it is permitted for us nowadays in a case of loss, because it is gentile touch through something else without intent, as above siman 124 and below in the next s.k."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman135/seif-005/siftei-kohen",
+      "volume": "yd1",
+      "siman": 135,
+      "seif": 5,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כלי נתר כו'. כתבו התוספות [בעבודת כוכבים דף ל\"ג ע\"ב] דתרי גווני נתר וזה אינו דפ\"ק דשבת דקאמר כלי נתר וכלי חרס טומאתן שוה ויש עוד נתר שלישי שאין עושין ממנו כלים אלא מכבסים בו כלים עיין שם:",
+        "ממחפורת של צריף. שקורין אלו\"ין עט\"ז ופרישה וכ\"כ הריב\"ש סימן ת\"ן והברטנורה רפ\"ב דכלים שהוא הנקרא אלו\"ם אבל הרמב\"ם שם סתר בארוכה דברי האומרים כן ופי' שהוא הנקרא טפל בל' ערבי וע\"ל סי' קנ\"ט ס\"ב:"
+      ],
+      "en_segments": [
+        "A vessel of natron, etc. Tosafot wrote [in Avodah Zarah page 33b]: there are two kinds of natron; and this is not so — for in the first chapter of Shabbat it says natron vessels and earthenware vessels have the same impurity status; and there is yet a third natron with which one does not make vessels, only uses to wash vessels — see there."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman138/seif-008/siftei-kohen",
+      "volume": "yd1",
+      "siman": 138,
+      "seif": 8,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מיישנן. וצריך להתיר הקשרים כמו שאכתוב בסמוך:",
+        "סגי להו בהדחה. משמע בהדחת צונן וכן הוא בהג\"א ומרדכי שם מיהו כתבו דהיינו דוקא בכבוס שרגילים שחובטין אותן כמה פעמים וכן הוא בתוס' מיהו באשר\"י משמע דלא שרי אלא דוקא בכבוס שרגילים לכבסן בכמה כבוסים באפר וכבוס בחמים בכלי שני ובצונן ונראה דלא פליגי משום דהתוס' ומרדכי והג\"א מסיימי' וצ\"ע אם יש לחלק באיסורים בין דבר הנדבק לשאינו נדבק כו' והרא\"ש שם מיישב מה שמתירים כל המפות שנפל עליהם איסור רותח אפי' איסור הנדבק דבכה\"ג בעי דווקא כבוס חמין ואפר. נ\"ל:"
+      ],
+      "en_segments": [
+        "He ages them. And one must loosen the knots, as I will write nearby."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman145/seif-002/turei-zahav",
+      "volume": "yd1",
+      "siman": 145,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ציפויו אסור. שנאמר לא תחמוד כסף וזהב אשר עליהם:",
+        "משמשי הר הוי כציפויו. לפי שמשמשי אליל נפקא לן פ' ר' ישמעאל (עבודה זרה דף נ\"ב) מפסוק אבד תאבדון את כל המקומות אשר עבדו שם הגוים את אלהיהם על ההרים והאי המקומות אם אינו ענין לגופו שהרי לא מתסרי דכתי' אלהיהם על ההרים ולא ההרי' אלהיהם תנהו ענין לכלים ש\"מ דאף בהרים נאסרו הכלים אבל תקרובת דהר לא נאסר וכתבו התוספות שם הטעם דבפ' כל הבשר נפקא לן איסור תקרובת דכתיב ויאכלו מזבחי מתים וקרא כי כתיב בפעור כתי' ופעור היה תלוש:"
+      ],
+      "en_segments": [
+        "Its plating is forbidden. For it is said \"you shall not covet the silver and gold upon them.\""
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman145/seif-007/beer-hagolah",
+      "volume": "yd1",
+      "siman": 145,
+      "seif": 7,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מימרא דרבי יוחנן שם דף נ\"ד:",
+        "לפי' רש\"י שם וכן משמע מדברי הרמב\"ם בפ\"ח:"
+      ],
+      "en_segments": [
+        "Statement of R. Yochanan there 54a."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman147/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 147,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מותר כו'. רמב\"ם בפי' ספ\"ה דגיטין מש\"ש בגמ' ס\"ב א' אחזוקו:",
+        "אלקיך. צ\"ל אלקים וכ\"ה בנוסחא שלפנינו ברמב\"ם שם ונוסחא מוטעת נזדמנה לו להרב:"
+      ],
+      "en_segments": [
+        "It's allowed to go. The Rambam in the P.S.S., D.C., D.C., has been removed:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman150/seif-002/beur-hagra",
+      "volume": "yd1",
+      "siman": 150,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אלא ישב. רמב\"ם:",
+        "או כו' או כו'. רש\"י ד\"ה ואם אינו כו':"
+      ],
+      "en_segments": [
+        "But sitting. Rambam:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman153/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 153,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "היה לעובד כוכבים כו'. טור וכר\"י אבל הרמב\"ם פסק כת\"ק:",
+        "ומ\"מ כו'. רש\"י שם ד\"ה לא יהא כו':",
+        "לעולם. רש\"י שם ד\"ה ואל ישוח כו':",
+        "במקום כו'. פר\"א פ' ב\"ט ולמה מלן בשביל הטהרה שכל מי שאוכל עם העובד כוכבים כו' וכל הנוגע בו כנוגע במת וכל הרוחץ עמו כרוחץ עם המצורע וכתב המרדכי בעבודת כוכבים מ\"ד ב' דאמרינן שם דר\"ג רחץ כו' שם שקדם העובד כוכבים וכתב בד\"מ ומה שאין נזהרין האידנא משום שהולכין במכנסים וכמ\"ש האגודה בפ\"ד דפסחהים וכמ\"ש בא\"ע סימן כ\"ג ס\"ו בהג\"ה אבל לא דמי לשם וכבר כתבו האחרונים שבפר\"א אומר משום טהרה וגם נראה דשם מיירי באמבטי אחת ולכן ל\"ק ג\"כ הא דר\"ג הנ\"ל:"
+      ],
+      "en_segments": [
+        "He belonged to a gentile, etc. Tur; and like R. Yosi; but Rambam ruled like the first opinion."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman153/seif-004/beur-hagra",
+      "volume": "yd1",
+      "siman": 153,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפילו הם רבים. גמ' שם כ\"ה ב':",
+        "ונשותיהם עמהם. שם וסתמו הרי\"ף והרמב\"ם ולא כתבו פלוגתת ר\"י ור\"א משום דס\"ל כפירש\"י דלרב אידי בכל ענין אסור ותניא כוותיה דר\"א אבל לפי' תוספות שם ד\"ה א\"ב והרא\"ש שם דבין העובדות כוכבים לעולם מותרת להתייחד ואשה חשובה אפילו עם העובדי כוכבים מותרת דקי\"ל כרב אידי כנ\"ל:"
+      ],
+      "en_segments": [
+        "Even they are many. G-d is called “B”:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman154/seif-001/baer-heitev",
+      "volume": "yd1",
+      "siman": 154,
+      "seif": 1,
+      "slug": "baer-heitev",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "תיילד. מבואר הוא דתרתי בעינן גבי הולדה ג\"כ דהיינו שיהו אחרים עומדים ע\"ג ויהיה דוקא בבית ישראל. ט\"ז:",
+        "מומחית. ולא אמרינן דלא מרעה נפשה כדלקמן סי' קנ\"ה ברופא מומחה כ\"כ ב\"י וכ' ב\"ח הטעם דמילדת יכולה לומר נפל היה וכה\"ג תמיה לי דבירושלמי פ' א\"מ קאמר כי היכי דברופא אומן מותר ה\"ה במילדת חכמה וכן בשום פוסק לא נזכר במילדת מומחית דאסור וצ\"ע עכ\"ל הש\"ך וע\"ל סי' פ\"א ס\"ז בהג\"ה:"
+      ],
+      "en_segments": [
+        "Child. The Torah is my religion in the midst of the Holy Spirit, which is to say that others are standing in the house of Israel. TJ:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman156/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 156,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בתער. דשכיחא היזקא אבל במספריים דלא שכיח היזקא שרי אם יש עמו אחר תוס' שם ופי' הב\"ח דאם אין עמו אחר בלא\"ה אסור להתייחד עם העובד כוכבי' (כדלעיל סי' קנ\"ג ס\"ב) עכ\"ל וכן מפורש בתוס' שם בדיבור הקודם וז\"ל אבל בינו לבינו אסור להסתפר פי' במקום שאין רגילין בני אדם כ\"כ אבל בייחוד ממש לא איצטריך דתיפוק ליה אף בלא מסתפר אסור להתייחד עמהם משום שפיכת דמים ע\"כ:",
+        "ונהגו להקל כו'. ז\"ל הדרישה כ' רמ\"א ויש מחמירין כו' עד ונהגו להקל ע\"כ ונראה הא דנהגו להקל היינו משום דאנו נותנים להם שכר וכתב הגה\"א דבשכר מותר עכ\"ל וקשה א\"כ מאי ונהגו להקל כסברא הראשונה אלא ר\"ל דסברא הראשונה מתיר במקום שבני אדם מצויין שם אפי' בלא מראה וע\"ז סמכו להקל וכן הוא הסכמת הפוסקים כמ\"ש בבית יוסף ואותן בני אדם שמסתפרים מן העובד כוכבים בינם לבין עצמן לאו שפיר עבדי דבלא\"ה אסור להתייחד עמהן כ\"ש במסתפר:"
+      ],
+      "en_segments": [
+        "With a razor. For harm is common; but with scissors where harm is uncommon it is permitted if another is with him — Tosafot there; and the Bach explained that if another is not with him it is in any case forbidden to seclude with a gentile (as above siman 153 seif 2) — end; and so is explained explicitly in Tosafot there in the previous heading: but between him alone it is forbidden to have one's hair cut — meaning in a place where people are not often found; but actual seclusion does not need to be stated — for it is derivable that even without the haircut it is forbidden to seclude with them on account of bloodshed — end."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman159/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 159,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הקראים כו'. עש\"ך:",
+        "תינוק כו'. דדוקא במומר להכעיס כמש\"ש וכ\"ש זה שהוא שוגג לגמרי:"
+      ],
+      "en_segments": [
+        "The colds are so. by:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman162/seif-002/beer-hagolah",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שם במשנה וכדמפ' רבי יצחק שם וכדתני רבי חייא לסיועיה:",
+        "סמ\"ק והרא\"ש בתשובה כלל ק\"מ סי' ט\"ז ותשו' הרשב\"א וכ\"כ הכל בו:"
+      ],
+      "en_segments": [
+        "There, in the Mishnah, as Rabbi Yitzchak explains there and as Rabbi Chiya taught in support of him."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman162/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 162,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וידוע כו'. עש\"ך ס\"ק ז' ט':",
+        "והא כו' אבל כו'. דוקא כה\"ג אבל עד זמן קבוע מותר דלא כהרמב\"ם שאוסר עד זמן קבוע וטעמו של הרמב\"ם כשיטתו דפי' מש\"ש אבל חכ\"א לוין סתם כו' על שער שבשוק כפי' הרי\"ף שדין ככר שוה לסאה ומש\"ש וכן היה הלל כו' ר\"ל אפי' על שער שבשוק ופליגי רבנן אבל ברישא מודי שלא יאמר אדם כו' משום שקובע זמן וז\"ש לגורן אבל הרא\"ש וש\"פ דפליגי על הרמב\"ם אזלי לשיטתייהו דס\"ל דבככר פליגי אפילו בלא שער כנ\"ל סס\"א וכן רישא לא יאמר כו' ג\"כ איירי בלא שער ולגורן ל\"ד כנ\"ל ס\"א (ע\"כ):"
+      ],
+      "en_segments": [
+        "and known as “. A.C.:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman166/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 166,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לא יעשה מלאכה בעבדו. ואי לא הלוה לו היה מותר דניחא למריה דההוא עבד שלא ילמוד דרך הבטלה כדאיתא בח\"מ סימן שס\"ג מ\"מ הכא דהלוהו מחזי כרבית:",
+        "ולא ישכור ממנו בפחות. רש\"י פירש דדין זה דוקא בבית וחצר לפי שאין שם הפסד משא\"כ בכרם בסי' קע\"ג דלפעמים יש בו הפסד ואפ\"ה מנכה לו דבר קצוב לשנה והתוספות חולקים וס\"ל דדין זה אף בכל מילי ועיקר החילוק דהלוהו על הבית הוה כזבינא ומותר בנכייתא אבל כאן הלוהו שלא על ביתו ויתבאר בסי' קע\"ב להלכה:",
+        "ובחצר דקיימא לאגרא הוה אבק רבית לכולי עלמא. כן צריך להיות כן נראה לע\"ד. ונ\"ל שיש עוד חסרון וכצ\"ל ומכל מקום חייב ליתן לו שכר כל שלא אמר ליה דור בחצרי חנם ומיהו אם אחר שהלוהו אמר ליה דור בחצרי חנם אף על גב דקיימא לאגרא לא הוה אלא אבק רבית כן נראה לי שהמעתיק טעה מתיבת אבק רבית הראשון לשני ודלג מה שכתב רמ\"א בינתיים וטעות כזה רגיל וכ\"ה בד\"מ והוא מבואר בב\"י בשם תלמידי רשב\"א דכל שלא פטרו בפירוש צריך ליתן לו שכרו דמשום דעביד איסורא לא הורע כחו. ומכאן תימה על מה שכ' רמ\"א בח\"מ סי' שס\"ג האומר לחבירו דור בחצרי דפירושו כאומר בחנם וכאן אמרינן דצ\"ל בפירוש כמ\"ש בב\"י דדור סתם משמע כדרך שבני אדם דרין בשכירות וכבר כתבתי שם בסימן רמ\"ו סעיף י\"ז דלא קיימא לן כהך פסקא שבסי' שס\"ג:"
+      ],
+      "en_segments": [
+        "No work will be done in his work. And he was not allowed to be rejected by Maria deo, a slave who would not be measured through the curse, in the midst of a sign that he would not be able to give thanks to the death of his army"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman167/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 167,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מלוה כו'. כמו בטרשא דרב חמא הרא\"ש וש\"פ. וכ\"ה בירושלמי ר\"ח יהיב דינר לחד ב\"נ א\"ל מה דהינון מיכן ועד חנוכה דידי מתמן ולהלן לית לי עסק עמך אין פחתין ואין יתרין דידך כו':",
+        "(ליקוט) מלוה כו'. ולא דמי להא דרב חמא (ס\"ט ב') דמוגיר זוזי וקיבל כל האחריות דשם היה כל העסק בשביל המקבל וקצץ לנותן דבר ידוע וכמש\"ל בסי' קע\"ז ס\"ו אבל כאן הוא כל העסק בשביל הנותן והוי כשלוחו ומ\"מ צריך שיהא האחריות על הנותן כיון שעושה בשביל טובתו שיהיה אח\"כ מלוה בידו והריוח שלו אלא כיון שנותן לו שכר עמלו ומזונו מותר לעסוק בפקדונו אע\"ג שיהיה אח\"כ מלוה בידו וכמו ההיא דרב חמא וכמ\"ש בעיסקא דמותר לעסוק בחלק פקדון אע\"ג שעושה בשביל חלק מלוה כיון שנותן לו שכר עמלו וכמו ההיא דירושלמי שהבאתי שאמר עד חנוכה כו' אבל מ\"מ דין זה אינו נ\"ל וכמש\"ש לא מצא מותר שליש כו' ואב\"א כו' ולא דמי לההיא דירושלמי דשם אמר אחר חנוכה יהיה שלך אף שלא ירויח או יפסיד קודם חנוכה וכן בטרשא דרב חמא דלא איכפת להו כלל בהולכה אם יהיה ריוח או לא מ\"מ בחזרתן הוא שלהם הריוח משא\"כ כאן. ועוד נ\"ל דאינו מותר אלא בנותן לו בעיסקא אבל בהלואה אסור וגדולה מזו בסי' קע\"ז סי\"ד האומר כו' דאע\"ג דמותר מן הדין וכמש\"ש בסי\"ח המוכר כו' מ\"מ אסור בהלואה כמש\"ש הרשב\"א דבדרך הלואה אסור ע\"ש ועוד כתב הטור שם סל\"ד הנותן עיסקא לחבירו כו' לא יכתוב עליו שט\"ח דהוי מלוה כו'. ומה מהני שנותן לו שכר עמלו הא אפילו חצר דלא קיימא לאגרא וגברא דלא עביד למיגר אסור לדור בחצרו וכ\"ש הלוני ודור כו' כ\"ש שמתנה עמו שיעסוק בפקדונו בשביל הלואתו אף שנותן לו שכר וכמ\"ש בסי' ק\"ס סכ\"ג המלוה כו' וה\"ה להיפך שע\"מ שכל מלאכה שיתן ללוה שיקבל ממנו ג\"כ אסור. ואינו מותר כאן אלא בעיסקא וכה\"ג דירושלמי או כמ\"ש בהג\"ה כאן (ע\"כ): ובלבד כו'. הרא\"ש שם וכמו בטרשא דר\"ח דנקט להו כו' וכמ\"ש הרא\"ש שם וכ\"ת כיון דאחריות הדרך כו' וי\"ל כו' ועתוס' ס\"ה א' ד\"ה נקטיה כו' ושם ע\"ג א' ד\"ה ברשות כו' וד\"ה החמרים כו' וד\"ה מ\"ט כו': ואם התנה כו'. כמש\"ל סי' קע\"ז ס\"ג ע\"ש:"
+      ],
+      "en_segments": [
+        "And if you have been called. As a result of the S.C.:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman168/seif-007/siftei-kohen",
+      "volume": "yd1",
+      "siman": 168,
+      "seif": 7,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המלוה מותר. לו ליקח אח\"כ הרבית:",
+        "ויש מקילין. דאין איסור ללוה ולא למלוה אף ליקח הרבית מישראל אף אם ידע מיהו היינו דוקא אם הוא בענין דלא מחזי כרבית כדלעיל סעיף ה' בהג\"ה:"
+      ],
+      "en_segments": [
+        "The lender is permitted. For him to take interest afterward."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman168/seif-020/siftei-kohen",
+      "volume": "yd1",
+      "siman": 168,
+      "seif": 20,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מותר להלוות כו'. דמה בכך שאין המשכון לעובד כוכבים וכי אסור להלוות לעובד כוכבים על המשכון של ישראל ואפי' אם הלוה העובד כוכבים לישראל ברבית מותר לישראל להלוות לעובד כוכבים על אותו משכון ברבית ולקבל מהישראל הרבית שחייב לעובד כוכבים שהרי הישראל הב' לא הלוה לראשון כלום אלא לעובד כוכבי' ובמקומו הוא לקבל הרבית מיד ישראל. טור והרא\"ש:",
+        "ולסברא הראשונה כו'. ול\"ד לדלעיל ס\"י דאם ישראל פודהו אסור דהתם מיד שנותן לו הישראל המשכון ולוה עליו מחזי דלוה לצורך ישראל א\"נ התם כיון שמשכנו בע\"כ ודאי לא הקנהו לו אבל הכא איכא למימר הקנהו לו. כ\"כ ב\"י גבי דין דס\"י ובזה א\"ש נמי דל\"ק מדלעיל ס\"ט דאסור כשידע המלוה שהמשכון של ישראל דהתם לוה לצורך ישראל וכ\"כ האחרונים:"
+      ],
+      "en_segments": [
+        "Permitted to lend etc. For what difference does it make that the collateral does not belong to the non-Jew — is it forbidden to lend to a non-Jew on a Jew's collateral? And even if the non-Jew lent to the Jew with interest — it is permitted for a Jew to lend to the non-Jew on that collateral with interest and to receive from the Jew the interest the Jew owes the non-Jew; for the second Jew did not lend to the first anything but to the non-Jew, and it is in his place that he receives the interest from the Jew's hand — Tur and the Rosh."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman170/seif-001/siftei-kohen",
+      "volume": "yd1",
+      "siman": 170,
+      "seif": 1,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ה\"ז מותר. ל\"מ הלוהו ק' בק\"נ אלא אפילו התנה עמו לתת לו כך וכך רבית לחודש. ב\"י בשם בה\"ת ומביאו ד\"מ:",
+        "וי\"א שאינו כו'. וכתב ב\"י דלכתחלה מורים דכל שיכול לתבוע לערב תחלה אסור עד שיקבל עליו שלא לתבעו עד שיתבע הלוה תחלה ולא ימצא לגבות ממנו או שיהא אלם ואין ב\"ד יכולים להוציא ממנו או שאינו בא לדין כגון שברח וכה\"ג דכל שהוא ערב כעין ערב דעלמא שרי אבל בדיעבד סמכינן אהי\"א והיכא דקיימי זוזי שבקינן להו כדין הספיקות שהמע\"ה עכ\"ד מבואר מדבריו דבערב שלוף דוץ אפי' כבר פרע לו הרבית מוציאין מידו שלא כדעת הרב ובד\"מ והב\"ח מיקל עוד ופסק כהר\"י קרקוז\"א דאינו אסור אלא לכתחלה אבל בדיעבד יש לוכל ההפסד כיון דמחמתיה קפסיד ואין בזה משום רבית אפילו בערב שלוף דוץ ודעת כל הפוסקים אינו כן ונלפע\"ד דהר\"י קרקוז\"א גופי' לא הקיל בזה אלא בערב קבלן אבל לא בערב שלוף דוץ ע\"ש. ובהכי ניחא מה שהניח בתשובות משאת בנימין ס\"ס ס\"ז בקושיא על הר\"י קורקוז\"א והרב דבש\"ס משמע דבישראל ערב הוי רבית דאורייתא די\"ל דבש\"ס מיירי בשלוף דוץ ובלאו הכי נמי לק\"מ די\"ל דס\"ל כמו שכתב בעל העיטור והביאו ב\"י דבש\"ס מיירי דוקא בעובד כוכבים שלוה מישראל כו' ע\"ש:"
+      ],
+      "en_segments": [
+        "Behold it is permitted. Not only if he lent one hundred for one hundred fifty; but even if he stipulated with him to give him such-and-such interest per month — Beit Yosef in the name of Beit HaTalmud; and Darkei Moshe brought it."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman175/seif-003/turei-zahav",
+      "volume": "yd1",
+      "siman": 175,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "פוסק ללקוטות כשער הלקוטות. אפילו לרמב\"ם דלעיל שהחמיר אפי' בישנות מג' דלא הוה שער קבוע כלל מודה הכא שיש לכל א' שער קבוע דדוקא לעיל ששניהם מין א' ועתידין להשוות משא\"כ כאן שהחילוק הוא דתבואות הלקוט הוא תבואה מעורבת שיפון עם חטין והיא כמו מין אחר עם של ב\"ה ולעולם לא יהיו שוין ע\"כ יש לכל א' שער קבוע לעולם. ע\"כ פוסק עם כל א' לפי שער שלו:",
+        "ולא יפסוק לב\"ה. מפ' בגמרא דבשלמא לקיט אי לית ליה יזיף מלקיט חברי' אבל ב\"ה אי ל\"ל זילא ביה מלתא למיזף מלקיט ואב\"א מאן דיהיב זוזי לב\"ה אפירי שפירי יהיב ונראה דיש נפקותא מיניה בין הנך שני תירוצים לענין אם אמר ב\"ה בהדיא יהבינא לך פירא דלקיט לתירוצא קמא אסור דזילא ביה למהוי ליה עסק עם הלקוט ויתן לו משלו ולתירוץ השני מותר בזה וכתב הטור שאפי' מתבואות לקוט לא יפסוק עם בעל הבית והיינו כתירוצא קמא לחומרא וכן יש לכוין דברי הש\"ע כאן דלא יפסוק כלל עם בעל הבית בתבואות לקוט אבל ב\"ה בג' ודאי שרי:"
+      ],
+      "en_segments": [
+        "Go to the cottages as the cemetery. Even the low-cost radar that has worsened A. D. D.D. has a fixed gate at all admits that the oppressor has a fixed gate above that both of them are a type of A and that they are future to compare such a burden here that the division is a constant reference to the ecclesiastic and is like another species with the people of B. So he goes with every A according to his hair:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman175/seif-008/beur-hagra",
+      "volume": "yd1",
+      "siman": 175,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מקח כו'. עבח\"מ סי' ר\"ח וע\"ל סי' רכ\"ח (ע\"ש בס\"ק ק\"א) ומש\"ש:",
+        "(ליקוט) והוא כו'. וכ\"כ ברא\"ש שם בשם הגאון שנתקיים המקח בקנין וכ\"כ בש\"פ משם הגאון (ע\"כ):"
+      ],
+      "en_segments": [
+        "Take a spoon. And then, he said, “And I will be with him.”"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman177/seif-039/siftei-kohen",
+      "volume": "yd1",
+      "siman": 177,
+      "seif": 39,
+      "slug": "siftei-kohen",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גם לעצמו כו'. ממעות אחרים שאינו דמי השותפות מאותו המין וכ\"ש מין אחר. ב\"י והאחרונים. ול\"ד לדלעיל סעיף כ\"ט בחנות משום דבחנות מחויב לישב שם כל היום להתעסק בשלו ולא לבטל בעסק אחר משא\"כ הכא. פרישה:",
+        "שלא ימכרם ביחד. דשמא מה שקנה לעצמו אינו משובח כ\"כ כמו השותפות ונמצא חבירו נפסד בכך. ב\"י והאחרונים: \",\" היכא דאיכא ספיקא דדינא או מחלוקת בין הפוסקים אי הוי ר\"ק או א\"ר כתוב בתשו' ר' אהרן ששון בסי' קס\"ב בשם מהר\"ש די מודינא דאזלי' לחומרא משום דהוי ספק איסור דאורייתא והוא חלק עליו דהוי ספק ממונא ולקולא דהמע\"ה אם לא שרוב הפוסקים מסכימים דהוי ר\"ק דהוי ספק איסור דאורייתא דאזלי' בתר רובא וכן נראה מדברי שאר אחרונים ונ\"ל שהב\"ד יאמרו לו שהוא עושה איסור בדבר ויאיימו עליו וכן ראוי להחמיר לעצמו אבל אם אינו משגיח בכל זה אין כח ביד ב\"ד להוציא ממנו כיון דהוי ספיקא דדינא ולכאורה נ\"ל ראיה ממאי דאמרינן בש\"ס גבי מתנות כהונה ונתבאר לעיל סי' ס\"א סעיף כ\"ג וכן לקמן גבי בכור סי' ש\"ה סי\"ג וכן בכמה דוכתי דפטור משום המע\"ה אע\"ג דהוי מ\"ע שבתורה וע\"ל סי' רנ\"ט ס\"ק י\"ד:"
+      ],
+      "en_segments": [
+        "Also for himself etc. From other money that is not the partnership money — of the same species; and all the more of a different species — Beit Yosef and the Acharonim; and it is not comparable to above seif 29 regarding a shop, because in a shop he is obligated to sit there all day engaging in his own business and not neglect it for another business — unlike here — Perishah."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman181/seif-011/turei-zahav",
+      "volume": "yd1",
+      "siman": 181,
+      "seif": 11,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "על כל זקנו. בכלל זה גם השפה העליונה שלדעת ר\"ח בטור שני גבולי השפה הם מהפאות:",
+        "ואפי' תהת הגרון. בטור כתוב דלר\"ח הוי פאה אחת בסוף הזקן בגרגרת והקשה ב\"י דהא אין זה מוזכר בגמרא רק באשר\"י בדעת ר\"ח הזכיר ושבולת זקן מתחת והיינו מטעם לפי שמושך אליו העור של הפאה שבסוף העצם שקורין סנטור ובתוספתא הביאה הרא\"ש כתוב פאות הזקן מפרק הלחי עד פיקה של גרגרת וא\"כ לכל הפחות היה לו להטור לכתוב עד הגרגרת דמשמע ששם עיקר הפאה החמישית ועל כן השאיר בצ\"ע. ומו\"ח ז\"ל האריך בזה לומר דעיקר פאה החמישית במקום הגרגרת ממש ואין שאר השער שתחת הגרון בכלל האיסור כלל ואין לשון התוספתא משמע כן דהא עד פיקה של הגרגרת קאמר ולא בגרגרת כלל העולה דתחת הגרון אין איסור מן התורה אלא מדרבנן מטעם הנזכר בב\"י בשם הר\"ר יונה שאסרו חכמים להעביר שער בתער בכל מקום בגוף ואפי' על זרועותיו לפי שדומה לתיקון הנשים ואח\"כ כ' בשם סמ\"ק טעם אחר שאסור לר\"ח בתער תחת הסנטור לפי שפעמים שמושך אליו העור של הפאה כו' ולכן במספרים כעין תער מותר שם ועיין בסימן שאחר זה בסעיף א' מה שכתבתי שם:"
+      ],
+      "en_segments": [
+        "All of our time. It is also the upper language that, in the column, the two limits of the language are from the Fa:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman183/seif-001/turei-zahav",
+      "volume": "yd1",
+      "siman": 183,
+      "seif": 1,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "באונס. פירוש על ידי קפיצה. ברצון פירוש כפי טבע האשה מחמת עצמה:",
+        "אע\"פ שלא יצא לחוץ. עיין ריש סימן קפ\"ח מדינים אלו. בטור שמא תראה האשה בימי נדתה יש מגיהין ושמא כו' משום קושיות ב\"י ולא נייח לי דא\"כ לא היה צריך לכתוב אח\"כ בין זיבה לנדה אלא הוי ליה למימר כדי שלא תטעה בימי נדה עצמה דזיבה מאן דכר שמיה ע\"כ נראה דצ\"ל בטור משום שמא יבאו לטעות באיסור כרת החמירו לטמא כל מראה אדום ושמא תראה כו' כנ\"ל להגיה ולפי זה דבריו הם מסודרים היטב שעל חשש טעות במראה הדמים החמירו לטמא כל מראה אודם רק שיש חשש עוד מחמת זה שמא תראה אשה כו' וצריכה עוד ז' ימים פירוש עם יום הראי' דם טמא היינו עוד ו' ימים ובאמת אף שכאן מיירי מימי נדה מ\"מ צריכה שיהיו נקיים דאם תראה בהם יהיה גם בהם הספק דשמא עד יום האחרון עדיין לא ראתה דם טמא אלא צריך שיהיו הו' ימים שאח\"כ נקיים ולפ\"ז לא צריכה אלא ו' נקיים מ\"ה לא זכר כאן נקיים וכללו במ\"ש אחר כך וכדי שלא יבואו לטעות בין ימי נדה לזיבה דשמא בימי זיבה היא וראתה דם טמא ג' ימים וצריכה ז' ימים נקיים דוקא וזהו שסיים הטור תשב עליה ז' נקיים ר\"ל בלא יום הראיה כזבה גדולה משא\"כ לעיל כ' וצריכה עוד ז' ימים ר\"ל בצירוף היום הראיה האחרון שלפניו ופי' דברי רבינו כך הוא דג' חששות יש כאן. הא' במראה דם שיטעו לטהר ע\"כ החמירו לטמא כל מראה אודם ועוד חשש לענין ימי נדה כמו שזכרנו על כן היה צריך ו' נקיים ועוד חשש שתטעה בימים בין זיבה לנדה ע\"כ צריכה ז' נקיים וא\"ל למה לי חשש האמצעי י\"ל דמהי תיתי לחשוש לטעות בין נדה לזיבה ע\"כ כתב חשש האמצעי דמחמתו צריכה עכ\"פ ו' נקיים וא\"כ יש מקום לטעות בין נקיים דנדה לנקיים דזיבה ע\"כ צריכה בכל מקום שבעה נקיים:"
+      ],
+      "en_segments": [
+        "Rape. It means by jumping. In desire, it means the nature of the woman herself:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "yd1/siman185/seif-004/beer-hagolah",
+      "volume": "yd1",
+      "siman": 185,
+      "seif": 4,
+      "slug": "beer-hagolah",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "משנה שבועות דף י\"ד (ורמב\"ם פ\"ד דין י\"ח):",
+        "מימרא דרב הונא משמיה דרבא שם דף י\"ח ע\"א (ומרדכי):"
+      ],
+      "en_segments": [
+        "A few weeks ago, it was written:"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    }
+  ]
+}

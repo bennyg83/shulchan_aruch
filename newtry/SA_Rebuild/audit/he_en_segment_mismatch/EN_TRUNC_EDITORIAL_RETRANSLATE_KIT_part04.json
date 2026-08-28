@@ -1,0 +1,326 @@
+{
+  "meta": {
+    "kind": "en_truncated_vs_multi_he",
+    "tier": "editorial",
+    "mode": "fresh_multi_segment_translate",
+    "purpose": "EN truncated/garbled blob — fresh multi-segment translate from HE (needs_editorial tier)",
+    "source_lists": {
+      "review": "EN_TRUNC_PACK_ALL_REVIEW.json",
+      "eval": "EN_TRUNC_PACK_ALL_REVIEW_EVAL.json",
+      "exclusions": "wave1 applied/held + moderate resegment kit ids"
+    },
+    "output_schema": {
+      "primary": "segments[] with index, he, en, source:fresh_translate",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT",
+    "counts": {
+      "total": 99,
+      "by_volume": {
+        "oc1": 4,
+        "yd1": 64,
+        "cm1": 31
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.\n\nINPUTS (both required)\n1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).\n- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.\n- Wave1 strict/moderate tiers excluded (already in other kits or applied).\n- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.\n\nTRANSLATION NORMS\n- Complete: translate every clause; no omissions or paraphrasing away content.\n- No additions: no introductions, notes, or explanations beyond the source.\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label.\n- Where norms and full_dictionary.md conflict, full_dictionary.md wins.\n\nTASK\nFor each case:\n1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).\n2) segments.length MUST equal heSegs (1:1 with he_segments).\n3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.\n\nOUTPUT — JSON array only, same ids/order as input cases:\n[{\n  \"id\": \"...\",\n  \"action\": \"fresh_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs; each segment includes paired he+en.\n- en_segments[] mirrors segments[].en in order.\n- source on each segment is fresh_translate (or partial if you must flag a slot).\n- No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.",
+      "- Wave1 strict/moderate tiers excluded (already in other kits or applied).",
+      "- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.",
+      "",
+      "TRANSLATION NORMS",
+      "- Complete: translate every clause; no omissions or paraphrasing away content.",
+      "- No additions: no introductions, notes, or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).",
+      "2) segments.length MUST equal heSegs (1:1 with he_segments).",
+      "3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.",
+      "",
+      "OUTPUT — JSON array only, same ids/order as input cases:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"fresh_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs; each segment includes paired he+en.",
+      "- en_segments[] mirrors segments[].en in order.",
+      "- source on each segment is fresh_translate (or partial if you must flag a slot).",
+      "- No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 4,
+    "chunk_total": 6,
+    "case_offset": 76,
+    "cases_in_chunk": 9,
+    "parent_pack": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json",
+    "parent_sha256": "f5910cf438138ae0d71a83e6a7ed9864cab669c7ac756a19d88c84ebe9b5dfbe"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman65/seif-010/turei-zahav",
+      "volume": "cm1",
+      "siman": 65,
+      "seif": 10,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(בטור ס\"ח והרמ\"ה כתב כו') הב\"י הניח דברים אלו בצ\"ע וראיתי רבים מפרשים זה בכה וזה בכה ואענה חלקי גם אני בס\"ד דפליגי בזה בפי' המתני' דתנן מצא תכריך של שטרות יכריז דמסיק בגמ' דמכריז שטרות מצאתי והבעל אבידה ואמר המנין וס\"ל להרא\"ש ורבינו דמ\"ה תנן שיהיו שטרות כרוכים כי היכא שיוכל הלה ליתן סימכין במנין דאי לא כרוכים שתא לא נפל אהדדי ומתייאש מש\"ה כתב רבינו יכריז שטרות מצאתי למי שיאמר מנינם כו' וגילה לנו שהכריכה הוא העיקר חיוב הכרזה משא\"כ בדברי הרמ\"ה דלא הוזכרו הכריכה רק לסימן וכמו שיתבאר והנלע\"ד בפי' דברי הרמ\"ה הוא בדרך זה שהוקשה לו במה דאמרו בברייתא תכריך של שטרות ג' שטרות כרוכין זה אצל זה ופרכי' מאי מכריז המוצא מנין א\"ה תרי נמי ומשני מכריז סתם ומפרש הרמ\"ה דבעל אבידה צריך שיאמר המנין וגם הכריכה והוקשה לו למה באמת שנה התנא ג' שטרות הלא סגי בב' כדפריך המקשן וה\"ה בג' למה צריך בעל אבידה לומר סי' המנין ותי' דמתני' מיירי בחד לוה ומלוה וע\"כ כשישנן ג' צריך שידע גם המנין דהנך תרי שטרי דחד לוה ומלו' אינון וא\"כ שניהם יודעים בסימנים הן במנין הן בכריכות ודוחה לזה מ\"ש בס\"ו נקב יש בצד אות פלונית וכו' אלא דכאן יש סברא לומר להחזיר למי שאמר הסימן כיון שהב' ידע ולא בא עז\"א אפשר דא' מכיר בדריכתן והר' אינו שם על לבו האיך היו כרוכים ע\"כ לא בא וגם סי' המנין אפשר שאינו יודע כי הוא חושב שנאבדו ממנו במפוזר וכמ\"ש בסמוך בשם הרא\"ש אלא דהרא\"ש ס\"ל דמשום הכי הוא מתייאש מן האבידה ולדעת הרמ\"ה עכ\"פ לא נתייאש עדיין אלא שלא רצה לבא עדיין בשביל סי' זה ע\"כ מצריכו שיאמר איתו שלפנינו סימן המנין וגם הכריכה ועי\"ז יודע שעכ\"פ מתחילה היו כן אלא שעיקר החשש שמא הוא נתנם כן ומן האחר נפלו בזה אמרי' כיון שעכ\"פ היו מקובצים במקום א' ומונחים בכונה ביחד לא דרך מקרה ודבר זה ידוע לכל א' מהם שקבלום בקיבוץ אחד אף שאינו יודע עיקר הכריכה היאך היתה מ\"מ יודע שהן מקובצים ביחד וא\"כ היה לו לבא ולהגיד סי' דמנין משא\"כ אם זה אינו אומר אלא הי' המנין אנו אומרים שמפוזרים היו וע\"כ לא בא השני וא\"ל למה הוצרך ליתן סימן הכריכה הלא די לומר שהיו מקובצים אף על פי שאינו יודע היאך היה השינוי די\"ל דבר זה אומר מסברא לכך צריך שיאמר סימן הכריכה ולא סגי במקובצים לחוד וגם אם אומר זה סימן כריכות ולא אמר מנין אנו אומרים שמא על ב' מהם אומר שכרוכין היו והשאר מפוזרים ואף שעכשיו הם כולם כרוכים שמא בנתיים נעשה כרך א' נמצא שגם בזה שייך לומר שהב' לא רצה לבא כי הכריכות אינו שם על לב ומנין אין כאן ע\"כ צריך שיאמר זה שני סי' המנין וכריכה ואם תאמר אכתי אמאי נותנין לזה ניחוש שמא האחר לא בא כי היה יודע שלא יחזירו לו בשביל סימן אחד י\"ל דמ\"מ היה לו לבא דשמא השני לא ידע כלל שום סימן ויהיה לו תועלת מזה שיתן לו:",
+        "(והמשך דברי הרמ\"ה בקצרה נ\"ל כן דאע\"פ דבעלמא סגי בא' או במנין או בכרוכים והכא בעינן דוקא מנין עם כריכה או קשירה וא\"כ צריך שיהא דוקא ג' יחד דאי לא הוה כאן מנין דהיינו שאין כאן אלא תרי איו להחזיר בשביל הסי' דכריכה או קשירה דמיירי בחד לוה ומלוה וא\"כ הנך תרי שטרי יש כאן חשש מאחר שמצד עצמו של הסימן שהוא נותן אין ראוי להחזיר לו כיון שכל אחד יודע סימן הכריכה או הקשר מאחר שהיה ביד כל א' אלא העיקר ההוכחה הוא מחמת שהא' בא לב\"ד והב' לא בא וע\"ז י\"ל שמא הא' שבא נתן על לבו ענין הכריכה והב' לא נתן על לבו ע\"כ לא בא לומר סימן הכריכה וא\"ל עכ\"פ אם ישנן ג' שטרות דשייך מנין למה צריך זה שבא לומר המנין וגם הכריכה ואמאי לא די בכריכה לחוד מאחר שהב' לא בא לומר סימן המנין י\"ל בזה דאימור לא היה בכרך א' ע\"כ הוא חושב שמא לא נפלו ביחד ומה לו להגיד סי' המנין ואחשוב כשקרן שתא לא יהיה כך משא\"כ אם זה שבא דמר סימן המנין עם סימן הכריכה הרי אנו רואין שעכ\"פ היו בכרך א' והיה לו לבא ולהגיד וא\"כ נהי שהב' אינו יודע האיך היתה הכריכה מ\"מ יודע שהיה בכרך א' והיה לו לבא ולהגיד סימן המנין. בד\"א שאין שניהם לפנינו אז אומרים בכל גוני שיש ספק בסימן לא בא הב' כי הוא חושב מה לי לילד' לב\"ד בסי' שאינו ברור כיון שאינו רואה שום מתנגד לפניו אבל אם שניהם לפנינו ואנו אומרים תנו סי' וא' אומר סימן הכריכ' לחוד והב' לא אמר כלום אז לא צריך זה שיאמר הסימן לומר ג\"כ המנין אע\"פ שהם ג' שטרות דיש הוכחה לפנינו כיון שהב' רואה שיש מתנגד לפניו והב\"ד יתנו לו השטרות היה לו לומר סימן כמנין אף שיהיה לו ספק אם היה בכרך א' או לא מ\"מ גם ספק זי' היה לו לומר כדי שלא יתנו לזה הב\"ד עכ\"פ אלא ודאי שזה שאומר הסימן הוא ניהו שאבד השטרות ושפיר מהדרינן ליה כנ\"ל ברור ונכון (אמר המגיה בביאור דברי הרמ\"ה ז\"ל המפרשים כ\"כ האריכו מענית וביחוד הרב בש\"ך ז\"ל והרבה להשיב על הרא\"ש ז\"ל ואני בעניי הכינותי את לבי ליישב דברי רבינו רבן של ישראל ז\"ל כי הדבר חובה על כל יודעי דת ודין ומצאתי שאין בהשגות הרב הש\"ך ממש ואגבן אפרש דברי הרמ\"ה ז\"ל כפי מה שתעלה מצודתי היום ונלע\"ד דההכרח שהזקיקו להרמ\"ה ז\"ל לפרש דהכא מיירי בחד לוה ומלוה מלבד מ\"ש המפרשים ז\"ל שהוא משום דחזינן דהוצרכו ב' סימנים דהיינו כריכה ומנין עוד נלע\"ד הכרח גדול מזה והוא דק\"ל ז\"ל מהא דאמר רבא בא\"מ סימנים ועדים ינתן לבעל העדים הנה אף את\"ל דהיכא דאנן סהדי שמען זה היה של פ' ובא אחר ונתן בו סי' ינתן לאותו האחר כיון שזה לא בא הדברים מוכיחים שאינו שלו אלא שמכרו לזה הנותן סי' מ\"מ היכא ששניהם באים ותובעים וזה שאנו יודעים בו שהיה שלו אינו נותן שום סימן עכ\"ז ונתן לו דהיינו הא דרבא ממש הימנים ועדים ינתן לבעל העדים ופי' הרא\"ש ז\"ל ורפי' לא ראו הנפילה אלא שמעידים שהיה שלו ואפילו סימן מובהק לא מהני והיינו דקשיא ליה להרמ\"ה ז\"ל אי ס\"ד דמתני' מיירי בג' לווין וג' מלוין היכא פסק ותני דמהדרי' בסימן גם שלשתן לאיש א' אף שהמלוים האחרים וגם הלוים אחרים צווחו כי כרוכיא כל א' אומ' שלי הוא שטרי ומידי נפל ואנן סהדי דכל שטר ושטר מהם הוא של אותו הלוה או המלו' שנכתב על שמם ואינו של זה הנותן בהם סי' אלא ע\"כ בחד לוה ומלוה עסקינן ולהכי מהני סימנים והנה לפ\"ד הש\"ך קושית הב\"י דא\"כ גם המנין ידע במקומה עומדת ומ\"ש הוא ז\"ל כיון דאמר כל הב' סי' תו לא חיישי' אינו אלא סברא חצונית דכיון דידע הכריכה מסתמא גם המנין יודע והנך תלתא כחד חשיבי כמ\"ש הוא ס\"ל בעצמו ועוד ק\"ל קושיא כללית וגדולה היא אלי לפ\"ד ז\"ל סברא הפוכה אני רואה כאן דכשלא בא אלא הא' ונתן סי' א' בין מנין בין כריכה לא מהני אף דאיכא למימר השני אודויי אודי ליה דאי ס\"ד מן אחר נפל היה לו לבא לפני ב\"ד ולתבוע את שלו ומדלא בא ש\"מ לאו ממנו נפל או שאין לו סימן כלל וכששנים לפנינו ותובעים והאחד יודע סימן הכריכה' אף שא\"י המנין והשני א\"י לא זה ולא זה נותנין להיודע אף דאל\"מ הכריכ' לא שם על לבו והמנין נשכח ממנו כאשר נשכח בהכרח מהאומר הכריכה נמצא כח ממון שאין לו תובעים מרובה מכח ממון שיש לו תובעים ונמצא ספק מוציא מידי ודאי וזו ודאי פליאה נשגבה מה תאמר זה שהוא לפנינו בודאי לא ידע אבל כשאין לפנינו אלא א' מהן אמרי' שמא גם האחר יודע מה לנו ולידיעתו אטו בידיעי תליא מילתא בתביעה תליא מלתא וכיון שאינו בא ותובע ודאי לאו ממנו נפל ותו שכתב דבשניהם לפנינו וא' אומר המנין והשני הכריכה נותנין להאומר המנין וא\"כ תמיה גדולה כשאין לפנינו אלא אחד וזה אומר המנין אמאי לא ינתן לו דלמאי ניחוש לה אי לשמא האחר יודע שני הסימנים או המנין לחוד א\"כ היה לו לבא כיון שהוא יודע שבסימן המנין לחוד נותנין וכל שכן אם זה שלפנינו הוא המלוה ע\"כ היה לו להאחר שהוא הלו' לבא ממ\"נ אם גם המלו' ידע סי' המנין א\"כ יהא מונח עד שיבא אליהו ונמצא משתכר בהליכתו וכל שכן אם המלוה לא ידע אלא סי' הכריכה דיתנו לזה הלוה וא\"כ ה\"ל לבא האי אמרת שמא אותו האחר א\"י אלא סי' הכריכ' ולכן לא בא א\"כ פשיטא שיש לנו ליתן לזה האומר סי' המנין דלא יהא אלא האחר לפנינו וצועק ככרוכיא בסי' הכריכה אין משגיחין בו מכ\"ש כשאין לפנינו ואינו תובע כלום ואלו דברי' שהדעת מחייבן והשכל גוזר עליהן והנרא' לע\"ד נכון בדברי הרמ\"ה הוא דק\"ל אמאי לא מכריזין בתרי שטרי נמי ויתן סי' בכריכה וכמ\"ש הרב בב\"ח ואחריו נמשכו הט\"ז והש\"ך וכן בג' אמאי לא מכריזין הכריכה ותיסגי במנין לסי' או איפכא דהא בחד סי' סגי ועל זה קאמר בעי' מנין עם כריכה או קשירה שיהיו שניהם נעלמים דכיון דהנך שטרי דחד לוה ומלוה אינון אתי לידי תקלה אם תכריז המנין או הכריכה שהרי אתה קורא לרמאי והוא בא שבהזכירך איזה מהשני סימנים בין המנין או הכריכה אתה מעורר את הרמאי דבשלמא אם תכריז סתם אין הרמאי שם על לב לבא לב\"ד דמי יימר דהנך נאבדו אבל כשאתה מזכיר איזה מהב' סימנים הרמאי נזכר ובא ותובע את שאינו שלו ויש בזה ב' מיני תקלות קטנה וגדול' הא' בג' שטרות שיבאו שניהם שאינו רמאי והרמאי כי ע\"כ צריך שידע גם הב' סי' המנין אלא שבחנם אתה מזקיקו להיות מונח עד שיבא אליהו והשני' והיא הגדולה בב' שטרות דכשאתה מכריז סתם שערי דהיינו תרי הרמאי נזכר ורץ ובא ונותן סי' הכריכה הידוע לו ונוטלן ואוחז שהם שלו באמת אינו בא כלל כי אין לו סימן והרמ\"ה הזכיר הגדולה והיא בב' שטרות שאם תכריז יבא אותו שאינו שלו ויתן סי' הכריכה ויקחם וא\"כ אזדא לה קושית הב\"י דאם יודע הכריכה גם המנין יודע דאה\"נ דהיודע הכריכה יודע המנין בהכרת אלא דאנן הכי קאמרי' אם תכריז כריכה אתה מעורר לרמאי לבא לב\"ד וכן בב' שטרות אם תכריז מנין לאפוקי אם תכריע סתם והיינו דקאמר וה\"מ שאין שניהם לפנינו רצה לומר בשעת הכרזה שאין שום אחד מהם לפנינו אלא המוצא בא להכריז אז צריך שיהיו שני הסימנים נעלמים אבל אם הם לפנינו רצה לומר שניהם או אחד מהם דין אחד להם דנותנין לזה הבא ונותן סימן בין שהוא סי' המנין או הכריכה כיון שהשני לא בא או בא ולא נתן סי' וחד מכללא דאידך נפקא מק\"ו דכתיבנא וקרובין דברי אלה להיות כדברי הרב בב\"ח והמעיין יבחין מאי בינייהו אמנם מ\"ש הרב בב\"ח דבתרי לווין וב' מלווין נותנין כאומר סימן דכריכה כו' אינו מוכרח לפי מה שכתבנו אדרבה הוכחנו שאין משגיחין בסימנים אם שכנגדו עומד וצווח שלי הוא ואנן סהדי דהאחד לא היה של זה הנותן סימן שהרי לא נכתב על שמו:"
+      ],
+      "en_segments": [
+        "(In the Tur, seif 8: The Ramah wrote, etc.) The Beit Yosef left these words unresolved. The dispute concerns the Mishnah’s rule that one who finds a bundle of documents must announce it. According to the Rosh and Tur, the documents must be bound so that the owner can identify their number; if loose, they may not have fallen together and the owner despairs. The finder therefore announces only that he found documents, and the claimant states their number. The Ramah, however, treats the binding itself as an identifying mark. Where the documents involve one borrower and one lender, both parties may know both their number and how they were bound. Therefore the claimant ordinarily must state both marks, especially when the competing party is absent, because absence may reflect ignorance of one detail rather than abandonment. If both parties are present and only one provides a valid sign, that sign may suffice because the other had an immediate opportunity to respond and failed. The form of the public announcement must not disclose either identifying detail, lest a fraudulent party be alerted and use information already known to him from prior possession. The core distinction is therefore between what the finder announces and what the claimant must supply, and between a case where the rival claimant is absent and one where he is present. This resolves the Beit Yosef’s objections and is close to the Bach’s explanation, though the Bach’s rule concerning two borrowers and two lenders is not compelled. When the opposing party stands and protests, a sign is not decisive if we know that one document could not belong to the person giving it."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman66/seif-036/beur-hagra",
+      "volume": "cm1",
+      "siman": 66,
+      "seif": 36,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יש. כיון דחיובו משום דינא דגרמי ולא משום אחריות:",
+        "(ליקוט) יש מי כו'. היינו לשיטתו בסל\"ב וכ\"כ ש\"ך דלא כסמ\"ע ודברי הסמ\"ע תמוהין מאד שלפ\"ד הנותן מתנה לחבירו ונתבטלה המתנה יהא חייב לשלם לו והם זרים מאד ועסי' רמ\"א ס\"ט ויחזיר כו' וש\"מ (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is. It is because of Dina Dasmer, and not because of responsibility: (Lycott) is one of them. We were in the United States, and so on, that Hashem’s promise is a gift to him and that the gift must be paid to him and they are very foreign and they will return to him"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman67/seif-028/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 28,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יתומים קטנים. דגדולים אין ב\"ד אביהם דהם ככל אדם. ריב\"ש:",
+        "(ליקוט) יתומים קטנים. ערש\"י בב\"מ ע' א' ד\"ה בדקנני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Small orphans. The great ones do not have their father’s blood as much as man. A small orphan. “And I am in the midst of Hashem.”"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman67/seif-030/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 30,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין שביעית. עבה\"ג ומתני' דפ\"י דשביעית השוחט כו':",
+        "(ליקוט) אין כו'. סנה' ל\"ב א' (ע\"כ):"
+      ],
+      "en_segments": [
+        "There is no lawsuit. The thick and thickened, and there is no quaint. A. (A.)"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman73/seif-003/turei-zahav",
+      "volume": "cm1",
+      "siman": 73,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(סעיף ב) הלוה נשבע היסת. משמע דוקא בענין זה שאין חילוק ביניהם לענין גוף ההלואה רק לענין ז\"פ ממילא הוי כופר הכל וע\"כ אין נשבע אלא היסת אבל אם יש חילוק ביניהם גם לענין סך הלואה כגון שהמלוה אומר מנה לי בידך לשלם עכשיו והלוה אומר אין לך אלא נ' לשלם לשנה זה הוא מודה מקצת בסך הלואה אע\"ג דיש ג\"כ כופר הכל לענין ז\"פ מה בכך כיון שיש עכ\"פ מודה מקצת ומקוים ביה כי הוא זה ה\"ל כפירת זמן בחלק זה ככפירת נ' בגוף החוב וחייב ש\"ד משא\"כ כשאין כפירה בסך הממון רק בפרעון לא אשכחן כלל ש\"ד ואף דזה דבר פשוט הוא מ\"מ כתבתי להיות כי שמעתי איזה דינים פוסקים בזה במודה לו מקצת הסך שטוען עליו ואומר שאותו מקצת שהוא מודה אין הזמן פרעון עכשיו אלא אחר איזה זמן אין זה מודה במקצת ומביאים ראיה ממ\"ש בגמ' פ\"ק דב\"מ כדרבה דאמר רבה מפני מה אמרה תורה מודה במקצת ישבע חזקה אין אדם מעיז בפני בעל חובו והאי בכולי בעי דלודי והא דלא מודה אשתמוטי קא אשתמיט סבר עד דהוי לי זוזי ופרענא וכו' והאי מודה במקצת שמשתמט במקצת שהודה לו אם היתה כוונתו להשתמט באותו חלק שהוא כופר ה\"ל ג\"כ להודות כיון שלפ\"ד לא יצטרך לו לשלם עכשיו כלום אע\"כ לאו בכלל מודה במקצת הוא אלו דבריהם ואני אומר שאפי' שום התחלה לדבריהם אין כאן דלא עיינו בזה שהרי פי' התו' שם רפ\"ק דב\"מ דמ\"ש רבה מפני מה אמרה תורה מקצת טענה ישבע לא מקש' מ\"ש אלא הכי פריך יהא נאמן במיגו דאי בעי כפר הכל או נילף מהכא דלא אמרי' מגו בעלמא ומשני לפי שאין אדם מעיז ואח\"כ פי' התוס' בסיפא דרבה שאמר ובכולי בעי דלודי כלומר דלח תימא מאחר דאינו מעיז א\"כ אמת הוא שאינו חייב לו יותר ולמה ישבע יהא נאמן במגו דכפר הכל ומשני דאין זה העזה דקא משתמט ע\"כ ואם איתא דמודה מקצת הטענה לשלם לזמן לא חשיב מודה במקצת כדברי הדיינים דלעיל דאין כאן אשתמוטי קא מישתמט הדרא קו' רבה לדוכתא למה ישבע מודה במקצת יהא נאמן מודה במקצת ומרחיב הפרעון דבזה ליכא לתרוצי דמשתמט לפי דבריהם ממילא אמר אמת:",
+        "(אמר המגיה) לפי דעת הדיינים הנ\"ל אין כאן מיגו שהרי במודה מקצת לשלם מיד כיון דאשתמוטי קא מישתמיט אין כאן העזה וכמ\"ש התוס' לעיל אבל במ\"מ לשלם לאחר זמן כיון דל\"ש אשתמוטי לפי דעת הדיינים דלעיל א\"כ הך מקצת דקא כפיר ליה העזה גמורה וא\"א מיגו לאינו מעיז ממעיז אבל (עכ\"ד) דברי הדיינים הנז' בטלין ומבוטלין ודברי הרב ט\"ז שרירין וקיימין מטעם האחר שכ' לקמן עכ\"ה) אלא פשוט דגם בזה שייך אשתמוטי קא משתמט דאע\"ג שאומר לשלם אותו המקצת שהודה על זמן מה מתיירא הוא להודות הכל ולומר שהוא חייב לו לזמן שדואג שלא יהיה לו ג\"כ ממון הרבה על אותו הזמן וי\"כ הוא חושב שעכשיו יכפור לו מקצת עד שירחיב ה' את גבולו וישלם לו גם המותר וזה מוכח עוד מסתם הלואה דלא ניתן ניתבע פחות מל' יום כמ\"ש תחילת סי' זה והיכא תמצא מודה בהלואה ע\"כ אינו שייך לפי דבריהם אלא לאחר שעברו ל' יום וזה לא נשמע ולא נראה בשום דוכתא ע\"כ נראה דאין מקום לדברי הדיינים הנ\"ל ושפיר הוי מודה במקצת בזה:"
+      ],
+      "en_segments": [
+        "(Seif 2) “The borrower takes a heset oath.” This is where the parties agree on the amount of the loan and dispute only its maturity; the borrower denies the entire present claim and owes only heset. If they also dispute the amount, for example the lender says, “You owe me one hundred now,” and the borrower says, “I owe only fifty, payable next year,” he partially admits the principal amount. The denial of present maturity regarding the admitted portion is equivalent to denial of part of the debt, and he owes a Torah oath. Some judges have ruled otherwise, relying on Rabbah’s explanation that a partial admitter is merely delaying until he has funds. They reason that if the admitted portion is not currently payable, he could have admitted everything without present loss. This argument is unfounded. Tosafot explain that Rabbah asks why a partial admitter is not believed through a migo of complete denial, and answers that total denial is brazen whereas partial denial is temporary evasion. A debtor who extends the due date of the admitted portion may still be evading: he fears admitting the entire debt because he may lack funds at the later date too. He therefore denies part now, hoping that Hashem will later broaden his means and enable him to pay the balance. Moreover, every ordinary loan is initially for thirty days; on the contrary view, partial admission could scarcely exist during that period. The correct rule is that this remains a partial admission and requires a Torah oath."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman73/seif-005/turei-zahav",
+      "volume": "cm1",
+      "siman": 73,
+      "seif": 5,
+      "slug": "turei-zahav",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(סעיף ה) ראובן נשבע יש לתמוה למה לא יקח המלוה אותן דברים בחובו ובסמ\"ע כתב דהוי כמו מכירה וק\"ל מה לי ולשבועתו ירדו הב\"ד לנכסיו ויתנו לזה כדי חובו דהא נכסוהי דאינש ערבאין לי' ושעבוד' דאוריי' ועוד ק' מ\"ש שאם יתחרט כו' וימכור דמשמע כל שלא יתחרט לא ימכור וכ\"כ הסמ\"ע שאין תקנ' לגבות החוב עד שיתירו לו השבועה והוא תמוה מאוד וכי יש כח באדם לבטל חוב חבירו מכח שבועתו ותו מי עדיף זה ממקח שנעשה באיסור כגון שנשבע שלא למכור דקי\"ל בסי' ר\"ח אם עבר ומכר דהו' מכיר' ונלע\"ד דודאי יש כח ביד הב\"ד לשלם החוב לזה בע\"כ אלא דכאן בא ללמד האיך יתנהג בענין השבועות כי אם ימכור הוא או הב\"ד שהם כשלוחין בזה יעבור על השבועה הא' ואם לא ימכור יעבור על הב' ופסק הדין מוטב שיהי' בשב ואל תעשה דהיינו שלא למכור וכן הוא בהדיא בת' שם ומביא ראיה משבועה שלא אוכל ככר זה וכו' ע\"כ אמר שיהיה פרעון בדרך זה דהיינו שלא ימכור ונמצא עובר על הב' שבועות שוא וחייב עליה מכת מרדות ולא מלקות כי אין מלקות בשב וא\"ת (א\"ה אין ענין כאן לשב וא\"ת שהרי על אותה שעה שנשבע לשקר הוא לוקה משום שבועת שוא ואע\"ג דלאו שאין בו מעשה אין לוקין עליו הא אמרי' בכמה דוכתי בגמ' חוץ מנשבע ומימר ומקלל את חבירו בשם וכן פסק הרמב\"ם פ' מה' שבועות אלא דמלקות אין שייך כלל בזמן הרא\"ש שהוא מארי דהאי עובדא ופשוט הוא ע\"כ) ומתוך אימת המכות יתחרט ועי\"כ יהיה לו פתח להתיר לו השבועה הא' שיוכל לקיים שפיר השבועה הב' אבל אם קדם ב\"ח אין השבועה חלה עליו כלל כי הדין הוא בכל פרעון החוב של בעלי חובות דעלמא שמכין אותו עד שתצא נפשו כדין כל מי שאינו רוצה לקיים מ\"ע כדאי' פ' הכותב בהדיא ולענין פרעון בע\"ח מכין אותו עד שתצא נפשו ולא סגי במלקות ואלו לא היה מ\"ע לא היה מכין אותו כ\"כ שזהו דוקא אם עובר על עשה מן התירה והא שכ' אח\"כ שם דיבור בעונש שבועה הנ\"ל ושם אין שייך בשביל שאינו פורע חובו דהא אומרים לו שיהא בשב וא\"ת אבל לא בא לפסוק העונש המגיע לזה אלא ה\"ק כיון דפריעת ב\"ח הוא דבר גדול וע\"כ הוי דינא דמכין אותו עד שתצא נפשו ע\"כ לא חלה כלל השבועה וכן יראה כל המעיין בת' הרא\"ש כלל ח' סי' ג' לפ\"ז פשוט שאם לא יתחרט מאימת המלקות ודאי יעשו הב\"ד שלהם ויפרעו לזה בע\"כ של לוה ובסמ\"ע הבין שמ\"ש הרא\"ש מכין אותו עד שתצא נפשו הוא ג\"כ להורות העונש של זה האיש והנלע\"ד כתבתי אלא שעדיין צ\"ע על הרא\"ש בת' זו שפסק שלא ימכרו שיהא בשב וא\"ת ומביא ראיה שהנשבע על ככר לחם זה שאוכל ואח\"כ אמר שבועה שלא אוכל ושלא יאכל ויהא בשב וא\"ת וזה כנגד האמת דבפסקים ספ\"ז דשבועות פסק מוטב שיאכל וא\"כ הדר מזה וכיון דהפוסקים אחרונים ה\"ל לרבינו לפסוק כמו הפסקים ותו בטיו\"ד סי' רל\"ח פסק דמוטב שיאכל כו' ונלע\"ד דהטור פסק כדברי הרא\"ש שלא למכור שלא מטעם הרא\"ש בת' דמדמה לככר שלא אוכל אלא אדרבה בככר קי\"ל דיאכל כמ\"ש בי\"ד ומאותו טעם עצמו דאמרי' שם יאכל ממילא כאן לא ימכור והיינו דכשם דגבי ככר הוי הטעם שיאכל כי תיכף שנשבע שבועה ב' דהיינו שלא יאכל נשבע לשקר נמצא שהוא כבר בעונש עבירת ש\"ש שאם לא יאכל יתחיל עבירה א' מחדש דהיינו שעובר על הראשונה משו\"ה טוב לו שיעמוד במה שהוא כבר בו ולא יחדש עבירה אחרת וא\"כ מוטב שלא ימכור כ\"א לא ימכור הוא כבר בעביר' ש\"ש משע' שיצאה השבועה מפיו אבל אם ימכור יתחיל עבירה אחרת חדשה שלא עבר עדיין נמצא דברי הטור כהוגן ע\"פ הלכה ולא מטעם ת' הרא\"ש אלא מטעם הפסקים כנלע\"ד:",
+        "(א\"ה ראיתי להר\"ב ש\"ך ז\"ל שכ' כאן דברים שאינם נראין בעיני וז\"ל בס\"ק י\"א וי\"ל דוקא בכה\"ג אבל כשנשבע סתם שלא לפרוע שום חוב אע\"פ שקדם חוב שמעון חלה השבועה עכ\"ל והוא תמוה מאוד דאף כשנשבע סתם שלא לפרוע שום חוב ודאי דלא חלה השבועה שהרי אין כאן כולל דברים המיתרים אלא דברים האסורים לבד איתנהו דמה לי חוב שמעון או חובות שחייב לאחרים לכולם חייב לשלם גם סוף דברי הרא\"ש מכחישין אותו כמו שהרגיש הוא ז\"ל בעצמו ורצה להגי' ואין דבריו נראין לי כלל ודברי הרא\"ש ז\"ל כפשוטן מתפרשין לענ\"ד דדוקא בנשבע קודם שנתחייב לשמעון בסתם שלא למכור בשביל שום חוב שיתחייב הוא דיש חלות לשבועה אבל אם כבר נתחייב לשמעון ונשבע סתם דהיינו שלא לפרוע שום חוב ודאי לא חלה השבועה שהרי אין כאן כולל כלל אלא דברים האסורים לבד שהרי הוא חייב לשלם לראובן כמו לשמעון ואם נשבע אחר שנתחייב לשמעון בל' זה שלא לפרוע שום חוב שיתחייב אין כאן מקום שאלה כלל דהרי לא נכנס שמעון בכלל שבועתו שלא נשבע אלא על חובות שיתחייב ולא על שכבר חייב והרי לשמעון כבר הוא חייב וז\"ב. וא\"כ הגהת הש\"ך או כגון שנשבע סתם אחר שנתחייב שלא למכור משלו בשביל שום חוב שיתחייב וכו' הוא ט\"ס ואין לה מקום ומ\"ש עוד אבל המחבר נ\"ל דוחק כו' וע\"כ פי' כפשוט' כו' ולפ\"ד צ\"ל דל\"ד למצה וסוכ' כו' עד וצ\"ל דברי הרא\"ש שז\"פ הגיע קודם השבועה עכ\"ל כל מעיין ישפוט בצדק שדבר זה א\"א לאמרו שהרי הרא\"ש כתב בפי' דדוקא אם קדמה השבועה להחוב ועוד דהוצרך להמציא באיזה אופן תתכן השבועה קודם לחוב כגון שנשבע סתם שלא לפרוע לשום חוב שיתחייב ואם איתא הא משכחת לה בפשיטות כיון שנשבע שלא לפרוע שום חוב שכבר הוא חייב ועוד דכבר הוכחנו דאם כבר הוא חייב לשמעון ונשבע בל' זה שלא לפרוע שום חוב שיתחייב פשיטא שאין חוב שמעון בכלל. ומ\"ש עוד ואפשר דל\"ד למצה וסוכה דלא חל עליו החיוב כלל באמצע השנה כו' משא\"כ הכא כו' ואי הוה פרע ליה קודם זמנו הוי מפטר מיני' עכ\"ל. אני אומר בחילוק זה חלוקין עליו כל חכמי ישראל התוס' בשם ריצב\"א ור\"י הזקן והרז\"ה והרמב\"ן והר\"ן והריב\"ש והב\"י והרמ\"א ושאר כל הפוסקים. שמדברי כולם נלמוד שאפי' בדבר שהוא חייב בו עכשיו אם כלל בשבועה דברים המותרים עם אותם האסורים השבועה חלה אף על האסורים התוס' בשם ריצב\"א ור\"י מדקשיא להו בשבועות דף כ\"ד ע\"א ד\"ה אלא הן היכי משכחת לה מההיא דירושלמי דשבועה שלא אוכל מצה אגמרא דידן דאמר דאפי' בכולל כשרות לנבילות וטריפות לא משכחת לה ואם איתא לדברי הש\"ך שאני הכא דאיסור נבילה וטריפה כל שעה הוא חל אפי' בשוה וגם מכלל תירוצם נשמע דליתא להאי דש\"ך והרז\"ה ז\"ל דחאה להאי ירושלמי מהלכ' משום הך דנבילות וטריפות ואם איתא הא לא דמי תלמוד דידן להירו' והרמב\"ן והר\"ן והריב\"ש הסכימו לתירוץ ר\"י וכן הרב ב\"י ורמ\"א הביאום לפסק הלכ' בי\"ד סי' רל\"ט בהג\"ה בהנושא אשה זקנה ונשבע לה כו' חלה השבועה שהרי כלל בזה דברים שהשבועה חלה בהם כו' אע\"פ שמצות פ\"ו כל שעה היא מוטלת עליו וכ\"פ בש\"ע דאה\"ע סי' קי\"ח סט\"ו ולא עוד אלא הרא\"ש בעצמו כ' כן בפי' בת' הביאו בנו הטור ז\"ל בסי' קי\"ח דאה\"ע סל\"ו ששאלת אלמנה שהיתה אמודה בממון ופסקה מלדת וזה ידע שמעון ונשא' ונשבע שלא ישא אחרת כו' ת' אין יכולין להתיר לו שבועתו הרי דחל' השבועה על מצות פ\"ו עם היות כל השעות שוות בדבר זה וממקומו הוא מוכרע שהרי אמרו דוקא באומר מצה בליל פסח או שלא אשב בצל סוכה דהיינו נמי מסתמא סוכת מצוה כדפי' הר\"ן הוא דלוק' ואוכל ויושב אבל אם אמר סתם מצה אף שהוא עומד בלילי פסח וכן שלא אשב בצל אף שעומד בימי החג פשיטא דאסור לאכול ולישב ועיקר חלוקו של הש\"ך אין לו טעם כיון דמהיכא דנפקא לן דאין שבועה חלה על דבר מצוה על כרחך אין חילוק בין נשבע לעבור על מצוה שהוא חייב בה מיד או לאחר זמן שאם נשבע שלא להניח תפילין למחר אין השבועה חלה וכן שלא ישב בסוכה וכו' אף שנשבע קודם החג פשיטא דלא חלה וזהו פשוט בגמ' והא דקי\"ל דבכולל חלה מכח מיגו היא סברא פשוטה בכל התורה להאי מ\"ד גם בשאר אסורין א\"כ מאיזה טעם יש לנו לחלק בין מצו' שהוא חייב בה מיד למצוה שאינו חייב עליה עד לאח\"ז ודוק כי זה ברור בעיני. גם מה שהגיה הש\"ך בסקי\"ג אינו נ' בעיני יע\"ש והנלע\"ד הוא דס\"ל להרא\"ש דהשבועה שנשבע לפרוע לשמעון היא שבועה כוללת איסור והיתר דלמא יהי' לו מעות בעין באותו הזמן ולא יצטרך למכור ויפרענו במזומנים ואיסור שמא תגיע השעה ודמים אין לו ויצטרך למכור כדי לפרוע וכיון דקי\"ל דחייל' בכולל אף היא שביעת ביטוי מקרי והיינו דקאמר הרא\"ש ומוטב שיעבור על שבועת ביטוי בשב וא\"ת ר\"ל שיש כאן ב' שבועות ביטוי הראשונה שלא למכור והשניי' לפרוע אעפ\"כ אמרי' שיעבור על השניי' שהיא בשב וא\"ת ואל יעבור על הראשונה בקום עשה וכיון שע\"כ צריך הוא לעבור על שבועתו השניי' מכח שב וא\"ת אף היא נקראת שבועת שוא. ולאחר שהביא הרא\"ש ההיא דנשבע על הככר צריך להוסיף אמנם בנ\"ז השניי' חלה בכולל ועכ\"ז מוטב שיעבור על שבועת ביטוי בשב וא\"ת ולא ימכור כדי לקיים שבועתו הראשונה ונמצאת השניי' ש\"ש ע\"כ שהרי א\"א לו לקיימ' (והשאר נמחק). עוד נלע\"ד דרך אחרת קלה וקצרה בהגהת ת' זו שהיא כתובה בר\"ת ומוטב שיעבור על ש\"ב וטע' המעתיק וחשב שרצה לומר שבועת ביטוי ואינו אלא ר\"ס שבועה ב' דהיינו שבועה שנייה וגם אח\"כ היה כתוב בר\"ת ש\"ש וחשב המעתיק שר\"ל שבועת שוא ואינו אלא ר\"ל שני שבועות וכצ\"ל ומוטב שיעבור על שבועה שנייה דשב וא\"ת ר\"ל אע\"פ שהשניי' היא מתקיימת בשב וא\"ת מוטב שיעבור עליה בקום עשה שיאכלנה בקום עשה משיעבור על ב' שבועות ר\"ל בשב וא\"ת הוא עובר על ב' שבועות ביטוי ושוא והכי דייק לישנא דקום עבור דקום עשה הול\"ל כי היכי דפתח בשב וא\"ת אלא שהי' כתוב בקום עשה משיעבור על ש\"ש וטעה המעתיק כאמור ומחק תיבת עשה וג' אותיות מש\"י וכתב בקום עבור והשתא אתי שפיר דינא דהרא\"ש מכח ק\"ו התם שהוא קום עשה אמרי' לזה אכול כדי שלא לעבור על ב' שבועות כ\"ש הכא שהוא שב ואל תעשה דלא שבקינן למכור כדי שלא יעבור על ב' שבועות וזה נכון מאוד. ובתשובה אחת שהשבתי להרב מוהר\"ר יוסף אלמושנינו ז\"ל מבילגרד זה לי עשר שנים בענין חלות השבועה בכולל הארכתי ה' יזכנו להדפיסם עכ\"ה):"
+      ],
+      "en_segments": [
+        "(Seif 5) “Reuven swears.” Why does the creditor not take the items in payment? A debtor’s property secures his debt by Torah law, and beit din should descend to the assets and give the creditor what is due. The Sema calls it a sale and says the debt cannot be collected until the oath is released. That is astonishing. A debtor cannot extinguish another’s debt through his own oath. Even a sale made in violation of an oath is legally effective. The responsum’s point is not that beit din lacks power to collect, but how to minimize violation of the conflicting oaths. If he or beit din, acting as his agents, sells, he actively violates the first oath; if he does not sell, he passively violates the second. The ruling prefers inaction. He is disciplined until he regrets the first oath and obtains release, enabling him to fulfill the second. If the debt preceded the oath, the oath never takes effect against the mitzvah of repayment. One who refuses to pay is compelled until he complies, as with any positive commandment. The Rosh’s discussion of punishment does not imply that the debt is suspended. If he never regrets, beit din still collects forcibly. A difficulty remains because the Rosh’s responsum compares the case to conflicting oaths about eating a loaf and says to remain passive, whereas his rulings and Yoreh Deah 238 say one should eat, preserving the first oath and avoiding a new violation. The Tur’s conclusion can nevertheless be justified by the same principle: once the second oath was uttered falsely, its violation already exists; selling would create a fresh violation of the first, so he should not sell. The Shach’s distinction between an oath concerning one debt and an oath concerning all debts is incorrect where the oath includes only prohibited nonpayment. The glossator develops two alternative textual explanations of the Rosh, but the practical point remains that an oath made before the debt can take effect through inclusion of permitted possibilities, whereas an oath made after an existing debt cannot cancel the duty to pay."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman79/seif-002/urim-vetumim-tumim",
+      "volume": "cm1",
+      "siman": 79,
+      "seif": 2,
+      "slug": "urim-vetumim-tumim",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואיני חייב לך וכו' והקשה בט\"ז מה בכך דאמר איני חייב לך הלא יש לפרשו דלכך אינו חייב לו הואיל ופרעו ולא דלא לוה כלל ומדברי הש\"ך בס\"ק ז' נראה דעתו ליישב תמיה' זו ומפרש דאמר לכך איני חייב לך דיש לי כנגדו בידך והעדים מעידים שאין לו בידו אם כן הוחזק כפרן ואין זה סובל דברי רשב\"א ומחבר דלא נזכר דעדים מעידים שאין לו בידו רק דהוי כאומר לא פרעתי ומה קמ\"ל כיון דמוכחש מעדים במה שטען:",
+        "ויותר נראה דקאי על בו ביום דאמר אתה חייב לי באחד בניסן מנה והשיב יתכן דאני חייב אז רק אתה חייב אז כמו איתי סך לי ואם כן הוי כאומר אתה חייב אז לי ולא אני לך ואם באו עדים שבאותו יום לוה הרי הוחזק כפרן דאימת פרע קודם אחד בניסן הרי הלואה מאוחר לפרעון ואם אח\"כ הרי הודה דבאחד בניסן לא היה חייב ומודה דלא פרע אח\"כ ודוק כי נכון הוא:"
+      ],
+      "en_segments": [
+        "And I don't owe you, and I don't have to do so, and I don't have to say to you, I don't have to do so, and I don't have to tell you that you don't have any evidence in your hand, and that you don't have any evidence of it You owe me one of my sons, and my return may be Danie, so you only owe me, and if you say, you owe me to me and not me, and if you have come to see that day of Loh, you have been held as a widower, and if you do, then, you have admitted that one of the sons of San had no need and confessed to him"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman104/seif-016/beur-hagra",
+      "volume": "cm1",
+      "siman": 104,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 4,
+      "enSegs": 1,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "שהרי אין. כן למד הרא\"ש סוף בכורות והרמב\"ן ממתני' זו ועוד הביא ראיה מתוספתא וירושלמי והביאו הרא\"ש שם ע\"ש דאין הנזקין גובין מן הראוי אע\"ג דככתובה בשטר דמי ועבסה\"ת שמ\"ג ח\"ד:",
+        "(ליקוט) שהרי אין כו'. כ\"כ בה\"ת בשם הרמב\"ן וכן הרא\"ש בסוף בכורות מזה המתני' ועוד מנזקין שאין גובין בראוי כמ\"ש בתוספתא וירושלמי הביאו בעה\"ת והרא\"ש שם אבל בה\"ת בשם הרא\"ש מלוניל והרא\"ש בשם ר' אפרים כ' דגובה וכ' דר\"ח מסתפק בדבר והוא תמה עליהם ממתני' הנ\"ל ואשתמיטתיה להרא\"ש דברי תוס' דב\"ב קנ\"ט א' ד\"ה ולימרו כו' וא\"ת אכתי כו' אבל אין כו' (ע\"כ):",
+        "(ליקוט) שהרי כו'. עמ\"ש במ\"א דתוס' חולקין ע\"ז וכ' משום דבמקום אבוה דאבא קאי אבל הרמב\"ן כ' בפ\"ח קכ\"ה ב' דהיינו מטעם דאין גובה בראוי וההיא דירוש' שהביא הרא\"ש בבכורות ראיה לזה דמטעם ראוי הוא דאמר כרמו פרט לראוי כבמוחזק ר\"א בשם ר' נסא בשחפר כו' ועוד אי כדברי תוס' ל\"ל קרא כה\"ג וכ\"כ הרמב\"ן בחידושיו וכ' ועוד ראיה ממ\"ש בר\"פ אע\"פ תנאי כתובה כו' לשבח ול\"ק ג\"כ לראוי אלא דגם ב\"ח לא גבו בזה וכ\"מ מדר\"ן דאמר יתומים שגבו קרקע כו'. ועבה\"ג וכ' הטור כו' וכ\"ה בש\"ע סי' ק\"ז ס\"א ועמש\"ש (ע\"כ):",
+        "(ליקוט) שהרי כו'. ואין דעת הר\"י מיגש כן בב\"ב קכ\"ה ב' דשקיל וטרי שם בכתובה אי גובה במלוה ולא כ' כלום בבע\"ח וכ\"כ הרמב\"ן שזה דעתו מהנ\"ל וכן בתוס' דפ' הכותב (כתובות פ\"ד א)' ד\"ה לכתובת כו' ובב\"ב קכ\"ה ב' ד\"ה ואין כו' ובבכורות נ\"א ד\"ה ולא כו' ואזלי לשיטתייהו כמ\"ש בב\"ב קכ\"ט א' וכ\"ד הרי\"ף שכ' הרי\"מ שם משמו דס\"ל מלוה ראויה היא בין לבכור בין לירושת הבעל וכתובת אשה וז\"ש על ההיא דהכותב שם והשתא דתקון רבנן כו' גבי בע\"ח כו' ולא כ' וכתובת אשה וכשיטתו והרא\"ש שם הוסיף וכתובת אשה ובע\"ח ועמ\"ש בא\"ע סי' ק' ס\"ב וכ\"כ בשם הר' אפרים וגם ר\"ח מסתפק בזה וע' בתשובת רש\"ל בארוכה ותשובת רמ\"א אבל העיקר כמ\"ש כאן מראיות הנ\"ל (ע\"כ):"
+      ],
+      "en_segments": [
+        "For it is not. Rosh at the end of Bekhorot and Ramban derive from this mishnah that damages are not collected from property merely anticipated to come into the debtor's possession, even though the obligation is treated like one recorded in a document. They also cite the Tosefta and Yerushalmi. Baal HaTerumot records dissenting views, but the principal ruling is as stated here. Tosafot dispute the rationale in certain inheritance cases, while Ramban maintains that the decisive factor is that the property was not yet possessed. See citations 80, 100, and 107."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman129/seif-001/chelkat-mechokek",
+      "volume": "cm1",
+      "siman": 129,
+      "seif": 1,
+      "slug": "chelkat-mechokek",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "תשובה מן הרב הגדול בעל ת\"י מהר\"ר ליפמן ז\"ל להרב הגדול מהר\"ר יונה ז\"ל . על השאלה אשר שאל ממנו שלום למר ולתורתו בכל עת ועונה הוא אהו' הגאון תפארת ישראל מחותני כמהר\"ר יונה יצ\"ו וכתבו קבלתי ואשר כתב מכ\"ת ואומר וז\"ל באתי בשאלה קטנה שהיה בגליל שלי בש\"מ ונשתנה שמו בחולי כנהוג בו ביום נתן גט לאשתו לפוטרה מחליצה ומת והנה המסדר הגט כתב השתי שמות והקדים שם השני ואח\"כ השם הראשון ולא כתב על שם הראשון דמתקרי והנה יש מקום לומר שלא היה ראוי לכתוב השם השני כלל כי לא הוחזק בו שלא קראו לס\"ת וגם לא חתם בשטר רק שמת בו ביום וכך כתב מהרמ\"י וגם דלא כת' דמתקרי ויש דעות בזה לפסול הנה האריך הב\"י בא\"ה סי' קכ\"ט ומביא כל הדעות בענין זה וגם הביא קצת מזה בתשובת ר\"מ מטראני וכן יוריני לי מכ\"ת דעתו הנכונה בזה למעשה אם לפוטרה מחליצה אם לאו יש מקום לומר שהיא דיעבד שיכול האי גברא לומר לא אתסר עלי אחות החליצה ודי בזה עכ\"ל והנה מ\"ש מכ\"ת בשם מהר\"מ יפה והן הנה דברי הש\"ע ודאי דעת מכ\"ת שכתב כ\"ת בשם מהרמ\"י לפי שרמ\"י ז\"ל השמיט מ\"ש בש\"ע דיש מי שמצריך וכו' ובסמוך אכתוב מזה אם כדין השמיטו או דאף לש\"ע שכתבו אפ\"ה לענין דינא הלכה כסתמא ולא כיש מי שמצריך אך עכשיו אני אומר דאין למכ\"ת ראיה לנ\"ד דהתם לא במת ביומו מיירי אלא אדרבה בנשאר בחיים ואין קורין אותו בשם שני כלל הרי נעקר ונשתקע לכך אין לכותבו כלל משא\"כ בנ\"ד אעפ\"י שעדיין לא הוחזק לא זהו מקרי עקירתו ושקועו וי\"ל דמ\"מ הואיל ועכשיו היום ההוא נשתנה בשמו זה בב\"ה וגם המסדר הגט ושהיו שם לפחות מנין עשרה ידעו מזה אם מיתתו פוטרתו לחיי העה\"ב לא זו היא עקירה כלל אבל מטעם אחר נראה לי לפסול וכמ\"ש מהר\"מ טראני בחלק ראשון בסי' קכ\"ה בסופו (בשם סברת הפוסלים הגט) בנדון דמהר\"ם טראני דהואיל ומת אין כאן שני שמות אלא שם השינוי והראשון נעקר לגמרי ע\"כ סברת הפוסלים (והרב מטראני השיג על סברת הפוסלים כי אדרבא כיון שמת ע\"י שינוי השם נשתנה שם חיים למיתה וחזר לשם הראשון והוי מפורסם וידוע כי כשמשני' שם א' בחולי ולא הועיל לו שינוי השם ולא נקרע גזר דינו שהוא א' מד' דברי' המקרעין גזר דינו של אדם ומת שאין מזכירין אותו עוד בשום דבר כי אם בשם הראשון כי לא נשתנה שמו אלא אם יחיה עכ\"ל מהר\"מ מטראני) ואף שסברת הפוסלי' הוא מפני שכך דרכן באותן הארצות שבשעת השינוי אומר ולא יקרא עוד וכן נראה מדבריה' מ\"מ יפה תמה מהר\"מ מטראני וס\"ל דאדרבה שם הראשון עיקר שהרי אעפ\"י שאומרי' כן אפ\"ה נקראי' בשם הראשון ואף ברוב הפעמי' ושם יעקב יוכיח שנאמר ולא יקרא עוד וגו' ואעפ\"כ הכתובי' מלאי אח\"כ בשם יעקב וא\"כ תמיהתו קיימת וחזר הדין שכשמת אין כאן שינוי שם כלל ומשמע ודאי דהגט פסול (אם כתבו שם השינוי) דהוי כשינה שמו ואף שכתב לעיל מהר\"מ מטראני בתחלת הפיסקא וז\"ל הרי הרמב\"ם כתב בענין גט שלא ידעו המסדרין שנשתנה שמו וכתבו הראשון לבד שאם היו כותבין שם השינוי לבד הואיל ועדיין לא הורגל שמו ולא נודע בו אפילו במיעוט היה קרוב שלא להיות גט כלל ומותרת ליבם שם עכ\"ל וא\"כ אפשר לומר שכוונתו שבנכתבו שניה' דהוי גט (ולא ממעטינן אלא בכותב שם השינוי לבד) וא\"כ יש לפרש ג\"כ כדבריו של הרב מהר\"מ מטראני שבסוף התשובה שהעתקתי' לעיל מ\"מ הואיל ואפשר לפרש דבריו דאף בכתב שניה' לא הוי גט א\"כ לא יצאנו מידי ספק ע\"כ ובסוף דבריו סיים שאין להתיר האשה בלא חליצה והנה הרב בעל ת\"י האריך עוד בתשובה זו במה שאינו נוגע עוד לדין הנ\"ל וכוונתו בהעתקת התשובה הנ\"ל שיובנו דברי א\"א מ\"ו הרב המחבר ז\"ל מה שהשיג על דין הנ\"ל ע\"כ לא העתקתי:",
+        "והא לך מה שכתב א\"א מ\"ו הרב המחבר ז\"ל, מ\"ש הרב בעל ת\"י דנראה לו לפסול הגט ממ\"ש הרב מטראני בס\"ס קכ\"ה ותמה על סברת הפוסלי' דס\"ל דכיון שמת אין כאן שני שמות אלא שם השינוי והראשון נעקר לגמרי והרב מטראני תמה עליה' דאדרב' שכשמת אין כאן שם שינוי כלל ומשמע ודאי דהגט פסול כשכתב שם השינוי דהוי כשינה שמו, המדקדק בדברי הרב מטראני יראה שלא עלה זה על דעתו כלל לפסול הגט למפרע מאחר שמת ונתבטל השינוי דאין לנו אלא השם שיש לו בשעת נתינת הגט ואם נחוש למיתה ולא נכתוב שם השני אדרבה יותר יש לחוש למה שאנו מצפים ורוב חולים לחיים וא\"כ כשיקום בודאי יתקיים שם השני וכשבני אדם לא יקראו רק בשם השני ולס\"ת פשיטא שיעלה בשם השני וא\"כ נתבטל שם הראשון לגמרי מאי אמרת אף שיתבטל אח\"כ מ\"מ באותו שעה היה נקרא בשמו הראשון עדיין ולא גרע מחניכה לשעתו וא\"כ מכ\"ש שנאמר כן בשם השינוי אף שמת אח\"כ ונתבטל שם השינוי מ\"מ באותו שעה שקראוהו בשם החדש והיו מצפי' לתשועת ה' ולרוב חולי' לחיים ודאי באותו יום היה נקרא בשם השני כדי לבטל הגזירה ואין לך חניכה מפורסמת מזו ואלו היה דעת הרב מהר\"מ מטראני לפסול הגט מכח שנתבטל שם השינוי לא היה כותב זה בסוף דבריו דרך גררא וכתימה על דבריה' רק היה לו להתחיל זה לעיקר עד שאתה שואל אם הגט כשר מאחר שלא כתבו שם השינוי רק שם הראשון לבד ואני אומר שאילו כתבו שם השינוי ג\"כ היה פסול מאחר שמת ונתבטל השם אלא ודאי לא עלה זה על דעתו רק לסתור דעת החולקי' שעלה בדעת' מאחר שלא נודע מה שם יקראו לו אם יקום מחליו א\"כ אין לו עתה רק שם השינוי והראשון נעקר לגמרי וע\"ז כתב אדרבה כיון שמת איגלי מילתא דשם הראשון קיים ויפה כתבו שם הראשון זה הוא תורף דבריו אבל לפסול הגט מטע' זה דהואיל שמת נתבטל שמו למפרע זה לא עלה על דעתו הן אמת כי מטעם אחר כתב לפני זה שקרוב היה הגט להיות בטל אם היו כותבין שם השינוי לבד משם דלטעמיה אזיל דאין כותבין שם השינוי רק כשהוא שגור כבר בפי הכל ומ\"ש בסמ\"ק ששם השינוי עיקר אף על פי שקורין אותו תדיר בשם הראשון נדחק לפרש מהר\"מ מטראני דמיירי דשם השינוי עיקר ותדיר בכל יום נזכר ג\"כ בשם הראשון אבל עכ\"פ הוא מיעוט דשם השני קורין אותו ז' פעמי' על דרך משל ושם הראשון נזכר ג\"כ בכל יום תדיר אבל רק ג\"פ כך הוא דעתו וע\"כ כתב שאם היו כותבין בשם השם השינוי לבדו וכללו השם הראשון בוכל שום היה פסול לדעתו שמחזיק השם השינוי למיעוט ולפורתא אבל בכתיבת שני השמות יחד ובפרט בלא כתיבה דמתקרי כאשר כתב המסדר כפי אשר הובא בשאלה של הרב בעל ת\"י לא עלה על דעת פוסק לפסול הגט ואף אם היה שם השינוי טפל ומיעוט לא נפסל הגט בהקדים הטפל לעיקר דלא פסלינן אלא אם כותבין הטפל לבדו וכוללין העיקר בוכל שום וכמ\"ש הריב\"ש ולמקצת פוסקי' אף אם כתב דמתקרי ע\"ש העיקר ג\"כ פסול אבל בכתיבת שני שמות יחד טפל ועיקר אין קפידא וכן פסק בש\"ע והוא ברור ופשוט ואינו עולה על הדעת לפסול בהצטרף שם טפל ושם העיקר ובפרט בנ\"ד שהכל יודעין בשם זה הטפל והיום סמכוהו באשישות והוא צריך לתשועת ה' לקרוע גזר דינו מהי תיתי לפסול הגט שכתבו גם שם זה וכל זה לדעת הרב מטראני אבל באמת אין דבריו מוסכמי' ונוחים דבאמת שם השינוי הוא עיקר אף שהרוב קורין אותו בשם הראשון וכמו שמבואר בב\"י סי' זה דלא נסתפק הרב מהרר\"פ אלא כשלגמרי שם השני נעקר ולפי פי' השני של הב\"י בעובדא דמהרר\"פ הוא ממש נ\"ד ומשמעות לשונו שכל ספיקו היה אם שם השני עיקר לכתבו לכתחלה אף על פי שעדיין לא הוחזק אז יכתבו אותו לבסוף ואחר שלא הוחזק הא קמן דעכ\"פ אינו עולה על הדעת לפסול אם כתבו שם השינוי לבד דאי בודאי טפל אינו פוסל מכ\"ש בשם זה שהוא ספק טפל וספק עיקר ומכ\"ש בנ\"ד שכתב ושניהם זה אינו עולה על הדעת כלל דהא באמת שני שמות יש לו ביום הנתינה ובפרט שלא כתב דמתקרי ע\"כ מצאתי:"
+      ],
+      "en_segments": [
+        "A responsum from the eminent author of Tosafot Yom Tov, Rabbi Lipman, to the eminent Rabbi Yonah. The question concerned a dangerously ill man whose name was changed during his illness in the customary manner. On that same day he gave his wife a get to exempt her from chalitzah, and he died. The arranger wrote both names, placing the newly given name first and the original name afterward, but did not write \"who is called\" before the original name. One might argue that the new name should not have been written at all because it was never established: he was not called to the Torah by it and did not sign a document with it, for he died that same day. Maharam Yaffe writes along these lines. Also, \"who is called\" was omitted, and some opinions would invalidate on that account. Beit Yosef in Even HaEzer 129 discusses the various views, and there is also material in Responsa Maharit. Please instruct me whether in practice she may be exempted from chalitzah. Since this is already after the fact, perhaps one can say that the yavam cannot claim, \"I became prohibited to the chalutzah's sister,\" merely because of a questionable get. The Tosafot Yom Tov responds: What you cite from Maharam Yaffe is essentially the Shulchan Aruch's rule that where the new name never took hold and no one calls him by it, it has been uprooted and should not be written. That does not prove our case. Here, although the name was not yet established over time, it was publicly assigned that day in the synagogue, the arranger and at least a minyan knew of it, and his death does not automatically erase that fact. There is, however, another possible basis for invalidation suggested by Maharit. In a case discussed there, some authorities argued that once the man died, there were no longer two names. According to one version, the original name was entirely uprooted; Maharit challenged this and argued the reverse, that when the change of name did not help and the person died, the change was only for life and failed, so after death people return to the original name. Even in places where at the time of the name change they say, \"He shall no longer be called by the former name,\" people later continue using the original name, as Scripture itself continues to call Yaakov by that name even after \"Your name shall no longer be Yaakov.\" If so, perhaps after death the change-name has fallen away, and writing it in the get would amount to changing his name. Yet Maharit himself earlier writes that where the arrangers did not know of the new name and wrote only the original one, had they written only the new name before it became established, the get would nearly have been void and she might even be permitted to the yavam. This may imply that writing both names would be valid. In any event, Maharit can be read in more than one way, and therefore the woman should not be released without chalitzah. The author then responds to the Tosafot Yom Tov's analysis. A careful reading of Maharit shows that he never intended to invalidate the get retroactively merely because the man later died and the changed name ceased to be used. We judge according to the name he bore at the time the get was given. If we feared his subsequent death and omitted the new name, we would have to fear the opposite even more, because most sick people recover. Had he recovered, the second name would certainly have become established, especially for aliyah to the Torah, and the first name might have fallen from use. Even if the changed name later ceased after death, at the moment of delivery it was at least a public byname, and there is no more public byname than a new name assigned in the synagogue while people pray for his recovery. Maharit mentioned the later death only to refute the authorities who claimed that the original name had already been entirely uprooted when the new name was assigned. He said, in effect, that the eventual death reveals that the original name remained primary. But he did not mean that the later death retroactively invalidates a get containing the new name. Had that been his central position, he would have begun with it and said that even writing the new name together with the old one was invalid after death. Instead, his principal point elsewhere was different: a newly assigned name not yet commonly used may be too weak to stand alone. In his view, one should not write only the new name while relegating the original name to a general formula. But writing both names expressly, especially without the phrase \"who is called,\" was never held by any authority to invalidate the get merely because the secondary name preceded the primary one. Rivash writes that a defect arises where only the secondary name is written and the principal name is swallowed into a general clause, and some authorities are stringent even where the wording \"who is called\" wrongly makes the principal name appear secondary. But where both names are written expressly, primary and secondary together, order alone does not invalidate. All the more so in our case, where everyone knew of the new name on the day of delivery and the man was in need of mercy so that the decree might be torn. There is no basis to invalidate because that name was also written. Moreover, Maharit's very premise is not universally accepted. The new illness-name may indeed be regarded as primary even if most people still use the former name. Beit Yosef's discussion of the ruling of Rabbi Peretz shows that the principal doubt arises only where the second name has completely fallen from use. Under another explanation in Beit Yosef, Rabbi Peretz's case is essentially ours: the question was merely whether the newly added name, although not yet established, should be written first; at minimum it certainly would not invalidate the get if written. Thus, where both names were written, there is no reasonable basis to invalidate the get, particularly since the formula did not say \"who is called.\""
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    }
+  ]
+}

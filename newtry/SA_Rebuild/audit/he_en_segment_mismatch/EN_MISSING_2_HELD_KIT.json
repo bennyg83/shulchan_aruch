@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "kind": "en_missing",
+    "tier": "held_from_apply",
+    "mode": "fresh_translate",
+    "purpose": "2 held en_missing — fresh translate with citation/HE fixes",
+    "source_lists": {
+      "apply": "EN_MISSING_APPLY.md"
+    },
+    "output_schema": {
+      "primary": "segments[] + en_segments[]",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "EN_MISSING_2_HELD_KIT",
+    "counts": {
+      "total": 2,
+      "by_volume": {
+        "yd1": 2
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_MISSING HELD (2) — FRESH TRANSLATE FROM HEBREW.\n\nINPUTS (both required)\n1) EN_MISSING_2_HELD_KIT.json\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Two residual en_missing cases held from EN_MISSING apply (2026-08-28):\n  1) yd1/siman173/seif-001/yad-avraham — Noda B'Yehuda Tinyana: HE cites chelek YD (חי״ד) siman 75; prior EN wrongly referenced Choshen Mishpat — fix volume/citation.\n  2) yd1/siman210/seif-001/yad-avraham — HE garbled (?dl\"a); translate cautiously or needs_human if HE unusable.\n\nTRANSLATION NORMS\n- Complete: translate every clause; no omissions or paraphrasing away content.\n- No additions: no introductions, notes, or explanations beyond the source.\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label.\n- Where norms and full_dictionary.md conflict, full_dictionary.md wins.\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"fresh_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }\n  ],\n  \"en_segments\": [\"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- en_segments.length === heSegs.\n- No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_MISSING HELD (2) — FRESH TRANSLATE FROM HEBREW.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_MISSING_2_HELD_KIT.json",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Two residual en_missing cases held from EN_MISSING apply (2026-08-28):",
+      "  1) yd1/siman173/seif-001/yad-avraham — Noda B'Yehuda Tinyana: HE cites chelek YD (חי״ד) siman 75; prior EN wrongly referenced Choshen Mishpat — fix volume/citation.",
+      "  2) yd1/siman210/seif-001/yad-avraham — HE garbled (?dl\"a); translate cautiously or needs_human if HE unusable.",
+      "",
+      "TRANSLATION NORMS",
+      "- Complete: translate every clause; no omissions or paraphrasing away content.",
+      "- No additions: no introductions, notes, or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"fresh_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- en_segments.length === heSegs.",
+      "- No corpus edits. Return JSON only."
+    ]
+  },
+  "cases": [
+    {
+      "id": "yd1/siman173/seif-001/yad-avraham",
+      "volume": "yd1",
+      "siman": 173,
+      "seif": 1,
+      "slug": "yad-avraham",
+      "kind": "en_missing",
+      "heSegs": 1,
+      "enSegs": 0,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": false,
+      "he_segments": [
+        "(סימן קע\"ג סעיף ב') היו לו פירות שאם ירצה למכרם בשוק וליקח דמיהם מיד מוכרם ביו\"ד ואם תבע אותם הלוקח לקנותם ויתן המעות מיד יקנה אותם בי\"ב ה\"ז מותר. למכרם לו לזמן בי\"ב מאחר שהם עכשיו י\"ב. כל זה הוא לשון הרמב\"ם פ\"ת מה' מלוה דין ד'. ולענ\"ד מוכח להדיא ברמב\"ם שם ובטור דאפילו אם שוה עכשיו י\"ב אסור לומר בפירוש אם מעכשיו הרי הוא לך בפחות. ואם לזמן בי\"ב. דמ\"מ יש לחוש שיאמר כן אף אם אינו שוה עכשיו י\"ב. שכל הסעיף הוא ל' הרמב\"ם ושם מוכח להדיא דאיירי בסתם שהרי לעיל מיניה דין ב' כתב וז\"ל. מכר לו סחורה בי\"ב כשוויו ע\"מ לפורעו לאחר זמן יכול לומר לו תפרע לי מיד ולא אקח ממך אלא עשרה עכ\"ל. הרי שאפילו כשוויו לא התיר לומר בפירוש אם מעכשיו בפחות כו' אא\"כ שמכר לו בסתם יכול לומר לו כו' דהוי כחוזר ומוכרה לו. נמצא למדין דלהרמב\"ם לא שרינן אלא בשוויו ובסתם אבל אם מפרש לא מהני מה ששוה וכן כשאינו שוה כל כך לא מהני בסתם לפ\"ד כמ\"ש הרב המגיד והב\"י לדעת הרמב\"ם אלא דבזה חלוקים עליו הט\"ו וס\"ל דבסתם שרי בדבר שאין לו שער ידוע ואין שומתו ידועה למוכרו ביוקר לפרוע לזמן פלוני כמ\"ש ר\"ס זה ומש\"ה בסעיף שאח\"ז בדין שכתב הרמב\"ם מכר לו סחורה בי\"ב כו' השמיטו הט\"ו תיבת כשוויין. דאפילו אם אינו שוה עכשיו כלכך שרי בסתם לפ\"ד. אבל בזה ל\"פ אהרמב\"ם שמ\"ש סעיף זה היה לו פירות כו' ה\"ז מותר למכרם בזמן בי\"ב היינו בסתם דזה שמוכר לו לזמן בי\"בהיינו סתם כמ\"ש ס\"א למוכרו ביוקר לפרוע לזמן פלוני אבל אסור לומר תן לי מיד בפחות אא\"כ כבר מכר לו סתם וכמ\"ש סעיף שאח\"ז וכן מוכח להדיא בטור סי' זה שכתב וז\"ל ובשכירות מותר אפילו אם מפרש בהדיא כגון שמשכיר לו דבר ששוה י\"ב ביו\"ד ואומר לו אם מעכשיו כו' מותר עכ\"ל ע\"ש מוכח להדיא דאלו גבי מכר אסור לומר בפירוש אם מעכשיו כו' אפי' בששוה כל כך. דאל\"כ מה בין מכר לשכירות: דע שדעת הצ\"צ להתיר כמ\"ש הט\"ז בא\"ח סי' רמ\"ז בשם רב א' ע\"י מכירת חפצים וכן נראה דיעת הפמ\"ג שם וכתב הטעם דכל שאין דרך הלואה ממש ותואר מכירה לא הקפידה תורה ושריא. וכ\"מ בבל\"י סוף ה' רבית. וכ\"ד הבכור שור והשיג על הט\"ז בא\"ח וכ\"ד הנ\"ב כמ\"ש בסמוך ובס' ע\"צ בח\"מ סי' ע\"ב מביא בשם כנה\"ג אם בא לידו בתורת מכירה כדי להנצל מרבית והבטיח לו שכל זמן שיביא הלוה המעות ימכרם לו ונאבד המשכון אין ללוה על המלוה כלום וכ\"מ בס' בכור שור דמה\"ט מותר במטלטלין דהוי מכר גמור שהרי אם יאבד לא ישלם לו המותר רק אם יהיה בעין יחזור לו ונמצא דאף לגבי המוכר הוי מכר. וכ\"כ בנ\"ב מ\"ת חי\"ד סי' ע\"ה ויש לה\"ר מדברי הרמב\"ם שכתב בפי\"א מה' מכירה דין יו\"ד גבי מטלטלין דהמכר קיים ויחזיר כשהתנה בזמן פלוני או כשיתן לו המעות. והלח\"מ שם נדחק דמה חילוק בין קרקע למטלטלין ולפמ\"ש הבכור שור והנ\"ב א\"ש:"
+      ],
+      "en_segments": [],
+      "review_action": null,
+      "review_notes": null,
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "hold_reason": "Noda BY Tinyana YD not CM citation fix required"
+    },
+    {
+      "id": "yd1/siman210/seif-001/yad-avraham",
+      "volume": "yd1",
+      "siman": 210,
+      "seif": 1,
+      "slug": "yad-avraham",
+      "kind": "en_missing",
+      "heSegs": 1,
+      "enSegs": 0,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": false,
+      "he_segments": [
+        "(סימן ר\"י סעיף ג') הנודר וחוזר בו כו' תוך כדי דיבור לנדרו. עיין בש\"ך ס\"ק ז' תוך כ\"ד לנדרו אבל לא תכ\"ד למחאתן וע' בתשובת הרשב\"א הובא בח\"מ סי' פ' ?דל\"ע בתכ\"ד של חבירו:"
+      ],
+      "en_segments": [],
+      "review_action": null,
+      "review_notes": null,
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "hold_reason": "HE garbled ?dl\"a — uncertain expansion"
+    }
+  ]
+}

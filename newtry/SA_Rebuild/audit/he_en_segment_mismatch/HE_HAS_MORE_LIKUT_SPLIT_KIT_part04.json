@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "kind": "he_has_more_segments",
+    "tier": "hold_semantic_likut_merge",
+    "mode": "split_en_not_merge_he",
+    "purpose": "53 Gra Likut cases — split EN to match HE; reject wrong merge_groups",
+    "source_lists": {
+      "eval": "HE_HAS_MORE_PACK_ALL_REVIEW_EVAL.json#likut_merge_ids",
+      "review": "HE_HAS_MORE_PACK_ALL_REVIEW.json"
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT",
+    "counts": {
+      "total": 53,
+      "by_volume": {
+        "yd1": 18,
+        "cm1": 35
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).\n\nINPUTS (both required)\n1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.\n- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.\n- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.\n\nCRITICAL\n- Do NOT output merge_groups that reduce heSegs.\n- Do NOT glue distinct HE Likut segments together.\n- Default action: split_en or mixed_resegment_translate.\n\nTASK\nFor each case:\n1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.\n2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.\n3) Use review merge_groups as anti-pattern (what NOT to do).\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs.\n- No merge_groups on HE. No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).",
+      "",
+      "INPUTS (both required)",
+      "1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.",
+      "- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.",
+      "- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.",
+      "",
+      "CRITICAL",
+      "- Do NOT output merge_groups that reduce heSegs.",
+      "- Do NOT glue distinct HE Likut segments together.",
+      "- Default action: split_en or mixed_resegment_translate.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.",
+      "2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.",
+      "3) Use review merge_groups as anti-pattern (what NOT to do).",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs.",
+      "- No merge_groups on HE. No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 4,
+    "chunk_total": 4,
+    "case_offset": 49,
+    "cases_in_chunk": 4,
+    "parent_pack": "HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+    "parent_sha256": "ea5ccb0dbb2780fcd944c987de25268391708c75fccaee3728d345621b17f018"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman346/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 346,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) בשעה שמשך. כמש\"ש ב' פרה במשיכה כו' (ע\"כ):",
+        "ל\"ש היה כו'. צ\"ה ב':",
+        "(ליקוט) בעוד שהוא משקהו. לאפוקי אח\"כ כמו השאילני היום ואשאילך למחר בס\"ח וקאמר והשקה וכו' דס\"ל להרמב\"ם דוקא אחר שהתחיל במלאכה וכמ\"ש בעידן עבידתייהו אבל לתוס' ורא\"ש אפי' קודם לכן בשעה שהלך וכמ\"ש בס\"ג (ע\"כ):",
+        "אבל אם כו'. שם ומתני' צ\"ד ב' וכמ\"ש בס\"ב:",
+        "(ליקוט) אבל אם משך כו'. שם ואי פקח כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Supplement) At the time he drew it into his possession. As stated there, the cow is acquired through meshicha. (End of supplement.)",
+        "“There was a quaint. C. B:",
+        "(Supplement) While he waters it. This excludes a later time, like one who says, 'lend it to me today and I will lend to you tomorrow,' in seif 8. Rambam requires that the owner have already begun the work, as indicated by the phrase, 'during their work.' Tosafot and Rosh, however, include the earlier moment when he was traveling to perform it, as explained in seif 3. (End of supplement.)",
+        "But if they are . There is a name and a number of people in the United States, but if they do. It's a name and not a name"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman353/seif-002/beur-hagra",
+      "volume": "cm1",
+      "siman": 353,
+      "seif": 2,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "נתייאשו כו'. כרב יוסף שם ס\"ו א' דעולא שם ס\"ז א' וכן רבא שם ב' וכן ר\"נ ור\"ש שם ס\"ח א' ור' יוחנן שם ב' ס\"ל כוותיה וכן סוגיא דגמ' שם קי\"א ב' לר\"ח דקי\"ל כוותיה ורמי ב\"ח ורבא ע\"כ לאחר ייאוש איירי דשינוי רשית בלא ייאוש לד\"ה לא קנה כמש\"ש ס\"ח א' וערשב\"א סי' תתקס\"ח וכן סוגיא דשם קט\"ו א' וב\"ב מ\"ד א' וסוגיא דסוכה למ\"ד ב' וכן ס\"ל לעולא ורבא בגטין כ\"ה ועתוס' שם צ\"ה מ\"ט כו' ובב\"ק ס\"ז א' ד\"ה אמר עולא כו' ובסוכה ל' א' ד\"ה הא כו'. אבל הרא\"ש והטור פ' כרבה לחומרא וכ\"פ בא\"ע סי' כ\"ח ס\"א בהג\"ה:",
+        "ואם יש כו'. תוס' דסוכה ל' ב' בד\"ה וליקנייה. וא\"ת ועוצבא כו' וי\"ל כו' והשתא כו' ותוס' דב\"ק ס\"ו ב' בד\"ה מי כו':",
+        "(ליקוט) ואם יש כו'. דהא דאמר שם ס\"ז א' שאינו קונה היינו בלא ייאוש כמ\"ש תוס' שם סד\"ה הא. ועי\"ל כו'. אבל בלא ייאוש ודאי לא קנה כמש\"ש ובהא מודה ר\"י דאף מדרבנן אינו קונה דהא שם מדרבנן הוא וכמ\"ש בתוס' דסוכה שם שהוא כדברי ר\"י דשינוי מעשה החוזר קנה מדרבנן ובשינוי השם שחוזר כ' דלא קני כלל ע\"ש (ע\"כ):",
+        "(ליקוט) ואם יש כו'. כ\"כ הטור אבל הרא\"ש כ' ייאוש עם שינוי השם גרוע ע\"ש בפ\"ז ס\"ב והוא מדברי תוס' ס\"ז א' בד\"ה הא בתי' הראשון ונראה לפרש כו' שבתחלה כ' ס\"ו ב' בד\"ה שנוי השם כו' דכל שינוי השם דוקא עם ייאוש וכ\"כ בד\"ה הנ\"ל בתחלה וסתם מריש כיון כו' ולפ\"ז כי משני רז\"א שינוי כו' אפילו עם ייאוש והקשו וא\"ת כו' ומכח זה חזרו וחילקו בשינוי קטן לגדול ומ\"מ הכל בשינוי שאין חוזר דמזה לא חזרו וכמ\"ש רש\"י שם בד\"ה מריש כו' אבל אברזין כו' ועוד תי' דכל שינוי השם אפי' גרוע קני בלא ייאוש ולשני התירוצים שינוי החוזר לא קני אפי' בייאוש אבל דברי הטור לקוחין מתוס' דסוכה כמש\"ש ומ\"ש ב\"י שהטור למד מדברי תוס' ס\"ו ב' ד\"ה מי איכא כו' דבריו תמוהין והוא שגגה גדולה דשם לא מיירי בייאוש כלל ולא בשינוי השם אלא בשינוי מעשה החוזר דס\"ל דקני מדרבנן ואף בלא ייאוש וכשיטתן כמש\"ש ס\"ה ב' בד\"ה הן כו' וכ\"כ הרא\"ש שם בשמן וכ\"כ ברפ\"ג דסוכה וכמש\"ל (ע\"כ):"
+      ],
+      "en_segments": [
+        "The owners despaired, etc. This follows Rav Yosef. Ulla, Rava, Rav Nachman, Rabbi Shimon, and Rabbi Yochanan all support him, as do the sugyot in Bava Kamma, Bava Batra, Sukkah, and Gittin. A change of possession without prior despair does not acquire according to any view. Rosh and Tur nevertheless rule stringently like Rabbah, and Rama rules likewise in Even HaEzer 28. See 28 and 968.",
+        "And if there is, etc. Tosafot in Sukkah and Bava Kamma teach that a weak change of name may join with despair, but without despair it does not acquire. Rosh, however, speaks of despair together with an inferior change of name. Tosafot offer two approaches: either only a substantial and irreversible change of name acquires, or even an inferior change of name acquires without despair. Under both approaches a reversible change of name does not acquire. Tur's formulation follows Tosafot in Sukkah, not the passage cited by Beit Yosef. (End of supplement.)"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman354/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 354,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 5,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) גנב כו'. כפרש\"י ותוס' שם. ורשב\"ם בב\"מ חולק וס\"ל דשמין אלא דפחת אין שמין דקאי על מ\"ש מלמד שהבעלים כו' ופריך אפי' י\"ל כו' ומשני לפחת וכן ס\"ל להרמ\"ה כמ\"ש נ\"י בב\"ק שם בשמו. וכ' פירש\"י ורא\"ש וכ' אבל הרמ\"ה ז\"ל כ' דהיינו דוקא כשיש לגנב או לגזלן זוזי כו' דהשתא היכי דאית ליה מנא תבירא לגזלן יהיב ליה דכתיב ישיב כו' דכל כ\"ד אבות כולהו לשלם ממיטב ואין חילוק אלא לענין פחת ע\"ש ודוקא דאין לו מעות משום דאזיל לשיטתו דאף בנזיקין ס\"ל כמש\"ש גבי מ\"ש ישיב לרבות וז\"ש בהג\"ה ודוקא כו' ולא קי\"ל כן ועמש\"ש (ע\"כ):",
+        "(ליקוט) ושברו כו' או נשבר כו'. ר\"ל דבניזקין בין ששברו בידים או ממילא שמין כמש\"ל סי' שפ\"ז וכמש\"ש יו\"ד ב' מנה\"מ כו' וצריכא כו' משא\"כ כאן מדקא' אלא לניזקין מ' דניזקין דממילא (ע\"כ):",
+        "(ליקוט) או דמיו. תוס' שם והרא\"ש דמ\"ל הן מ\"ל דמיהן (ע\"כ):",
+        "(ליקוט) או דמיו. עתוס' שם ד\"ה אין כו' הלכך כו' וה\"ט דמ\"ד כו' וע\"ש צ\"ד א' ומי אמר שמואל כו' (ע\"כ):",
+        "ודוקא כו'. נ\"י בשם הרמ\"ה וכ\"כ תוס' בב\"מ צ\"ו ב' ד\"ה זיל כו' ומפ' הר' שמואל כו' וכ\"מ בירושלמי בקדושין כו' אבל בב\"ק שם הסכימו לפירש\"י וכ\"כ הרא\"ש שם ובהג\"א שם הביא ב' הס' ומ\"ש ודוקא כו' הנ\"י בשם הרמ\"ה אזיל לשיטתו שכ' הא דאמרינן לרבות שוה כסף ואפי' כו' בדל\"ל זוזי כמו בע\"ח וז\"ל שם וכ' הרמ\"ה ז\"ל הא דמצי יהיב ליה אפי' סובין ה\"מ היכא דל\"ל זוזי כו' וה\"נ לבע\"ח וגבי מקח טעות דה\"ל מוכר כגזלן וגזלן א' מכ\"ד נזיקין ואמרינן ברפ\"ו דב\"ב אי דליכא לאשתלומי כו' וכן בהכותב תולה מעותיו כו' ע\"ש אבל תוס' בב\"ב שם ד\"ה אי דליכא כו' כ' אור\"י כו' וכ\"ד הרא\"ש וטוש\"ע בר\"ס תי\"ט דאפי' אית ליה מעות דר\"ה אמר או כסף או מיטב מ' אפי' י\"ל כסף ור\"פ ור\"ה פליגי עליהו וס\"ל דאפי' סובין מיטב הוא אבל הרמ\"ה מפ' דר\"ה אמר או כסף או מיטב אם אין לו כסף ובזה פליגי ר\"פ ור\"ה בריה דר\"י עליה אלא שק' לפ\"ד מאי פריך שם יו\"ד ב' אלא טעמא כו' הא אצטריך להיכא די\"ל מעות וכמו שהקשה הרא\"ש שם. ונמצא ג' שיטות להרמ\"ה כמ\"ש בהג\"ה ולתוס' דב\"מ אפי' בי\"ל מעות יכול לשום בשברים וכמ\"ש בסי' תי\"ט כנ\"ל ולתוס' דב\"ק הנ\"ל אפי' אין לו מעות א\"י לשום בשברים אלא או שלמים או מעות ועברא\"ש שם ואף שאר מטלטלין א\"י ליתן לו כמ\"ש בתוס' ורא\"ש שם ועסי' שס\"ד ס\"ב:",
+        "ואם רצו כו'. המ\"מ הקשה למה לא קנאה בשינוי והביאו בה\"ג וסמ\"ע וקושיא אלימתא היא דכן אמרינן בהדיא בב\"ק צ\"ד א' דמש\"ה אין שמין ובהכחשה דלא הדר לכן תי' של המ\"מ ליתא ועבתוס' דב\"מ בד\"ה הנ\"ל גם תי' של הסמ\"ע שס\"ב שם ב' ק' כחומץ לשינים כיון דקנה היאך יכול לכופו ועסי' תי\"ט ס\"ב וסי' קא ס\"ב ועוד לפ\"ד הא ע\"כ הרמב\"ם מיירי בי\"ל מעות כמ\"ש בהג\"ה כאן ודוקא כו' ובר מן דין הרמב\"ם ל\"ל כלל הא דרמ\"ה:",
+        "(ליקוט) ואם רצו כו'. עבה\"ג שהמ\"מ תמה עליו וודאי שהוא תמוה וכ\"כ נ\"י בפ\"ק דב\"ק שם להדיא דטעמא דאין שמין לגנב ולגזלן משום דקני בשינוי נשברים בע\"כ דנגזל משא\"כ בניזקין (ע\"כ):",
+        "(ליקוט) ואם רצו כו' הוא תמוה ונר' שלמד ממש\"ש צ\"ז א' רצה פחתה כו' אבל הרשב\"א שם תי' דשאני שם שעדיין ראוי למלאכתו ראשונה (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Supplement) A thief, etc. Rashi and Tosafot hold that the broken object itself is not appraised against the thief. Rashbam and Ramah distinguish between payment in money and payment with the broken object, and Ramah permits appraisal only where the thief lacks money. This follows his broader view that damages are paid from the best available property only when cash is unavailable. We do not rule accordingly. (End of supplement.)",
+        "(Supplement) And he broke it, etc., or it broke, etc. In damages the broken article is appraised whether the tortfeasor broke it directly or it broke by itself. Here the Gemara's contrast with damages shows that even spontaneous breakage is included. See 387. (End of supplement.)",
+        "(Supplement) Or its value. Tosafot and Rosh explain that there is no difference between returning the object itself and paying its value. See Bava Kamma 94a. (End of supplement.)",
+        "Specifically, etc. Nimukei Yosef cites Ramah that the thief may tender the broken object only where he lacks money. Tosafot in Bava Metzia, however, allows appraisal even when he has money, while Tosafot in Bava Kamma requires either complete objects or money. Thus there are three views. The principal ruling follows Tosafot and Rosh that cash is not always required, unlike Ramah. See simanim 364 and 419.",
+        "And if they wished, etc. Maggid Mishneh objects that the thief should acquire the article through its change, for Bava Kamma 94a expressly gives that reason. Sema's answer is unsatisfactory: once the thief acquires it, the owner cannot compel him to return it. Nimukei Yosef likewise writes that appraisal is denied because the thief acquired the broken article through change. Perhaps Rambam learned from the case of depreciation where the article remains fit for its original use. See simanim 101 and 419."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman389/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 389,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אפי' אם כו'. דלא כר\"א:",
+        "(ליקוט) בנגיחה או כו'. ז\"ש הזאב כו' הרי כו' וערש\"י שם ד\"ה הרי כו' (ע\"כ):",
+        "ואפי' כו'. בזה אפי' ר\"א מודה כמש\"ש:",
+        "וי\"א דוקא כו'. ט\"ז ב':",
+        "(ליקוט) וי\"א כו'. עתוס' ט\"ז א' ד\"ה והנחש כו' (ע\"כ):",
+        "לדרוס. ולאכול ולטרוף להניח. שם וברא\"ש:",
+        "וזאב כו'. כמ\"ש בב\"מ צג ב' בא זאב וטרף ארי ודרס ועתוס' ד\"ה והנחש כו' וכ\"פ הרשב\"א וכ' הרא\"ש דכל חיה דינה כזאב דדוקא ארי שהוא מלך כו'. והרמב\"ם פ' דלא כשמואל משום דאקשינן עליה טובא וכולהו שינויי דחיקי נינהו וכן הרי\"ף השמיט וז\"ש חמשה כו' בנגיחה כו' וכיוצא כו':"
+      ],
+      "en_segments": [
+        "A.D. if they are. Despite this:",
+        "(Supplement) By goring or, etc. This is the meaning of the statement concerning the wolf, etc., 'these are, etc.' See Rashi there, s.v. these are.",
+        "And even, etc. In this case even Rabbi Eliezer agrees, as stated there.",
+        "Oh, and I'm like that. A.D. (S.A.A.) and A. “Ah, O Lord, and the serpent is.”",
+        "To maul. Meaning to eat, whereas 'to seize' means to kill and leave the prey. See the Gemara there and Rosh.",
+        "And a wolf, etc. As stated in Bava Metzia 93b: if a wolf came and seized, or a lion came and mauled. See Tosafot there, s.v. and the snake. Rashba rules likewise. Rosh writes that every wild animal has the law of a wolf; only a lion, which is king among animals, differs. Rambam rules against Shmuel because the Gemara raises numerous objections against him and all the answers are strained. Rif also omits his view. This is why the text says, 'five, etc., by goring, etc., and the like.'"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    }
+  ]
+}

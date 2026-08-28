@@ -1,0 +1,352 @@
+{
+  "meta": {
+    "kind": "en_truncated_vs_multi_he",
+    "tier": "editorial",
+    "mode": "fresh_multi_segment_translate",
+    "purpose": "EN truncated/garbled blob — fresh multi-segment translate from HE (needs_editorial tier)",
+    "source_lists": {
+      "review": "EN_TRUNC_PACK_ALL_REVIEW.json",
+      "eval": "EN_TRUNC_PACK_ALL_REVIEW_EVAL.json",
+      "exclusions": "wave1 applied/held + moderate resegment kit ids"
+    },
+    "output_schema": {
+      "primary": "segments[] with index, he, en, source:fresh_translate",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT",
+    "counts": {
+      "total": 99,
+      "by_volume": {
+        "oc1": 4,
+        "yd1": 64,
+        "cm1": 31
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.\n\nINPUTS (both required)\n1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).\n- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.\n- Wave1 strict/moderate tiers excluded (already in other kits or applied).\n- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.\n\nTRANSLATION NORMS\n- Complete: translate every clause; no omissions or paraphrasing away content.\n- No additions: no introductions, notes, or explanations beyond the source.\n- Rama glosses introduced by הגה → {Rama: ...} (curly braces).\n- Plain English only — no \"Translation:\" label.\n- Where norms and full_dictionary.md conflict, full_dictionary.md wins.\n\nTASK\nFor each case:\n1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).\n2) segments.length MUST equal heSegs (1:1 with he_segments).\n3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.\n\nOUTPUT — JSON array only, same ids/order as input cases:\n[{\n  \"id\": \"...\",\n  \"action\": \"fresh_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs; each segment includes paired he+en.\n- en_segments[] mirrors segments[].en in order.\n- source on each segment is fresh_translate (or partial if you must flag a slot).\n- No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild EN_TRUNC EDITORIAL — FRESH MULTI-SEGMENT TRANSLATE FROM HEBREW.",
+      "",
+      "INPUTS (both required)",
+      "1) EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- Each case has heSegs > 1 and enSegs === 1 (one EN blob vs multiple HE segments).",
+      "- GPT review action was needs_editorial: EN is truncated, garbled, or structurally unsafe to split mechanically.",
+      "- Wave1 strict/moderate tiers excluded (already in other kits or applied).",
+      "- Goal: produce heSegs fresh English segments — one accurate translation per HE slot. Treat existing EN blob as unreliable; do NOT preserve garbled MT wording.",
+      "",
+      "TRANSLATION NORMS",
+      "- Complete: translate every clause; no omissions or paraphrasing away content.",
+      "- No additions: no introductions, notes, or explanations beyond the source.",
+      "- Rama glosses introduced by הגה → {Rama: ...} (curly braces).",
+      "- Plain English only — no \"Translation:\" label.",
+      "- Where norms and full_dictionary.md conflict, full_dictionary.md wins.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Translate each he_segments[i] into segments[i].en (source: fresh_translate).",
+      "2) segments.length MUST equal heSegs (1:1 with he_segments).",
+      "3) If HE slot is corrupt/unusable: action needs_human for that case; still return best-effort segments[] if possible.",
+      "",
+      "OUTPUT — JSON array only, same ids/order as input cases:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"fresh_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"fresh_translate\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs; each segment includes paired he+en.",
+      "- en_segments[] mirrors segments[].en in order.",
+      "- source on each segment is fresh_translate (or partial if you must flag a slot).",
+      "- No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 6,
+    "chunk_total": 6,
+    "case_offset": 89,
+    "cases_in_chunk": 10,
+    "parent_pack": "EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json",
+    "parent_sha256": "f5910cf438138ae0d71a83e6a7ed9864cab669c7ac756a19d88c84ebe9b5dfbe"
+  },
+  "cases": [
+    {
+      "id": "cm1/siman232/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 232,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המוכר כו'. זהו רישא דשם. היה בה מום א' ניכר והראהו כו'. זהו סיפא דשם. אבל יש בה מומים הנכרים בין כו'. זהו מש\"ש א\"ל רב אחא כו' הכי אמרי' כו'. כ\"מ וכ\"כ בדרישה:",
+        "(ליקוט) המוכר כו' וס\"ט היה כו'. כ\"ז הוא לשון הטור והנה רש\"י פי' דברישא דא\"ל פרה כו' משום דסנפו כו' ולא היה בו כל המומין ה\"ז מקח טעות אבל בסיפא מום זה כו'. אע\"ג שלא היה בו מום אחר כיון שהזכיר לבדו ה\"ל לבדוק א\"ל ר\"א כו' היו בה כו' ואינו מקפיד אלא על הא' דאל\"כ מאי קמיבעיא ליה דהא ל\"ל מדהא ליתא אידך נמי ליתא ובברייתא קתני בהדיא והיה בה מום אחד אבל תוס' בד\"ה היו פי' דבסיפא מום זה כו' מיירי שיש בה גם המום האחר ואינו מזכיר אלא שני מומין מום זה שמקפיד ומום אחר שיש בה ואינו מקפיד ולכך קמיבעיא ליה אי דוקא שני מומין אבל היה בה כל המומין ה\"ז מקח טעות א\"ד אפי' כל המומין בה ג\"כ אינו מקח טעות ול\"ד מום זה ומום אחר אלא משום דאית בה שני המומין וה\"ה לכולם וקא' ומום אחר שבה וז\"ש תוס' והא דקתני מום זה ומום אחר ה\"ה כו' ורש\"י מחק אפי' בד\"ה אפילו וכן הוא ברמב\"ם כיון שקאי ארישא לא שייך אפי' אבל לפי' תוס' שייך שפיר אפי' ואח\"כ כ' תוס' דבתוספתא מ' דבשני מומין אפי' האחר אין בה אינו מקח טעות ובזה אתי שפיר דקתני כאן ומום אחר ולשני הפי' של תוס' מ\"ש מום זה ומום אחר הוא דלא כפירש\"י שהזכיר לבדו ועוד כו' אלא שלא אמר רק שני מומין ומ\"ש שם ומום זה ומום אחר אין זה מקח טעות כיון שאינו מזכיר אלא אחר ר\"ל כיון שאינו מזכיר רק שנים ורי\"ף ורא\"ש פי' דרישא שלא היה בה א' מכל המומין הנזכרין כאן והיה בה מום אחר שאינו ניכר כגי' בגמ' והיה בה מום אחר ואין נ\"מ בזה לגי' שלנו מום אחד וגם אלו המומין הנזכרין כאן אינן ניכרין ובסיפא שא\"ל מום א' ניכר ומום א' שאינו ניכר והיה בה שני המומין ועוד אמר בה הרבה מומין שאינן ניכרין ולא היו בה ואילו לא אמר מום הניכר היה מקח טעות שזהו הרישא אבל כיון דהראה לו מום ניכר ה\"ל לבדוק ג\"כ בשני ורמב\"ם פי' בע\"א וגריס ברישא ואמר בה מום אחר ר\"ל שא' מאלו שאינן ניכרין היו בה אבל אמר בה עוד מומין אחרים הניכרין ואין בה אבל כולם ניכרין או כולם אינן ניכרין אינו מקח טעות וז\"ל בפט\"ו מה\"מ המוכר פרה לחבירו ומנה בה מומין גלויים ומומין שאינן ניכרין ולא היו בה מאותן מומין הגלוין שמנה ונמצא בה מום מאותן שאינן ניכרין ה\"ז מקח טעות וחוזר ואע\"פ שפירש המום שנמצא שהרי הלוקח אומר כשראיתי שאין בה אלו המומין שנראין שמנה אמרתי כך אין בה אלו שאינן נראין שמנה ואינו מפרש מומין אלו אלא כדי להשביח דעתי כיצד פרה זו עורת היא חגרת היא נשכנית היא רבצנית היא ונמצאת רבצנית בלבד או נשכנית ה\"ז מקח טעות היו בה כל המומין שמנה אין זה מקח טעות והוא הבעיא הנ\"ל ול\"ד כל המומין אלא א' מהמומין הניכרין וא' מהמומין שאינן ניכרין כיון שיש ג\"כ מהניכרין אינו מקח מעות גם על שאינן ואמר כל המומין ר\"ל אותן שהזכיר בברייתא ומומין האחר שאמר וז\"ש הרמב\"ם שם וכן אם היתה חגרת ונמצא נשכנית אע\"פ שאינה עורת אין זה מקח טעות וכ' הראה לו המום שיש בה וא\"ל מום זה יש בה ומום פלוני ומום פלוני אע\"פ שאותן המומין שמנה נראין ונמצאו בה כולן או מקצתן אין זה מקח טעות והוא סיפא דברייתא ולדבריו כל שנראין כולן או אינן נראין כולן בלא\"ה אינו מקח טעות אלא הברייתא מלתא אחריתי קמ\"ל אע\"פ שכולן נראין ולא הראה אלא א' דלא מצי לומר מדלא הראה אלא א' ש\"מ שהנשארין אין בה קמ\"ל דלא והנה הטוש\"ע בס\"ח הן דברי הרמב\"ם אבל בס\"ט שהוא פי' לסיפא דברייתא א\"י להולמן כלל ואמר אפי' היה כו' שהוא כגי' התוס' ורא\"ש דגרסי שם אפי' ומפ' שקאי אסיפא וכ\"ז א\"י להולמן והנה הב\"ח ודו\"פ פי' ברי\"ף ורמב\"ם וטור פי' דחוקים מאד ונלאיתי לכתוב הדחוקים והקושיות שיש בדבריהם וגם בתוס' נדחק הב\"ח ע\"ש (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who sells, etc. The opening clause is the baraita's case where one obvious defect was present and disclosed. The concluding clause concerns the Gemara's inquiry where some defects are visible and others are not. Rashi explains that if the seller listed several defects that were not all present, yet another undisclosed defect was present, the sale is mistaken. If he singled out the actual defect, the purchaser should have examined it. Tosafot explain differently: the seller mentioned the actual defect together with another defect that was also present, and the question is whether the rule applies only when two defects were mentioned or even when every listed defect was present. The Tosefta implies that mentioning two defects suffices even if the second is absent. Rif and Rosh explain that in the first clause none of the listed defects was present but another hidden defect was, while in the second clause the seller disclosed one visible and one hidden defect and both were present, together with additional hidden defects that were not present. Since the purchaser saw that one visible defect was accurately disclosed, he was expected to investigate the hidden defect as well. Rambam adopts another reading. He distinguishes a mixture of visible and hidden defects from a list consisting entirely of one category. If the seller lists both visible and hidden defects, none of the visible defects exists, and one hidden defect does exist, the purchaser may say that he assumed the hidden defects were also merely promotional exaggeration. If visible defects were actually present, that argument fails. Rambam further rules that where the seller points out the actual defect and lists others, the sale stands even if all or some of the others are also present. Shulchan Aruch's seif 8 follows Rambam, but the wording of seif 9 appears to follow Tosafot and Rosh, and the various attempts of Bach and the commentators to reconcile the texts are highly strained. See the cited discussions. References 81 and 340."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman268/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 268,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם היה כו'. עבה\"ג:",
+        "(ליקוט) ואם היה צבי כו'. עבה\"ג ס\"ק ס' וכ\"מ לכאורה בגמ' מדאיבעיא ליה אדברי ר' יוחנן ולא אמתני' צבי רץ כו'. אבל לנר\"כ דא\"כ מאי קאמר שם ח\"ל ר\"פ לרבא כו' לאו היינו מתני' אדרבה משם מוכח להיפך דהא זרק ארנקי דמי' לצבי רץ כדרכו (ע\"כ):",
+        "(ליקוט) ואם היה צבי כו'. צ\"ע דהא אמרינן שם מתגלגל קאמרת כו' וכן הקשה בע\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "And if it was, etc. See Baer HaGolah. The Gemara's question is raised on Rabbi Yochanan's statement rather than directly on the Mishna concerning a running deer, but the passage about a rolling purse creates difficulty and requires study."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman269/seif-001/chokhmat-shlomo",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "סעיף א'. המגביה מציאה לחברו קנה וכו'. נ\"ב הנה אם היה מונח תוך ד\"א שלו מציאה. או בחצרו ואמר הלה יזכה חצרו או ד\"א שלי לפלוני את המציאה הזאת אם קונה או לא. עיין בהר\"ן בפירושו למס' נדרים דל\"ד ע\"ב ד\"ה היתה לפניו ככר של הפקר מוכח שם מדבריו דבכה\"ג קנה חברו והטעם ביארתי בחיבורי כ\"ז שם דאף אם אומר שיקנה חצרו לפלוני דבר דהוי כבר שלו לא מהני זה עדיף כיון דעדיין לא זכה בו הוא. ואם רצה הוא יכול לזכות בו לכך מגו דזכה לנפשיה זכה נמי לחברי' וכמו דעדיף משליחות דקיי\"ל התופס לבע\"ח במקום שחב לאחרים לא קנאו אף בעשאו שליחו מ\"מ במגביה מציאה לחברו קנה מכח מגו דזכי לנפשיה כן ה\"נ בקנין חצר וד\"א דנהי דחצר מטעם שליחות הוא ולכך לאחר שאינו בעל החצר א\"י החצר להיות שלוחו מ\"מ היכי דעדיין לא הוי החפץ שלו רק דיכול לזכות בו עתה אמרינן מגו דאי בעי זכי לנפשי' זכי נמי לחברי' וכן מוכח משיטת הר\"ן שם אבל משיטת שאר המפרשים שם משמע דס\"ל דלכתחלה יכוון לקנותו ואח\"כ יחול ההקדש משמע דס\"ל דאינו יכול לזכות בו תיכף לומר דיקנה הד\"א להקדש. מיהו יש לומר לדינא מודים להר\"ן דלחברי' מצי זכי ע\"י ד\"א רק להקדש ס\"ל כאן דד\"א קונות מטעם חצר. וקיי\"ל בחצר מטעם יד ואין יד להקדש כמ\"ש המג\"א בסי' קנ\"ד באו\"ח בשם האגודה דמצא דבר בחצר בהכ\"נ זכה בו. ולכך ה\"נ האיך יקנה הד\"א להקדש הרי אין חצר ויד להקדש ואם היו ממש הד\"א חצר של הקדש לא היה זוכה בו משא\"כ בנדון כזה. אבל אם הזוכה לחבירו בענין דאם היה חברו כאן אצל הד\"א אם היה החצר של חברו היה זוכה בו שפיר אף באם הוא עומד אצל הד\"א נמי יכול לומר דיזכה חצרו או ד\"א שלי לפלוני מכח מגו דבעי זכה לנפשי' זכה נמי לחברי' ומודו בזה הכל להר\"ן דלמעט בפלוגתא עדיף ואדרבא על הר\"ן קשה האיך מפרש דכוונתו הוי לזכות הד\"א להקדש הלא אין חצר להקדש ויהיה מוכח מן הר\"ן להיפך דס\"ל יש חצר להקדש דלא כדעת האגודה ואין פנאי להאריך אולי יזכני ד' בזמן אחר לבאר יותר ודוק בזה: סעיף ד' נ\"ב עיין בחיבורי ליו\"ד מהדורא ה' סי' ע\"ז מ\"ש בזה ודוק:",
+        "סעיף א' נ\"ב עיין בקצה\"ח סי' זה ובאבני מלואים סי' ל\"ז מ\"ש ראיה דאב זוכה במתנת בתו ועיין בחיבורי באה\"ע מהדורא טית סימן קכ\"ז בהלכות קידושין מ\"ש לדחות דבריו בעזה\"י מלבד מ\"ש ע\"ז בחיבורי הגדול על ה' קידושין ודוק:"
+      ],
+      "en_segments": [
+        "Seif 1. One who lifts a found object for another acquires it for him. Note: If a found object lies within a person's four cubits or in his courtyard, and he says, \"Let my courtyard or my four cubits acquire this object for so-and-so,\" does the other person acquire it? Ran to Nedarim 34 implies that he does. Although a courtyard cannot ordinarily transfer to another person property already owned by the courtyard owner, here the object has not yet become his. Since he could acquire it for himself, we apply the principle that because he could acquire it for himself, he can also acquire it for his fellow. This is stronger than ordinary agency, just as one may lift a found object for another even where ordinary seizure for a creditor would fail because it harms third parties. Other commentators on Nedarim appear to require him first to intend to acquire the object himself and only afterward consecrate it. They may nevertheless agree with Ran regarding acquisition for another person, while disagreeing only about consecration because a courtyard is treated as an extension of the hand and consecrated property has no \"hand.\" Magen Avraham, citing Agudah, similarly rules that one who finds something in a synagogue courtyard may acquire it. Thus all may agree that for an ordinary person one can use one's own courtyard or four cubits to acquire a found object for him, because the owner of those four cubits could have acquired it personally. Ran's treatment of consecration might, however, imply that he holds consecrated property does have acquisition through a courtyard, contrary to Agudah. I have no time to expand. Seif 4. See my Yoreh Deah, fifth edition, siman 77. Seif 1. See Ketzot HaChoshen here and Avnei Miluim, siman 37, regarding the claim that a father acquires a gift given to his daughter. In my Even HaEzer, ninth edition, siman 127, laws of kiddushin, I rejected that proof, in addition to what I wrote in my larger work on kiddushin."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman269/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 269,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ג\"ט כו' ג\"ט כו'. תוס' ורא\"ש וכדברי המפ' דאין הגבהה בפחות מג\"ט:",
+        "(ליקוט) שגבוה ג\"ט כו'. נראה דזהו לדעת רש\"י וע\"ל סי' קצח ס\"ב (ע\"כ):"
+      ],
+      "en_segments": [
+        "J.T. K. K. K. K. K. Yasss and Rashi, and as the words of the map, Do not have responded to less than G-d, which is high. It seems to be known as Rashi and the IDF"
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman275/seif-029/beur-hagra",
+      "volume": "cm1",
+      "siman": 275,
+      "seif": 29,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "גר כו'. הרמב\"ם מפ' מ\"ש א\"ב ששמעו בו שמת. ר\"ל הגר ר\"ל בתחלה קודם שבזבזו הנכסים. ולא מת. קאי אשמעו ר\"ל שאח\"כ שמעו שלא מת ורפיא בידם הירושה אז דלא כפי' רשב\"ם. ואח\"כ מת. קאי נמי אשמעו ששמעו אח\"כ שמת ששמועה ראשונה היתה אמת לרבא המחזיק בראשונה לא קנה כיון דרפיא בידו ולאביי קנה ובלא הי\"ל בן ועובר כלל וכן מש\"ש רבא שאני התם כו' ר\"ל בשעה ששמעו שיש לו בן כו' וז\"ש ג' בבות ישמעו שעדיין לא מת הוא הא\"ב או כו' הוא הנז' בברייתא וה\"ה די\"ל א\"ב במיתת הבן ועובר אלא דיותר רבותא קמ\"ל דאפי' לא היה עובר כלל דלאביי בראשונה לא קנה אינו אלא משום העובר ועמ\"מ ודבריו מגומגמין מאד ועלח\"מ:",
+        "(ליקוט) גר כו' ואח\"כ כו'. לשון הרמב\"ם ועמ\"מ שהאריך בה והכל שלא לצורך וכבר השיגו מש\"ל אבל דברי הרמב\"ם תמוהין מצד אחר שלא כ' הנ\"מ שבין אביי לרבא דקא' שם בגמ' אבל גי' הרמב\"ם שם א\"ב ששמעו בו שמת ולא מת ומת ור\"ל מתחלה שמעו שמת הגר ואח\"כ שמעו שלא מת הגר ואח\"כ חזרו ושמעו ששמועה ראשונה היתה אמת שמת הגר מכבר וז\"ש הרמב\"ם ושמעו שעדיין לא מת כו' ואח\"כ שמעו ששמועה ראשונה אמת היתה ובראשונה מת שכ\"ז לא נזכר בגמ' לפי גי' שלנו דבמיתת הגר לא קמיירי כלל דלגי' שלנו ק' שמעו שהפילה הל\"ל כלשון הברייתא אבל לפי' הרמב\"ם קאי על הגר וה\"ה להפילה ומת הבן אלא דדבר פשוט יותר נקט ועתוס' קמב ב' ד\"ה והלכתא כו' פי' ריב\"ם כו' וכ\"פ הרא\"ש שם ובפ' אלמנה לכ\"ג וכ' שם שכ\"פ הרמב\"ם ודחק בפ' אלמנה שם לפרושי הא דרבא דפליג אאביי וס\"ל ירושה הבאה מאליה לא קני כמ\"ש מאי בינייהו כו' ודחק שם מאד והג\"א בב\"ב שם ד\"ה גר כו' כ' דהלכה כאביי לדברי ריב\"ם ורמב\"ם אבל לפי הנ\"ל הכל ניחא דרבא ל\"פ אאביי בזה וז\"ש מאי בינייהו דהא רבא מודי לאביי וכ\"מ לכאורה הסוגיא דנדה מג א' דקא' ודוקא בן כו' דהוא מיית ברישא כו' ואם איתא הא בלא\"ה עובר לא קני אבל יש לדחות דהוא הכל מדברי רבששת והוא אזיל לטעמיה דס\"ל בב\"ב שם דא' זה וא' זה קנה ובזה מתי' קושית תוס' דשם ובב\"ב שם ד\"ה נוחל כו' תימא כו' אבל בזה ניחא דודאי ידע נוחל בנכסי אם כו' אבל לא ידע מ\"ש דהוא מיית כו' ורב ששת תי' אהא דנדה נוחל בנכסי כו' וחהא דב\"ב דהוא כו' וגמ' קבען יחד מ\"מ גי' הרמב\"ם נכונה כנ\"ל (ע\"כ):"
+      ],
+      "en_segments": [
+        "A convert, etc. Rambam explains the passage as follows: first they heard that the convert had died and took possession of the property; afterward they heard that he had not died, which weakened their claim; then they again heard that the first report had been true. According to Rava, the first possessor did not acquire because his possession was uncertain, while according to Abaye he did. Rambam's text differs from ours and resolves the discussion without assuming that Rava disputes Abaye concerning an inheritance that comes automatically. See 26, 40, and 41."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman281/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 281,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם כו'. וכ\"פ הרי\"ף ורא\"ש ור\"ה דלא כר\"ח:",
+        "(ליקוט) אם היה כו'. כ\"כ הרי\"ף ור\"ה גאון דלא איפשיטא הבעיא ולקולא ולשון הרי\"ף והביאו הרא\"ש ושקיל וטרי בגמ' בלשון ודלמא ולא איבריר לן פשיטותא וכ' הרא\"ש אבל ר\"ח כ' כיון דמסיק ב\"ד בתרא אב\"ד קמא תקון א\"כ איפשיטא בעיא ר\"ל כיון דמסיק דבתרי ב\"ד איתקין א\"כ ע\"כ א\"א לאוקמי כרבנן לזה בירושה ולזה במתנה וע\"כ כריב\"ב אתיא וכן הקשה עליו הרז\"ה אבל הרי\"ף סובר כיון דאיתמר בלשון ודלמא לא איפשיטא וי\"ל בחד ב\"ד איתקין ועוד הקשה הרז\"ה דכל השקלא וטריא אינו מדחה פשיטות הבעיא דאיפשטא מדברי ר\"ן דאי לאו דשמיע לה דריב\"ב דאמר בבריא כו' וכן תמה הרמב\"ן וכ\"כ הרשב\"ם שם א' בד\"ה א\"ל ר\"פ כו' ושם ב' ד\"ה לעולם כו' אבל הרי\"ף מפ' כפי' תוס' שם ד\"ה וש\"מ כו' דכל השקליא וטריא הוא על פשיטות הבעיא וכ\"כ במלחמות ועוד פי' שם ובחידושיו דר\"נ בלשון שאלה אמר שניתם כו' וא\"ל סבורים אתם אפי' בבריא נמי ועיקר פשיטותא ממסקנא דרבי דאמר ירתון וממתני' דמתני' ע\"כ ס\"ל כן וז\"ש מאן שמעת כו' דאי מדברי ר\"נ ל\"צ לכ\"ז דהא איהו בהדיא אמר כן שניתם כו' ע\"ש ושם (ע\"כ):"
+      ],
+      "en_segments": [
+        "If, etc. Rif, Rosh, and Rav Hai Gaon rule this way, unlike Rabbeinu Chananel. Rif explains that the question was not conclusively resolved and therefore the lenient rule applies. Rabbeinu Chananel understood the final discussion as resolving it, but Rif and Ramban explain that the give-and-take itself remained uncertain. The issue turns on whether the enactments were made by one court or by two courts and whether Rabbi Yochanan ben Beroka's rule applies to a healthy person. See the full discussion in the Milchemet and the commentaries. See 100."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman354/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 354,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 3,
+      "enSegs": 1,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והא כו'. ממש\"ש אנא פטימנא כו' מ' דוקא בפטמה וערא\"ש שם ועבטור כל החילוקים:",
+        "(ליקוט) והא מפטימנא כו' מ' דוקא בפטמה ואע\"ג ודו\"ה ה\"ה נמי לענין קרן כמש\"ש בהוקרה אבל דעת התוס' אינו כן וכמש\"ש בד\"ה אנא כו' וכן מאליה ואע\"ג דשם בד\"ה מה לי כו' נסתפקו בזה וכ' ולפ\"ז ה\"ה בהוכחשה כו' ולפי טעם זה כו' היינו לסוגיא דכאן אבל לפי האמת ה\"ה בזה הכל כעין שגנב כמ\"ש בד\"ה אנא כו' וכ\"כ רש\"א וכ\"כ שם ס\"ו א' ד\"ה טלאים כו' או איפכא כו' אבל להרי\"ף הא נמי כזולא דמי ומשלם קרן כדמעיקרא וכפל ודו\"ה כדהשתא ולא כ' הרב בזה משום דבקרן ל\"פ בזה וכ' הרא\"ש וטעמו של הרי\"ף משום דלא קי\"ל כר\"ח דאמר תורא גנבי כו' אלא כר' אלעא כו' ודבריו צע\"ג הא ע\"כ הוצרך לדר\"ח הברייתא סבר שינוי לא קניא וע\"כ משום תורא גנבי כו' וכמש\"ש ע\"כ ל\"פ כו' א\"ר טלאים כו' ולענין כחושה והשמינה או שמנה והכחישה לד\"ה הכל כעין שגנב ולענין יוקרא וזולא אם הוזלה קרן כעין שגנב תשלומי כפל ודו\"ה כשעת העמדה בדין ואם הוקרה אם שחטה הכל כשעת העמדה בדין ואם מתה מאליה דעת הרמב\"ם והטור דהכל כשעת גניבה אבל דעת תוס' דכפל כשעת העמדה בדין ועתוס' ד\"ה טלאים הנ\"ל ושיטת ר\"ת דמ\"ש רב כפל וד' וה' כשה\"ב היינו בהוזלה אבל בהוקרה וכן בנתפטמה כפל וד' וה' כעין שגנב ועתוס' ד\"ה הנ\"ל וכ' הרא\"ש והטור מ\"ש בכפל וד' וה' כשה\"ב בכפל כ\"ה אבל בד' וה' הטביחה וכ' הטור דקרן ה\"ה ככפל אבל ברמב\"ם מ' גם בטביחה כשעת העמדה בדין וכ\"פ ביש\"ש סימן ג' ע\"ש (ע\"כ):",
+        "(ליקוט) דברי רמב\"ם וטור שכ' דבהוקרה ומתה מאליה משלם אף כפל כעין שגנב תמוה מאד דזה לא תלוי בדינא דרבה ואמר שם לימא פליגא דרב אדרבה כו' מ' אי הוה פליג וס\"ל דטבחה הוי כמתה מאליה ניחא אלמא דכפל ודו\"ה כשה\"ב וכן שם ס\"ו א' ע\"כ ל\"פ כו' ופ' לרב וכ' רש\"י שם ס\"ה ב' אבל לרבה לא פריך דרבה ל\"ק אלא בקרן כו' ודברי תוס' וסמ\"ג הן מחוורין מאד דאין חילוק בכפל ודו\"ה דלעולם כשה\"ב ביוקרא וזולא וכ\"כ הרא\"ש דמ\"ש תורה חיים לא להורות אקרן אלא אכפל ד' וה' כשה\"ב. ושיטת ר\"ת דכפל ודו\"ה לעולם לקולא ואע\"ג דגמ' פריך לימא פליגא דרב אדרבה כו' ומ' אבל לענין כפל וד' וה' ניחא היינו לס\"ד ובן פריך שם ס\"ו ע\"כ ל\"פ כו' אבל גמ' שני התם א\"ר טלאים כו' והנה הכלל בדינים אלו דהשמינה והכחישה בידים הכל כעין שגנב ויוקרא וזולא כפל וד' וה' לעולם כשה\"ב וקרן הכל לחומרא והוכחשה ונתפטמה מאליה לרי\"ף הוי כמו יוקרא וזולא ולר\"י כמו בידים. ושיטת ר\"ת בזה כמו הרי\"ף אלא דס\"ל בין מאליה בין יוקרא וזולא כפל ודו\"ה הכל לקולא והנה הרא\"ש כ' דאף לדברי ר\"י דמאליה הוי כבידים דוקא בכפל וד' וה' אבל לענין קרן מודה דהוי כיוקרא וזולא ולפ\"ז היו דברי הרמ\"א בכאן ככ\"ע אבל בתוס' שם ד\"ה טלאים כו' לא מ' כן שכ' נראה לר\"י כו' כמו קרן והנה לדינא פ' הרא\"ש והטור כהרי\"ף וכ\"פ ביש\"ש (ע' כ):"
+      ],
+      "en_segments": [
+        "And this, etc. The Gemara's phrase, 'I fattened it,' implies that the rule applies specifically when the robber fattened it. Rosh and Tur enumerate the distinctions. According to Rif and Rosh, the robber receives such improvement, while Tosafot discusses whether the same applies to natural appreciation. See 3."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman355/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 355,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "הגונב כו'. כר' יוחנן דקי\"ל דכל רב ושמואל ור\"י הלכה כר\"י ור\"ח ל\"פ עליה דר\"י אלא בבע\"ח. אבל בכמה מקומות כ' הרי\"ף בכה\"ג דהלכה כשמואל דאין הלכה כר\"י במקום ששניהם פליגי עליה ובלדעת ס\"ל ר\"י כשמואל ובשלא לדעת ס\"ל רב כוותיה וכן דר\"ח י\"ל כשמואל אח\"כ מצאתי במלחמות שהקשה ג\"כ על הרי\"ף כן. עוד הקשו הרז\"ה וש\"פ על הרי\"ף הא אמרינן לימא כתנאי הגונב כו' א\"ר זביד כו' אבל בסלע א\"א לאוקמי לר\"ע אלא כרב והרי\"ף פ' בעצמו בפ\"ג דב\"מ כר\"ע א\"כ הלכה כרב ולכן פ' הרז\"ה כרב ואף בבע\"ח ע\"ש ותי' נ\"י בשם הרמב\"ן דלא אמרינן א\"צ דעת אלא בשהחזיר למקום שגנב משא\"כ כאן דכלתה שמירתו וצריך להחזיר לרשות בעלים כו' ע\"ש וז\"ש בס\"ג כיס או טלה וראיה שהרי ר' יוחנן גופא פסק כר\"ע בב\"מ מ\"ג ב' וע' במאור ומלחמות וכ' שם וכן הני תנאי דהגוזל והבליע כו' ע\"כ ס\"ל דלא כרב מדקא' הגוזל ול\"ק הגונב מ' לדעת וההיא ברייתא הלכתא היא מסוגיא דב\"מ ס\"ד א' כמ\"ש הרי\"ף ע\"ש וז\"ש לפיכך כו' וכתי' בתרא שם וערש\"י שם ד\"ה אית ליה כו' וכ\"כ רא\"ש וטור. והרי\"ף פי' להיפך באית ליה יצא דאדם עשוי למשמש ובל\"ל לא יצא דכיון דל\"ל לא ממשמש ביה והמחבר הרכיב ב' הפירושים וכ\"כ הרשב\"א דס\"ל דגם הרי\"ף מודה לרש\"י אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע המנין מאותו טעם דאדם עשוי למשמש:",
+        "(ליקוט) הגונב חפץ כו' עד שאדם עשוי הוא לשון הטור וכפירש\"י שאדם כו' והרי מצא כו' הוא ג\"כ ע\"ד פרש\"י והטור אבל לפי' הרי\"ף שאדם כו' קאי ג\"כ על קודם שהחזיר וידע מנין המעות וז\"ש אבל אם כו' והוא לשון הרמב\"ם וכפי הרי\"ף וכמ\"ש הרשב\"א דגם הרי\"ף מודה לרש\"י אם לא ידע המנין מקודם אלא דגמ' לא מיירי בהכי דמסתמא אדם יודע שאדם כו' וערשב\"א ומ\"מ פליגי דלהרי\"ף מסתמא יודע ולרש\"י והטור מסתמא לא ידע ופ' המחבר בזה כרש\"י אבל הרשב\"א הכריע כהרי\"ף ממ\"ש בב\"מ כ\"א ב' ת\"ש מעות כדר' יצחק כו' ובאין בו כלום נמי פליגי רש\"י והרי\"ף לכאורה אבל ליתא דרי\"ף מפ' שהגזלן החזיר הגניבה לכיס שלו ובזה ל\"פ רש\"י דרש\"י מפ' שהבליע לו במעותיו והבעלים החזירו הכל לכיס ובזה מודה הרי\"ף שהרי עשוי למשמש בשביל המעות שהחזיר ולפיכך כ' המחבר ב' הפי' על הא דל\"ל כו' פירש\"י אם יודע מנין כו' כמ\"ש הטור ופי' הרי\"ף אבל אם כו' ששניהם אמת לפרש\"י (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who steals, etc. The ruling follows Rabbi Yochanan. Although Rav and Shmuel generally prevail jointly against Rabbi Yochanan, their views divide depending on whether the owner knew, and Rabbi Chisda's position is not decisive. Raza rules like Rav, but Ramban reconciles the sugyot by distinguishing return to the place from which it was stolen from return after the original guarding arrangement ended. The Shulchan Aruch combines Rashi's and Rif's explanations: ordinarily a person checks his purse and notices the return, but where he did not previously know the count, mere replacement is insufficient. The phrase, 'therefore,' follows the latter answer in the Gemara."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman359/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 359,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אלא כו'. וכ\"כ תוס שם ועבה\"ג:",
+        "(ליקוט) אפי' כו' אלא כו'. עבה\"ג וערש\"י ביומא פ\"ג ב' ד\"ה חפתיה כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Only, etc. Tosafot likewise write this. See Be'er HaGolah and Rashi, Yoma 83b."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    },
+    {
+      "id": "cm1/siman361/seif-008/beur-hagra",
+      "volume": "cm1",
+      "siman": 361,
+      "seif": 8,
+      "slug": "beur-hagra",
+      "kind": "en_truncated_vs_multi_he",
+      "heSegs": 2,
+      "enSegs": 1,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א כו'. מנסכא דר\"א ועסי' ע\"ה סי\"ג בהג\"ה ממ\"ש ה\"ל כגזלן וס' ראשונה מפרשים שם בעדי ראיה. וראיה ממ\"ש בכתובות י\"ח א' וליתני כו' והא קי\"ל כו' ואם איתא ליתני בגזלן. וס' האחרונה דקדק המ\"מ מדברי רמב\"ם שהביא ש\"ע בסי' שס\"ד ס\"ד ועבה\"ג שם ור\"ל מדלא כ' בעדי ראיה ואין הכרח שהרמב\"ם נקט לשון הגמ' ס\"ה ועמ\"ש בסי' שנ\"ז ס\"א ועש\"ך:",
+        "(ליקוט) וי\"א שצריך. וכ\"כ הרא\"ש שם ואם אמרו גדולים יודעים אנו כו' ומיירי כו' כיון שידוע כו' ועודה בידו דאב כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say, etc. This is derived from the case of Rabbi Abba's ingot. See siman 75, seif 13. The first opinion limits the case to witnesses who saw the object. Maggid Mishneh infers the latter opinion from Rambam, but the inference is not compelling because Rambam merely uses the Gemara's wording. See simanim 3, 75, 357, and 364."
+      ],
+      "review_action": "needs_editorial",
+      "review_notes": "The single EN blob appears incomplete or lacks a safe delimiter map for all HE segments.",
+      "review_merge_groups": null,
+      "review_split_hints": null,
+      "tier": "editorial",
+      "eval_hold_editorial": true
+    }
+  ]
+}

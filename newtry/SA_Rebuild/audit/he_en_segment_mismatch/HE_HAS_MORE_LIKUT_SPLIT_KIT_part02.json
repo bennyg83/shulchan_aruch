@@ -1,0 +1,1020 @@
+{
+  "meta": {
+    "kind": "he_has_more_segments",
+    "tier": "hold_semantic_likut_merge",
+    "mode": "split_en_not_merge_he",
+    "purpose": "53 Gra Likut cases — split EN to match HE; reject wrong merge_groups",
+    "source_lists": {
+      "eval": "HE_HAS_MORE_PACK_ALL_REVIEW_EVAL.json#likut_merge_ids",
+      "review": "HE_HAS_MORE_PACK_ALL_REVIEW.json"
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT",
+    "counts": {
+      "total": 53,
+      "by_volume": {
+        "yd1": 18,
+        "cm1": 35
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).\n\nINPUTS (both required)\n1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.\n- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.\n- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.\n\nCRITICAL\n- Do NOT output merge_groups that reduce heSegs.\n- Do NOT glue distinct HE Likut segments together.\n- Default action: split_en or mixed_resegment_translate.\n\nTASK\nFor each case:\n1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.\n2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.\n3) Use review merge_groups as anti-pattern (what NOT to do).\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs.\n- No merge_groups on HE. No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).",
+      "",
+      "INPUTS (both required)",
+      "1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.",
+      "- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.",
+      "- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.",
+      "",
+      "CRITICAL",
+      "- Do NOT output merge_groups that reduce heSegs.",
+      "- Do NOT glue distinct HE Likut segments together.",
+      "- Default action: split_en or mixed_resegment_translate.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.",
+      "2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.",
+      "3) Use review merge_groups as anti-pattern (what NOT to do).",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs.",
+      "- No merge_groups on HE. No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 2,
+    "chunk_total": 4,
+    "case_offset": 15,
+    "cases_in_chunk": 21,
+    "parent_pack": "HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+    "parent_sha256": "ea5ccb0dbb2780fcd944c987de25268391708c75fccaee3728d345621b17f018"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman246/seif-026/beur-hagra",
+      "volume": "yd1",
+      "siman": 246,
+      "seif": 26,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כשמסיים כו'. פט\"ז דשבת (קי\"ט א'):",
+        "(ליקוט) כשמסיים מס' כו'. כמ\"ש בב\"ב קכ\"א ב' וערשב\"ם שם ד\"ה מניסן כו' לפי שבאותו יום כו' ועבא\"ח סי' תרס\"ט בהג\"ה ובהג\"א סוף סוכה (ע\"כ):",
+        "ואסור כו'. פ\"ד דמגילה (כ\"ח א') וש\"מ:",
+        "ולכן כו'. פ\"ג דברכות (כ\"ד ב'):",
+        "ומ\"מ כו'. ערש\"י בקדושין ל\"ג א' ד\"ה לאונסיה כו':"
+      ],
+      "en_segments": [
+        "When he completes, etc. Shabbat 119a. (Additional note) When he completes a tractate, etc. As stated in Bava Batra 121b. See the Rashbam there, s.v. 'from Nisan,' etc., because on that day, etc. See Orach Chaim, siman 669, in the gloss, and Hagahot Ashri at the end of Sukkah.",
+        "And it is forbidden, etc. Megillah 28a, and see there.",
+        "Therefore, etc. Berachot 24b.",
+        "Nevertheless, etc. See Rashi to Kiddushin 33a, s.v. 'due to his compulsion,' etc."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman296/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אסור כו' ונאסרו כו'. מפורש בכמה מקומות ועבה\"ג ועבס\"ד:",
+        "בהנאה שנאמר כו'. ספ\"ב דקדושין:",
+        "ואפי' הקש כו'. עבה\"ג ועתוס' דפסחים כ\"ה א' ד\"ה עיקרן כו':",
+        "(ליקוט) ואפי' הקש כו' והעצים כו'. וכ\"כ תוס' בפסחים כ\"ה א' ד\"ה עיקרן כו' אבל לי נראה ברור דהעצים מותרין וכן הקש וז\"ש בפסחים שם זאת אומרת כו' עיקרן כו' דוקא עיקרן ואם איתא לא גרע עיקרן מהקש והעצים וכן בכתובות פ' א' ובב\"ב ל\"ו א' אכלה ערלה כו' ודלא כמו שדחקו בתוס' שם ושם וראיה ממ\"ש בפ\"י דתרומות ובפ\"ג דערלה מי שה\"ל חבילי תלתן בכלאי הכרם ידלקו ואם איתא מאי שנא חבילי תלתן דנקט אלא דוקא תלתן שטעם עצו ופריו שוה ומ\"ש בפסחים כ\"ו ב' בקשין של כלאי הכרם היינו ג\"כ בתלתן דומיא דקליפי ערלה שאינו אלא בקליפין של אגוזים ורמונים אלא שבירושלמי ספ\"ה דכלאים והביאו הר\"ש שם מתני' ז' ר\"ז בשם ר\"ל בשם ר\"א אם עשבים כו' ר' יוחנן כו' ועוד שם ר' יעקב בר אידי בשם ר\"ל פעמים שהקשין מותרין והדגן אסור פעמים שהקשין אסורין והדגן מותר כו' וכמ\"ש לקמן סעיף ס\"ו וצ\"ל גם זה בתלתן ודוחק וצ\"ע אבל העצים ודאי מותר ובזה ניחא ההיא דחבילי זמורות הנ\"ל (ע\"כ):",
+        "בעת שריפתן. לאפוקי אפרן שמותר לכתחלה וגחלים דיעבד כמש\"ש כ\"ו ב' ועתוס' שם ד\"ה בישלה כו' ועמ\"ש בא\"ח סי' תמ\"ה ס\"ב:"
+      ],
+      "en_segments": [
+        "It is forbidden, etc., and they become forbidden, etc. This is explicit in several places. See Baer HaGolah and seif 4.",
+        "For benefit, as it is stated, etc. This is taught at the end of the second chapter of Kiddushin.",
+        "And even the straw etc. Baer Hagolah and Tosafot Pesachim 25a s.v. ikran etc. Likut: and even straw etc. ; so Tosafot Pesachim 25a; but to me it appears clear that wood is permitted and so the straw; Pesachim says \"this teaches\" etc. ; specifically ikran; if so, ikran is not worse than straw and wood; Ketubot chapter 1 and Bava Batra 36a ; \"ate orlah\" etc., unlike Tosafot's forced reading; proof from Terumot chapter 10 and Orlah chapter 3 ; bundles of flax in kilay hakerem must be burned; if so, why mention flax bundles specifically ; only flax whose wood and fruit taste the same; Pesachim 26b bundles of kilay hakerem ; also flax, similar to orlah peels only on walnut and pomegranate shells; Yerushalmi chapter 5 and Rosh there ; mishnah 7, R' Zeira in R' Elazar's name: if grasses etc., R' Yochanan etc.; R' Yaakov bar Idi in R' Levi's name: sometimes straw permitted and grain forbidden, sometimes straw forbidden and grain permitted etc., as below seif 66 ; must say this too is in flax, forced, requires study; but wood is certainly permitted ; this resolves the bundles of vines case ; end.",
+        "At time of their burning. ; to exclude ashes that are permitted initially, and coals post factum, as written 26b; and Tosafot there s.v. \"when he cooked,\" etc.; and see Orach Chayim siman 445 s.k. 2."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman296/seif-032/beur-hagra",
+      "volume": "yd1",
+      "siman": 296,
+      "seif": 32,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וכמה כו'. ירושלמי פ\"ד הלכה א' דאר\"ז ר' ייסא בשם ר' מתנא אין זנב לכרם גדול ולא מחול לכרם קטן אין זנב לכרם גדול שאי אתה זקוק לו ואין מחול לכרם קטן לוסר חוצה לו יותר מתוכו תוכו שמנה וחוצה לו שתים עשרה ואיזה כרם קטן שלש כנגד שלש כו' [ובתוספתא פ\"ג וכמה מטעתה ג' נגד ג'] וכ\"מ ממתני' ב' בפ\"ז המבריך ג' גפנים כו' לפי' הר\"ש והראב\"ד:",
+        "וכן אם היה כו' היו ג' כו'. פסק כחכמים אלא דוקא בג' שאפי' רואה את השורה האמצעית כאלו אינה נשארו ב' שורות והוא כרם משא\"כ בב' שורות:",
+        "(ליקוט) וכן אם היה כו'. דבכה\"ג מודו רבנן לר\"ש ממ\"ש בב\"ב פ\"ג א' רצופין דתנן כו' וכן פסק רבא שם וא\"א לומר דכולה כיחידאה ועוד דאמר שם מדלר\"ש פלגא לרבנן כו' ורבנן דהכא ס\"ל אפי' פחות מד' וצ\"ל דפליגי ארבנן דהתם אלא דבג' אילנות מודי רבנן שאם יטול א' מהן לא ישארו אלא שתים ומש\"ש ל\"ז ב' אר\"ז כתנאי כו' התם באילנות הרבה. אבל הרי\"ף פסק שם כרבא וכתב הרא\"ש שם דס\"ל דרבא דאמר אפי' כרבנן דע\"כ ל\"ק רבנן אלא לענין כלאים דעבידי דנטעי הכי כו' ורשב\"ם פ\"ג א' ד\"ה רואין כו' כתב דחומרא הוא לענין כלאים ולכאורה דבריו תמוהין דהא אמרינן בפ\"ג כתנאי כנ\"ל ולדברי הרא\"ש ניחא דר\"ז ס\"ל הכי ודחקום כ\"ז לומר דרבא וכולהו אמוראי שם הכל אליבא דר\"ש אבל להרמב\"ם ניחא הכל (ע\"כ):"
+      ],
+      "en_segments": [
+        "And how much etc. Yerushalmi chapter 4 halachah 1 ; R' Zeira, R' Yisa in R' Matna's name: a large vineyard has no tail and a small vineyard has no mechol; a large vineyard has no tail because you do not need it; a small vineyard has no mechol lest he forbid outside more than inside ; inside eight, outside twelve; which is a small vineyard ; three against three etc. [Tosefta chapter 3: how much its planting ; three against three]; and so from mishnah 2 chapter 7 hamarbich three vines etc. per Rosh and Raavad.",
+        "And likewise if there were three etc. Ruled like the Sages, but specifically with three ; for even if one sees the middle row as if it were not there, two rows remain and it is a vineyard; not so with two rows. Likut: and likewise if there were three etc. ; in this case the Sages agree with R' Shimon from what is said in Bava Batra chapter 3 ; \"planted in a row\" as we learned etc.; so Rava ruled there; cannot say the whole thing is like an individual; further they said there from R' Shimon half goes to the Sages etc.; the Sages here hold even less than four; must say they argue on the Sages there, but with three trees the Sages agree that if he takes one only two remain; what is written 37b2 ; R' Zeira: tannaim dispute there with many trees; but Rif ruled there like Rava; Rosh wrote Rava holds even per the Sages there is no difficulty for the Sages except regarding kilayim because they are accustomed to plant thus etc.; Rashbam chapter 3 s.v. ro'in wrote it is a stringency for kilayim ; his words seem astounding, for we say chapter 3 like tannaim as above; per Rosh it fits that R' Zeira holds thus and they forced all that to say Rava and all amoraim there are all per R' Shimon; for Rambam everything fits ; end."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman20/seif-001/beur-hagra",
+      "volume": "cm1",
+      "siman": 20,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 11,
+      "enSegs": 8,
+      "he_deficit": 3,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אע\"פ שכבר נגמר. ירוש' שם:",
+        "(ליקוט) אע\"פ כו'. ירו' שם אפי' לאחר גזר דין (ע\"כ):",
+        "ואפי' אם פרע. גמ' שם מ\"ד כו' אבל דיעבד כו'. פי' הרז\"ה שכבר פרע דלפרש\"י הל\"ל בסיפא ג\"כ ה\"מ לכתחלה כו' אבל לפירושי א\"א לומר כן וע\"ש ברז\"ה:",
+        "אבל אם לא. שם ראה שנתחייב כו' קאי דוקא אאין לי ראיה וה\"ה לת\"ק:",
+        "(ליקוט) וי\"א ה\"ה כו'. ס\"ל דלא אמרו של אביו אלא בהוה שדרך שלא לידע (ע\"כ):",
+        "ודוקא שבאו. תוספתא פ\"ו דסנה':",
+        "(ליקוט) ודוקא שבאו כו'. תוספתא פ\"ו יש לך עדים כו' אין מקבלין הימנו עד שיביא ראיה שלא היה יודע בהן וז\"ש למטה בהגה וכ\"ז בסתמא כו' ע\"כ:",
+        "לפיכך אם פי'. כן מ' שם בהא אפי' רבנן מודי דינוקא מ' דבגדול לא:",
+        "(ליקוט) לפיכך אם פירש כו'. נלמד ממה שחלקו שם בין קטן לגדול (ע\"כ):",
+        "אבל אם הביא. מתוספתא הנ\"ל:",
+        "או קטן. שם בגמ' דינוקא כו' לא ידע:"
+      ],
+      "en_segments": [
+        "A FIFA is already over. He said, “I will be able to do this.” He was shot there after a sentence",
+        "Even if he paid. The Gemara there says: one might have thought, etc., but after the fact, etc. The Baal HaMaor explains that the debtor already paid. According to Rashi's explanation, the concluding clause should likewise have said, 'This applies initially,' etc. Under the Baal HaMaor's explanation that wording is unnecessary. See there.",
+        "But if not. There, he said, “I will not have any evidence, and I will not give it.”",
+        "(Anthology) And some say the same applies, etc. They understand that the mention of his father is merely the ordinary case, because a person commonly does not know his father's affairs.",
+        "And Durk came. In addition to the P.A.D. (Luke) and Dokka who came as a . In addition, you have no witness to us until there is no evidence that it would not have known them, and that it would not have been given to them",
+        "Hence, if P. Yes, there is a great name in the name of David Nadeka, who is not: therefore, if he is named. We learn from what is part of a small name to grow",
+        "But if he brought. From the above:",
+        "Or small. There in J.J. . . . . . . . . . . . . . . . . ."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman28/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 28,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ת\"ח. שבועות ל\"ב:",
+        "וכל מי. ב\"ק מ\"ו ב' ב\"מ ל\"ט ב' כתובות כז ב':",
+        "ואם ידעו. ב\"מ וכתובות שם:",
+        "צריכין. שבועות ל\"א ב':",
+        "לכתחלה. ירושלמי מהא דגטין ע\"א א' כשם כו' שמיירי בחולה ועבה\"ג:",
+        "(ליקוט) לכתחלה. מהא דלמטה ואם העד כו' (ע\"כ):",
+        "ואם. שבועות:"
+      ],
+      "en_segments": [
+        "The report. Weeks to B:",
+        "And all who. B.C. B. B. B. B.S.:",
+        "And if they knew. Bava Metzia and Ketubot there.",
+        "needed. Weeks to B:",
+        "snoring. Jerusalem from the A.A. is like a firefighter in the sand and a fire. What is it like if the witness is gone",
+        "And if. Weeks:"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman28/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 28,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "צריכין. שבועות שם ב' ו ירושלמי סנה' פ\"ו מחלוקת בבע\"ד כו':",
+        "לכתחלה. ירו' פ\"ד מיתות ממתנ' דסנה' נ\"ו א':",
+        "(ליקוט) לכתחלה. ירו' הביאוהו תוס' ברפ\"ב דזבחים (ע\"כ):",
+        "צריך כו'. מכות ו' ב':",
+        "(ליקוט) ואם מבינים כו'. טור וכפי' דעובד' דשם בעדים וכאותו שאמרו במתנ' שם בעדי' אבל הרמב\"ם מפרש בדיינים וז\"ש בהג\"ה וע\"ל סי\"ז ועכ\"מ שם ומ\"מ גם להרמב\"ם ה\"ה לעדים מדהביאו בגמ' על המתנ' (ע\"כ):"
+      ],
+      "en_segments": [
+        "They must. Shevuot there, page 32, and Yerushalmi, Sanhedrin, chapter 6: the dispute concerns a litigant, etc.",
+        "Replaced. Jesssss is a sign of Hashem’s mercy. He was brought to him, and he was brought to him",
+        "You need a . B and B:",
+        "(Anthology) And if they understand, etc. This is the Tur's view, interpreting the incident there as concerning witnesses, like the statement in the Mishnah there concerning witnesses. The Rambam, however, explains it as concerning judges. This is the meaning of the gloss. See below, seif 17, and the Kesef Mishneh there. Nevertheless, even according to the Rambam the same rule applies to witnesses, since the Gemara cites that incident in connection with the Mishnah."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman33/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 33,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) ואפי' הוא כו'. עססי' זה (ע\"כ):",
+        "ונ\"ל דבדיעבד. ע\"ל סי' ז' ס\"ז בהגה:",
+        "(ליקוט) ונ\"ל. דלאו כשושבינו הוא ועס\"י ז' ס\"ז (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Lycott) and he is a quaint. This is (for)",
+        "and N. D.D. A.C. (L.C.) and N. He and his servants, he and his servants"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman34/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 34,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) ואפי' עבר כו'. כמ\"ש בתד\"א כי השבועה כו' וכי שבועה היתה שם והלא לא היה שם אלא חרם אלא שהשבועה הוא חרם וחרם הוא שבועה. רמב\"ן (ע\"כ):",
+        "(ליקוט) מי שבאו כו'. דאל\"כ האיך פסלינן לכל פסולי עדות שי\"ל כן. רשב\"א וכמש\"ש סברי מצוה קעבדי והא קמשמתינן כו' אלמא דתלינן כ\"מ שיכול ולא תלינן בכה\"ג (ע\"כ):",
+        "(ליקוט) מי כו'. דאל\"כ מאי קאמר דלמא אערומי כו' אם איתא הל\"ל שוגג הייתי (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Anthology) Even if he violated, etc. As stated in Tanna Devei Eliyahu: 'for the oath,' etc. Was there an oath there? There was only a ban. Rather, an oath is a ban and a ban is an oath. Ramban.",
+        "\"He who came here.\" D. How is it possible for all cases of evidence that Hashem is. Hashem’s promise to Abraham and his servants, “He who is holy, and who is holy, and who is not Hashem.” May I say, “If I do not believe that I would have been.”"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman34/seif-023/beur-hagra",
+      "volume": "cm1",
+      "siman": 34,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואפי' פסול כו' מוקמי'. כתובות כ\"ו ב':",
+        "(ליקוט) ואפי' פסול כו'. כמ\"ש בס\"ט אבל אם אין עדים כו' (ע\"כ):",
+        "וכל מה. כמ\"ש בנדה ב' ב':"
+      ],
+      "en_segments": [
+        "And it's called 'Honey'. It is written as “Vo B” and “Falco” and “Falco” is written. But if there are no witnesses",
+        "Everything. As an \"Benda B\":"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman43/seif-007/beur-hagra",
+      "volume": "cm1",
+      "siman": 43,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ולפיכך כו' ואם יטעון כו'. שם גזירה כו' מ' ממשעבדי דוקא ועוד שם ע\"ב אלא הא כו' ומאי קו' הא משום זה גובה מב\"ח וכשר:",
+        "(ליקוט) ולא יגבה כו'. ממ\"ש נהי לא גבי כו' ול\"ק מב\"ח מיהא כו' ועוד ממ\"ש שם ב' אלא כו' (ע\"כ):",
+        "וי\"א. דפסולין מ' לגמרי וראית ס' הראשונה דחו שם תוס' ד\"ה שטר וע\"ש:",
+        "(ליקוט) וי\"א כו'. מדנקט פסולין ועוד מדמדמי ר\"ל שם לשטר שיש בו רבית ובתוספת' מ' דשטר שיש בו ריבית פסול לגמרי דתני המוצא שטר שיש בו רבית יקרענו בא לב\"ד יקרעוהו וע\"ל סי' נ\"ב ס\"א (ע\"כ):"
+      ],
+      "en_segments": [
+        "Therefore, etc.; and if he claims, etc. There, the concern is a decree, etc., implying specifically collection from encumbered property. Moreover, on the following page the Gemara asks, 'rather, this,' etc. What is the question? Because on account of this defect he may still collect from unencumbered property and the document is valid.",
+        "(Anthology) And he may not collect, etc. This follows from the statement, 'although he may not collect,' etc. The Gemara does not answer, 'nevertheless from unencumbered property,' etc. It also follows from the statement on the following page, 'rather,' etc.",
+        "VA. Deplin M. completely and saw the first S. S. in the name of T. D.C. and Y. S. S. S. S. S. S. S. S. S. S. S. A.D. From a plyclin and more than a square meter to the point where there is a rabbi, and in addition, M. D.S., which has a totally unacceptable interest in the religion of the origin that does not have a rabbinical record, it will be called to the High Court and the S. N.A.A. (i.e.g.)"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman43/seif-018/beur-hagra",
+      "volume": "cm1",
+      "siman": 43,
+      "seif": 18,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) וס\"כ כשכותבין כו' מי שנמסרה כו' ודוקא כו'. הכל נלמד מהא דא\"ר בר שילא כו' דמיחזי כשיקרא וכמ\"ש בסי\"ט (ע\"כ):",
+        "מיהו. צ\"ל סוף ס\"ך:",
+        "(ליקוט) מיהו אם כו'. די\"ל קנינו כמו וקנינו מפ' והוי ענין בפ\"ע (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Anthology) And similarly, when they write, etc.; one to whom it was delivered, etc.; specifically, etc. All this is learned from the statement of Rav bar Sheila, because it appears false, as explained in seif 19.",
+        "Who. Finally, who if they are. \"We bought a lot like Welch and we were fined,\" he said"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman46/seif-006/beur-hagra",
+      "volume": "cm1",
+      "siman": 46,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וי\"א דאפי'. ב\"מ י\"ז א' הטוען כו' והוי כמו נאמנות ואמרו בשאין שם עידי גירושין מגו כו' כתובות פ\"ט:",
+        "(ליקוט) וי\"א כו'. דלא הוה כעדים והרי",
+        "[אמנה] דהוי כמו פרעון בנאמנות ואפי' עדים אין נאמנים ואפי' אין כת\"י יוצא ממ\"א ונאמן כמ\"ש בס\"א בה\"ת ועס\"י פ\"ב (ע\"כ):"
+      ],
+      "en_segments": [
+        "And some say that even. Bava Metzia 17a, concerning one who claims, etc. This is comparable to a clause of credibility. Ketubot 89 states that where there are no witnesses to the divorce, she is believed through a migo, etc.",
+        "(Anthology) And some say, etc. His statement is not equivalent to witnesses. A document of trust is like payment accompanied by a clause of credibility, regarding which even witnesses are not believed. This applies even when their handwriting is not independently authenticated and they would otherwise be believed, as Sefer HaTerumot writes in seif 1. See siman 82."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman65/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 65,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "וא\"צ שיאמר. דמנין לחוד הוי סי' כמ\"ש שם כ\"ג ב' ועבה\"ג וכמו בג' מטבעות כ\"ה א':",
+        "(ליקוט) וא\"צ שיאמר כו'. טור וכשיטת הרא\"ש דמ\"ש תכריך כדי שיוכל ליתן סי' (ע\"כ):",
+        "אבל. שם מאי כו' מאי ארי' כו':",
+        "וה\"מ. שם תוס' ד\"ה ואנא כו' כ\"ז ב':",
+        "(ליקוט) אבל כו' וה\"מ כו'. כ\"כ לפי פי' בדברי הרמ\"ה שהביא הטור והשמיט מש\"ש דאם א' אומר המנין והשני כו' כשיטתו דבלא\"ה נותנין לו כמ\"ש בש\"ע אבל דעת רמ\"ה כדעת רש\"י דתרתי בעינן שיאמר הכריכה והמנין כמ\"ש בד\"ה שטרי מכריז כו' וכמ\"ש הש\"ך דעיקר הסי' הוא הכריכה כמ\"ש במתני' מצא כו' תכריך כו' וכמ\"ש רש\"י שם ד\"ה ה\"ז יחזיר כו' וכן כו' הדבר כו' ולכן לא אמרו בגמ' דתכריך מכריז ועוד הקשה שם דמ\"ש ש\"מ קשר כו' אדרבה דאיפכא ש\"מ דא\"כ מאי ארי' תלתא כו' כמש\"ש וכן למסקנא דמתרץ כרוכין ומ' דכרוכין עדיף מקשורין וא\"כ למסקנא דכרוכין לא מהני כ\"ש קשר וקי\"ל דמהני וכן למה לא דקדק דמנין הוי סי' ולפירש\"י קשה להיפך דש\"מ דלא הוי סי' אלא דהעיקר סי' ודאי הכריכה וכאן בעי תרתי משום דחד לוה ומלוה אינון ושמא בפ\"א פרע לו ונתנן לו כו' וכן להיפך לכן בעינן תרתי דכולי האי לא חיישי' כמ\"ש ש\"ך משא\"כ בששניהן לפנינו והא' יודע והשני א\"י בא' מהן סגי דהא קי\"ל דקשר ומנין סי' וכ\"ש כריכה וז\"ש וה\"מ כו' ונ\"ל ברור שט\"ס הוא בטור מ\"ש והאחר לא נתן אל לבו כ\"ז מיותר ותלמיד טועה הגיהו כן ודלא כמה שדחקו בזה (ע\"כ):"
+      ],
+      "en_segments": [
+        "And I'll say. It is written as “Gaven B” and “A” and “A”. \"Arise, and behold,\" he said",
+        "But. The name of May 2, May Arith as:",
+        "This applies specifically. See Tosafot there, s.v. VaAna, 27b.",
+        "(Supplement) But, and this applies specifically. The ruling was written according to the Tur's interpretation of Ramah, omitting the statement that if one claimant identifies the number and the other does not, the documents are given to the first. The Tur follows his own view that a single identifying feature suffices. Ramah, however, follows Rashi and requires both the manner of binding and the number. As the Shach explains, the primary identifying mark is the binding, for the Mishnah speaks of a bundle and Rashi explains that it is returned on that basis. The Gemara therefore does not announce merely that a bundle was found. The Gemara's discussion does not prove that a knot alone is ineffective. On the contrary, the conclusion that the documents were rolled together indicates that rolling is a stronger identifier than knotting. Since knotting is accepted as an identifying mark, rolling certainly is. The number is not the primary mark. Rather, where the same borrower and lender are involved, both marks are required because perhaps the debt was once paid and the documents were handed over together, or the reverse. We do not entertain such a combination of possibilities when both claimants are present and one knows one identifying feature while the other does not. In that case, one feature suffices, since both a knot and a number are recognized identifiers, and rolling is stronger still. The Tur's words, and the other did not take notice, are clearly a scribal error and a mistaken student's gloss. (End of supplement.) [Citation references: 12, 21, 32, 326, 636.]"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman67/seif-033/beur-hagra",
+      "volume": "cm1",
+      "siman": 67,
+      "seif": 33,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם לא. עסמ\"ע ועב\"ב ל\"א א':",
+        "(ליקוט) ואם לא כו'. דהא אפי' ב\"ד פותחין לו ואין חוששין שמא מתוך דבריהם ילמד לשקר כ\"ש במה שלא ידענו אם למדוהו בחוץ. שם וזהו שלא כדברי ש\"ך בסי' פ' סק\"ג שכ' בכ\"מ כן (ע\"כ):",
+        "(ליקוט) אבל אם כו'. דכה\"ג ודאי דמי לשם כיון דשתק בשעת פס\"ד נראה כמודה ודאי שקרא אגמריה (ע\"כ):"
+      ],
+      "en_segments": [
+        "If not. “And if not.” Dea Effi in \"D. opens up to him and is not afraid that, in their words, he will learn to lie in what we didn't know if he was outside. It is a name that does not say that in the words of the “Ps 119:105; 119:130]",
+        "But if they are. It is certainly a reward for the sake of a degradation in the case of the High Court, which seems to be like adaman who has read Alymeria"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman71/seif-014/beur-hagra",
+      "volume": "cm1",
+      "siman": 71,
+      "seif": 14,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם העדים. ירושלמי והביאו הר\"ן בריש ר\"ה נאמנים העדים כו':",
+        "כיון. דבלא\"ה הולכין אחריו כמ\"ש בסי' ס\"א ס\"ה וכ\"ד שנהגו כו':",
+        "(ליקוט) כיון שאין מנהג כו'. כ\"כ ב\"י לתרץ דל\"ת למ\"ש בסי' ס\"א ס\"ה וז\"ש למעלה ומנהג כו' וא\"צ לזה וכמ\"ש ש\"ך שאין משתעבד במנהג אא\"כ יודע המנהג וכמ\"ש הרמב\"ם וכמש\"ש וערי\"ף ברפ\"ז דיבמות אלא מיהו כו' אדעתא דמנהגא כו' (ע\"כ):",
+        "ואם כתוב כו' או בטעות. ב\"ב קסז קסח:",
+        "(ליקוט) ואם כ' בפירוש כו'. ער\"ס כ\"ט (ע\"כ):"
+      ],
+      "en_segments": [
+        "If the witnesses. This is stated in the Yerushalmi and cited by Ran at the beginning of Rosh Hashanah: the witnesses are believed, etc.",
+        "Since. In any event the practice is followed, as stated in siman 61, seif 5.",
+        "(Supplement) Since there is no custom, etc. Beit Yosef writes this to avoid contradiction with siman 61, seif 5. It is unnecessary, as Shach explains, because a person is not bound by custom unless he knew of it. See Rambam and Rif at the beginning of chapter 7 of Yevamot, that transactions are made in reliance upon known custom.",
+        "If it is written or wrong. In the words of X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X The book is “Arise.”"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman72/seif-005/beur-hagra",
+      "volume": "cm1",
+      "siman": 72,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אין לקהל. דהא אין להם דין מלוה על המשכון דאין חייבים זל\"ז כלום דכ\"א פורע חלקו ועב\"ק קי\"ג ב'. אבל שתא כו' וערש\"י שם:",
+        "ולא לנאמן. אע\"ג דהוא אפוטרופס וחייב כמ\"ש בב\"מ מ\"ב ב' חדא דוקא לטובתם האפטרופוס חייב אבל לטובת העולם לא כמ\"ש בב\"ק ל\"ט א' וע\"ש בתוס' ובב\"מ שם ועוד דאף אפוטרופס אינו חייב רק בפשיעה כש\"ח ולא כש\"ש מדאמרי' בגטין נ\"ב ב' אייתת קבא כו' ועסי' ר\"ץ ס\"ך ועוד דטעמא דחייב דנפק קלא דאינש מהימנא משא\"כ בנאמני הקהל:",
+        "אא\"כ יש. ב\"מ פ\"ג א' ב':",
+        "(ליקוט) אא\"כ יש כו'. עש\"ך שהקשה כיון שהוא נגד הדין כו' ואיני מבין שיחתו הלא פריך בר\"פ הפועלים וליחזי היכי נהיגי כו' אף דיליף מקרא ובירושלמי שם זאת אומרת מנהג מבטל הלכה וכמה מקומות ואינו ענין זה למנהג גרוע (ע\"כ):"
+      ],
+      "en_segments": [
+        "The community is not liable. They do not have the status of a lender with respect to the collateral, because they owe one another nothing; each person merely pays his own share. See Bava Kamma 113b and Rashi there.",
+        "Nor is the communal trustee. Although he is an administrator and an administrator can be liable, that is only when acting for the beneficiaries, not for the public generally, as shown in Bava Kamma 39a. Moreover, an administrator is liable only for negligence as an unpaid guardian, not as a paid guardian, as indicated in Gittin 52b. Finally, the basis for an administrator's liability is the need to preserve his reputation for reliability, which does not apply in the same way to communal trustees.",
+        "A. has. A. A. B. (S.A.) has a name. I don't understand his non-proliferation of the workers' and the predictions that he is against the judgment of Hashem, and I don't understand his non-presidential call, and I don't understand his or her name, and that's why it's not a bad practice"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman77/seif-010/beur-hagra",
+      "volume": "cm1",
+      "siman": 77,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 5,
+      "enSegs": 4,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לוה משנים כו'. דאף אם לוה מאחד ונכתב ע\"ש אחר אין יכול לגבות כמ\"ש בב\"ק ק\"ב הלוקח שדה בשם חבירו כו' ע\"ש וכ\"ש בכה\"ג שרצה שיתחייב לו לבד וז\"ש אבל זה כו' אע\"ג דשם ריש גלותא לא יוכל לתבוע משא\"כ כאן כנ\"ל שהאמינו והרשהו לתבוע הכל וכמ\"ש הרשב\"א סי' אלף קל\"ז ע\"ש:",
+        "וה\"ה אם כו'. הביא שם ראיה ממ\"ש בכתובות צ\"ד הני תרי אחי כו' ובעל בנכסי אשתו בדאיכא פירי בארעא כמ\"ש בפ' השולח וממ\"ש בשבועות ל\"ז א' דא\"ל מינך יזפת כו' ואם איתא דאין יכול לתבוע בלא חבירו ה\"ה כפירת ממון גמורה ונראה שהולך לשיטתו כמ\"ש הר\"ן שס\"ל כפי' הראב\"ד בירושלמי הנ\"ל פרט למכחש באחד מן השותפין שהרי חבירו יכול לתבוע אותו בכל החוב דא אמרה כו' וע\"ז סובב כל ראיותיו ואנן לא קי\"ל כן כמש\"ל בס\"ט מ\"מ בשטר א' דינו אמת וכמ\"ש בב\"מ ל\"ז א' סיפא נעשה כמי כו' וכמש\"ל סי' ע\"ו ס\"א אבל אם היה מלוה כו' דכיון כו' וזה הדין יצא מהרמב\"ן אע\"ג דפי' בירושלמי כנ\"ל ס\"א:",
+        "(ליקוט) וה\"ה אם כו'. הרשב\"א שם הביא ראיה מבעל בנכסי אשתו בס\"פ השולח ומב\"ק ע\"א ואי כתוב למחצה כו' ומכתובות צ\"ד א' הני תרי כו' ולפ\"ז בשנים שהפקידו כ\"א יכול לתבוע כולו כדעת הראב\"ד וכ\"כ הר\"ן בפ' שבועת הפקדון שדעת רשב\"א כהראב\"ד ובס\"ט פ' כהרמב\"ן וכן ק' מ\"ש בסי' ע\"ו ס\"א בהג\"ה דכיון שנעשו שותפים כו' והוא מדברי בעה\"ת והוא כ' שם בפי' לדברי הראב\"ד ע\"ש אלא שכ' שאף להרמב\"ן מ\"מ כיון דהשותפין מאמינים זל\"ז השטר שמונח ביד א' מהן לא ה\"ל למידק (ע\"כ):",
+        "איש ואשתו כו' וה\"ה בטענות כו'. דכל שאינה נושאת ונותנת בתוך הבית כאחר דמי וכמ\"ש בב\"ב נ\"א ב' ת\"ר אין כו' קבל מן האשה כו' ועתוס' שם ד\"ה קבל כו' וע\"ל סי' ס\"א סי\"ב וסי' ס\"א בהג\"ה לא היתה נושאת כו':",
+        "ראובן שכתב כו'. דל' יחיד כו' ואע\"ג דיד בעה\"ש על התחתונה בל' שמשמעות נוטה יותר. כך א\"א יד בעה\"ש על התחתונה כמ\"ש בפ\"ק דע\"ז ההוא שטרא דהוה כתובבה שית שנין יתירתא כו' ובפ' בתרא דב\"ב ההיא שטרא דהוה כתוב בה שית מאה וזוזי כו' דל פריטי כו' ושם קס\"ה ב' מלמעלה מנה כו' הכל הולך אחר התחתון וע\"ל סי' מ\"ב ס\"י בהג\"ה:"
+      ],
+      "en_segments": [
+        "Loh is changed. If he is one of us, and he is written by another, he will not be able to charge him as a member of the Holy One who wants to commit to him alone, and he will not be able to sue him as a result of Hashem’s promise to him",
+        "The same applies if, etc. Rashba proves this from Ketubot, from a husband's rights in his wife's property, and from Shevuot. His reasoning follows Raavad's explanation that denial to one partner is a complete monetary denial because the other partner may claim the entire debt. We do not follow that view generally, as stated above. Nevertheless, where there is one joint deed, the ruling is correct, as in Bava Metzia and siman 76:1. Sefer HaTerumot explains that even according to Ramban, because partners trust one another, a deed held by one partner need not be scrutinized.",
+        "A husband and wife, etc., and the same applies to claims, etc. A wife who does not conduct the household business is treated as an outsider, as stated in Bava Batra 51b. See Tosafot there and siman 61.",
+        "Reuven wrote, etc. The singular wording controls because the language inclines more strongly that way. Although ambiguities in a deed are construed against its holder, that rule does not override the more natural meaning, as shown in Avodah Zarah and Bava Batra. See siman 42:10 in the gloss."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman79/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 79,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי שהודה כו'. אע\"ג דבעובדא דלעיל שהובא בס\"א נאמן על עצמו יותר מהעדים כאן שאומר שנזכר וטעה בהודאתו נאמן כעובדא דגינאי דספ\"ק דגטין וכ' הרי\"ף שם והוא דאייתי סהדי דטעותא הוא וכמש\"ל סי' קכ\"ו סי\"ג ועבסה\"ת שי\"א:",
+        "ודוקא שטען כו'. שאל\"כ אמאי אמרו בב\"ב קכ\"ח ב' המוציא שט\"ח על חבירו כו' נשבע וגובה מחצה ולמה לא יוכל לחזור ולומר נזכרתי שפרעתי כולו ועבמ\"מ שם:",
+        "(ליקוט) ודוקא. ממ\"ש בב\"מ ד' א' מה לפיו שאינו בהכחשה והקשו דשם משום דמתנה קיהיב ליה ותי' דמיירי בכה\"ג נ\"י שם ועוד הביא ראיה מב\"ב קכ\"ח ב' המוציא כו' והעדים כו' ופי' דמסתמא אחר שבאו העדים חזר בו ע\"ש שהאריך (ע\"כ):"
+      ],
+      "en_segments": [
+        "One who admitted, etc. Although in the earlier incident a person is believed against himself more than witnesses, here he claims that he later remembered and that his admission was mistaken. He is believed only where he brings witnesses proving the mistake, as in the case in Gittin and as stated in siman 126:13.",
+        "Specifically when he claimed, etc. Otherwise, why does Bava Batra say that one who produces a deed and is contradicted by witnesses swears and collects half? He should be able to retract and say that he remembered payment of the entire amount. Nimukei Yosef explains the Gemara accordingly and adduces the same proof."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman92/seif-007/beur-hagra",
+      "volume": "cm1",
+      "siman": 92,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "מי שנתחייב שבועה כו'. עש\"ך וכ\"מ שם ל\"ב ב' דחשיד מאן כו' אלמא דצריך לישבע ודלא כמהר\"ם שנדחק עצמו וכ' דוקא בחשוד אין העד המסייעו פוטרו משום דכ\"א יחייבו ע\"פ ע\"א שהוצרך לידחק דס\"ל דכל משוילו\"מ דנשבע שכנגדו והיה ק' לו שם הא דר' אבא דמ' שם דא\"צ לישבע שכנגדו והוצרך משום עד המסייע אבל לדידן א\"צ לזה אלא דכיון שנתחויב ע\"פ העד שוב א\"י לפוטרו משום עד המסייע וכמ\"ש הש\"ך:",
+        "ואם שניהם כו'. כמ\"ד חזרה למקומה וכר' אבא דקי\"ל כוותיה דרבא ס\"ל שם כוותיה ואוקימנא למתני' דפ' השואל ופ' המקבל בשיש עסק שבועה וכר' אבא ופ\"ג דב\"ב אמרי' אלא כו' לחד סהדא כו' וכדר' אבא וכן בפ' שבועת העדות (שבועות ל\"ב ב)' הכל מודים בע\"א דר' אבא ושם הכל מודים בשכנגדו כו' אלא בששניהם חשודים דא\"מ חזרה כו' אלמא דכן ס\"ל לאביי וערי\"ף ואיתא נמי לדרב ושמואל אלא רק בהא מילתא לחוד כמ\"ש שם הבו דלא לוסיף עליה וליתא לדר\"ן דפ' כר\"י דאמר יחלוקו:",
+        "וי\"א דיחלוקו. כר\"ן ועבד עובדא כר' יוסי וקי\"ל ר\"מ ור' יוסי הל' כר\"י וקי\"ל הל' כר\"ן בדיני ומעשה רב ומה שהביא ראיה מדר' אבא אין ראיה דע\"כ ר\"ן נמי ס\"ל להא דר' אבא דבפ' השואל פריך על ר\"נ ממתני' ומשני כדר' אבא בשיש עסק שבועה ביניהם אע\"כ טעמא אחרינא יש בה דכאן קנסא קניס הואיל התובע ג\"כ מחוייב שבועה ואי\"ל ע\"כ אמר דיחלוקו יעוד הקשו דאביי ס\"ל בפ' יש נוחלין קל\"ה דמנה לי בידך והלה אומר א\"י חייב וא\"כ האיך אוקים להא דשבועת ד' בין שניהם ואעפ\"כ ס\"ל בפ' שבועת העדות ובפ\"ג דב\"ב כר' אבא ובכתובות י\"ב ב' א\"ל הא כו' דשמואל היא ועתוס' שם ד\"ה אלא. וא\"ת כו' ועבפ' כל הנשבעין (שבועות מ\"ח א)' אלמא מספק' ליה כו' ועבתוס' שם מ\"ז א' ד\"ה מתוך וברא\"ש ומרדכי שם ובמלחמות ור\"ן שהאריכו בפירושיהם בסוגיא שם:",
+        "(ליקוט) וי\"א דיחלוקו כו'. ע' תוס' שם ד\"ה מתוך כו' ובב\"מ צ\"ז ב' ד\"ה ה\"נ כו' ובמרדכי דשבועות שם והכלל היוצא מדבריהם דאע\"ג דחזינן ג' מחלוקת בדבר ר' אבא. ורב ושמואל. ור\"ן. קי\"ל ככולהו דר' אבא הלכת' היא דרבא שם ואביי בפ' שבועת העדות וסוגיא דפ' חזקת הבתים וכמה מקומות כוותיה וכן דרב ושמואל כמש\"ש תא וניעקריה כו' וכן דר\"נ דעבד עובדא וה' כוותיה בדיני והענין כי כולהו אית להו דר' אבא אלא דר' אבא ס\"ל דוקא בדאוריית' לכן לר\"מ הוי משוילו\"מ דהנתבע מחוייב שבועה מדאוריית' משא\"כ התובע ורב ושמואל ס\"ל אפי' בדרבנן כמ\"ש ביתומים וכן ס\"ל בכיוצא לכן ס\"ל במתני' דפטור כיון שנתהפכה השבועה על התובע וא\"י לישבע מפסיד וכן ס\"ל ר' יוסי אלא דסובר כיון ששניהן א\"י לישבע כ\"א מפסיד החצי ולכך אמרו על הא דרב ושמואל הבו דלא לוסיף עלה דקי\"ל כר' אבא דדוקא בדאוריית' ודוקא ביתומים שבעלילה מועטת הקילו עליהם וכן במתני' קי\"ל כר' יוסי כיון ששבועת התובע באה מחמת הנתבע שהיא דאוריית' וז\"ש רבותינו שבא\"י ר\"א ר\"ל דס\"ל בדאוריית' משויל\"מ דאשכחן בדבריו בהדיא אלא שצ\"ע מש\"ש א\"ר כוותיה דר\"א מסתבר' ושם מ\"ח א' אלמא מספק' ליה כו' הא ל\"פ כנ\"ל ועוד הקשו בתוס' שם ע\"ש ושם (ע\"כ):",
+        "וי\"א דהא כו'. ממ\"ש בב\"מ ותיפוק ליה דהוי רועה ולכאורה מאי נ\"מ והא קו' דגזלן יותר חזקה שאמרי בפ\"ג דסנה' הוסיפו עליהן הרועין כו' אלא דהכי פריך דאין לו לישבע וליטול:",
+        "וי\"ח. עתוס' דשבועות מ\"ז א' ד\"ה מתוך דוקא בחשוד כו' אלמא דאע\"פ שהיה יודע שחשוד וכ\"כ הרא\"ש שם וסוגיא דההוא רעיא כבר תי' לעיל סי' פ\"ז סי\"ד ע\"ש וס' ראשונה ס\"ל כתי' שני של תוס' דב\"מ ה' א' ד\"ה שכנגדו. ועוד כו':"
+      ],
+      "en_segments": [
+        "One who became obligated to take an oath, etc. See Shach. Shevuot 32b implies that the suspected party must swear. This rejects Maharam's strained explanation that a supporting witness cannot exempt a suspected litigant because otherwise anyone could create liability through one witness. Once the oath obligation arose through the witness, that same supporting testimony cannot remove it. See citations 80 and 86.",
+        "And if both are suspected, etc. This follows the view that the oath returns to its original place and Rabbi Abba, whose ruling is accepted. Rava and Abaye follow him, and the mishnayot in Bava Metzia and the discussion in Bava Batra are explained accordingly. Rav and Shmuel are accepted only within their limited case, while Rav Nachman's ruling to divide is not followed. See citation 80.",
+        "And some say they divide. This follows Rav Nachman, who acted according to Rabbi Yose, and the law follows Rabbi Yose and Rav Nachman in monetary matters. Rabbi Abba is not a contradiction, because Rav Nachman also accepts his rule where a Torah oath rests on the defendant. Here the division is a penalty because the claimant too is unable to take the oath imposed upon him. The sources show three accepted rules: Rabbi Abba for a Torah oath, Rav and Shmuel in their limited rabbinic cases, and Rav Nachman where both parties are unable to swear. See the extended discussions in Tosafot, Rosh, Mordechai, Baal HaMaor, Ran, and the cited passages. See citations 4, 32, 35, 80, 86, and 146.",
+        "And some say that this, etc. Bava Metzia asks that the shepherd should be disqualified. The question matters because, as a robber, he cannot swear and collect; the disqualification is stronger than the later rabbinic disqualification of shepherds. See citation 86.",
+        "And others disagree. Tosafot to Shevuot 47a indicate that the rule applies even when the claimant knew the other party was suspected, and Rosh agrees. The shepherd case was answered above in siman 87, seif 14. The first opinion follows Tosafot's second answer in Bava Metzia. See citations 4 and 87."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman96/seif-003/beur-hagra",
+      "volume": "cm1",
+      "siman": 96,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "יש מי כו'. עבה\"ג:",
+        "קטן שטענו כו' נפרעים מנכסיו. ממ\"ש בשבועות שם ואין משביעין את הקטן אלמא כשהוא קטן אין משביעין אותו אבל לאחר שיגדיל משביעין ודוקא כשכפ' אבל אם הודה משלם:",
+        "(ליקוט) קטן שטענו כו'. ממ\"ש בכתובות ק\"ז ב' כיצד אמרו ממאנת כו'. הרמ\"ה וערא\"ש שם סי' ז' כ' הרמ\"ה כו' ונ\"ל כו' (ע\"כ) .",
+        "לאחר שהגיע. עבה\"ג ור\"ל דכיון דמקחו מקח ע\"כ חייב:",
+        "ואם אין כו' ואם כפר כו'. כנ\"ל ור\"ל דאין נשבע כשהוא קטן לא טענת אין לו ולא כפירתו כו':",
+        "ואם טענו כו'. ממ\"ש בב\"ק בסיפא שם העבד והאשה כו' אבל משלמין כו' מ' דברישא אפי' לאחר שיגדיל פטור וטעמא דעבד ואשה משום דל\"ל כמ\"ש שם פ\"ט א' ומ' דאיירי במודי' ממ\"ש חייבין לשלם מ' דברישא בכ\"ע פטורים:",
+        "ואם היה. ממ\"ש בשבועות שם נשבעין לקטן ליפרע כו':",
+        "אבל חנוני כו'. כנ\"ל:",
+        "וזה הפסיד כו'. כמ\"ש בב\"ב פ\"ז ב' השולח כו' וע\"ש:"
+      ],
+      "en_segments": [
+        "There's who's called. thick:",
+        "A minor who was sued, etc.; collection is made from his property. Shevuot says that a minor is not made to swear, implying that after he reaches majority he may be made to swear. This applies where he denied the claim; if he admitted it, he pays. Ketubot and Ramah provide further support. See citations 6 and 7.",
+        "After he reached, etc. Be'er HaGolah explains that since his sale is legally effective, he is necessarily liable.",
+        "And if there is no priest, and if he is a village. He swore that he was not a small man, and he was not his father",
+        "And if they claimed from him, etc. Bava Kamma's latter clause states that a slave and a married woman pay later, implying that the minor in the first clause remains exempt even after reaching majority. Their delayed liability exists only because they presently own no property. The wording indicates that the first clause exempts the minor in every event. See citation 81.",
+        "If it was. In a few weeks, I swear to the little boy",
+        "But my son is a. Same as:",
+        "And this person suffered the loss, etc. This follows Bava Batra 87b concerning one who sends an article through another. See citation 4."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "cm1/siman105/seif-004/beur-hagra",
+      "volume": "cm1",
+      "siman": 105,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 4,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם אין עליו. גטין שם התופס כו' ואפי' כו' הכי אר\"י:",
+        "ודוקא במקום. גטין י\"ד א' הולך מנה כו' אבל אי לאו כזכי לכ\"ע לא זכה והקשו מ\"ש מתופס לבע\"ח במקום שאין חב לאחרים ותי' דתופס דוקא כה\"ג וע\"ש ברא\"ש:",
+        "(ליקוט) ודוקא כו'. הרא\"ש בב\"מ שם חולק ע\"ש (ע\"כ):",
+        "ואפי' תוך זמן. שם ברא\"ש דלא כתירוץ הר\"פ דמחלק בין תוך זמן לאחר זמן:",
+        "(ליקוט) ואפי' תוך כו'. ע\"ל סי' ע\"ג ס\"י (ע\"כ):",
+        "ודוקא כו' ולא מצי כו'. ב\"ב ל\"ד ב':"
+      ],
+      "en_segments": [
+        "If there is no on it. The name of the verses is called \"The Most Aryan\" and the most important name:",
+        "Specifically where. Gittin 14a shows that an instruction to convey money does not acquire for the recipient unless it is treated as immediate acquisition. The Gemara distinguishes this from taking possession for a creditor where no other creditor is harmed. Rosh, however, disputes this limitation.",
+        "Even before the due date. Rosh rejects Rabbenu Peretz's distinction between seizure before and after the due date. See above, siman 73, seif 10.",
+        "And I don't think about it.\" In \"Dr. B\":"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    }
+  ]
+}

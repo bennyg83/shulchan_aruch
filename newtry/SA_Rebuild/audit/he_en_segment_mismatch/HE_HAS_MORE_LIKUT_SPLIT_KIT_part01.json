@@ -1,0 +1,866 @@
+{
+  "meta": {
+    "kind": "he_has_more_segments",
+    "tier": "hold_semantic_likut_merge",
+    "mode": "split_en_not_merge_he",
+    "purpose": "53 Gra Likut cases — split EN to match HE; reject wrong merge_groups",
+    "source_lists": {
+      "eval": "HE_HAS_MORE_PACK_ALL_REVIEW_EVAL.json#likut_merge_ids",
+      "review": "HE_HAS_MORE_PACK_ALL_REVIEW.json"
+    },
+    "output_schema": {
+      "primary": "segments[] with he+en per slot",
+      "legacy_mirror": "en_segments[]"
+    },
+    "created": "2026-08-28T08:18:49.559Z",
+    "kit": "HE_HAS_MORE_LIKUT_SPLIT_KIT",
+    "counts": {
+      "total": 53,
+      "by_volume": {
+        "yd1": 18,
+        "cm1": 35
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).\n\nINPUTS (both required)\n1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)\n2) full_dictionary.md (attached by the user — follow it without exception)\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: use names exactly as listed (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per the dictionary.\n- Never invent alternate glosses when the dictionary specifies a term.\n\nCONTEXT\n- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.\n- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.\n- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.\n\nCRITICAL\n- Do NOT output merge_groups that reduce heSegs.\n- Do NOT glue distinct HE Likut segments together.\n- Default action: split_en or mixed_resegment_translate.\n\nTASK\nFor each case:\n1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.\n2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.\n3) Use review merge_groups as anti-pattern (what NOT to do).\n\nOUTPUT — JSON array only, same ids/order:\n[{\n  \"id\": \"...\",\n  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",\n  \"segments\": [\n    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }\n  ],\n  \"en_segments\": [\"...\", \"...\"],\n  \"notes\": \"short\",\n  \"confidence\": \"high\"|\"medium\"|\"low\"\n}]\n\nCONSTRAINTS\n- segments.length === heSegs.\n- No merge_groups on HE. No corpus edits. Return JSON only.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild HE_HAS_MORE LIKUT — SPLIT EN (DO NOT MERGE HE).",
+      "",
+      "INPUTS (both required)",
+      "1) HE_HAS_MORE_LIKUT_SPLIT_KIT.json (or one part; this chunk only)",
+      "2) full_dictionary.md (attached by the user — follow it without exception)",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation per the dictionary; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use the dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: use names exactly as listed (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per the dictionary.",
+      "- Never invent alternate glosses when the dictionary specifies a term.",
+      "",
+      "CONTEXT",
+      "- GPT wrongly proposed merge_groups on Gra Likut cases where HE has separate (ליקוט) segments but EN is under-split.",
+      "- Eval classified 53 beur-hagra Likut-glued merge_groups as hold_semantic_likut_merge — need EN split, NOT HE merge.",
+      "- heSegs > enSegs. Never merge distinct HE notes. Split EN at (Likut)|(Collected note)|(Supplement) matching HE structure.",
+      "",
+      "CRITICAL",
+      "- Do NOT output merge_groups that reduce heSegs.",
+      "- Do NOT glue distinct HE Likut segments together.",
+      "- Default action: split_en or mixed_resegment_translate.",
+      "",
+      "TASK",
+      "For each case:",
+      "1) Split en_segments[] (or the under-split EN piece) so final count === heSegs.",
+      "2) Align each HE slot to one EN segment; translate from HE only where EN lacks material.",
+      "3) Use review merge_groups as anti-pattern (what NOT to do).",
+      "",
+      "OUTPUT — JSON array only, same ids/order:",
+      "[{",
+      "  \"id\": \"...\",",
+      "  \"action\": \"split_en\" | \"mixed_resegment_translate\" | \"needs_human\",",
+      "  \"segments\": [",
+      "    { \"index\": 0, \"he\": \"...\", \"en\": \"...\", \"source\": \"split_existing_en\"|\"fresh_translate\"|\"partial\" }",
+      "  ],",
+      "  \"en_segments\": [\"...\", \"...\"],",
+      "  \"notes\": \"short\",",
+      "  \"confidence\": \"high\"|\"medium\"|\"low\"",
+      "}]",
+      "",
+      "CONSTRAINTS",
+      "- segments.length === heSegs.",
+      "- No merge_groups on HE. No corpus edits. Return JSON only."
+    ],
+    "chunk_index": 1,
+    "chunk_total": 4,
+    "case_offset": 0,
+    "cases_in_chunk": 15,
+    "parent_pack": "HE_HAS_MORE_LIKUT_SPLIT_KIT.json",
+    "parent_sha256": "ea5ccb0dbb2780fcd944c987de25268391708c75fccaee3728d345621b17f018"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman84/seif-006/beur-hagra",
+      "volume": "yd1",
+      "siman": 84,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "תולעים כו'. כשמואל דר\"פ שם נ\"ח ס\"ל כוותיה ועתוס' שם ד\"ה דיקא כו':",
+        "והוא כו'. דהא בעינן השורץ. שם:",
+        "(ליקוט) והוא שריחש כו'. אבל בת\"ה פ' ב' פליג ע\"ז וכתב דהא לשמואל הוא כמו הגדל על הארץ וז\"ש קישות שהתליע סתם כו' וז\"ש בהג\"ה ופעמים כו' (ע\"כ):",
+        "אבל הנמצאים כו'. כמו קישות כו'. שם:",
+        "תולעים הגדלים כו'. כמ\"ש בברכות מ' ב' נדרים נ\"ה ב' מירבא רבו כו':",
+        "ופעמים כו'. כ\"כ הרשב\"א וס\"ל דלא בעינן ריחש כמ\"ש בסי' ער\"ה דלא כדעת תוס' ורא\"ש וש\"ע:",
+        "שמתחיל כו'. כמו ביצה שנמצא דם בחלמון שאסור כאלו כבר נתרקמה וכן עכבר שחציו בשר הנונע בבשר טמא וכ\"ש לענין איסור כמ\"ש בפ\"א די\"ט (ז' א') אפושי כו'. שם:"
+      ],
+      "en_segments": [
+        "Worms, etc. Per Shmuel at the beginning of that perek, chapter 58, who holds like him; and Tosafot there, s.v. deika, etc.:",
+        "And it, etc.—for we require \"that creeps.\" There: (Collection) And it stirred, etc. But in Terumat HaDeshen, part 2, he argues on this and wrote: for per Shmuel it is like that which grows on the ground; and thus a cucumber that became wormy without specification, etc.; and thus in the gloss: and sometimes, etc. (end):",
+        "But those found, etc. — like a cucumber, etc. Ibid.",
+        "Worms that grow, etc. As written in Berachot 40b, Nedarim 55b, Mirva, etc.:",
+        "And sometimes, etc. So too the Rashba holds; and he holds we do not require that it stirred, unlike the view of Tosafot and the Rosh and the Shulchan Aruch in siman 275:",
+        "That it begins, etc. — like an egg in which blood is found in the yolk, which is forbidden; and like a mouse whose flesh is partly mixed with impure flesh — all the more so, for the purpose of the prohibition, as stated in chapter 1 of Yom Tov (7a): it proliferates, etc. Ibid."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman96/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 96,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 11,
+      "enSegs": 9,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "או סילקא. שם קי\"ב א':",
+        "בן יומו או כו'. והוא כשני הטעמים של רש\"י שם ד\"ה קישות. ואע\"ג דנתבשלו מותר לדעת הש\"ע ר\"ס צ\"ה וא\"א לומר כטעם השני שברש\"י כמ\"ש תוס' ד\"ה הלכתא ס\"ל דחורפיה פלט גוף הטעם. עש\"ך:",
+        "(ליקוט) בן יומו או כו'. מהאי הימלתא כנ\"ל (בסי' צ\"ה ס\"ק י\"ד) דמותר אלא דלא אמרינן כי אם בחלתית וסתם סכיניהם מקונחים כמ\"ש הרשב\"א דלכן הוצרך לומר בחלתית ואע\"ג דאמר מר כו' דאומן מקנה כליו וכמ\"ש בסי' קכ\"ב (ס\"ק ז') ע\"ש (ע\"כ):",
+        "כדי כו'. דא\"א לומר כדי קליפה ממ\"ש אבל קישות גריר לבי פסקיה וכאן אמר סתם אסור ובין גרירה לקליפה הפרש כ\"ש וער\"ן ות\"ה:",
+        "או שיטעמנו כו'. גמ' שם האי אפשר כו':",
+        "וי\"א כו'. כמו קורט של חלתית בע\"ז ל\"ט א' וע\"כ בסכין מקונה מיירי מדאמר ואע\"ג דאמר מר כו'. וסברא ראשונה ס\"ל דל\"ד לקורט ש\"ח דחריף מאד דלהכי לא תני במתני' שם אלא קורט ש\"ח ובפ\"נ דחולין (נ\"ח ב') הלעיטה חלתית כו' דמנקבה למעיינה משא\"כ בצנון ושאר דברים החריפים. הר\"מ ורא\"ש בפ\"ב דע\"ז שם. ובהג\"ה סי' צ\"ח ס\"ב סתם כסברא האחרונה:",
+        "(ליקוט) וי\"א כו'. דס\"ל כתי' המרדכי כמ\"ש בס\"ב בהג\"ה (ע\"כ):",
+        "ואם חתכן כו'. תוס' ד\"ה אגב כו'. ועבה\"ג וכמש\"ל סי' צ\"ד ס\"ו:",
+        "וי\"א כו'. דאסור משמע כולו אסור וכמ\"ש בקורט ש\"ח. ת\"ה. ועתוס' שם ד\"ה אגב כו' והרא\"ש בחולין כתב שאני חלתית שהן קטנים וא\"י לידע באיזה מקום חתכם אבל אין לאסור יותר מרותח דצלי או מבושל בלא רוטב:",
+        "אבל אם כו'. דאינו חריף:",
+        "ואם יש ספק כו'. עש\"ך ס\"ק י\"ב י\"ג דדוקא בתמכא מפני שי\"א דוקא צנון וי\"א דוקא ב\"י וסתם כליהם אינם ב\"י לכך מקילין בספקו:"
+      ],
+      "en_segments": [
+        "Or beet. There, siman 112 seif 1.",
+        "Ben yomo, etc. This is like Rashi's two reasons there s.v. kishus. And even though if cooked it is permitted according to Shulchan Aruch siman 95, one cannot say like Rashi's second reason, as Tosafot wrote s.v. halachta hold that its sharpness emits the actual taste. Shach: (Lekut) Ben yomo, etc. From this expression, as I wrote (in siman 95 s.k. 14), it is permitted except we do not say except regarding chalita, and their knives are ordinarily well scraped, as Rashba wrote; therefore he had to say chalita. And even though the master said, etc., that a craftsman acquires his vessels, as written in siman 122 (s.k. 7); see there (end).",
+        "The amount, etc. One cannot say the amount of a peel from what is written; but sharpness drags to its end, and here he said plainly forbidden; and between scraping and a peel there is a great difference — Or Zarua and Terumat HaDeshen.",
+        "Or that one tastes it, etc. Gemara there: \"Is this possible,\" etc.",
+        "And some say, etc. Like a kort of chalita in Avodah Zarah 39a; therefore with an acquired knife it deals with, since he said \"and even though the master said,\" etc. The first reasoning holds some say regarding a kort of sharp chalita that is very sharp — therefore the mishnah there teaches only a kort of sharp chalita; and in Chullin 98b, \"Feed him chalita,\" etc., pierces its intestines, unlike a radish and other sharp things — Rambam and Rosh in chapter 2 of Avodah Zarah there. In the hagahah siman 98 seif 2, plainly like the latter view. (Lekut) And some say, etc., he holds like Mordechai's text, as written in seif 2 in the hagahah (end).",
+        "And if one cut them, etc. Tosafot there s.v. agav, etc.; and Beit HaGolah; and as written above siman 94 seif 6.",
+        "And some say, etc. Forbidden — it appears all is forbidden, as written regarding a kort of sharp chalita — Terumat HaDeshen. And Tosafot there s.v. agav, etc., and Rosh in Chullin wrote chalita is different because they are small and one cannot know where they were cut; but one does not forbid more than roasted, grilled, or cooked without sauce.",
+        "But if, etc. For it is not sharp.",
+        "And if there is doubt, etc. As Shach explained s.k. 12–13: specifically with tamcha, because some say only radish, some say only ben yomo, and ordinarily their vessels are not ben yomo; therefore they are lenient in doubt."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9
+        ],
+        [
+          10
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman98/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 98,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 7,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כגון חלב כו'. אבל הר\"ן כתב שהוא מין במינו ממ\"ש ק\"ג א' אכל חלב מן החי כו' דחייב משום בשר מן החי אלמא מין בשר הוא (עפר\"ח ס\"ק ז' מש\"ש ומיהו כ\"ז אליבא דר\"י כו' פשיטא דחלב כו'. וע\"ל ס\"ק ט') וז\"ש (צ\"ח א') ההוא כזיתא תרבא כו' ואי בטעמא מה שייך במה דבלע כו' וכן מש\"ש ההוא פלגא דזיתא כו' ואי בטעמא לא שייך לפלוגי בדרבנן כיון שניכר טעמו וכ\"כ ראב\"ן ע\"ש וע\"ל סי' צ\"ט ס\"ד מ\"ש שם:",
+        "(ליקוט) כגון חלב כו'. ליתא שכבר כ' בת\"ה שגירסת הגאונים והרי\"ף בפג\"ה (צ\"ז ב') מין במינו כגון שומנא דגיד כו' ע\"ש (ע\"כ).",
+        "יטעמנו עובד כוכבים. אע\"ג דבגמ' אמרו קפילא דוקא היינו שאינו מסל\"ת ונאמן משום דאומן לא מרעי נפשיה כמ\"ש תוס' שם ד\"ה סמכינן כו' אבל מסל\"ת נאמן כל עובדי כוכבים ואע\"ג דאין נאמן אלא בדרבנן כמ\"ש בפ' בתרא דב\"ק (קי\"ד ב') כאן כיון שהוא מילתא דעבידא לגלויי נאמן כמ\"ש הריב\"ש בסי' תל\"ג ובמ\"ש ברפ\"ב דר\"ה ואף גוי כמ\"ש בפ\"ג דחולין (ס\"ג ב') לוקחין ביצים כו'. וא\"ל דוקא קפילא שהוא בקי דהא אמרו שם דהתירא בטעמא ולא אמרו קפילא וכן שם וקי\"א ב' תרומה טעים לה כהן. ת\"ה:",
+        "או שאומר כו'. כמ\"ש בפ\"י דתרומות ופ\"ב (נ\"ו א' ל\"ה ב' ל\"ט א\"ב) ופ\"ה דע\"ז במתני' (ס\"ה ב') וגמ' שם הכי הלכתא (ס\"ז א') א\"ר הלכתא כו' (ס\"ח ב'):",
+        "והוא כו'. בירושלמי פ\"י דתרומות הלכה ב' ופ\"ב דערלה הלכה ה' כל נ\"ט בין לפגם בין לשבח אסור דר\"מ רש\"א לשבח אסור לפגם מותר רשב\"ל אמר בשהשביח ואח\"כ פגם אבל אם פגם ואח\"כ השביח אף ר\"מ מורה ר' יוחנן אמר לא שניא הוא השביח ופגם הוא פגם והשביח הוא המחלוקת כו' וקי\"ל דהלכה כר\"י וכיון דאיפסיק בגמ' דידן דהשביח ולבסוף פגם דאסור ה\"ה לפגם וסוף השביח דהא שניהם שוין ועוד דמתני' כר\"מ כמש\"ש אמר עולא מחלוקת כו' אלא דלר\"י בגמ' דאמר בפוגם מעיקרא מחלוקת א\"א לאוקמי כר\"מ אף אם תאמר בין בזו כו' אלא דהרמב\"ם מפרש פוגם מעיקרא היינו פגם ולבסוף השביח כמ\"ש בפי' שם והחלק הד' שמפסידו לפי שעה וברוב הימים משביחו כו' וזה נקרא פוגם מעיקרו אמנם פוגם מתחלה ועד סוף אצ\"ל שהוא מותר כו' ומפרש דעולא ס\"ל כרשב\"ל בירושלמי ור\"י אם אומר בשניהם מחלוקת הוא כשיטתו בירושלמי ומתני' לכ\"ע כר\"מ דבפוגם לגמרי ליכא למ\"ד דאסור וכמ\"ש בפי' אמנם פוגם מתחלה כו' כנ\"ל ובזה מתורץ קושית תוס' שם ד\"ה או כו' וג\"כ ניחא דפריך רב חגא יין כו' ולא משני בשנצטנן אח\"כ דמן הסתם הוא כן כמ\"ש בירושלמי כמ\"ש למטה ופסק כר' יוחנן ואף אם אומר דוקא בפוגם מעיקרא מחלוקת י\"ל דמתני' ר\"מ היא ובפי' הרמב\"ם ט\"ס שכתב ושני חלקים הנשארים כו' דהא השביח בתחלה נתבאר בגמ' שאסור ועוד שאמר איזה מהן כו' דמשמע דיש סברא ג\"כ דפוגם לבסוף קל מהשביח לבסוף וזה ליכא למ\"ד דר\"י ל\"ק אלא בין כו' ובירושלמי הנ\"ל לא שניא כו' וצ\"ל החלק הרביעי לא נתברר כו' דאם אומר בין בזו כו' ע\"כ קי\"ל כר\"מ ושניהם אסורין ואם אומר דפוגם מעיקרא לבד מחלוקת וכמו שנפשט בגמ' שם אין ידוע אם הלכה כר\"מ או כר\"ש אבל בירושלמי דע\"ז שם א\"ר יוחנן הדא אמרה ברותחין אבל בצונן אסור היו רותחין וציננן ר\"ל מהו. מעתה אפילו רותחין יהו אסורין מאחר שדרכן ליצנן כו' משמע דמותר אלא שהרמב\"ם מפרש שהאיבעיא הוא כשיצטנן אם הוא פוגם עדיין מאחר שנפל לרותחין וכ\"מ בפי' הרמב\"ם ע\"ש. אבל פשטא דירושלמי לא משמע כן וגם סוגיא דגמ' קשה לפירושו דאמר שם א\"ר עמרם ניחזי כו' אר\"ז שאני עיסה כו' וכן בירושלמי דתרומות וערלה שם ושם אמרו תמן תנינן שעורים שנפלו לתוך הבור כו' רי\"א במחלוקת רשב\"ל אמר ד\"ה ואם איתא אפילו לר\"י ד\"ה היא אלא דפוגם מעיקרא ומתחלה ועד סוף דין א' להם ובזה ניחא דפריך רב חגא כו' ולא אוקים בשציננן וסוגיא דגמ' פגם מעיקרא משמע מתחלה ועד סוף וז\"ש שם א\"ר הלכתא כו' לאפוקי מר\"ש לדעת ר' יוחנן. וב\"י כתב דלמד מק\"ו מהשביח ולבסוף פגם וטעה מאד בזה דהא ר\"ל אמר מה פליגין וכן עולא בגמ' וכן איבעיא לגמ' לרבי יוחנן בפגם מעיקרא כו' אבל כו' ואף לסברא דבשניהם מחלוקת ר\"ל גם בזו מחלוקת:",
+        "וצריך כו'. רשב\"א וכנ\"ל דמש\"ה נקט קפילא. וצ\"ע למה השמיט קפילא דנאמן בכ\"ע והלך בדרך הרמב\"ם שהשמיטו אבל הרמב\"ם מפרש קפילא ל\"ד אלא שהוא בקי בהכרת הטעם וכמ\"ש הריב\"ש בסי' רפ\"ח דלא כב\"י ולכן לא הזכיר מסל\"ת דסובר דא\"צ משום דעבידא לגלויי ול\"ד לביצים דסובר דדוקא בישראל משום דלא עבידא לגלויי כמו כאן [אלא שב\"י הכריע מדעתו כי ד' שיטות תוס' כתבו דוקא קפילא ורא\"ש כ' קפילא ומסל\"ת ורשב\"א פסק דבא' מהן ורמב\"ם פסק דא\"צ לא קפילא ולא מסל\"ת והכריע כמ\"ש כאן וע' בטור וב\"י]:",
+        "וכן אם הוא כו'. דלא כר' יהודה וכמ\"ש רבא שם וכן בפסחים ל' א' א\"ר הלכתא כו' משמע דוקא בחמץ (ערא\"ש בפ\"ה דע\"ז ס\"ס כ\"ט) וכן ס\"ל לר\"י ור\"ל שם ובפ\"ה דע\"ז והא דאיפליגו אביי ורבא שם (ס\"ו א') בתר שמא או בתר טעמא היינו בטבל ויי\"נ דלהכי נקט חמרא וחמירא וכן סתמא דפ\"ה די\"ט (ל\"ח ב') שפיר עבידו דאחיכו כו' וכן ס\"ל לראב\"י דהלכה כמותו (אפי' בברייתא כמ\"ש ביבמות ל\"ז ס' א') בזבחים ע\"ט ב' וכן כל הסוגיא דפ' ג\"ה (צ\"ח א') ביצה בס\"א ובמינה איירי כמש\"ל סי' פ\"ו ס\"ה וכן פליגי אליבא דריב\"ל שם בס' או במאה ולמדו מזרוע בשלה שהוא מין במינו וקי\"ל כריב\"ל בכ\"מ ובע\"ז ס\"ט א' איפסיק הלכתא בששים:",
+        "(ליקוט) וכן כו'. כר\"י ור\"ל דהלכה כר\"י לגבי רב ושמואל כמ\"ש בפ\"ק די\"מ (ד') ופ\"ד דעירובין (מ\"ז ב') וכן ס\"ל לרבא בפ' התערובות (ע\"ט א') ופ' ג\"ה וכן ס\"ל לראב\"י בפ' התערובות ומשנת ראב\"י קב ונקי וכן בפ\"ה דע\"ז (ס\"ט א') והלכתא כו' וכן כל כו' (לפי' הריטב\"א שם אין ראיה וע\"ש) והא דפליגי אביי ורבא שם בחלא וחמירא היינו בטבל ויי\"נ והא דרבא פ\"ב דפסחים שם משום חומרא דחמץ כמו שאינו מינו לרב ה\"ה מינו לרבא תוס' וש\"פ (ע\"כ):",
+        "ואין נוהגין כו'. מצד החומרא וכפי' הרא\"ש ור\"ן דלא הוזכר נ\"ט אלא בפחות מס' אבל בס' מסתמא אין בו נ\"ט וז\"ש בכ\"מ כל האיסורין שבתורה בס' [וער\"ס צ\"ט ירושלמי נ\"ט א' מס' כו' וכן בע\"ז ס\"ט א' והלכתא כו'] וז\"ש סמכינן אקפילא ואי בס' מאי סמכינן דמשמע דקולא היא הא בלא קפילא מותר לגמרי ודברי ש\"ע אין בהן הכרע שהוא כדברי הגמ' דלא כש\"ך וע\"ל סי' ק' ס\"ב:"
+      ],
+      "en_segments": [
+        "Such as milk, etc. But Ran wrote that it is min b'mino from what he wrote 103:1 \"if one ate milk from a living animal,\" etc., that he is liable because of meat from a living animal — evidently it is a species of meat (Peri Chadash s.k. 7 in what he wrote, and nevertheless all this is according to R' Yehuda, etc. — it is obvious regarding milk, etc., and see s.k. 9). And he wrote (98a) \"that olive's bulk of fat,\" etc., and if by taste, what relevance in what was absorbed, etc.; and so too in what he wrote \"that half an olive,\" etc., and if by taste it is not relevant to distinguish in rabbinic matters since its taste is recognizable; and so too Raavan — see there; and see siman 99 seif 4 what is written there. (Lekut) Such as milk, etc. — this is not so, for he already wrote in Taharat HaBayit that the girsa of the Geonim and Rif in Pesachim (97b) is min b'mino, such as fat of the gid, etc. — see there (until here).",
+        "Let a non-Jew taste it. Even though in the Gemara they said kapila specifically — that is, he is not mashe'as l'fi tumo and is believed because a craftsman does not impair himself, as Tosafot wrote there s.v. samchinan, etc. — but mashe'as l'fi tumo is believed for all gentiles; and even though he is not believed except in rabbinic matters, as written in the last chapter of Bava Kama (114b), here since it is a matter done for revelation he is believed, as Rivash wrote siman 433 and in what he wrote in chapter 2 of Rosh HaShanah; and even a gentile, as written in chapter 3 of Chullin (63b) \"they buy eggs,\" etc. And some say specifically kapila who is expert, for they said there that heter is by taste and they did not say kapila; and so too there, and two terumah — a priest tastes for her. Taharat HaBayit.",
+        "Or that he says, etc. As written in chapter 10 of Terumot and chapter 2 (56a, 35b, 39a, 39b) and chapter 5 of Avodah Zarah in the Mishnah (65b) and Gemara there — thus is the halachah (67a) Rabbi said the halachah, etc. (68b).",
+        "And it, etc. In Yerushalmi chapter 10 of Terumot halachah 2 and chapter 2 of Orlah halachah 5: all noten taam, whether for spoilage or for improvement, is forbidden — R' Meir; R' Shimon says for improvement forbidden, for spoilage permitted; R' Shimon ben Lakish said when it improved and afterward spoiled; but if it spoiled and afterward improved, even R' Meir agrees; R' Yochanan said there is no difference — whether it improved and spoiled or spoiled and improved, the dispute is, etc.; and we establish the halachah like R' Yochanan. And since it was concluded in our Gemara that it improved and in the end spoiled and is forbidden, the same applies to spoilage and in the end improvement, for both are equal; and furthermore the Mishnah is like R' Meir, as written \"Ulla said dispute,\" etc. — except that for R' Yochanan in the Gemara who said the dispute is in spoiling from the outset, it is impossible to establish like R' Meir even if you say \"whether in this,\" etc.; rather Rambam explains spoiling from the outset means it spoiled and in the end improved, as written in his commentary there; and the fourth section that spoils it for a time and on most days improves it, etc. — this is called spoiling from its outset; however spoiling from beginning to end one must say it is permitted, etc.; and he explains Ulla holds like R' Shimon ben Lakish in Yerushalmi, and R' Yochanan if he says the dispute is in both follows his method in Yerushalmi, and the Mishnah is for all like R' Meir that in complete spoiling there is no one who forbids; and as written in his commentary \"however spoiling from the outset,\" etc., as above — and with this the challenge of Tosafot there s.v. or is resolved; and it is also satisfactory that Rav Chagga challenged regarding wine, etc., and they do not answer when it cooled afterward, for ordinarily it is so, as written in Yerushalmi, as written below, and he ruled like R' Yochanan; and even if one says the dispute is specifically in spoiling from the outset, one may say the Mishnah is R' Meir; and in Rambam's commentary there is an error, for he wrote \"and two sections remain,\" etc., for behold it improved at first was explained in the Gemara as forbidden; and furthermore that he said \"which of them,\" etc., implies there is also a view that spoiling at the end is lighter than improving at the end — and this there is no one who holds for R' Yochanan; rather only \"whether,\" etc. And in the Yerushalmi there \"there is no difference,\" etc., and one must say the fourth section was not clarified, etc. — if one says \"whether in this,\" etc., until here we establish like R' Meir and both are forbidden; and if one says spoiling from the outset alone is the dispute, as spread in the Gemara there, it is not known whether the halachah is like R' Meir or like R' Shimon; but in Yerushalmi of Avodah Zarah there R' Yochanan said: this says in boiling ones, but in cold ones forbidden — they were boiling and cooled — meaning what is it? From now even if boiling they would be forbidden since their way is to cool, etc. — it appears permitted; except that Rambam explains the question is when it cooled whether it still spoils since it fell into boiling ones, and so too in Rambam's commentary — see there. But the plain sense of Yerushalmi does not imply thus; and also the Talmudic passage is difficult for his explanation, for he said there R' Amram said let us see, etc., R' Zeira said dough is different, etc.; and so too Yerushalmi of Terumot and Orlah there; and there they said: there we learned barley that fell into the pit, etc.; R' Yosi in dispute; R' Shimon ben Lakish said s.v. and if so even for R' Yochanan s.v. it is — rather spoiling from the outset and from beginning to end one law for them; and with this it is satisfactory that Rav Chagga challenged, etc., and they do not establish when it cooled; and the Talmudic passage spoiling from the outset implies from beginning to end; and he wrote there R' said the halachah, etc., to exclude from R' Shimon according to R' Yochanan. And Beit Yosef wrote he learned from a kal va'chomer from improved and in the end spoiled and erred greatly in this, for R' Shimon ben Lakish said how they dispute, and so Ulla in the Gemara, and so the Gemara asked for R' Yochanan in spoiling from the outset, etc.; but, etc., and even according to the view that the dispute is in both, R' Shimon ben Lakish also disputes in this.",
+        "And it is required, etc. Rashba, and as above, that for this reason he mentioned kapila. And it requires study why he omitted kapila who is believed for all, and followed the way of Rambam who omitted it; but Rambam explains kapila — some say — rather that he is expert in recognizing taste, as Rivash wrote siman 288, unlike Beit Yosef; and therefore he did not mention mashe'as l'fi tumo, for he holds it is not needed because it is done for revelation; and some say for eggs he holds specifically by an Israelite because it is not done for revelation like here [except Beit Yosef decided from his view that four views Tosafot wrote specifically kapila, and Rosh wrote kapila and mashe'as l'fi tumo, and Rashba ruled in one of them, and Rambam ruled one needs neither kapila nor mashe'as l'fi tumo, and he decided as written here; see Tur and Beit Yosef].",
+        "And likewise if it is, etc. Unlike R' Yehuda, as Rava wrote there; and so too in Pesachim 40a R' said the halachah, etc. — it appears specifically regarding chametz (Erech Shai in chapter 5 of Avodah Zarah end of seif 29); and so too R' Yosi and R' Shimon ben Lakish hold there and in chapter 5 of Avodah Zarah; and that Abaye and Rava disputed there (66a) whether after name or after taste — that is regarding tevel and yayin nesech, for therefore he mentioned new wine and vinegar; and so too the anonymous ruling of chapter 5 diyyud-tet (38b) \"well they did that they laughed,\" etc.; and so too Ra'avyah holds the halachah like him (even in a baraita as written in Yevamot 37 seif 1) in Zevachim 89b, and so too the whole Talmudic passage of chapter 3 (98a) egg in 101 and deals with its species, as written above siman 86 seif 5; and so too they dispute according to R' Yehuda ben Lakish there in sixty or in one hundred, and they learned from the foreleg that was cooked that it is min b'mino; and we establish like R' Yehuda ben Lakish everywhere, and in Avodah Zarah 69a the halachah was concluded in sixty. (Lekut) And likewise, etc. — like R' Yosi and R' Shimon ben Lakish that the halachah is like R' Yosi against Rav and Shmuel, as written in first chapter of Yevamot (4) and chapter 4 of Eruvin (47b); and so too Rava holds in chapter HaTa'aruvot (79a) and chapter 3; and so too Ra'avyah holds in chapter HaTaarovot and Mishnat Ra'avyah is clean; and so too in chapter 5 of Avodah Zarah (69a) and the halachah, etc.; and so too all, etc. (according to Ritva's commentary there there is no proof — see there); and that Abaye and Rava disputed there regarding vinegar and vinegar — that is regarding tevel and yayin nesech; and that Rava in chapter 2 of Pesachim there is because of the stringency of chametz, as not in its species for Rav, the same applies in its species for Rava — Tosafot and Shulchan Pesak (until here).",
+        "And we are not accustomed, etc. From the side of stringency, and in the explanation of Rosh and Ran that noten taam was mentioned only in less than sixty, but in sixty ordinarily there is no noten taam; and he wrote in several places \"all Torah prohibitions in sixty\" [and in beginning of siman 99 Yerushalmi noten taam one in sixty, etc., and so too in Avodah Zarah 69a and the halachah, etc.]; and he wrote we rely on kapila, and if in sixty what do we rely on — it appears it is lenient — behold without kapila it is entirely permitted; and the words of Shulchan Aruch have no decision, for it is like the words of the Gemara, unlike Shach; see siman 100 seif 2."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman115/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 115,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "החמאה כו'. ז\"ל הרמב\"ם החמאה של עובד כוכבים מקצת הגאונים התירוה שהרי לא גזרו על החמאה וחלב הטמאה אינו עומד. ור\"ל כמ\"ש ל\"ה ב' אי דקבעי לגבינה כו' וכ' ומקצת הגאונים אסרוה מפני צחצוחי חלב שישאר בה כו' וכמ\"ש בגמ' שם ואב\"א כו' ופליגי הגאונים באוקימתות שם א' דסברא שניה ס\"ל כר' חנינא לפי שא\"א כו' וכפירש\"י וא\"כ ה\"ה בחמאה וסברא הראשונה ס\"ל כשמואל מפני שמעמידין כו' ולא משום צחצוחי חלב ולפיכך החמאה מותר ולא היתה בכלל גזירה ובזה תליא נמי שני התירוצים שם ב' אי דקא בעי כו' ואב\"א כו' וכן ס\"ל (להרמב\"ם) כשמואל כמ\"ש בס\"ב וכן כתי' ראשון הנ\"ל כמ\"ש שם חלב בהמה טמאה אינו נקפה ועומד בחלב הטהורה ואם נתערב חלב טמאה בחלב טהורה כשתעמיד אותו יעמוד חלב הטהורה ויצא חלב הטמאה עם הקום ומפני זה יתן הדין שכל חלב הנמצא ביד עובד כוכבים אסור שמא עירב חלב בהמה טמאה וגבינת העובד כוכבים מותרת שאין חלב בהמה טמאה מתגבן אבל בימי חכמי המשנה גזרו כו' אבל לשיטת תוס' ד\"ה לגבינה כו' דבעשאו העובד כוכבים הגבינות אין לחוש אפילו לתי' בתרא כנ\"ל כיון שדעתו כן לא יערב ור\"ח דקאמר לפי שא\"א כו' קאי אארס אמילתיה דריב\"ל ולפ\"ז חמאה לד\"ה מותר וזה דעת סמ\"ק שמתיר וכ' טעם אחר שאין בחמאה גומות וסמ\"ג והג\"מ כתבו בשם בע\"ה דחמאה הוא מי\"ח דבר כמ\"ש בירושלמי פ\"ק דשבת תני רשב\"י בו ביום גזרו על פיתן ועל שמנן ועל כבשותיהן ועל מלחותיהן וגבינותיהן וחמאותיהן וכתב סה\"ת אמנם בירושלמי שלנו אין כתוב חמאותיהן. והכריע בב\"י אין מוחין כו' ואם כו':",
+        "(ליקוט) החמאה כו'. עת\"ה פ\"ו ב' שאוסר והאריך בזה ע\"ש (ע\"כ):",
+        "ובמקום כו'. לשון הרמב\"ם יראה לי שאם לקח המאה מן העובד כוכבים ובשלה עד שהלכו להן צחצוחי חלב ה\"ז מותר שא\"ת נתערבו עמהן ונתבשלו בטלו במיעוטם אבל החמאה שבישלו אותה עובדי כוכבים אסורה משום גיעולי עובדי כוכבים כמ\"ש והראב\"ד השיג עליו לבטל איסור לכתחלה ברוב ובכ\"מ תי' מפני שיש בו הרבה ספיקות שמא לא נתערב ואת\"ל נתערב שמא לא נשאר ואת\"ל נשאר שמא יותך על האש אבל הרשב\"א סי' ק\"י הקשה עליו דבאלו האיסורין החמירו בספיקו שהרי כל ספק לקולא וכאן ספק וס\"ס שמא לא נתערב כו' כנ\"ל ואפ\"ה אסרו וכן אין הולכין כאן בתר נ\"ט דאל\"כ למה לא אמרו דליטעמיה קפילא אלא שגזרו להרחיק מאיסורין של דבריהם טפי מאיסורי תורה וז\"ש מפני שמעמידין בעור כו' אע\"ג שאינו בנ\"ט ואין קושיא מכל זה להרמב\"ם דאין כלל ס\"ס בגבינה אפילו לר\"ח שלכן אמר א\"א בלא כו' ושמואל דאמר מפני שמעמידין כו' כ' שם משום דדבר המעמיד אפילו באלף לא בטיל ועוד הקשה עליו דא\"כ גבינה ג\"כ יותר בבישול וזה כבר תירץ הוא עצמו שגבינה אסור בכ\"ע מחמת גזירה וכן חלב וכמ\"ש סס\"ב לדעת תוס' שאם חלבו ע\"מ לעשות גבינות מותר הגבינות אם עשאן ישראל ומ\"מ החלב עצמו אסור וכ\"ה דברי הרמב\"ם ומפני זה כו' שכל חלב כו' וגבינת כו' ובתוספתא פ\"ה משמע כדברי הרמב\"ם דתניא שם אין לוקחין גבינת בית הינאיקי אלא מן המומחה ושלוקה נלקחת מכל מקום ר\"ל אפילו מישראל חשוד וה\"ה לחמאה אפילו מן העובד כוכבים דאף שגבינה אסור מעובד כוכבים מפני הגזירה דלא פלוג כנ\"ל משא\"כ בחמאה. והכריע בב\"י דבמקום שאין מנהג יש לסמוך אדברי הרמב\"ם:",
+        "גם מותר כו'. כנ\"ל:",
+        "ואם בישלה כו'. ר\"ל שלא כדברי הרמב\"ם הנ\"ל דס\"ל סתם כלים הן ב\"י ומ\"ש אי משום גיעולי עובדי כוכבים נטל\"פ דבשר פוגם בשמן ודבש וכמש\"ל סי' ק\"ג ס\"ד ולא קי\"ל כן:",
+        "ואם הולך כו'. כמ\"ש או\"ה משום דאיסור זה אינו אלא משום תיקוני החמאה ואילו היו מתקנים במקום שנהגו איסור כמו במקום שנהגו היתר היו אוכלין אותו גם שם וכמ\"ש מהרי\"ל סי' ל\"ה דמקום שנוהגין היתר לפי שהוא ארץ הרים ומקום מרעה וחולבין הרבה יחד ואין לחוש שם כו':",
+        "אבל אסור כו'. כמ\"ש בפ\"ד דפסחים מפני שינוי המחלוקת משא\"כ ביש בו היכר וערש\"י שם נ\"ב א' ד\"ה ולית ליה כו' אלמא לית כה\"ג משום מחלוקת רק משום חומרי המקום וכאן ליכא משום חומרי המקום כנ\"ל:",
+        "וההולך כו'. כנ\"ל מפני המחלוקת כיון שאוכל חמאה שלהם:",
+        "וי\"א דה\"ה כו'. משום דברים המותרים ואחרים כו' כמ\"ש שם (נ' נ\"א):"
+      ],
+      "en_segments": [
+        "The butter, etc. Thus the Rambam: butter of gentiles — some Geonim permitted it, for behold they did not decree on butter and impure milk does not curdle. And meaning as is written folio 35b: if he sets it for cheese, etc.; and it is written: and some Geonim forbade it because of milk residues that remain in it, etc., as the Gemara says there; and the other answer, etc.; and the Geonim disagree in the establishments there: one holds the second reasoning follows Rabbi Chanina because it is impossible, etc., as Rashi explained; and if so the same applies to butter; and the first reasoning follows Shmuel because they curdle, etc., and not on account of milk residues; and therefore butter is permitted and was not within the decree; and in this also depend the two resolutions there: one — if he requires, etc.; and the other answer, etc.; and so holds (the Rambam) like Shmuel as is written in seif 2; and so wrote the first edition there as is written: impure animal milk does not curdle and stand in pure milk; and if impure milk became mixed with pure milk, when one curdles it the pure milk will stand and the impure milk will go out with the residue; and because of this the law is that all milk found in a gentile's possession is forbidden lest he mixed impure animal milk; and gentile cheese is permitted because impure animal milk does not become cheese; but in the days of the Mishnah sages they decreed, etc.; but according to Tosafot d\"h ligvinah that when the gentile made the cheeses one need not be concerned even for the latter answer as above, since his intent is so he will not mix; and Rabbi Chanina who says because it is impossible, etc., refers to the continuation of Rabbenu Levi's words; and accordingly butter is permitted according to this reasoning; and this is Semak's view who permits; and he wrote another reason that there are no holes in butter; and Semag and Hagahot Maimoniyot wrote in the name of Baal HaItur that butter is one of eighteen things as is written in Yerushalmi chapter 1 of Shabbos: Rabbi Shimon bar Yochai taught on that day they decreed on their bread and their oil and their cooked dishes and their salted foods and their cheeses and their butters; and Sefer HaTerumah wrote: however in our Yerushalmi it is not written \"their butters.\" And Beit Yosef decided: we do not object, etc.; and if, etc.: (Collection) The butter, etc. — now chapter 6 folio 2 that forbids, and he elaborated on this — see there (end).",
+        "And in a place, etc. Language of the Rambam: it appears to me that if one took the butter from the gentile and cooked it until the milk residues went away, this is permitted, for you cannot say they became mixed and were cooked — they are nullified in their minority; but butter that gentiles cooked is forbidden on account of absorption from gentile vessels, as is written; and the Raavad challenged him for nullifying a prohibition l'chatchila in a majority; and in several places it is written: because there are many doubts — perhaps it did not become mixed; and if you say it became mixed, perhaps none remained; and if you say some remained, perhaps it will be melted on the fire. But the Rashba siman 110 challenged him that in these prohibitions they were stringent in their doubt, for behold every doubt is for leniency; and here doubt upon doubt — perhaps it did not become mixed, etc. — as above; and nevertheless they forbade; and likewise we do not follow the majority here, for if not why did they not say let him taste a spoonful? Rather they decreed to distance from their prohibitions more than Torah prohibitions; and this is what is meant by because they curdle in skin, etc., even though it is not by majority; and there is no difficulty from all this to the Rambam, for there is no doubt at all in cheese even for Rabbi Chanina, for which reason he said it is impossible without, etc.; and Shmuel who said because they curdle, etc., wrote there because a curdling agent even in a thousand is not nullified; and he further challenged him that if so cheese is more so in cooking; and he himself already resolved this: cheese is forbidden everywhere on account of a decree; and so milk; and as is written seif 62 according to Tosafot that if he milked with intent to make cheese the cheeses are permitted if a Jew made them; and nevertheless the milk itself is forbidden; and so are the Rambam's words; and because of this, etc., that all milk, etc., and cheese, etc.; and in Tosefta chapter 5 it implies like the Rambam's words: it is taught there one does not buy cheese of Beit Hinayki except from the expert; and burnt cheese is bought from anywhere — meaning even from a suspected Jew; and the same applies to butter even from a gentile, for although cheese is forbidden from a gentile on account of the decree they do not distinguish as above, not so with butter. And Beit Yosef decided: in a place where there is no custom one should rely on the Rambam's words.",
+        "Also permitted, etc. — as stated above.",
+        "And if he cooked it, etc. Meaning: not like the Rambam's words above who holds stam vessels are — Beit Yosef; and what is written: if on account of absorption from gentile vessels we take the lenient side, for meat impairs oil and honey, as is written siman 103 seif 4; and we do not establish thus.",
+        "And if one travels, etc. As Issur VeHeter wrote: because this prohibition is only on account of fixing the butter; and if they would fix in a place where they practiced prohibition as in a place where they practiced permission, they would eat it there too; and as Maharil wrote siman 35: a place where they practice permission because it is a land of mountains and pasture land and they milk many together and there is no concern there, etc.",
+        "But forbidden, etc. As is written in chapter 4 of Pesachim on account of change of dispute; not so when there is a distinguishing mark; and Rashi there folio 51a d\"h velais leih, etc.: hence there is no such thing on account of dispute, only on account of stringencies of the place; and here there is no concern of stringencies of the place as above.",
+        "And one who travels, etc. As above on account of the dispute since he eats their butter.",
+        "And some say that the same applies, etc. On account of permitted things that others practiced as forbidden, as is written there (another version)."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman128/seif-003/beur-hagra",
+      "volume": "yd1",
+      "siman": 128,
+      "seif": 3,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 7,
+      "enSegs": 6,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בית כו'. ערש\"י שם ד\"ה דהאי כו' והרי\"ף גורם בהדיא בגמ' חמרא דישראל ועובד כוכבים כו':",
+        "(ליקוט) בית כו'. הוא מעשה ראשונה שם ע' א' ההוא ביתא כו' וכגירסא חמרא דישראל ועובד כוכבים וכן פירש\"י ומעשה רביעית ההוא ביתא כו' א\"ר אי א\"ל לאשתמוטי כו' שם של ישראל לבדו ובשניהם אם לא נעל הדלת מותר וכמש\"ש מתבי ננעל כו' וכמש\"ש אחדיה לדשא כו' ובשניהם כל דלהדי ביזעא מותר וכמ\"ש בסי' קכ\"ט ס\"ה בהג\"ה אלא דבשניה אם נתפס כגנב מותר בכ\"ע משא\"כ ברישא וכמ\"ש רש\"י בד\"ה דהאי גיסא כו' וז\"ש בס\"ד בית כו' על הכניסה וכפירש\"י ד\"ה אי אית כו' וכן הרא\"ש שם ועובדא השלישית שם ההוא אושפיזא כו' נראה שהוא במקום שיש רשות ליכנס שם לכן אמר אם נתפש כו' ר\"ל על הנגיעה וכההיא דספ\"ד ההוא כרכא כו' וכההיא דס\"ה (ע\"כ):",
+        "שאם בא כו'. ת\"ה:",
+        "אפילו הן פתוחות. כמ\"ש הרא\"ש שם סי\"ב וכנ\"ל:",
+        "אפילו חביות סתומות. כמש\"ש ס\"א ת\"ר א' הלוקח כו' בחצר אחרת מותר והוא כו'. ת\"ה:",
+        "אם שהה כו'. כמש\"ש במתני' ס\"ט א':",
+        "ואפילו היה כו'. דעת הרשב\"א להתיר בכה\"ג כמש\"ש ס\"א א' באותה חצר מותר כו' אבל בשם הראב\"ד כתב שאוסר וכתב ולפ\"ד צ\"ל דשם איירי שלא נעל מעולם וא\"נ י\"ל דשאני התם דאין לו שייכות בבית ממש כו':"
+      ],
+      "en_segments": [
+        "House, etc. In Rashi there s.v. this, etc., and the Rif states explicitly in the Gemara ; wine of an Israelite and a gentile, etc.: (Collection) House, etc. ; it is the first case there 70a ; that house, etc., and as the reading wine of an Israelite and a gentile, and likewise Rashi; and the fourth case ; that house, etc. ; R. Yirmiyah said: if he said to remove, etc., there ; of an Israelite alone; and in both, if he did not lock the door it is permitted; and as he wrote was locked, etc.; and as he wrote he placed it in the grass, etc.; and in both, whatever is before the sweat is permitted; and as written in siman 129 seif 5 in the gloss ; except that in the second, if he is seized as a thief it is permitted in all respects, unlike in the first; and as Rashi wrote s.v. this side, etc.; and these are his words in the gloss ; house, etc., regarding entry; and as Rashi explained s.v. if there is, etc.; and likewise the Rosh there; and the third case there ; that innkeeper, etc. ; it appears it is in a place where there is permission to enter there; therefore he said if he is seized, etc., meaning regarding touch; and like that case in chapter 4 ; that city, etc.; and like that case in seif 5 (end of quote):",
+        "If you come as a. :",
+        "They are even open. It is the name of the Holy One, and the Holy One:",
+        "Even thick barrels. As a result of Hashem’s promise, Hashem’s promise is to be done in a different way. :",
+        "If he stayed, etc. As he wrote in the mishnah 69a:",
+        "And even if it was, etc. Rashba's view is to permit in such a case, as he wrote 61a ; in that courtyard it is permitted, etc.; but in the name of the Raavad he wrote that he forbids; and he wrote: according to his view it must be that there it deals when he never locked; or one may say it is different there since he has no connection to the house itself, etc.:"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman128/seif-004/beur-hagra",
+      "volume": "yd1",
+      "siman": 128,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 2,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "בית כו'. שם ע' א' ההוא ביתא כו' וערש\"י שם ד\"ה שרי כו' וערא\"ש שם סט\"ז פרש\"י כו':",
+        "וי\"א כו'. הג\"א שם סי\"ט בד\"ה והיכא דעל כו':",
+        "(ליקוט) וי\"א דבזה\"ז כו' מיהו אם כו'. תוס' ע' א' סד\"ה מ\"ט. ופירש רשב\"ם בשם רש\"י כו' מיהו נראה כו' (ע\"כ):",
+        "(ליקוט) וי\"א כו'. הג\"א פ\"ה סט\"ו בד\"ה וכל. כיון כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "House, etc. There 70a ; that house, etc., and in Rashi there s.v. permitted, etc., and in Rosh there 69:16 ; Rashi, etc.:",
+        "And some say, etc. Hagahot there 69 in s.v. and where that, etc.: (Collection) And some say that nowadays, etc.; however if, etc. ; Tosafot 70a s.v. what is the reason; and Rashbam explained in the name of Rashi, etc.; however it appears, etc. (end of quote): (Collection) And some say, etc. ; Hagahot chapter 5 69:15 in s.v. and all; since, etc. (end of quote):"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman135/seif-001/beur-hagra",
+      "volume": "yd1",
+      "siman": 135,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 9,
+      "enSegs": 8,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) בין כו'. לאפוקי של חרס וכמ\"ש בס\"ד כלי חרס כו' וכפי' הגאונים דכל כלי חרס דינן שוה ודלא כהרא\"ש שם שכתב דוקא כסי שהוא ממין אדמה הידוע להן אלא כל כ\"ח כן ואע\"ג שאמרו שם הני חצבי כו' הני פתוותא כו' כ' הרשב\"א והר\"נ דוקא אלו שחרסן קשה ואינן בולעין הרבה ואינו כשאר כ\"ח והשמיטו טוש\"ע דין חצבי ופתוותא משום שאין חרסן ידוע לנו וכן השמיט בת\"ה הקצר. ב\"י (ע\"כ):",
+        "היטב. ע\"ל סי' קכ\"א ס\"א וע\"ל סי\"א:",
+        "בין כו'. מהנ\"ל ועוד גי' הרי\"ף ורא\"ש שם אר\"י הני כובי דארמאי כו' ושם ע\"ד ב' קסבר כ\"ד כו' משמע הלא\"ה אפילו לזמן מרובה לא גזרינן ועתוס' שם ל\"ב ב' בד\"ה כך כו' וברא\"ש ור\"ן שם ודלא כרש\"י:",
+        "היו כו'. כגירסת ד\"ת וכפי' שם ההיא דנודות שאין מכניסו לקיום:",
+        "(ליקוט) היו מזופתין כו'. כגי' ר\"ת ותוספתא נודות העובדי כוכבים גרודים מותרים חדשים זפותין אסורין קנקנים של עובד כוכבים חדשים מותרין ישנים מזופתין אסורין ופי' גרודים אפילו היה בהן זפת ואפילו ישנים רק שנקלף הזפת מותרין אבל זפותין שלא נקלף עדיין אפי' חדשים אסורים קנקנים חדשים ולא היה בהן זפת כלל שניכר שלא היה בהן יין מעולם מותרים ישנים ומזופפין פי' ישנים או מזופפים אפילו נראה חדש כיון שמזופף אינו ניכר והטעם של קנקנים כיון שמכניסו לקיום אפילו לפי שעה כו' וצריך עירוי ועתוס' ורא\"ש (ע\"כ):",
+        "וה\"ה לכלים כו'. שם בתוס' ולפי שיטת ר\"ת כו' ואפי' לפי' ר\"י שם שמתיר בשל עובר כוכבים אוסר בזה כמש\"ש ור\"י היה כו' ומ\"מ שלנו כו':",
+        "י\"א כו'. שם ור\"ת עצמו כו' ולכאורה כ\"ש בכלי עובד כוכבים חדשים וכנ\"ל אבל לפי מש\"ש בתוס' וכ' רבינו ברוך כו' וכמ\"ש כאן אין לאסור בדיעבד והיינו דוקא בכלי ישראל ולא סמכינן אהיתרו של ר\"י:",
+        "טופח. ע\"מ להטפיח כמש\"ש ס' ב' וכנ\"ל סי' קכ\"ט סי\"ג וע\"ל סי' קכ\"ו ס\"ה בהג\"ה:",
+        "אם הם כו'. לאפוקי נודות שהן רך. שם בתוס':"
+      ],
+      "en_segments": [
+        "(Likut) Between, etc. ; excluding earthenware; and as written in Shulchan Aruch \"earthenware,\" etc.; and according to the Geonim's explanation that all earthenware vessels have equal law, unlike the Rosh there who wrote specifically a cup that is from the known earth type ; but all earthenware is so; and even though they said there \"these jugs,\" etc. \"these lids,\" etc. ; Rashba and Ran wrote specifically those whose pottery is hard and they do not absorb much, and it is not like other earthenware; and Shulchan Aruch omitted the law of jugs and lids because their pottery is not known to us; and likewise Tur Zahav HaKatzar omitted it. Beit Yosef ; end.",
+        "Thoroughly. See above, siman 121, seif 1, and below, seif 11.",
+        "Between, etc. From the aforementioned; and further the girsa of Ri'f and Rosh there ; Rabbi Yehudah: \"these Aramean jugs,\" etc.; and there 74b ; he holds all earthenware, etc. ; it implies otherwise even for a long time we do not decree; and Tosafot there 32b s.v. \"kach,\" etc., and in Rosh and Ran there, and unlike Rashi.",
+        "Were, etc. According to Daf Talmud's girsa and explanation there ; that of hides that one does not put in for permanence [Likut: were pitched, etc. ; girsa of Rabbeinu Tam and Tosefta: hides of gentiles ; scraped are permitted, new pitched are forbidden; flasks of gentiles ; new are permitted, old pitched are forbidden; and \"scraped\" means even if there was pitch in them and even if old, only that the pitch was peeled off they are permitted; but pitched that has not yet been peeled off ; even if new they are forbidden; new flasks in which there was no pitch at all, recognizable that wine was never in them ; permitted; old and pitched ; meaning old or pitched, even if they look new, since they are pitched it is not recognizable; and the reason of flasks: since one puts them in for permanence even temporarily, etc., and pouring is required; and Tosafot and Rosh ; end].",
+        "The same applies to vessels, etc. This is stated there in Tosafot. According to Rabbeinu Tam's approach, etc.; and even according to Rabbeinu Yitzchak there, who permits a non-Jew's vessel, he forbids this case, as stated there: ‘Rabbeinu Yitzchak would,’ etc., ‘nevertheless, ours,’ etc.",
+        "Some say, etc. This is stated there, ‘and Rabbeinu Tam himself,’ etc. At first glance, this should apply all the more to new vessels belonging to a non-Jew, as above. However, according to Tosafot there, who wrote, ‘Rabbeinu Baruch,’ etc., and as stated here, one should not forbid it after the fact. This applies specifically to a Jewish vessel, and we do not rely on Rabbeinu Yitzchak's leniency.",
+        "Moist. Moist enough to moisten another surface, as stated there, 60b, and as above, siman 129, seif 13. See also siman 126, seif 5, in the gloss.",
+        "If they are, etc. This excludes wineskins, which are soft. This is stated there in Tosafot."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman146/seif-011/beur-hagra",
+      "volume": "yd1",
+      "siman": 146,
+      "seif": 11,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אלילים כו'. כמש\"ש מ\"ט ב' דכ\"ע כו' וכר\"י מ\"א ב':",
+        "לפיכך כו'. דלא כשמואל שם ועמש\"ל סימן קמ\"א ס\"ב:",
+        "ואם היתה כו'. כרב שם מ\"ט ב' וכתי' בתרא ויש שם כמה גירסות חלופות ועבר\"ן וכמה תי' דלא תקשי אהא דקי\"ל כר\"י דשברים אסורין אבל גי' הרמב\"ם הכא בשאר שברים קמיפלגי כו' ור\"ל אם נתבטל כל השברים בביטל א' מהן:",
+        "(ליקוט) ואם היתה כו'. זהו לגי' הרמב\"ם אבל לגי' רש\"י החילוק הוא בשברי שברים דשברים אסורין בכ\"ע ושברי שברים אם אין ההדיוט יוכל להחזירם מותרים [וכ\"פ הראב\"ד בהשגות] וכ\"כ הר\"נ וכ' שיש עוד גי' אחרת ואב\"א דכ\"ע אין עובדין לשברים והכא כו' ואע\"ג דקי\"ל עבודת כוכבים שנשתברה מאליה אסורה שם כיון דעיקר עבודת כוכבים קיימת אין עובדין לשברים ובשברים החילוק הוא בין הדיוט כו' ובעיקר ע\"ז קיימת ועבר\"נ רפ\"ג בארוכה (ע\"כ):"
+      ],
+      "en_segments": [
+        "Therefore, etc. Unlike Shmuel there; and as we said siman 141 62:",
+        "And if it was, etc. This follows Rav there, 49b, according to the latter answer. There are several variant readings in that passage; see the Ran and the various explanations given so that it not conflict with our ruling like Rabbi Yochanan that broken pieces are forbidden. According to the Rambam's reading, however, they disagree here regarding other fragments, meaning whether nullifying one fragment nullifies all of them.",
+        "(Collected) And if it was, etc. This follows the Rambam's reading. According to Rashi's reading, however, the distinction concerns fragments of fragments. Ordinary fragments are always forbidden, while fragments of fragments are permitted when an ordinary craftsman cannot restore them. The Raavad rules this way in his glosses, and the Ran likewise writes so. The Ran records another reading: alternatively, all agree that fragments are not worshipped, and here, etc. Although we rule that idolatry which broke by itself remains forbidden, there, since the principal idol remains intact, its fragments are not worshipped. The distinction regarding fragments is whether an ordinary craftsman can restore them, while the principal idol remains intact. See the Ran at the beginning of chapter 3 at length (end)."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman160/seif-016/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 16,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 6,
+      "he_deficit": 2,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "והוא כו'. הרא\"ש וטור והביא הרא\"ש ראיה מפ\"ז צ' ב' וצ\"ע דהא פ' שם כמ\"זי דשרי וכן הקשה במע\"מ ולרמב\"ם וש\"ע שם ניחא אבל להרא\"ש שם קשה. וי\"ל דהתם אינו רק משום קנסא ולא קנסו רק לדידיה משא\"כ כאן דאסור מדאורייתא וראייתו מדאיבעיא להו בבנו קטן אם קנסו משום דכגופו דמי:",
+        "ואינו סומך כו'. דאל\"כ הוי כמש\"ש י\"ב ב' ומ\"מ בקטן לא כיון דמוטל עליו לפרנסו כמ\"ש בפ\"ד דכתובות (מ\"ט ב' נ' א') וכנ\"ל ס\"י ועב\"י וט\"ז אבל הרשב\"א ונ\"י כתבו דהכל תלוי בסומך על שלחנו או לא וכמו במציאה:",
+        "י\"א כו'. תוס' דקדושין הנ\"ל ד\"ה דארווח כו' דכי נמי אמרינן התם כו':",
+        "(ליקוט) י\"א דאסור כו'. הג\"א שם ד\"ה מיהו כו' (ע\"כ):",
+        "י\"א דמותר כו'. כמש\"ש דלא אסרה תורה כו'. והנה לא דמי לשם כמ\"ש תוס' דקדושין הנ\"ל שלא יחזור כו' וכנ\"ל וכמ\"ש בסי\"ג וכבר כתבו ב\"י ולבוש וט\"ז שהוא טעות גדול ואיזה תלמיד טועה כתבו ואף שד\"מ וב\"ח וש\"ך קיימוהו ל\"נ וטעות גמור הוא:",
+        "ומ\"מ אם כו'. מתני' ע\"ה ב' כיצד נתן כו':",
+        "אבל אם כו' דהשטר כו'. כמ\"ש ס\"ב א' דעל כתיבת השטר בלחוד חייבין. שם:",
+        "(ליקוט) אבל אם שליח כו'. ערש\"י נ\"ז ב' ד\"ה באבני כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "And it, etc. Rosh and Tur; and Rosh brought proof from chapter 7 90b ; requires study for there chapter implies permitted; and so challenged in Ma'amar Mordechai; and for Rambam and Shulchan Aruch there it works; but for Rosh there difficult. And one can say there it is only because of penalty and they penalized only him unlike here forbidden from Torah; and his proof from they asked regarding his minor son if they penalized because like his body.",
+        "And he does not rely, etc. For otherwise it is like what is stated 12b; nevertheless regarding minor not since obligated to support him as stated chapter 4 Ketubot (49b, 50a); and as stated seif 10 and Orach Chayyim and Taz; but Rashba and Nekudot Yosef wrote everything depends on relying on his table or not like found object.",
+        "Some say, etc. Tosafot Kiddushin cited s.v. darvach, etc. for even if we say there, etc.: (Extract) Some say forbidden, etc. Hagahot Ashri there s.v. mihu, etc. (end).",
+        "Some say permitted, etc. As stated Scripture did not forbid, etc. And behold it is not similar there as Tosafot Kiddushin cited that he should not return, etc.; and as stated and as below seif 13; and Beit Yosef Levush and Taz already wrote it is great error and which student erred wrote them; and even though it appears Bach and Shach upheld it ; in my opinion it is complete error.",
+        "And nevertheless if, etc. Mishnah 75b ; how did he give, etc.",
+        "But if, etc. the document, etc. As stated 62a regarding writing document alone they are liable. There: (Extract) But if agent, etc. Rashi 57b s.v. b'avnei, etc. (end)."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman160/seif-017/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 17,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "דברים של כו' עד חומש. שם הלוני מאה פלפלין כו' ומפרש שלא התנה מתחלה ומ\"ש במאה ועשרים דברי גמ' הוא אבל לא משמע כן וז\"ש בהג\"ה וי\"מ כו' ודיוקו של הרמב\"ם דדוקא בלא פסק ממ\"ש ללות ול\"ק להלוות. מ\"מ:",
+        "ובלבד כו'. תוס' שם ד\"ה מתנה כו' וכ\"ד הרמב\"ן שהוא בעל סברא ראשונה וכמ\"ש המ\"מ בשמו וז\"ל המ\"מ ומדברי רבינו דוקא בלוה סתם והרמב\"ן ז\"ל הוסיף דדוקא בעסקי סעודה ובדבר מועט וה\"ה כבני חבורה שאין מקפידין זע\"ז ודוקא שלא קצץ ושמואל ה\"ק אפשר שבשעת פרעון אפרע לך ק\"ך שלא אקפיד למנותן ואריך שזהו כבודי אפילו הוספתי עד חומש אבל דברי הרמב\"ם שלא הזכיר לו כלל בשעת הלוואה צ\"ל כנ\"ל ודוחק ונראה שהרמב\"ם מפרש דמ\"ש בק\"ך דינא קמיגמר ליה דאף אם אחזיר לך ק\"ך שרי וז\"ש ואריך:",
+        "(ליקוט) ובלבד כו'. מעובדא דרב מרי ועתוס' ע\"ג ב' ד\"ה דסתם כו' ועסה\"ת (ע\"כ):",
+        "ומ\"מ כו'. סמ\"ג והג\"מ שם:"
+      ],
+      "en_segments": [
+        "Things of, etc. up to fifth. There the lender one hundred peppers, etc.; and he explains he did not stipulate initially; and what is stated one hundred twenty ; Gemara's words; but does not imply so; and this is what he wrote in Hagah; and some say, etc.; and Rambam's precision ; specifically without fixed amount from what is stated to lend; and no difficulty to borrow. Nevertheless.",
+        "Provided, etc. Tosafot there s.v. matanah, etc.; and so Rambban who holds first view; and as Maggid Mishneh wrote in his name ; Maggid Mishneh: and from our Rabbi's words specifically unspecified borrower; and Ramban added specifically feast matters and small matter; and likewise companions who are not particular with each other; and specifically he did not fix; and Shmuel said thus ; possibly at repayment I will pay you one hundred twenty without counting them and it is my honor even if I add up to fifth; but Rambam's words who did not mention at all at time of loan must be as stated ; strained; and it appears Rambam explains what is stated one hundred twenty law is decided for him that even if he returns one hundred twenty ; permitted; and this is what he wrote and extends: (Extract) Provided, etc. From incident of Rav Mari; and Tosafot 73b s.v. destam, etc.; and Sefer HaTerumah (end).",
+        "And nevertheless, etc. SeMaG and Hagahot Maimoniyot there."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman160/seif-020/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 20,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "אם עבר כו'. דהוי כגוזל ומאכיל את בניו כו' אע\"ג דבגזילה קיימת או הניח אחריות נכסים חייבין לשלם דוקא בגזילה משא\"כ ברבית דמדעתיה דאין חייבין לו כלום אלא משום מ\"ע וחי אחיך ובכה\"ג פטירי וכמ\"ש (ס\"ב א' ורפ\"ט דב\"ק) הניח להם אביהם כו' אלמא אע\"ג שקיימת פטורין ועריב\"ש סי' תס\"ה אבל סה\"ת ומרדכי חולקין ע\"ז וכתבו דיוצאה בדיינין:",
+        "(ליקוט) אם עבר כו' והאכיל כו'. משמע דוקא האכיל ועריב\"ש וע' משנה למלך ספ\"ד (ע\"כ):",
+        "וגם האפוטרופוס כו'. שאינו בהשבון דלא לקח כלום רק סרסורא דעבירה הוא. שם:",
+        "ומיהו כו'. עש\"ך:"
+      ],
+      "en_segments": [
+        "If he transgressed, etc. For it is like robber and feeds his children, etc.; even though in robbery existing or left responsibility of property they must pay ; specifically robbery unlike interest from his consent they owe him nothing except positive commandment and your brother shall live; and in such case exempt; and as stated (62a and end Bava Kamma) their father left them, etc. ; evidently even though existing exempt; and Rivash siman 265; but Sefer HaTerumah and Mordechai disagree on this and wrote it comes out in court: (Extract) If he transgressed and fed, etc. Implies specifically he fed; and Rivash ; see Mishneh Lamelech chapter 4 (end).",
+        "And also the guardian, etc. He is not in the reckoning, for he took nothing ; only an intermediary of the sin. There.",
+        "However, etc. See Shach."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman160/seif-023/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 23,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "המלוה כו'. כמש\"ש ס\"ד ב' דאפילו חצר דלא קיימא כו' וערא\"ש שם:",
+        "(ליקוט) המלוה כו'. טור ולמד מדברי הרא\"ש בשם הרמב\"ן בסי\"ז ה\"ז דומה לכהן כו' ופשוט ליה דאסור משום רבית כנ\"ל סי\"ב וכ\"מ בתוספתא וירושלמי המוכר שדה לחבירו וא\"ל ע\"מ שאהא בה אריס ע\"מ שאהא בה שותף ע\"מ שהמעשרות שלי כו' מותר ואם אף במלוה מותר מאי קמ\"ל במכר וז\"ש ע\"מ שכל כו' (ע\"כ):",
+        "ולמ\"ד כו'. כמ\"ש הרי\"ף שם שמחלק בין הלוני להלוהו כו' אבל למ\"ד אינה ממון לא כמ\"ש הרמב\"ן שם דבדלא קיימא לאגרא לא הוי הרבית קצוצה והוכיח שם ממש\"ש ס\"ה א' הדרי בי ולא מצינו ששילם לצאת ידי שמים אלא דכה\"ג אף לצאת י\"ש א\"צ ע\"ש (וע\"ל סי' קס\"ו ס\"ק ב') ועח\"מ סי' ר\"ג שפסק דאינה ממון:",
+        "וכן כל כו'. עתוס' ורא\"ש שם וכנ\"ל ס\"ז וז\"ש אבל כו':"
+      ],
+      "en_segments": [
+        "The lender, etc. As stated 64b even courtyard not standing, etc.; and Rosh there: (Extract) The lender, etc. Tur learned from Rosh in name of Ramban siman 17 halachah 7 similar to kohen, etc.; and plain to him forbidden because of interest as stated seif 12; and so in Tosefta and Yerushalmi one who sells field to fellow and said on condition I be sharecropper or partner or my tithes, etc. ; permitted; and if even in loan permitted what does it teach in sale; and this is what he wrote on condition all, etc. (end).",
+        "And for one who says, etc. As Rif stated there who distinguishes between the lender and one who lent him, etc.; but for one who says it is not money unlike Ramban there regarding not standing for rent is not fixed interest; and he proved there from what is stated 65a I will return and we do not find he paid to fulfill heaven except in such case also need not fulfill heaven ; see there (and see siman 166 s.k. 2); and in Choshen Mishpat siman 203 who ruled it is not money.",
+        "And likewise all, etc. Tosafot and Rosh there; and as stated seif 7; and this is what he wrote but, etc."
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman190/seif-005/beur-hagra",
+      "volume": "yd1",
+      "siman": 190,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לא כו'. כמש\"ש בגמ' אבל נראין כו' וכל הסוגיא כוותיה:",
+        "כגריס ועוד. כר\"ח דר\"א וכל הסוגיא כוותיה:",
+        "ג' כו' ושיעור כו'. שם במתני' דנגעים:",
+        "(ליקוט) כמו שהן כו'. ממ\"ש בת\"כ פ' תזריע שער לבן ומחית מה שער לבן מקום כ' שערות אף מחיה מקום ב' שערות כו' הא כיצד כו' (ע\"כ):",
+        "בין אם כו'. כמש\"ש נ\"ט א' לא לעולם כו' ומשמע דמסקנא הכי דלא קאמר דלמא:",
+        "(ליקוט) בין אם הוא כו'. דאינו מחלק בין עגול למשוך אלא משום דמשוך דם קינוח הוא כמ\"ש בתוספתא והביאה הרא\"ש שם וכמ\"ש שם בגמ' לא לעולם כו' וערא\"ש סוף פרק ח' ובכתם כו' (ע\"כ):"
+      ],
+      "en_segments": [
+        "Not, etc. — as explained in the Gemara \"but it appears,\" etc., and the entire sugya is like him.",
+        "Like a gris and more. Following R' Chanina's version of R' Eliezer's view; and the entire sugya follows his opinion.",
+        "Joe and his class. There is a name in my son:",
+        "(Gleanings) As they are, etc. From what is stated in the Toras Kohanim parashas Tazria: white hair and healthy flesh — just as white hair requires a space of two hairs, so too healthy flesh requires a space of two hairs, etc. How so? Etc.",
+        "Whether they are. As a result, N.A. will never be called, and it is said to be the most detrimental to the world. Daino divides between round and pull, but because of the blood of a dessert, he is called a “shock” and brought a fire there, and he has never been named after him, and the end of the chapter and the stain of his mouth"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman201/seif-040/beur-hagra",
+      "volume": "yd1",
+      "siman": 201,
+      "seif": 40,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 6,
+      "enSegs": 5,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "כלי כו'. ע' כ\"ז מש\"ל בס\"ז:",
+        "ראשונים כו'. ער\"ש ן\"ז תניא כו':",
+        "(ליקוט) ראשונים. פי' אצבע הסמוך לגודל וכמ\"ש בתוספתא הביאה הר\"ש מתני' ז' פ\"ו תניא שתי כו' והוא אצבע כמ\"ש בפ\"ג דמנחות (מ\"א ב') וכמ\"ש הר\"ש שם והשתא האצבע כו' ודברי הרמב\"ם לא משמע כן ועב\"י (ע\"כ):",
+        "בין שהוא כו'. דקתני חוזרות למקומן:",
+        "ואם הם כו'. כנ\"ל סט\"ו:",
+        "דספיקא דג' כו'. מתני' ג' פ\"ב:"
+      ],
+      "en_segments": [
+        "A vessel, etc. See [note] 27, as I wrote above in seif 7.",
+        "(Likut) First finger. Meaning thumb finger next to index; as in Tosefta Rosh brought mishnah 7 chapter 6: two, etc.; and it is the finger as in chapter 3 of Menachot (41 side b); as Rosh there; and now the finger, etc.; Rambam's words do not imply so; and Beit Yosef (end of citation).",
+        "(Likut) First finger. Meaning thumb finger next to index; as in Tosefta Rosh brought mishnah 7 chapter 6: two, etc.; and it is the finger as in chapter 3 of Menachot (41 side b); as Rosh there; and now the finger, etc.; Rambam's words do not imply so; and Beit Yosef (end of citation).",
+        "And if they are so. Same as Stu:",
+        "A fish is enough.” from the JP:"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    },
+    {
+      "id": "yd1/siman240/seif-007/beur-hagra",
+      "volume": "yd1",
+      "siman": 240,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "ואם האב כו'. שם בעיות ולא אפשיטו וספיקא דאורייתא לחומרא. הרא\"ש:",
+        "ואם הבן כו'. כמש\"ש בר\"ט ועתוס' ד\"ה ר\"ט כו':",
+        "(ליקוט) ואם כו'. כ\"מ בעובדא דר\"ט שם ועתוס' שם ד\"ה ר\"ט כו' וער\"נ שם וצ\"ע (ע\"כ):",
+        "דהא הרב כו'. שם:"
+      ],
+      "en_segments": [
+        "And if the father, etc. There the question is raised but not resolved, and an unresolved Torah doubt is ruled stringently. Rosh.",
+        "And if the son etc. As written in Rif and Tosafot s.v. Rif etc. Likut: and if etc. — Kesef Mishnah on Rif's case there and Tosafot there s.v. Rif etc. and Ran there — requires study — end.",
+        "The Holy One. Name:"
+      ],
+      "review_action": "merge_groups",
+      "review_notes": "Exactly the required Hebrew boundaries show clear continuation or repeated-lemma continuity.",
+      "review_merge_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "review_split_hints": null,
+      "eval_tier": "hold_semantic_likut_merge",
+      "wrong_review_action": "merge_groups"
+    }
+  ]
+}
