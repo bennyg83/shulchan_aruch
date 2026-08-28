@@ -4,6 +4,7 @@
  *   node apply_en_trunc_moderate_part01.mjs --dry-run
  *   node apply_en_trunc_moderate_part01.mjs --apply
  *   node apply_en_trunc_moderate_part01.mjs --apply --ids oc1/siman51/seif-009/ateret-zekenim,...
+ *   node apply_en_trunc_moderate_part01.mjs --apply --repaired --ids oc1/siman1/seif-009/yad-ephraim,...
  */
 import fs from "fs";
 import path from "path";
@@ -17,6 +18,10 @@ const CORPUS_ROOT = path.join(
 );
 const EVAL = path.join(__dirname, "EN_TRUNC_MODERATE_GPT_RESULT_part01_EVAL.json");
 const GPT = path.join(__dirname, "EN_TRUNC_MODERATE_GPT_RESULT_part01.json");
+const REPAIRED = path.join(
+  __dirname,
+  "EN_TRUNC_MODERATE_GPT_RESULT_part01_REPAIRED.json"
+);
 
 function normalizeBrRuns(html) {
   return String(html ?? "").replace(/(?:<br\s*\/?>\s*){2,}/gi, "<br>");
@@ -51,9 +56,16 @@ function parseIdsArg() {
 
 function main() {
   const apply = process.argv.includes("--apply");
+  const useRepaired = process.argv.includes("--repaired");
   const evalDoc = JSON.parse(fs.readFileSync(EVAL, "utf8"));
   const gptCases = JSON.parse(fs.readFileSync(GPT, "utf8"));
   const gptById = new Map(gptCases.map((c) => [c.id, c]));
+
+  let repairedById = null;
+  if (useRepaired) {
+    const repairedCases = JSON.parse(fs.readFileSync(REPAIRED, "utf8"));
+    repairedById = new Map(repairedCases.map((c) => [c.id, c]));
+  }
 
   let approvedIds = evalDoc.results
     .filter((r) => r.verdict === "APPROVE")
@@ -61,25 +73,35 @@ function main() {
 
   const overrideIds = parseIdsArg();
   if (overrideIds?.length) {
-    approvedIds = overrideIds.filter((id) => {
-      const row = evalDoc.results.find((r) => r.id === id);
-      if (!row || row.verdict !== "APPROVE") {
-        console.warn(`SKIP ${id}: not APPROVE in eval`);
-        return false;
-      }
-      return true;
-    });
+    if (useRepaired) {
+      approvedIds = overrideIds.filter((id) => {
+        if (!repairedById?.has(id)) {
+          console.warn(`SKIP ${id}: not in REPAIRED json`);
+          return false;
+        }
+        return true;
+      });
+    } else {
+      approvedIds = overrideIds.filter((id) => {
+        const row = evalDoc.results.find((r) => r.id === id);
+        if (!row || row.verdict !== "APPROVE") {
+          console.warn(`SKIP ${id}: not APPROVE in eval`);
+          return false;
+        }
+        return true;
+      });
+    }
   }
 
   console.log(
-    `[en-trunc-moderate-part01] mode=${apply ? "APPLY" : "DRY-RUN"} approved=${approvedIds.length}`
+    `[en-trunc-moderate-part01] mode=${apply ? "APPLY" : "DRY-RUN"} source=${useRepaired ? "REPAIRED" : "GPT"} approved=${approvedIds.length}`
   );
 
   const applied = [];
   const failed = [];
 
   for (const id of approvedIds) {
-    const gptCase = gptById.get(id);
+    const gptCase = useRepaired ? repairedById.get(id) : gptById.get(id);
     const evalRow = evalDoc.results.find((r) => r.id === id);
     const enPath = path.join(CORPUS_ROOT, id, "en.html");
     const hePath = path.join(CORPUS_ROOT, id, "he.html");
@@ -87,8 +109,8 @@ function main() {
     const heRaw = readText(hePath);
 
     if (!gptCase) {
-      failed.push({ id, reason: "missing_gpt_case" });
-      console.log(`FAIL ${id}: missing GPT case`);
+      failed.push({ id, reason: "missing_case" });
+      console.log(`FAIL ${id}: missing ${useRepaired ? "REPAIRED" : "GPT"} case`);
       continue;
     }
     if (enBefore == null || heRaw == null) {
@@ -109,8 +131,12 @@ function main() {
     const enAfter = joinSegments(segs);
     const enSegsAfter = splitHtmlByBrSegments(enAfter).length;
 
+    const note = useRepaired
+      ? (gptCase.notes ?? "APPROVE_REPAIRED")
+      : (evalRow?.reason ?? "");
+
     console.log(
-      `${apply ? "APPLY" : "PLAN"} ${id}: en ${enSegsBefore}→${enSegsAfter} (he=${heSegs}) — ${evalRow?.reason ?? ""}`
+      `${apply ? "APPLY" : "PLAN"} ${id}: en ${enSegsBefore}->${enSegsAfter} (he=${heSegs}) — ${note}`
     );
 
     if (enSegsAfter !== heSegs) {
@@ -118,7 +144,8 @@ function main() {
         id,
         reason: `post_apply_mismatch enAfter=${enSegsAfter} he=${heSegs}`,
       });
-      console.log(`  WARN: segment count mismatch vs HE (${heSegs})`);
+      console.log(`  FAIL: segment count mismatch vs HE (${heSegs})`);
+      continue;
     }
 
     if (apply) {
@@ -132,16 +159,23 @@ function main() {
       enSegsBefore,
       enSegsAfter,
       applied: apply,
+      source: useRepaired ? "REPAIRED" : "GPT",
     });
   }
 
-  const auditPath = path.join(__dirname, "EN_TRUNC_MODERATE_PART01_APPLY.json");
+  const auditPath = path.join(
+    __dirname,
+    useRepaired
+      ? "EN_TRUNC_MODERATE_PART01_REPAIRED_APPLY.json"
+      : "EN_TRUNC_MODERATE_PART01_APPLY.json"
+  );
   fs.writeFileSync(
     auditPath,
     JSON.stringify(
       {
         scannedAt: new Date().toISOString(),
         mode: apply ? "APPLY" : "DRY-RUN",
+        source: useRepaired ? "REPAIRED" : "GPT",
         approvedIds,
         applied,
         failed,
@@ -153,6 +187,7 @@ function main() {
   );
   console.log(`\n[audit] ${auditPath}`);
   console.log(`Applied: ${applied.length} Failed: ${failed.length}`);
+  if (failed.length) process.exitCode = 1;
 }
 
 main();
