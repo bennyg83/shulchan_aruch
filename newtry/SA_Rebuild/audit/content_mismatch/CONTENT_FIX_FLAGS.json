@@ -50,7 +50,17 @@
       },
       "kind": "content-mismatch / retranslate or complete from HE",
       "severity": "high",
-      "status": "open",
+      "status": "open_confirmed_in_scan",
+      "scan_ref": "newtry/SA_Rebuild/audit/content_mismatch/OC_CONTENT_SCAN_2026-08-30.json",
+      "corpus_id": "oc1/siman244/seif-001/mechaber",
+      "scan_kinds": [
+        "rama_duplicate_prefix",
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama",
+        "missing_cross_ref",
+        "seed_confirmed"
+      ],
+      "kit_ref": "newtry/SA_Rebuild/audit/content_mismatch/OC_MECHABER_CUT_EN_KIT.json",
       "flagged_at": "2026-08-30",
       "verified_on_commit": "69a00626c2",
       "symptoms": [
