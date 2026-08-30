@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 32,
+    "chunk_total": 47,
+    "case_offset": 175,
+    "cases_in_chunk": 7,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman467/seif-012/baer-heitev",
+      "volume": "oc1",
+      "siman": 467,
+      "seif": 12,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.048,
+        "he_chars": 3902,
+        "en_chars": 7993,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 7993
+        },
+        "failure_patterns": [
+          "hand_recoils"
+        ]
+      },
+      "he_html": "<b>מלגו. </b> סתם מליגה הוא בכלי שני רוקח. ועיין סי' תמ\"ז סעיף ג' בהג\"ה. ואפשר כאן מטעם עירוי אתי עליה ולא קראה המרדכי כ\"ש אלא משום הקערה ולדינא אם היס\"ב אסורה דהא בחמץ בה\"פ אוסרין אפי' בצונן. ח\"י:<br />\n<b>בקועה. </b> מדלא הגיה הרב כאן כדלעיל סעיף ט' לאסור אפי' אינו בקועה אפשר משום דהכא כיון דאיכא עוד ספיקא שמא אח\"כ נפלה לא מחמרינן כולי האי אכן הט\"ז כתב דהרב אזיל לשיטתו לאסור אפילו אינו בקוע' כל שנתרככה אך כאן מותר למכור לעכו\"ם באינו בקועה דהוי ס\"ס שמא לא נתחמץ ושמא אח\"כ נפלה דלא מחמרינן אלא בחד ספיק' כההיא דסעיף ט' ע\"ש. והח\"י מקיל אפי' בהאי דסעיף ט' למכור לעכו\"ם עיין סעיף קטן י\"ח:<br />\n<b>התרנגולת. </b> דאמרינן שמא היתה החטה במים בשעת מליגה דלא אמרינן כאן נמצא וכאן היה אלא ממקום למקום או מחתיכה לחתיכה כמ\"ש ס\"ק כ\"א אבל במקום אחד כגון במליגה דיש לספק בזמן ולומר שמא היתה החטה במים קודם לכן לא אמרינן השתא נפל ועח\"י: <small>(דהורע חזקת התרנגולת שבודאי היתה במים מחומצים ומטעם זה אוסר הרוקח מצה [אפויה] שנמצא בה חטה וא\"י אי נתחמצה <small>(באיזה)</small> [בעודה] עיסה א\"ל. והתיר שארי מצות. <small>(ח\"י)</small> [ט\"ז] ע\"ש)</small>:<br />\n<b>שאוסר. </b> עמ\"ש בס\"ק כ':<br />\n<b>נפלה. </b> וז\"ל ב\"י ורי\"ו כתב בשם הרשב\"א אם נמצא חטה בכלי שהדיחו התרנגולת אמרינן כ\"נ וכאן היה עכ\"ל. והקשה המ\"א מדברי הרשב\"א עצמו שפסק דאם נמצא חטה במצה אוסרין כל העיסה ולא אמרינן השתא נפלה ומסיק לכן נ\"ל דמיירי שמלחו התרנגולת ואח\"כ הדיחוהו בכלי צונן ואח\"כ נמצא בכלי חטה ויש לחוש שהיתה בתרנגולת ונמלחה עמו לזה כתב דלא חיישינן לכך דכיון שנמצא החטה בכלים לא אמרינן שהיתה בתרנגולת דלא מחזקינן איסור ממקום למקום אבל במצה הוי מזמן לזמן כמש\"ל ואם כן אין כאן מחלוקת כלל דלא כדעת רמ\"א עכ\"ל. וצ\"ל דמ\"ש דבמצה הוי מזמן לזמן כמש\"ל דמיירי שנשאר בידו עיסה כמש\"ל ס\"ק כ\"א דאל\"כ הוי ממקום למקום ודו\"ק:<br />\n<b>ספיקא. </b> שמא עתה נפלה ואת\"ל היתה קודם בתרנגולת שמא נתעכלה ועמ\"א:<br />\n<b>התרנגולי'. </b> וכ' המ\"א לאו דוקא תרנגולים אלא ה\"ה בשר דהא מיירי כאן בחטה שלימה דליכא עיכול. ובע\"ש כתב דלרבות' נקט תרנגולים אף דמצוין בו חטים אפ\"ה מידי ספיקא לא נפקא ואמרינן שמא אח\"כ נפל' גם איכא עוד לספק שמא ס\"ל כמ\"ד דאינו נ\"ט כלל בצונן שהוי כמו ספק ספיקא והב\"ח מחמיר בדינים אלו והשיג על הרב עמ\"א. והעיקר כדעת הרב וכן הסכמת הא\"ז והט\"ז בפרט אם החט' אינה מבוקעת פשיטא דאין להחמיר כמש\"ל ובלא נתרככה החטה יש להקל בכל ענין וכן הסכמת הב\"ח והאחרונים:<br />\n<b>דרבנן. </b> כתב הרוקח נמצא בדלי מים חתיכה חמץ ולא נודע כשלקחו המים מהדלי אם היה בו חמץ או לאו ובשלו בו והתרנו התבשיל אך מים שבדלי נאסרו כי עכו\"ם שהביא המים שמא נתן בו אותה שעה חמץ עכ\"ל וכתב הט\"ז דברים אלו אין להם פירוש ונראה שיש טעות סופר וצ\"ל כשלקחו מים מהבאר והכוונה היא ששאבו מים תחלה מהבאר לבשל ואח\"כ שאבו מים בדלי ונמצא חמץ בדלי ולא נודע אם היה חמץ בבאר בשעה ששאב לבשל ממיל' בישל במים חמוצים בזה פסק שהתבשיל מותר אלא שהמים שבדלי לחוד נאסרים אבל התבשיל מותר כי העכו\"ם השואב לדלי נתן החמץ בשעה ההיא אבל אותו חמץ לא היה בבאר כלל. ותימה על הב\"י שהעתי' ולא הרגיש בזה ואיך שיהיה קשה דמשמע אם היה החמץ קודם שנתבשל היה אסור והא חמץ בצונן אינו אסור ואפשר דס\"ל כרשב\"א דס\"ל גם בצונן אוסר אבל אנן ס\"ל כהרא\"ש והטור דאין אוסר בצונן ונראה דאם שרה החמץ במים צוננים מעת לעת דאסור לכ\"ע דכבוש הוי כמבושל עכ\"ל. וכ\"כ ב\"ח ורש\"ל. מעשה באחד שנטל לתוך פיו חתיכת מצה וחתיכת תרנגול ואכל שניהם יחד והרגיש בפיו שיש חטה ונטל המאכל מפיו וראה חטה ואינו ניכר אם היה בתוך המצה או בתוך התרנגול. התרנגול יש להתיר מכח ס\"ס שמא עתה נפל לתרנגול בצונן ואת\"ל שהיה קודם שמא נתעכלה אבל אם היה במצה ע\"כ היה בתוכה בשעת אפייה דאם נפל עליה בצונן היה מתגלגל ויורד ומ\"מ נ\"ל דהמצה מותרת ג\"כ כיון דאיסור משהו דרבנן תלינן לקולא שהיה בתרנגולת ומ\"מ כדי נטילה אסור מדינא מאותה מצה ממקום שנטל החתיכה ועוד נ\"ל דאפי' היה חתיכת בשר גם כן שרי דלא מחזקינן איסור' ממקום למקום ואמרינן השתא נפל על הבשר בעודו צונן וא\"כ גם המצה מותרת אבל אם הבשר היה מונח בקערה ואכל מתוכה אסור הבשר כמש\"ל דמזמן לזמן מחזקינן איסור' דשמא היה בקער' בשעה שעירו הבשר לתוכו וכלי שני אוסר בפסח ואם נאמר דהוי ס\"ס ספק היה במצה ואת\"ל בבשר שמא עתה נפל זה לא הוי ספק דאם תאמר שהיה במצה צריך אתה לאסור המצה וזה לא אמרינן אפי' באיסור דרבנן ואפי' בס\"ס וא\"כ הבשר והמצה אסורים מיהו ע\"פ הרוב ניכר אם נתבשלה החטה או נאפה עמה או לאו. ומיהו אם טלטלו הקער' ממקום למקום כשנצטנן תלינן להקל דלא מחזקינן איסור ממקום למקום. מ\"א:<br />\n<b>שנשרה. </b> עיין מ\"א ובח\"י:\n",
+      "en_html": "<b>They scalded.</b> Ordinary scalding is performed in a kli sheni. Rokeach. See siman 447, seif 3, in the gloss.\n\nIt is possible that here the prohibition is based upon pouring from a kli rishon. Mordechai called it a kli sheni only because of the bowl. In practice, if the liquid is hot enough that the hand recoils from it, the food is forbidden, because on Pesach chametz is forbidden even cold. Chok Yaakov.\n\n<br />\n<b>Split.</b> Since Rama did not gloss here, as he did above in seif 9, to forbid even where the kernel was not split, perhaps the reason is that here there is an additional doubt, namely that it may have fallen afterward, and we are therefore not so stringent.\n\nTaz, however, writes that Rama follows his own view and forbids even where the kernel is not split, whenever it softened. Here, though, if it was not split, it may be sold to a non-Jew because there is a double doubt: perhaps it did not ferment, and perhaps it fell afterward. We are stringent only where there is a single doubt, as in seif 9. See there.\n\nChok Yaakov is lenient even in the case of seif 9 and permits selling it to a non-Jew. See seif katan 18.\n\n<br />\n<b>The chicken.</b> We say that perhaps the wheat was in the water at the time of scalding. We do not apply the principle “it was found here and was here” except from one place to another or from one piece to another, as explained in seif katan 21. Within a single place, such as during scalding, where the uncertainty concerns time and perhaps the wheat was already in the water, we do not say that it fell only now. See Chok Yaakov.\n\nThis weakens the chicken’s presumption of permissibility, because it certainly was in fermented water. For this reason Rokeach forbids baked matzah in which a kernel was found when it is unknown whether the kernel fermented while the matzah was still dough. He permits the other matzos. See Taz there.\n\n<br />\n<b>Which forbids.</b> See what I wrote in seif katan 20.\n\n<br />\n<b>It fell.</b> Beit Yosef writes: Rabbeinu Yerucham states in the name of Rashba that if a kernel was found in the utensil in which the chicken was rinsed, we say, “It was found here and was here.”\n\nMagen Avraham asks from Rashba’s own ruling that if a kernel is found in matzah, the entire dough is forbidden, and we do not say that it fell only now. He therefore concludes that the case concerns a chicken that was salted and afterward rinsed in a cold utensil, and a kernel was then found in the utensil. There is concern that the kernel had been in the chicken while it was salted. Rashba teaches that we need not be concerned, because once the kernel is found in the utensil we do not presume that it had previously been in the chicken. We do not establish a prohibition from one place to another.\n\nRegarding matzah, by contrast, the uncertainty is from one time to another, as explained above. Accordingly, there is no disagreement at all, unlike Rama’s understanding. Magen Avraham.\n\nIt must be that Magen Avraham’s statement, “regarding matzah the uncertainty is from one time to another,” refers to a case where some dough remained in his possession, as explained above in seif katan 21. Otherwise, it too would be a question from one place to another. Examine this carefully.\n\n<br />\n<b>A doubt.</b> Perhaps it fell only now. Even if it had previously been in the chicken, perhaps it had already been digested. See Magen Avraham.\n\n<br />\n<b>The chickens.</b> Magen Avraham writes that this is not limited to chickens. The same applies to meat, since the present case concerns a whole wheat kernel, where digestion is not relevant.\n\nErev Shabbos writes that chickens were specified as the greater novelty. Although kernels are commonly found in them, the matter still remains doubtful, and we say that perhaps the kernel fell afterward. There is also another doubt, perhaps the halachah follows the opinion that cold contact imparts no flavor at all, making this comparable to a double doubt.\n\nBach is stringent in these laws and challenges Rama. See Magen Avraham. The primary ruling follows Rama, and Eliyah Zuta and Taz agree. Especially where the kernel is not split, there is certainly no reason to be stringent, as explained above. If the kernel did not soften, one may be lenient in every case. Bach and the later authorities agree.\n\n<br />\n<b>Rabbinic.</b> Rokeach writes: A piece of chametz was found in a bucket of water, and it was unknown whether the chametz had been there when water was taken from the bucket for cooking. We permitted the cooked food, but the water in the bucket was forbidden, because perhaps the non-Jew who brought the water placed the chametz there at that time.\n\nTaz writes that these words are unintelligible and apparently contain a scribal error. The text should read: “When water was taken from the well.” The meaning is that water was first drawn from the well for cooking, and afterward more water was drawn into the bucket, in which chametz was found. It was unknown whether chametz had been in the well when the water for cooking was drawn. Rokeach permitted the cooked food, while forbidding only the water remaining in the bucket, because the non-Jew who drew the later water may have placed the chametz into the bucket at that time, and the chametz had never been in the well.\n\nIt is surprising that Beit Yosef copied this without noticing the error. In any event, the ruling is difficult, because it implies that if the chametz had been present before the cooking, the food would be forbidden, yet chametz in cold water should not prohibit. Perhaps Rokeach follows Rashba, who holds that even cold contact prohibits. We, however, follow Rosh and Tur, who hold that cold contact does not prohibit.\n\nIt appears that if chametz soaked in cold water for twenty four hours, it is forbidden according to all opinions, because soaking for twenty four hours has the law of cooking. So writes Taz, and Bach and Maharshal agree.\n\nAn incident occurred in which a person placed a piece of matzah and a piece of chicken together into his mouth. He sensed a wheat kernel, removed the food from his mouth, and saw the kernel. It was impossible to determine whether it had been in the matzah or in the chicken.\n\nThe chicken may be permitted through a double doubt: perhaps the kernel fell into the cold chicken only now, and even if it had been there previously, perhaps it had been digested.\n\nIf the kernel had been in the matzah, it must have been present during baking, because if it had fallen upon the cold matzah afterward, it would have rolled off. Nevertheless, it appears to me that the matzah is also permitted. Since the prohibition of any minute amount is Rabbinic, we attribute the kernel leniently to the chicken.\n\nStill, the measure of a netilah must be removed from the place in the matzah from which the piece was taken.\n\nIt further appears to me that even if the other item was a piece of meat, it is permitted. We do not establish a prohibition from one place to another, and we say that the kernel fell upon the meat only now while it was cold. The matzah is therefore also permitted.\n\nIf, however, the meat had been lying in a bowl and he ate from the bowl, the meat is forbidden. As explained above, we do establish a prohibition from one time to another, and perhaps the kernel was already in the bowl when the hot meat was poured into it. A kli sheni prohibits on Pesach.\n\nOne might suggest a double doubt: perhaps the kernel was in the matzah, and even if it was in the meat, perhaps it fell only now. This is not a valid doubt, because if you say it was in the matzah, you must forbid the matzah. We do not apply such a doubt, even for a Rabbinic prohibition and even as part of a double doubt. Consequently, both the meat and the matzah are forbidden.\n\nUsually it is recognizable whether the kernel was cooked or baked together with the food. If the bowl had been moved from one place to another after cooling, however, we attribute the matter leniently, because we do not establish a prohibition from one place to another. Magen Avraham.\n\n<br />\n<b>Which was soaked.</b> See Magen Avraham and Chok Yaakov.\n",
+      "he_plain": "מלגו. סתם מליגה הוא בכלי שני רוקח. ועיין סי' תמ\"ז סעיף ג' בהג\"ה. ואפשר כאן מטעם עירוי אתי עליה ולא קראה המרדכי כ\"ש אלא משום הקערה ולדינא אם היס\"ב אסורה דהא בחמץ בה\"פ אוסרין אפי' בצונן. ח\"י: בקועה. מדלא הגיה הרב כאן כדלעיל סעיף ט' לאסור אפי' אינו בקועה אפשר משום דהכא כיון דאיכא עוד ספיקא שמא אח\"כ נפלה לא מחמרינן כולי האי אכן הט\"ז כתב דהרב אזיל לשיטתו לאסור אפילו אינו בקוע' כל שנתרככה אך כאן מותר למכור לעכו\"ם באינו בקועה דהוי ס\"ס שמא לא נתחמץ ושמא אח\"כ נפלה דלא מחמרינן אלא בחד ספיק' כההיא דסעיף ט' ע\"ש. והח\"י מקיל אפי' בהאי דסעיף ט' למכור לעכו\"ם עיין סעיף קטן י\"ח: התרנגולת. דאמרינן שמא היתה החטה במים בשעת מליגה דלא אמרינן כאן נמצא וכאן היה אלא ממקום למקום או מחתיכה לחתיכה כמ\"ש ס\"ק כ\"א אבל במקום אחד כגון במליגה דיש לספק בזמן ולומר שמא היתה החטה במים קודם לכן לא אמרינן השתא נפל ועח\"י: (דהורע חזקת התרנגולת שבודאי היתה במים מחומצים ומטעם זה אוסר הרוקח מצה [אפויה] שנמצא בה חטה וא\"י אי נתחמצה (באיזה) [בעודה] עיסה א\"ל. והתיר שארי מצות. (ח\"י) [ט\"ז] ע\"ש) : שאוסר. עמ\"ש בס\"ק כ': נפלה. וז\"ל ב\"י ורי\"ו כתב בשם הרשב\"א אם נמצא חטה בכלי שהדיחו התרנגולת אמרינן כ\"נ וכאן היה עכ\"ל. והקשה המ\"א מדברי הרשב\"א עצמו שפסק דאם נמצא חטה במצה אוסרין כל העיסה ולא אמרינן השתא נפלה ומסיק לכן נ\"ל דמיירי שמלחו התרנגולת ואח\"כ הדיחוהו בכלי צונן ואח\"כ נמצא בכלי חטה ויש לחוש שהיתה בתרנגולת ונמלחה עמו לזה כתב דלא חיישינן לכך דכיון שנמצא החטה בכלים לא אמרינן שהיתה בתרנגולת דלא מחזקינן איסור ממקום למקום אבל במצה הוי מזמן לזמן כמש\"ל ואם כן אין כאן מחלוקת כלל דלא כדעת רמ\"א עכ\"ל. וצ\"ל דמ\"ש דבמצה הוי מזמן לזמן כמש\"ל דמיירי שנשאר בידו עיסה כמש\"ל ס\"ק כ\"א דאל\"כ הוי ממקום למקום ודו\"ק: ספיקא. שמא עתה נפלה ואת\"ל היתה קודם בתרנגולת שמא נתעכלה ועמ\"א: התרנגולי'. וכ' המ\"א לאו דוקא תרנגולים אלא ה\"ה בשר דהא מיירי כאן בחטה שלימה דליכא עיכול. ובע\"ש כתב דלרבות' נקט תרנגולים אף דמצוין בו חטים אפ\"ה מידי ספיקא לא נפקא ואמרינן שמא אח\"כ נפל' גם איכא עוד לספק שמא ס\"ל כמ\"ד דאינו נ\"ט כלל בצונן שהוי כמו ספק ספיקא והב\"ח מחמיר בדינים אלו והשיג על הרב עמ\"א. והעיקר כדעת הרב וכן הסכמת הא\"ז והט\"ז בפרט אם החט' אינה מבוקעת פשיטא דאין להחמיר כמש\"ל ובלא נתרככה החטה יש להקל בכל ענין וכן הסכמת הב\"ח והאחרונים: דרבנן. כתב הרוקח נמצא בדלי מים חתיכה חמץ ולא נודע כשלקחו המים מהדלי אם היה בו חמץ או לאו ובשלו בו והתרנו התבשיל אך מים שבדלי נאסרו כי עכו\"ם שהביא המים שמא נתן בו אותה שעה חמץ עכ\"ל וכתב הט\"ז דברים אלו אין להם פירוש ונראה שיש טעות סופר וצ\"ל כשלקחו מים מהבאר והכוונה היא ששאבו מים תחלה מהבאר לבשל ואח\"כ שאבו מים בדלי ונמצא חמץ בדלי ולא נודע אם היה חמץ בבאר בשעה ששאב לבשל ממיל' בישל במים חמוצים בזה פסק שהתבשיל מותר אלא שהמים שבדלי לחוד נאסרים אבל התבשיל מותר כי העכו\"ם השואב לדלי נתן החמץ בשעה ההיא אבל אותו חמץ לא היה בבאר כלל. ותימה על הב\"י שהעתי' ולא הרגיש בזה ואיך שיהיה קשה דמשמע אם היה החמץ קודם שנתבשל היה אסור והא חמץ בצונן אינו אסור ואפשר דס\"ל כרשב\"א דס\"ל גם בצונן אוסר אבל אנן ס\"ל כהרא\"ש והטור דאין אוסר בצונן ונראה דאם שרה החמץ במים צוננים מעת לעת דאסור לכ\"ע דכבוש הוי כמבושל עכ\"ל. וכ\"כ ב\"ח ורש\"ל. מעשה באחד שנטל לתוך פיו חתיכת מצה וחתיכת תרנגול ואכל שניהם יחד והרגיש בפיו שיש חטה ונטל המאכל מפיו וראה חטה ואינו ניכר אם היה בתוך המצה או בתוך התרנגול. התרנגול יש להתיר מכח ס\"ס שמא עתה נפל לתרנגול בצונן ואת\"ל שהיה קודם שמא נתעכלה אבל אם היה במצה ע\"כ היה בתוכה בשעת אפייה דאם נפל עליה בצונן היה מתגלגל ויורד ומ\"מ נ\"ל דהמצה מותרת ג\"כ כיון דאיסור משהו דרבנן תלינן לקולא שהיה בתרנגולת ומ\"מ כדי נטילה אסור מדינא מאותה מצה ממקום שנטל החתיכה ועוד נ\"ל דאפי' היה חתיכת בשר גם כן שרי דלא מחזקינן איסור' ממקום למקום ואמרינן השתא נפל על הבשר בעודו צונן וא\"כ גם המצה מותרת אבל אם הבשר היה מונח בקערה ואכל מתוכה אסור הבשר כמש\"ל דמזמן לזמן מחזקינן איסור' דשמא היה בקער' בשעה שעירו הבשר לתוכו וכלי שני אוסר בפסח ואם נאמר דהוי ס\"ס ספק היה במצה ואת\"ל בבשר שמא עתה נפל זה לא הוי ספק דאם תאמר שהיה במצה צריך אתה לאסור המצה וזה לא אמרינן אפי' באיסור דרבנן ואפי' בס\"ס וא\"כ הבשר והמצה אסורים מיהו ע\"פ הרוב ניכר אם נתבשלה החטה או נאפה עמה או לאו. ומיהו אם טלטלו הקער' ממקום למקום כשנצטנן תלינן להקל דלא מחזקינן איסור ממקום למקום. מ\"א: שנשרה. עיין מ\"א ובח\"י:",
+      "en_plain": "They scalded. Ordinary scalding is performed in a kli sheni. Rokeach. See siman 447, seif 3, in the gloss. It is possible that here the prohibition is based upon pouring from a kli rishon. Mordechai called it a kli sheni only because of the bowl. In practice, if the liquid is hot enough that the hand recoils from it, the food is forbidden, because on Pesach chametz is forbidden even cold. Chok Yaakov. Split. Since Rama did not gloss here, as he did above in seif 9, to forbid even where the kernel was not split, perhaps the reason is that here there is an additional doubt, namely that it may have fallen afterward, and we are therefore not so stringent. Taz, however, writes that Rama follows his own view and forbids even where the kernel is not split, whenever it softened. Here, though, if it was not split, it may be sold to a non-Jew because there is a double doubt: perhaps it did not ferment, and perhaps it fell afterward. We are stringent only where there is a single doubt, as in seif 9. See there. Chok Yaakov is lenient even in the case of seif 9 and permits selling it to a non-Jew. See seif katan 18. The chicken. We say that perhaps the wheat was in the water at the time of scalding. We do not apply the principle “it was found here and was here” except from one place to another or from one piece to another, as explained in seif katan 21. Within a single place, such as during scalding, where the uncertainty concerns time and perhaps the wheat was already in the water, we do not say that it fell only now. See Chok Yaakov. This weakens the chicken’s presumption of permissibility, because it certainly was in fermented water. For this reason Rokeach forbids baked matzah in which a kernel was found when it is unknown whether the kernel fermented while the matzah was still dough. He permits the other matzos. See Taz there. Which forbids. See what I wrote in seif katan 20. It fell. Beit Yosef writes: Rabbeinu Yerucham states in the name of Rashba that if a kernel was found in the utensil in which the chicken was rinsed, we say, “It was found here and was here.” Magen Avraham asks from Rashba’s own ruling that if a kernel is found in matzah, the entire dough is forbidden, and we do not say that it fell only now. He therefore concludes that the case concerns a chicken that was salted and afterward rinsed in a cold utensil, and a kernel was then found in the utensil. There is concern that the kernel had been in the chicken while it was salted. Rashba teaches that we need not be concerned, because once the kernel is found in the utensil we do not presume that it had previously been in the chicken. We do not establish a prohibition from one place to another. Regarding matzah, by contrast, the uncertainty is from one time to another, as explained above. Accordingly, there is no disagreement at all, unlike Rama’s understanding. Magen Avraham. It must be that Magen Avraham’s statement, “regarding matzah the uncertainty is from one time to another,” refers to a case where some dough remained in his possession, as explained above in seif katan 21. Otherwise, it too would be a question from one place to another. Examine this carefully. A doubt. Perhaps it fell only now. Even if it had previously been in the chicken, perhaps it had already been digested. See Magen Avraham. The chickens. Magen Avraham writes that this is not limited to chickens. The same applies to meat, since the present case concerns a whole wheat kernel, where digestion is not relevant. Erev Shabbos writes that chickens were specified as the greater novelty. Although kernels are commonly found in them, the matter still remains doubtful, and we say that perhaps the kernel fell afterward. There is also another doubt, perhaps the halachah follows the opinion that cold contact imparts no flavor at all, making this comparable to a double doubt. Bach is stringent in these laws and challenges Rama. See Magen Avraham. The primary ruling follows Rama, and Eliyah Zuta and Taz agree. Especially where the kernel is not split, there is certainly no reason to be stringent, as explained above. If the kernel did not soften, one may be lenient in every case. Bach and the later authorities agree. Rabbinic. Rokeach writes: A piece of chametz was found in a bucket of water, and it was unknown whether the chametz had been there when water was taken from the bucket for cooking. We permitted the cooked food, but the water in the bucket was forbidden, because perhaps the non-Jew who brought the water placed the chametz there at that time. Taz writes that these words are unintelligible and apparently contain a scribal error. The text should read: “When water was taken from the well.” The meaning is that water was first drawn from the well for cooking, and afterward more water was drawn into the bucket, in which chametz was found. It was unknown whether chametz had been in the well when the water for cooking was drawn. Rokeach permitted the cooked food, while forbidding only the water remaining in the bucket, because the non-Jew who drew the later water may have placed the chametz into the bucket at that time, and the chametz had never been in the well. It is surprising that Beit Yosef copied this without noticing the error. In any event, the ruling is difficult, because it implies that if the chametz had been present before the cooking, the food would be forbidden, yet chametz in cold water should not prohibit. Perhaps Rokeach follows Rashba, who holds that even cold contact prohibits. We, however, follow Rosh and Tur, who hold that cold contact does not prohibit. It appears that if chametz soaked in cold water for twenty four hours, it is forbidden according to all opinions, because soaking for twenty four hours has the law of cooking. So writes Taz, and Bach and Maharshal agree. An incident occurred in which a person placed a piece of matzah and a piece of chicken together into his mouth. He sensed a wheat kernel, removed the food from his mouth, and saw the kernel. It was impossible to determine whether it had been in the matzah or in the chicken. The chicken may be permitted through a double doubt: perhaps the kernel fell into the cold chicken only now, and even if it had been there previously, perhaps it had been digested. If the kernel had been in the matzah, it must have been present during baking, because if it had fallen upon the cold matzah afterward, it would have rolled off. Nevertheless, it appears to me that the matzah is also permitted. Since the prohibition of any minute amount is Rabbinic, we attribute the kernel leniently to the chicken. Still, the measure of a netilah must be removed from the place in the matzah from which the piece was taken. It further appears to me that even if the other item was a piece of meat, it is permitted. We do not establish a prohibition from one place to another, and we say that the kernel fell upon the meat only now while it was cold. The matzah is therefore also permitted. If, however, the meat had been lying in a bowl and he ate from the bowl, the meat is forbidden. As explained above, we do establish a prohibition from one time to another, and perhaps the kernel was already in the bowl when the hot meat was poured into it. A kli sheni prohibits on Pesach. One might suggest a double doubt: perhaps the kernel was in the matzah, and even if it was in the meat, perhaps it fell only now. This is not a valid doubt, because if you say it was in the matzah, you must forbid the matzah. We do not apply such a doubt, even for a Rabbinic prohibition and even as part of a double doubt. Consequently, both the meat and the matzah are forbidden. Usually it is recognizable whether the kernel was cooked or baked together with the food. If the bowl had been moved from one place to another after cooling, however, we attribute the matter leniently, because we do not establish a prohibition from one place to another. Magen Avraham. Which was soaked. See Magen Avraham and Chok Yaakov.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman467/seif-013/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 467,
+      "seif": 13,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.748,
+        "he_chars": 1359,
+        "en_chars": 2375,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2375
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "(סה) בת יומא - ומיירי שהגעילו קודם זמן איסורו דאל\"ה אין להגעיל כלי שהוא בן יומו כמבואר לעיל בסימן תנ\"ב ונקט המחבר בן יומו דאם היורה לא היתה בת יומא אף המי הגעלה עצמן מותרין בפסח כיון שהגעילו קודם פסח והם אינם ב\"י כמבואר לעיל בסי' תנ\"א וסימן תמ\"ז ס\"ה בהג\"ה ע\"ש. ודע דאם ההגעלה היה בתוך הפסח אז אפילו אם היורה אינה בת יומא אסור המים שבבור לדעת רמ\"א לעיל בסימן תמ\"ז ס\"י בהג\"ה:<br />\n(סו) וירדו וכו' בתוך הפסח - היינו הירידה היה בתוך הפסח אבל ההגעלה היה קודם פסח ואם הירידה היה ג\"כ קודם הפסח נתבטלו המים בששים במים שבבור ויש מחמירין דאפילו אם יש ששים נגדם אין להשתמש באותן מים לכתחלה כיון דאפשר בקל למצוא מים אחרים. אסור לשתות מימיו - ואם עבר ובישל מהם תבשיל כתב הפמ\"ג דיש להתיר אם הוא הפסד מרובה כיון דההגעלה היה קודם פסח:<br />\n(סז) בשביל שנתערבו - פי' אף להמתירין צונן לעיל משום דאינו נותן טעם כלל מ\"מ הכא אסור דע\"י שנתערבו הרי גוף החמץ מעורב בו. אם נמצא גרעיני תבואה בבאר מים בפסח כתבו האחרונים שראוי ליזהר בכל מה דאפשר שלא להשתמש באותן מים בפסח אפילו להמתירין בצונן דשמא נכבש בתוכו מעל\"ע והוי כבוש ומ\"מ אם אין לו מים אחרים כיון שחייו תלוים בו יש להתיר מטעם ס\"ס שמא עכשיו נפלה ואת\"ל שנפלה מעל\"ע מקודם שמא לא נתבקעה ונתרככה עד תוך מעל\"ע ולא נעשה כבוש משעה שנעשה חמץ וסמכינן על הפוסקים דצונן אינו אוסר בלי כבישה. ופרוסת לחם שנמצא בבאר עיין לעיל בסקס\"ב. מי שרוצה לשאוב בפסח מבארות של עכו\"ם או מבארות של ישראל שלא נזהר בהן מחמץ כל השנה נכון שיסנן המים בבגד נקי בכל פעם ששואב:\n",
+      "en_html": "<b>(65) Used that day.</b> And it deals with a case where they koshered before the time of its prohibition; for otherwise one may not do hagalah to a vessel used that day, as explained above in siman 452. And the Mechaber mentioned \"used that day\" because if the cauldron was not used that day, even the hagalah waters themselves are permitted on Pesach, since they koshered before Pesach and they are not [vessels] used that day, as explained above in siman 451 and siman 447 se'if 5 in the gloss; see there. And know that if the hagalah was during Pesach, then even if the cauldron is not used that day the water in the cistern is forbidden according to the Rama above in siman 447 se'if 10 in the gloss.<br />\n<b>(66) And they went down, etc., during Pesach.</b> That is, the descent was during Pesach but the hagalah was before Pesach; and if the descent was also before Pesach the waters were nullified in sixty in the water of the cistern; and some are stringent that even if there is sixty against them one should not use those waters l'chatchila since one can easily find other water. It is forbidden to drink its waters; and if he transgressed and cooked a cooked dish from them, Peri Megadim wrote that one may permit if it is major financial loss, since the hagalah was before Pesach.<br />\n<b>(67) Because they mixed.</b> Meaning, even according to those who permit cold above because it imparts no taste at all, nevertheless here it is forbidden, for through mixing the body of the chametz is mixed into it. If grain kernels are found in a water well on Pesach, the later authorities wrote that it is fitting to be careful as much as possible not to use those waters on Pesach even according to those who permit in cold, lest it was pickled in it a full day and is pickled; and nevertheless if he has no other water, since his life depends on it, one may permit by force of a double doubt: perhaps it fell now, and even if it fell a full day beforehand, perhaps it did not crack open and soften until within a full day and did not become pickled from the time it became chametz; and we rely on the poskim that cold does not forbid without pickling. And a slice of bread found in a well: see above in s.k. 62. One who wishes to draw on Pesach from non-Jews' wells or from Jews' wells not guarded from chametz all year: it is proper that he strain the water with a clean cloth every time he draws.\n",
+      "he_plain": "(סה) בת יומא - ומיירי שהגעילו קודם זמן איסורו דאל\"ה אין להגעיל כלי שהוא בן יומו כמבואר לעיל בסימן תנ\"ב ונקט המחבר בן יומו דאם היורה לא היתה בת יומא אף המי הגעלה עצמן מותרין בפסח כיון שהגעילו קודם פסח והם אינם ב\"י כמבואר לעיל בסי' תנ\"א וסימן תמ\"ז ס\"ה בהג\"ה ע\"ש. ודע דאם ההגעלה היה בתוך הפסח אז אפילו אם היורה אינה בת יומא אסור המים שבבור לדעת רמ\"א לעיל בסימן תמ\"ז ס\"י בהג\"ה: (סו) וירדו וכו' בתוך הפסח - היינו הירידה היה בתוך הפסח אבל ההגעלה היה קודם פסח ואם הירידה היה ג\"כ קודם הפסח נתבטלו המים בששים במים שבבור ויש מחמירין דאפילו אם יש ששים נגדם אין להשתמש באותן מים לכתחלה כיון דאפשר בקל למצוא מים אחרים. אסור לשתות מימיו - ואם עבר ובישל מהם תבשיל כתב הפמ\"ג דיש להתיר אם הוא הפסד מרובה כיון דההגעלה היה קודם פסח: (סז) בשביל שנתערבו - פי' אף להמתירין צונן לעיל משום דאינו נותן טעם כלל מ\"מ הכא אסור דע\"י שנתערבו הרי גוף החמץ מעורב בו. אם נמצא גרעיני תבואה בבאר מים בפסח כתבו האחרונים שראוי ליזהר בכל מה דאפשר שלא להשתמש באותן מים בפסח אפילו להמתירין בצונן דשמא נכבש בתוכו מעל\"ע והוי כבוש ומ\"מ אם אין לו מים אחרים כיון שחייו תלוים בו יש להתיר מטעם ס\"ס שמא עכשיו נפלה ואת\"ל שנפלה מעל\"ע מקודם שמא לא נתבקעה ונתרככה עד תוך מעל\"ע ולא נעשה כבוש משעה שנעשה חמץ וסמכינן על הפוסקים דצונן אינו אוסר בלי כבישה. ופרוסת לחם שנמצא בבאר עיין לעיל בסקס\"ב. מי שרוצה לשאוב בפסח מבארות של עכו\"ם או מבארות של ישראל שלא נזהר בהן מחמץ כל השנה נכון שיסנן המים בבגד נקי בכל פעם ששואב:",
+      "en_plain": "(65) Used that day. And it deals with a case where they koshered before the time of its prohibition; for otherwise one may not do hagalah to a vessel used that day, as explained above in siman 452. And the Mechaber mentioned \"used that day\" because if the cauldron was not used that day, even the hagalah waters themselves are permitted on Pesach, since they koshered before Pesach and they are not [vessels] used that day, as explained above in siman 451 and siman 447 se'if 5 in the gloss; see there. And know that if the hagalah was during Pesach, then even if the cauldron is not used that day the water in the cistern is forbidden according to the Rama above in siman 447 se'if 10 in the gloss. (66) And they went down, etc., during Pesach. That is, the descent was during Pesach but the hagalah was before Pesach; and if the descent was also before Pesach the waters were nullified in sixty in the water of the cistern; and some are stringent that even if there is sixty against them one should not use those waters l'chatchila since one can easily find other water. It is forbidden to drink its waters; and if he transgressed and cooked a cooked dish from them, Peri Megadim wrote that one may permit if it is major financial loss, since the hagalah was before Pesach. (67) Because they mixed. Meaning, even according to those who permit cold above because it imparts no taste at all, nevertheless here it is forbidden, for through mixing the body of the chametz is mixed into it. If grain kernels are found in a water well on Pesach, the later authorities wrote that it is fitting to be careful as much as possible not to use those waters on Pesach even according to those who permit in cold, lest it was pickled in it a full day and is pickled; and nevertheless if he has no other water, since his life depends on it, one may permit by force of a double doubt: perhaps it fell now, and even if it fell a full day beforehand, perhaps it did not crack open and soften until within a full day and did not become pickled from the time it became chametz; and we rely on the poskim that cold does not forbid without pickling. And a slice of bread found in a well: see above in s.k. 62. One who wishes to draw on Pesach from non-Jews' wells or from Jews' wells not guarded from chametz all year: it is proper that he strain the water with a clean cloth every time he draws.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman47/seif-001/magen-avraham",
+      "volume": "oc1",
+      "siman": 47,
+      "seif": 1,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.523,
+        "he_chars": 491,
+        "en_chars": 748,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 748
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "כתב הב\"ח לומר וצאצאינו וצאצאי צאצאינו דאמרי' כל שהוא ובנו וב\"ב ת\"ח אין תורה פוסקת מזרעו לעולם עכ\"ל ול\"נ דצאצאינו היינו יוצאי חלצינו וכן תרגום באיוב כ\"א על וצאצאיו בניא ובני בניא לכן אין לשנות הנוסחא: <b>הכותב</b>. נראה דוקא בכותב ספרים לעצמו דרך לימודו ומבין מה שהוא כותב אבל סופר המעתיק ואינו מבקש להבין מה שהוא כותב א\"צ לברך דאין זה לימוד ואפי' בכותב דרך לימודו צ\"ע דהא עכ\"פ הרהור הוא ובאגודה סיים וכתב ובלבד שלא יכתוב אגרות רשות וכ\"כ התשב\"ץ וצ\"ל דה\"פ אף על פי שכותב פסוקים באגרות רשות א\"צ לברך:\n",
+      "en_html": "The writing of the 22nd to say and our descendants and the descendants of our descendants Damri' whatever he is and his son and 22 18 there is no Torah that rules from his seed to the world Akal and in the N. our descendants we were the offspring of our loins and also a translation in Job 21 about and his descendants Banya and the sons of Banya therefore the formula should not be changed: the writer. It is seen that he writes books for himself through his studies and understands what he writes, but a scribe who copies and does not seek to understand what he writes A.C. Lebarach Dain is a study and api'. The Israel Defense Forces and the Israel Defense Forces, even though he writes verses in the Israel Defense Forces certificates to bless:\n",
+      "he_plain": "כתב הב\"ח לומר וצאצאינו וצאצאי צאצאינו דאמרי' כל שהוא ובנו וב\"ב ת\"ח אין תורה פוסקת מזרעו לעולם עכ\"ל ול\"נ דצאצאינו היינו יוצאי חלצינו וכן תרגום באיוב כ\"א על וצאצאיו בניא ובני בניא לכן אין לשנות הנוסחא: הכותב . נראה דוקא בכותב ספרים לעצמו דרך לימודו ומבין מה שהוא כותב אבל סופר המעתיק ואינו מבקש להבין מה שהוא כותב א\"צ לברך דאין זה לימוד ואפי' בכותב דרך לימודו צ\"ע דהא עכ\"פ הרהור הוא ובאגודה סיים וכתב ובלבד שלא יכתוב אגרות רשות וכ\"כ התשב\"ץ וצ\"ל דה\"פ אף על פי שכותב פסוקים באגרות רשות א\"צ לברך:",
+      "en_plain": "The writing of the 22nd to say and our descendants and the descendants of our descendants Damri' whatever he is and his son and 22 18 there is no Torah that rules from his seed to the world Akal and in the N. our descendants we were the offspring of our loins and also a translation in Job 21 about and his descendants Banya and the sons of Banya therefore the formula should not be changed: the writer. It is seen that he writes books for himself through his studies and understands what he writes, but a scribe who copies and does not seek to understand what he writes A.C. Lebarach Dain is a study and api'. The Israel Defense Forces and the Israel Defense Forces, even though he writes verses in the Israel Defense Forces certificates to bless:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman47/seif-005/beer-hagolah",
+      "volume": "oc1",
+      "siman": 47,
+      "seif": 5,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.732,
+        "he_chars": 82,
+        "en_chars": 142,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 142
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "הרמב\"ם בפ\"ז מה\"ת וכתב רא\"ם והטור שי\"א לעסוק בדברי תורה וכן הוא נוסח אשכנזי ופלאני'\n",
+      "en_html": "The Maimonides in the Paz Mahat and wrote the Ram and the column 11 to deal with Torah matters and it is also an Ashkenazi and Falani version.\n",
+      "he_plain": "הרמב\"ם בפ\"ז מה\"ת וכתב רא\"ם והטור שי\"א לעסוק בדברי תורה וכן הוא נוסח אשכנזי ופלאני'",
+      "en_plain": "The Maimonides in the Paz Mahat and wrote the Ram and the column 11 to deal with Torah matters and it is also an Ashkenazi and Falani version.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman47/seif-013/biur-halacha",
+      "volume": "oc1",
+      "siman": 47,
+      "seif": 13,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.639,
+        "he_chars": 2136,
+        "en_chars": 3501,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3501
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b> המשכים וכו' מברך בה\"ת</b> -  עיין במ\"ב במה שכתב דאם חזר וישן וכו'. הוא נובע מהדה\"ח שכתב דאם חזר וישן אח\"כ בין ביום ובין בלילה א\"צ לחזור ולברך וכונתו בזה היינו אפילו אם חזר וישן שינת קבע קודם אור הבקר וכמו שמסיים בעצמו לאפוקי מפר\"ח דמצריך בזה לחזור ולברך אבל אין כונתו לפטור בזה אפילו חזר וישן שינת קבע בתחלת הלילה שאחר זה וכמו שמשמע לכאורה מלשון הפמ\"ג בזה סוף אות י\"ב בא\"א מדמסיים הדה\"ח עד שינת הלילה שאחריו ויותר נראה לומר דגם דעת הפמ\"ג הוא כן ומה שכתב הפמ\"ג דאפשר דדעתו לפטור מעל\"ע שאחריו כונתו רק לאפוקי מדעת הפר\"ח דדעתו הוא רק עד שיקום משינה בבוקר ולזה קאמר דאינו כן אבל פשוט דגם הוא מודה דשינת קבע אפילו בתחלת הלילה הוי הפסק וכדמשמע גם מלשון הב\"י בסוף ד\"ה וכתב עוד האגור עי\"ש. ועוד לא שבקינן כל הני פשיטותא דהרבה גדולים שפוסקין דצריך לחזור ולברך משום ספיקא דפמ\"ג דהלא הב\"י בעצמו והפר\"ח והגר\"א וא\"ר מצריכין אפילו בשינת קבע ביום לחזור ולברך ונהי דשם אנו מחמירין כדעת יחידאה עכ\"פ בשינת קבע בלילה שאחר זה בודאי יש לברך:<br />\n<b> המשכים קודם אור היום וכו'</b> -  עיין במ\"ב בסק\"ל ובדיעבד אם בירך גם ברכת אלהי נשמה והמעביר שינה כראוי בפעם הראשון דעת הפר\"ח דחוזר ומברך אלו השתי ברכות כשקם בפעם שנית ממטתו והסכים עמו הח\"א לענין ברכת המעביר שינה ומש\"ת בסימן ו' משמע דלא יחזור ויברך וכן משמע מדה\"ה וספק ברכות להקל. ואם תקפה עליו שינה לכו\"ע אין לו לחזור ולברך אותם [פר\"ח בסי' מ\"ו]:<br />\n<b> מברך כל סדר הברכות חוץ כו'</b> -  עיין במ\"ב במה שכתב והאחרונים וכו' היינו המגן אברהם בשם הזוהר והגר\"א והפר\"ח והח\"א ומה שכתבתי אך י\"א וכו' הוא מדברי הח\"א ובשע\"ת אית' דיש מקילין בזה ג\"כ ולפי הבאר היטב והדה\"ח יש להחמיר לכתחילה אפילו בשמע קול תרנגול ולא רציתי לסתום כמותם משום דהפר\"ח והגר\"א עבדו עובדא להתיר כמו שכתב בפר\"ח ובספר מעשה רב. וביותר שמדברי הפמ\"ג משמע דקודם שיאיר היום מותר לברך אפילו לא שמע קול תרנגול דדוקא בלאחר חצות צריכין לשמיעת קול תרנגול אך דברי הח\"א לכאורה סתורים מדברי המגן אברהם ממה שסיים לסוף סקי\"ג ומ\"מ טוב ליזהר לכתחלה ומזה נובע דברי הדה\"ח אמנם כד נעיין היטיב נראה שהוא מפרש דברי המגן אברהם כפשטיה דמה שכתב המגן אברהם עיין סימן מ\"ו ס\"ח ר\"ל דשם היקל רמ\"א אפילו בלא שמע קול תרנגול דכונת הגמרא על מנהגו של עולם וא\"כ אפשר לומר דכונת הזוהר ג\"כ מה שאמר כד קרא גברא הוא כעין זה וע\"ז סיים המגן אברהם ומ\"מ טוב ליזהר לכתחלה ר\"ל להחמיר בדלא שמע אבל בדשמע יש להקל אפילו לכתחלה:\n",
+      "en_html": "<b>One who rises early, etc., recites Birchas HaTorah.</b> See Mishnah Berurah regarding one who later returned to sleep.\n\nThis comes from Derech HaChayim, who writes that if one later went back to sleep, whether by day or by night, he need not recite another blessing.\n\nHis intention is even where he returned to a fixed sleep before dawn, as he himself concludes, excluding Peri Chadash, who requires a new blessing in that case.\n\nHe does not mean to exempt even a fixed sleep at the beginning of the following night, despite what Peri Megadim's wording at the end of Eshel Avraham, letter 12, may superficially imply.\n\nIt appears more correct that Peri Megadim agrees. His suggestion that Derech HaChayim may exempt for a full twenty-four-hour period was meant only to exclude Peri Chadash's view that the first blessing lasts merely until the person rises in the morning.\n\nIt is nevertheless obvious that a fixed sleep at the beginning of the following night constitutes an interruption.\n\nThis is also implied by Beit Yosef at the end of the paragraph beginning “Agur further writes.”\n\nWe should not disregard the clear rulings of so many great authorities merely because of Peri Megadim's uncertainty. Beit Yosef, Peri Chadash, Gra, and Eliyah Rabbah all require a new blessing even after a fixed daytime sleep.\n\nAlthough in that case we are stringent like a minority view, after a fixed sleep in the following night one certainly must recite the blessing.<br />\n<b>One who rises before daylight, etc.</b> See Mishnah Berurah, seif katan 30.\n\nAfter the fact, if he already recited Elokai Neshamah and HaMaavir Sheinah properly the first time, Peri Chadash holds that he repeats both blessings when he rises from bed a second time.\n\nChayei Adam agrees regarding HaMaavir Sheinah.\n\nMishmeres Shalom in siman 6 implies that he should not repeat them, and Derech HaChayim likewise implies this.\n\nBecause of doubt concerning blessings, one should be lenient and not repeat them.\n\nIf sleep merely overcame him unintentionally, everyone agrees that he does not repeat them. Peri Chadash, siman 46.<br />\n<b>He recites the entire order of blessings except, etc.</b> See Mishnah Berurah, where I wrote “the later authorities.”\n\nThis refers to Magen Avraham in the name of Zohar, Gra, Peri Chadash, and Chayei Adam.\n\nWhat I wrote, “but some say,” comes from Chayei Adam. Shaarei Teshuvah records that some are lenient in this matter as well.\n\nAccording to Baer Heitev and Derech HaChayim one should be stringent initially even if he heard a rooster. I did not rule without qualification like them because Peri Chadash and Gra personally acted leniently, as recorded in Peri Chadash and Maaseh Rav.\n\nMoreover, Peri Megadim implies that before daylight one may recite the blessing even if he did not hear a rooster. Only after midnight and before dawn would hearing a rooster be required.\n\nChayei Adam's words appear at first to contradict Magen Avraham's conclusion in seif katan 13.\n\nUpon careful examination, however, Chayei Adam can be understood as reading Magen Avraham literally. Magen Avraham refers to siman 46, seif 8, where Rama permits the blessing even without hearing a rooster because the Gemara refers to the world's regular order.\n\nAccordingly, perhaps the Zohar's phrase “when the rooster calls” also means the world's regular order rather than actual hearing.\n\nMagen Avraham then concludes, “Nevertheless, it is good to be careful initially,” meaning to be stringent where he did not hear it. If he heard it, one may be lenient even initially.\n",
+      "he_plain": "המשכים וכו' מברך בה\"ת - עיין במ\"ב במה שכתב דאם חזר וישן וכו'. הוא נובע מהדה\"ח שכתב דאם חזר וישן אח\"כ בין ביום ובין בלילה א\"צ לחזור ולברך וכונתו בזה היינו אפילו אם חזר וישן שינת קבע קודם אור הבקר וכמו שמסיים בעצמו לאפוקי מפר\"ח דמצריך בזה לחזור ולברך אבל אין כונתו לפטור בזה אפילו חזר וישן שינת קבע בתחלת הלילה שאחר זה וכמו שמשמע לכאורה מלשון הפמ\"ג בזה סוף אות י\"ב בא\"א מדמסיים הדה\"ח עד שינת הלילה שאחריו ויותר נראה לומר דגם דעת הפמ\"ג הוא כן ומה שכתב הפמ\"ג דאפשר דדעתו לפטור מעל\"ע שאחריו כונתו רק לאפוקי מדעת הפר\"ח דדעתו הוא רק עד שיקום משינה בבוקר ולזה קאמר דאינו כן אבל פשוט דגם הוא מודה דשינת קבע אפילו בתחלת הלילה הוי הפסק וכדמשמע גם מלשון הב\"י בסוף ד\"ה וכתב עוד האגור עי\"ש. ועוד לא שבקינן כל הני פשיטותא דהרבה גדולים שפוסקין דצריך לחזור ולברך משום ספיקא דפמ\"ג דהלא הב\"י בעצמו והפר\"ח והגר\"א וא\"ר מצריכין אפילו בשינת קבע ביום לחזור ולברך ונהי דשם אנו מחמירין כדעת יחידאה עכ\"פ בשינת קבע בלילה שאחר זה בודאי יש לברך: המשכים קודם אור היום וכו' - עיין במ\"ב בסק\"ל ובדיעבד אם בירך גם ברכת אלהי נשמה והמעביר שינה כראוי בפעם הראשון דעת הפר\"ח דחוזר ומברך אלו השתי ברכות כשקם בפעם שנית ממטתו והסכים עמו הח\"א לענין ברכת המעביר שינה ומש\"ת בסימן ו' משמע דלא יחזור ויברך וכן משמע מדה\"ה וספק ברכות להקל. ואם תקפה עליו שינה לכו\"ע אין לו לחזור ולברך אותם [פר\"ח בסי' מ\"ו]: מברך כל סדר הברכות חוץ כו' - עיין במ\"ב במה שכתב והאחרונים וכו' היינו המגן אברהם בשם הזוהר והגר\"א והפר\"ח והח\"א ומה שכתבתי אך י\"א וכו' הוא מדברי הח\"א ובשע\"ת אית' דיש מקילין בזה ג\"כ ולפי הבאר היטב והדה\"ח יש להחמיר לכתחילה אפילו בשמע קול תרנגול ולא רציתי לסתום כמותם משום דהפר\"ח והגר\"א עבדו עובדא להתיר כמו שכתב בפר\"ח ובספר מעשה רב. וביותר שמדברי הפמ\"ג משמע דקודם שיאיר היום מותר לברך אפילו לא שמע קול תרנגול דדוקא בלאחר חצות צריכין לשמיעת קול תרנגול אך דברי הח\"א לכאורה סתורים מדברי המגן אברהם ממה שסיים לסוף סקי\"ג ומ\"מ טוב ליזהר לכתחלה ומזה נובע דברי הדה\"ח אמנם כד נעיין היטיב נראה שהוא מפרש דברי המגן אברהם כפשטיה דמה שכתב המגן אברהם עיין סימן מ\"ו ס\"ח ר\"ל דשם היקל רמ\"א אפילו בלא שמע קול תרנגול דכונת הגמרא על מנהגו של עולם וא\"כ אפשר לומר דכונת הזוהר ג\"כ מה שאמר כד קרא גברא הוא כעין זה וע\"ז סיים המגן אברהם ומ\"מ טוב ליזהר לכתחלה ר\"ל להחמיר בדלא שמע אבל בדשמע יש להקל אפילו לכתחלה:",
+      "en_plain": "One who rises early, etc., recites Birchas HaTorah. See Mishnah Berurah regarding one who later returned to sleep. This comes from Derech HaChayim, who writes that if one later went back to sleep, whether by day or by night, he need not recite another blessing. His intention is even where he returned to a fixed sleep before dawn, as he himself concludes, excluding Peri Chadash, who requires a new blessing in that case. He does not mean to exempt even a fixed sleep at the beginning of the following night, despite what Peri Megadim's wording at the end of Eshel Avraham, letter 12, may superficially imply. It appears more correct that Peri Megadim agrees. His suggestion that Derech HaChayim may exempt for a full twenty-four-hour period was meant only to exclude Peri Chadash's view that the first blessing lasts merely until the person rises in the morning. It is nevertheless obvious that a fixed sleep at the beginning of the following night constitutes an interruption. This is also implied by Beit Yosef at the end of the paragraph beginning “Agur further writes.” We should not disregard the clear rulings of so many great authorities merely because of Peri Megadim's uncertainty. Beit Yosef, Peri Chadash, Gra, and Eliyah Rabbah all require a new blessing even after a fixed daytime sleep. Although in that case we are stringent like a minority view, after a fixed sleep in the following night one certainly must recite the blessing. One who rises before daylight, etc. See Mishnah Berurah, seif katan 30. After the fact, if he already recited Elokai Neshamah and HaMaavir Sheinah properly the first time, Peri Chadash holds that he repeats both blessings when he rises from bed a second time. Chayei Adam agrees regarding HaMaavir Sheinah. Mishmeres Shalom in siman 6 implies that he should not repeat them, and Derech HaChayim likewise implies this. Because of doubt concerning blessings, one should be lenient and not repeat them. If sleep merely overcame him unintentionally, everyone agrees that he does not repeat them. Peri Chadash, siman 46. He recites the entire order of blessings except, etc. See Mishnah Berurah, where I wrote “the later authorities.” This refers to Magen Avraham in the name of Zohar, Gra, Peri Chadash, and Chayei Adam. What I wrote, “but some say,” comes from Chayei Adam. Shaarei Teshuvah records that some are lenient in this matter as well. According to Baer Heitev and Derech HaChayim one should be stringent initially even if he heard a rooster. I did not rule without qualification like them because Peri Chadash and Gra personally acted leniently, as recorded in Peri Chadash and Maaseh Rav. Moreover, Peri Megadim implies that before daylight one may recite the blessing even if he did not hear a rooster. Only after midnight and before dawn would hearing a rooster be required. Chayei Adam's words appear at first to contradict Magen Avraham's conclusion in seif katan 13. Upon careful examination, however, Chayei Adam can be understood as reading Magen Avraham literally. Magen Avraham refers to siman 46, seif 8, where Rama permits the blessing even without hearing a rooster because the Gemara refers to the world's regular order. Accordingly, perhaps the Zohar's phrase “when the rooster calls” also means the world's regular order rather than actual hearing. Magen Avraham then concludes, “Nevertheless, it is good to be careful initially,” meaning to be stringent where he did not hear it. If he heard it, one may be lenient even initially.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman472/seif-014/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 472,
+      "seif": 14,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.496,
+        "he_chars": 133,
+        "en_chars": 199,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 199
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(מד) גם הנשים חייבות - דאף שהוא מצוה שהזמן גרמא מ\"מ חייבות שאף הן היו באותו הנס:<br />\n(מה) מצות הנוהגות וכו' - כגון מצה ומרור ואמירת הגדה:\n",
+      "en_html": "(א) The women also have to do so, although they are ordered that the time has been circumcised in the same miracle:\n<br>(ב) (What) the mitzvot and so on, such as the decree and the statement of the West:",
+      "he_plain": "(מד) גם הנשים חייבות - דאף שהוא מצוה שהזמן גרמא מ\"מ חייבות שאף הן היו באותו הנס: (מה) מצות הנוהגות וכו' - כגון מצה ומרור ואמירת הגדה:",
+      "en_plain": "(א) The women also have to do so, although they are ordered that the time has been circumcised in the same miracle: (ב) (What) the mitzvot and so on, such as the decree and the statement of the West:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman473/seif-006/beur-hagra",
+      "volume": "oc1",
+      "siman": 473,
+      "seif": 6,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.882,
+        "he_chars": 1280,
+        "en_chars": 2409,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2409
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<b>ס\"ו נוטל ידיו. </b>שם קט\"ו א' ב':<br />\n<b>ולא יברך. </b>עתוס' שם ד\"ה כל כו' ועמ\"ש בסי' קנ\"ח ס\"ד דהעיקר שיברך על נט\"י לדבר שטיבולו במשקה ע\"ש:<br />\n<b>ויקח. </b>מתני' מטבל בחזרת כו' כנ\"ל:<br />\n<b>פחות מכזית. </b>כיון דאינו נוטל אלא להכירא ומברכין על פחות מכזית כמ\"ש תוס' בפ\"ב דסוכה בשם הירושלמי וכמ\"ש ברפ\"ו דברכות ולא יטול כזית ועט\"ז:<br />\n<b>ומברך. </b>גמ' שם:<br />\n<b>ואינו מברך אחריו. </b>ר\"ל אפי' אכל כזית וכנ\"ל והוא ממש\"ש קט\"ו א' מעיקרא כו' בלא ברכה אלמא שברכה ראשונה פוטרתו וע' רשב\"ם קי\"ד ב' ד\"ה פשיטא כו' וע' תוס' קט\"ו א' ד\"ה והדר כו' דפליג על רשב\"ם והר\"י טוב עלם אבל הרא\"ש שם מפרש כרשב\"ם וקושית תוס' ממש\"ש ב' דאגדתא והלילא הוה הפסק דוקא לענין נט\"י אבל לא לענין ברכה דאף חבירים שעקרו לא הוה הפסק כשהניחו מקצת חבירים ועתוס' ק\"ב א' ד\"ה ועקרו כו' וכת' בסדר הפסח דנ\"מ לאלו הפי' לענין ברכה אחרונה ועתוס' ק' ב' סד\"ה ידי יין כו'. ונראה דאזלי לשיטתייהו ובפלוגתא דסי' תע\"ד וע' רא\"ש שם סכ\"ד ול\"נ לי כו' דשאני בהמ\"ז דהוי כו' אבל אם עמד כו' ועתוס' ק\"ג ב' ד\"ה רב. וא\"ת כו' ולמאי דפרישית כו' וע' ר\"ן וכ\"כ ט\"ז. ולפיכך פסק הש\"ע יפה הוא לשיטתו אבל לדעת הר\"ב שם גם כאן צריך לברך:<br />\n<b>ויקח מצה. </b>כנ\"ל מה עני כו' ואמר האמצעית כמ\"ש בברכות ושבת שם פרוסה בתוך השלימה ועמש\"ל בס\"ד:<br />\n<b>ויתן חציה. </b>ששתי אכילות שאוכל לשם מצה יהא בפרוסה:<br />\n<b>ויגביה. </b>כמ\"ש מצה צריך להגביה וע' הג\"מ סוף ה' חו\"מ ע\"ש:<br />\n<b>ויאמר בלשון כו'. </b>כמ\"ש והגדת כו':<br />\n<b>ואז יצוה. </b>שם למה עוקרין כו' ועתוס' שם ד\"ה למה כו':\n",
+      "en_html": "(א) Seif 6 he washes hands. There 115a-b:<br>\r\n<br>\r\n(ב) And he should not bless. See Tosafot there s.v. kol, etc.; and see siman 158 seif 4 that the essence is he should bless on netilat yadayim for something dipped in liquid — see there:<br>\r\n<br>\r\n(ג) And he takes. Mishnah: he dips in chazeret, etc., as above:<br>\r\n<br>\r\n(ד) Less than a kezayit. Since he takes only for recognition, and they bless on less than a kezayit, as Tosafot wrote chapter 2 of Sukkah in the name of Yerushalmi, and as written in chapter 6 of Berachot; and one should not take a kezayit; and see Taz:<br>\r\n<br>\r\n(ה) And he blesses. Gemara there:<br>\r\n<br>\r\n(ו) And he does not bless afterward. Meaning even if he ate a kezayit, as above; and it is from what is written 115a at first, etc., without a berachah — thus the first berachah exempts it; and see Rashbam 114b s.v. peshita, etc.; and see Tosafot 115a s.v. vehadar, etc., who disagree with Rashbam, and R. Yitzchak Tov Elem; but Rosh there explains like Rashbam; and Tosafot's question is from what is written 115b in the aggadah that Hallel was an interruption specifically for netilat yadayim but not for berachah, for even companions who removed [the table] it was not an interruption when they left some companions; and see Tosafot 102a s.v. ve'akru, etc.; and it is written in Seder HaPesach that the difference of these explanations is for birkat hamazon; and see Tosafot 100b s.v. yedei yayin, etc.; and it appears they follow their view and the dispute in siman 474; and see Rosh there sk 24; and it appears to me, etc., that it is different in birkat hamazon, etc., but if he stood, etc.; and see Tosafot 103b s.v. Rav; and if you ask, etc., and per my explanation, etc.; and see Ran; and so Taz; and therefore Shulchan Aruch ruled well according to his view, but according to Rabbenu Yonah there too one must bless:<br>\r\n<br>\r\n(ז) And he takes matzah. As above: what is the relevance, etc.; and he said the middle one, as written in Berachot and Shabbat there — a piece within the whole; and see what I wrote there's help:<br>\r\n<br>\r\n(ח) And he places half. That both eatings that he eats for the sake of matzah should be from the piece:<br>\r\n<br>\r\n(ט) And he raises. As written: matzah requires raising; and see Hagahot Maimonides end of Laws of Monetary Damages see there:<br>\r\n<br>\r\n(י) And he says in the language, etc. As written: \"and you shall tell,\" etc.:<br>\r\n<br>\r\n(כ) And then he commands. There: why do they remove, etc.; and see Tosafot there s.v. lamah, etc.:\r\n",
+      "he_plain": "ס\"ו נוטל ידיו. שם קט\"ו א' ב': ולא יברך. עתוס' שם ד\"ה כל כו' ועמ\"ש בסי' קנ\"ח ס\"ד דהעיקר שיברך על נט\"י לדבר שטיבולו במשקה ע\"ש: ויקח. מתני' מטבל בחזרת כו' כנ\"ל: פחות מכזית. כיון דאינו נוטל אלא להכירא ומברכין על פחות מכזית כמ\"ש תוס' בפ\"ב דסוכה בשם הירושלמי וכמ\"ש ברפ\"ו דברכות ולא יטול כזית ועט\"ז: ומברך. גמ' שם: ואינו מברך אחריו. ר\"ל אפי' אכל כזית וכנ\"ל והוא ממש\"ש קט\"ו א' מעיקרא כו' בלא ברכה אלמא שברכה ראשונה פוטרתו וע' רשב\"ם קי\"ד ב' ד\"ה פשיטא כו' וע' תוס' קט\"ו א' ד\"ה והדר כו' דפליג על רשב\"ם והר\"י טוב עלם אבל הרא\"ש שם מפרש כרשב\"ם וקושית תוס' ממש\"ש ב' דאגדתא והלילא הוה הפסק דוקא לענין נט\"י אבל לא לענין ברכה דאף חבירים שעקרו לא הוה הפסק כשהניחו מקצת חבירים ועתוס' ק\"ב א' ד\"ה ועקרו כו' וכת' בסדר הפסח דנ\"מ לאלו הפי' לענין ברכה אחרונה ועתוס' ק' ב' סד\"ה ידי יין כו'. ונראה דאזלי לשיטתייהו ובפלוגתא דסי' תע\"ד וע' רא\"ש שם סכ\"ד ול\"נ לי כו' דשאני בהמ\"ז דהוי כו' אבל אם עמד כו' ועתוס' ק\"ג ב' ד\"ה רב. וא\"ת כו' ולמאי דפרישית כו' וע' ר\"ן וכ\"כ ט\"ז. ולפיכך פסק הש\"ע יפה הוא לשיטתו אבל לדעת הר\"ב שם גם כאן צריך לברך: ויקח מצה. כנ\"ל מה עני כו' ואמר האמצעית כמ\"ש בברכות ושבת שם פרוסה בתוך השלימה ועמש\"ל בס\"ד: ויתן חציה. ששתי אכילות שאוכל לשם מצה יהא בפרוסה: ויגביה. כמ\"ש מצה צריך להגביה וע' הג\"מ סוף ה' חו\"מ ע\"ש: ויאמר בלשון כו'. כמ\"ש והגדת כו': ואז יצוה. שם למה עוקרין כו' ועתוס' שם ד\"ה למה כו':",
+      "en_plain": "(א) Seif 6 he washes hands. There 115a-b: (ב) And he should not bless. See Tosafot there s.v. kol, etc.; and see siman 158 seif 4 that the essence is he should bless on netilat yadayim for something dipped in liquid — see there: (ג) And he takes. Mishnah: he dips in chazeret, etc., as above: (ד) Less than a kezayit. Since he takes only for recognition, and they bless on less than a kezayit, as Tosafot wrote chapter 2 of Sukkah in the name of Yerushalmi, and as written in chapter 6 of Berachot; and one should not take a kezayit; and see Taz: (ה) And he blesses. Gemara there: (ו) And he does not bless afterward. Meaning even if he ate a kezayit, as above; and it is from what is written 115a at first, etc., without a berachah — thus the first berachah exempts it; and see Rashbam 114b s.v. peshita, etc.; and see Tosafot 115a s.v. vehadar, etc., who disagree with Rashbam, and R. Yitzchak Tov Elem; but Rosh there explains like Rashbam; and Tosafot's question is from what is written 115b in the aggadah that Hallel was an interruption specifically for netilat yadayim but not for berachah, for even companions who removed [the table] it was not an interruption when they left some companions; and see Tosafot 102a s.v. ve'akru, etc.; and it is written in Seder HaPesach that the difference of these explanations is for birkat hamazon; and see Tosafot 100b s.v. yedei yayin, etc.; and it appears they follow their view and the dispute in siman 474; and see Rosh there sk 24; and it appears to me, etc., that it is different in birkat hamazon, etc., but if he stood, etc.; and see Tosafot 103b s.v. Rav; and if you ask, etc., and per my explanation, etc.; and see Ran; and so Taz; and therefore Shulchan Aruch ruled well according to his view, but according to Rabbenu Yonah there too one must bless: (ז) And he takes matzah. As above: what is the relevance, etc.; and he said the middle one, as written in Berachot and Shabbat there — a piece within the whole; and see what I wrote there's help: (ח) And he places half. That both eatings that he eats for the sake of matzah should be from the piece: (ט) And he raises. As written: matzah requires raising; and see Hagahot Maimonides end of Laws of Monetary Damages see there: (י) And he says in the language, etc. As written: \"and you shall tell,\" etc.: (כ) And then he commands. There: why do they remove, etc.; and see Tosafot there s.v. lamah, etc.:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

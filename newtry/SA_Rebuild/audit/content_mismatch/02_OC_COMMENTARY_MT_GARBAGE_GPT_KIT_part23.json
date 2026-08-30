@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 23,
+    "chunk_total": 47,
+    "case_offset": 134,
+    "cases_in_chunk": 4,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman331/seif-010/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 10,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.761,
+        "he_chars": 1020,
+        "en_chars": 1796,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1796
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(לו) לא ימול - דחיישינן שמא יקלקל ונמצא מחלל שבת שלא במקום מצוה וה\"ה אם לא פרע מעולם אסור לפרוע בשבת ג\"כ מטעם זה. מוהל שבא ואמר שכבר מל פ\"א בחול נאמן וא\"צ להביא ראיה. ביו\"ד סוף סימן רס\"ו כתב בהג\"ה שטוב להחמיר לכתחלה שלא ימולו שני מוהלין מילה אחת בשבת שזה ימול וזה יפרע אלא המל הוא עצמו יפרע אבל הרבה אחרונים כתבו שיש להקל בזה וכן המנהג בכל מדינת פולין תמיד הם שני מוהלים זה חותך וזה פורע בין בחול ובין בשבת ובחכמת אדם כלל קמ\"ט כתב דעכ\"פ לא יכבד שלשה בני אדם אלא הפורע יהיה המוצץ אבל בישועות יעקב דחה זה וכתב דהמציצה יכול להיות באחר דהוא ענין בפ\"ע:<br />\n(לז) בשבת - ולענין יו\"ט אם הוא יו\"ט שני של גליות בודאי יש להקל וביו\"ט ראשון יש דעות בין האחרונים אך אם הוא יודע בעצמו שיכול למול ואין מוהל אחר בודאי אין להחמיר:<br />\n(לח) מותר למול בשבת - ואפילו איכא אחר דמל זמנין טובא:<br />\n(לט) אפילו וכו' - פי' לאפוקי ממאן דס\"ל דאב בעצמו לא ימול בשבת היכא דאיכא אחרינא משום דלגבי דידיה הוי פסיק רישא דניחא ליה שהרי הוא מתקן את בנו קמ\"ל דלא אמרינן הכי דגם לגבי אחרינא פסיק רישא דניחא ליה הוא שהרי הוא רוצה למולו ולזה קאתי ואפ\"ה התירה התורה [תה\"ד]:\n",
+      "en_html": "(א) He shall not circumcise — for we fear perhaps he will ruin and find himself desecrating Shabbat not in place of mitzvah; and likewise if he never performed priyah — forbidden to perform priyah on Shabbat also for this reason. A mohel who comes and says he already circumcised once on a weekday — he is believed and need not bring proof. In Yoreh De'ah end of siman 266 he wrote in the gloss that l'chatchila good to be stringent that two mohalim not circumcise one milah on Shabbat — one circumcises and one performs priyah — rather the circumciser himself performs priyah; but many later authorities wrote one should be lenient, and so the practice in all Poland — always two mohalim, one cuts and one performs priyah, whether weekday or Shabbat; and in Chayei Adam kelal 149 he wrote that in any case three people should not honor — rather the one performing priyah should be the one performing metzitzah; but in Yeshuot Yaakov he rejected this and wrote metzitzah can be by another, for it is a separate matter:\n<br>(ב) On Shabbat — and regarding Yom Tov if second day of Diaspora Yom Tov — certainly lenient; and on first day of Yom Tov there are views among later authorities; but if he knows himself he can circumcise and there is no other mohel — certainly one should not be stringent:\n<br>(ג) Permitted to circumcise on Shabbat — even if there is another who circumcised many times:\n<br>(ד) Even, etc. — explanation: to exclude those who hold the father himself should not circumcise on Shabbat where there is another, because for him it is psik reisha de-nicha lei since he repairs his son — it teaches us we do not say thus, for also regarding others it is psik reisha de-nicha lei since he wants to circumcise him and for this he comes, and nevertheless the Torah permitted [Terumat HaDeshen]:",
+      "he_plain": "(לו) לא ימול - דחיישינן שמא יקלקל ונמצא מחלל שבת שלא במקום מצוה וה\"ה אם לא פרע מעולם אסור לפרוע בשבת ג\"כ מטעם זה. מוהל שבא ואמר שכבר מל פ\"א בחול נאמן וא\"צ להביא ראיה. ביו\"ד סוף סימן רס\"ו כתב בהג\"ה שטוב להחמיר לכתחלה שלא ימולו שני מוהלין מילה אחת בשבת שזה ימול וזה יפרע אלא המל הוא עצמו יפרע אבל הרבה אחרונים כתבו שיש להקל בזה וכן המנהג בכל מדינת פולין תמיד הם שני מוהלים זה חותך וזה פורע בין בחול ובין בשבת ובחכמת אדם כלל קמ\"ט כתב דעכ\"פ לא יכבד שלשה בני אדם אלא הפורע יהיה המוצץ אבל בישועות יעקב דחה זה וכתב דהמציצה יכול להיות באחר דהוא ענין בפ\"ע: (לז) בשבת - ולענין יו\"ט אם הוא יו\"ט שני של גליות בודאי יש להקל וביו\"ט ראשון יש דעות בין האחרונים אך אם הוא יודע בעצמו שיכול למול ואין מוהל אחר בודאי אין להחמיר: (לח) מותר למול בשבת - ואפילו איכא אחר דמל זמנין טובא: (לט) אפילו וכו' - פי' לאפוקי ממאן דס\"ל דאב בעצמו לא ימול בשבת היכא דאיכא אחרינא משום דלגבי דידיה הוי פסיק רישא דניחא ליה שהרי הוא מתקן את בנו קמ\"ל דלא אמרינן הכי דגם לגבי אחרינא פסיק רישא דניחא ליה הוא שהרי הוא רוצה למולו ולזה קאתי ואפ\"ה התירה התורה [תה\"ד]:",
+      "en_plain": "(א) He shall not circumcise — for we fear perhaps he will ruin and find himself desecrating Shabbat not in place of mitzvah; and likewise if he never performed priyah — forbidden to perform priyah on Shabbat also for this reason. A mohel who comes and says he already circumcised once on a weekday — he is believed and need not bring proof. In Yoreh De'ah end of siman 266 he wrote in the gloss that l'chatchila good to be stringent that two mohalim not circumcise one milah on Shabbat — one circumcises and one performs priyah — rather the circumciser himself performs priyah; but many later authorities wrote one should be lenient, and so the practice in all Poland — always two mohalim, one cuts and one performs priyah, whether weekday or Shabbat; and in Chayei Adam kelal 149 he wrote that in any case three people should not honor — rather the one performing priyah should be the one performing metzitzah; but in Yeshuot Yaakov he rejected this and wrote metzitzah can be by another, for it is a separate matter: (ב) On Shabbat — and regarding Yom Tov if second day of Diaspora Yom Tov — certainly lenient; and on first day of Yom Tov there are views among later authorities; but if he knows himself he can circumcise and there is no other mohel — certainly one should not be stringent: (ג) Permitted to circumcise on Shabbat — even if there is another who circumcised many times: (ד) Even, etc. — explanation: to exclude those who hold the father himself should not circumcise on Shabbat where there is another, because for him it is psik reisha de-nicha lei since he repairs his son — it teaches us we do not say thus, for also regarding others it is psik reisha de-nicha lei since he wants to circumcise him and for this he comes, and nevertheless the Torah permitted [Terumat HaDeshen]:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-010/rabbi-akiva-eiger",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 10,
+      "slug": "rabbi-akiva-eiger",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.889,
+        "he_chars": 745,
+        "en_chars": 1407,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1407
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<small>סעיף י'</small> אדם שלא מל מעולם מסתפקנא אם גם ביו\"ט הדין כן או ביו\"ט שרי. דמקור הדין דלמד כן מסוגי' דביצה מפני שצריך לבדקן ולכאורה למה דפסקי' סי' תצ\"ח ס\"ח איבעי' דעוף שנדרס לקולא וממילא הטעם בלבון הרעפים משום חסום א\"כ ליתא לראיית המרדכי. ולזה י\"ל הטעם דפסקי' האיבעי' לקולא ע\"כ משום דביו\"ט שרי מדאורייתא משום מתוך והוי ס' דרבנן וא\"כ י\"ל מש\"ה גבי מילה בשבת מחמרינן מספיקא דאיבעי' דהוי ס' דאורייתא. וא\"כ יש לדון ביו\"ט דחבורה לצורך שרי מותר למול דדיינינן האיבעי' לקולא דבלבון רעפים משום חסום נגע בה ופרט דנראה מתוס' מגילה ד' ד\"ה ויעבירנה דכתבו וגם אין אדם מל אא\"כ בקי וכו' משמע דאין דרך בכך אבל איסורא ליכא וכן בהר\"ן פ\"ק דטרח ליתן טעם במה דל\"ג במילה בשבת שמא ילך אצל בקי. משמע לכאורה דלא ס\"ל לדינא דהמרדכי וא\"כ יש לסמוך על זה ביו\"ט דאינו מפורש לאיסור בש\"ע: \r\n",
+      "en_html": "Seif 10: a person who never circumcised — I am uncertain if the law is likewise on Yom Tov or on Yom Tov permitted. For the source of the law he learned from sugya of Beitzah because he needs to examine them; and at first glance why did they rule siman 498 seif 8 the inquiry leniently regarding fowl trampled — and automatically the reason of examining new rags is on account of blockage; if so Mordechai's proof does not exist. And for this one can say the reason they ruled the inquiry leniently perforce because on Yom Tov permitted from Torah on account of \"from within\" and it is d'rabbanan safek; and therefore one can say therefore regarding milah on Shabbat we are stringent from safek of inquiry which is d'oraisa safek. And if so one should judge on Yom Tov that wounding for need permitted — permitted to circumcise and we judge inquiry leniently that in examining new rags on account of blockage nega touched it; and particular it appears from Tosafos Megillah daf 4 s.v. \"and he passes it\" who wrote: and also a person circumcises only if expert, etc. — it implies there is no way in this; but no prohibition exists; and so in Ran first chapter he gave reason in what those who disagree regarding milah on Shabbat lest one go to an expert — at first glance he does not hold like Mordechai's law; and if so one may rely on this on Yom Tov which is not explicit as prohibition in Shulchan Aruch:\r\n",
+      "he_plain": "סעיף י' אדם שלא מל מעולם מסתפקנא אם גם ביו\"ט הדין כן או ביו\"ט שרי. דמקור הדין דלמד כן מסוגי' דביצה מפני שצריך לבדקן ולכאורה למה דפסקי' סי' תצ\"ח ס\"ח איבעי' דעוף שנדרס לקולא וממילא הטעם בלבון הרעפים משום חסום א\"כ ליתא לראיית המרדכי. ולזה י\"ל הטעם דפסקי' האיבעי' לקולא ע\"כ משום דביו\"ט שרי מדאורייתא משום מתוך והוי ס' דרבנן וא\"כ י\"ל מש\"ה גבי מילה בשבת מחמרינן מספיקא דאיבעי' דהוי ס' דאורייתא. וא\"כ יש לדון ביו\"ט דחבורה לצורך שרי מותר למול דדיינינן האיבעי' לקולא דבלבון רעפים משום חסום נגע בה ופרט דנראה מתוס' מגילה ד' ד\"ה ויעבירנה דכתבו וגם אין אדם מל אא\"כ בקי וכו' משמע דאין דרך בכך אבל איסורא ליכא וכן בהר\"ן פ\"ק דטרח ליתן טעם במה דל\"ג במילה בשבת שמא ילך אצל בקי. משמע לכאורה דלא ס\"ל לדינא דהמרדכי וא\"כ יש לסמוך על זה ביו\"ט דאינו מפורש לאיסור בש\"ע:",
+      "en_plain": "Seif 10: a person who never circumcised — I am uncertain if the law is likewise on Yom Tov or on Yom Tov permitted. For the source of the law he learned from sugya of Beitzah because he needs to examine them; and at first glance why did they rule siman 498 seif 8 the inquiry leniently regarding fowl trampled — and automatically the reason of examining new rags is on account of blockage; if so Mordechai's proof does not exist. And for this one can say the reason they ruled the inquiry leniently perforce because on Yom Tov permitted from Torah on account of \"from within\" and it is d'rabbanan safek; and therefore one can say therefore regarding milah on Shabbat we are stringent from safek of inquiry which is d'oraisa safek. And if so one should judge on Yom Tov that wounding for need permitted — permitted to circumcise and we judge inquiry leniently that in examining new rags on account of blockage nega touched it; and particular it appears from Tosafos Megillah daf 4 s.v. \"and he passes it\" who wrote: and also a person circumcises only if expert, etc. — it implies there is no way in this; but no prohibition exists; and so in Ran first chapter he gave reason in what those who disagree regarding milah on Shabbat lest one go to an expert — at first glance he does not hold like Mordechai's law; and if so one may rely on this on Yom Tov which is not explicit as prohibition in Shulchan Aruch:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman34/seif-001/yad-ephraim",
+      "volume": "oc1",
+      "siman": 34,
+      "seif": 1,
+      "slug": "yad-ephraim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.145,
+        "he_chars": 757,
+        "en_chars": 867,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 867
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<b>(בט\"ז ס\"ק ב') </b>זמן תפילין' אפילו מדרבנן דלמ\"ד זמן תפילין זוג אחד לבד דאסור משום בל תוסיף ומד\"א לאו זמן תפילין מכניס שנים דאין כאן בל תוסיף אפילו מדרבנן כך הוא כוונת הט\"ז ויש כאן חיסור לשון קצת ומ\"ש ואין לומר הטעם כו' ר\"ל דאף להך תירוצא קשה לת\"ק למה ס\"ל דמכניס זוג א' לבד ולכן תירץ משום דבלא ב\"ת יש איסור משום משוי כו' משא\"כ לשאר תירוצים שם דפליגי אם לעבור בב\"ת בעי כוונה וכדומה א\"א לומר כן דהא משמע בש\"ס בטעמא דת\"ק משום דעבר בבל תוסיף אף בלא כוונ' ובאמת אינו כן ועוד דא\"כ מאי טעמא דרשב\"ג דנהי דבעי כוונ' מ\"מ הו\"ל כמשוי ואם נאמר דרשב\"ג לא ס\"ל סברא זו אם כן אין הפלוגתא שלהם בצריך כוונה או אין צריך כוונה אלא אם מחשב משוי או לא אלא ע\"כ דבבל תוסיף לחוד פליגי דלת\"ק עבר בבל תוסיף בלא כוונ' ואם כן הוא ב\"ת בזה אינו רק מדרבנן ולכך הוצרך לתרץ דלא קיימי הנך תירוצים:\r\n",
+      "en_html": "(in the 16th section 2) tefillin time even from Darbanan DLMD tefillin time one pair alone Dassur because you do not add and MDA no tefillin time puts in years Dain here do not add even from Darbanan that is the intention of the 16th and there is a lack of language here a little and a mash and it is not to be said the reason is as Ral Daff Lehach it is difficult to find an excuse for TAK why Sal Damikin puts a pair A alone and therefore excuses because of a dabla There is a prohibition in the B.T. for the reason that it is from Shui, K. Masha'k, for other excuses, there is a defligi if to pass in the B.T. with the intention, etc. A verb in Babylon will add even without intent and it really is not true, and so on. Why is there no point in Darshabg Danhi Debai with intent? And for this it was necessary to make an excuse that does not exist, you are excuses:\n",
+      "he_plain": "(בט\"ז ס\"ק ב') זמן תפילין' אפילו מדרבנן דלמ\"ד זמן תפילין זוג אחד לבד דאסור משום בל תוסיף ומד\"א לאו זמן תפילין מכניס שנים דאין כאן בל תוסיף אפילו מדרבנן כך הוא כוונת הט\"ז ויש כאן חיסור לשון קצת ומ\"ש ואין לומר הטעם כו' ר\"ל דאף להך תירוצא קשה לת\"ק למה ס\"ל דמכניס זוג א' לבד ולכן תירץ משום דבלא ב\"ת יש איסור משום משוי כו' משא\"כ לשאר תירוצים שם דפליגי אם לעבור בב\"ת בעי כוונה וכדומה א\"א לומר כן דהא משמע בש\"ס בטעמא דת\"ק משום דעבר בבל תוסיף אף בלא כוונ' ובאמת אינו כן ועוד דא\"כ מאי טעמא דרשב\"ג דנהי דבעי כוונ' מ\"מ הו\"ל כמשוי ואם נאמר דרשב\"ג לא ס\"ל סברא זו אם כן אין הפלוגתא שלהם בצריך כוונה או אין צריך כוונה אלא אם מחשב משוי או לא אלא ע\"כ דבבל תוסיף לחוד פליגי דלת\"ק עבר בבל תוסיף בלא כוונ' ואם כן הוא ב\"ת בזה אינו רק מדרבנן ולכך הוצרך לתרץ דלא קיימי הנך תירוצים:",
+      "en_plain": "(in the 16th section 2) tefillin time even from Darbanan DLMD tefillin time one pair alone Dassur because you do not add and MDA no tefillin time puts in years Dain here do not add even from Darbanan that is the intention of the 16th and there is a lack of language here a little and a mash and it is not to be said the reason is as Ral Daff Lehach it is difficult to find an excuse for TAK why Sal Damikin puts a pair A alone and therefore excuses because of a dabla There is a prohibition in the B.T. for the reason that it is from Shui, K. Masha'k, for other excuses, there is a defligi if to pass in the B.T. with the intention, etc. A verb in Babylon will add even without intent and it really is not true, and so on. Why is there no point in Darshabg Danhi Debai with intent? And for this it was necessary to make an excuse that does not exist, you are excuses:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman340/seif-004/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 340,
+      "seif": 4,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.703,
+        "he_chars": 3251,
+        "en_chars": 5535,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 5535
+        },
+        "failure_patterns": [
+          "the_craft"
+        ]
+      },
+      "he_html": "[יא] <b>[לבוש] אבל וכו'.</b> חסר כאן מה שכתב בשולחן ערוך יש ליזהר שלא לכתוב במשקה על השולחן או באפר אבל וכו' אם כותב באצבע בדבש או בשומן שנקרש כמו שעושין באפר אסור (פרישה), ובתוספתא פרק י\"ב מצאתי כתב בקליפי אגוזים בקליפי רימונים בדם הקרוש בחלב הקרוש על עלה זית ועל עלה חרוב ועל עלה דלעת ועל כל דבר שהוא של קיימא חייב, על עלה חזרין ועל עלה כרשין ועל עלה בצלים ועל עלה ירקות ועל כל דבר שאינו של קיימא זה הכלל כתב דבר של קיימא על דבר שאינו של קיימא או דבר שאינו של קיימא על דבר של קיימא פטור אינו חייב עד שיכתוב דבר של קיימא על דבר של קיימא, עד כאן, ופשוט שכן הדין במוחק וברמב\"ם פרק ט' דעור וקלף ונייר ועץ וכיוצא בהן של קיימא הם דיו ושחור וסיקרא וקומס וקנקנתום וכיוצא בהן של קיימא הם, ובתרומת הדשן סימן ס\"ג דמשקין ומי פירות ובעפר נגוב לא של קיימא הן ומכל מקום לכתחילה אסור כיון שרישומו ניכר לפי שעה ואף שכותב בדבר שאינו של קיימא על דבר שאינו של קיימא איסורא מיהא איכא כמו שכתב כנסת הגדולה. כתב הרמב\"ם שם הכותב על בשרו חייב מפני שהוא עור אף על פי שחמימות בשרו מעברת הכתב לאחר זמן הרי זה דומה לכתב שנמחק, אבל המשרט על בשרו צורת כתב פטור, וצריך עיון דמרבינו ירוחם דף פ\"ז משמע דחייב הקורע על העור כתבנית כתב חייב הרושם רשמים וצורות בכותל ובשטר וכיוצא בהן כדרך שהציירים רושמים הרי זה חייב משום כותב והמוחקו חייב משום מוחק, ועיין ס\"ק ח'. קטן אוחז בקולמוס וגדול אוחז בידו וכתב חייב וגדול אוחז בקולמוס וקטן אוחז בידו וכותב פטור ובתוספתא שם שוגג אוחז בקולמוס ומזיד אוחז בידו וכותב חייב. המצייר בקליפי פולין ובקליפי תורמוסין פטור והמשרטט כדי לכתוב שתי אותיות חייב המגיה אות כגון שנוטל גג החי\"ת ועושה שתי זייני\"ן חייב, ורבינו ירוחם דף פ\"ז כתב עוד נטל לגגו של דלי\"ת ועשאו רי\"ש והגיה הספר הרי זה חייב וכן כתב בשלטי גיבורים פרק הבונה בשם ריא\"ז ובירושלמי פרק כלל גדול מצאתי יש כותב נקודה אחת וחייב משום כותב ומשום מוחק, יש מוחק נקודה אחת וחייב משום כותב ומשום מוחק כיצד דלי\"ת ועשאו רי\"ש רי\"ש ועשאו דלי\"ת וכן משמע ברוקח סימן פ\"ו. כתב בשמאלו או לאחר יד ברגלו בפיו ובמרפקו פטור, עד כאן, ואפשר דהוא הדין למוחק לכן נראה לי דטוב לשבור העוגות הנזכרים לעיל בשמאלו וכן הספרים הנזכרים לעיל. עוד שם איטר ימין דידיה כשמאל כל אדם ואם שולט בשני ידיו חייב בשניהם:<br />\n[יב] <b>באויר וכו'.</b> ולא אמרינן דמאמן ידיו בכתיבה והוא הדין דמותר לראות אומנת בשבת אף על גב דמלמדה (תרומת הדשן), ולאו דוקא באויר אלא הוא הדין על דף או שולחן נגוב כיון שאין רישומו ניכר כמו באויר:<br />\n[יג] <b>[לבוש] וגם אינו אות וכו'.</b> הב\"ח תמה דבפרק הבונה איתא דחייב ברושם ואם כן באין מתקיים פטור אבל אסור כמו בכותב ועל כן חלק הב\"ח ופסק לאיסור אפילו בקלף והביאו מגן אברהם, ונראה לי דלבוש מתרץ זה דרושם מיירי דוקא כמין אותיות, אבל לסימן בעלמא שעושה רושם על טעות שנמצא בספר שרי וכן משמע בנחלת צבי, והט\"ז תירץ כיון שאין עושה אלא רושם אחד וגם אין מתקיים הוי תרתי לטיבותא ומותר ואף שעושה שני רושם מכל מקום כיון שכל אחד הוא לפי מיוחד מותר וש\"ס מיירי בשני רישומין על ענין אחד, ורש\"ל כתב בשם סמ\"ק לאסור ופירשו דוקא בנייר דמתקיים אבל בקלף מותר. וזה לשון מלבושי יום טוב מצאתי דאור זרוע אוסר לרשום בציפורן על הגיליון לזכר שלא ישכח וכו' ור' יוסי דנימוקו עמו אוסר רושם בעלמא, עד כאן, ולפי זה נראה לי דלא קשה מידי על הטור דאפשר דסבירא ליה שאין הלכה כר' יוסי כמו שכתב הברטנורה שם ודעת הסמ\"ק אפשר נמי כאור זרוע. וירושלמי פרק הבונה כתב לא חוקק אית תני אפילו חוקק אמר רב חסדא מאן דאמר לא חוקק בבולט מקום הכתב כגון דינרא מאן דאמר אפילו חוקק כגון פינקסה. כתב מגן אברהם משמע בגיטין דף כ' שאם תוחב אותיות של כסף על גבי בגד מיקרי כתב ואם כן אפשר דאסור לעשות בשבת:\n",
+      "en_html": "<b>[11] [Levush] But, etc.</b> The text is missing the Shulchan Aruch's statement that one should take care not to write with liquid on a table or in ash. If one writes with a finger in honey or congealed fat in the manner of writing in ash, it is prohibited, as stated by the Perishah. I found in Tosefta, chapter 12, that one who writes with nutshell dye, pomegranate peel dye, congealed blood, congealed milk, on an olive leaf, carob leaf, gourd leaf, or anything enduring is liable. Writing on leaves of lettuce, leeks, onions, vegetables, or anything non-enduring is exempt. The rule is that writing an enduring substance on a non-enduring surface, or a non-enduring substance on an enduring surface, is exempt; liability exists only for enduring writing upon an enduring surface. The same plainly applies to erasing. Rambam, chapter 9, states that leather, parchment, paper, wood, and similar materials are enduring surfaces, while ink, black pigment, sikra, gum, vitriol, and similar substances are enduring writing materials. Terumat HaDeshen, siman 63, writes that liquids, fruit juices, and dry dust are non-enduring, but are nevertheless prohibited initially because the mark is visible temporarily. Even writing a non-enduring substance on a non-enduring surface is at least prohibited, as Knesset HaGedolah writes. The Rambam there says one who writes on his flesh is liable because flesh is like leather. Although bodily heat will later remove the writing, this resembles writing that is subsequently erased. But one who incises the shape of writing on his flesh is exempt. This requires study, because Rabbenu Yerucham, page 87, implies liability. One who cuts or incises a form of writing on leather is liable. One who marks signs and drawings on a wall, document, or similar surface in the manner of artists is liable because of writing, and one who erases them is liable because of erasing. See seif katan 8. If a minor holds the pen and an adult holds the child's hand and thereby writes, the adult is liable. If the adult holds the pen and the minor holds his hand and writes, the adult is exempt. The Tosefta there similarly says that if an unwitting person holds the pen while an intentional violator holds his hand and writes, the intentional violator is liable. One who draws upon bean peels or lupine peels is exempt. One who rules lines in order to write two letters is liable. One who corrects a letter, such as removing the roof of a chet and thereby making two zayins, is liable. Rabbenu Yerucham further writes that one who removes the roof of a dalet and makes it a resh, thereby correcting the book, is liable. Shiltei Giborim in Perek HaBoneh cites the Riaz similarly. In the Yerushalmi, Perek Klal Gadol, I found that one may write a single point and be liable both for writing and erasing, or erase a single point and be liable for writing and erasing. For example, changing a dalet into a resh or a resh into a dalet. So too it appears from the Rokeach, siman 86. Writing with the left hand, back of the hand, foot, mouth, or elbow is exempt. Perhaps the same applies to erasing. Therefore it appears preferable to break the aforementioned cakes with the left hand, and likewise to open the aforementioned books with the left hand. A left-handed person's right hand has the status of everyone else's left hand. One who is equally skilled with both hands is liable with either.<br />\n<b>[12] In the air, etc.</b> We do not say that he is training his hand in writing. The same applies that one may watch a craftsman work on Shabbos even though this teaches him the craft, as stated by Terumat HaDeshen. The rule is not limited to the air. The same applies to tracing on a dry board or table when no visible mark remains, because that is like writing in the air.<br />\n<b>[13] [Levush] And it is not a letter either, etc.</b> The Bach asks that in Perek HaBoneh the Gemara states one is liable for making a mark. If the mark is non-enduring, one should at least be exempt but prohibited, like writing. The Bach therefore disagrees and rules that even marking parchment is prohibited; the Magen Avraham cites him. It appears to me that the Levush resolves this by saying that the Gemara's 'mark' means specifically a mark in the form of letters. A mere sign used to mark an error found in a book is permitted. So too it appears from Nachalat Tzvi. The Taz answers that because he makes only one mark and it is also non-enduring, there are two reasons for leniency. Even if he makes two marks, each is a separate sign and permitted; the Gemara concerns two marks serving one matter. Maharshal cites the Semak as prohibiting. They explain this specifically on paper, where the mark endures, but on parchment it is permitted. Malbushei Yom Tov writes that he found the Or Zarua prohibits making a fingernail mark on a margin as a reminder, and that Rabbi Yose, whose reasoning is generally accepted, prohibits even a mere mark. According to this, there is no difficulty with the Tur, for perhaps he does not rule like Rabbi Yose, as the Bartenura writes. The Semak may follow the Or Zarua. The Yerushalmi in Perek HaBoneh discusses whether engraving is included: one teaching says not engraving, another even engraving. Rav Chisda explains that the one excluding engraving speaks of raised writing, such as on a coin, while the one including engraving speaks of writing in a tablet. The Magen Avraham writes that Gittin 20 implies that attaching silver letters to a garment is called writing, so perhaps doing so on Shabbos is prohibited.\n",
+      "he_plain": "[יא] [לבוש] אבל וכו'. חסר כאן מה שכתב בשולחן ערוך יש ליזהר שלא לכתוב במשקה על השולחן או באפר אבל וכו' אם כותב באצבע בדבש או בשומן שנקרש כמו שעושין באפר אסור (פרישה), ובתוספתא פרק י\"ב מצאתי כתב בקליפי אגוזים בקליפי רימונים בדם הקרוש בחלב הקרוש על עלה זית ועל עלה חרוב ועל עלה דלעת ועל כל דבר שהוא של קיימא חייב, על עלה חזרין ועל עלה כרשין ועל עלה בצלים ועל עלה ירקות ועל כל דבר שאינו של קיימא זה הכלל כתב דבר של קיימא על דבר שאינו של קיימא או דבר שאינו של קיימא על דבר של קיימא פטור אינו חייב עד שיכתוב דבר של קיימא על דבר של קיימא, עד כאן, ופשוט שכן הדין במוחק וברמב\"ם פרק ט' דעור וקלף ונייר ועץ וכיוצא בהן של קיימא הם דיו ושחור וסיקרא וקומס וקנקנתום וכיוצא בהן של קיימא הם, ובתרומת הדשן סימן ס\"ג דמשקין ומי פירות ובעפר נגוב לא של קיימא הן ומכל מקום לכתחילה אסור כיון שרישומו ניכר לפי שעה ואף שכותב בדבר שאינו של קיימא על דבר שאינו של קיימא איסורא מיהא איכא כמו שכתב כנסת הגדולה. כתב הרמב\"ם שם הכותב על בשרו חייב מפני שהוא עור אף על פי שחמימות בשרו מעברת הכתב לאחר זמן הרי זה דומה לכתב שנמחק, אבל המשרט על בשרו צורת כתב פטור, וצריך עיון דמרבינו ירוחם דף פ\"ז משמע דחייב הקורע על העור כתבנית כתב חייב הרושם רשמים וצורות בכותל ובשטר וכיוצא בהן כדרך שהציירים רושמים הרי זה חייב משום כותב והמוחקו חייב משום מוחק, ועיין ס\"ק ח'. קטן אוחז בקולמוס וגדול אוחז בידו וכתב חייב וגדול אוחז בקולמוס וקטן אוחז בידו וכותב פטור ובתוספתא שם שוגג אוחז בקולמוס ומזיד אוחז בידו וכותב חייב. המצייר בקליפי פולין ובקליפי תורמוסין פטור והמשרטט כדי לכתוב שתי אותיות חייב המגיה אות כגון שנוטל גג החי\"ת ועושה שתי זייני\"ן חייב, ורבינו ירוחם דף פ\"ז כתב עוד נטל לגגו של דלי\"ת ועשאו רי\"ש והגיה הספר הרי זה חייב וכן כתב בשלטי גיבורים פרק הבונה בשם ריא\"ז ובירושלמי פרק כלל גדול מצאתי יש כותב נקודה אחת וחייב משום כותב ומשום מוחק, יש מוחק נקודה אחת וחייב משום כותב ומשום מוחק כיצד דלי\"ת ועשאו רי\"ש רי\"ש ועשאו דלי\"ת וכן משמע ברוקח סימן פ\"ו. כתב בשמאלו או לאחר יד ברגלו בפיו ובמרפקו פטור, עד כאן, ואפשר דהוא הדין למוחק לכן נראה לי דטוב לשבור העוגות הנזכרים לעיל בשמאלו וכן הספרים הנזכרים לעיל. עוד שם איטר ימין דידיה כשמאל כל אדם ואם שולט בשני ידיו חייב בשניהם: [יב] באויר וכו'. ולא אמרינן דמאמן ידיו בכתיבה והוא הדין דמותר לראות אומנת בשבת אף על גב דמלמדה (תרומת הדשן), ולאו דוקא באויר אלא הוא הדין על דף או שולחן נגוב כיון שאין רישומו ניכר כמו באויר: [יג] [לבוש] וגם אינו אות וכו'. הב\"ח תמה דבפרק הבונה איתא דחייב ברושם ואם כן באין מתקיים פטור אבל אסור כמו בכותב ועל כן חלק הב\"ח ופסק לאיסור אפילו בקלף והביאו מגן אברהם, ונראה לי דלבוש מתרץ זה דרושם מיירי דוקא כמין אותיות, אבל לסימן בעלמא שעושה רושם על טעות שנמצא בספר שרי וכן משמע בנחלת צבי, והט\"ז תירץ כיון שאין עושה אלא רושם אחד וגם אין מתקיים הוי תרתי לטיבותא ומותר ואף שעושה שני רושם מכל מקום כיון שכל אחד הוא לפי מיוחד מותר וש\"ס מיירי בשני רישומין על ענין אחד, ורש\"ל כתב בשם סמ\"ק לאסור ופירשו דוקא בנייר דמתקיים אבל בקלף מותר. וזה לשון מלבושי יום טוב מצאתי דאור זרוע אוסר לרשום בציפורן על הגיליון לזכר שלא ישכח וכו' ור' יוסי דנימוקו עמו אוסר רושם בעלמא, עד כאן, ולפי זה נראה לי דלא קשה מידי על הטור דאפשר דסבירא ליה שאין הלכה כר' יוסי כמו שכתב הברטנורה שם ודעת הסמ\"ק אפשר נמי כאור זרוע. וירושלמי פרק הבונה כתב לא חוקק אית תני אפילו חוקק אמר רב חסדא מאן דאמר לא חוקק בבולט מקום הכתב כגון דינרא מאן דאמר אפילו חוקק כגון פינקסה. כתב מגן אברהם משמע בגיטין דף כ' שאם תוחב אותיות של כסף על גבי בגד מיקרי כתב ואם כן אפשר דאסור לעשות בשבת:",
+      "en_plain": "[11] [Levush] But, etc. The text is missing the Shulchan Aruch's statement that one should take care not to write with liquid on a table or in ash. If one writes with a finger in honey or congealed fat in the manner of writing in ash, it is prohibited, as stated by the Perishah. I found in Tosefta, chapter 12, that one who writes with nutshell dye, pomegranate peel dye, congealed blood, congealed milk, on an olive leaf, carob leaf, gourd leaf, or anything enduring is liable. Writing on leaves of lettuce, leeks, onions, vegetables, or anything non-enduring is exempt. The rule is that writing an enduring substance on a non-enduring surface, or a non-enduring substance on an enduring surface, is exempt; liability exists only for enduring writing upon an enduring surface. The same plainly applies to erasing. Rambam, chapter 9, states that leather, parchment, paper, wood, and similar materials are enduring surfaces, while ink, black pigment, sikra, gum, vitriol, and similar substances are enduring writing materials. Terumat HaDeshen, siman 63, writes that liquids, fruit juices, and dry dust are non-enduring, but are nevertheless prohibited initially because the mark is visible temporarily. Even writing a non-enduring substance on a non-enduring surface is at least prohibited, as Knesset HaGedolah writes. The Rambam there says one who writes on his flesh is liable because flesh is like leather. Although bodily heat will later remove the writing, this resembles writing that is subsequently erased. But one who incises the shape of writing on his flesh is exempt. This requires study, because Rabbenu Yerucham, page 87, implies liability. One who cuts or incises a form of writing on leather is liable. One who marks signs and drawings on a wall, document, or similar surface in the manner of artists is liable because of writing, and one who erases them is liable because of erasing. See seif katan 8. If a minor holds the pen and an adult holds the child's hand and thereby writes, the adult is liable. If the adult holds the pen and the minor holds his hand and writes, the adult is exempt. The Tosefta there similarly says that if an unwitting person holds the pen while an intentional violator holds his hand and writes, the intentional violator is liable. One who draws upon bean peels or lupine peels is exempt. One who rules lines in order to write two letters is liable. One who corrects a letter, such as removing the roof of a chet and thereby making two zayins, is liable. Rabbenu Yerucham further writes that one who removes the roof of a dalet and makes it a resh, thereby correcting the book, is liable. Shiltei Giborim in Perek HaBoneh cites the Riaz similarly. In the Yerushalmi, Perek Klal Gadol, I found that one may write a single point and be liable both for writing and erasing, or erase a single point and be liable for writing and erasing. For example, changing a dalet into a resh or a resh into a dalet. So too it appears from the Rokeach, siman 86. Writing with the left hand, back of the hand, foot, mouth, or elbow is exempt. Perhaps the same applies to erasing. Therefore it appears preferable to break the aforementioned cakes with the left hand, and likewise to open the aforementioned books with the left hand. A left-handed person's right hand has the status of everyone else's left hand. One who is equally skilled with both hands is liable with either. [12] In the air, etc. We do not say that he is training his hand in writing. The same applies that one may watch a craftsman work on Shabbos even though this teaches him the craft, as stated by Terumat HaDeshen. The rule is not limited to the air. The same applies to tracing on a dry board or table when no visible mark remains, because that is like writing in the air. [13] [Levush] And it is not a letter either, etc. The Bach asks that in Perek HaBoneh the Gemara states one is liable for making a mark. If the mark is non-enduring, one should at least be exempt but prohibited, like writing. The Bach therefore disagrees and rules that even marking parchment is prohibited; the Magen Avraham cites him. It appears to me that the Levush resolves this by saying that the Gemara's 'mark' means specifically a mark in the form of letters. A mere sign used to mark an error found in a book is permitted. So too it appears from Nachalat Tzvi. The Taz answers that because he makes only one mark and it is also non-enduring, there are two reasons for leniency. Even if he makes two marks, each is a separate sign and permitted; the Gemara concerns two marks serving one matter. Maharshal cites the Semak as prohibiting. They explain this specifically on paper, where the mark endures, but on parchment it is permitted. Malbushei Yom Tov writes that he found the Or Zarua prohibits making a fingernail mark on a margin as a reminder, and that Rabbi Yose, whose reasoning is generally accepted, prohibits even a mere mark. According to this, there is no difficulty with the Tur, for perhaps he does not rule like Rabbi Yose, as the Bartenura writes. The Semak may follow the Or Zarua. The Yerushalmi in Perek HaBoneh discusses whether engraving is included: one teaching says not engraving, another even engraving. Rav Chisda explains that the one excluding engraving speaks of raised writing, such as on a coin, while the one including engraving speaks of writing in a tablet. The Magen Avraham writes that Gittin 20 implies that attaching silver letters to a garment is called writing, so perhaps doing so on Shabbos is prohibited.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

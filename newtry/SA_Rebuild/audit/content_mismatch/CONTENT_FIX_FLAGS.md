@@ -108,3 +108,15 @@ Also mirrored under [`../he_en_content_mismatch/MANUAL_QUEUE.json`](../he_en_con
 ## Queue hygiene
 
 When fixing: set `status` → `fixed`, add `fixed_at` + commit SHA in JSON; strike or move section here to a “Fixed” heading.
+
+
+---
+
+## GPT fix kits (2026-08-30)
+
+See [`OC_GPT_KITS_INDEX.md`](./OC_GPT_KITS_INDEX.md).
+
+| Zip | Cases | Parts |
+|-----|------:|------:|
+| `zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip` | 120 | 11 |
+| `zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip` | 257 | 47 |

@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 7,
+    "chunk_total": 47,
+    "case_offset": 41,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman135/seif-012/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 135,
+      "seif": 12,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.524,
+        "he_chars": 923,
+        "en_chars": 1407,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1407
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(מג) שכולה כהנים וכו' - והיינו דוקא כשאין שם ג\"כ לוי כלל שאין יכולין להתקיים כסדר שתקנו חז\"ל וע\"כ טוב לשנות מפני השלום אבל אם יש שם עוד לוי אחד יקראו כסדר המשנה כהן לוי ישראל ואח\"כ את השאר יקראו כהנים:<br />\n(מד) ישראל אחד ביניהם - אבל אם יש שני ישראלים וכ\"ש יותר הוא בכלל מה שכתב השו\"ע אח\"כ שאין בהם ישראל כדי סיפוקם וע\"כ יקרא הכהן בתחלה וגם יקרא הכהן במקום לוי ואח\"כ יקראו הישראלים ויתר העליות ישלימו בכהנים. ואם יש שני לוים ושני ישראלים קורא כהן לוי וישראל ואח\"כ עוד כהן ולוי וישראל וכהן קורא שביעי וכ\"ש יתר עליות הנוספות:<br />\n(מה) מפני דרכי שלום - שלא יאמר כל אחד למה אתה קורא ראשון יותר ממני וה\"ה כשיש רק לוי אחד בעיר שכולה כהנים אותו לוי קורא ראשון מהאי טעמא. אם אין שם אלא כהנים ולוים יקרא כהן אחר כהן בהפסק לוי בינתים. כהן שהוא אבל ואין כהן אחר בביהכ\"נ בשבת מותר לקראו לכהן שלא יהיה נראה כאבלות בפרהסיא ובחול לא יעלה דאבל אסור בד\"ת ומ\"מ בין בחול ובין בשבת יותר טוב שיצא מתחלה מביהכ\"נ ויקראו לישראל וללוי במקום כהן [א\"ר וש\"א]:\n",
+      "en_html": "And we were not there when there is no doubt that there is no way to exist as an order made by the Sages and so good to change against peace\r\nIf there is another one of the Levites there, they will be called the subconnaissssance of the Levites of Israel and then the rest will be called priests:\n<br>Israel is one of them, but if there are two Israelis and even more so is what the Gemara says, then that Israel does not have them in order to satisfy them The priest shall also be called the priest in the place of Levi and then the Israelis shall be called and the rest of the leaves shall be filled with priests. If there are two Israelis, Cohen reads Levi and Israel, and then Cohen and Li and Israel, and as such, read in My words, and \"the rest of the mitzvot\":\n<br>(What) from the ways of peace – that no one will say to what you read first more than me, and “when there is only one Levi in the city that is called by Levi.” I'll give up the island. If there is no name but priests and no one will call another Cohen at the entrance of Levi. Cohen is but there is no other Cohen in the Gemara on Shabbat The caro will not be seen as virgins in the parasaia and the sand shall not be circumcised and circumcised between the sand and the better Shabbat that emerged from the hospital We shall be called to Israel and to the Levites in the place of the the Master, and to thee, and to thee shall be taken to thee",
+      "he_plain": "(מג) שכולה כהנים וכו' - והיינו דוקא כשאין שם ג\"כ לוי כלל שאין יכולין להתקיים כסדר שתקנו חז\"ל וע\"כ טוב לשנות מפני השלום אבל אם יש שם עוד לוי אחד יקראו כסדר המשנה כהן לוי ישראל ואח\"כ את השאר יקראו כהנים: (מד) ישראל אחד ביניהם - אבל אם יש שני ישראלים וכ\"ש יותר הוא בכלל מה שכתב השו\"ע אח\"כ שאין בהם ישראל כדי סיפוקם וע\"כ יקרא הכהן בתחלה וגם יקרא הכהן במקום לוי ואח\"כ יקראו הישראלים ויתר העליות ישלימו בכהנים. ואם יש שני לוים ושני ישראלים קורא כהן לוי וישראל ואח\"כ עוד כהן ולוי וישראל וכהן קורא שביעי וכ\"ש יתר עליות הנוספות: (מה) מפני דרכי שלום - שלא יאמר כל אחד למה אתה קורא ראשון יותר ממני וה\"ה כשיש רק לוי אחד בעיר שכולה כהנים אותו לוי קורא ראשון מהאי טעמא. אם אין שם אלא כהנים ולוים יקרא כהן אחר כהן בהפסק לוי בינתים. כהן שהוא אבל ואין כהן אחר בביהכ\"נ בשבת מותר לקראו לכהן שלא יהיה נראה כאבלות בפרהסיא ובחול לא יעלה דאבל אסור בד\"ת ומ\"מ בין בחול ובין בשבת יותר טוב שיצא מתחלה מביהכ\"נ ויקראו לישראל וללוי במקום כהן [א\"ר וש\"א]:",
+      "en_plain": "And we were not there when there is no doubt that there is no way to exist as an order made by the Sages and so good to change against peace If there is another one of the Levites there, they will be called the subconnaissssance of the Levites of Israel and then the rest will be called priests: Israel is one of them, but if there are two Israelis and even more so is what the Gemara says, then that Israel does not have them in order to satisfy them The priest shall also be called the priest in the place of Levi and then the Israelis shall be called and the rest of the leaves shall be filled with priests. If there are two Israelis, Cohen reads Levi and Israel, and then Cohen and Li and Israel, and as such, read in My words, and \"the rest of the mitzvot\": (What) from the ways of peace – that no one will say to what you read first more than me, and “when there is only one Levi in the city that is called by Levi.” I'll give up the island. If there is no name but priests and no one will call another Cohen at the entrance of Levi. Cohen is but there is no other Cohen in the Gemara on Shabbat The caro will not be seen as virgins in the parasaia and the sand shall not be circumcised and circumcised between the sand and the better Shabbat that emerged from the hospital We shall be called to Israel and to the Levites in the place of the the Master, and to thee, and to thee shall be taken to thee",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman136/seif-001/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 136,
+      "seif": 1,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.774,
+        "he_chars": 2806,
+        "en_chars": 4978,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4978
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "[א] <b>ואחריהם תלמידי חכמים וכו'.</b> ואחר כך בני תלמידי חכמים שאבותיהם ממונים על הציבור ואחר כך ראשי כו' טור. כתב לבוש במדינות אלו שמוכרין המצוות כל הקונה יש לו רשות לקרות למי שירצה ובלבד שיקרא כל אחד לפי כבודו, וזה לשון ש\"ך בחושן משפט סימן שפ\"ב, ומהרש\"ל פרק החובל סימן ס' כתב דאם קנה אחד שלישי או ששי או שביעי וקדמו אחר חייב ליתן לו עשרה זהובים אי תפס, ואין דבריו מוכרחים עד כאן לשונו. ושיירי כנסת הגדולה הבין דברי רש\"ל דמיירי אפילו תפס ואשתמיטתיה דברי ש\"ך הנזכר לעיל. ומבואר ברש\"ל שם דהוא הדין בזמן שקראו לראובן וקדם שמעון ובירך, וכל זה כשדחפו עד שלא היה יכול לענות אמן או בירך בלחש, אבל כשהיה יכול לענות אמן פטור. ונראה דמה שכתב רש\"ל חייב ליתן עשרה זהובים היינו לכל ברכה וברכה, ואם כן צריך ליתן עשרים זהובים וכן כתב בפרישה ליו\"ד סימן כ\"ח, ושיירי כנסת הגדולה מגיה בדברי רש\"ל וצריך לומר עשרים והוא לחינם. ועיין תשובת נחלת שבעה סימן ל\"ח דאשתמיטתיה כל הנזכר לעיל, וראיה שהביא שם מתוס' חולין דף פ\"ז הוא תמוה ואין להאריך. כתב שיירי כנסת הגדולה אם יש הרבה חתנים וכולם ישראלים הנושא בתולה קודם לעליית ספר תורה לאלמנה, אלמנה לחלוצה, וחלוצה לגרושה, והוא דכולם שוין בידיעת התורה, ועיין לקמן סוף סימן רפ\"ב בקדימת החיובים, ובאליהו זוטא כתבתי בתקנות שתיקן הגאון מוהר\"ר ליווא פה פראג, ראיתי סדרן ראשון חתן ביום חתונתו או בשבת אחר חתונה, ואחר כך הנער בר מצוה ואחר כך שני שושבינים ואחר כך הסנדק ואחר כך המוהל ואחר כך בעל היולדת ואחר כך היארצייט, עד כאן. וצריך עיון אם כוונתו בשושבינים נמי אפילו בשבת שאחר החתונה, ועוד הא בלבוש סימן רפ\"ב לא מזכיר שושבינים. כתב מגן אברהם שם אם היולדת חולה ואינה יכולה לבוא לבית הכנסת אינו חייב עד שתלך לבית הכנסת, ומכל מקום אם הוא ארבעים יום לזכר ושמונים לנקיבה והוא חיוב דאז הוא זמן הבאת קרבן, ואם מתה אשתו שוב אינה חיוב. המפלת בעלה חיוב אלא אם כן הפילה צורה שאין אנו בקיאין בה דאז אינה דוחה חיוב אחר דשמא אינו ולד. כתב בתשובת נחלת צבי סימן ל\"ח דאף במקום שנוהגין לקרות פרנס יארצייט קודם לו ובמילתא כי הא עביד אינש דינא לנפשיה דהא פסידא דלא הדר. כתב שיירי כנסת הגדולה היכא שמנהג שיחידים שיש להם ספר תורה כשיש להם איזה שמחה שבוע הבן או נישואין או מדליק מוציאין ספר תורה שלו לקרות בסדר היום, אירע שני שמחות, ולשניהם יש ספר תורה, חתן קודם למדליק אבי הבן קודם לחתן, בעל ברית קודם לאבי הבן, שני אבות הבנים או בעל ברית או שני חתנים, תלמיד חכם בעל הוראה קודם לתלמיד חכם מפלפל ואינו בעל הוראה, תלמיד קודם לכהן עם הארץ, כהן קודם ללוי לוי לישראל שניהם שוין באבות הבנים. מי שנולד ראשון יזכה ראשון שכבר זכה במצוה קודם חבירו וכן המנהג בעיר הזאת דמי שנולד ראשון נימול ראשון, ובחתנים ומדליקים או אפילו באבות ובנים שנולדו בשעה אחת יטילו גורל. מי שיש לו ספר תורה שקנאו הוא עצמו וכתבו קודם למי שירש ספר תורה מאבותיו. מי שיש לו ספר תורה בקהל זה קודם למי שיש לו במקום אחר ורוצה להביאה לקרות בו אותו שבת. ומה שכתב הלבוש שיקרא כל אחד לפי כבודו סימן וסיים לחם רב כמו שנזכר בסימן זה, וכן משמע בתשובת מהר\"מ מינץ סימן ו', ואם הסגן אינו רוצה לקרות אחד מן הלומדים דרך נקמה יש לפרנסים לתקן וליקח ממנו סגן, ועיין שם באריכות:\n",
+      "en_html": "<b>And after them, Torah scholars, etc.</b> Then come the sons of Torah scholars whose fathers hold communal office, and afterward the communal leaders, etc., as the Tur writes. The Levush writes that in these lands, where mitzvah honors are sold, the purchaser may call whomever he wishes, provided that each person is called according to his honor. The Shach in Choshen Mishpat siman 382 cites Maharshal, Perek HaChovel, siman 60, that if someone purchased the third, sixth, or seventh aliyah and another person preempted him, the latter must pay ten gold pieces if the purchaser seized the money. The Shach adds that Maharshal's words are not conclusive. Shiyarei Knesset HaGedolah understood Maharshal as speaking even if the money was seized, but he overlooked the Shach just cited. Maharshal there also explains that the same applies where Reuven was called to the Torah and Shimon preempted him and recited the blessing. All this applies where Shimon prevented Reuven from answering Amen, or recited the blessing quietly. If Reuven could answer Amen, Shimon is exempt. It seems that Maharshal's ten gold pieces means ten for each blessing, which would total twenty. So writes the Perishah in Yoreh Deah siman 28. Shiyarei Knesset HaGedolah emends Maharshal's text to say twenty, but this is unnecessary. See Responsa Nachalat Shivah, siman 38, where all the above sources were apparently overlooked; the proof cited there from Tosafot Chullin 87 is surprising, and there is no need to elaborate. Shiyarei Knesset HaGedolah writes that where there are many bridegrooms and all are Yisraelim, one marrying a virgin precedes one marrying a widow; one marrying a widow precedes one marrying a chalutzah; and one marrying a chalutzah precedes one marrying a divorcee, provided they are all equal in Torah knowledge. See below, end of siman 282, concerning priorities among those obligated to receive aliyot. In Eliyah Zuta I recorded regulations instituted here in Prague by the gaon Maharal. I saw the following order: first, a bridegroom on his wedding day or on the Shabbos after the wedding; then a bar mitzvah boy; then two shoshvinim; then the sandak; then the mohel; then the husband of a woman who gave birth; then one observing a yahrzeit. This requires study whether the shoshvinim have priority even on the Shabbos after the wedding, especially since the Levush in siman 282 does not mention shoshvinim. Magen Avraham there writes that if the woman who gave birth is ill and cannot come to the synagogue, her husband has no obligation until she does come. Nevertheless, at forty days after the birth of a male or eighty days after the birth of a female, he has an obligation, because that is the time for bringing the offering. If his wife died, he no longer has that obligation. The husband of a woman who miscarried has an obligation unless she miscarried a form whose halachic status we cannot determine; then he does not displace another obligated person, since perhaps it was not a fetus. Responsa Nachalat Tzvi, siman 38, writes that even in a place where it is customary to call a communal leader, one observing yahrzeit precedes him, and in such a matter a person may take the law into his own hands because the loss cannot be recovered. Shiyarei Knesset HaGedolah further writes that in places where individuals own Sifrei Torah and, when they have a celebration such as a week of a son's birth, a wedding, or the honor of lighting, they take out their own Sefer Torah for the day's reading, the following rules apply when two celebrations coincide and both have Sifrei Torah. A bridegroom precedes one with the lighting honor; the father of a newborn precedes the bridegroom; a baal brit precedes the father of the newborn. If there are two fathers, two baalei brit, or two bridegrooms, a Torah scholar who is a halachic decisor precedes a Torah scholar who is sharp in analysis but not a decisor; a Torah scholar precedes an unlearned kohen; a kohen precedes a Levi; and a Levi precedes a Yisrael. If two fathers are otherwise equal, the one whose child was born first takes precedence, since he acquired the mitzvah first. The custom in this city is likewise that the child born first is circumcised first. Between bridegrooms or those with the lighting honor, or even between fathers of children born at the same time, they cast lots. One who owns a Sefer Torah that he personally purchased and had written precedes one who inherited a Sefer Torah from his ancestors. One who has a Sefer Torah in this congregation precedes one whose Sefer Torah is elsewhere and who wishes to bring it for that Shabbos. The Levush's statement that each person should be called according to his honor is a significant indication, as Lechem Rav concludes, and Responsa Maharam Mintz, siman 6, implies the same. If the gabbai refuses to call one of the scholars out of spite, the communal officers should enact a regulation and remove him from his position. See there at length.\n",
+      "he_plain": "[א] ואחריהם תלמידי חכמים וכו'. ואחר כך בני תלמידי חכמים שאבותיהם ממונים על הציבור ואחר כך ראשי כו' טור. כתב לבוש במדינות אלו שמוכרין המצוות כל הקונה יש לו רשות לקרות למי שירצה ובלבד שיקרא כל אחד לפי כבודו, וזה לשון ש\"ך בחושן משפט סימן שפ\"ב, ומהרש\"ל פרק החובל סימן ס' כתב דאם קנה אחד שלישי או ששי או שביעי וקדמו אחר חייב ליתן לו עשרה זהובים אי תפס, ואין דבריו מוכרחים עד כאן לשונו. ושיירי כנסת הגדולה הבין דברי רש\"ל דמיירי אפילו תפס ואשתמיטתיה דברי ש\"ך הנזכר לעיל. ומבואר ברש\"ל שם דהוא הדין בזמן שקראו לראובן וקדם שמעון ובירך, וכל זה כשדחפו עד שלא היה יכול לענות אמן או בירך בלחש, אבל כשהיה יכול לענות אמן פטור. ונראה דמה שכתב רש\"ל חייב ליתן עשרה זהובים היינו לכל ברכה וברכה, ואם כן צריך ליתן עשרים זהובים וכן כתב בפרישה ליו\"ד סימן כ\"ח, ושיירי כנסת הגדולה מגיה בדברי רש\"ל וצריך לומר עשרים והוא לחינם. ועיין תשובת נחלת שבעה סימן ל\"ח דאשתמיטתיה כל הנזכר לעיל, וראיה שהביא שם מתוס' חולין דף פ\"ז הוא תמוה ואין להאריך. כתב שיירי כנסת הגדולה אם יש הרבה חתנים וכולם ישראלים הנושא בתולה קודם לעליית ספר תורה לאלמנה, אלמנה לחלוצה, וחלוצה לגרושה, והוא דכולם שוין בידיעת התורה, ועיין לקמן סוף סימן רפ\"ב בקדימת החיובים, ובאליהו זוטא כתבתי בתקנות שתיקן הגאון מוהר\"ר ליווא פה פראג, ראיתי סדרן ראשון חתן ביום חתונתו או בשבת אחר חתונה, ואחר כך הנער בר מצוה ואחר כך שני שושבינים ואחר כך הסנדק ואחר כך המוהל ואחר כך בעל היולדת ואחר כך היארצייט, עד כאן. וצריך עיון אם כוונתו בשושבינים נמי אפילו בשבת שאחר החתונה, ועוד הא בלבוש סימן רפ\"ב לא מזכיר שושבינים. כתב מגן אברהם שם אם היולדת חולה ואינה יכולה לבוא לבית הכנסת אינו חייב עד שתלך לבית הכנסת, ומכל מקום אם הוא ארבעים יום לזכר ושמונים לנקיבה והוא חיוב דאז הוא זמן הבאת קרבן, ואם מתה אשתו שוב אינה חיוב. המפלת בעלה חיוב אלא אם כן הפילה צורה שאין אנו בקיאין בה דאז אינה דוחה חיוב אחר דשמא אינו ולד. כתב בתשובת נחלת צבי סימן ל\"ח דאף במקום שנוהגין לקרות פרנס יארצייט קודם לו ובמילתא כי הא עביד אינש דינא לנפשיה דהא פסידא דלא הדר. כתב שיירי כנסת הגדולה היכא שמנהג שיחידים שיש להם ספר תורה כשיש להם איזה שמחה שבוע הבן או נישואין או מדליק מוציאין ספר תורה שלו לקרות בסדר היום, אירע שני שמחות, ולשניהם יש ספר תורה, חתן קודם למדליק אבי הבן קודם לחתן, בעל ברית קודם לאבי הבן, שני אבות הבנים או בעל ברית או שני חתנים, תלמיד חכם בעל הוראה קודם לתלמיד חכם מפלפל ואינו בעל הוראה, תלמיד קודם לכהן עם הארץ, כהן קודם ללוי לוי לישראל שניהם שוין באבות הבנים. מי שנולד ראשון יזכה ראשון שכבר זכה במצוה קודם חבירו וכן המנהג בעיר הזאת דמי שנולד ראשון נימול ראשון, ובחתנים ומדליקים או אפילו באבות ובנים שנולדו בשעה אחת יטילו גורל. מי שיש לו ספר תורה שקנאו הוא עצמו וכתבו קודם למי שירש ספר תורה מאבותיו. מי שיש לו ספר תורה בקהל זה קודם למי שיש לו במקום אחר ורוצה להביאה לקרות בו אותו שבת. ומה שכתב הלבוש שיקרא כל אחד לפי כבודו סימן וסיים לחם רב כמו שנזכר בסימן זה, וכן משמע בתשובת מהר\"מ מינץ סימן ו', ואם הסגן אינו רוצה לקרות אחד מן הלומדים דרך נקמה יש לפרנסים לתקן וליקח ממנו סגן, ועיין שם באריכות:",
+      "en_plain": "And after them, Torah scholars, etc. Then come the sons of Torah scholars whose fathers hold communal office, and afterward the communal leaders, etc., as the Tur writes. The Levush writes that in these lands, where mitzvah honors are sold, the purchaser may call whomever he wishes, provided that each person is called according to his honor. The Shach in Choshen Mishpat siman 382 cites Maharshal, Perek HaChovel, siman 60, that if someone purchased the third, sixth, or seventh aliyah and another person preempted him, the latter must pay ten gold pieces if the purchaser seized the money. The Shach adds that Maharshal's words are not conclusive. Shiyarei Knesset HaGedolah understood Maharshal as speaking even if the money was seized, but he overlooked the Shach just cited. Maharshal there also explains that the same applies where Reuven was called to the Torah and Shimon preempted him and recited the blessing. All this applies where Shimon prevented Reuven from answering Amen, or recited the blessing quietly. If Reuven could answer Amen, Shimon is exempt. It seems that Maharshal's ten gold pieces means ten for each blessing, which would total twenty. So writes the Perishah in Yoreh Deah siman 28. Shiyarei Knesset HaGedolah emends Maharshal's text to say twenty, but this is unnecessary. See Responsa Nachalat Shivah, siman 38, where all the above sources were apparently overlooked; the proof cited there from Tosafot Chullin 87 is surprising, and there is no need to elaborate. Shiyarei Knesset HaGedolah writes that where there are many bridegrooms and all are Yisraelim, one marrying a virgin precedes one marrying a widow; one marrying a widow precedes one marrying a chalutzah; and one marrying a chalutzah precedes one marrying a divorcee, provided they are all equal in Torah knowledge. See below, end of siman 282, concerning priorities among those obligated to receive aliyot. In Eliyah Zuta I recorded regulations instituted here in Prague by the gaon Maharal. I saw the following order: first, a bridegroom on his wedding day or on the Shabbos after the wedding; then a bar mitzvah boy; then two shoshvinim; then the sandak; then the mohel; then the husband of a woman who gave birth; then one observing a yahrzeit. This requires study whether the shoshvinim have priority even on the Shabbos after the wedding, especially since the Levush in siman 282 does not mention shoshvinim. Magen Avraham there writes that if the woman who gave birth is ill and cannot come to the synagogue, her husband has no obligation until she does come. Nevertheless, at forty days after the birth of a male or eighty days after the birth of a female, he has an obligation, because that is the time for bringing the offering. If his wife died, he no longer has that obligation. The husband of a woman who miscarried has an obligation unless she miscarried a form whose halachic status we cannot determine; then he does not displace another obligated person, since perhaps it was not a fetus. Responsa Nachalat Tzvi, siman 38, writes that even in a place where it is customary to call a communal leader, one observing yahrzeit precedes him, and in such a matter a person may take the law into his own hands because the loss cannot be recovered. Shiyarei Knesset HaGedolah further writes that in places where individuals own Sifrei Torah and, when they have a celebration such as a week of a son's birth, a wedding, or the honor of lighting, they take out their own Sefer Torah for the day's reading, the following rules apply when two celebrations coincide and both have Sifrei Torah. A bridegroom precedes one with the lighting honor; the father of a newborn precedes the bridegroom; a baal brit precedes the father of the newborn. If there are two fathers, two baalei brit, or two bridegrooms, a Torah scholar who is a halachic decisor precedes a Torah scholar who is sharp in analysis but not a decisor; a Torah scholar precedes an unlearned kohen; a kohen precedes a Levi; and a Levi precedes a Yisrael. If two fathers are otherwise equal, the one whose child was born first takes precedence, since he acquired the mitzvah first. The custom in this city is likewise that the child born first is circumcised first. Between bridegrooms or those with the lighting honor, or even between fathers of children born at the same time, they cast lots. One who owns a Sefer Torah that he personally purchased and had written precedes one who inherited a Sefer Torah from his ancestors. One who has a Sefer Torah in this congregation precedes one whose Sefer Torah is elsewhere and who wishes to bring it for that Shabbos. The Levush's statement that each person should be called according to his honor is a significant indication, as Lechem Rav concludes, and Responsa Maharam Mintz, siman 6, implies the same. If the gabbai refuses to call one of the scholars out of spite, the communal officers should enact a regulation and remove him from his position. See there at length.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman137/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 137,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.582,
+        "he_chars": 772,
+        "en_chars": 1221,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1221
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>סק\"א וא' קורא כו'.</b> שלא לבייש הראשון והאחרון כן הוא הגירס' בב\"ח בשם רש\"ל אלא שהב\"ח הקשה עליו מנ\"ל הא וא\"ל דרש\"ל כ\"כ מסבר' דבשלמ' אי קור' החזן ד' לראשון או לאחרון אין בזה ביוש לאחרים כי זה ידוע לכל דהעולה ראשון יש לו מעלה מצד עלייתו שהיא ראשונה וכמ\"ש במ\"א בסעיף קטן שאחר זה וא\"כ אין בזה כבוד לראשון מה שקראו לו ד' כי אין זה משום כבוד עצמו כי אם משום כבוד עלייתו שהיא חשובה וכן מה\"ט אין בזה ביוש לאחרי' וכן כשקורא לאחרון ד' מעלת האחרון ג\"כ ידוע לכל וכמ\"ש מ\"א אח\"ז א\"כ אין בזה כבוד ולא ביוש להעול' כנ\"ל אבל מעלת האמצעי הוא שכן מצינו במנורה וכמ\"ש מ\"א ס\"ק שאח\"ז אין זה נודע כ\"כ להעולם ויחשדוהו לקור' היינו החזן שקרא לשני ד' משום כבוד העולה עצמו ויש בזה ביוש לאחרים משא\"כ בזמן הש\"ס שהעולה עצמו היה קורא אם קרא שני ד' אין בזה ביוש לאחרון במה שהשני עשה לעצמו כבוד בקריאת ד' פסוקים:\n",
+      "en_html": "Note 1: And one reads, etc. — so as not to embarrass the first and last — such is the text in Bach in the name of Rashal; but Bach challenged him: from where? But Rashal said so from reasoning: granted if the chazzan reads four for the first or last, there is no embarrassment for others, for it is known to all that the first aliyah has superiority from its being first, as Magen Avraham wrote in the small seif after this; therefore reading four for the first is not honor for himself but for his aliyah which is important; and similarly no embarrassment for others. And when reading four for the last, the last's superiority is also known to all, as Magen Avraham wrote afterward; therefore no honor and no embarrassment for the oleh, as above. But the middle one's superiority is as we find in the Menorah, as Magen Avraham wrote in the note after — this is not so known to the world, and they will suspect the chazzan who called the second for four because of the oleh's own honor, and there is embarrassment for others; not so in Talmudic times when the oleh himself read — if he read two [aliyot of] four verses, there is no embarrassment for the last that the second made honor for himself by reading four verses.\r\n",
+      "he_plain": "סק\"א וא' קורא כו'. שלא לבייש הראשון והאחרון כן הוא הגירס' בב\"ח בשם רש\"ל אלא שהב\"ח הקשה עליו מנ\"ל הא וא\"ל דרש\"ל כ\"כ מסבר' דבשלמ' אי קור' החזן ד' לראשון או לאחרון אין בזה ביוש לאחרים כי זה ידוע לכל דהעולה ראשון יש לו מעלה מצד עלייתו שהיא ראשונה וכמ\"ש במ\"א בסעיף קטן שאחר זה וא\"כ אין בזה כבוד לראשון מה שקראו לו ד' כי אין זה משום כבוד עצמו כי אם משום כבוד עלייתו שהיא חשובה וכן מה\"ט אין בזה ביוש לאחרי' וכן כשקורא לאחרון ד' מעלת האחרון ג\"כ ידוע לכל וכמ\"ש מ\"א אח\"ז א\"כ אין בזה כבוד ולא ביוש להעול' כנ\"ל אבל מעלת האמצעי הוא שכן מצינו במנורה וכמ\"ש מ\"א ס\"ק שאח\"ז אין זה נודע כ\"כ להעולם ויחשדוהו לקור' היינו החזן שקרא לשני ד' משום כבוד העולה עצמו ויש בזה ביוש לאחרים משא\"כ בזמן הש\"ס שהעולה עצמו היה קורא אם קרא שני ד' אין בזה ביוש לאחרון במה שהשני עשה לעצמו כבוד בקריאת ד' פסוקים:",
+      "en_plain": "Note 1: And one reads, etc. — so as not to embarrass the first and last — such is the text in Bach in the name of Rashal; but Bach challenged him: from where? But Rashal said so from reasoning: granted if the chazzan reads four for the first or last, there is no embarrassment for others, for it is known to all that the first aliyah has superiority from its being first, as Magen Avraham wrote in the small seif after this; therefore reading four for the first is not honor for himself but for his aliyah which is important; and similarly no embarrassment for others. And when reading four for the last, the last's superiority is also known to all, as Magen Avraham wrote afterward; therefore no honor and no embarrassment for the oleh, as above. But the middle one's superiority is as we find in the Menorah, as Magen Avraham wrote in the note after — this is not so known to the world, and they will suspect the chazzan who called the second for four because of the oleh's own honor, and there is embarrassment for others; not so in Talmudic times when the oleh himself read — if he read two [aliyot of] four verses, there is no embarrassment for the last that the second made honor for himself by reading four verses.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman139/seif-010/beur-hagra",
+      "volume": "oc1",
+      "siman": 139,
+      "seif": 10,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.978,
+        "he_chars": 1232,
+        "en_chars": 2437,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2437
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"י אחר כו'. </b>כמו בבה\"מ דאמרי' שם חוזר למקום שפסק ופי' הרי\"ף וש\"פ דחוז' ואומר ברוך שאכלנו כו':<br />\n<b>כדי לכלול כו'. </b>ואע\"ג שאמר המבורך דה\"נ בבהמ\"ז אומר נברך לכלול עצמו ואפ\"ה חוזר ואומר ברוך כו' וכמ\"ש ירושלמי פ\"ז דברכות שמואל אמר אינו מוציא עצמו מן הכלל התיבון הרי ברכת התורה ה\"ה אומר ברכו א\"ר אבין מכיון שאומר המבורך אף הוא אינו מוציא עצמו מן הכלל:<br />\n<b>ס\"ח אפילו בירך כו' דמשום כו'. </b>כמו כהן שקורא במקום לוי שחוזר ומברך וכמ\"ש ירושלמי פ\"ז דברכות ר\"ז קם מקרי כהן במקום לוי ובירך לוי ובעון משתקוניה א\"ל רב חייא בר אשי ארפוה הכי אינון נהגין גבייהו. ר\"ל שהתקינו שכ\"א מברך וקודם התקנה לא היה רק עומד ויושב כמ\"ש בתוספתא בה\"כ שאין בהם שיקרא כו' וע' לקמן וס\"ס קמ\"ג וע' תוס' דר\"ה ל\"ג א' סד\"ה הא ואור\"ת דאין כו':<br />\n<b>ס\"ט דלא גרע כו'. </b>כמ\"ש בפ\"ק דברכות:<br />\n<b>ס\"י ברכה אחרונה. </b>מתניתין וגמ' רפ\"ג דמגילה דברכות כ\"א א' ובמ\"ס פי\"ג ה\"ח ובירושלמי פ\"ז ר\"ז בעי אלו ג' קריאות כו' לא למדו ברכת התורה מברכת הזימון אלא לרבים ואם לרבים בינו לבין עצמו לא יברך ר\"ל אפי' לפניה כו' ומשני עשאוה כשאר מצות של תורה מה שאר כו' וז\"ש בסי' תרצ\"ב ס\"א בהג\"ה ואין כו':<br />\n<b>זו תורה שבכתב. </b>כמ\"ש וכתוב יושר דברי אמת:<br />\n<b>וחיי כו'. </b>סיפא דקרא דברי חכמים כו' ודרשו בפ'\"ק דחגיגה מה הדרבן כו' להוציא חיים לעולם וסיפא דקרא וכמסמרות נטועים והוא תורה שבע\"פ כמ\"ש דברי חכמים כו' וכ' בעלי אסיפות ודרשו אלו מטהרין כו':\n",
+      "en_html": "<b>Seif 10, after, etc.</b> As with Birkat Hamazon, where we say there that he returns to the place where he stopped; and Rif and the other poskim explained that he returns and says, \"Blessed is He of whose food we have eaten,\" etc.<br />\r\n<b>In order to include, etc.</b> Although he said \"the blessed One,\" for similarly in Birkat Hamazon he says \"let us bless\" in order to include himself, and nevertheless he returns and says \"Blessed,\" etc. And as the Yerushalmi says in Berakhot chapter 7: Shmuel said, he does not remove himself from the group. They challenged: But in the blessing over Torah he says \"Bless.\" Rabbi Avin said: Since he says \"the blessed One,\" he too does not remove himself from the group.<br />\r\n<b>Seif 8, even if he blessed, etc., for because, etc.</b> Like a kohen who reads in place of a levi, who returns and blesses, and as the Yerushalmi says in Berakhot chapter 7: Rabbi Zeira stood and called a kohen in place of a levi, and the levi blessed; they wanted to silence him, and Rav Chiya bar Ashi said to them: leave him, for so they practice among them. That is, they enacted that each one blesses; before the enactment he would only stand and sit, as written in the Tosefta regarding a synagogue where there is no one to read, etc. See below and the end of siman 143, and see Tosafot Rosh Hashanah 33a s.v. ha, and Rabbeinu Tam says that one does not, etc.<br />\r\n<b>Seif 9, that it is no worse, etc.</b> As written in the first chapter of Berakhot.<br />\r\n<b>Seif 10, the final blessing.</b> This is from the Mishnah and Gemara at the beginning of chapter 3 of Megillah, Berakhot 21a, Masekhet Soferim 13:8, and the Yerushalmi, Berakhot chapter 7: Rabbi Zeira asked, these three readings, etc.; they learned the Torah blessing from zimmun only for a group. If so, when one is alone should he not bless? Meaning, even before it, etc. It answers: they made it like the other mitzvot of the Torah; just as the others, etc. This is what is written in siman 692 seif 1 in the gloss: \"and one does not,\" etc.<br />\r\n<b>This is the Written Torah.</b> As it is written, \"and written uprightly, words of truth.\"<br />\r\n<b>And life, etc.</b> This is the end of the verse, \"the words of the wise,\" etc.; and they expounded in the first chapter of Chagigah: just as the goad, etc., to bring life to the world. The end of the verse, \"and like nails planted,\" refers to the Oral Torah, as it is written, \"the words of the wise,\" etc., and \"masters of assemblies\"; and they expounded: these declare pure, etc.",
+      "he_plain": "ס\"י אחר כו'. כמו בבה\"מ דאמרי' שם חוזר למקום שפסק ופי' הרי\"ף וש\"פ דחוז' ואומר ברוך שאכלנו כו': כדי לכלול כו'. ואע\"ג שאמר המבורך דה\"נ בבהמ\"ז אומר נברך לכלול עצמו ואפ\"ה חוזר ואומר ברוך כו' וכמ\"ש ירושלמי פ\"ז דברכות שמואל אמר אינו מוציא עצמו מן הכלל התיבון הרי ברכת התורה ה\"ה אומר ברכו א\"ר אבין מכיון שאומר המבורך אף הוא אינו מוציא עצמו מן הכלל: ס\"ח אפילו בירך כו' דמשום כו'. כמו כהן שקורא במקום לוי שחוזר ומברך וכמ\"ש ירושלמי פ\"ז דברכות ר\"ז קם מקרי כהן במקום לוי ובירך לוי ובעון משתקוניה א\"ל רב חייא בר אשי ארפוה הכי אינון נהגין גבייהו. ר\"ל שהתקינו שכ\"א מברך וקודם התקנה לא היה רק עומד ויושב כמ\"ש בתוספתא בה\"כ שאין בהם שיקרא כו' וע' לקמן וס\"ס קמ\"ג וע' תוס' דר\"ה ל\"ג א' סד\"ה הא ואור\"ת דאין כו': ס\"ט דלא גרע כו'. כמ\"ש בפ\"ק דברכות: ס\"י ברכה אחרונה. מתניתין וגמ' רפ\"ג דמגילה דברכות כ\"א א' ובמ\"ס פי\"ג ה\"ח ובירושלמי פ\"ז ר\"ז בעי אלו ג' קריאות כו' לא למדו ברכת התורה מברכת הזימון אלא לרבים ואם לרבים בינו לבין עצמו לא יברך ר\"ל אפי' לפניה כו' ומשני עשאוה כשאר מצות של תורה מה שאר כו' וז\"ש בסי' תרצ\"ב ס\"א בהג\"ה ואין כו': זו תורה שבכתב. כמ\"ש וכתוב יושר דברי אמת: וחיי כו'. סיפא דקרא דברי חכמים כו' ודרשו בפ'\"ק דחגיגה מה הדרבן כו' להוציא חיים לעולם וסיפא דקרא וכמסמרות נטועים והוא תורה שבע\"פ כמ\"ש דברי חכמים כו' וכ' בעלי אסיפות ודרשו אלו מטהרין כו':",
+      "en_plain": "Seif 10, after, etc. As with Birkat Hamazon, where we say there that he returns to the place where he stopped; and Rif and the other poskim explained that he returns and says, \"Blessed is He of whose food we have eaten,\" etc. In order to include, etc. Although he said \"the blessed One,\" for similarly in Birkat Hamazon he says \"let us bless\" in order to include himself, and nevertheless he returns and says \"Blessed,\" etc. And as the Yerushalmi says in Berakhot chapter 7: Shmuel said, he does not remove himself from the group. They challenged: But in the blessing over Torah he says \"Bless.\" Rabbi Avin said: Since he says \"the blessed One,\" he too does not remove himself from the group. Seif 8, even if he blessed, etc., for because, etc. Like a kohen who reads in place of a levi, who returns and blesses, and as the Yerushalmi says in Berakhot chapter 7: Rabbi Zeira stood and called a kohen in place of a levi, and the levi blessed; they wanted to silence him, and Rav Chiya bar Ashi said to them: leave him, for so they practice among them. That is, they enacted that each one blesses; before the enactment he would only stand and sit, as written in the Tosefta regarding a synagogue where there is no one to read, etc. See below and the end of siman 143, and see Tosafot Rosh Hashanah 33a s.v. ha, and Rabbeinu Tam says that one does not, etc. Seif 9, that it is no worse, etc. As written in the first chapter of Berakhot. Seif 10, the final blessing. This is from the Mishnah and Gemara at the beginning of chapter 3 of Megillah, Berakhot 21a, Masekhet Soferim 13:8, and the Yerushalmi, Berakhot chapter 7: Rabbi Zeira asked, these three readings, etc.; they learned the Torah blessing from zimmun only for a group. If so, when one is alone should he not bless? Meaning, even before it, etc. It answers: they made it like the other mitzvot of the Torah; just as the others, etc. This is what is written in siman 692 seif 1 in the gloss: \"and one does not,\" etc. This is the Written Torah. As it is written, \"and written uprightly, words of truth.\" And life, etc. This is the end of the verse, \"the words of the wise,\" etc.; and they expounded in the first chapter of Chagigah: just as the goad, etc., to bring life to the world. The end of the verse, \"and like nails planted,\" refers to the Oral Torah, as it is written, \"the words of the wise,\" etc., and \"masters of assemblies\"; and they expounded: these declare pure, etc.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman150/seif-002/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 150,
+      "seif": 2,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.773,
+        "he_chars": 273,
+        "en_chars": 484,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 484
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "אין בונין כו'. ונראה דוקא בעיר שכולם ישראל אבל עכשיו בגלותינו שאנו דרים בין הגוים מתי מעט וגם מתקנאים בנו אם נבנה בגובה מוטב לקיים בעצמנו למה תתראי ונשפיל בתינו ביותר לצאת לכל הדיעות ידי שמים וידי הבריות (ב\"ח) . ויש לעשות הפתח לדידן במערב וכן לצפון ודרום (בהג\"מ פי\"א מה\"ת):\n",
+      "en_html": "They do not build, etc. — it appears specifically in a city where all are Israel; but now in our exile when we dwell among gentiles — only occasionally, and they are jealous of us if we build high — better to fulfill it ourselves; why should we appear proud; we should lower our houses further to satisfy all opinions, heaven and human beings (Bach). One should make the entrance for us in the west, and likewise north and south (in Hagahot Maimonides chapter 11 of Hilchot Tefillah).\r\n",
+      "he_plain": "אין בונין כו'. ונראה דוקא בעיר שכולם ישראל אבל עכשיו בגלותינו שאנו דרים בין הגוים מתי מעט וגם מתקנאים בנו אם נבנה בגובה מוטב לקיים בעצמנו למה תתראי ונשפיל בתינו ביותר לצאת לכל הדיעות ידי שמים וידי הבריות (ב\"ח) . ויש לעשות הפתח לדידן במערב וכן לצפון ודרום (בהג\"מ פי\"א מה\"ת):",
+      "en_plain": "They do not build, etc. — it appears specifically in a city where all are Israel; but now in our exile when we dwell among gentiles — only occasionally, and they are jealous of us if we build high — better to fulfill it ourselves; why should we appear proud; we should lower our houses further to satisfy all opinions, heaven and human beings (Bach). One should make the entrance for us in the west, and likewise north and south (in Hagahot Maimonides chapter 11 of Hilchot Tefillah).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman162/seif-002/mechaber",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 2,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.435,
+        "he_chars": 444,
+        "en_chars": 637,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>הנוטל ידיו שופך עליהם <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>קצת מהרביעית להסיר מהם <i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>הלכלוך וכל דבר שחוצץ ואח\"כ שופך עליהם פעם שניה וגם אלו המים <i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>הם טמאים ואח\"כ שופך עליהם פעם <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>שלישית לטהר המים שעל גבי הידים ואם אין בידים לכלוך ודבר החוצץ שופך על שתי ידיו <i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>רביעית בבת אחת ואין צריך מים שניים: <small>הגה וה\"ה אם היו לו <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>מים רבים רוחץ תחלה מעט כדי להסיר הלכלוך ואחר כך שופך רביעית כאחד ואין צריך מים שלישית. הנוטל ידיו <i data-commentator=\"Turei Zahav\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>צריך <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>לשפשפם <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>זה בזה [מיי' פ' י\"א מהל' מקואות וכל בו וסמ\"ג והרא\"ש פרק כל הבשר]:</small>\n",
+      "en_html": "One who washes their hands pours a little of the revi'it to remove dirt and anything that interposes, then pours a second time (these waters are also impure), then pours a third time to purify the waters on the hands. If there is no dirt or interposing substance, one pours a full revi'it over both hands at once and does not need a second pouring. Gloss: Similarly, if one has abundant water, one first rinses a little to remove dirt, then pours a revi'it all at once and does not need a third pouring. One who washes their hands must rub them together. {Rama: [Maimonides, Laws of Mikvaot ch. 11; Kol Bo; Semag; Rosh, ch. Kol HaBasar]}\n",
+      "he_plain": "הנוטל ידיו שופך עליהם קצת מהרביעית להסיר מהם הלכלוך וכל דבר שחוצץ ואח\"כ שופך עליהם פעם שניה וגם אלו המים הם טמאים ואח\"כ שופך עליהם פעם שלישית לטהר המים שעל גבי הידים ואם אין בידים לכלוך ודבר החוצץ שופך על שתי ידיו רביעית בבת אחת ואין צריך מים שניים: הגה וה\"ה אם היו לו מים רבים רוחץ תחלה מעט כדי להסיר הלכלוך ואחר כך שופך רביעית כאחד ואין צריך מים שלישית. הנוטל ידיו צריך לשפשפם זה בזה [מיי' פ' י\"א מהל' מקואות וכל בו וסמ\"ג והרא\"ש פרק כל הבשר]:",
+      "en_plain": "One who washes their hands pours a little of the revi'it to remove dirt and anything that interposes, then pours a second time (these waters are also impure), then pours a third time to purify the waters on the hands. If there is no dirt or interposing substance, one pours a full revi'it over both hands at once and does not need a second pouring. Gloss: Similarly, if one has abundant water, one first rinses a little to remove dirt, then pours a revi'it all at once and does not need a third pouring. One who washes their hands must rub them together. {Rama: [Maimonides, Laws of Mikvaot ch. 11; Kol Bo; Semag; Rosh, ch. Kol HaBasar]}",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman162/seif-004/baer-heitev",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 4,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.523,
+        "he_chars": 526,
+        "en_chars": 801,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 801
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>עליהם. </b> עיין ט\"ז ומ\"א הטעם:<br />\n<b>לכל זה. </b> ואם נגע בהם אחר טמאות עיין מ\"א. כלי שנקב בשוליו ותחוב בו ברזא ודוחק אותו למעלה ויוצאים המים ע\"י שרי אעפ\"י שהברזא לחה ונוגע בו בידיו לית לן בה. ל\"ח. וכתב המ\"א ומ\"מ יש לחוש שלאחר שנטל הראשונה וחוזר ודוחק הברזא בידו הלחה נדבקו מים טמאים בברזא וכשחור ודוחק בידו השניה נטמאה מהמים הלחים לכן יטול רביעית כאחד. אם נטל הכלי בידו הלחה נטמא אזן הכלי מהמים ואם חזר ואוחז בידו הראשונה נטמא ידו ממנה וצריך לנגבה כמ\"ש ס\"ד. לכן יטול רביעית כאחד וכאן מהני נמי אם ישפוך ע\"ג היד בפ\"ע הראשונים ושניים עיין מ\"א:\n",
+      "en_html": "(א) About them. See the taste and taste:<br>\r\n<br>\r\n(ב) All this. And if you touch them, see Heaven. A vessel swayed by his side and carried him in a cave and shook him up and out of the water by Sri Aaa He was in his hands to give him a son. to the . the Gemara and M.M. should feel that after the first burden is returned, and the baroza in his hand is infected with unclean water A ram in the sukkah and black and laughs in the other hand are plucked out of the water, so take a fourth as one. If the vessel is taken in his hand, the vessel will be removed from the water and if it is predicted He is in his first hand, and must be taken away from him, and he must be called the S.D. Therefore, take a fourth as one and here from my breath if it is circumcised in the palm of the head The sea and the two see:\r\n",
+      "he_plain": "עליהם. עיין ט\"ז ומ\"א הטעם: לכל זה. ואם נגע בהם אחר טמאות עיין מ\"א. כלי שנקב בשוליו ותחוב בו ברזא ודוחק אותו למעלה ויוצאים המים ע\"י שרי אעפ\"י שהברזא לחה ונוגע בו בידיו לית לן בה. ל\"ח. וכתב המ\"א ומ\"מ יש לחוש שלאחר שנטל הראשונה וחוזר ודוחק הברזא בידו הלחה נדבקו מים טמאים בברזא וכשחור ודוחק בידו השניה נטמאה מהמים הלחים לכן יטול רביעית כאחד. אם נטל הכלי בידו הלחה נטמא אזן הכלי מהמים ואם חזר ואוחז בידו הראשונה נטמא ידו ממנה וצריך לנגבה כמ\"ש ס\"ד. לכן יטול רביעית כאחד וכאן מהני נמי אם ישפוך ע\"ג היד בפ\"ע הראשונים ושניים עיין מ\"א:",
+      "en_plain": "(א) About them. See the taste and taste: (ב) All this. And if you touch them, see Heaven. A vessel swayed by his side and carried him in a cave and shook him up and out of the water by Sri Aaa He was in his hands to give him a son. to the . the Gemara and M.M. should feel that after the first burden is returned, and the baroza in his hand is infected with unclean water A ram in the sukkah and black and laughs in the other hand are plucked out of the water, so take a fourth as one. If the vessel is taken in his hand, the vessel will be removed from the water and if it is predicted He is in his first hand, and must be taken away from him, and he must be called the S.D. Therefore, take a fourth as one and here from my breath if it is circumcised in the palm of the head The sea and the two see:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman162/seif-004/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 4,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.409,
+        "he_chars": 3072,
+        "en_chars": 4329,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4329
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(לב) שפך מים וכו' - מיירי כששפך רק מים ראשונים מקצת מהרביעית על יד אחת ושפשפה בשניה שאינה נטולה משום שחישב שיעלה נטילה גם להשניה בשפשוף זה וה\"ה אם השפשוף היה להסיר הזעה והלכלוך ממנה או סתם נגיעה בעלמא:<br />\n(לג) לא עלתה וכו' - ליד שניה וגם יד זו נטמאת בנגיעתה בחברתה וכדלקמיה:<br />\n(לד) נטמאו - דמים הראשונים חשובים טמאים דנטמאו בעת הנטילה בנגיעתם בידו כנ\"ל בס\"ב:<br />\n(לה) וכששפשפה נטמאת וכו' - וגרע ע\"י טומאה זו שקבלה עתה יותר מאם לא היו ידיו נטולות כלל דמים הטמאים שבאו על ידו אף אם ישפוך עליהם כמה קבים לא יטהרו עד שינגבם מקודם כדמפרש [הרא\"ש]:<br />\n(לו) חברתה - וממילא גם היא עצמה נטמאת וצריך לנגבה ג\"כ כיון שקבלו מימיה טומאה ע\"י נגיעתם ביד השניה הטמאה ומים השניים אינן מטהרין אלא טומאת היד עצמה אבל לא מהטומאה שבאה עליהן ממקום אחר וממילא ה\"ה כששפך מים ראשונים לשתי ידיו כל אחת בפ\"ע ושפשפם זה בזה נטמאו זה מזה ולא מהני מים שניים לטהרם כדלקמיה בס\"ו:<br />\n(לז) הלכך השופך וכו' - ר\"ל הואיל דנטמאת חברתה וממילא גם היא נטמאת וכנ\"ל ע\"כ צריך לנגב את שתי ידיו מתחלה ולחזור וליטלם כדין ובלא ניגוב לא מהני אף אם ישפוך עליהם כמה פעמים וכנ\"ל:<br />\n(לח) לפיכך הנוטל וכו' - ר\"ל הואיל שבארנו שצריך ליזהר שלא ליגע יד אחת בחברתה קודם גמר הנטילה ומצוי להכשל בזה וע\"כ טוב יותר שיעשה אחד מהג' דברים דהיינו או שישפוך אחר רביעית בב\"א על ידיו או שיעשה דבר זה ע\"י עצמו כדלקמיה או שישפוך על כל אחת רביעית בב\"א דאז נטהרו עי\"ז ידיו לגמרי ושוב אין נגיעתן זו בזו מקלקלין ואדרבה מצוה לכתחלה לשפשפם זו בזו אח\"כ:<br />\n(לט) עליהם - היינו על שתי ידיו כאחד דאז חשובין שניהם כיד אחת ואינם נטמאים ע\"י מה שנוגעין זה בזה בעת הנטילה וכדלקמיה בס\"ה:<br />\n(מ) ואם אין לו אחר וכו' - דכשיש אחר טוב יותר ממה שיטול בעצמו ע\"י אחיזה בראשי אצבעותיו דקשה ליזהר בזה שיבואו המים על ידיו ועל ראשי אצבעותיו גופא באופן זה:<br />\n(מא) על שתי ידיו כאחד - ר\"ל ועי\"ז די ברביעית אחת ושוב א\"צ מים שניים לטהרם:<br />\n(מב) או ישפוך על כל אחת רביעית - ר\"ל שיאחוז הכלי כדרכו וישפוך על כל יד ויד בפ\"ע רביעית בב\"א דאם ישפוך רביעית רק על יד אחת תקבל טומאה ע\"י נגיעתה בחברתה:<br />\n(מג) ואח\"כ ישפשפם - על כל הנ\"ל קאי ור\"ל דבאופנים אלו תו אין חשש קלקול ע\"י השפשוף:<br />\n(מד) שהשופך וכו' - ר\"ל ועי\"ז נגמרה כל טהרת הידים ושוב אין חשש כלל ע\"י נגיעתם אלו באלו:<br />\n(מה) אם נגע בהם - ואף שכבר נטל ידיו גם במים שניים או ברביעית בב\"א שכבר נטהרו ידיו לגמרי כיון שנגע בהם אחר שלא נטל ידיו צריך לנגב ולחזור וליטול כראוי:<br />\n(מו) ע\"י המים - ר\"ל שהמים נטמאו מנגיעתו ומטמאין הידים:<br />\n(מז) שהם שניים - שהראשונים באים רק להסיר הלכלוך כנ\"ל בס\"ב:<br />\n(מח) שלא יגע יד בחברתה - שחברתה כשאין עליה רק מים ראשונים הלא טמאים הם ומטמאין את ידו הראשונה ובדיעבד אם נגע י\"א שא\"צ לנגבה רק נותן אח\"כ מים עליה פעם אחת דכיון שכבר היו טהורים לגמרי אע\"פ שנטמאו מיד האחרת מהני מים השניים לטהרם וי\"א דגם בזה צריך לנגבה כמו בנגע בהם אחר:<br />\n(מט) א\"צ לכל זה - ר\"ל כמו שכתב מקודם דא\"צ מים שניים ומותר תיכף לשפשפם זה בזה אבל מ\"מ יש ליזהר שלא ליגע בהם אחר שלא נטל ידיו וכנ\"ל בסקמ\"ה וכתב הח\"א דמ\"מ אם כבר בירך ענט\"י ונזכר יחזור ויטול ידיו ולא יברך. כתבו האחרונים אם נטל הכלי בידו הלחה [היינו ביד הימין ששפך עליה מתחלה פעם אחת בידו השמאלית] נטמא אזן הכלי מהמים שיש על ידו דמים הראשונים טמאים הם ואם חזר ואחזו בידו השמאלית ליטול פעם שניה על הימין נטמא ידו עי\"ז וצריך לנגבה והעצה לזה שיטיל רביעית בב\"א על כל יד ויד או שישפוך מים ראשונים ושניים על כל יד ויד בפ\"ע:\n",
+      "en_html": "(א) (heart) pours water, etc. - Myiri when he sheds only the first water a little by one hand and rubs in a second that is not lacking because he thinks he will raise a void “If the rubbing was to remove the sweat and dirt from it or just touch it:\n<br>(ב) (g) did not rise and so on - next to a second and this hand is also engulfed in the company and as anemia:\n<br>(ג) (d) Natamao - The first blood is important at the time of abandonment in his hand as the U.S.:\n<br>(ד) (a) And when he was kidnapped, and so on, and he was poisoned by this unclean hand, which he had come to his hands, even if he were not “And they shall not be destroyed until they have been destroyed.”\n<br>(ה) She is also entangled and needs to be stolen from her life to a hundred by touching the other hand, the unclean and the two are not Dr. Delin, but not from the uncleanness that came from another place, and in any case, “when the first water was poured into his hands, each in the Gemara and rubbed them This is one of these things, and not two water water water to purify them as anemia in the UN:\n<br>(ו) And so on, that is the same as Heaven’s people, and so on, that it is the same as Heaven’s people, and that He is the same as Heaven’s people, and that He will be blessed with His hands No, no matter how many times will come to me, no matter how many times it is\n<br>(ז) Therefore, the mantle, and so on, that we should be careful not to touch one hand in the company before the end of the plant and that it is difficult to fail Let’s do one of the G-ds that is, or that he will follow the fourth in the Gemara by himself or do this by himself as anemia or that he will apply to any of the Rabbis At the time of the day, his hands were completely and again, and this is not the case of a cliche and adorned him from his mouth:\n<br>(ח) On them, we were by both hands as one of the then important ones both of them as one skeleton and are not entrenched by what is concerned with each other when it is hysteria and as anemia in the USSR :\n<br>(ט) (b) And if he has no other and so on, then he is better than he has taken by his fingers, it is hard to be careful that the water will come by his hands And his fingertips are in this way:\n<br>(י) (a) By his two hands as one, R.L. and X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X\n<br>(כ) (b) or shall be circumcised on each of the Wednesdays, and shall be circumcised in every hand and hand in the fourth verse in the Gemara, only by the hand of a brother You’ll get a hundred by touching her company:\n<br>(ל) (c) And then they shall be persecuted, for all those who are called Kai and Rachel, and this will not be feared by the bishop:\n<br>(מ) And so on, and so on, Heaven’s Word is over and over again there is no fear at all\n<br>(נ) (What) if he touched them, and even though he had already taken his hands in two or fourth water in the Gemara, which had already been completely broken by his hands as a man who touched them other than his hands Go back to the Negev and get back properly:\n<br>(ס) By the water, the water is clear:\n<br>(ע) They are two, the heads come only to remove the dirt in the U.S.:\n<br>(פ) She did not touch her friend’s hand, whose friend when she did not have the first unclean water, they emptied his first hand and worked if he touched him Her back only then gives water to her once, though they were completely pure, the other way away from the water of the two to purify them and a model for it Keep in touch like another:\n<br>(צ) (t) A. For all of this, as he wrote before, two water ridges are allowed to be rubbed at each other, but VAT must be careful not to touch them otherwise Heaven’s Word and His Word will be given to Heaven’s Word, and He will not be saved. The last verse is if the vessel is taken in his hand We were in the right hand that was shed on it once in his left hand, and the vessel was removed from the water with which his first blood was unclean, and if he returned and held In his left hand, he must take a second time on the right hand, and he must be swayed, and he has commanded him to take a fourth shiver in the Gemara by hand and hand, or to pour water First and second on each hand and hand in the Gemara:",
+      "he_plain": "(לב) שפך מים וכו' - מיירי כששפך רק מים ראשונים מקצת מהרביעית על יד אחת ושפשפה בשניה שאינה נטולה משום שחישב שיעלה נטילה גם להשניה בשפשוף זה וה\"ה אם השפשוף היה להסיר הזעה והלכלוך ממנה או סתם נגיעה בעלמא: (לג) לא עלתה וכו' - ליד שניה וגם יד זו נטמאת בנגיעתה בחברתה וכדלקמיה: (לד) נטמאו - דמים הראשונים חשובים טמאים דנטמאו בעת הנטילה בנגיעתם בידו כנ\"ל בס\"ב: (לה) וכששפשפה נטמאת וכו' - וגרע ע\"י טומאה זו שקבלה עתה יותר מאם לא היו ידיו נטולות כלל דמים הטמאים שבאו על ידו אף אם ישפוך עליהם כמה קבים לא יטהרו עד שינגבם מקודם כדמפרש [הרא\"ש]: (לו) חברתה - וממילא גם היא עצמה נטמאת וצריך לנגבה ג\"כ כיון שקבלו מימיה טומאה ע\"י נגיעתם ביד השניה הטמאה ומים השניים אינן מטהרין אלא טומאת היד עצמה אבל לא מהטומאה שבאה עליהן ממקום אחר וממילא ה\"ה כששפך מים ראשונים לשתי ידיו כל אחת בפ\"ע ושפשפם זה בזה נטמאו זה מזה ולא מהני מים שניים לטהרם כדלקמיה בס\"ו: (לז) הלכך השופך וכו' - ר\"ל הואיל דנטמאת חברתה וממילא גם היא נטמאת וכנ\"ל ע\"כ צריך לנגב את שתי ידיו מתחלה ולחזור וליטלם כדין ובלא ניגוב לא מהני אף אם ישפוך עליהם כמה פעמים וכנ\"ל: (לח) לפיכך הנוטל וכו' - ר\"ל הואיל שבארנו שצריך ליזהר שלא ליגע יד אחת בחברתה קודם גמר הנטילה ומצוי להכשל בזה וע\"כ טוב יותר שיעשה אחד מהג' דברים דהיינו או שישפוך אחר רביעית בב\"א על ידיו או שיעשה דבר זה ע\"י עצמו כדלקמיה או שישפוך על כל אחת רביעית בב\"א דאז נטהרו עי\"ז ידיו לגמרי ושוב אין נגיעתן זו בזו מקלקלין ואדרבה מצוה לכתחלה לשפשפם זו בזו אח\"כ: (לט) עליהם - היינו על שתי ידיו כאחד דאז חשובין שניהם כיד אחת ואינם נטמאים ע\"י מה שנוגעין זה בזה בעת הנטילה וכדלקמיה בס\"ה: (מ) ואם אין לו אחר וכו' - דכשיש אחר טוב יותר ממה שיטול בעצמו ע\"י אחיזה בראשי אצבעותיו דקשה ליזהר בזה שיבואו המים על ידיו ועל ראשי אצבעותיו גופא באופן זה: (מא) על שתי ידיו כאחד - ר\"ל ועי\"ז די ברביעית אחת ושוב א\"צ מים שניים לטהרם: (מב) או ישפוך על כל אחת רביעית - ר\"ל שיאחוז הכלי כדרכו וישפוך על כל יד ויד בפ\"ע רביעית בב\"א דאם ישפוך רביעית רק על יד אחת תקבל טומאה ע\"י נגיעתה בחברתה: (מג) ואח\"כ ישפשפם - על כל הנ\"ל קאי ור\"ל דבאופנים אלו תו אין חשש קלקול ע\"י השפשוף: (מד) שהשופך וכו' - ר\"ל ועי\"ז נגמרה כל טהרת הידים ושוב אין חשש כלל ע\"י נגיעתם אלו באלו: (מה) אם נגע בהם - ואף שכבר נטל ידיו גם במים שניים או ברביעית בב\"א שכבר נטהרו ידיו לגמרי כיון שנגע בהם אחר שלא נטל ידיו צריך לנגב ולחזור וליטול כראוי: (מו) ע\"י המים - ר\"ל שהמים נטמאו מנגיעתו ומטמאין הידים: (מז) שהם שניים - שהראשונים באים רק להסיר הלכלוך כנ\"ל בס\"ב: (מח) שלא יגע יד בחברתה - שחברתה כשאין עליה רק מים ראשונים הלא טמאים הם ומטמאין את ידו הראשונה ובדיעבד אם נגע י\"א שא\"צ לנגבה רק נותן אח\"כ מים עליה פעם אחת דכיון שכבר היו טהורים לגמרי אע\"פ שנטמאו מיד האחרת מהני מים השניים לטהרם וי\"א דגם בזה צריך לנגבה כמו בנגע בהם אחר: (מט) א\"צ לכל זה - ר\"ל כמו שכתב מקודם דא\"צ מים שניים ומותר תיכף לשפשפם זה בזה אבל מ\"מ יש ליזהר שלא ליגע בהם אחר שלא נטל ידיו וכנ\"ל בסקמ\"ה וכתב הח\"א דמ\"מ אם כבר בירך ענט\"י ונזכר יחזור ויטול ידיו ולא יברך. כתבו האחרונים אם נטל הכלי בידו הלחה [היינו ביד הימין ששפך עליה מתחלה פעם אחת בידו השמאלית] נטמא אזן הכלי מהמים שיש על ידו דמים הראשונים טמאים הם ואם חזר ואחזו בידו השמאלית ליטול פעם שניה על הימין נטמא ידו עי\"ז וצריך לנגבה והעצה לזה שיטיל רביעית בב\"א על כל יד ויד או שישפוך מים ראשונים ושניים על כל יד ויד בפ\"ע:",
+      "en_plain": "(א) (heart) pours water, etc. - Myiri when he sheds only the first water a little by one hand and rubs in a second that is not lacking because he thinks he will raise a void “If the rubbing was to remove the sweat and dirt from it or just touch it: (ב) (g) did not rise and so on - next to a second and this hand is also engulfed in the company and as anemia: (ג) (d) Natamao - The first blood is important at the time of abandonment in his hand as the U.S.: (ד) (a) And when he was kidnapped, and so on, and he was poisoned by this unclean hand, which he had come to his hands, even if he were not “And they shall not be destroyed until they have been destroyed.” (ה) She is also entangled and needs to be stolen from her life to a hundred by touching the other hand, the unclean and the two are not Dr. Delin, but not from the uncleanness that came from another place, and in any case, “when the first water was poured into his hands, each in the Gemara and rubbed them This is one of these things, and not two water water water to purify them as anemia in the UN: (ו) And so on, that is the same as Heaven’s people, and so on, that it is the same as Heaven’s people, and that He is the same as Heaven’s people, and that He will be blessed with His hands No, no matter how many times will come to me, no matter how many times it is (ז) Therefore, the mantle, and so on, that we should be careful not to touch one hand in the company before the end of the plant and that it is difficult to fail Let’s do one of the G-ds that is, or that he will follow the fourth in the Gemara by himself or do this by himself as anemia or that he will apply to any of the Rabbis At the time of the day, his hands were completely and again, and this is not the case of a cliche and adorned him from his mouth: (ח) On them, we were by both hands as one of the then important ones both of them as one skeleton and are not entrenched by what is concerned with each other when it is hysteria and as anemia in the USSR : (ט) (b) And if he has no other and so on, then he is better than he has taken by his fingers, it is hard to be careful that the water will come by his hands And his fingertips are in this way: (י) (a) By his two hands as one, R.L. and X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X (כ) (b) or shall be circumcised on each of the Wednesdays, and shall be circumcised in every hand and hand in the fourth verse in the Gemara, only by the hand of a brother You’ll get a hundred by touching her company: (ל) (c) And then they shall be persecuted, for all those who are called Kai and Rachel, and this will not be feared by the bishop: (מ) And so on, and so on, Heaven’s Word is over and over again there is no fear at all (נ) (What) if he touched them, and even though he had already taken his hands in two or fourth water in the Gemara, which had already been completely broken by his hands as a man who touched them other than his hands Go back to the Negev and get back properly: (ס) By the water, the water is clear: (ע) They are two, the heads come only to remove the dirt in the U.S.: (פ) She did not touch her friend’s hand, whose friend when she did not have the first unclean water, they emptied his first hand and worked if he touched him Her back only then gives water to her once, though they were completely pure, the other way away from the water of the two to purify them and a model for it Keep in touch like another: (צ) (t) A. For all of this, as he wrote before, two water ridges are allowed to be rubbed at each other, but VAT must be careful not to touch them otherwise Heaven’s Word and His Word will be given to Heaven’s Word, and He will not be saved. The last verse is if the vessel is taken in his hand We were in the right hand that was shed on it once in his left hand, and the vessel was removed from the water with which his first blood was unclean, and if he returned and held In his left hand, he must take a second time on the right hand, and he must be swayed, and he has commanded him to take a fourth shiver in the Gemara by hand and hand, or to pour water First and second on each hand and hand in the Gemara:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

@@ -1,0 +1,584 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 1,
+    "chunk_total": 47,
+    "case_offset": 0,
+    "cases_in_chunk": 13,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman244/seif-005/netiv-chayim",
+      "volume": "oc1",
+      "siman": 244,
+      "seif": 5,
+      "slug": "netiv-chayim",
+      "priority": "P0_manual_seed",
+      "kinds": [
+        "mt_garbage",
+        "manual_confirmed"
+      ],
+      "severity": 99,
+      "scores": {
+        "en_bytes": 111,
+        "he_bytes": 152
+      },
+      "details": {
+        "manual_flag_id": "oc1-netiv-chayim-244-5-mt-garbage",
+        "in_oc_content_scan": false,
+        "note": "Human-verified MT garbage; not in OC_CONTENT_SCAN flagged list"
+      },
+      "he_html": "<small>(שם)</small> דבשלמא כששוכר העכו\"ם בקיבולת או השכיר לעכו\"ם על חדש או חצי הוא נוטל כצ\"ל:\n",
+      "en_html": "(name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:\r\n",
+      "he_plain": "(שם) דבשלמא כששוכר העכו\"ם בקיבולת או השכיר לעכו\"ם על חדש או חצי הוא נוטל כצ\"ל:",
+      "en_plain": "(name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman310/seif-001/netiv-chayim",
+      "volume": "oc1",
+      "siman": 310,
+      "seif": 1,
+      "slug": "netiv-chayim",
+      "priority": "P0_netiv",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.03,
+        "he_chars": 199,
+        "en_chars": 404,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 404
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<small>(במ\"א ס\"ק ה'.)</small> ומ\"ש בהג\"א שם היינו דעת אחרת דכ\"ע מודו בזה אם יחדה דה\"ל כלי כנ\"ל. ונ\"ב ר\"ל לדעת הרי\"ף עכ\"פ אינו מותר כ\"א נצורך גופו ומקומו. אבל לדעת ר\"ח דדמי' לסיכי זירי ומזורי אפילו לצורך מקומו אסור:\n",
+      "en_html": "(In Magen Avraham s.k. 5.) And what he wrote in Hagahot Maimonides there — this is a different view that all agree to this if he designated it, for it is a utensil, as above. And it appears to me: meaning per the Rif, in any case it is not permitted except for its body and its place; but according to R' Chananel, who compares it to the wicks of a lamp and a spindle, even for its place it is forbidden.\r\n",
+      "he_plain": "(במ\"א ס\"ק ה'.) ומ\"ש בהג\"א שם היינו דעת אחרת דכ\"ע מודו בזה אם יחדה דה\"ל כלי כנ\"ל. ונ\"ב ר\"ל לדעת הרי\"ף עכ\"פ אינו מותר כ\"א נצורך גופו ומקומו. אבל לדעת ר\"ח דדמי' לסיכי זירי ומזורי אפילו לצורך מקומו אסור:",
+      "en_plain": "(In Magen Avraham s.k. 5.) And what he wrote in Hagahot Maimonides there — this is a different view that all agree to this if he designated it, for it is a utensil, as above. And it appears to me: meaning per the Rif, in any case it is not permitted except for its body and its place; but according to R' Chananel, who compares it to the wicks of a lamp and a spindle, even for its place it is forbidden.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman326/seif-010/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 326,
+      "seif": 10,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 20,
+      "scores": {
+        "en_he_ratio": 0.357,
+        "he_chars": 507,
+        "en_chars": 181,
+        "cut_deficit": 0.6429980276134122
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 181
+        },
+        "failure_patterns": [
+          "english_pending"
+        ],
+        "leaks": [
+          "placeholder_leak"
+        ]
+      },
+      "he_html": "[ז] <b>כלאחר יד וכו'.</b> לשון המרדכי דגיבול על ידי שינוי הוא ושרי, משמע דלהאוסרים בסימן שכ\"ד סעיף ג' הכי נמי דאסור ואפשר שהכא כולי עלמא מודים דשרי כיון שאין נותן מים עליהם אלא שלוקח אותם בידים הרטובות (מגן אברהם), וזה נגד הלבוש שכתב וישפוך עליהם מים וכו', ואפשר כיון שאינו בכלי שהמים נשאר בו הוי כאינו נותן עליהם, ומכל מקום נראה לי דבלאו הכי כולי עלמא מודו כמו שנתבאר סימן שכ\"א סעיף ט\"ז:<br />\n[ח] <b>ידיו במלח וכו'.</b> הקשה הט\"ז ממורסן כלאחר יד שרי ונדחק לתרץ ולא קשה מידי דגיבול על ידי שינוי לא הוי גיבול מה שאין כן במוליד:\n",
+      "en_html": "English translation pending — replace after editing this block (keep Hebrew above intact).<br />\nEnglish translation pending — replace after editing this block (keep Hebrew above intact).\n",
+      "he_plain": "[ז] כלאחר יד וכו'. לשון המרדכי דגיבול על ידי שינוי הוא ושרי, משמע דלהאוסרים בסימן שכ\"ד סעיף ג' הכי נמי דאסור ואפשר שהכא כולי עלמא מודים דשרי כיון שאין נותן מים עליהם אלא שלוקח אותם בידים הרטובות (מגן אברהם), וזה נגד הלבוש שכתב וישפוך עליהם מים וכו', ואפשר כיון שאינו בכלי שהמים נשאר בו הוי כאינו נותן עליהם, ומכל מקום נראה לי דבלאו הכי כולי עלמא מודו כמו שנתבאר סימן שכ\"א סעיף ט\"ז: [ח] ידיו במלח וכו'. הקשה הט\"ז ממורסן כלאחר יד שרי ונדחק לתרץ ולא קשה מידי דגיבול על ידי שינוי לא הוי גיבול מה שאין כן במוליד:",
+      "en_plain": "English translation pending — replace after editing this block (keep Hebrew above intact). English translation pending — replace after editing this block (keep Hebrew above intact).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman332/seif-004/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 332,
+      "seif": 4,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 20,
+      "scores": {
+        "en_he_ratio": 0.165,
+        "he_chars": 547,
+        "en_chars": 90,
+        "cut_deficit": 0.8354661791590494
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 90
+        },
+        "failure_patterns": [
+          "english_pending"
+        ],
+        "leaks": [
+          "placeholder_leak"
+        ]
+      },
+      "he_html": "[ב] <b>מותר לומר וכו'.</b> הנחלת צבי תמה מסימן ש\"ז סעיף ה' דלא התירו שבות אלא באיסור דרבנן ובמקום מצוה, עד כאן, ולעניות דעתי לא קשה מידי דהכא שאני כמו שנתבאר טעם במרדכי סוף פרק במה בהמה דאי לא שביק ליה אתא למעבד בעצמו. והנה הט\"ז מביא טעם זה וכתב עלה זה לשונו ולפי זה צריך לומר דהך דיכול להריצה שנזכר לפני זה אינו בענין זה שירא שמא תמות ולפיכך לא החמירו שם עד כאן לשונו, והוא תמוה דאדרבה דאם אין מתיירא שמא תמות היה ראויה להחמיר דלא בהול לעשות בעצמו איסור דאורייתא, ואפשר שיש טעות סופר בדבריו וצריך עיון ועוד הא בתוספתא סוף פרק י\"ז מפורש דיש חשש שמא תמות:\n",
+      "en_html": "English translation pending — replace after editing this block (keep Hebrew above intact).\n",
+      "he_plain": "[ב] מותר לומר וכו'. הנחלת צבי תמה מסימן ש\"ז סעיף ה' דלא התירו שבות אלא באיסור דרבנן ובמקום מצוה, עד כאן, ולעניות דעתי לא קשה מידי דהכא שאני כמו שנתבאר טעם במרדכי סוף פרק במה בהמה דאי לא שביק ליה אתא למעבד בעצמו. והנה הט\"ז מביא טעם זה וכתב עלה זה לשונו ולפי זה צריך לומר דהך דיכול להריצה שנזכר לפני זה אינו בענין זה שירא שמא תמות ולפיכך לא החמירו שם עד כאן לשונו, והוא תמוה דאדרבה דאם אין מתיירא שמא תמות היה ראויה להחמיר דלא בהול לעשות בעצמו איסור דאורייתא, ואפשר שיש טעות סופר בדבריו וצריך עיון ועוד הא בתוספתא סוף פרק י\"ז מפורש דיש חשש שמא תמות:",
+      "en_plain": "English translation pending — replace after editing this block (keep Hebrew above intact).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman171/seif-005/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 171,
+      "seif": 5,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 19,
+      "scores": {
+        "en_he_ratio": 0.479,
+        "he_chars": 188,
+        "en_chars": 90,
+        "cut_deficit": 0.5212765957446808
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 90
+        },
+        "failure_patterns": [
+          "english_pending"
+        ],
+        "leaks": [
+          "placeholder_leak"
+        ]
+      },
+      "he_html": "[ד] <b>חיטים וכו'.</b> כתב מלבושי יום טוב בשם דרישות מהר\"ש דאסור לשפשף צלוחית בשיבולת שועל שקורין האברי\"ן, עד כאן. וכתב מהרי\"ו דמותר ליזרוק מעבר לשולחן דלא כאותן שאומרים דאסור משום דזורקין המלאך:\n",
+      "en_html": "English translation pending — replace after editing this block (keep Hebrew above intact).\n",
+      "he_plain": "[ד] חיטים וכו'. כתב מלבושי יום טוב בשם דרישות מהר\"ש דאסור לשפשף צלוחית בשיבולת שועל שקורין האברי\"ן, עד כאן. וכתב מהרי\"ו דמותר ליזרוק מעבר לשולחן דלא כאותן שאומרים דאסור משום דזורקין המלאך:",
+      "en_plain": "English translation pending — replace after editing this block (keep Hebrew above intact).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman199/seif-010/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 199,
+      "seif": 10,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 19,
+      "scores": {
+        "en_he_ratio": 0.586,
+        "he_chars": 309,
+        "en_chars": 181,
+        "cut_deficit": 0.4142394822006472
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 181
+        },
+        "failure_patterns": [
+          "english_pending"
+        ],
+        "leaks": [
+          "placeholder_leak"
+        ]
+      },
+      "he_html": "[ז] <b>חרש ושוטה וכו'.</b> פירוש חרש המדבר ואינו שומע אבל אם אינו שומע ואינו מדבר אינו מצטרף כדלעיל סימן נ\"ה סעיף ח' וכן כתב בלחם חמודות. וכן לא מיירי בשוטה שדיברו חכמים כמבואר ביו\"ד סימן א' אלא בשוטה שאין חכם והעם מחזיקין אותו כשוטה, ובאליה רבה ליו\"ד יתבאר בארוכה:<br />\n[ח] <b>עיין ביו\"ד סימן של\"ד.</b> ולעיל סימן נ\"ה סעיף י\"ב:\n",
+      "en_html": "English translation pending — replace after editing this block (keep Hebrew above intact).<br />\nEnglish translation pending — replace after editing this block (keep Hebrew above intact).\n",
+      "he_plain": "[ז] חרש ושוטה וכו'. פירוש חרש המדבר ואינו שומע אבל אם אינו שומע ואינו מדבר אינו מצטרף כדלעיל סימן נ\"ה סעיף ח' וכן כתב בלחם חמודות. וכן לא מיירי בשוטה שדיברו חכמים כמבואר ביו\"ד סימן א' אלא בשוטה שאין חכם והעם מחזיקין אותו כשוטה, ובאליה רבה ליו\"ד יתבאר בארוכה: [ח] עיין ביו\"ד סימן של\"ד. ולעיל סימן נ\"ה סעיף י\"ב:",
+      "en_plain": "English translation pending — replace after editing this block (keep Hebrew above intact). English translation pending — replace after editing this block (keep Hebrew above intact).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman259/seif-001/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 259,
+      "seif": 1,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 17,
+      "scores": {
+        "en_he_ratio": 1.482,
+        "he_chars": 1021,
+        "en_chars": 1513,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1513
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ],
+        "leaks": [
+          "placeholder_leak"
+        ]
+      },
+      "he_html": "(א) מוכין - פי' יבשים כמ\"ש סימן רנ\"ז ס\"ג:<br />\n(ב) דרך מקרה - לאפוקי אם רגיל להטמין בהן נסתלק מהן שם מוקצה אף שלא יחדן בפירוש ודעת הב\"ח דאפילו בשני פעמים סגי לזה:<br />\n(ג) אסור לטלטלם - דסתמן חשובין הם ואדם מקצה דעתו מהן מפני שעומדין לעשות מהן לבדין והן מוקצין מחמת חסרון כיס דמקפיד להשתמש בהן שאר דברים ולפיכך אפילו טמן בהם דרך מקרה עדיין הם עומדין בהקצאתן ואינם בטלים להטמנה:<br />\n(ד) שמקצתן מגולה - כדי שיהיה לו מקום פנוי לאחוז הכסוי כדי שלא יצטרך לטלטל המוכין להדיא:<br />\n(ה) ואם יחדן לכך - פי' שיחדן מע\"ש להטמנה לעולם ואפילו היה היחוד רק במחשבה בעלמא לא בפה:<br />\n(ו) אבל אם טמן וכו' - אף דסתם גיזי צמר מוקצה הוא לטויה לאריגה מ\"מ אין חשובין כ\"כ כמו מוכין וכיון שטמן בהן כמאן דיחדן להכי דמי:<br />\n(ז) לסחורה - דכיון שהם עומדים אצלו לסחורה מסתמא עתיד להחזירן אח\"כ ג\"כ לאוצר וע\"כ אין מבטלן להטמנה והוי ממילא מוקצה אם לא שיחדן להטמנה מע\"ש:<br />\n(ח) שנוטל כסוי וכו' - וכגון שמקצתה מגולה וכנ\"ל גבי מוכין ואם אינה מגולה כלל יכול לתחוב בכוש ולנער את הכיסוי וכדלקמן בסימן שי\"א ס\"ט:<br />\n(ט) דלא נעשית בסיס - דהא אין הכיסוי תשמיש להצמר אדרבה הצמר משמש להקדירה לחממה:\n",
+      "en_html": "(א) (a) Prepared - P.S. is dry as a sign of RNA:\n<br>(ב) (b) In case, if we are accustomed to the sex we will leave, even though they do not share it with meaning and the opinion of the Gemara is rejected in two times\n<br>(ג) (c) It is forbidden to shock - an important detainee and a man from his point of view because he is going to do them alone and is an officer from a pocketless protester In which other things and therefore even lie in them through a case they are still at their disposal and are not null to the benefit:\n<br>(ד) (d) a few of them are removed – so that he has a free place to hold the chair so that he will not have to shake the ready for the idea:\n<br>(ה) (b) And if you do so, then I will be afraid of Heaven’s mercy to the world, and even if it were not unique in the mind of the wicked\n<br>(ו) (b) But if Batman and so on, even though a scheduled giddy is a Lattice to an M.M., it is not as important as he is prepared and that he is buried in them as a man who is deposed A fee:\n<br>(ז) (c) To trade - a domain that they stand with is destined to trade from the future to return them to the treasure, and therefore, they do not refuse to be paid off if not It is a sign of Heaven:\n<br>(ח) (h) We shall take a seat, etc. - and, like, a little of it is made up and planned, and if it is not removed, the cover can be carried out and shakes the cover and fuels in the dock A.D.:\n<br>(ט) (t) Dalai is made a base – Daa does not have the cover to be converted to the chilling adrena is used for a flat for the greenhouse:",
+      "he_plain": "(א) מוכין - פי' יבשים כמ\"ש סימן רנ\"ז ס\"ג: (ב) דרך מקרה - לאפוקי אם רגיל להטמין בהן נסתלק מהן שם מוקצה אף שלא יחדן בפירוש ודעת הב\"ח דאפילו בשני פעמים סגי לזה: (ג) אסור לטלטלם - דסתמן חשובין הם ואדם מקצה דעתו מהן מפני שעומדין לעשות מהן לבדין והן מוקצין מחמת חסרון כיס דמקפיד להשתמש בהן שאר דברים ולפיכך אפילו טמן בהם דרך מקרה עדיין הם עומדין בהקצאתן ואינם בטלים להטמנה: (ד) שמקצתן מגולה - כדי שיהיה לו מקום פנוי לאחוז הכסוי כדי שלא יצטרך לטלטל המוכין להדיא: (ה) ואם יחדן לכך - פי' שיחדן מע\"ש להטמנה לעולם ואפילו היה היחוד רק במחשבה בעלמא לא בפה: (ו) אבל אם טמן וכו' - אף דסתם גיזי צמר מוקצה הוא לטויה לאריגה מ\"מ אין חשובין כ\"כ כמו מוכין וכיון שטמן בהן כמאן דיחדן להכי דמי: (ז) לסחורה - דכיון שהם עומדים אצלו לסחורה מסתמא עתיד להחזירן אח\"כ ג\"כ לאוצר וע\"כ אין מבטלן להטמנה והוי ממילא מוקצה אם לא שיחדן להטמנה מע\"ש: (ח) שנוטל כסוי וכו' - וכגון שמקצתה מגולה וכנ\"ל גבי מוכין ואם אינה מגולה כלל יכול לתחוב בכוש ולנער את הכיסוי וכדלקמן בסימן שי\"א ס\"ט: (ט) דלא נעשית בסיס - דהא אין הכיסוי תשמיש להצמר אדרבה הצמר משמש להקדירה לחממה:",
+      "en_plain": "(א) (a) Prepared - P.S. is dry as a sign of RNA: (ב) (b) In case, if we are accustomed to the sex we will leave, even though they do not share it with meaning and the opinion of the Gemara is rejected in two times (ג) (c) It is forbidden to shock - an important detainee and a man from his point of view because he is going to do them alone and is an officer from a pocketless protester In which other things and therefore even lie in them through a case they are still at their disposal and are not null to the benefit: (ד) (d) a few of them are removed – so that he has a free place to hold the chair so that he will not have to shake the ready for the idea: (ה) (b) And if you do so, then I will be afraid of Heaven’s mercy to the world, and even if it were not unique in the mind of the wicked (ו) (b) But if Batman and so on, even though a scheduled giddy is a Lattice to an M.M., it is not as important as he is prepared and that he is buried in them as a man who is deposed A fee: (ז) (c) To trade - a domain that they stand with is destined to trade from the future to return them to the treasure, and therefore, they do not refuse to be paid off if not It is a sign of Heaven: (ח) (h) We shall take a seat, etc. - and, like, a little of it is made up and planned, and if it is not removed, the cover can be carried out and shakes the cover and fuels in the dock A.D.: (ט) (t) Dalai is made a base – Daa does not have the cover to be converted to the chilling adrena is used for a flat for the greenhouse:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-012/peri-megadim",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 12,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 17,
+      "scores": {
+        "en_he_ratio": 1.128,
+        "he_chars": 2070,
+        "en_chars": 2334,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2334
+        },
+        "failure_patterns": [
+          "darbanan"
+        ],
+        "leaks": [
+          "html_entities_leak"
+        ]
+      },
+      "he_html": "<b>להחזיק</b> עט״ז מ״ש משום זילותא די״ט עסי׳ תקכ״ב דבי״ט ליכא עירוב והוצאה דמתוך והוי צורך י״ט קצת רק משום עובדין דחול ואין אסור אלא ברה״ר וכרמלית במקום דשכיחי רבים אבל בשבת יש טעם משווי חוץ לעירוב. אבל ראיתי בלבוש הטעם דלמא אתי לאתויי ד״א ברה״ר כיון דיכול לילך כך ונ״מ טובא אם יצא ברה״ר למ״ש במ״א אות כ״ה בשם א״ר כל חששא דלמא אתי לאתויי ד״א ברה״ר אם יצא א״צ להסירם שם משא״כ משום משוי צריך להסירם שם ועיין שבת ס״ו א׳ ברש״י ותוספות שם ולענין מקל שיש בראשו מסמר שודאי עושה גומא בהליכתו והוי פסיק רישיה אלא דלא ניחא ליה בכך איכא לעיוני בהולך במקום שאין רצפה שם די״ל דגומ׳ זו א״צ לו כלל והוי דרבנן ופ״ר בדרבנן דלא ניחא ליה י״ל דשרי ועיין בחדושינו בשבת דף ס״ו א׳ הארכנו בזה ועמ״א סימן שי״ד אות ה׳ האריך בענין פסיק רישיה דאף דבדרבנן אסור כדמוכח בסימן של״ז אות א׳ בגרירה דספסל שלא יהא פ״ר וההיא דפ״ר דלא ניחא ליה היינו דלא ניחא ליה ממש א״כ במקל במסמר שודאי עושה גומא א״י היתר ומיהו י״ל דמקלקל ברה״ר וחופר כלאחר יד ושאר היתרים ומ״מ צ״ע עסי׳ שי״ד במ״א ה׳ ושל״ז א׳ ואי״ה שם יבואר עוד:<br />\n<b>הטור</b> הביא כאן מ״ש בביצה כ״ה ב׳ לשאת אדם בכסא בשבת אם רבים צריכין לו מותר והמחבר השמיטו כאן וכתבו בתקכ״ב לענין י״ט וכאן אוסר ברה״ר יש חיוב ד״ת כרמלית גזור אטו רה״ר ואף דכתב דחי נושא א״ע והמטה טפילה לו ומדרבנן לא גזרו אפ״ה השמיטו כאן די״ל דשאני י״ט דלית לתא ד״ת רק עובדין דחול גם ברבים צריכין ליכא עובדין דחול וכבוד התורה או אף באשה ליכא עובדין דחול משא״כ כאן בגדר מלאכה הוי אסרו אף בדרבנן אף רבים צריכין לו והר״ב ג״כ השמיטו משמע דהכי ס״ל ואפשר אף ע״י עכו״ם ברה״ר אסור דאסמכוה אקר׳ כבסי׳ רמ״ד בב״י ושאני י״ט דרק משום עובדין דחול ומיהו למאן דמתיר שבות דשבות במקום מצוה י״ל רבים צריכין לת״ת שרי כי החי נושא א״ע כו׳ ואף ברה״ר שרי ע״י עכו״ם כה״ג (מ״ש הב״י דקי״ל כרבא עיין תו״ש דקי״ל כרבא דל״ג מ״מ כת״ג גזרינן עסי׳ ש״ח במ״א אות ע״ו ושמ״ח אות ד׳) אבל הב״ח כ׳ דבשבת נמי שרי דהוי דרבנן יע״ש. והנה מה שנוהגין בקצת מקומות להושיב הסנדקות עם תינוק בכסא ולשאת אותם לבית הכנסת בשבת ע״י ישראל ודאי אסור אף בכרמלית דאין התינוק טפילה לסנדקות וחייב עליו חטאת ברה״ר ועסי׳ ש״ח במ״א ע״א וסימן של״א במ״א אות ה׳ וסימן רס״ו בט״ז ד׳ דע״י עכו״ם שרי והיינו למ״ד רה״ר דידן כרמלית הוי ובמ״א אות כ״ז אי״ה יבואר עוד ועמ״ש אי״ה באות ח׳:\n",
+      "en_html": "To have a 17th month because of zilota DT Esi 1722 DBT lika mixing and taking out of it and it is necessary 19 a little only because of Obadin Dhol and it is forbidden except for Barhar and Carmelite instead of many Dashkihi but on Shabbos there is a point of value outside of mixing. But I saw in the clothing of the taste dalma eti to my letters DA brharr since dichol lilach like that and NM it is good if brhar came out to the mash in Magen Avraham the letter 25 in the ibid. of AR any concern And the additions there and regarding a stick with a nail in the head is sure to make a dent when he walks and he did not leave it to him, but he did not allow it to do so. Extended in the matter of the ruling Rishia Duff Davdarbanan is forbidden as shown in the sign of 77, the letter A in the draw of a despasal so that it is not a fr and she is a fr. In the Shudai nail, Goma makes a letter of the permit and who is 11 Damkalkal Barhar and digs casually and the rest of the permits and M. M. T. E. Esi&#x27; Shid.<br />\nThe column brought here MS Bitza 25 2 to carry a person in a chair on Shabbos if many people need him, it is permitted and the author omitted here and wrote in 1922 for the matter of 19 and here it is forbidden in the 19th century, there is an obligation of the Carmelite OT, it is ruled by the OT, and even wrote that the staff rejects the subject of AE and the staff did not rule it, and they did not rule it. Only obedin dhul, even in the plural, they need it like this. They omitted the meaning of Dehki Sal and it is possible even by Acomm Berhar Asor Dasmkoh Akr Kabsi Ramd BBI and that I 19 Derek because Ovadin Dhol and who is Laman Dematir Shabbos Dashbots instead of the mitzvah 11 many need to TT Shari because the animal carries AE 20 and even Barhar Shari according to Acomm Kah&#x27;3 (Mash Habi DK&#x27;l Karva, see Tosafoth DK&#x27;l Karva DL3 MM KTHG Gazrinan Esi&#x27; SHH BMagen Avraham letter AU and SHMagen AvrahamH letter D) but the 2H 2Dashvet Nami Shari Dahoi Darbanan YAS. And here is what is customary in some places to sit the godmothers with a baby in a chair and carry them to the synagogue on Shabbos by Israel. Surely it is forbidden even in Carmelite Dayan the baby to pray to the godmothers and is obliged to bring a chatas in Brahar and Asi&#x27; Sh. And the letter EI in the letter 8.\n",
+      "he_plain": "להחזיק עט״ז מ״ש משום זילותא די״ט עסי׳ תקכ״ב דבי״ט ליכא עירוב והוצאה דמתוך והוי צורך י״ט קצת רק משום עובדין דחול ואין אסור אלא ברה״ר וכרמלית במקום דשכיחי רבים אבל בשבת יש טעם משווי חוץ לעירוב. אבל ראיתי בלבוש הטעם דלמא אתי לאתויי ד״א ברה״ר כיון דיכול לילך כך ונ״מ טובא אם יצא ברה״ר למ״ש במ״א אות כ״ה בשם א״ר כל חששא דלמא אתי לאתויי ד״א ברה״ר אם יצא א״צ להסירם שם משא״כ משום משוי צריך להסירם שם ועיין שבת ס״ו א׳ ברש״י ותוספות שם ולענין מקל שיש בראשו מסמר שודאי עושה גומא בהליכתו והוי פסיק רישיה אלא דלא ניחא ליה בכך איכא לעיוני בהולך במקום שאין רצפה שם די״ל דגומ׳ זו א״צ לו כלל והוי דרבנן ופ״ר בדרבנן דלא ניחא ליה י״ל דשרי ועיין בחדושינו בשבת דף ס״ו א׳ הארכנו בזה ועמ״א סימן שי״ד אות ה׳ האריך בענין פסיק רישיה דאף דבדרבנן אסור כדמוכח בסימן של״ז אות א׳ בגרירה דספסל שלא יהא פ״ר וההיא דפ״ר דלא ניחא ליה היינו דלא ניחא ליה ממש א״כ במקל במסמר שודאי עושה גומא א״י היתר ומיהו י״ל דמקלקל ברה״ר וחופר כלאחר יד ושאר היתרים ומ״מ צ״ע עסי׳ שי״ד במ״א ה׳ ושל״ז א׳ ואי״ה שם יבואר עוד: הטור הביא כאן מ״ש בביצה כ״ה ב׳ לשאת אדם בכסא בשבת אם רבים צריכין לו מותר והמחבר השמיטו כאן וכתבו בתקכ״ב לענין י״ט וכאן אוסר ברה״ר יש חיוב ד״ת כרמלית גזור אטו רה״ר ואף דכתב דחי נושא א״ע והמטה טפילה לו ומדרבנן לא גזרו אפ״ה השמיטו כאן די״ל דשאני י״ט דלית לתא ד״ת רק עובדין דחול גם ברבים צריכין ליכא עובדין דחול וכבוד התורה או אף באשה ליכא עובדין דחול משא״כ כאן בגדר מלאכה הוי אסרו אף בדרבנן אף רבים צריכין לו והר״ב ג״כ השמיטו משמע דהכי ס״ל ואפשר אף ע״י עכו״ם ברה״ר אסור דאסמכוה אקר׳ כבסי׳ רמ״ד בב״י ושאני י״ט דרק משום עובדין דחול ומיהו למאן דמתיר שבות דשבות במקום מצוה י״ל רבים צריכין לת״ת שרי כי החי נושא א״ע כו׳ ואף ברה״ר שרי ע״י עכו״ם כה״ג (מ״ש הב״י דקי״ל כרבא עיין תו״ש דקי״ל כרבא דל״ג מ״מ כת״ג גזרינן עסי׳ ש״ח במ״א אות ע״ו ושמ״ח אות ד׳) אבל הב״ח כ׳ דבשבת נמי שרי דהוי דרבנן יע״ש. והנה מה שנוהגין בקצת מקומות להושיב הסנדקות עם תינוק בכסא ולשאת אותם לבית הכנסת בשבת ע״י ישראל ודאי אסור אף בכרמלית דאין התינוק טפילה לסנדקות וחייב עליו חטאת ברה״ר ועסי׳ ש״ח במ״א ע״א וסימן של״א במ״א אות ה׳ וסימן רס״ו בט״ז ד׳ דע״י עכו״ם שרי והיינו למ״ד רה״ר דידן כרמלית הוי ובמ״א אות כ״ז אי״ה יבואר עוד ועמ״ש אי״ה באות ח׳:",
+      "en_plain": "To have a 17th month because of zilota DT Esi 1722 DBT lika mixing and taking out of it and it is necessary 19 a little only because of Obadin Dhol and it is forbidden except for Barhar and Carmelite instead of many Dashkihi but on Shabbos there is a point of value outside of mixing. But I saw in the clothing of the taste dalma eti to my letters DA brharr since dichol lilach like that and NM it is good if brhar came out to the mash in Magen Avraham the letter 25 in the ibid. of AR any concern And the additions there and regarding a stick with a nail in the head is sure to make a dent when he walks and he did not leave it to him, but he did not allow it to do so. Extended in the matter of the ruling Rishia Duff Davdarbanan is forbidden as shown in the sign of 77, the letter A in the draw of a despasal so that it is not a fr and she is a fr. In the Shudai nail, Goma makes a letter of the permit and who is 11 Damkalkal Barhar and digs casually and the rest of the permits and M. M. T. E. Esi&#x27; Shid. The column brought here MS Bitza 25 2 to carry a person in a chair on Shabbos if many people need him, it is permitted and the author omitted here and wrote in 1922 for the matter of 19 and here it is forbidden in the 19th century, there is an obligation of the Carmelite OT, it is ruled by the OT, and even wrote that the staff rejects the subject of AE and the staff did not rule it, and they did not rule it. Only obedin dhul, even in the plural, they need it like this. They omitted the meaning of Dehki Sal and it is possible even by Acomm Berhar Asor Dasmkoh Akr Kabsi Ramd BBI and that I 19 Derek because Ovadin Dhol and who is Laman Dematir Shabbos Dashbots instead of the mitzvah 11 many need to TT Shari because the animal carries AE 20 and even Barhar Shari according to Acomm Kah&#x27;3 (Mash Habi DK&#x27;l Karva, see Tosafoth DK&#x27;l Karva DL3 MM KTHG Gazrinan Esi&#x27; SHH BMagen Avraham letter AU and SHMagen AvrahamH letter D) but the 2H 2Dashvet Nami Shari Dahoi Darbanan YAS. And here is what is customary in some places to sit the godmothers with a baby in a chair and carry them to the synagogue on Shabbos by Israel. Surely it is forbidden even in Carmelite Dayan the baby to pray to the godmothers and is obliged to bring a chatas in Brahar and Asi&#x27; Sh. And the letter EI in the letter 8.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-025/peri-megadim",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 25,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 17,
+      "scores": {
+        "en_he_ratio": 1.331,
+        "he_chars": 559,
+        "en_chars": 744,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 744
+        },
+        "failure_patterns": [
+          "darbanan"
+        ],
+        "leaks": [
+          "html_entities_leak"
+        ]
+      },
+      "he_html": "<b>ויש</b> אוסרים עט״ז עא״ר אות ס״ד וכבר כתבתי לעיל היכא שנוהגין לחגור אונטר גרטי״ל ואובר גארטי״ל דהיינו אחד אין נאה והב׳ נאה ועושין כן שיהא טוב לחגור בשני על הראשון או שהשני קצר ודאי שרי וכתב שם בשם סה״ת ר״מ דאף למאן דאוסר ב׳ חגורות הוי רק מדרבנן יע״ש ועיין אות י״ד דה״ה דיכול לעשות עניבה והוי חגורה ארוכה כמו בפציל״ט יע״ש בזה. ועתו׳ שבת נ״ט ב׳ ד״ה תרי המיינ״י מה הנאה ואין דרך הא כעין שלנו שרי. ועתו׳ שם דהוקשה להם מדליקה ולא תירצו דמפני פסידא התירו דרבנן ש״מ לכאורה שסוברים שאיסור תורה יש ז״א דלא התירו אלא טלטול מוקצה לא הוצאה אף בדרבנן עסי׳ של״ד ואי״ה שם יבואר:\n",
+      "en_html": "And there are those who forbid 17 because of the letter SD, and I have already written above that it is customary to belt under gartil and over gartil, that is, one is not handsome and the second is handsome, and we do so that it would be good to gird the second over the first or that the second is short. Make a tie and a long belt like in Facil&#x27;at Ya&#x27;Sh in this. And atu&#x27; Shabbos NT 2 D.H. Teri Mein&#x27;i What is the pleasure and there is no way like ours, my Lord. And at the same time, there was a fire for them Thirtzo Dampani Psida the permitted Darbanan ShM apparently who believe that the Torah prohibition is ZA not the permitted but an muktzeh shaking was not issued even in Darbanan Esi&#x27; 44 and IA there Yavor.\n",
+      "he_plain": "ויש אוסרים עט״ז עא״ר אות ס״ד וכבר כתבתי לעיל היכא שנוהגין לחגור אונטר גרטי״ל ואובר גארטי״ל דהיינו אחד אין נאה והב׳ נאה ועושין כן שיהא טוב לחגור בשני על הראשון או שהשני קצר ודאי שרי וכתב שם בשם סה״ת ר״מ דאף למאן דאוסר ב׳ חגורות הוי רק מדרבנן יע״ש ועיין אות י״ד דה״ה דיכול לעשות עניבה והוי חגורה ארוכה כמו בפציל״ט יע״ש בזה. ועתו׳ שבת נ״ט ב׳ ד״ה תרי המיינ״י מה הנאה ואין דרך הא כעין שלנו שרי. ועתו׳ שם דהוקשה להם מדליקה ולא תירצו דמפני פסידא התירו דרבנן ש״מ לכאורה שסוברים שאיסור תורה יש ז״א דלא התירו אלא טלטול מוקצה לא הוצאה אף בדרבנן עסי׳ של״ד ואי״ה שם יבואר:",
+      "en_plain": "And there are those who forbid 17 because of the letter SD, and I have already written above that it is customary to belt under gartil and over gartil, that is, one is not handsome and the second is handsome, and we do so that it would be good to gird the second over the first or that the second is short. Make a tie and a long belt like in Facil&#x27;at Ya&#x27;Sh in this. And atu&#x27; Shabbos NT 2 D.H. Teri Mein&#x27;i What is the pleasure and there is no way like ours, my Lord. And at the same time, there was a fire for them Thirtzo Dampani Psida the permitted Darbanan ShM apparently who believe that the Torah prohibition is ZA not the permitted but an muktzeh shaking was not issued even in Darbanan Esi&#x27; 44 and IA there Yavor.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-027/peri-megadim",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 27,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage",
+        "html_json_leak"
+      ],
+      "severity": 17,
+      "scores": {
+        "en_he_ratio": 1.639,
+        "he_chars": 2981,
+        "en_chars": 4887,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4887
+        },
+        "failure_patterns": [
+          "darbanan"
+        ],
+        "leaks": [
+          "html_entities_leak"
+        ]
+      },
+      "he_html": "<b>כובע</b> עט״ז האריך שבת קל״ח ב׳ ועירובין ק״ב ב׳ והמתבאר שם דלכ״א מהפירושים קולא וחומרא לרש״י קולא כל שמהודק ברצועה או אין דרך לילך בגילוי ראש שרי אף באהל טפח ומה״ט שרביב גלימא טפח להלן מראשו שרי וטעם היתר כי אהל עראי דרבנן וכה״ג הואיל ועל ראשו ליכא אהל כו׳ או דאין אהל בלא מחיצות עט״ז שט״ו אות ח׳ יע״ש ומיהו שרבב גלימא על ראשו דיש גג טפח ותלוי לפניו הוי אהל עראי ממש גג ומחיצות וע״כ היתר ראשון הואיל ועל הראש ליכא אהל הנותר ג״כ שרי (הא דאמר ה״נ דמיחייב י״ל מכת מרדות ולמסקנא שרי) וחומרא כל שאין מהודק אסור אף נכפף ואף אין טפח ואף היה כבר על ראשו מע״ש אסור לצאת לרה״ר בשבת שמא יפול ואתי לאתויי ד״א ברה״ר ולר״ח ולר״ת דל״ג אלא קולא כל שאין טפח כו׳ שרי ולא חיישינן כלל דלמא נפיל ואתי לאתויי ד״א וכמו שכתב הב״ח ז״ל ומוכרח הוא מדלא פירש כפשוטו הא דמיהדק כפירש״י רק משום אהל וחומרא אף מיהדק אסור והמחבר בסעיף מ״ם פסק כר״ח ור״ת ור״מ ז״ל פכ״ב מהלכות שבת הי״ד וברי״ף גרס אלא וי״ל דאין חולק על רבו ז״ל וה״פ סייאנ״א כובע של לבד כפירש״י ז״ל וכ״פ באלפס רש״י שם וקשה הוא ומשני ל׳ק יש טפח אסור אין טפח שרי ומאי קמשמע לן באין טפח פשיטא שרי וצריך לומר דלא חיישינן דילמא נפיל ואתי לאתויי ד״א ואף לבד דאין מונח כל כך יפה יפה על הראש אפי׳ הכי לא חיישינן שמא נפיל כו׳ והקשה אלא מעתה שרבב כו׳ אלא הדר ביה ממה דהוה אמר מעיקרא סייאנ״א שרי באין טפח ולא חיישינן דלמא נפיל דודאי חיישינן דלמא נפיל (ואי בקשור או אסור לילך כגילוי הראש גם זה פשוט ליה) אלא אידי ואידי ביש טפח והא דמיהדק קשה מאד כגג הוי אהל עראי ונכפף קצת אע״ג דקשה קצת לא הוי אהל עראי (עיין נ״ץ מזה) וכ״ה לשון הר״מ ז״ל שם והיה השפה קשה ביות״ר כמו גג אסור הא לא״ה אף קשה קצת ובולט טפח שרי וא״ש נמי דל״ק התם לא מיהדק כמ״ש בחה״ר והר״ן דקאי נמי אסייאנ״א והדר ממה דהוה אמר מעיקרא ועם זה א״ש שהמ״מ שם הביא בכיון מלת אל״א וכדאמרן. ועם זה יתיישב דלא ליהוי דברי המחבר כזיכה שטרא לבי תרי דאף דפסק בסעיף מ״ם כר״ת ור״מ ור״ח אפ״ה כתב בסמ״א יש מי שאוסר וכן הלכה דחיישינן דלמא נפיל ואתי לאתויי ארבע אמות ברה״ר וכדכתיבנא:<br />\n<b>והט״ז</b> ז״ל חילק בין בריט״ל שלנו לקפלו״ש שהבריט״ל אין מסוים איזה אהל ואיזה לכיסוי הראש וגם אין מתכוין לאהל רק לכיסוי הראש ומש״ה שרי לר״ח הא קפלוש או מה שקורין הו״ט יש איסור לר״ת אם מצא סביב מראשו טפח וקשה ביותר (ומיהו אותן שעושין קיפול בהו״ט וקפלו״ש כעין מגן משולש אפשר דאין ברוחבו טפח אף שיצא טפח מראשו בעינן ארוך ורוחבו טפח ואי״ה בשט״ו יבואר זה) ובריט״ל נמי חוץ לעירוב אסור כרש״י שמא אתי לאתויי ד״א ברה״ר וכרמלית עסי׳ ש״ג סי״ח. וראיתי להנ״ץ ז״ל כתב דכרמלית ספק דרבנן סמכינן אר״ת ור״ח ובשיטת רבו הב״ח ז״ל אמרה דסובר דלר״ח ור״ת אין חשש כלל שמא יפול עד שהוקשה לו להב״ח ז״ל מאי אלא מעתה יע״ש משא״כ להמחבר דפסק לשתיהן וכמ״ש כאן וכמה פעמים מצינו במשלף דלמא נפיל ואתי לאתויי ד״א ברה״ר נראה פסק אדונינו הט״ז ז״ל יפה חוץ לעירוב יש לאסור וצ״ע על מה סומכין העולם בזה. ומה שאמרו בגמרא ל״ק הא וכמ״ש כו׳ ולא אמר ל״ק הא דעשוי כיסוי הראש ושפה ניכרת כעין הו״ט וקפלו״ש אסור והא דאין ניכר כבריט״ל שלנו אפשר צורת סייאנ״א הוא בניכר כאמור. ומ״ש הט״ז מה שהיקל המחבר בסמ״א ביצא מע״ש ה״ה באין טפח או נכפף וחדא מינייהו נקיט:<br />\n<b>ומ״ש</b> פנטינ״ש ומסעיף זיי״ן לא יצא קטן במנעל גדול אף דאין דרך לילך יחף י״ל דא״א להלך בה מתוך גודלו חיישינן טפי דלמא אתי לאתויי ד״א ברה״ר עמש״ל בזה:\n",
+      "en_html": "Cap 17 lengthened Shabbos Kalh 2 and Irubin 12 2 and what is explained there from the commentaries Kola and Khamara according to Rashi Kola anyone who is fastened in a strip or there is no way to go to the revelation of the head of a priest even in an tent taph and 19 Sharabiv Galima patted the following from his head a head of a priest and the other taste because Ahl Arai Durbanan and 23 because on his head Lika Ahl 20 or Dayin Ahl without partitions Att 17 STU letter 8 YAS and who is it that has a robe on his head, a flat roof, and hanging in front of him is a real tent with a roof and partitions, and so the first permit, since on his head is the rest of the tent GK permitted (ha Damer HN Demichev 11 Mkhet Mardot and Maskana permitted) And materially everything that is not fastened is forbidden even if it is bowed down and even if there is no Taf on its head, it is forbidden to go out to Rhar on Shabbos lest it fall and I to my letters DA BharR and Rach and R&#x27;t Dalg but as a voice everything that is not Taff Q. permitted and did not feel them at all from where we fall and I To the letters of DA and as the late BH wrote and it is necessary, Madala interpreted as simply Ha Damihadak as a Pirshi only because of a tent and material, even if Mihadak is forbidden and the author in section MM ruled as RH and R.T. and R.M. Shabbos the 14th and in the ref Gers, but VIL Dayin shares with his Rabbi the late and the PF Sayana a hat made of alone as Pirshi, the late, etc. in the Alphas of Rashi, there and it is hard, and from the second, there is a prohibited tapah, there is no tapah shari and mai kamshama len, there is no taffe, a pashita shari, and it is necessary to say that we do not feel a dilemma, we will fall, and I let myself be a dain, and even alone, a dayin is placed so beautifully on the head Afi&#x27; the most did not feel them lest we fall 20 and the hard but from now on Shrabb 20 but Hadar Bia from what he said from Maikra Sayana&#x27;a Shri Bayin Tafh and did not feel them for why we will fall Dodai feel them Delma Nefil (and it is not permissible to go as a bare head, this is also simple) but Idi and Idi Bish Taf Haha Damihadak very hard like a roof Hoi Ahal Arai and bowed a little Aag Daksha a little No Hoi Ahal Arai (see reference to this) and so on in the language of the late Rabbi there and the language was hard in Yotor like a forbidden roof Ha Laa even hard a little and prominent Tapah Sherry etc. Nami Dalk Hatem did not emphasize it as a rabbinic word in Bhar and Haran Dakai Nami Asiyan&#x27;a and Hadar from what he said from Maikra and with that ASH that the rabbi there brought in the meaning of the word of ALA and as they say. And with that Della will sit down To take the author&#x27;s words as a credit, Stra Labi Teri Duff ruled in the section MM KRT and RM and RAH APA wrote in the SAMagen Avraham there are those who forbid and also the halacha Daheishinan dalma napil and I to the signs of four Amuth Brahar and Kadkathibna.<br />\nAnd the late Taz divided between our Britel and the Kefalus that the Britel does not specify which tent and which for the head covering, nor is it intended to be an tent only for the head covering and the Sherri for the Rabbi Ha Keflush or what the Korin HoT says there is a prohibition for the Ret if he finds a fold around his head and it is extremely difficult (and who are those who make a fold in the HoT and Kephalus as a kind of triangular shield it is possible to dain in its width a taph even if it comes out a taph From its head to its eyes it is long and its width is a taph and it is in the Shatu Yevor this) and in Britel Nami except for mixing it is forbidden by Rashi, lest I come to the letters of DA Barhar and Carmelit Esi Shg Sih. And I saw the late HC wrote a dekarmlit, doubting Darbanan, who confirmed the OT and RH, and according to the method of his rabbi, the LT, said Desover, the LT and OT, there was no fear at all that he would fall until he was hardened by the LT May, but from now on, the agreement with the author stopped for both of them. Our Lord&#x27;s ruling of the Taz century seems to be beautiful, except that mixing must be prohibited and what does the world rely on this. And what they said in the Gemara LK Ha and KMS 20 and did not say LK Ha is wearing a head covering and a visible language as if HOT and KPL&#x27;S are forbidden and the for this is not is evident as our BRITL allows the Sayana form is evident as stated. And from the Taz Tehillim, what the author in the Sama has made it easy to extract from the 15th Tehillim, without being coerced or forced into it, we will take from it.<br />\nAnd from M. Fantin&#x27;sh and from the section &amp;quot;Zein&amp;quot; he did not go out small in a big shoe, nor did he walk a way to go barefoot Y&#x27;l DA to walk on it because of his size, they felt it, tapi dalma etii to the letters of DA Barhar Amshal in this.\n",
+      "he_plain": "כובע עט״ז האריך שבת קל״ח ב׳ ועירובין ק״ב ב׳ והמתבאר שם דלכ״א מהפירושים קולא וחומרא לרש״י קולא כל שמהודק ברצועה או אין דרך לילך בגילוי ראש שרי אף באהל טפח ומה״ט שרביב גלימא טפח להלן מראשו שרי וטעם היתר כי אהל עראי דרבנן וכה״ג הואיל ועל ראשו ליכא אהל כו׳ או דאין אהל בלא מחיצות עט״ז שט״ו אות ח׳ יע״ש ומיהו שרבב גלימא על ראשו דיש גג טפח ותלוי לפניו הוי אהל עראי ממש גג ומחיצות וע״כ היתר ראשון הואיל ועל הראש ליכא אהל הנותר ג״כ שרי (הא דאמר ה״נ דמיחייב י״ל מכת מרדות ולמסקנא שרי) וחומרא כל שאין מהודק אסור אף נכפף ואף אין טפח ואף היה כבר על ראשו מע״ש אסור לצאת לרה״ר בשבת שמא יפול ואתי לאתויי ד״א ברה״ר ולר״ח ולר״ת דל״ג אלא קולא כל שאין טפח כו׳ שרי ולא חיישינן כלל דלמא נפיל ואתי לאתויי ד״א וכמו שכתב הב״ח ז״ל ומוכרח הוא מדלא פירש כפשוטו הא דמיהדק כפירש״י רק משום אהל וחומרא אף מיהדק אסור והמחבר בסעיף מ״ם פסק כר״ח ור״ת ור״מ ז״ל פכ״ב מהלכות שבת הי״ד וברי״ף גרס אלא וי״ל דאין חולק על רבו ז״ל וה״פ סייאנ״א כובע של לבד כפירש״י ז״ל וכ״פ באלפס רש״י שם וקשה הוא ומשני ל׳ק יש טפח אסור אין טפח שרי ומאי קמשמע לן באין טפח פשיטא שרי וצריך לומר דלא חיישינן דילמא נפיל ואתי לאתויי ד״א ואף לבד דאין מונח כל כך יפה יפה על הראש אפי׳ הכי לא חיישינן שמא נפיל כו׳ והקשה אלא מעתה שרבב כו׳ אלא הדר ביה ממה דהוה אמר מעיקרא סייאנ״א שרי באין טפח ולא חיישינן דלמא נפיל דודאי חיישינן דלמא נפיל (ואי בקשור או אסור לילך כגילוי הראש גם זה פשוט ליה) אלא אידי ואידי ביש טפח והא דמיהדק קשה מאד כגג הוי אהל עראי ונכפף קצת אע״ג דקשה קצת לא הוי אהל עראי (עיין נ״ץ מזה) וכ״ה לשון הר״מ ז״ל שם והיה השפה קשה ביות״ר כמו גג אסור הא לא״ה אף קשה קצת ובולט טפח שרי וא״ש נמי דל״ק התם לא מיהדק כמ״ש בחה״ר והר״ן דקאי נמי אסייאנ״א והדר ממה דהוה אמר מעיקרא ועם זה א״ש שהמ״מ שם הביא בכיון מלת אל״א וכדאמרן. ועם זה יתיישב דלא ליהוי דברי המחבר כזיכה שטרא לבי תרי דאף דפסק בסעיף מ״ם כר״ת ור״מ ור״ח אפ״ה כתב בסמ״א יש מי שאוסר וכן הלכה דחיישינן דלמא נפיל ואתי לאתויי ארבע אמות ברה״ר וכדכתיבנא: והט״ז ז״ל חילק בין בריט״ל שלנו לקפלו״ש שהבריט״ל אין מסוים איזה אהל ואיזה לכיסוי הראש וגם אין מתכוין לאהל רק לכיסוי הראש ומש״ה שרי לר״ח הא קפלוש או מה שקורין הו״ט יש איסור לר״ת אם מצא סביב מראשו טפח וקשה ביותר (ומיהו אותן שעושין קיפול בהו״ט וקפלו״ש כעין מגן משולש אפשר דאין ברוחבו טפח אף שיצא טפח מראשו בעינן ארוך ורוחבו טפח ואי״ה בשט״ו יבואר זה) ובריט״ל נמי חוץ לעירוב אסור כרש״י שמא אתי לאתויי ד״א ברה״ר וכרמלית עסי׳ ש״ג סי״ח. וראיתי להנ״ץ ז״ל כתב דכרמלית ספק דרבנן סמכינן אר״ת ור״ח ובשיטת רבו הב״ח ז״ל אמרה דסובר דלר״ח ור״ת אין חשש כלל שמא יפול עד שהוקשה לו להב״ח ז״ל מאי אלא מעתה יע״ש משא״כ להמחבר דפסק לשתיהן וכמ״ש כאן וכמה פעמים מצינו במשלף דלמא נפיל ואתי לאתויי ד״א ברה״ר נראה פסק אדונינו הט״ז ז״ל יפה חוץ לעירוב יש לאסור וצ״ע על מה סומכין העולם בזה. ומה שאמרו בגמרא ל״ק הא וכמ״ש כו׳ ולא אמר ל״ק הא דעשוי כיסוי הראש ושפה ניכרת כעין הו״ט וקפלו״ש אסור והא דאין ניכר כבריט״ל שלנו אפשר צורת סייאנ״א הוא בניכר כאמור. ומ״ש הט״ז מה שהיקל המחבר בסמ״א ביצא מע״ש ה״ה באין טפח או נכפף וחדא מינייהו נקיט: ומ״ש פנטינ״ש ומסעיף זיי״ן לא יצא קטן במנעל גדול אף דאין דרך לילך יחף י״ל דא״א להלך בה מתוך גודלו חיישינן טפי דלמא אתי לאתויי ד״א ברה״ר עמש״ל בזה:",
+      "en_plain": "Cap 17 lengthened Shabbos Kalh 2 and Irubin 12 2 and what is explained there from the commentaries Kola and Khamara according to Rashi Kola anyone who is fastened in a strip or there is no way to go to the revelation of the head of a priest even in an tent taph and 19 Sharabiv Galima patted the following from his head a head of a priest and the other taste because Ahl Arai Durbanan and 23 because on his head Lika Ahl 20 or Dayin Ahl without partitions Att 17 STU letter 8 YAS and who is it that has a robe on his head, a flat roof, and hanging in front of him is a real tent with a roof and partitions, and so the first permit, since on his head is the rest of the tent GK permitted (ha Damer HN Demichev 11 Mkhet Mardot and Maskana permitted) And materially everything that is not fastened is forbidden even if it is bowed down and even if there is no Taf on its head, it is forbidden to go out to Rhar on Shabbos lest it fall and I to my letters DA BharR and Rach and R&#x27;t Dalg but as a voice everything that is not Taff Q. permitted and did not feel them at all from where we fall and I To the letters of DA and as the late BH wrote and it is necessary, Madala interpreted as simply Ha Damihadak as a Pirshi only because of a tent and material, even if Mihadak is forbidden and the author in section MM ruled as RH and R.T. and R.M. Shabbos the 14th and in the ref Gers, but VIL Dayin shares with his Rabbi the late and the PF Sayana a hat made of alone as Pirshi, the late, etc. in the Alphas of Rashi, there and it is hard, and from the second, there is a prohibited tapah, there is no tapah shari and mai kamshama len, there is no taffe, a pashita shari, and it is necessary to say that we do not feel a dilemma, we will fall, and I let myself be a dain, and even alone, a dayin is placed so beautifully on the head Afi&#x27; the most did not feel them lest we fall 20 and the hard but from now on Shrabb 20 but Hadar Bia from what he said from Maikra Sayana&#x27;a Shri Bayin Tafh and did not feel them for why we will fall Dodai feel them Delma Nefil (and it is not permissible to go as a bare head, this is also simple) but Idi and Idi Bish Taf Haha Damihadak very hard like a roof Hoi Ahal Arai and bowed a little Aag Daksha a little No Hoi Ahal Arai (see reference to this) and so on in the language of the late Rabbi there and the language was hard in Yotor like a forbidden roof Ha Laa even hard a little and prominent Tapah Sherry etc. Nami Dalk Hatem did not emphasize it as a rabbinic word in Bhar and Haran Dakai Nami Asiyan&#x27;a and Hadar from what he said from Maikra and with that ASH that the rabbi there brought in the meaning of the word of ALA and as they say. And with that Della will sit down To take the author&#x27;s words as a credit, Stra Labi Teri Duff ruled in the section MM KRT and RM and RAH APA wrote in the SAMagen Avraham there are those who forbid and also the halacha Daheishinan dalma napil and I to the signs of four Amuth Brahar and Kadkathibna. And the late Taz divided between our Britel and the Kefalus that the Britel does not specify which tent and which for the head covering, nor is it intended to be an tent only for the head covering and the Sherri for the Rabbi Ha Keflush or what the Korin HoT says there is a prohibition for the Ret if he finds a fold around his head and it is extremely difficult (and who are those who make a fold in the HoT and Kephalus as a kind of triangular shield it is possible to dain in its width a taph even if it comes out a taph From its head to its eyes it is long and its width is a taph and it is in the Shatu Yevor this) and in Britel Nami except for mixing it is forbidden by Rashi, lest I come to the letters of DA Barhar and Carmelit Esi Shg Sih. And I saw the late HC wrote a dekarmlit, doubting Darbanan, who confirmed the OT and RH, and according to the method of his rabbi, the LT, said Desover, the LT and OT, there was no fear at all that he would fall until he was hardened by the LT May, but from now on, the agreement with the author stopped for both of them. Our Lord&#x27;s ruling of the Taz century seems to be beautiful, except that mixing must be prohibited and what does the world rely on this. And what they said in the Gemara LK Ha and KMS 20 and did not say LK Ha is wearing a head covering and a visible language as if HOT and KPL&#x27;S are forbidden and the for this is not is evident as our BRITL allows the Sayana form is evident as stated. And from the Taz Tehillim, what the author in the Sama has made it easy to extract from the 15th Tehillim, without being coerced or forced into it, we will take from it. And from M. Fantin&#x27;sh and from the section \"Zein\" he did not go out small in a big shoe, nor did he walk a way to go barefoot Y&#x27;l DA to walk on it because of his size, they felt it, tapi dalma etii to the letters of DA Barhar Amshal in this.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman11/seif-009/mechaber",
+      "volume": "oc1",
+      "siman": 11,
+      "seif": 9,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "rama_bare_rema_not_braced",
+        "mt_garbage"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.67,
+        "he_chars": 270,
+        "en_chars": 451,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ע\" data-order=\"16\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לט\"></i>יעשה <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i>נקב <i data-commentator=\"Mishnah Berurah\" data-label=\"מ\"></i>באורך <i data-commentator=\"Ba'er Hetev\" data-order=\"11\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"11\"></i>הטלית <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מא\"></i>לא למעלה <i data-commentator=\"Ba'er Hetev\" data-order=\"12\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"12\"></i>מג' אצבעות <i data-commentator=\"Turei Zahav\" data-order=\"8\"></i><small><i data-commentator=\"Mishnah Berurah\" data-label=\"מב\"></i>[היינו גודלין] (כל בו סימן כ\"ב ומיימוני והגה' סמ\"ק' סי' ל\"א)</small> <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מג\"></i>שאינו נקרא <i data-commentator=\"Ba'er Hetev\" data-order=\"13\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"13\"></i>כנף <i data-commentator=\"Be'er HaGolah\" data-label=\"פ\" data-order=\"17\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מד\"></i>ולא למטה <i data-commentator=\"Mishnah Berurah\" data-label=\"מה\"></i>מכשיעור שיש מקשר גודל <i data-commentator=\"Mishnah Berurah\" data-label=\"מו\"></i>עד סוף הציפורן משום שנאמר על הכנף ואם היה למטה ממלא קשר גודל היה תחת הכנף: <small>הגה ומודדין זה <i data-commentator=\"Turei Zahav\" data-order=\"9\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מז\"></i>ביושר ולא באלכסון מן הקרן (ב\"י):</small>\n",
+      "en_html": "One makes a hole along the length of the <i>tallis</i> — not higher than three fingerbreadths [thumbbreadths — <i>Kol Bo</i> siman 22; Maimonides; Hagahos Semak siman 31] from the corner — for [higher] is not called a “corner”; nor lower than the measure from the thumb joint to the nail tip, because it says “on the corner,” and if lower than a full thumb-knot it would be under the corner. Rema: One measures straight from the corner, not diagonally (Beit Yosef).\n",
+      "he_plain": "יעשה נקב באורך הטלית לא למעלה מג' אצבעות [היינו גודלין] (כל בו סימן כ\"ב ומיימוני והגה' סמ\"ק' סי' ל\"א) שאינו נקרא כנף ולא למטה מכשיעור שיש מקשר גודל עד סוף הציפורן משום שנאמר על הכנף ואם היה למטה ממלא קשר גודל היה תחת הכנף: הגה ומודדין זה ביושר ולא באלכסון מן הקרן (ב\"י):",
+      "en_plain": "One makes a hole along the length of the tallis — not higher than three fingerbreadths [thumbbreadths — Kol Bo siman 22; Maimonides; Hagahos Semak siman 31] from the corner — for [higher] is not called a “corner”; nor lower than the measure from the thumb joint to the nail tip, because it says “on the corner,” and if lower than a full thumb-knot it would be under the corner. Rema: One measures straight from the corner, not diagonally (Beit Yosef).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman172/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 172,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "rama_bare_rema_not_braced",
+        "mt_garbage"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.75,
+        "he_chars": 224,
+        "en_chars": 392,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<b>מי שהכניס אוכלין ומשקין בלא ברכה. ובו ב סעיפים:</b><br><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>שכח והכניס משקין לתוך פיו בלא ברכה <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>בולען <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>ואינו מברך עליהם <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ברכה <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>ראשונה: <small>הגה <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>וי\"א דמברך <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>עליהם <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>וכן נראה עיקר: [הרשב\"א בשם הראב\"ד והרא\"ש פ\"ג שאכלו וכן דברי רמב\"ם פ\"ח מהלכות ברכות]:</small>\n",
+      "en_html": "<b>One who drinks or eats without a blessing. Containing 2 paragraphs If one put</b><br> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i> a drink in their mouth without saying a blessing, they should <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i> swallow it <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i> <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i> <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i> and not say a first <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i> blessing (a <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i> <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i> before blessing).<small>Rema: And <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i> there are those who <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i> say a <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i> blessing and so it seems is the core practice [Rashba, in the name of the Raavad, and the Rosh Chapter 3 and also Maimonides Chapter 8 laws of blessings]]:</small>\r\n",
+      "he_plain": "מי שהכניס אוכלין ומשקין בלא ברכה. ובו ב סעיפים: שכח והכניס משקין לתוך פיו בלא ברכה בולען ואינו מברך עליהם ברכה ראשונה: הגה וי\"א דמברך עליהם וכן נראה עיקר: [הרשב\"א בשם הראב\"ד והרא\"ש פ\"ג שאכלו וכן דברי רמב\"ם פ\"ח מהלכות ברכות]:",
+      "en_plain": "One who drinks or eats without a blessing. Containing 2 paragraphs If one put a drink in their mouth without saying a blessing, they should swallow it and not say a first blessing (a before blessing). Rema: And there are those who say a blessing and so it seems is the core practice [Rashba, in the name of the Raavad, and the Rosh Chapter 3 and also Maimonides Chapter 8 laws of blessings]]:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman688/seif-004/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 688,
+      "seif": 4,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 0.734,
+        "he_chars": 305,
+        "en_chars": 224,
+        "cut_deficit": 0.2655737704918033
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 224
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ד) שהוא ספק כו'</b> אם הים כו' דטבריא מוקפת חומה מימות יב\"נ אלא מצדה הים חומתה ונסתפקו בגמ' אי מעלת החומה נדונה עי\"ז ככרך הואיל והחומה מגין מן האויבים א\"כ גם הים מיקרי חומה דהא גם הים מגין או משום דהחומה מכסה בני העיר מעין האויב ויכולים להטמין א\"ע במחבואה משא\"כ ים דמגלי וא\"א להחבא וא\"כ אין לים דין חומה:\n",
+      "en_html": "(C. D.C.) He doubted that the sea is circumcised and surrounded by a wall surrounded by the heavens, but on the part of the sea, the sea is cleared, and the sea is also sung, or because it is covered by the gates of the city\r\n",
+      "he_plain": "(ס\"ק ד) שהוא ספק כו' אם הים כו' דטבריא מוקפת חומה מימות יב\"נ אלא מצדה הים חומתה ונסתפקו בגמ' אי מעלת החומה נדונה עי\"ז ככרך הואיל והחומה מגין מן האויבים א\"כ גם הים מיקרי חומה דהא גם הים מגין או משום דהחומה מכסה בני העיר מעין האויב ויכולים להטמין א\"ע במחבואה משא\"כ ים דמגלי וא\"א להחבא וא\"כ אין לים דין חומה:",
+      "en_plain": "(C. D.C.) He doubted that the sea is circumcised and surrounded by a wall surrounded by the heavens, but on the part of the sea, the sea is cleared, and the sea is also sung, or because it is covered by the gates of the city",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

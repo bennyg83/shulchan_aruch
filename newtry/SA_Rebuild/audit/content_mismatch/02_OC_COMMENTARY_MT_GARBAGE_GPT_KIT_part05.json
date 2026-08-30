@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 5,
+    "chunk_total": 47,
+    "case_offset": 35,
+    "cases_in_chunk": 5,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman128/seif-040/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 40,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.463,
+        "he_chars": 1329,
+        "en_chars": 1944,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1944
+        },
+        "failure_patterns": [
+          "holy_person"
+        ]
+      },
+      "he_html": "<b>מ) שם והלוי יוצק מים וכו'  </b>דהכי איתא בזוה\"ק פ' נשא דף קמ\"ו ע\"א בסופו תאנא כהן דבעי לפרשא ידוי בעי דיתוסף קדושה על קדושה דיליה דבעי לקדשא ידוי על ידא דקדישא, מאן ידא דקדישא דא ליואה דבעי כהנא ליטול קדושא דמיא מידוי דכתיב וקדשת את הלוים הא אינון קדישין וכתיב בהו בלוים וגם את אחיך מטה לוי וגו' מכאן דכל כהן דפריס ידוי בעי לאתקדשא ע\"י דקדישא ליתוסף קדושה על קדושתיה וע\"ד לא יטול קדושה דמייא מבר נש אחרא דלא הוי קדישא, ובצניעותא דספרא תאנא לוי דאתקדש כהנא על ידוי בעי הוא לאתקדשא בקדמיתא. ואמאי לוי ויתקדש על ידא דכהנא אחרא. תאנא כהנא אחרא לא בעי דהא כהן דלא שלים לא בעי האי כהנא שלים לאתפגם על ידא דפגימא דלא שלים, אבל לוי דאיהו שלים ואתחזי לסלקא בדוכנא ולמפלת במשכן זמנא הא שלים הוא והא איקרי קדוש דכתיב וקדשת את הלוים עכ\"ל, והביאו ב\"י וכך הם דבריו כאן בש\"ע, ומשמע מדברי הזוה\"ק הנז' דאם אין שם לוי לא יטול ע\"י ישראל ולא ע\"י כהן אחר אלא יטול בידיו, מיהו הב\"ח כתב בשם מהר\"י מולין דבמקום שאין לוים אם יש בכור פטר רחם יתן מים לכהנים לנטילה לעלות לדוכן יעו\"ש והביאו שכנה\"ג בהגב\"י או' ג' עו\"ת או' י\"ג, ט\"ז סק\"ג, עט\"ז או' א' מ\"א סק\"ז א\"ר או' יו\"ד, וכתב שם המ\"א דמשמע מלשינו דוקא בכור לאם אבל בכור לאב לבד לא מצינו בו קדושה האידנא עכ\"ל, והביאו ש\"ץ דקמ\"ג ע\"א, ר\"ז אות יו\"ד, ח\"א כלל ל\"ב. אות ח' חס\"ל אות ג' בי\"מ אות י\"א, בן א\"ח פ' תצוה אות ז' אמנם לא ראיתי מי שנוהג כן ונראה דסומכין על פשט דברי הזוהר דמשמע דוקא לוי ואם לאו לא יטול כ\"א בידיו:\n",
+      "en_html": "<b>40) There: The Levi pours water, etc.</b> Zohar, Naso 146a, teaches: A kohen who spreads his hands must add holiness to his holiness by sanctifying his hands through a holy hand. That holy hand is the Levi's, from whom the kohen receives the sanctifying water, for it says, 'You shall sanctify the Levites'; they are holy. It also says, 'And also your brethren, the tribe of Levi.' Thus every kohen who spreads his hands must be sanctified by a holy person, adding holiness to his holiness, and should not receive the sanctifying water from an unholy person. Tzinius DiSifra further teaches that the Levi through whom the kohen is sanctified must first sanctify himself. Why specifically a Levi rather than another kohen? Another kohen might be deficient, and a complete kohen should not be impaired through one who is incomplete. A complete Levi, however, was fit to ascend the platform and serve in the Tabernacle, and is called holy, as it says, 'You shall sanctify the Levites.' Beis Yosef cites this, and it is the basis of Maran's words here. The Zohar implies that when no Levi is present, neither an Israelite nor another kohen should wash his hands; he should wash them himself. Bach, however, cites Maharil that in the absence of Levites, a firstborn who opened his mother's womb should pour for the kohanim. Knesses HaGedolah, Hagahos Beis Yosef, os 3; Olas Tamid, os 13; Taz, se'if katan 3; Ateres Zekeinim, os 1; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite this. Magen Avraham notes that this means specifically a maternal firstborn; a paternal firstborn alone has no recognized sanctity today. Shaliach Tzibbur, page 143a; Shulchan Aruch HaRav, os 10; Chayei Adam 32:8; Chesed LaAlafim, os 3; Beis Menuchah, os 11; and Ben Ish Chai, Tetzaveh, os 7, cite it. I have not seen anyone follow this. They apparently rely on the Zohar's plain implication that only a Levi pours; without one, each kohen washes his own hands.\n",
+      "he_plain": "מ) שם והלוי יוצק מים וכו' דהכי איתא בזוה\"ק פ' נשא דף קמ\"ו ע\"א בסופו תאנא כהן דבעי לפרשא ידוי בעי דיתוסף קדושה על קדושה דיליה דבעי לקדשא ידוי על ידא דקדישא, מאן ידא דקדישא דא ליואה דבעי כהנא ליטול קדושא דמיא מידוי דכתיב וקדשת את הלוים הא אינון קדישין וכתיב בהו בלוים וגם את אחיך מטה לוי וגו' מכאן דכל כהן דפריס ידוי בעי לאתקדשא ע\"י דקדישא ליתוסף קדושה על קדושתיה וע\"ד לא יטול קדושה דמייא מבר נש אחרא דלא הוי קדישא, ובצניעותא דספרא תאנא לוי דאתקדש כהנא על ידוי בעי הוא לאתקדשא בקדמיתא. ואמאי לוי ויתקדש על ידא דכהנא אחרא. תאנא כהנא אחרא לא בעי דהא כהן דלא שלים לא בעי האי כהנא שלים לאתפגם על ידא דפגימא דלא שלים, אבל לוי דאיהו שלים ואתחזי לסלקא בדוכנא ולמפלת במשכן זמנא הא שלים הוא והא איקרי קדוש דכתיב וקדשת את הלוים עכ\"ל, והביאו ב\"י וכך הם דבריו כאן בש\"ע, ומשמע מדברי הזוה\"ק הנז' דאם אין שם לוי לא יטול ע\"י ישראל ולא ע\"י כהן אחר אלא יטול בידיו, מיהו הב\"ח כתב בשם מהר\"י מולין דבמקום שאין לוים אם יש בכור פטר רחם יתן מים לכהנים לנטילה לעלות לדוכן יעו\"ש והביאו שכנה\"ג בהגב\"י או' ג' עו\"ת או' י\"ג, ט\"ז סק\"ג, עט\"ז או' א' מ\"א סק\"ז א\"ר או' יו\"ד, וכתב שם המ\"א דמשמע מלשינו דוקא בכור לאם אבל בכור לאב לבד לא מצינו בו קדושה האידנא עכ\"ל, והביאו ש\"ץ דקמ\"ג ע\"א, ר\"ז אות יו\"ד, ח\"א כלל ל\"ב. אות ח' חס\"ל אות ג' בי\"מ אות י\"א, בן א\"ח פ' תצוה אות ז' אמנם לא ראיתי מי שנוהג כן ונראה דסומכין על פשט דברי הזוהר דמשמע דוקא לוי ואם לאו לא יטול כ\"א בידיו:",
+      "en_plain": "40) There: The Levi pours water, etc. Zohar, Naso 146a, teaches: A kohen who spreads his hands must add holiness to his holiness by sanctifying his hands through a holy hand. That holy hand is the Levi's, from whom the kohen receives the sanctifying water, for it says, 'You shall sanctify the Levites'; they are holy. It also says, 'And also your brethren, the tribe of Levi.' Thus every kohen who spreads his hands must be sanctified by a holy person, adding holiness to his holiness, and should not receive the sanctifying water from an unholy person. Tzinius DiSifra further teaches that the Levi through whom the kohen is sanctified must first sanctify himself. Why specifically a Levi rather than another kohen? Another kohen might be deficient, and a complete kohen should not be impaired through one who is incomplete. A complete Levi, however, was fit to ascend the platform and serve in the Tabernacle, and is called holy, as it says, 'You shall sanctify the Levites.' Beis Yosef cites this, and it is the basis of Maran's words here. The Zohar implies that when no Levi is present, neither an Israelite nor another kohen should wash his hands; he should wash them himself. Bach, however, cites Maharil that in the absence of Levites, a firstborn who opened his mother's womb should pour for the kohanim. Knesses HaGedolah, Hagahos Beis Yosef, os 3; Olas Tamid, os 13; Taz, se'if katan 3; Ateres Zekeinim, os 1; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite this. Magen Avraham notes that this means specifically a maternal firstborn; a paternal firstborn alone has no recognized sanctity today. Shaliach Tzibbur, page 143a; Shulchan Aruch HaRav, os 10; Chayei Adam 32:8; Chesed LaAlafim, os 3; Beis Menuchah, os 11; and Ben Ish Chai, Tetzaveh, os 7, cite it. I have not seen anyone follow this. They apparently rely on the Zohar's plain implication that only a Levi pours; without one, each kohen washes his own hands.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-043/levushei-serad",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 43,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.749,
+        "he_chars": 378,
+        "en_chars": 661,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 661
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<small>שם</small> אלא לקולא דמותר בחרצן. לשון הש\"ס שם דף כ\"ו ע\"ב דיליף שם דשיכור אסור בנשיאות כפים דנסמוך פרשת נ\"כ לפ' נזיר לומר מה נזיר אסור ביין אף כהן המברך ופריך אי מה נזיר אסור בחרצן אף כהן המברך ומשני אמר קרא לשרתו ולברך בשמו מה משרת מותר בחרצן אף כהן מברך ופריך אי מה משרת בעל מום לא אף כהן המברך ומשני הא איתקש לנזיר ומאי חזית דאיתקש לקולא אקיש לחומרא ומשני אסמכתא נינהו ומדרבנן לקולא:\n",
+      "en_html": "There, except for the voice of Domter in Hartzan. The language of the Shas shem page 26 rabbi dilif shem deshikur is forbidden in the presidy of kafim danamkh parashat nak to p. a monk to say what a monk is forbidden in wine even a kohen who blesses and a kohen what a monk is forbidden in a jarn even a kohen who blesses and secondly he said call to his servant and bless in his name what a minister is allowed in a jarn even a kohen blesses and a frikh what a minister with a defect not even a kohen who blesses and secondly is it hard for a monk And from the front of Daitkash to Kola Akish to Hamura and from the second reference Ninhu and Darbanan to Kola:\n",
+      "he_plain": "שם אלא לקולא דמותר בחרצן. לשון הש\"ס שם דף כ\"ו ע\"ב דיליף שם דשיכור אסור בנשיאות כפים דנסמוך פרשת נ\"כ לפ' נזיר לומר מה נזיר אסור ביין אף כהן המברך ופריך אי מה נזיר אסור בחרצן אף כהן המברך ומשני אמר קרא לשרתו ולברך בשמו מה משרת מותר בחרצן אף כהן מברך ופריך אי מה משרת בעל מום לא אף כהן המברך ומשני הא איתקש לנזיר ומאי חזית דאיתקש לקולא אקיש לחומרא ומשני אסמכתא נינהו ומדרבנן לקולא:",
+      "en_plain": "There, except for the voice of Domter in Hartzan. The language of the Shas shem page 26 rabbi dilif shem deshikur is forbidden in the presidy of kafim danamkh parashat nak to p. a monk to say what a monk is forbidden in wine even a kohen who blesses and a kohen what a monk is forbidden in a jarn even a kohen who blesses and secondly he said call to his servant and bless in his name what a minister is allowed in a jarn even a kohen blesses and a frikh what a minister with a defect not even a kohen who blesses and secondly is it hard for a monk And from the front of Daitkash to Kola Akish to Hamura and from the second reference Ninhu and Darbanan to Kola:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman131/seif-004/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 131,
+      "seif": 4,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.042,
+        "he_chars": 312,
+        "en_chars": 637,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 637
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "נהגו שלא ליפול על פניהם לא בבית האבל כו': אפי' כשיש שם ס\"ת ועוד יש טעם משום כדי שלא לעורר ולהגביר מה\"ד ולפ\"ז אומרים סליחות בבית האבל אבל לא וידויין ותחינות וביום המיל' א\"א תחנון דוקא בשחרית וי\"א שא\"א אף במנחה (מהרש\"ל) דהיינו אצל תינוק הנימול וכן נוהגין בק\"ק בריסק דליטא אבל אצל החתן א\"א כל היום (הגה\"מ פ\"ה מה\"ת):\n",
+      "en_html": "They practiced not to fall on their faces, neither in a house of mourning, etc. — even when a Torah scroll is there. And there is also a reason so as not to awaken and increase the attribute of strict judgment. And therefore they say Selichot in a house of mourning but not Viduyim and supplications. And on the day of milah they do not say Tachanun specifically at Shacharit, and some say they do not say it even at Mincha (Maharshal) — namely when praying at the circumcised infant. And so is practiced in the community of Brisk in Lithuania. But at the groom they do not say it all day (Hagahot Maimoniyot chapter 5 Hilchot Tefillah).\r\n",
+      "he_plain": "נהגו שלא ליפול על פניהם לא בבית האבל כו': אפי' כשיש שם ס\"ת ועוד יש טעם משום כדי שלא לעורר ולהגביר מה\"ד ולפ\"ז אומרים סליחות בבית האבל אבל לא וידויין ותחינות וביום המיל' א\"א תחנון דוקא בשחרית וי\"א שא\"א אף במנחה (מהרש\"ל) דהיינו אצל תינוק הנימול וכן נוהגין בק\"ק בריסק דליטא אבל אצל החתן א\"א כל היום (הגה\"מ פ\"ה מה\"ת):",
+      "en_plain": "They practiced not to fall on their faces, neither in a house of mourning, etc. — even when a Torah scroll is there. And there is also a reason so as not to awaken and increase the attribute of strict judgment. And therefore they say Selichot in a house of mourning but not Viduyim and supplications. And on the day of milah they do not say Tachanun specifically at Shacharit, and some say they do not say it even at Mincha (Maharshal) — namely when praying at the circumcised infant. And so is practiced in the community of Brisk in Lithuania. But at the groom they do not say it all day (Hagahot Maimoniyot chapter 5 Hilchot Tefillah).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman131/seif-004/baer-heitev",
+      "volume": "oc1",
+      "siman": 131,
+      "seif": 4,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.889,
+        "he_chars": 2539,
+        "en_chars": 4795,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4795
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>האבל. </b> ר\"ל דאין אומרים שם תחנה כלל. גם א\"א למנצח שיר מזמור. אבל זאת בריתי אותם אומר וא\"א שם הלל אפי' בחנוכה מהרי\"ל אבל התניא כתב דדוקא בר\"ח א\"א הלל שאינו אלא מנהג אבל בחנוכה אומרים וכתב המ\"א דבחנוכה טוב שיקרא כל אחד הלל בביתו וכ\"כ הר\"ן. ועיין בט\"ז דבס\"ק ט' כתב דוהוא רחום שאומרים בב' וה' צריכין האחרים המתפללים שם שיאמרוהו בביתם אחר שיצאו משם. אבל רחום וחנון לא יאמרוהו כלל אפי' בביתם ע\"ש הטעם. ובס\"ק שאח\"ז כתב דאפילו והוא רחום לא יאמרוהו אח\"כ בביתם כיון דל\"ש לאומרו במקומו ע\"ש. ובי\"ד סי' שע\"ו כתב סתם בשם הרוקח שאחר גמר תפלה אומרים תחנון ע\"ש. ולא קא מפליג בין רחום וחנון לבין והוא רחום וצ\"ע. ובבאר היטב אשר לפני כתב בזה\"ל ונראה מדבריו דגם בבית האבל א\"צ לומר אח\"כ כיון שלא אמרו במקומו עכ\"ל. ולא ידעתי מה נראה מדבריו שייך הכא. גם נראה דאשתמיטתיה מ\"ש הט\"ז בי\"ד בשם הרוקח כמ\"ש. ועי' שם ס\"ק א' מש\"ש כתב בשכנה\"ג דאף ביתום שמת אביו קודם שנולד אין אומרים תחנון ונ\"א ע\"ש. וט\"ז בי\"ד שם כתב דאם אין אבל במקום שמת המת ומתפללין שם אומרים תחנון:<br />\n<b>חתן. </b> כתב ט\"ז ובזה נראה דאפי' יוצא אח\"כ לביתו אצ\"ל תחנונים כגון והוא רחום כיון שהיה בבהכ\"נ בשעת התפלה וכן במילה ע\"ש ולענין אבל עי' ס\"ק שלפני זה מש\"ש. נשאלתי כיון דחתן ואבל מחד טעמא אין נופלין על פניהם בבתיהם למה בבא החתן לבה\"כ אין נופלין על פניהם ובבא האבל לבה\"כ נופלין. והשבתי דיש שינוי ביניהם בטעם הדבר. כי טעם החתן מפני שהוא שרוי בשמחה וכיון שהוא מלך אזלינן בתריה כל הקהל אבל טעם האבל שלא להגביר מדת הדין לכן כשהאבל בבה\"כ עבדינן עיקר משאר הקהל דאינם אבלים. שכנה\"ג:<br />\n<b>המילה</b> <b>בבה\"כ. </b> ומשמע דבזמן הקרירות שמלין בבית אומרים תחנון בבה\"כ וצ\"ע. והכנה\"ג כתב שמנהג כל המקומות שאפי' המילה בבית אין נופלין בבה\"כ שמתפלל שם בעל הברית. אם נולד מהול ומטיף ממנו דם ברית אין נופלין על פניהם. הלק\"ט ח\"ב סי' קס\"ח:<br />\n<b>תחנון. </b> אבל ב\"ח בשם רש\"ל כתב שא\"א תחנון במנחה כשמתפללין אצל התינוק וכן נוהגין בבריסק דליטא וכן נוהגין בקראקא וכן נראה להקל כיון דנ\"א רשות ט\"ז שכנה\"ג עיין מ\"א. <small>(וכתב בספר אליהו רבה מיהו אם מתפללין מנחה אצל התינוק לאחר שבירכו ב\"ה על הסעודה אפשר שאומרים אותו דיש לסמוך בזה על רמ\"א)</small>:<br />\n<b>לחופה. </b> כתב שכנה\"ג הא דכתב ולא מיקרי חתן אלא ביום שנכנס לחופה כוונתו למעט קודם כניסה לחופה אבל כל שנכנס לחופה כל שבעה אין נופלין על פניהם אם בא לבה\"כ וכ\"ש אם מתפלל בביתו ל\"ש בחור שנשא בתולה ל\"ש בחור שנשא אלמנה ל\"ש אלמן שנשא בתולה אין נופלין על פניהם תוך שבעה מיום חופתן במקום שהם מתפללין אבל אלמן שנשא אלמנה דוקא תוך ג' לנשואין אבל לאחר ג' נופלין. ע\"ש וכ\"כ הפר\"ח וכ\"כ הט\"ז והעלה דכל ז' ימי משתה לא יבא החתן לבה\"כ מטעם זה שלא ימנעו לומר תחנון ע\"ש. וביום החופה אע\"פ שאינו נכנס לחופה עד הערב אין נופלין על פניהם בשחר מהרא\"י סי' פ' ופר\"ח חולק עליו וכתב מסתברא לי כל שלא נכנס לחופה נופלין על פניהם ע\"ש ועיין כנה\"ג ובמ\"א ובהלק\"ט ח\"א סי' כ\"א:\n",
+      "en_html": "<b>The mourner.</b> Meaning, no supplication is recited there at all. Lamnatzeach Shir Mizmor is likewise omitted, but Vesamti Es Brisi is recited. Hallel is not recited there even on Chanukah. Maharil. Tanya, however, writes that Hallel is omitted specifically on Rosh Chodesh, when its recitation is only a custom, but on Chanukah it is recited. Magen Avraham writes that on Chanukah it is proper for each person to recite Hallel at home, and Ran writes likewise. See Taz. In seif katan 9 he writes that the other people praying there must recite VeHu Rachum, which is said on Monday and Thursday, at home after leaving. Rachum VeChanun, however, they should not recite at all, even at home; see there for the reason. In the following seif katan he writes that even VeHu Rachum should not be recited later at home, since it was not appropriate to say it in its proper place. See there. In Yoreh Deah, siman 376, he cites Rokeach without qualification that after completing the prayer they recite Tachanun. See there. He does not distinguish between Rachum VeChanun and VeHu Rachum, and this requires study. The Baer Heitev before me states: “It appears from his words that even in a mourner's house they need not say it afterward, since they did not say it in its proper place.” I do not know how that inference is relevant here. It also appears that he overlooked what Taz writes in Yoreh Deah in the name of Rokeach, as stated above. See there, seif katan 1. Knesses HaGedolah writes that even in the presence of an orphan whose father died before he was born, Tachanun and Nefilas Apayim are omitted. See there. Taz in Yoreh Deah writes that if no mourner is present in the place where the deceased died and people pray there, they recite Tachanun.<br />\n<b>A groom.</b> Taz writes that even if he later returns home, he need not recite supplications such as VeHu Rachum, since he was in the synagogue during the prayer. The same applies to a bris milah. See there. Regarding a mourner, see the preceding seif katan. I was asked: Since a groom and a mourner are alike in that Nefilas Apayim is not performed in their homes, why is it omitted when a groom comes to the synagogue, while it is recited when a mourner comes to the synagogue? I answered that their reasons differ. The groom is immersed in joy, and since he is regarded as a king, the entire congregation follows his status. The reason concerning a mourner, however, is not to intensify the attribute of strict judgment. Therefore, when the mourner comes to the synagogue, the status of the rest of the congregation, who are not mourners, is primary. Knesses HaGedolah.<br />\n<b>The bris milah</b> <b>in the synagogue.</b> This implies that during cold weather, when the bris is held in a house, Tachanun is recited in the synagogue, and this requires study. Knesses HaGedolah writes that the custom everywhere is that even when the bris is held in a house, Nefilas Apayim is not performed in the synagogue where the baal bris prays. If a child was born circumcised and hatafas dam bris is performed, Nefilas Apayim is not recited. Halachos Ketanos, part 2, siman 168.<br />\n<b>Tachanun.</b> Bach, citing Maharshal, writes that Tachanun is not recited at Minchah when they pray near the infant. This is the custom in Brisk of Lithuania and in Krakow, and it appears proper to be lenient because Nefilas Apayim is optional. Taz and Knesses HaGedolah. See Magen Avraham. <small>Eliyah Rabbah writes that if they pray Minchah near the infant after Bircas HaMazon was recited following the meal, it is possible that Tachanun is recited, for one may rely upon Rama in this matter.</small><br />\n<b>To the chuppah.</b> Knesses HaGedolah writes that the statement that one is considered a groom only on the day he enters the chuppah intends merely to exclude the period before entering the chuppah. Once he has entered the chuppah, Nefilas Apayim is omitted for all seven days if he comes to the synagogue, and certainly when he prays at home. Whether a bachelor married a virgin, a bachelor married a widow, or a widower married a virgin, Nefilas Apayim is omitted for seven days from the chuppah wherever they pray. If a widower married a widow, it is omitted only during the first three days of marriage, but afterward it is recited. See there. Peri Chadash and Taz rule likewise. Taz concludes that throughout all seven days of celebration the groom should not come to the synagogue, so that the congregation will not thereby refrain from reciting Tachanun. See there. On the wedding day, even if the chuppah will not take place until evening, Nefilas Apayim is omitted at Shacharis. Terumas HaDeshen, siman 80. Peri Chadash disagrees and writes that as long as he has not entered the chuppah, Nefilas Apayim is recited. See there, and see Knesses HaGedolah, Magen Avraham, and Halachos Ketanos, part 1, siman 21.\n",
+      "he_plain": "האבל. ר\"ל דאין אומרים שם תחנה כלל. גם א\"א למנצח שיר מזמור. אבל זאת בריתי אותם אומר וא\"א שם הלל אפי' בחנוכה מהרי\"ל אבל התניא כתב דדוקא בר\"ח א\"א הלל שאינו אלא מנהג אבל בחנוכה אומרים וכתב המ\"א דבחנוכה טוב שיקרא כל אחד הלל בביתו וכ\"כ הר\"ן. ועיין בט\"ז דבס\"ק ט' כתב דוהוא רחום שאומרים בב' וה' צריכין האחרים המתפללים שם שיאמרוהו בביתם אחר שיצאו משם. אבל רחום וחנון לא יאמרוהו כלל אפי' בביתם ע\"ש הטעם. ובס\"ק שאח\"ז כתב דאפילו והוא רחום לא יאמרוהו אח\"כ בביתם כיון דל\"ש לאומרו במקומו ע\"ש. ובי\"ד סי' שע\"ו כתב סתם בשם הרוקח שאחר גמר תפלה אומרים תחנון ע\"ש. ולא קא מפליג בין רחום וחנון לבין והוא רחום וצ\"ע. ובבאר היטב אשר לפני כתב בזה\"ל ונראה מדבריו דגם בבית האבל א\"צ לומר אח\"כ כיון שלא אמרו במקומו עכ\"ל. ולא ידעתי מה נראה מדבריו שייך הכא. גם נראה דאשתמיטתיה מ\"ש הט\"ז בי\"ד בשם הרוקח כמ\"ש. ועי' שם ס\"ק א' מש\"ש כתב בשכנה\"ג דאף ביתום שמת אביו קודם שנולד אין אומרים תחנון ונ\"א ע\"ש. וט\"ז בי\"ד שם כתב דאם אין אבל במקום שמת המת ומתפללין שם אומרים תחנון: חתן. כתב ט\"ז ובזה נראה דאפי' יוצא אח\"כ לביתו אצ\"ל תחנונים כגון והוא רחום כיון שהיה בבהכ\"נ בשעת התפלה וכן במילה ע\"ש ולענין אבל עי' ס\"ק שלפני זה מש\"ש. נשאלתי כיון דחתן ואבל מחד טעמא אין נופלין על פניהם בבתיהם למה בבא החתן לבה\"כ אין נופלין על פניהם ובבא האבל לבה\"כ נופלין. והשבתי דיש שינוי ביניהם בטעם הדבר. כי טעם החתן מפני שהוא שרוי בשמחה וכיון שהוא מלך אזלינן בתריה כל הקהל אבל טעם האבל שלא להגביר מדת הדין לכן כשהאבל בבה\"כ עבדינן עיקר משאר הקהל דאינם אבלים. שכנה\"ג: המילה בבה\"כ. ומשמע דבזמן הקרירות שמלין בבית אומרים תחנון בבה\"כ וצ\"ע. והכנה\"ג כתב שמנהג כל המקומות שאפי' המילה בבית אין נופלין בבה\"כ שמתפלל שם בעל הברית. אם נולד מהול ומטיף ממנו דם ברית אין נופלין על פניהם. הלק\"ט ח\"ב סי' קס\"ח: תחנון. אבל ב\"ח בשם רש\"ל כתב שא\"א תחנון במנחה כשמתפללין אצל התינוק וכן נוהגין בבריסק דליטא וכן נוהגין בקראקא וכן נראה להקל כיון דנ\"א רשות ט\"ז שכנה\"ג עיין מ\"א. (וכתב בספר אליהו רבה מיהו אם מתפללין מנחה אצל התינוק לאחר שבירכו ב\"ה על הסעודה אפשר שאומרים אותו דיש לסמוך בזה על רמ\"א) : לחופה. כתב שכנה\"ג הא דכתב ולא מיקרי חתן אלא ביום שנכנס לחופה כוונתו למעט קודם כניסה לחופה אבל כל שנכנס לחופה כל שבעה אין נופלין על פניהם אם בא לבה\"כ וכ\"ש אם מתפלל בביתו ל\"ש בחור שנשא בתולה ל\"ש בחור שנשא אלמנה ל\"ש אלמן שנשא בתולה אין נופלין על פניהם תוך שבעה מיום חופתן במקום שהם מתפללין אבל אלמן שנשא אלמנה דוקא תוך ג' לנשואין אבל לאחר ג' נופלין. ע\"ש וכ\"כ הפר\"ח וכ\"כ הט\"ז והעלה דכל ז' ימי משתה לא יבא החתן לבה\"כ מטעם זה שלא ימנעו לומר תחנון ע\"ש. וביום החופה אע\"פ שאינו נכנס לחופה עד הערב אין נופלין על פניהם בשחר מהרא\"י סי' פ' ופר\"ח חולק עליו וכתב מסתברא לי כל שלא נכנס לחופה נופלין על פניהם ע\"ש ועיין כנה\"ג ובמ\"א ובהלק\"ט ח\"א סי' כ\"א:",
+      "en_plain": "The mourner. Meaning, no supplication is recited there at all. Lamnatzeach Shir Mizmor is likewise omitted, but Vesamti Es Brisi is recited. Hallel is not recited there even on Chanukah. Maharil. Tanya, however, writes that Hallel is omitted specifically on Rosh Chodesh, when its recitation is only a custom, but on Chanukah it is recited. Magen Avraham writes that on Chanukah it is proper for each person to recite Hallel at home, and Ran writes likewise. See Taz. In seif katan 9 he writes that the other people praying there must recite VeHu Rachum, which is said on Monday and Thursday, at home after leaving. Rachum VeChanun, however, they should not recite at all, even at home; see there for the reason. In the following seif katan he writes that even VeHu Rachum should not be recited later at home, since it was not appropriate to say it in its proper place. See there. In Yoreh Deah, siman 376, he cites Rokeach without qualification that after completing the prayer they recite Tachanun. See there. He does not distinguish between Rachum VeChanun and VeHu Rachum, and this requires study. The Baer Heitev before me states: “It appears from his words that even in a mourner's house they need not say it afterward, since they did not say it in its proper place.” I do not know how that inference is relevant here. It also appears that he overlooked what Taz writes in Yoreh Deah in the name of Rokeach, as stated above. See there, seif katan 1. Knesses HaGedolah writes that even in the presence of an orphan whose father died before he was born, Tachanun and Nefilas Apayim are omitted. See there. Taz in Yoreh Deah writes that if no mourner is present in the place where the deceased died and people pray there, they recite Tachanun. A groom. Taz writes that even if he later returns home, he need not recite supplications such as VeHu Rachum, since he was in the synagogue during the prayer. The same applies to a bris milah. See there. Regarding a mourner, see the preceding seif katan. I was asked: Since a groom and a mourner are alike in that Nefilas Apayim is not performed in their homes, why is it omitted when a groom comes to the synagogue, while it is recited when a mourner comes to the synagogue? I answered that their reasons differ. The groom is immersed in joy, and since he is regarded as a king, the entire congregation follows his status. The reason concerning a mourner, however, is not to intensify the attribute of strict judgment. Therefore, when the mourner comes to the synagogue, the status of the rest of the congregation, who are not mourners, is primary. Knesses HaGedolah. The bris milah in the synagogue. This implies that during cold weather, when the bris is held in a house, Tachanun is recited in the synagogue, and this requires study. Knesses HaGedolah writes that the custom everywhere is that even when the bris is held in a house, Nefilas Apayim is not performed in the synagogue where the baal bris prays. If a child was born circumcised and hatafas dam bris is performed, Nefilas Apayim is not recited. Halachos Ketanos, part 2, siman 168. Tachanun. Bach, citing Maharshal, writes that Tachanun is not recited at Minchah when they pray near the infant. This is the custom in Brisk of Lithuania and in Krakow, and it appears proper to be lenient because Nefilas Apayim is optional. Taz and Knesses HaGedolah. See Magen Avraham. Eliyah Rabbah writes that if they pray Minchah near the infant after Bircas HaMazon was recited following the meal, it is possible that Tachanun is recited, for one may rely upon Rama in this matter. To the chuppah. Knesses HaGedolah writes that the statement that one is considered a groom only on the day he enters the chuppah intends merely to exclude the period before entering the chuppah. Once he has entered the chuppah, Nefilas Apayim is omitted for all seven days if he comes to the synagogue, and certainly when he prays at home. Whether a bachelor married a virgin, a bachelor married a widow, or a widower married a virgin, Nefilas Apayim is omitted for seven days from the chuppah wherever they pray. If a widower married a widow, it is omitted only during the first three days of marriage, but afterward it is recited. See there. Peri Chadash and Taz rule likewise. Taz concludes that throughout all seven days of celebration the groom should not come to the synagogue, so that the congregation will not thereby refrain from reciting Tachanun. See there. On the wedding day, even if the chuppah will not take place until evening, Nefilas Apayim is omitted at Shacharis. Terumas HaDeshen, siman 80. Peri Chadash disagrees and writes that as long as he has not entered the chuppah, Nefilas Apayim is recited. See there, and see Knesses HaGedolah, Magen Avraham, and Halachos Ketanos, part 1, siman 21.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman131/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 131,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.228,
+        "he_chars": 434,
+        "en_chars": 967,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"3\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>נהגו שלא ליפול על פניהם <i data-commentator=\"Turei Zahav\" data-order=\"9\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>לא <i data-commentator=\"Magen Avraham\" data-order=\"10\"></i>בבית <i data-commentator=\"Ba'er Hetev\" data-order=\"10\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"10\"></i>האבל <i data-commentator=\"Turei Zahav\" data-order=\"10\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>ולא בבית החתן <i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>ולא בב\"ה ביום מילה <i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>ולא כשיש שם <i data-commentator=\"Ba'er Hetev\" data-order=\"11\"></i>חתן: <small>הגה ודוקא שהמילה או החתן <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>באותו ב\"ה אבל אם <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i>אין <i data-commentator=\"Ba'er Hetev\" data-order=\"12\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"12\"></i>המילה בב\"ה אע\"פ שהיא בב\"ה האחרת <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i>אומרים תחנון (פסקי מהרי\"א סימן פ\"א) וביום המילה שאין אומרים תחנון <i data-commentator=\"Turei Zahav\" data-order=\"11\"></i>דוקא שחרית שמלין אז התינוק אבל <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i>במנחה <i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>אף על פי שמתפללין אצל התינוק הנימול אומרים <i data-commentator=\"Ba'er Hetev\" data-order=\"13\"></i>תחנון מה שאין כן בחתן שאין אומרים תחנון כל היום כשמתפללין אצל החתן (הגהות מיי' פ\"ה מה\"ת) ולא מקרי חתן אלא ביום <i data-commentator=\"Mishnah Berurah\" data-label=\"כו\"></i>שנכנס <i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"14\"></i>לחופה:</small>\n",
+      "en_html": "The custom is to not \"fall on one's face\" in the house of a mourner or a groom, and not in a synagogue on a day when there is a brit milah (circumcision) taking place or when a groom is present. {Rama: Gloss: And this is specifically when the brit milah or the groom is in the same synagogue [where one is praying], but if the brit milah is not in that synagogue, even though it's in a different one [in the same city], Tachanun is said (Piskei Mahari\"a - siman 81). And on the day of a brit milah, when Tachanun is not said, that is only during Shacharit, since that is when the baby is circumcised; but during Mincha, even though they are praying in the presence of the circumcised baby, Tachanun is said. As opposed to a groom, where we do not say Tachanun the entire day when praying in the presence of the groom (Hagahot Maimoni - chapter 5 in the Laws of Prayer). And he is only called a \"groom\" on the [actual] day that he enters the chuppah (wedding canopy).}\n",
+      "he_plain": "נהגו שלא ליפול על פניהם לא בבית האבל ולא בבית החתן ולא בב\"ה ביום מילה ולא כשיש שם חתן: הגה ודוקא שהמילה או החתן באותו ב\"ה אבל אם אין המילה בב\"ה אע\"פ שהיא בב\"ה האחרת אומרים תחנון (פסקי מהרי\"א סימן פ\"א) וביום המילה שאין אומרים תחנון דוקא שחרית שמלין אז התינוק אבל במנחה אף על פי שמתפללין אצל התינוק הנימול אומרים תחנון מה שאין כן בחתן שאין אומרים תחנון כל היום כשמתפללין אצל החתן (הגהות מיי' פ\"ה מה\"ת) ולא מקרי חתן אלא ביום שנכנס לחופה:",
+      "en_plain": "The custom is to not \"fall on one's face\" in the house of a mourner or a groom, and not in a synagogue on a day when there is a brit milah (circumcision) taking place or when a groom is present. {Rama: Gloss: And this is specifically when the brit milah or the groom is in the same synagogue [where one is praying], but if the brit milah is not in that synagogue, even though it's in a different one [in the same city], Tachanun is said (Piskei Mahari\"a - siman 81). And on the day of a brit milah, when Tachanun is not said, that is only during Shacharit, since that is when the baby is circumcised; but during Mincha, even though they are praying in the presence of the circumcised baby, Tachanun is said. As opposed to a groom, where we do not say Tachanun the entire day when praying in the presence of the groom (Hagahot Maimoni - chapter 5 in the Laws of Prayer). And he is only called a \"groom\" on the [actual] day that he enters the chuppah (wedding canopy).}",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

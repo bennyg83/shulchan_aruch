@@ -1,0 +1,505 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "mode": "fresh_translate_complete_from_he",
+    "purpose": "120 highest-priority cut/incomplete Mechaber EN (+ Rama display) for GPT retranslate",
+    "source": "OC_MECHABER_CUT_EN_KIT.json + live corpus verify",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).\n\nINPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).\n- Part 3 — commentator names: exact dictionary forms (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.\n\nTASK\n1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.\n2) No additions beyond the source. Plain translated text only.\n3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).\n4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).\n5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.\n6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English for that cell. No corpus edits.",
+    "seed": "oc1/siman244/seif-001/mechaber",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "created": "2026-08-30T20:47:47.495Z",
+    "kit": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "counts": {
+      "total": 120,
+      "by_volume": {
+        "oc1": 120
+      },
+      "by_slug": {
+        "mechaber": 120
+      },
+      "by_priority": {
+        "P0_seed": 1,
+        "P1_cut_strict": 12,
+        "P1_cut_post_rama": 59,
+        "P2_cut_loose": 5,
+        "P2_rama": 43
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).",
+      "",
+      "INPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.",
+      "",
+      "TASK",
+      "1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.",
+      "2) No additions beyond the source. Plain translated text only.",
+      "3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).",
+      "4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).",
+      "5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.",
+      "6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English for that cell. No corpus edits."
+    ],
+    "parent_sha256": "60ec5249a3450a3aaa5ba2edf541740b96624a5f23e88a148a85316387e1c044",
+    "chunk_index": 6,
+    "chunk_total": 11,
+    "case_offset": 58,
+    "cases_in_chunk": 13,
+    "parent_pack": "01_OC_MECHABER_CUT_EN_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman529/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 529,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.821,
+        "he_chars": 570,
+        "en_chars": 1038,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 199,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>דיני שמחת יו\"ט. ובו ד סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>מצות י\"ט לחלקו חציו לבית המדרש <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i>וחציו לאכילה ושתייה <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>ואל יצמצם בהוצאת י\"ט <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>וצריך לכבדו ולענגו <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>כמו בשבת: <small>הגה <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>ואסור לאכול <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>ממנחה ולמעלה <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>בערב יום טוב כמו בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>שזהו מכלל הכבוד (רמב\"ם פ\"ו) <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>מיהו אם עי\"ט שבת <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>יכול לקיים סעודה <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>שלישית ויאכל מעט פת לכבוד י\"ט ומצוה ללוש פת בערב יום טוב לכבוד יום טוב (מהרי\"ל הל' י\"ט) כמו בערב שבת כמו שנתבאר לעיל סי' רמ\"ב:</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>וחייב לבצוע <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>על שתי ככרות <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>ולקבוע כל סעודה <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>על <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i><i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>היין <i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i><i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>ובגדי יו\"ט יהיו יותר טובים משל שבת <i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>ולא נהגו לעשות בו סעודה שלישית <small>וביום טוב <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>מאחרין לבוא לבית הכנסת <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i>וממהרין לצאת משום שמחת יו\"ט: (גמרא פ' הקורא עומד)</small>:\n",
+      "en_html": "The Laws of Being Joyful on a Yom Tov. Containing 4 paragraphs: It is a holiday mitzvah to spend half the time in the House of Study and half of the time eating and drinking. One should not skimp on holiday expenses; it must be honored and enjoyed like Shabbat. It is an obligation to eat two loaves of bread and to include wine in the meal. Holiday clothes should be nicer than those for Shabbat. It is not the practice to make a third meal. {Rama: Rema: It is forbidden to eat after Mincha on the day before a holiday, just like for Shabbat, and this is part of honoring it (Rambam chapter 6). However, if the day before the holiday is Shabbat, one can have the third meal and eat a bit of bread in honor of the holiday. It is a mitzvah to knead bread on the day before the holiday in honor of the holiday (Mahari\"l laws of a holiday) like on Friday, as was explained above in chapter 342. And on a holiday, we tarry when going to synagogue and quickly leave synagogue because of the holiday joy (Gemara end of chapter \"Hakoreh Omed\").}\n",
+      "he_plain": "דיני שמחת יו\"ט. ובו ד סעיפים: מצות י\"ט לחלקו חציו לבית המדרש וחציו לאכילה ושתייה ואל יצמצם בהוצאת י\"ט וצריך לכבדו ולענגו כמו בשבת: הגה ואסור לאכול ממנחה ולמעלה בערב יום טוב כמו בשבת שזהו מכלל הכבוד (רמב\"ם פ\"ו) מיהו אם עי\"ט שבת יכול לקיים סעודה שלישית ויאכל מעט פת לכבוד י\"ט ומצוה ללוש פת בערב יום טוב לכבוד יום טוב (מהרי\"ל הל' י\"ט) כמו בערב שבת כמו שנתבאר לעיל סי' רמ\"ב: וחייב לבצוע על שתי ככרות ולקבוע כל סעודה על היין ובגדי יו\"ט יהיו יותר טובים משל שבת ולא נהגו לעשות בו סעודה שלישית וביום טוב מאחרין לבוא לבית הכנסת וממהרין לצאת משום שמחת יו\"ט: (גמרא פ' הקורא עומד) :",
+      "en_plain": "The Laws of Being Joyful on a Yom Tov. Containing 4 paragraphs: It is a holiday mitzvah to spend half the time in the House of Study and half of the time eating and drinking. One should not skimp on holiday expenses; it must be honored and enjoyed like Shabbat. It is an obligation to eat two loaves of bread and to include wine in the meal. Holiday clothes should be nicer than those for Shabbat. It is not the practice to make a third meal. {Rama: Rema: It is forbidden to eat after Mincha on the day before a holiday, just like for Shabbat, and this is part of honoring it (Rambam chapter 6). However, if the day before the holiday is Shabbat, one can have the third meal and eat a bit of bread in honor of the holiday. It is a mitzvah to knead bread on the day before the holiday in honor of the holiday (Mahari\"l laws of a holiday) like on Friday, as was explained above in chapter 342. And on a holiday, we tarry when going to synagogue and quickly leave synagogue because of the holiday joy (Gemara end of chapter \"Hakoreh Omed\").}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman59/seif-002/mechaber",
+      "volume": "oc1",
+      "siman": 59,
+      "seif": 2,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.451,
+        "he_chars": 412,
+        "en_chars": 1010,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 77,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i><i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>אם טעה ואמר אשר בדברו מעריב ערבים ונזכר <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>מיד ואמר יוצר אור וגם סיים יוצר המאורות יצא אבל אם אמר בדברו מעריב ערבים <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ולא אמר יוצר <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>אור או לא סיים יוצר המאורות לא יצא ואם אמר יוצר אור ובורא חושך אשר בדברו מעריב ערבים וגם סיים מעריב ערבים לא יצא: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>וה\"ה אם לא אמר תחלה <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>רק יוצר אור אם <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>סיים מעריב ערבים <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>לא יצא (דברי עצמו לפרש כן הטור והרא\"ש)</small> אבל אם סיים יוצר המאורות כיון שפתח יוצר אור <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>יצא אף על פי <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>שהפסיק במעריב ערבים:\n",
+      "en_html": "If one erred [while praying] and said \"the one whose word brings forth evening\" but remembered immediately and said \"who forms light,\" and then ends with \"who fashions the luminaries,\" he has fulfilled his obligation. However, if one said \"the one whose word brings forth evening\" and one did not say \"who forms light\" or did not conclude with \"who fashions the luminaries,\" then he has not fulfilled his obligation. And if one said, \"the one who forms light and creates darkness and whose word brings forth evening,\" and also concluded with \"brings forth evening,\" he has not fulfilled his obligation. However, if one concludes with \"who fashions the luminaries\", since he opened with \"who forms light\", he has fulfilled his obligation even though he interrupted with \"brings forth evening.\" {Rama: Rem\"a: And the same thing applies if one only said at first \"who forms light\", if he ends with \"brings forth evening\" then he has not fulfilled one's obligation (his own words to explain the Tur and the Rosh).}\n",
+      "he_plain": "אם טעה ואמר אשר בדברו מעריב ערבים ונזכר מיד ואמר יוצר אור וגם סיים יוצר המאורות יצא אבל אם אמר בדברו מעריב ערבים ולא אמר יוצר אור או לא סיים יוצר המאורות לא יצא ואם אמר יוצר אור ובורא חושך אשר בדברו מעריב ערבים וגם סיים מעריב ערבים לא יצא: הגה וה\"ה אם לא אמר תחלה רק יוצר אור אם סיים מעריב ערבים לא יצא (דברי עצמו לפרש כן הטור והרא\"ש) אבל אם סיים יוצר המאורות כיון שפתח יוצר אור יצא אף על פי שהפסיק במעריב ערבים:",
+      "en_plain": "If one erred [while praying] and said \"the one whose word brings forth evening\" but remembered immediately and said \"who forms light,\" and then ends with \"who fashions the luminaries,\" he has fulfilled his obligation. However, if one said \"the one whose word brings forth evening\" and one did not say \"who forms light\" or did not conclude with \"who fashions the luminaries,\" then he has not fulfilled his obligation. And if one said, \"the one who forms light and creates darkness and whose word brings forth evening,\" and also concluded with \"brings forth evening,\" he has not fulfilled his obligation. However, if one concludes with \"who fashions the luminaries\", since he opened with \"who forms light\", he has fulfilled his obligation even though he interrupted with \"brings forth evening.\" {Rama: Rem\"a: And the same thing applies if one only said at first \"who forms light\", if he ends with \"brings forth evening\" then he has not fulfilled one's obligation (his own words to explain the Tur and the Rosh).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman59/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 59,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.702,
+        "he_chars": 346,
+        "en_chars": 935,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 81,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>ברכת יוצר וערבית אומר <i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>עם הש\"ץ בנחת: <small>הגה וימהר לסיים <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>קודם שסיים הש\"ץ <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>ויענה <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i>אמן <i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>אחר ש\"ץ (הגהות מיימוני פ\"א מהלכות ברכות ורוקח סימן רי\"ח) ומיהו אם לא אמרה רק <i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>שמעה מש\"ץ יצא דברכות <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>אלו הש\"ץ מוציא היחיד אע\"פ <i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>שהוא בקי מיהו אין הש\"ץ מוציא <i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>היחיד <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>בפחות <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>מי' (הר\"י פ' מי שמתו)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>ולא יענה אמן אחר סיום הבוחר בעמו ישראל באהבה משום <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>דהוי הפסק <small> (ועיין לקמן <i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>סי' <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"5\"></i>ס\"א):</small>\n",
+      "en_html": "The blessings for Yotzer (morning) and Aravit (Maariv Aravim in the evening) should be said alongside the prayer leader at a pleasant pace. However, one should not answer Amen after the blessing \"...who chooses His nation, Israel, with love\" because this constitutes an interruption (see below, chapter 61) {Rama: Rem\"a: And one should hasten to conclude before the prayer leader concludes in order to answer Amen after the prayer leader (Hagahot Maimoni Chapter 1 from Laws of Blessings and Rokeach Siman 218). Nevertheless, if one did not say it [himself] but heard it from the prayer-leader then one has fulfilled one's obligation, because [with regard to these blessings] the prayer leader can fulfill the obligation of an individual, even if one is an expert (ie. he is fluent in the prayers). Nonetheless, the prayer leader may not fulfill the obligation of an individual with less than a minyan (Rabbi Yitzchak on Mi Shemeyto).}\n",
+      "he_plain": "ברכת יוצר וערבית אומר עם הש\"ץ בנחת: הגה וימהר לסיים קודם שסיים הש\"ץ ויענה אמן אחר ש\"ץ (הגהות מיימוני פ\"א מהלכות ברכות ורוקח סימן רי\"ח) ומיהו אם לא אמרה רק שמעה מש\"ץ יצא דברכות אלו הש\"ץ מוציא היחיד אע\"פ שהוא בקי מיהו אין הש\"ץ מוציא היחיד בפחות מי' (הר\"י פ' מי שמתו) ולא יענה אמן אחר סיום הבוחר בעמו ישראל באהבה משום דהוי הפסק (ועיין לקמן סי' ס\"א):",
+      "en_plain": "The blessings for Yotzer (morning) and Aravit (Maariv Aravim in the evening) should be said alongside the prayer leader at a pleasant pace. However, one should not answer Amen after the blessing \"...who chooses His nation, Israel, with love\" because this constitutes an interruption (see below, chapter 61) {Rama: Rem\"a: And one should hasten to conclude before the prayer leader concludes in order to answer Amen after the prayer leader (Hagahot Maimoni Chapter 1 from Laws of Blessings and Rokeach Siman 218). Nevertheless, if one did not say it [himself] but heard it from the prayer-leader then one has fulfilled one's obligation, because [with regard to these blessings] the prayer leader can fulfill the obligation of an individual, even if one is an expert (ie. he is fluent in the prayers). Nonetheless, the prayer leader may not fulfill the obligation of an individual with less than a minyan (Rabbi Yitzchak on Mi Shemeyto).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman626/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 626,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.969,
+        "he_chars": 996,
+        "en_chars": 1961,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 226,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>העושה סוכה תחת האילן או תחת הגג. ובו ג סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><small>[אין לעשות סוכה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>תחת <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i>בית או אילן]</small> והעושה סוכתו תחת האילן י\"א שאם <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>האילן צלתה מרובה מחמתו פסולה <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>בכל ענין אף אם הסוכה צלתה מרובה מחמת' <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>אבל אם האילן חמתו מרובה מצלתו אם הסוכה צלתה מרובה מחמתה בלא אילן <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>כשרה <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>אפילו לא השפיל הענפים למטה לערבם עם סכך הסוכה <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>אבל אם אין הסוכה צלתה מרובה מחמתה אלא על ידי האילן <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>צריך שישפיל הענפים ויערבם עם הסכך בענין שלא יהיו ניכרים ויהא סכך רבה עליהם <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>ומבטלן <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>וי\"א שאפי' אם הסוכה צלתה מרובה מחמתה בלא האילן והאילן חמתו מרובה מצלתו אם ענפי האילן <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>מכוונים כנגד סכך הכשר פסולה בין שהאילן קדם בין שהסוכה קדמה כיון שענפי האילן מכוונים כנגד סכך הכשר: <small>הגה <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>מיהו אם השפיל הענפים למטה ועירבן עם הסכך <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>שאינן <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>ניכרין בטלין והסוכה כשרה (הרא\"ש והר\"ן) וכן אם הניח סכך הכשר על סכך הפסול <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>מיקרי עירוב וכשר (מרדכי פ\"ק דסוכה)</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>אבל אם הענפים כנגד האויר שבין הסכך כשר <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i><small>או שהסכך הרבה <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>שאפי' ינטל נגד האילן נשאר כשיעור) (טור)</small> כשרה הואיל וצל הכשר הוא מרובה מחמתה <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>שאפי' אם ינטל האילן יש שיעור בכשר להכשיר ובכל זאת לא שאני לן בין קדם האילן לקדם הסכך דין אחד להם:\n",
+      "en_html": "One who makes a Sukkah underneath a tree or under a roof, containing 3 Seifim: One who makes his Sukkah underneath a tree - there are those who say that if the tree's shade is greater than the sunlit area, the Sukkah is completely invalid, even if the Sukkah is shaded more so than sunlit. However, if the tree's sunlit area is greater than its shade - if the Sukkah's shade is greater than its sunlit area without a tree, it is Kosher even if the branches were not lowered to mix with the schach of the Sukkah. However, if the Sukkah is not shaded more so than sunlit because of the tree, it is necessary to lower the branches and mix the with the Shach in such a way that they are not recognizable and the Schach is the majority and nullifies it. And there are those who say that even if the Sukkah's shade is greater than its sunlit area without the tree, and the tree's sunlit area is greater than its shaded area, if the branches of the tree are aimed or directed to the kosher Shach, it is pasul (invalid), whether the tree was there first or the Sukkah was there first, when the branches of the tree are directed toward the kosher Schach. However, if the branches are towards the air between the Schach, it is Kosher It is Kosher inasmuch that the valid shade is greater than the sunlit areas so that even if the tree is removed there is enough valid Schach to make it kosher. In any event it does not matter whether the tree existed first or the Sukkah existed first; there is one law for both of them. {Rama: [No Sukkah can be made under a house or a tree]. Rema: However, if the branches were lowered down and mixed with the Schach so that it is not noticeable, it is batul and the Sukkah is Kosher (the Rosh and the R\"an). Similarly, if the kosher Schach rests on the invalid Schach, it is accidentally mixed and therefore kosher (Mordechai) or if the Schach is the majority such that even if it is removed from the tree it retains its measure (Tur)}\n",
+      "he_plain": "העושה סוכה תחת האילן או תחת הגג. ובו ג סעיפים: [אין לעשות סוכה תחת בית או אילן] והעושה סוכתו תחת האילן י\"א שאם האילן צלתה מרובה מחמתו פסולה בכל ענין אף אם הסוכה צלתה מרובה מחמת' אבל אם האילן חמתו מרובה מצלתו אם הסוכה צלתה מרובה מחמתה בלא אילן כשרה אפילו לא השפיל הענפים למטה לערבם עם סכך הסוכה אבל אם אין הסוכה צלתה מרובה מחמתה אלא על ידי האילן צריך שישפיל הענפים ויערבם עם הסכך בענין שלא יהיו ניכרים ויהא סכך רבה עליהם ומבטלן וי\"א שאפי' אם הסוכה צלתה מרובה מחמתה בלא האילן והאילן חמתו מרובה מצלתו אם ענפי האילן מכוונים כנגד סכך הכשר פסולה בין שהאילן קדם בין שהסוכה קדמה כיון שענפי האילן מכוונים כנגד סכך הכשר: הגה מיהו אם השפיל הענפים למטה ועירבן עם הסכך שאינן ניכרין בטלין והסוכה כשרה (הרא\"ש והר\"ן) וכן אם הניח סכך הכשר על סכך הפסול מיקרי עירוב וכשר (מרדכי פ\"ק דסוכה) אבל אם הענפים כנגד האויר שבין הסכך כשר או שהסכך הרבה שאפי' ינטל נגד האילן נשאר כשיעור) (טור) כשרה הואיל וצל הכשר הוא מרובה מחמתה שאפי' אם ינטל האילן יש שיעור בכשר להכשיר ובכל זאת לא שאני לן בין קדם האילן לקדם הסכך דין אחד להם:",
+      "en_plain": "One who makes a Sukkah underneath a tree or under a roof, containing 3 Seifim: One who makes his Sukkah underneath a tree - there are those who say that if the tree's shade is greater than the sunlit area, the Sukkah is completely invalid, even if the Sukkah is shaded more so than sunlit. However, if the tree's sunlit area is greater than its shade - if the Sukkah's shade is greater than its sunlit area without a tree, it is Kosher even if the branches were not lowered to mix with the schach of the Sukkah. However, if the Sukkah is not shaded more so than sunlit because of the tree, it is necessary to lower the branches and mix the with the Shach in such a way that they are not recognizable and the Schach is the majority and nullifies it. And there are those who say that even if the Sukkah's shade is greater than its sunlit area without the tree, and the tree's sunlit area is greater than its shaded area, if the branches of the tree are aimed or directed to the kosher Shach, it is pasul (invalid), whether the tree was there first or the Sukkah was there first, when the branches of the tree are directed toward the kosher Schach. However, if the branches are towards the air between the Schach, it is Kosher It is Kosher inasmuch that the valid shade is greater than the sunlit areas so that even if the tree is removed there is enough valid Schach to make it kosher. In any event it does not matter whether the tree existed first or the Sukkah existed first; there is one law for both of them. {Rama: [No Sukkah can be made under a house or a tree]. Rema: However, if the branches were lowered down and mixed with the Schach so that it is not noticeable, it is batul and the Sukkah is Kosher (the Rosh and the R\"an). Similarly, if the kosher Schach rests on the invalid Schach, it is accidentally mixed and therefore kosher (Mordechai) or if the Schach is the majority such that even if it is removed from the tree it retains its measure (Tur)}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman63/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 63,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.139,
+        "he_chars": 324,
+        "en_chars": 693,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 79,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>לישב בשעת ק\"ש ושלא ישן. ובו ט סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>קורא אותה <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>מהלך או עומד או שוכב או רוכב על גבי בהמה <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>או יושב אבל לא <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>פרקדן דהיינו שפניו טוחות בקרקע או מושלך על גבו ופניו למעל' <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i>אבל קורא והוא שוכב על צדו: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>מאחר <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>שכבר שוכב <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>ואיכא טרחא <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i>לעמוד [הר\"י פ' מי שמתו]:</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ואם היה בעל בשר הרב' <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ואינו יכול להתהפך על צדו <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>או שהי' חולה נוטה מעט לצדו וקורא:\n",
+      "en_html": "[The Laws regarding the requirement] to sit at the time of the recitation of the Shema and to not sleep [during it] - and it contains 9 se'ifim One may recite it [i.e. the Sh'ma] walking, standing, lying, riding on the back of an animal, or sitting, but not \"p'rakdan\", that is, with one's face into the ground or cast on one's back with one's face upwards, but one may recite while lying on their side. And if one was very heavyset and not able to turn over onto their side or was sick, then they [should] incline a little towards their side and recite [the Sh'ma]. {Rama: Rem\"a: Since one was already lying and it is troublesome to stand up [Ri on the chapter \"one whose dead\" (B'rakhot 3)]}\n",
+      "he_plain": "לישב בשעת ק\"ש ושלא ישן. ובו ט סעיפים: קורא אותה מהלך או עומד או שוכב או רוכב על גבי בהמה או יושב אבל לא פרקדן דהיינו שפניו טוחות בקרקע או מושלך על גבו ופניו למעל' אבל קורא והוא שוכב על צדו: הגה מאחר שכבר שוכב ואיכא טרחא לעמוד [הר\"י פ' מי שמתו]: ואם היה בעל בשר הרב' ואינו יכול להתהפך על צדו או שהי' חולה נוטה מעט לצדו וקורא:",
+      "en_plain": "[The Laws regarding the requirement] to sit at the time of the recitation of the Shema and to not sleep [during it] - and it contains 9 se'ifim One may recite it [i.e. the Sh'ma] walking, standing, lying, riding on the back of an animal, or sitting, but not \"p'rakdan\", that is, with one's face into the ground or cast on one's back with one's face upwards, but one may recite while lying on their side. And if one was very heavyset and not able to turn over onto their side or was sick, then they [should] incline a little towards their side and recite [the Sh'ma]. {Rama: Rem\"a: Since one was already lying and it is troublesome to stand up [Ri on the chapter \"one whose dead\" (B'rakhot 3)]}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman658/seif-005/mechaber",
+      "volume": "oc1",
+      "siman": 658,
+      "seif": 5,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.183,
+        "he_chars": 290,
+        "en_chars": 633,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 71,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ט\" data-order=\"9\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>נתנו לו סתם הוי כאלו אמר לו על מנת שתחזירוהו לי דמסתמא על דעת כן נתנו לו כיון שצריך לצאת בו שאין לו אחר ואם לא החזירו לא יצא: <small>הגה <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>וצריך לחזור וליתנו לבעליו <i data-commentator=\"Ba'er Hetev\" data-order=\"8\"></i>במתנה <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>כדי שיהיה של בעלים ויצאו בו [הרא\"ש ורבינו ירוחם נ\"ח ח\"ד]</small> <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"10\"></i>ומיהו אפי' לא החזירו לידו <i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>אלא לאחר <i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>ואחר לאחר והאחרון מחזירו לבעלים <i data-commentator=\"Ba'er Hetev\" data-order=\"9\"></i>יצא:\n",
+      "en_html": "If it was given with no specification, this is considered as if they said \"on the condition that you return it to me,\" because we assume that with this intention it was given because it is needed for the obligation and they have no other. If it is not returned, the obligation is not fulfilled. That said, even if one did not give it back directly but rather to another and another to another and the last person gives it back to the owners, the obligation is fulfilled. {Rama: Rema: One must return and give it back to its owner as a gift so that the owners will have it to use for the obligation (Ros\"h and Rabbeinu Yerucham 8:4).}\n",
+      "he_plain": "נתנו לו סתם הוי כאלו אמר לו על מנת שתחזירוהו לי דמסתמא על דעת כן נתנו לו כיון שצריך לצאת בו שאין לו אחר ואם לא החזירו לא יצא: הגה וצריך לחזור וליתנו לבעליו במתנה כדי שיהיה של בעלים ויצאו בו [הרא\"ש ורבינו ירוחם נ\"ח ח\"ד] ומיהו אפי' לא החזירו לידו אלא לאחר ואחר לאחר והאחרון מחזירו לבעלים יצא:",
+      "en_plain": "If it was given with no specification, this is considered as if they said \"on the condition that you return it to me,\" because we assume that with this intention it was given because it is needed for the obligation and they have no other. If it is not returned, the obligation is not fulfilled. That said, even if one did not give it back directly but rather to another and another to another and the last person gives it back to the owners, the obligation is fulfilled. {Rama: Rema: One must return and give it back to its owner as a gift so that the owners will have it to use for the obligation (Ros\"h and Rabbeinu Yerucham 8:4).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman660/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 660,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 3.309,
+        "he_chars": 337,
+        "en_chars": 1115,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 2,
+          "post_rama_he_chars": 90,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>סדר הקיף הבימה. ובו ג סעיפים:</b><br>נוהגים להעלות ספר תורה על <small>[הבימה]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>ולהקיפה <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i>פעם א' בכל יום ובשביעי מקיפים אותה ז' פעמים <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>זכר למקדש: <small>הגה ומוציאין שבעה <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ס\"ת על הבימה ביום שביעי [מהרי\"ל] ויש מקומות שמוציאים כל ס\"ת שבהיכל [מנהגים] (והכי נוהגין במדינות אלו)</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>שהיו מקיפים את המזבח וההקפות <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>לצד <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>ימין <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><small><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>[ובשבת אין מקיפים [טור] <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>ואין מוציאין ס\"ת <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>על הבימה]</small>:\n",
+      "en_html": "The Order of Circling the Bimah, 3 Seifim: The practice is to bring a Torah scroll to and to circle it once each day and seven times on the seventh day, in memory of the Temple [This is] because they would circle the altar. The circles go clockwise. {Rama: (the bimah) Rem\"a: And we take seven Torah scrolls onto the bimah on the seventh day (Mahari\"l). There are places that take out every Torah scroll in the Ark (Minhagim) (and that is the practice in these countries). And on Shabbat we do not circle (Tur) nor do we take Torah scrolls on to the bimah.}<br />\r\nThe Order of Circling the Bimah, 3 Seifim: The practice is to bring a Torah scroll to and to circle it once each day and seven times on the seventh day, in memory of the Temple [This is] because they would circle the altar. The circles go clockwise. {Rama: (the bimah) Rem\"a: And we take seven Torah scrolls onto the bimah on the seventh day (Mahari\"l). There are places that take out every Torah scroll in the Ark (Minhagim) (and that is the practice in these countries). And on Shabbat we do not circle (Tur) nor do we take Torah scrolls on to the bimah.}",
+      "he_plain": "סדר הקיף הבימה. ובו ג סעיפים: נוהגים להעלות ספר תורה על [הבימה] ולהקיפה פעם א' בכל יום ובשביעי מקיפים אותה ז' פעמים זכר למקדש: הגה ומוציאין שבעה ס\"ת על הבימה ביום שביעי [מהרי\"ל] ויש מקומות שמוציאים כל ס\"ת שבהיכל [מנהגים] (והכי נוהגין במדינות אלו) שהיו מקיפים את המזבח וההקפות לצד ימין [ובשבת אין מקיפים [טור] ואין מוציאין ס\"ת על הבימה] :",
+      "en_plain": "The Order of Circling the Bimah, 3 Seifim: The practice is to bring a Torah scroll to and to circle it once each day and seven times on the seventh day, in memory of the Temple [This is] because they would circle the altar. The circles go clockwise. {Rama: (the bimah) Rem\"a: And we take seven Torah scrolls onto the bimah on the seventh day (Mahari\"l). There are places that take out every Torah scroll in the Ark (Minhagim) (and that is the practice in these countries). And on Shabbat we do not circle (Tur) nor do we take Torah scrolls on to the bimah.} The Order of Circling the Bimah, 3 Seifim: The practice is to bring a Torah scroll to and to circle it once each day and seven times on the seventh day, in memory of the Temple [This is] because they would circle the altar. The circles go clockwise. {Rama: (the bimah) Rem\"a: And we take seven Torah scrolls onto the bimah on the seventh day (Mahari\"l). There are places that take out every Torah scroll in the Ark (Minhagim) (and that is the practice in these countries). And on Shabbat we do not circle (Tur) nor do we take Torah scrolls on to the bimah.}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman663/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 663,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.685,
+        "he_chars": 762,
+        "en_chars": 1284,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 198,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>סדר תפלת חול המועד. ובו ג סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>בחול המועד מוציאין ס\"ת וקורים בו <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ארבעה <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>בקרבנות החג של פרשת פנחס <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>וביום ראשון של חולו של מועד קורא כהן וביום השני ולוי וביום השלישי <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>וישראל חוזר וקורא וביום השלישי והרביעי קורא <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ספיקא דיומא וביום השני וביום השלישי ועל דרך זה קורים בשאר הימים: <small>הגה וי\"א ששנים <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>הראשונים קורין בספיקא דיומא והשלישי קורא ביום המחרת והד' חוזר וקורא <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>כל ספיקא דיומא דהיינו מה שקראו שנים הראשונים וכן אנו נוהגין וביום הז' הכהן קורא ביום החמישי לוי ביום הששי ישראל ביום השביעי <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>והרביעי קורא ביום הששי ויום השביעי וכן אנו נוהגין [רש\"י בשם רבותיו ומהרי\"ו ומנהגים]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>ובארץ ישראל שאין שם ספיקא דיומא אין קורים בכל יום אלא קרבן היום בלבד כי ביום ב' הוא א' לחולו של מועד קורא כהן וביום השני והג' העולים אחריו חוזרים וקורים אותה פרשה עצמה ועל דרך זה בכל יום משאר הימים:\n",
+      "en_html": "The order of prayer on Chol Hamoed, 3 Seifim: On Hol Hamoed, we take out a Torah scroll and read four sections about the sacrifices of the holiday from Pinchas. On the first day of Hol Hamoed, the first reading is \"On the second day,\" the second reading is \"On the third day,\" the third reading is \"On the third day\" again, and the fourth reading, reflecting the doubtfulness of the day, is \"On the second day...And on the third day.\" We read this way all the other days. In Israel, where there is no doubt about the day, they only read the sacrifice of the day. On the second day, which is the first day of Hol Hamoed, the first reading is \"On the second day\" and the three next readers read the same section. This is done for the rest of the days. {Rama: Rem\"a: There are those who say that the first two read the doubtful day portions, the third reads tomorrow's section, and the fourth goes back and reads both doubtful day portions that were read by the first two readers, and this is our practice. On the seventh day, the first reading is \"On the fifth day,\" the second is \"On the sixth day,\" The third is \"On the \"On the seventh day,\" and the fourth is \"On the sixth day...and on the seventh day.\" This is our practice (Rash\"i in the name of his teachers, Mahari\"v, Minhagim).}\n",
+      "he_plain": "סדר תפלת חול המועד. ובו ג סעיפים: בחול המועד מוציאין ס\"ת וקורים בו ארבעה בקרבנות החג של פרשת פנחס וביום ראשון של חולו של מועד קורא כהן וביום השני ולוי וביום השלישי וישראל חוזר וקורא וביום השלישי והרביעי קורא ספיקא דיומא וביום השני וביום השלישי ועל דרך זה קורים בשאר הימים: הגה וי\"א ששנים הראשונים קורין בספיקא דיומא והשלישי קורא ביום המחרת והד' חוזר וקורא כל ספיקא דיומא דהיינו מה שקראו שנים הראשונים וכן אנו נוהגין וביום הז' הכהן קורא ביום החמישי לוי ביום הששי ישראל ביום השביעי והרביעי קורא ביום הששי ויום השביעי וכן אנו נוהגין [רש\"י בשם רבותיו ומהרי\"ו ומנהגים] ובארץ ישראל שאין שם ספיקא דיומא אין קורים בכל יום אלא קרבן היום בלבד כי ביום ב' הוא א' לחולו של מועד קורא כהן וביום השני והג' העולים אחריו חוזרים וקורים אותה פרשה עצמה ועל דרך זה בכל יום משאר הימים:",
+      "en_plain": "The order of prayer on Chol Hamoed, 3 Seifim: On Hol Hamoed, we take out a Torah scroll and read four sections about the sacrifices of the holiday from Pinchas. On the first day of Hol Hamoed, the first reading is \"On the second day,\" the second reading is \"On the third day,\" the third reading is \"On the third day\" again, and the fourth reading, reflecting the doubtfulness of the day, is \"On the second day...And on the third day.\" We read this way all the other days. In Israel, where there is no doubt about the day, they only read the sacrifice of the day. On the second day, which is the first day of Hol Hamoed, the first reading is \"On the second day\" and the three next readers read the same section. This is done for the rest of the days. {Rama: Rem\"a: There are those who say that the first two read the doubtful day portions, the third reads tomorrow's section, and the fourth goes back and reads both doubtful day portions that were read by the first two readers, and this is our practice. On the seventh day, the first reading is \"On the fifth day,\" the second is \"On the sixth day,\" The third is \"On the \"On the seventh day,\" and the fourth is \"On the sixth day...and on the seventh day.\" This is our practice (Rash\"i in the name of his teachers, Mahari\"v, Minhagim).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman666/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 666,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.785,
+        "he_chars": 792,
+        "en_chars": 1414,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 402,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>דיני סוכה ביום השביעי. ובו סעיף אחד:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>אע\"פ שגמר מלאכול ביום השביעי שחרית <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>לא יסתור סוכתו אבל מוציא הוא את הכלים ממנה <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>מן המנחה ולמעלה ומתקן את הבית לכבוד יו\"ט האחרון <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ואם אין לו לפנות כליו ורוצה לאכול בה בשמיני צריך לפחות בה <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>מקום <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ארבעה על ארבעה לעשות היכר שהוא יושב בה שלא לשם מצות סוכה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>שלא יהא <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>נראה <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>כמוסיף: <small>הגה ואם רוצה לאכול בסוכה אחר החג א\"צ לפחות בה דלא נראה כמוסיף <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>רק ביום שמיני (מנהגים):</small> ואם הוצרך לסעוד <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>בשאר היום צריך לאכול בסוכה שמצותה כל שבעה <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ובחוצה לארץ שצריך לישב בה בשמיני <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>גמר מלאכול ביום השמיני <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>מוריד כליו ומפנה אותם ממנה ואם אין לו מקום להוריד את כליו ורוצה לאכול בה בתשיעי אינו יכול לפחות בה מפני שהוא יו\"ט ומה יעשה להיכרא <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>אם היתה קטנה <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>שאסור להניח בה הנר בשאר הימים <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>יניחנו בה ואם היא גדולה שמותר להניח בה הנר <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>מכניס בה קדרות וקערות וכיוצא בהם כדי <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>להכיר שהיא פסולה ושכבר נגמרה מצותה:\n",
+      "en_html": "The Laws of the Sukkah on the Seventh Day: Even after finishing eating on the seventh day, the sukkah should not be dismantled. However, one should take in the dishes from it after Mincha and prepare the house for the final Yom Tov. If one doesn't want to clear the dishes and wants to eat in the sukkah on Shmini Atzeret, a four by four section of sukkah should be taken down to show that they are sitting there not for the mitzvah of sukkah, so that it will not look like adding to the mitzvah. If one must eat for the rest of the day, he must eat in the sukkah because the obligation extends the whole seven days. Outside of Israel where they have to sit in it also on Shmini Atzeret, when they are done eating on Shmini Atzeret they should take the dishes in and clear it out. If there is no space to take the dishes and they want to eat there on the ninth, they cannot partially dismantle it because it is Yom Tov. What should they do to make a distinction? If it was so small that it was forbidden to put a candle in it on the other days, they bring a candle in. If it was so big that it was permitted to bring a candle, they bring in all of the pots and pans to show that it is invalid, given that the time for the mitzvah has passed. {Rama: Rema: If he wants to sit in the sukkah after the holiday, it is unnecessary to take down any section because it only looks like adding on Shmini Atzeret (Minhagim).}\n",
+      "he_plain": "דיני סוכה ביום השביעי. ובו סעיף אחד: אע\"פ שגמר מלאכול ביום השביעי שחרית לא יסתור סוכתו אבל מוציא הוא את הכלים ממנה מן המנחה ולמעלה ומתקן את הבית לכבוד יו\"ט האחרון ואם אין לו לפנות כליו ורוצה לאכול בה בשמיני צריך לפחות בה מקום ארבעה על ארבעה לעשות היכר שהוא יושב בה שלא לשם מצות סוכה שלא יהא נראה כמוסיף: הגה ואם רוצה לאכול בסוכה אחר החג א\"צ לפחות בה דלא נראה כמוסיף רק ביום שמיני (מנהגים): ואם הוצרך לסעוד בשאר היום צריך לאכול בסוכה שמצותה כל שבעה ובחוצה לארץ שצריך לישב בה בשמיני גמר מלאכול ביום השמיני מוריד כליו ומפנה אותם ממנה ואם אין לו מקום להוריד את כליו ורוצה לאכול בה בתשיעי אינו יכול לפחות בה מפני שהוא יו\"ט ומה יעשה להיכרא אם היתה קטנה שאסור להניח בה הנר בשאר הימים יניחנו בה ואם היא גדולה שמותר להניח בה הנר מכניס בה קדרות וקערות וכיוצא בהם כדי להכיר שהיא פסולה ושכבר נגמרה מצותה:",
+      "en_plain": "The Laws of the Sukkah on the Seventh Day: Even after finishing eating on the seventh day, the sukkah should not be dismantled. However, one should take in the dishes from it after Mincha and prepare the house for the final Yom Tov. If one doesn't want to clear the dishes and wants to eat in the sukkah on Shmini Atzeret, a four by four section of sukkah should be taken down to show that they are sitting there not for the mitzvah of sukkah, so that it will not look like adding to the mitzvah. If one must eat for the rest of the day, he must eat in the sukkah because the obligation extends the whole seven days. Outside of Israel where they have to sit in it also on Shmini Atzeret, when they are done eating on Shmini Atzeret they should take the dishes in and clear it out. If there is no space to take the dishes and they want to eat there on the ninth, they cannot partially dismantle it because it is Yom Tov. What should they do to make a distinction? If it was so small that it was forbidden to put a candle in it on the other days, they bring a candle in. If it was so big that it was permitted to bring a candle, they bring in all of the pots and pans to show that it is invalid, given that the time for the mitzvah has passed. {Rama: Rema: If he wants to sit in the sukkah after the holiday, it is unnecessary to take down any section because it only looks like adding on Shmini Atzeret (Minhagim).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman668/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 668,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.765,
+        "he_chars": 298,
+        "en_chars": 526,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 99,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>סדר תפלת ליל שמיני ויומו. ובו ב סעיפים:</b> <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ליל שמיני <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>אומר בתפלה ותתן לנו את יום <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>שמיני <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i>חג העצרת הזה: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>ואנו נוהגין שאין אומרים חג בשמיני <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>דלא מצינו בשום מקום שנקרא חג אלא אומרים יום שמיני עצרת [מנהגים]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ובחוצה לארץ <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"3\"></i>אוכלים בסוכה <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>בלילה וביום <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>מפני שהוא ספק שביעי <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"4\"></i><i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>ואין מברכים על ישיבתה ומקדשים <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>ואומרים <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>זמן:\n",
+      "en_html": "The order of prayers on the eighth night and day, 2 Seifim: On the night of Shmini Atzeret, we say in the Amidah \"and You gave us this eighth day as a festival of Atzeret.\" Outside of Israel, they eat in the sukkah at night and during the day because it might be the seventh day. They do not bless on this sitting. We say Kiddush with Shehecheyanu. {Rama: Rema: We do not refer to the eighth day as a \"festival\" because there is nowhere [in the Torah] that it is called a festival. Rather, we say \"the eighth day of Atzeret.\"}\n",
+      "he_plain": "סדר תפלת ליל שמיני ויומו. ובו ב סעיפים: ליל שמיני אומר בתפלה ותתן לנו את יום שמיני חג העצרת הזה: הגה ואנו נוהגין שאין אומרים חג בשמיני דלא מצינו בשום מקום שנקרא חג אלא אומרים יום שמיני עצרת [מנהגים] ובחוצה לארץ אוכלים בסוכה בלילה וביום מפני שהוא ספק שביעי ואין מברכים על ישיבתה ומקדשים ואומרים זמן:",
+      "en_plain": "The order of prayers on the eighth night and day, 2 Seifim: On the night of Shmini Atzeret, we say in the Amidah \"and You gave us this eighth day as a festival of Atzeret.\" Outside of Israel, they eat in the sukkah at night and during the day because it might be the seventh day. They do not bless on this sitting. We say Kiddush with Shehecheyanu. {Rama: Rema: We do not refer to the eighth day as a \"festival\" because there is nowhere [in the Torah] that it is called a festival. Rather, we say \"the eighth day of Atzeret.\"}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman684/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 684,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.924,
+        "he_chars": 631,
+        "en_chars": 1214,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 120,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>סדר קריאת התורה בחנוכה. ובו ג סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>קורים בקרבנות <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>הנשיאים שבפרשת נשא שלשה בכל יום <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ומתחילים <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i>בברכת <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>כהנים <small>[וי\"א שמתחילים ביום כלות משה [טור] וכן אנו נוהגין]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>וקורא אותו <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>עם כהן ולוי וישראל קורא ביום הראשון <small>[וי\"א שהכהן קורא כל אותו הפרשה עד ביום הראשון והלוי והישראל קורין ביום הראשון] [מנהגים וכן נוהגין]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>ביום שני קורא כהן ביום השני עד פר אחד בן בקר ולוי עד ביום השלישי וישראל חוזר וקורא ביום השני ועל דרך זה בכל יום: <small>הגה [וי\"א שישראל קורא ביום שלאחריו דהיינו ביום הג' וכן בכל יום וכן נוהגין] [הגהות מיימוני פי\"ג]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>ביום שמיני מתחילין ביום <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>השמיני וגומרין כל הסדר וקורין פרשה ראשונה של בהעלותך <small>[ונוהגין לסיים כן עשה את המנורה] [מנהגים]</small>:\n",
+      "en_html": "We read of the sacrifices of the nesi'im, which are in Parshat Nasso (Numbers 7:1 – 8:4), three each day; and we start reading from the blessing of the priests And it is read with a kohen and a Levite, and an Israelite reads on the first day. On the second day, the Kohen reads \"on the second day\" until \"one young bullock,\" the Levite reads until \"on the third day,\" and the Israelite repeats from \"on the second day\", and the portions are read accordingly, each day. On the eight day [of Hanukkah], we start \"on the eighth day\", and we finish the whole portion, and we read the first portion of [parshat] Beha'a lotcha. {Rama: [And there are those who say that we start from 'on the day that Moses had made an end' (ibid. 7:1) [Tur] and such is our practice.] [And there are those who say that the kohen reads the whole portion until 'on the first day' and the Levite and Israelite read 'on the first day', and such is our practice.] [And there are those who say that the Israelite reads the portion of the following day, that is, from 'on the third day', and accordingly each day, and such is our practice (Haggahot Maimuniyyot). (And it is our practice to finish with 'so he made the candlestick')(Minhagim).\"}\n",
+      "he_plain": "סדר קריאת התורה בחנוכה. ובו ג סעיפים: קורים בקרבנות הנשיאים שבפרשת נשא שלשה בכל יום ומתחילים בברכת כהנים [וי\"א שמתחילים ביום כלות משה [טור] וכן אנו נוהגין] וקורא אותו עם כהן ולוי וישראל קורא ביום הראשון [וי\"א שהכהן קורא כל אותו הפרשה עד ביום הראשון והלוי והישראל קורין ביום הראשון] [מנהגים וכן נוהגין] ביום שני קורא כהן ביום השני עד פר אחד בן בקר ולוי עד ביום השלישי וישראל חוזר וקורא ביום השני ועל דרך זה בכל יום: הגה [וי\"א שישראל קורא ביום שלאחריו דהיינו ביום הג' וכן בכל יום וכן נוהגין] [הגהות מיימוני פי\"ג] ביום שמיני מתחילין ביום השמיני וגומרין כל הסדר וקורין פרשה ראשונה של בהעלותך [ונוהגין לסיים כן עשה את המנורה] [מנהגים] :",
+      "en_plain": "We read of the sacrifices of the nesi'im, which are in Parshat Nasso (Numbers 7:1 – 8:4), three each day; and we start reading from the blessing of the priests And it is read with a kohen and a Levite, and an Israelite reads on the first day. On the second day, the Kohen reads \"on the second day\" until \"one young bullock,\" the Levite reads until \"on the third day,\" and the Israelite repeats from \"on the second day\", and the portions are read accordingly, each day. On the eight day [of Hanukkah], we start \"on the eighth day\", and we finish the whole portion, and we read the first portion of [parshat] Beha'a lotcha. {Rama: [And there are those who say that we start from 'on the day that Moses had made an end' (ibid. 7:1) [Tur] and such is our practice.] [And there are those who say that the kohen reads the whole portion until 'on the first day' and the Levite and Israelite read 'on the first day', and such is our practice.] [And there are those who say that the Israelite reads the portion of the following day, that is, from 'on the third day', and accordingly each day, and such is our practice (Haggahot Maimuniyyot). (And it is our practice to finish with 'so he made the candlestick')(Minhagim).\"}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman690/seif-003/mechaber",
+      "volume": "oc1",
+      "siman": 690,
+      "seif": 3,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.383,
+        "he_chars": 339,
+        "en_chars": 808,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 71,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>צריך לקרותה כולה <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>ומתוך הכתב ואם קראה על פה לא יצא <i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>וצריך שתהא כתובה כולה לפניו לכתחלה <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>אבל בדיעבד <i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Magen Avraham\" data-order=\"4\"></i>אם השמיט הסופר באמצעה תיבות <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>אפי' עד חציה וקראם הקורא על פה יצא: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>אבל אם השמיט תחילתה או סופה <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>אפי' מיעוטא לא יצא [ר\"ן] ואפי' באמצע' <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>דוקא <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i>דלא השמיט ענין שלם [ב\"י בשם א\"ח]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>אבל ביותר מחציה אפי' הן כתובות אלא שהן מטושטשות ואין רישומן ניכר פסולה:\n",
+      "en_html": "You need to read the Megillah entirely and from a scroll; and if you read it by heart you do not fulfill your obligation. You need to have the whole scroll in front of you in the first place, but if the Sofer left out in the middle some letters even until half of it (the Megillah) and you read it, then the one who read it by heart fulfills his obligation. However, if more than half (was left out), (or) even if the letters were written but they were unclear/blurry and their writing was not recognizable, it is pasul. {Rama: Rema: even if (the Sofer) left out letters from the beginning or the end, even if he left out just a little, one does not fulfill one's obligation (if you read from it by heart) [the R\"an]. And even in the middle, specifically, where an entire topic is not left out [Beis Yosef].}\n",
+      "he_plain": "צריך לקרותה כולה ומתוך הכתב ואם קראה על פה לא יצא וצריך שתהא כתובה כולה לפניו לכתחלה אבל בדיעבד אם השמיט הסופר באמצעה תיבות אפי' עד חציה וקראם הקורא על פה יצא: הגה אבל אם השמיט תחילתה או סופה אפי' מיעוטא לא יצא [ר\"ן] ואפי' באמצע' דוקא דלא השמיט ענין שלם [ב\"י בשם א\"ח] אבל ביותר מחציה אפי' הן כתובות אלא שהן מטושטשות ואין רישומן ניכר פסולה:",
+      "en_plain": "You need to read the Megillah entirely and from a scroll; and if you read it by heart you do not fulfill your obligation. You need to have the whole scroll in front of you in the first place, but if the Sofer left out in the middle some letters even until half of it (the Megillah) and you read it, then the one who read it by heart fulfills his obligation. However, if more than half (was left out), (or) even if the letters were written but they were unclear/blurry and their writing was not recognizable, it is pasul. {Rama: Rema: even if (the Sofer) left out letters from the beginning or the end, even if he left out just a little, one does not fulfill one's obligation (if you read from it by heart) [the R\"an]. And even in the middle, specifically, where an entire topic is not left out [Beis Yosef].}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman74/seif-002/mechaber",
+      "volume": "oc1",
+      "siman": 74,
+      "seif": 2,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.164,
+        "he_chars": 354,
+        "en_chars": 766,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 146,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>הרוחץ ערום במים צלולים ורוצה לשתות <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>יכסה בבגד ממטה ללבו <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>כדי שלא יהא לבו רואה את <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>הערוה <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>כשיברך <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ודוקא בבגד <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>אבל <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>בידים לא הוי <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"4\"></i>כיסוי: <small>הגה וה\"ה אם מכסה ראשו <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i>בידיו <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>לא מקרי כיסוי הראש וע\"ל סי' צ\"א (תרומת הדשן בשם א\"ז)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>ואם היו המים <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>עכורים שאין איבריו נראין בהם מותר לקרות והוא בתוכן <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>והוא שלא יהא <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>ריחן רע: <small>ואם אין לבו בתוך המים <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>רק <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i>למעלה מן המים אף בצלולים <i data-commentator=\"Ba'er Hetev\" data-order=\"7\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"7\"></i>שרי (ד\"ע):</small>\n",
+      "en_html": "One who washes naked in clear water and wants to drink should cover [themselves] with a garment below their heart in order that their heart should not see their nakedness (i.e. genitalia) when they bless. And [this is] specifically with a garment, but with [one's] hands it is not [considered] covered. And if the water is murky such that one's body parts cannot be seen in it, it is permitted to recite while they are in it, as long as there is not a bad smell. {Rama: Rem\"a: And the same rule applies if one covers their head with their hands, it is not considered a covering for the head - see below Siman 91 (Terumat HaDeshen in the name of Or Zarua) And if one's heart is not in the water, only above the water, [then] even in clear water it is permitted (D\"A)}\n",
+      "he_plain": "הרוחץ ערום במים צלולים ורוצה לשתות יכסה בבגד ממטה ללבו כדי שלא יהא לבו רואה את הערוה כשיברך ודוקא בבגד אבל בידים לא הוי כיסוי: הגה וה\"ה אם מכסה ראשו בידיו לא מקרי כיסוי הראש וע\"ל סי' צ\"א (תרומת הדשן בשם א\"ז) ואם היו המים עכורים שאין איבריו נראין בהם מותר לקרות והוא בתוכן והוא שלא יהא ריחן רע: ואם אין לבו בתוך המים רק למעלה מן המים אף בצלולים שרי (ד\"ע):",
+      "en_plain": "One who washes naked in clear water and wants to drink should cover [themselves] with a garment below their heart in order that their heart should not see their nakedness (i.e. genitalia) when they bless. And [this is] specifically with a garment, but with [one's] hands it is not [considered] covered. And if the water is murky such that one's body parts cannot be seen in it, it is permitted to recite while they are in it, as long as there is not a bad smell. {Rama: Rem\"a: And the same rule applies if one covers their head with their hands, it is not considered a covering for the head - see below Siman 91 (Terumat HaDeshen in the name of Or Zarua) And if one's heart is not in the water, only above the water, [then] even in clear water it is permitted (D\"A)}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    }
+  ]
+}

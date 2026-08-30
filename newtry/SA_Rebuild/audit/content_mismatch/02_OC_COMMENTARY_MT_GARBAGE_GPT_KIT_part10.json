@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 10,
+    "chunk_total": 47,
+    "case_offset": 68,
+    "cases_in_chunk": 5,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman235/seif-002/turei-zahav",
+      "volume": "oc1",
+      "siman": 235,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.9,
+        "he_chars": 2820,
+        "en_chars": 5359,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 5359
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ואם הצבור מקדימין כו'. </b> בת\"ה סי' א' כתב דברוב קהילות נוהגים בימים ארוכי' לקרות ק\"ש של ערבית ולהתפלל ערבית ג' או ד' שעות קודם הלילה סומכים על רש\"י דיוצאין בק\"ש שעל המטה והמנהג נשתרבב ע\"י תשות כח שירדה לעולם ותאבים לאכול בעוד יום ומסיק נראה דאפי' ת\"ח אם הוא בצבור שמקדימין להתפלל ולקרות קריאת שמע בימים הארוכים אם אין יוכל להפרישם א\"צ לפרוש מהם אלא מתפלל וקורא עמהם ויוצא בזה אבל אם הורגל בשאר פרישות יתפלל ויקרא בזמן שתקנו חכמים לפי כל הדיעות עכ\"ל גם המרדכי כתב בשם ראבי\"ה שהמחמיר שלא לסמוך על ר\"ת מחזי כיוהרא אלא שהב\"י כתב עליו כיון דלדעת כמה גדולים לא יצא י\"ח בקריאת בה\"כ לא מחזי כיוהרא עכ\"ל. וע\"כ כתב כאן להלכה דכשיגיע זמן קורא ק\"ש בלא ברכותיה וזה הדרך לא מיחזי כיוהרא אלא דתמיהני על דרכו של רבינו בעל הש\"ע בדברים אלו שכ' וכשיגיע זמן קורא ק\"ש בלא ברכות דלא מצינו דרך זה בב\"י ולא מצינו אלא דעת רש\"י שיוצא י\"ח בק\"ש שעל המטה ומה שנוהגים לקרות ק\"ש מבע\"י הוא כדי לעמוד בתפלה מתוך ד\"ת. והתו' הקשו ע\"ז חדא דהא אז קורא בלא ברכותיה ותו דא\"כ היה לנו לקרות ג' פרשיות ותו דא\"כ אנו עושים כריב\"ל דתפלות באמצע תקנו ותו דק\"ש שעל המטה לא תקנו אלא מפני המזיקין. וכתבו בשם ר\"ת דיוצא אפי' מבע\"י דסמכינן על תנאי דס\"ל דזמן ק\"ש קודם צאת הכוכבים. אע\"ג דלענין מנחה ס\"ל דהוי עדיין יום שמתפללין אז מנחה וה\"ל תרי קולי דסתרי אהדדי לא משגחינן בזה לענין תפלה דהקילו בה כמ\"ש ב\"י בשם הרשב\"א ורבינו יונה כ' שהרוצה לצאת י\"ח יקרא ק\"ש עם ברכותיה ויתפלל ולא יתכוין לצאת י\"ח ק\"ש באותה קריא' אלא לעמוד בתפלה מתוך ד\"ת ויוצא ידי קריאת הברכות ואחר צ\"ה קורא אות' ויתכוין לצאת י\"ח ואם לא ירצה לקרות אלא הב' פרשיות סגי ליה בהכי דכיון דהזכיר יציאת מצרים כשקורא אותה בבה\"כ לא מצרכינן ליה להזכיר' פעם אחרת וכדי שלא יקרא אותה בלא ברכה כתב שאומר ברכת אהבת עולם לבדה עכ\"ל. ובשם רבינו האי כתב דרך אחר ע\"ש אבל הדרך שכת' כאן בש\"ע אין לו מקום כי אם רוצה לפסוק כדרך הרר\"י היה לו להזכיר כאן שיתכוין בבה\"כ שלא לצאת י\"ח במה שקורא שם ומתפלל ולפי הנראה דהרב בש\"ע חזר בו מכל הדרכים שנזכרים בב\"י ובחר לו דרך זה שבבית הכנסת יקרא ויתפלל במתכוין לצאת ולרווחא דמלת' יקרא פעם שני בלא ברכה בצאת הכוכבים וזה תמוה לי מאד דא\"כ למה זז מדרכו של רש\"י לצאת בק\"ש שעל המטה והיה לנו לתקן ולומר שיקרא באמת ג' פרשיו' קודם המטה וא\"כ לא יהיה שום קושיא מ\"ש התוספות על רש\"י רק קושיא דקורין בלא ברכות וקושיא שעושין כריב\"ל וזה לא מתורץ גם לדרך הש\"ע וא\"ל שבדרך שזכרתי יש חשש שמא יאכל וישתה וישן ויעבור ק\"ש כדאמרינן שלא יאמר אוכל קימע' כו' זה אינו דא\"כ היה להם להתוס' להקשות כן אפירש\"י אלא ודאי שבזה אין חשש וכמ\"ש בע\"ה וע\"כ נלע\"ד דבאמת כל מאן דחש למיעבד ע\"צ הטוב בזה יקרא ק\"ש על מטתו ויכוין לצאת י\"ח בזה ולא מפני המזיקין ולא יצטרך לקרות רק ב' פרשיות כיון דכבר קרא ויצא י\"ח בבה\"כ כמ\"ש ב\"י בשם הרר\"י לפי דרכו וזה נכון יותר מדרך הש\"ע דבדרך הש\"ע קרוב לודאי שבשעת צ\"ה אפשר שישכח לקרות בפרט שכבר קרא ויצא רק שצריך לחזור משום רוחא דמילתא כמ\"ש משא\"כ בשעת שכיבה דיש אז התעוררות לקרות מפני המזיקין ובזה אין אדם עשוי להשכח כנלע\"ד נכון לכל מי שרוצה לצאת לרוחא דמלתא: <b>שוב </b> מצאתי בספר מטה משה שרש\"ל קרא על מטתו כל ג' פרשיות:\n",
+      "en_html": "<b>And if the congregation precedes, etc.</b> In Teshuvot HaRashba siman 1 he wrote that in most communities on long days they read the evening Keriat Shema and pray Ma'ariv three or four hours before night — they rely on Rashi that one fulfills with Keriat Shema on the bed; and the custom spread through the Teshuvot Koach that descended to the world and those desiring to eat while it is still day; and he concludes it appears that even a Torah scholar if he is in a congregation that precedes to pray and read Keriat Shema on long days — if he cannot separate from them he need not separate but prays and reads with them and fulfills thereby; but if he was accustomed to other separations he prays and reads at the time the Sages enacted according to all views — end quote; also the Mordechai wrote in the name of Rabeinu Elyakare that one who is stringent not to rely on Rabbenu Tam appears as presumptuous — except that Beit Yosef wrote on this: since per the view of several great ones he does not fulfill with reading in the synagogue it does not appear presumptuous — end quote. And therefore he wrote here for halachah that when the time arrives he reads Keriat Shema without its blessings — and this way does not appear presumptuous; but I am astonished at the way of our Rabbi the author of the Shulchan Aruch in these matters who wrote 'and when the time arrives he reads Keriat Shema without blessings' — for we do not find this way in Beit Yosef and we find only the view of Rashi that one fulfills with Keriat Shema on the bed; and what people are accustomed to read Keriat Shema ab initio is in order to stand in prayer from d'oraisa. And Tosafot challenged on this: one — behold then he reads without its blessings; and further — if so we should read three paragraphs; and further — if so we do as R' Yehoshua ben Levi that prayers in the middle they enacted; and further — Keriat Shema on the bed was enacted only because of harmful spirits. And they wrote in the name of Rabbenu Tam that one fulfills even ab initio — for we rely on a tannaitic view that holds the time of Keriat Shema is before the emergence of the stars; even though for Minchah he holds it is still day that they pray Minchah then — and it would be two leniencies that contradict each other — we pay no attention to this regarding prayer for they were lenient therein as Beit Yosef wrote in the name of the Rashba and Rabbenu Yonah; Rabbenu Yonah wrote that one who wishes to fulfill should read Keriat Shema with its blessings and pray and not intend to fulfill Keriat Shema with that reading but to stand in prayer from d'oraisa and he fulfills the reading of the blessings; and after the emergence of the stars he reads it and intends to fulfill; and if he does not wish to read except the two paragraphs it suffices for him thus — since he mentioned Yetzi'at Mitzrayim when reading it in the synagogue we do not require him to mention it again; and so that he not read it without a blessing he wrote that he says the blessing Ahavat Olam alone — end quote. And in the name of Rabbenu Hai he wrote another way — see there; but the way written here in Shulchan Aruch has no place; for if he wishes to rule like the way of R' Yitzchak he should have mentioned here that he intend in the synagogue not to fulfill with what he reads there and prays; and as it appears the Rav in Shulchan Aruch retracted from all the ways mentioned in Beit Yosef and chose this way — that in the synagogue he reads and prays intending to fulfill; and for spreading the matter he reads a second time without blessing at the emergence of the stars — and this is very astonishing to me; for if so why did he depart from Rashi's way to fulfill with Keriat Shema on the bed — and we should have enacted to say that he truly read three paragraphs before the bed; and if so there would be no difficulty from what Tosafot challenged on Rashi — only the difficulty that they read without blessings and the difficulty that they do as R' Yehoshua ben Levi — and this is not resolved even for the Shulchan Aruch's way; and one could say that in the way I mentioned there is concern lest he eat and drink and sleep and pass Keriat Shema as we say 'I will eat a little', etc. — this is not so; for if so Tosafot should have challenged thus on Rashi's explanation too; but certainly in this there is no concern, as Baer Heitev wrote; and therefore it appears to me that in truth whoever is careful to act for the sake of the good in this should read Keriat Shema on his bed and intend to fulfill with this — not because of harmful spirits — and need not read only two paragraphs since he already read and fulfilled in the synagogue as Beit Yosef wrote in the name of R' Yitzchak according to his way — and this is more correct than the Shulchan Aruch's way; for in the Shulchan Aruch's way it is close to certainty that at the emergence of the stars he may forget to read, especially since he already read and fulfilled — only that he must return because of spreading the matter as written — unlike at the time of lying down when there is then arousal to read because of harmful spirits — and in this a person is not apt to forget; as it appears to me it is correct for anyone who wishes to fulfill for spreading the matter. <b>Again</b> I found in Sefer Mateh Moshe that Rashal read on his bed all three paragraphs.\r\n",
+      "he_plain": "ואם הצבור מקדימין כו'. בת\"ה סי' א' כתב דברוב קהילות נוהגים בימים ארוכי' לקרות ק\"ש של ערבית ולהתפלל ערבית ג' או ד' שעות קודם הלילה סומכים על רש\"י דיוצאין בק\"ש שעל המטה והמנהג נשתרבב ע\"י תשות כח שירדה לעולם ותאבים לאכול בעוד יום ומסיק נראה דאפי' ת\"ח אם הוא בצבור שמקדימין להתפלל ולקרות קריאת שמע בימים הארוכים אם אין יוכל להפרישם א\"צ לפרוש מהם אלא מתפלל וקורא עמהם ויוצא בזה אבל אם הורגל בשאר פרישות יתפלל ויקרא בזמן שתקנו חכמים לפי כל הדיעות עכ\"ל גם המרדכי כתב בשם ראבי\"ה שהמחמיר שלא לסמוך על ר\"ת מחזי כיוהרא אלא שהב\"י כתב עליו כיון דלדעת כמה גדולים לא יצא י\"ח בקריאת בה\"כ לא מחזי כיוהרא עכ\"ל. וע\"כ כתב כאן להלכה דכשיגיע זמן קורא ק\"ש בלא ברכותיה וזה הדרך לא מיחזי כיוהרא אלא דתמיהני על דרכו של רבינו בעל הש\"ע בדברים אלו שכ' וכשיגיע זמן קורא ק\"ש בלא ברכות דלא מצינו דרך זה בב\"י ולא מצינו אלא דעת רש\"י שיוצא י\"ח בק\"ש שעל המטה ומה שנוהגים לקרות ק\"ש מבע\"י הוא כדי לעמוד בתפלה מתוך ד\"ת. והתו' הקשו ע\"ז חדא דהא אז קורא בלא ברכותיה ותו דא\"כ היה לנו לקרות ג' פרשיות ותו דא\"כ אנו עושים כריב\"ל דתפלות באמצע תקנו ותו דק\"ש שעל המטה לא תקנו אלא מפני המזיקין. וכתבו בשם ר\"ת דיוצא אפי' מבע\"י דסמכינן על תנאי דס\"ל דזמן ק\"ש קודם צאת הכוכבים. אע\"ג דלענין מנחה ס\"ל דהוי עדיין יום שמתפללין אז מנחה וה\"ל תרי קולי דסתרי אהדדי לא משגחינן בזה לענין תפלה דהקילו בה כמ\"ש ב\"י בשם הרשב\"א ורבינו יונה כ' שהרוצה לצאת י\"ח יקרא ק\"ש עם ברכותיה ויתפלל ולא יתכוין לצאת י\"ח ק\"ש באותה קריא' אלא לעמוד בתפלה מתוך ד\"ת ויוצא ידי קריאת הברכות ואחר צ\"ה קורא אות' ויתכוין לצאת י\"ח ואם לא ירצה לקרות אלא הב' פרשיות סגי ליה בהכי דכיון דהזכיר יציאת מצרים כשקורא אותה בבה\"כ לא מצרכינן ליה להזכיר' פעם אחרת וכדי שלא יקרא אותה בלא ברכה כתב שאומר ברכת אהבת עולם לבדה עכ\"ל. ובשם רבינו האי כתב דרך אחר ע\"ש אבל הדרך שכת' כאן בש\"ע אין לו מקום כי אם רוצה לפסוק כדרך הרר\"י היה לו להזכיר כאן שיתכוין בבה\"כ שלא לצאת י\"ח במה שקורא שם ומתפלל ולפי הנראה דהרב בש\"ע חזר בו מכל הדרכים שנזכרים בב\"י ובחר לו דרך זה שבבית הכנסת יקרא ויתפלל במתכוין לצאת ולרווחא דמלת' יקרא פעם שני בלא ברכה בצאת הכוכבים וזה תמוה לי מאד דא\"כ למה זז מדרכו של רש\"י לצאת בק\"ש שעל המטה והיה לנו לתקן ולומר שיקרא באמת ג' פרשיו' קודם המטה וא\"כ לא יהיה שום קושיא מ\"ש התוספות על רש\"י רק קושיא דקורין בלא ברכות וקושיא שעושין כריב\"ל וזה לא מתורץ גם לדרך הש\"ע וא\"ל שבדרך שזכרתי יש חשש שמא יאכל וישתה וישן ויעבור ק\"ש כדאמרינן שלא יאמר אוכל קימע' כו' זה אינו דא\"כ היה להם להתוס' להקשות כן אפירש\"י אלא ודאי שבזה אין חשש וכמ\"ש בע\"ה וע\"כ נלע\"ד דבאמת כל מאן דחש למיעבד ע\"צ הטוב בזה יקרא ק\"ש על מטתו ויכוין לצאת י\"ח בזה ולא מפני המזיקין ולא יצטרך לקרות רק ב' פרשיות כיון דכבר קרא ויצא י\"ח בבה\"כ כמ\"ש ב\"י בשם הרר\"י לפי דרכו וזה נכון יותר מדרך הש\"ע דבדרך הש\"ע קרוב לודאי שבשעת צ\"ה אפשר שישכח לקרות בפרט שכבר קרא ויצא רק שצריך לחזור משום רוחא דמילתא כמ\"ש משא\"כ בשעת שכיבה דיש אז התעוררות לקרות מפני המזיקין ובזה אין אדם עשוי להשכח כנלע\"ד נכון לכל מי שרוצה לצאת לרוחא דמלתא: שוב מצאתי בספר מטה משה שרש\"ל קרא על מטתו כל ג' פרשיות:",
+      "en_plain": "And if the congregation precedes, etc. In Teshuvot HaRashba siman 1 he wrote that in most communities on long days they read the evening Keriat Shema and pray Ma'ariv three or four hours before night — they rely on Rashi that one fulfills with Keriat Shema on the bed; and the custom spread through the Teshuvot Koach that descended to the world and those desiring to eat while it is still day; and he concludes it appears that even a Torah scholar if he is in a congregation that precedes to pray and read Keriat Shema on long days — if he cannot separate from them he need not separate but prays and reads with them and fulfills thereby; but if he was accustomed to other separations he prays and reads at the time the Sages enacted according to all views — end quote; also the Mordechai wrote in the name of Rabeinu Elyakare that one who is stringent not to rely on Rabbenu Tam appears as presumptuous — except that Beit Yosef wrote on this: since per the view of several great ones he does not fulfill with reading in the synagogue it does not appear presumptuous — end quote. And therefore he wrote here for halachah that when the time arrives he reads Keriat Shema without its blessings — and this way does not appear presumptuous; but I am astonished at the way of our Rabbi the author of the Shulchan Aruch in these matters who wrote 'and when the time arrives he reads Keriat Shema without blessings' — for we do not find this way in Beit Yosef and we find only the view of Rashi that one fulfills with Keriat Shema on the bed; and what people are accustomed to read Keriat Shema ab initio is in order to stand in prayer from d'oraisa. And Tosafot challenged on this: one — behold then he reads without its blessings; and further — if so we should read three paragraphs; and further — if so we do as R' Yehoshua ben Levi that prayers in the middle they enacted; and further — Keriat Shema on the bed was enacted only because of harmful spirits. And they wrote in the name of Rabbenu Tam that one fulfills even ab initio — for we rely on a tannaitic view that holds the time of Keriat Shema is before the emergence of the stars; even though for Minchah he holds it is still day that they pray Minchah then — and it would be two leniencies that contradict each other — we pay no attention to this regarding prayer for they were lenient therein as Beit Yosef wrote in the name of the Rashba and Rabbenu Yonah; Rabbenu Yonah wrote that one who wishes to fulfill should read Keriat Shema with its blessings and pray and not intend to fulfill Keriat Shema with that reading but to stand in prayer from d'oraisa and he fulfills the reading of the blessings; and after the emergence of the stars he reads it and intends to fulfill; and if he does not wish to read except the two paragraphs it suffices for him thus — since he mentioned Yetzi'at Mitzrayim when reading it in the synagogue we do not require him to mention it again; and so that he not read it without a blessing he wrote that he says the blessing Ahavat Olam alone — end quote. And in the name of Rabbenu Hai he wrote another way — see there; but the way written here in Shulchan Aruch has no place; for if he wishes to rule like the way of R' Yitzchak he should have mentioned here that he intend in the synagogue not to fulfill with what he reads there and prays; and as it appears the Rav in Shulchan Aruch retracted from all the ways mentioned in Beit Yosef and chose this way — that in the synagogue he reads and prays intending to fulfill; and for spreading the matter he reads a second time without blessing at the emergence of the stars — and this is very astonishing to me; for if so why did he depart from Rashi's way to fulfill with Keriat Shema on the bed — and we should have enacted to say that he truly read three paragraphs before the bed; and if so there would be no difficulty from what Tosafot challenged on Rashi — only the difficulty that they read without blessings and the difficulty that they do as R' Yehoshua ben Levi — and this is not resolved even for the Shulchan Aruch's way; and one could say that in the way I mentioned there is concern lest he eat and drink and sleep and pass Keriat Shema as we say 'I will eat a little', etc. — this is not so; for if so Tosafot should have challenged thus on Rashi's explanation too; but certainly in this there is no concern, as Baer Heitev wrote; and therefore it appears to me that in truth whoever is careful to act for the sake of the good in this should read Keriat Shema on his bed and intend to fulfill with this — not because of harmful spirits — and need not read only two paragraphs since he already read and fulfilled in the synagogue as Beit Yosef wrote in the name of R' Yitzchak according to his way — and this is more correct than the Shulchan Aruch's way; for in the Shulchan Aruch's way it is close to certainty that at the emergence of the stars he may forget to read, especially since he already read and fulfilled — only that he must return because of spreading the matter as written — unlike at the time of lying down when there is then arousal to read because of harmful spirits — and in this a person is not apt to forget; as it appears to me it is correct for anyone who wishes to fulfill for spreading the matter. Again I found in Sefer Mateh Moshe that Rashal read on his bed all three paragraphs.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman241/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 241,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.803,
+        "he_chars": 269,
+        "en_chars": 485,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 485
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "המשתין מים כו'. אפילו אם הוא לבוש ומשתין לפני מטתו ונקט ערום אורחא דמילתא נקט (רש\"י במסכת נדה דף נ\"ז) וכן הנוטל צפורניו כסדר נמי מביא לידי עניות ולשכחה ולקבור בנים (כ\"ה) אלא יטלן דרך זה בתחילה ביד שמאלו דבהג\"א ואחר כך יד ימין אג\"ה ב\"ד (אבודרהם בשם חכמי צרפת ופרובינצא):\n",
+      "en_html": "One who urinates water etc. — even if he is dressed and urinates before his bed, and it mentions naked — this is the ordinary way of speech (Rashi on Niddah 57). And likewise one who cuts his nails in order also brings poverty, forgetfulness, and burial of sons (Knesset HaGedolah); rather he should cut them in this order: first with the left hand as in Hagahot Maimonides, and afterward the right hand (Agudah, Beit David) (Abudraham in the name of the sages of France and Provence).\r\n",
+      "he_plain": "המשתין מים כו'. אפילו אם הוא לבוש ומשתין לפני מטתו ונקט ערום אורחא דמילתא נקט (רש\"י במסכת נדה דף נ\"ז) וכן הנוטל צפורניו כסדר נמי מביא לידי עניות ולשכחה ולקבור בנים (כ\"ה) אלא יטלן דרך זה בתחילה ביד שמאלו דבהג\"א ואחר כך יד ימין אג\"ה ב\"ד (אבודרהם בשם חכמי צרפת ופרובינצא):",
+      "en_plain": "One who urinates water etc. — even if he is dressed and urinates before his bed, and it mentions naked — this is the ordinary way of speech (Rashi on Niddah 57). And likewise one who cuts his nails in order also brings poverty, forgetfulness, and burial of sons (Knesset HaGedolah); rather he should cut them in this order: first with the left hand as in Hagahot Maimonides, and afterward the right hand (Agudah, Beit David) (Abudraham in the name of the sages of France and Provence).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman252/seif-007/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 252,
+      "seif": 7,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.826,
+        "he_chars": 132,
+        "en_chars": 241,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 241
+        },
+        "failure_patterns": [
+          "hand_recoils"
+        ]
+      },
+      "he_html": "<b>ז) שם. אפי' אינה על האש חייב וכו'  </b>דכלי ראשון אפי' לאחר שהעבירוהו מעל האש מבשל כל זמן שהיד סולדת בו כמ\"ש לקמן סי' שי\"ח סעי' ט' יעו\"ש:\n",
+      "en_html": "<b>7) There: Even if it is not on the fire, he is liable, etc.</b> A primary vessel cooks even after it has been removed from the fire, as long as it remains hot enough that the hand recoils from it, as stated below in siman 318, seif 9; see there.\n",
+      "he_plain": "ז) שם. אפי' אינה על האש חייב וכו' דכלי ראשון אפי' לאחר שהעבירוהו מעל האש מבשל כל זמן שהיד סולדת בו כמ\"ש לקמן סי' שי\"ח סעי' ט' יעו\"ש:",
+      "en_plain": "7) There: Even if it is not on the fire, he is liable, etc. A primary vessel cooks even after it has been removed from the fire, as long as it remains hot enough that the hand recoils from it, as stated below in siman 318, seif 9; see there.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman253/seif-001/magen-avraham",
+      "volume": "oc1",
+      "siman": 253,
+      "seif": 1,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.422,
+        "he_chars": 3108,
+        "en_chars": 4419,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4419
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>מצטמק</b>. פי' כל דבר שאדם שמח כשיבש ומצטמק (מלחמות):<br />\n<b>שהוא חי</b>. פי' אז שרי ליתנו סמוך לחשיכה ממש אבל אם נתנו מבע\"י אסור דכבר נתבשל קצת קודם שבת וצריך לסלקו משחשיכ' אא\"כ נתבשל כל צרכו קודם שבת עסי' רנ\"ד:<br />\n<b>שכסה הגחלים באפר</b>. וא\"צ לקטום עד שאין ניכר שם אש כלל רק בקטומה כל שהוא סגי (ר\"ן ב\"י) ואפי' הובערה אח\"כ שרי (גמרא) כיון דגילה דעתו דלא בעי לגחלים סגי:<br />\n<b>חתיכה חיה</b>. דוקא חתיכת בשר שא\"א להתבשל לצורך הלילה אבל ירק לא מהני (ב\"י) (וכ\"מ ססי' רנ\"ד):<br />\n<b>לסמוך לה קדירה וכו'</b>. מבערב וכו', ואין מחזירין לעולם אלא ע\"ג כירה גרופה וכו' וכל שאין מחזירין עליו אין סומכין לו בשבת עכ\"ל הרמב\"ם משמע דבשבת אסור לסמוך באינה גרופה דהאיבעי' בגמ' לא הוי אלא בע\"ש ועיין במ\"מ וכ\"מ ברי\"ף ע\"ש אבל לסברא השניה שרי אפי' בשבת כמ\"ש רמ\"א סס\"י זה:<br />\n<b>מותר לשהות על גרופה</b>. ולסבר' השניה אפי' בשבת שרי דהא האיבעי' קאי אסמיכ' בשבת וקפשיט ליה מהא ע\"ש וברא\"ש:<br />\n<b>ותנור</b>. מתוך שקצר למעל' ורחב למטה נקלט חומו לתוכו טפי מכירה (רש\"י):<br />\n<b>אפי' הוא גרוף</b>. מפני שהגורף אינו גורף אלא רוב האש עצמה וא\"א שלא תשאר ניצוץ א' (רמב\"ם):<br />\n<b>שהיס\"ב</b>. אבל אם אין היס\"ב מותר ליתן אפי' על גביו אפי' בשבת עסס\"ב כ\"מ בגמ' ובהגמ\"ר ועסי' שי\"ח סי\"ד ואפשר דאפי' אין גרוף וקטום שרי מיהו בס\"ה משמע דאסור לתת לתוכו ע\"ש בהג\"ה:<br />\n<b>ותנורים שלנו</b>. מאחר שרחבים יותר משפיתת קדרה דינן ככירה (כל בו) ובר\"ן משמע דאפי' בזמן התלמוד לא נאסר אלא תנור של נחתומין ע\"ש:<br />\n<b>אסור עד מ\"ש</b>. מדכתב סתם ש\"מ דאסור לכל כמ\"ש הטור וכ\"פ בד\"מ ומ\"ש הגמ\"ר דלאחריני שרי משום דס\"ל כר\"מ אבל אנן דקי\"ל כר\"י כמ\"ש רסי' שי\"ח א\"כ ה\"ה ה\"נ אסור לכל ולב\"ב פשיטא דאסור דה\"ל כמי שנתבשל בשבילו ועבי\"ד סי' צ\"ט ס\"ה ועב\"ח ססי' רנ\"ד ס\"ג וסי' ט\"ו עסי' תקט\"ו:<br />\n<b>החזירם עכו\"ם</b>. לצורך ישראל:<br />\n<b>דינו כשכח</b>. דלא נהנה ממנו כ\"כ כיון שכבר היה ראוי לאכול עסי' רע\"ו:<br />\n<b>החזירם ישראל</b>. בשבת אפי' בשוגג דינו כעבר ושהה ואסור אם מצטמק ויפה לו דבהגמ\"ר משמע אפי' בשכח ושהה לאסור מצטמק ויפה ולכן פסק רמ\"א כמותו בהחזיר בשבת ומיהו נ\"ל בזה דלאחרים שרי מאחר דבהג\"א מסתפק אם יש לאסור אפי' לו מאחר שהי' מבושל קודם והיה שוגג:<br />\n<b>וי\"א שכל כו'</b>. ובחי לגמרי שרי לכ\"ע וא\"כ מוטב להושיב הקדירות בתנור סמוך לחשיכה ועסי' רנ\"ד ס\"ה דמשום הפשטי\"ד צריך ליתנם מבע\"י:<br />\n<b>כמאכל ב\"ד</b>. עסי' רנ\"ד ס\"ב והע\"ש לא ע\"ש גם בס\"ד לא עיין:<br />\n<b>מגולה למעל'</b>. ולא מקרי הטמנה אלא בדבר המטלטל שמדביק אצל דופני התנור אבל תנור סתום לאו הטמנה היא (הגמ\"ר וטור סי' רנ\"ז ותוס' ורא\"ש):<br />\n<b>מותר לישראל להסירו</b>. בד\"מ כתב ועססי' שי\"א בב\"י דמות' לסלקו עכ\"ל וז\"ל הרב\"י שם והרמב\"ם כתב חררה שע\"ג גחלים ולפע\"ד אפי' לא כבו מותר שמאחר שאינה טמונה אינו חותה בגחלים בנטילת החררה אלא שמנענען דהוי טלטול מן הצד ושרי עכ\"ל וא\"כ ה\"ה בקדרה דוקא כשעומדת ע\"ג גחלים שרי וז\"ל המרדכי ר\"פ כירה וגם הישראל עצמו אפשר שמותר להסיר' הואיל ואינו מנענע הגחלים ואינו מתכוין עליהם ואינו מזיזן ממקומן עכ\"ל אבל אם הגחלים מונחים סביב הקדירה כתב המרדכי פ\"ד דשבת דאסור לישראל להסירו משום שמחתה ומבעיר העליונות ומכבה התחתונות כדאיתא בכריתות ובהגמ\"ר כתב שם דאפי' לומר לעכו\"ם יש ליזהר מיהו בהג\"ה פ\"ו כתוב דמותר ע\"י עכו\"ם דאין אנו א\"ל לכבות ולא להבעיר רק לסלק המאכל ע\"כ ועססי' זה אבל ע\"י ישראל אסור לכ\"ע וכ\"כ בש\"י בביאור המרדכי וכ\"כ בד\"מ בשם אגור וכ\"כ המרדכי ספ\"ק דשבת וכ\"כ ב\"י ססי' זה בשם ספר היראים וכ\"מ ברש\"י ס\"פ ב\"מ דבתקיעה שלישית סלקו הקדירות משמע דאסור לסלקן בשבת ובשבת בשחרית אסור לסלקן כ\"א ע\"י עכו\"ם (הג\"מ פ\"ו) ועססי' רנ\"ט וע' בתוס' יומא דף ל\"ד ועמ\"ש סימן רנ\"ד ס\"ב:\n",
+      "en_html": "(א) Pushed. P. Everything that a man rejoices when he is dry and shrinks<br>\r\n<br>\r\n(ב) He lives. “So, when you have given me a bit of a lie, but if you have given a word, we shall not cook a little before the Shabbat, and we must remove it from the ISA.” All of you have eaten before Shabbat:<br>\r\n<br>\r\n(ג) As a slave in the ashes. \"And I shall pluck until there is no fire there at all in the velvet of all that is a sarcastic (R. B.A.) and Shapi was later sued by Shari (finally) His opinion is not in the face of the worshipers:<br>\r\n<br>\r\n(ד) An animal piece. It is a piece of flesh that I will cook for the night, but not from my teeth<br>\r\n<br>\r\n(ה) Trust her an apartment and so on. In the evening and so on, and there is no return to the world, but rather, it is not the same as it does not trust it on the Shabbat The Rambam means that honey should not be trusted in the land of the the spirit, but rather in the midst of the matter’s Word, and in the midst of the matter’s Word, it is not the matter’s mercy, nor is the matter’s mercy, nor is it possible for the second creation of Sharia On Shabbat morning, he said, “This is the same.”<br>\r\n<br>\r\n(6) It is allowed to stay in a group. And for the second Saber' Afi' on Shabbat Shari Daha Haibei' Kai Asmich' on Shabbat and Kafshit Lia from Ha Ash and Barash:<br>\r\n<br>\r\n(ז) and the oven. From the bottom to the above, we will be able to reach out to the shores of the sale<br>\r\n<br>\r\n(ח) Epic is a buffer. Because the fire does not go away, it is the majority of the fire itself, and Heaven will not remain a spark<br>\r\n<br>\r\n(9) But if there is no Hisab, it is permissible to give an Afi' on top of it, on Shabbat Essab, 2000 in the GM and in the Hagmar, and asi' in the Shih Sid, and it is possible to Dafi', there is no gruf and truncation.<br>\r\n<br>\r\n(י) And our fans. Since more than a quaint of a cadre is sufficient as a cave (all in it) and a bar means that Daffi during the Talmud is not prohibited but a stove of snorts “S:<br>\r\n<br>\r\n(כ) Forbidden until, etc. — for he wrote anonymously that it is forbidden for everyone as Tur wrote and so in Darkei Moshe; what the Gemara said others are permitted because they hold like R' Meir — but we rule like R' Yehudah as siman 318 — if so here too forbidden for everyone; for a guest it is obvious it is forbidden, for it is as if cooked for him; and in Choshen Mishpat siman 99 seif 5 and Bach siman 254 seif 3 and siman 15, siman 569.<br>\r\n<br>\r\n(ל) The pig is empty. For Israel:<br>\r\n<br>\r\n(מ) His judgment as forgotten. Don't enjoy it as much as it was already worthy of eating a bad one<br>\r\n<br>\r\n(נ) The return of Israel. On Shabbat evening, his soul is a past, and that it is forbidden if he is well educated and beautiful to him, Affith means forgetfulness, and that it is forbidden to ban a beautiful and beautiful one, and therefore it is wrong A. A.M. is the same as a pig on the Shabbat, and he is named after Sharia, when he is not allowed to ban his name because he is first cooked and is celebrated:<br>\r\n<br>\r\n(60) 11. All wisdom, 20. And I live completely. Sheri Laka, and so it is better to sit the pots in the oven close to darkness, and Asi' Ran'd S. Damshum Peshti'd should be lit them from Be'ai:<br>\r\n<br>\r\n(ע) As a food in “D. the Gemara says, “No, no, no, no, no, no, no, no, nor do you see it.”<br>\r\n<br>\r\n(פ) Go to the above. And not the cases of the tuna, but about the blow that sticks with the stove dops, but a valve for the natal is (the gemer and column C.R. R.R.R. and S. R.R.R. and S.R. R.R.R. and S.R.R.R.R.R.R.R \"And thou,\"<br>\r\n<br>\r\n(90) Israel is allowed to remove it. In the DM wrote Vesassi' Shi'a in B.I. Dum't to remove Akal and Zal Ravi Shem and the Rambam wrote a harra that ag gahalim and the PAD Efi' do not extinguish it is allowed that since it is not buried one does not burn with coals when taking the harara but that there is a faint shaking from the side and shri akal and tzal ha ha in the pot precisely when ag gahalim sheri and tzal is standing Mordechai rabbi Kira and even Israel itself may be allowed to remove it, since it does not shake the coals and does not adjust to them and does not move them from their place, but if the coals are placed around the pot, Mordechai wrote on Shabbat Dassor to Israel to remove it because it is joyful and from the upper fire and from the lower fire. per the ACM Dain, we are not to put out and not to burn, only to remove the food. To remove on Shabbat and Shabbat at dawn it is forbidden to remove 21 by ACM (HGM PO) and Essi' Ran't and A. in Tos' Yoma page 44 and Amash Siman Ran'4 Sab:\r\n",
+      "he_plain": "מצטמק . פי' כל דבר שאדם שמח כשיבש ומצטמק (מלחמות): שהוא חי . פי' אז שרי ליתנו סמוך לחשיכה ממש אבל אם נתנו מבע\"י אסור דכבר נתבשל קצת קודם שבת וצריך לסלקו משחשיכ' אא\"כ נתבשל כל צרכו קודם שבת עסי' רנ\"ד: שכסה הגחלים באפר . וא\"צ לקטום עד שאין ניכר שם אש כלל רק בקטומה כל שהוא סגי (ר\"ן ב\"י) ואפי' הובערה אח\"כ שרי (גמרא) כיון דגילה דעתו דלא בעי לגחלים סגי: חתיכה חיה . דוקא חתיכת בשר שא\"א להתבשל לצורך הלילה אבל ירק לא מהני (ב\"י) (וכ\"מ ססי' רנ\"ד): לסמוך לה קדירה וכו' . מבערב וכו', ואין מחזירין לעולם אלא ע\"ג כירה גרופה וכו' וכל שאין מחזירין עליו אין סומכין לו בשבת עכ\"ל הרמב\"ם משמע דבשבת אסור לסמוך באינה גרופה דהאיבעי' בגמ' לא הוי אלא בע\"ש ועיין במ\"מ וכ\"מ ברי\"ף ע\"ש אבל לסברא השניה שרי אפי' בשבת כמ\"ש רמ\"א סס\"י זה: מותר לשהות על גרופה . ולסבר' השניה אפי' בשבת שרי דהא האיבעי' קאי אסמיכ' בשבת וקפשיט ליה מהא ע\"ש וברא\"ש: ותנור . מתוך שקצר למעל' ורחב למטה נקלט חומו לתוכו טפי מכירה (רש\"י): אפי' הוא גרוף . מפני שהגורף אינו גורף אלא רוב האש עצמה וא\"א שלא תשאר ניצוץ א' (רמב\"ם): שהיס\"ב . אבל אם אין היס\"ב מותר ליתן אפי' על גביו אפי' בשבת עסס\"ב כ\"מ בגמ' ובהגמ\"ר ועסי' שי\"ח סי\"ד ואפשר דאפי' אין גרוף וקטום שרי מיהו בס\"ה משמע דאסור לתת לתוכו ע\"ש בהג\"ה: ותנורים שלנו . מאחר שרחבים יותר משפיתת קדרה דינן ככירה (כל בו) ובר\"ן משמע דאפי' בזמן התלמוד לא נאסר אלא תנור של נחתומין ע\"ש: אסור עד מ\"ש . מדכתב סתם ש\"מ דאסור לכל כמ\"ש הטור וכ\"פ בד\"מ ומ\"ש הגמ\"ר דלאחריני שרי משום דס\"ל כר\"מ אבל אנן דקי\"ל כר\"י כמ\"ש רסי' שי\"ח א\"כ ה\"ה ה\"נ אסור לכל ולב\"ב פשיטא דאסור דה\"ל כמי שנתבשל בשבילו ועבי\"ד סי' צ\"ט ס\"ה ועב\"ח ססי' רנ\"ד ס\"ג וסי' ט\"ו עסי' תקט\"ו: החזירם עכו\"ם . לצורך ישראל: דינו כשכח . דלא נהנה ממנו כ\"כ כיון שכבר היה ראוי לאכול עסי' רע\"ו: החזירם ישראל . בשבת אפי' בשוגג דינו כעבר ושהה ואסור אם מצטמק ויפה לו דבהגמ\"ר משמע אפי' בשכח ושהה לאסור מצטמק ויפה ולכן פסק רמ\"א כמותו בהחזיר בשבת ומיהו נ\"ל בזה דלאחרים שרי מאחר דבהג\"א מסתפק אם יש לאסור אפי' לו מאחר שהי' מבושל קודם והיה שוגג: וי\"א שכל כו' . ובחי לגמרי שרי לכ\"ע וא\"כ מוטב להושיב הקדירות בתנור סמוך לחשיכה ועסי' רנ\"ד ס\"ה דמשום הפשטי\"ד צריך ליתנם מבע\"י: כמאכל ב\"ד . עסי' רנ\"ד ס\"ב והע\"ש לא ע\"ש גם בס\"ד לא עיין: מגולה למעל' . ולא מקרי הטמנה אלא בדבר המטלטל שמדביק אצל דופני התנור אבל תנור סתום לאו הטמנה היא (הגמ\"ר וטור סי' רנ\"ז ותוס' ורא\"ש): מותר לישראל להסירו . בד\"מ כתב ועססי' שי\"א בב\"י דמות' לסלקו עכ\"ל וז\"ל הרב\"י שם והרמב\"ם כתב חררה שע\"ג גחלים ולפע\"ד אפי' לא כבו מותר שמאחר שאינה טמונה אינו חותה בגחלים בנטילת החררה אלא שמנענען דהוי טלטול מן הצד ושרי עכ\"ל וא\"כ ה\"ה בקדרה דוקא כשעומדת ע\"ג גחלים שרי וז\"ל המרדכי ר\"פ כירה וגם הישראל עצמו אפשר שמותר להסיר' הואיל ואינו מנענע הגחלים ואינו מתכוין עליהם ואינו מזיזן ממקומן עכ\"ל אבל אם הגחלים מונחים סביב הקדירה כתב המרדכי פ\"ד דשבת דאסור לישראל להסירו משום שמחתה ומבעיר העליונות ומכבה התחתונות כדאיתא בכריתות ובהגמ\"ר כתב שם דאפי' לומר לעכו\"ם יש ליזהר מיהו בהג\"ה פ\"ו כתוב דמותר ע\"י עכו\"ם דאין אנו א\"ל לכבות ולא להבעיר רק לסלק המאכל ע\"כ ועססי' זה אבל ע\"י ישראל אסור לכ\"ע וכ\"כ בש\"י בביאור המרדכי וכ\"כ בד\"מ בשם אגור וכ\"כ המרדכי ספ\"ק דשבת וכ\"כ ב\"י ססי' זה בשם ספר היראים וכ\"מ ברש\"י ס\"פ ב\"מ דבתקיעה שלישית סלקו הקדירות משמע דאסור לסלקן בשבת ובשבת בשחרית אסור לסלקן כ\"א ע\"י עכו\"ם (הג\"מ פ\"ו) ועססי' רנ\"ט וע' בתוס' יומא דף ל\"ד ועמ\"ש סימן רנ\"ד ס\"ב:",
+      "en_plain": "(א) Pushed. P. Everything that a man rejoices when he is dry and shrinks (ב) He lives. “So, when you have given me a bit of a lie, but if you have given a word, we shall not cook a little before the Shabbat, and we must remove it from the ISA.” All of you have eaten before Shabbat: (ג) As a slave in the ashes. \"And I shall pluck until there is no fire there at all in the velvet of all that is a sarcastic (R. B.A.) and Shapi was later sued by Shari (finally) His opinion is not in the face of the worshipers: (ד) An animal piece. It is a piece of flesh that I will cook for the night, but not from my teeth (ה) Trust her an apartment and so on. In the evening and so on, and there is no return to the world, but rather, it is not the same as it does not trust it on the Shabbat The Rambam means that honey should not be trusted in the land of the the spirit, but rather in the midst of the matter’s Word, and in the midst of the matter’s Word, it is not the matter’s mercy, nor is the matter’s mercy, nor is it possible for the second creation of Sharia On Shabbat morning, he said, “This is the same.” (6) It is allowed to stay in a group. And for the second Saber' Afi' on Shabbat Shari Daha Haibei' Kai Asmich' on Shabbat and Kafshit Lia from Ha Ash and Barash: (ז) and the oven. From the bottom to the above, we will be able to reach out to the shores of the sale (ח) Epic is a buffer. Because the fire does not go away, it is the majority of the fire itself, and Heaven will not remain a spark (9) But if there is no Hisab, it is permissible to give an Afi' on top of it, on Shabbat Essab, 2000 in the GM and in the Hagmar, and asi' in the Shih Sid, and it is possible to Dafi', there is no gruf and truncation. (י) And our fans. Since more than a quaint of a cadre is sufficient as a cave (all in it) and a bar means that Daffi during the Talmud is not prohibited but a stove of snorts “S: (כ) Forbidden until, etc. — for he wrote anonymously that it is forbidden for everyone as Tur wrote and so in Darkei Moshe; what the Gemara said others are permitted because they hold like R' Meir — but we rule like R' Yehudah as siman 318 — if so here too forbidden for everyone; for a guest it is obvious it is forbidden, for it is as if cooked for him; and in Choshen Mishpat siman 99 seif 5 and Bach siman 254 seif 3 and siman 15, siman 569. (ל) The pig is empty. For Israel: (מ) His judgment as forgotten. Don't enjoy it as much as it was already worthy of eating a bad one (נ) The return of Israel. On Shabbat evening, his soul is a past, and that it is forbidden if he is well educated and beautiful to him, Affith means forgetfulness, and that it is forbidden to ban a beautiful and beautiful one, and therefore it is wrong A. A.M. is the same as a pig on the Shabbat, and he is named after Sharia, when he is not allowed to ban his name because he is first cooked and is celebrated: (60) 11. All wisdom, 20. And I live completely. Sheri Laka, and so it is better to sit the pots in the oven close to darkness, and Asi' Ran'd S. Damshum Peshti'd should be lit them from Be'ai: (ע) As a food in “D. the Gemara says, “No, no, no, no, no, no, no, no, nor do you see it.” (פ) Go to the above. And not the cases of the tuna, but about the blow that sticks with the stove dops, but a valve for the natal is (the gemer and column C.R. R.R.R. and S. R.R.R. and S.R. R.R.R. and S.R.R.R.R.R.R.R \"And thou,\" (90) Israel is allowed to remove it. In the DM wrote Vesassi' Shi'a in B.I. Dum't to remove Akal and Zal Ravi Shem and the Rambam wrote a harra that ag gahalim and the PAD Efi' do not extinguish it is allowed that since it is not buried one does not burn with coals when taking the harara but that there is a faint shaking from the side and shri akal and tzal ha ha in the pot precisely when ag gahalim sheri and tzal is standing Mordechai rabbi Kira and even Israel itself may be allowed to remove it, since it does not shake the coals and does not adjust to them and does not move them from their place, but if the coals are placed around the pot, Mordechai wrote on Shabbat Dassor to Israel to remove it because it is joyful and from the upper fire and from the lower fire. per the ACM Dain, we are not to put out and not to burn, only to remove the food. To remove on Shabbat and Shabbat at dawn it is forbidden to remove 21 by ACM (HGM PO) and Essi' Ran't and A. in Tos' Yoma page 44 and Amash Siman Ran'4 Sab:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman259/seif-002/baer-heitev",
+      "volume": "oc1",
+      "siman": 259,
+      "seif": 2,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.722,
+        "he_chars": 18,
+        "en_chars": 31,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 31
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>יחדן. </b> פירוש לעולם:\n",
+      "en_html": "Together. Meaning to the world:\r\n",
+      "he_plain": "יחדן. פירוש לעולם:",
+      "en_plain": "Together. Meaning to the world:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

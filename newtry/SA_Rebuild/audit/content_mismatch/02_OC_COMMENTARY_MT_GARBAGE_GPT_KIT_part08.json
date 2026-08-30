@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 8,
+    "chunk_total": 47,
+    "case_offset": 49,
+    "cases_in_chunk": 9,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman162/seif-005/yad-ephraim",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 5,
+      "slug": "yad-ephraim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.121,
+        "he_chars": 1039,
+        "en_chars": 1165,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1165
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>בט\"ז ס\"ק ז' </b>אחר שישפשף כו' מבואר מדבריו דמפרש מ\"ש הש\"ע אע\"ג דכל כמה דלא שפשף מטהרין בשפשוף ר\"ל דקשיא ליה דלמה נטמא בנגיעה זו שהרי יש כאן טהרה מצד המים השנים והשפשוף וע\"ז תירץ כיון דנגע אחר השפשוף גרע וכן מבואר בדבריו לקמן שתמה על הלבוש דמה הוקשה לו הא מבואר בר\"ש וש\"ע דשפשוף גרע. אמנם לפענ\"ד אין טעם לדבר זה דמה גריעות' שייך בזה שהרי אין כאן טומא' ודברי הר\"ש והש\"ע פשוטים דודאי אינו מיירי במקום שהמים טמאים וכגון שלא שפך שניים אלא שמ\"מ נטהרים ע\"י שפשוף דהיינו שמשפשף המים מן הידים במפה וכדומה ומנגב אותם ולהכי קא קשי' ליה דלמה בשפשוף בראשו כו' וחזר ונגע יצטרך נטילה אחרת שנטמאה היד ולמה לא יועיל שישפשף אותם שנית מהיד שהרי אותם המים טמאים היו על היד עצמה ונטהרו הידים ע\"י שפשוף גם עתה שנגע שנית ישפשפו ולזה אמר כיון דחזר ונגע גרע וזה פשוט ולזה כיון המג\"א ס\"ק ט\"ז. ומ\"ש הט\"ז בשם רש\"ל דאפשר שפשוף בעי לעולם ומזה רוצה להביא ראייה דאף בשניים לא נטהרו אלא ע\"י השיפשוף ז\"א כמ\"ש המשבצות זהב דר\"ל דאף בשניים בעי ניגוב והוא בכלל כל האוכל בלא ניגוב כו' אבל מ\"מ פשיטא דהשניי' מטהרים מים הראשונים אלא דמ\"מ הידים צריכים ניגוב כך הוא כוונת הר\"ש בזה ע\"ש:\r\n",
+      "en_html": "In the 16th section of the 7th chapter, after he rubs, it is explained in his words Damparash, the Sha'a, A'aag, how many times he rubbed the tarin by rubbing, R. Dakshiya, his dalma is defiled by this touch, for there is a purification here on the part of the years of water and the rubbing. It is true that the Panad has no point in talking about this, it seems like it belongs to the fact that there is no impurity here, and the words of the Rashi and the Sha'a are simple, he does not throw water in a place where the water is impure, and such that he did not spill two, but that he is purified by rubbing, that is, he rubs the water from his hands with a cloth, etc. Otherwise, the hand is impure, and why wouldn't it be beneficial for him to rub it a second time from the hand, since the same impure water was on the hand itself, and the hands were purified by rubbing even now that they touch it a second time, they will rub it, and this is what he said as a dahzer and a gross touch, and this is simple and this is because of Maga Sec 16. And the 16th Mash in the name of Rashel D allows to rub the eyes to the world and from it one wants to bring evidence.\r\n",
+      "he_plain": "בט\"ז ס\"ק ז' אחר שישפשף כו' מבואר מדבריו דמפרש מ\"ש הש\"ע אע\"ג דכל כמה דלא שפשף מטהרין בשפשוף ר\"ל דקשיא ליה דלמה נטמא בנגיעה זו שהרי יש כאן טהרה מצד המים השנים והשפשוף וע\"ז תירץ כיון דנגע אחר השפשוף גרע וכן מבואר בדבריו לקמן שתמה על הלבוש דמה הוקשה לו הא מבואר בר\"ש וש\"ע דשפשוף גרע. אמנם לפענ\"ד אין טעם לדבר זה דמה גריעות' שייך בזה שהרי אין כאן טומא' ודברי הר\"ש והש\"ע פשוטים דודאי אינו מיירי במקום שהמים טמאים וכגון שלא שפך שניים אלא שמ\"מ נטהרים ע\"י שפשוף דהיינו שמשפשף המים מן הידים במפה וכדומה ומנגב אותם ולהכי קא קשי' ליה דלמה בשפשוף בראשו כו' וחזר ונגע יצטרך נטילה אחרת שנטמאה היד ולמה לא יועיל שישפשף אותם שנית מהיד שהרי אותם המים טמאים היו על היד עצמה ונטהרו הידים ע\"י שפשוף גם עתה שנגע שנית ישפשפו ולזה אמר כיון דחזר ונגע גרע וזה פשוט ולזה כיון המג\"א ס\"ק ט\"ז. ומ\"ש הט\"ז בשם רש\"ל דאפשר שפשוף בעי לעולם ומזה רוצה להביא ראייה דאף בשניים לא נטהרו אלא ע\"י השיפשוף ז\"א כמ\"ש המשבצות זהב דר\"ל דאף בשניים בעי ניגוב והוא בכלל כל האוכל בלא ניגוב כו' אבל מ\"מ פשיטא דהשניי' מטהרים מים הראשונים אלא דמ\"מ הידים צריכים ניגוב כך הוא כוונת הר\"ש בזה ע\"ש:",
+      "en_plain": "In the 16th section of the 7th chapter, after he rubs, it is explained in his words Damparash, the Sha'a, A'aag, how many times he rubbed the tarin by rubbing, R. Dakshiya, his dalma is defiled by this touch, for there is a purification here on the part of the years of water and the rubbing. It is true that the Panad has no point in talking about this, it seems like it belongs to the fact that there is no impurity here, and the words of the Rashi and the Sha'a are simple, he does not throw water in a place where the water is impure, and such that he did not spill two, but that he is purified by rubbing, that is, he rubs the water from his hands with a cloth, etc. Otherwise, the hand is impure, and why wouldn't it be beneficial for him to rub it a second time from the hand, since the same impure water was on the hand itself, and the hands were purified by rubbing even now that they touch it a second time, they will rub it, and this is what he said as a dahzer and a gross touch, and this is simple and this is because of Maga Sec 16. And the 16th Mash in the name of Rashel D allows to rub the eyes to the world and from it one wants to bring evidence.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman162/seif-006/beer-hagolah",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 6,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.459,
+        "he_chars": 37,
+        "en_chars": 54,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 54
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "בפ\"א דידים לפירוש התוספתא הביאה הרא\"ש\n",
+      "en_html": "In the the source, Heaven has brought him to the world\r\n",
+      "he_plain": "בפ\"א דידים לפירוש התוספתא הביאה הרא\"ש",
+      "en_plain": "In the the source, Heaven has brought him to the world",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman162/seif-010/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 10,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.352,
+        "he_chars": 1140,
+        "en_chars": 1541,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1541
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק י) על השני'.</b> ואם נגע כו' א\"צ לנגבם כו' דכיון דכבר היו טהורים כתב היש\"ש הטעם דוקא בסעיף ד' דלא נטל רק מים ראשונים נגע ביד אחרת דאז יש לאותן מים שני מיני טומאות. א' משום אותה יד שנטל כדין כל מים ראשונים שטמאים ב' עכשיו נתוסף להם טומאה במה שנגע בידו שניה הטמאה אין מים שנים כשיטול שנית ידו אחד יכולים לטהר שני מיני טומאות דלא מצינו דמים שנים מטהרים כ\"א טומאה א' דהיינו כשהמים טמאים מצד היד שנטל. והיינו כל מים הראשונים וא\"כ הכא שכבר נטל ידו הראשונה שני פעמים וא\"כ נטהרו מים ראשונים ואין להם כ\"א טומאת אחת מה שנגע בידו השניה. וטומאה א' מים שנים מטהרים לכן א\"צ לנגב כ\"א ליתן שוב עליהם מים שנים ודיו:<br />\nל\"ל בה כמ\"ש סי' ק\"ס ס\"ס י\"א. ר\"ל דאם נגע בידו הטמאה במים שבכלי לא נטמאו המים:<br />\n<b>ומ\"מ כו'</b> נדבקו מים טמאי' ר\"ל מים שבידו שהם טמאים כדין מים ראשונים:<br />\n<b>וכשחוזר ודוחק וכו'</b> דהא צריך להחזיר הברזא בכל שפיכה וכמ\"ש לעיל ס' קנ\"ט סעיף ט' ודברי ל\"ח אינן מובן לי דמשמע קצת דבכלי כהאי לא בעי' שיחזור בכל שפיכה ולא ידעתי למה. אמנם כשנוטל רביעית בפעם א' ל\"ל בה אפי' נוגע בידו הלחה באוזן כלי ומתלחלח ומתדבק שם מאותן מים מה בכך הא המים טהורים כשנטל מרביעית. וגם כשאוחז באוזן הכלי בידו שני שעדיין לא נטל אין בכך כלום לא נטמאו המים מצד נגיעתן בהן ביד טמאה כמ\"ש פה:\n",
+      "en_html": "(א) (c) on the other. And if he touched the Gemara, then the first of them was pure In another hand, the same water has two kinds of uncleanness. A. For the same hand that he took to give them all the first water to eat in the ‘Now we will add to them uncleanness in the palm The second hand that touches his unclean hand has no water for years when one hand can purify two kinds of uncleanness from his eyes, which are purported as “a to 100.” A We were all the first water and the sorcererer that he had taken his first hand two times and that he had washed his head water They don’t have one of the things that touched the other. And a hundred a.m. water is plucked up, so I will pour water over them for years and ink:<br>\r\n<br>\r\n(ב) “She is called C.C. C.C.. Dr. Dham touched his unclean hand in the water that was not the water he was not<br>\r\n<br>\r\n(ג) And from the U.S., there was water to the first water:<br>\r\n<br>\r\n(ד) And when a stranger and a lawyer, etc. Dea, should return the barbara in all that is circumcised and circumcised in the above paragraph 9 and the words of there are not understood to me by a bit of a beard as an instrument I’m not going to get back in every corner and I didn’t know why. But when a fourth noisy, for a second time, he touches his hand with a vessel and whispers and sticks There is water from which the water is pure when it takes from the fourth. And when I look at the hand of the vessel in his second hand, he has not yet taken away any of it The sea, on the other hand, shall be reached by the hand of uncleanness as it is:\r\n",
+      "he_plain": "(ס\"ק י) על השני'. ואם נגע כו' א\"צ לנגבם כו' דכיון דכבר היו טהורים כתב היש\"ש הטעם דוקא בסעיף ד' דלא נטל רק מים ראשונים נגע ביד אחרת דאז יש לאותן מים שני מיני טומאות. א' משום אותה יד שנטל כדין כל מים ראשונים שטמאים ב' עכשיו נתוסף להם טומאה במה שנגע בידו שניה הטמאה אין מים שנים כשיטול שנית ידו אחד יכולים לטהר שני מיני טומאות דלא מצינו דמים שנים מטהרים כ\"א טומאה א' דהיינו כשהמים טמאים מצד היד שנטל. והיינו כל מים הראשונים וא\"כ הכא שכבר נטל ידו הראשונה שני פעמים וא\"כ נטהרו מים ראשונים ואין להם כ\"א טומאת אחת מה שנגע בידו השניה. וטומאה א' מים שנים מטהרים לכן א\"צ לנגב כ\"א ליתן שוב עליהם מים שנים ודיו: ל\"ל בה כמ\"ש סי' ק\"ס ס\"ס י\"א. ר\"ל דאם נגע בידו הטמאה במים שבכלי לא נטמאו המים: ומ\"מ כו' נדבקו מים טמאי' ר\"ל מים שבידו שהם טמאים כדין מים ראשונים: וכשחוזר ודוחק וכו' דהא צריך להחזיר הברזא בכל שפיכה וכמ\"ש לעיל ס' קנ\"ט סעיף ט' ודברי ל\"ח אינן מובן לי דמשמע קצת דבכלי כהאי לא בעי' שיחזור בכל שפיכה ולא ידעתי למה. אמנם כשנוטל רביעית בפעם א' ל\"ל בה אפי' נוגע בידו הלחה באוזן כלי ומתלחלח ומתדבק שם מאותן מים מה בכך הא המים טהורים כשנטל מרביעית. וגם כשאוחז באוזן הכלי בידו שני שעדיין לא נטל אין בכך כלום לא נטמאו המים מצד נגיעתן בהן ביד טמאה כמ\"ש פה:",
+      "en_plain": "(א) (c) on the other. And if he touched the Gemara, then the first of them was pure In another hand, the same water has two kinds of uncleanness. A. For the same hand that he took to give them all the first water to eat in the ‘Now we will add to them uncleanness in the palm The second hand that touches his unclean hand has no water for years when one hand can purify two kinds of uncleanness from his eyes, which are purported as “a to 100.” A We were all the first water and the sorcererer that he had taken his first hand two times and that he had washed his head water They don’t have one of the things that touched the other. And a hundred a.m. water is plucked up, so I will pour water over them for years and ink: (ב) “She is called C.C. C.C.. Dr. Dham touched his unclean hand in the water that was not the water he was not (ג) And from the U.S., there was water to the first water: (ד) And when a stranger and a lawyer, etc. Dea, should return the barbara in all that is circumcised and circumcised in the above paragraph 9 and the words of there are not understood to me by a bit of a beard as an instrument I’m not going to get back in every corner and I didn’t know why. But when a fourth noisy, for a second time, he touches his hand with a vessel and whispers and sticks There is water from which the water is pure when it takes from the fourth. And when I look at the hand of the vessel in his second hand, he has not yet taken away any of it The sea, on the other hand, shall be reached by the hand of uncleanness as it is:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman167/seif-004/baer-heitev",
+      "volume": "oc1",
+      "siman": 167,
+      "seif": 4,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.936,
+        "he_chars": 171,
+        "en_chars": 331,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 331
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>הפת. </b> ואם יש לו בית יד צריך להסירו הגמ\"נ. כשיאמר השם יגביה הפת ובשבת שתיהם. מהרי\"ל מ\"א:<br />\n<b>בפת. </b> אלו הן לא תחרוש בשור וחמור כלאים לקט שכחה ופאה בכורים תרומת מעשר ומעשר שני חלה:\n",
+      "en_html": "(1) the mouthful And if he has a beit yad, the Hagman should remove it. When the Omnipresent says, they will raise the palm and on Shabbat both of them. From the Rial MA:<br>\r\n<br>\r\n(ב) in the map. These will not be circumcised in the plain and exalted as cells for lactation and faaque in terms of contribution from ten and ten to the other:\r\n",
+      "he_plain": "הפת. ואם יש לו בית יד צריך להסירו הגמ\"נ. כשיאמר השם יגביה הפת ובשבת שתיהם. מהרי\"ל מ\"א: בפת. אלו הן לא תחרוש בשור וחמור כלאים לקט שכחה ופאה בכורים תרומת מעשר ומעשר שני חלה:",
+      "en_plain": "(1) the mouthful And if he has a beit yad, the Hagman should remove it. When the Omnipresent says, they will raise the palm and on Shabbat both of them. From the Rial MA: (ב) in the map. These will not be circumcised in the plain and exalted as cells for lactation and faaque in terms of contribution from ten and ten to the other:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman167/seif-020/turei-zahav",
+      "volume": "oc1",
+      "siman": 167,
+      "seif": 20,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.387,
+        "he_chars": 1010,
+        "en_chars": 1401,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1401
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ולא שרי לברך כו'. </b> פי' דקי\"ל כל הברכות אע\"פ שיצא מוציא חוץ מברכת הנהנין שאין יכול לברך הברכה כשהוא יצא כבר אלא שמברך בשביל אחרים מש\"ה בהמוציא דמצה ויין דקידוש דלא מקרי ברכת הנהנין אלא משו' דמצוה היא עליו ע\"כ יכול להוציא אחרים אע\"פ שהוא אינו טועם עמהם אבל בפת של שבת אע\"פ שהוא חיוב מ\"מ קרוי ברכת הנהנין ולא אמרו בזה להתיר להוצי' אחרי' אע\"פ שאינו טועם ונרא' הטע' דפת היא עיקר אכילתו ואין שייך בזה אכיל' מצוה דגם בחול הוא אוכל פת משא\"כ במצה ויין קידוש שיש עכשיו שינוי:<br />\n<b>שבצע עליה. </b> ב\"י הביא בשם הכל בו ואבודרהם שאין להאכיל לבהמה ועוף או לעכו\"ם מחתיכה שנוגעות בו חתיכת המוציא פי' באותה פרוסה שחתך כבר מן הלחם השלם חותך אח\"כ מן אותה פרוסה חתיכה קטנה להמוציא לא יאכיל אותה הפרוסה לבהמה והב\"י כ' ע\"ז שאין סמך לדבר זה. ואני ראיתי בס' טעמי מצות להרקנטי במצה דמצוה שמזהיר בה שלא להאכילה למי שאינו בן ברית ונותן טעם הגון לזה וכן ראיתי רבים נוהגים נזהרים מזה בפסח ממילא יש ליזהר גם בחתיכו' המוציא בזה דחד טעמ' הוא. עוד הבאתי ראיה בחבורי על רש\"י פרשת בא בפסוק משארותם צרורות בשמלותם כו' שיש חבוב מצות במה שנשתייר מן מצה ומרור:\n",
+      "en_html": "(א) I don't want to congratulate him. All the blessings of Heaven’s people, who are blessed there’s mercy, and who are not blessed there’s mercy, but who is blessed For others, in the midst of Heaven’s promise, “He who is not Heaven’s will, and he will be able to bring others to the world.” He said, “But in the face of the Heaven’s Prayer, that he is not a prophet of the Heaven’s people, and that he is not called upon by the Heaven.” A leak is the main thing of his eating and does not belong to it as a model in the sand is the food of an exhaustive food and wine that has a change:<br>\r\n<br>\r\n(ב) They do it. B. He brought everything in him and arranged them not to feed her mother and chicken or a masked groceries that touches him the piece of the kite in the same slice Your entire bread is cut off from the same slice of a small piece to the groceries will not feed it in the slice of bread and the B.C., which is not based on the word The. And I have seen B. for some reason for the radiant in the blink of an intoxication that warns her not to feed her to someone who is not an ally and gives a decent taste for it and I have seen many We will be careful of this at the time of the Heaven’s Prayer, and we will also be able to take care of him. I have come to see Heaven’s presence in the world The rest of them are laid in their dresses, and there is a buffer in what is left of a cave and is clear:\r\n",
+      "he_plain": "ולא שרי לברך כו'. פי' דקי\"ל כל הברכות אע\"פ שיצא מוציא חוץ מברכת הנהנין שאין יכול לברך הברכה כשהוא יצא כבר אלא שמברך בשביל אחרים מש\"ה בהמוציא דמצה ויין דקידוש דלא מקרי ברכת הנהנין אלא משו' דמצוה היא עליו ע\"כ יכול להוציא אחרים אע\"פ שהוא אינו טועם עמהם אבל בפת של שבת אע\"פ שהוא חיוב מ\"מ קרוי ברכת הנהנין ולא אמרו בזה להתיר להוצי' אחרי' אע\"פ שאינו טועם ונרא' הטע' דפת היא עיקר אכילתו ואין שייך בזה אכיל' מצוה דגם בחול הוא אוכל פת משא\"כ במצה ויין קידוש שיש עכשיו שינוי: שבצע עליה. ב\"י הביא בשם הכל בו ואבודרהם שאין להאכיל לבהמה ועוף או לעכו\"ם מחתיכה שנוגעות בו חתיכת המוציא פי' באותה פרוסה שחתך כבר מן הלחם השלם חותך אח\"כ מן אותה פרוסה חתיכה קטנה להמוציא לא יאכיל אותה הפרוסה לבהמה והב\"י כ' ע\"ז שאין סמך לדבר זה. ואני ראיתי בס' טעמי מצות להרקנטי במצה דמצוה שמזהיר בה שלא להאכילה למי שאינו בן ברית ונותן טעם הגון לזה וכן ראיתי רבים נוהגים נזהרים מזה בפסח ממילא יש ליזהר גם בחתיכו' המוציא בזה דחד טעמ' הוא. עוד הבאתי ראיה בחבורי על רש\"י פרשת בא בפסוק משארותם צרורות בשמלותם כו' שיש חבוב מצות במה שנשתייר מן מצה ומרור:",
+      "en_plain": "(א) I don't want to congratulate him. All the blessings of Heaven’s people, who are blessed there’s mercy, and who are not blessed there’s mercy, but who is blessed For others, in the midst of Heaven’s promise, “He who is not Heaven’s will, and he will be able to bring others to the world.” He said, “But in the face of the Heaven’s Prayer, that he is not a prophet of the Heaven’s people, and that he is not called upon by the Heaven.” A leak is the main thing of his eating and does not belong to it as a model in the sand is the food of an exhaustive food and wine that has a change: (ב) They do it. B. He brought everything in him and arranged them not to feed her mother and chicken or a masked groceries that touches him the piece of the kite in the same slice Your entire bread is cut off from the same slice of a small piece to the groceries will not feed it in the slice of bread and the B.C., which is not based on the word The. And I have seen B. for some reason for the radiant in the blink of an intoxication that warns her not to feed her to someone who is not an ally and gives a decent taste for it and I have seen many We will be careful of this at the time of the Heaven’s Prayer, and we will also be able to take care of him. I have come to see Heaven’s presence in the world The rest of them are laid in their dresses, and there is a buffer in what is left of a cave and is clear:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman168/seif-007/mechaber",
+      "volume": "oc1",
+      "siman": 168,
+      "seif": 7,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.901,
+        "he_chars": 566,
+        "en_chars": 1076,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1076
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"4\"></i>פת הבא בכיסנין <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i><i data-commentator=\"Turei Zahav\" data-order=\"6\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"פ\" data-order=\"17\"></i>יש מפרשים פת שעשוי כמין כיסים <i data-commentator=\"Mishnah Berurah\" data-label=\"כז\"></i>שממלאים אותם <i data-commentator=\"Ba'er Hetev\" data-order=\"10\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"10\"></i>דבש או סוקר <i data-commentator=\"Mishnah Berurah\" data-label=\"כח\"></i>ואגוזים ושקדים ותבלין והם הנקראי' רושקלאיי\"ש <i data-commentator=\"Be'er HaGolah\" data-label=\"צ\" data-order=\"18\"></i>דיאלחש\"ו וי\"א שהיא עיסה <i data-commentator=\"Magen Avraham\" data-order=\"16\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כט\"></i>שעירב בה דבש או שמן או חלב או מיני תבלין ואפאה <i data-commentator=\"Be'er HaGolah\" data-label=\"ק\" data-order=\"19\"></i>והוא שיהי' טעם תערובת המי פירות או התבלין <i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>ניכר בעיסה: <i data-commentator=\"Turei Zahav\" data-order=\"7\"></i><small>[וי\"א <i data-commentator=\"Mishnah Berurah\" data-label=\"לא\"></i>שזה נקרא <i data-commentator=\"Ba'er Hetev\" data-order=\"11\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>פת גמור אא\"כ יש בהם <i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>הרבה תבלין או דבש כמיני מתוקה שקורין <i data-commentator=\"Ba'er Hetev\" data-order=\"12\"></i>לעקו\"ך שכמעט הדבש והתבלין הם עיקר <i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>וכן נוהגים]: [רש\"י וערוך וכן יש לפרש דעת רמב\"ם]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ר\" data-order=\"20\"></i>וי\"מ שהוא פת בין מתובלת בין שאינה מתובלת שעושים אותם <i data-commentator=\"Turei Zahav\" data-order=\"8\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לה\"></i>כעבים יבשים <i data-commentator=\"Magen Avraham\" data-order=\"17\"></i>וכוססין <i data-commentator=\"Ba'er Hetev\" data-order=\"13\"></i>אותם והם הנקראים בישקוני\"ש והלכה כדברי כלם <i data-commentator=\"Magen Avraham\" data-order=\"18\"></i>שלכל אלו הדברים נותנים להם דינים שאמרנו בפת הבאה <i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i>בכסנין:\n",
+      "en_html": "Bread offered as dessert – there are those who explain: Bread that is made in the form of pouches that they fill them with honey or sugar and walnuts and almonds and spices. And they are what are called rusklayis rialkhsu. And there are those who say that it's a dough that he mixed into it honey or oil or milk or types of spices and he baked it – and that is that the taste of the mixture of the juices or the spices is recognizable in the dough. [And there are those who say that this is called absolute bread – except if it contains a lot of spices or honey such as kinds of sweets that are called lekach, that the honey and the spices are almost the main part. And so is the custom.]. [Rashi and Arukh and so can be explained in the opinion of Maimonides]. And there are those who explain that it is bread – whether spiced or not spiced – that they make them dry cakes and they chew them. And they are what are called biskunis. And the halacha is like the words of all of them, that all of these things are given the laws which we said regarding bread offered as dessert.\n",
+      "he_plain": "פת הבא בכיסנין יש מפרשים פת שעשוי כמין כיסים שממלאים אותם דבש או סוקר ואגוזים ושקדים ותבלין והם הנקראי' רושקלאיי\"ש דיאלחש\"ו וי\"א שהיא עיסה שעירב בה דבש או שמן או חלב או מיני תבלין ואפאה והוא שיהי' טעם תערובת המי פירות או התבלין ניכר בעיסה: [וי\"א שזה נקרא פת גמור אא\"כ יש בהם הרבה תבלין או דבש כמיני מתוקה שקורין לעקו\"ך שכמעט הדבש והתבלין הם עיקר וכן נוהגים]: [רש\"י וערוך וכן יש לפרש דעת רמב\"ם] וי\"מ שהוא פת בין מתובלת בין שאינה מתובלת שעושים אותם כעבים יבשים וכוססין אותם והם הנקראים בישקוני\"ש והלכה כדברי כלם שלכל אלו הדברים נותנים להם דינים שאמרנו בפת הבאה בכסנין:",
+      "en_plain": "Bread offered as dessert – there are those who explain: Bread that is made in the form of pouches that they fill them with honey or sugar and walnuts and almonds and spices. And they are what are called rusklayis rialkhsu. And there are those who say that it's a dough that he mixed into it honey or oil or milk or types of spices and he baked it – and that is that the taste of the mixture of the juices or the spices is recognizable in the dough. [And there are those who say that this is called absolute bread – except if it contains a lot of spices or honey such as kinds of sweets that are called lekach, that the honey and the spices are almost the main part. And so is the custom.]. [Rashi and Arukh and so can be explained in the opinion of Maimonides]. And there are those who explain that it is bread – whether spiced or not spiced – that they make them dry cakes and they chew them. And they are what are called biskunis. And the halacha is like the words of all of them, that all of these things are given the laws which we said regarding bread offered as dessert.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman168/seif-014/mechaber",
+      "volume": "oc1",
+      "siman": 168,
+      "seif": 14,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.311,
+        "he_chars": 431,
+        "en_chars": 996,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Magen Avraham\" data-order=\"39\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"32\"></i>חלוט <small>[פי' כמין פת חולטין אותו ברותחין]</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"פג\"></i>שאחר כך אפאו בתנור <i data-commentator=\"Mishnah Berurah\" data-label=\"פד\"></i>פת גמור <i data-commentator=\"Ba'er Hetev\" data-order=\"32\"></i>הוא <i data-commentator=\"Mishnah Berurah\" data-label=\"פה\"></i>ומברך עליו המוציא: <small>הגה וכן דבר שבלילתו רכה שאפאו בתנור בלא משקה דינו כפת <i data-commentator=\"Mishnah Berurah\" data-label=\"פו\"></i>ומברך עליו המוצי' ושלש ברכות וכן אם אפאו באלפס בלא משקה [והרא\"ש והר\"ן פ' כל שעה ורמב\"ם פ\"ו מהלכות חלה ושאלתות וטור] ומעט משקה שמושחין בו האלפס שלא ישרוף העיסה לא מקרי משקה [הגהות מיי' פ\"ג מהל' ברכות] אבל דבר שבלילתו רכה <i data-commentator=\"Mishnah Berurah\" data-label=\"פז\"></i>וטגנו במשקה לכ\"ע לאו לחם הוא [תו' והרא\"ש ור\"ן והר\"י פ' כיצד מברכין]:</small>\n",
+      "en_html": "That which was scalded that afterwards one baked it in an oven is absolute bread and one recites on it the blessing \"...Who takes out...\". {Rama: [meaning: like a kind of bread – it is scalded with boiling water] Gloss: And likewise, something thats mixture is loose, that one baked it in an oven without liquid – its law is like bread and one recites on it the blessing \"...Who takes out...\" and three blessings. And likewise, if one baked it in a stewpot without liquid [Tosaphoth and Rabbi Asher and Rabbi Nissim, Chapter \"The Entire Time\"; and Maimonides, Chapter 6 of The Laws of Challah; and She'iltot; and Tur]. And the bit of liquid with which the stewpot is smeared so that it shouldn't burn the dough is not called liquid [Haggahot Maimuniyyot, Chapter 3 of Laws of Blessings]. But something thats mixture is loose, and one fried it in liquid – according to everyone it is not bread [Tosaphoth and Rabbi Asher and Rabbi Nissim and Rabbi Yonah, Chapter \"How Does One Recite Blessings\"].}\n",
+      "he_plain": "חלוט [פי' כמין פת חולטין אותו ברותחין] שאחר כך אפאו בתנור פת גמור הוא ומברך עליו המוציא: הגה וכן דבר שבלילתו רכה שאפאו בתנור בלא משקה דינו כפת ומברך עליו המוצי' ושלש ברכות וכן אם אפאו באלפס בלא משקה [והרא\"ש והר\"ן פ' כל שעה ורמב\"ם פ\"ו מהלכות חלה ושאלתות וטור] ומעט משקה שמושחין בו האלפס שלא ישרוף העיסה לא מקרי משקה [הגהות מיי' פ\"ג מהל' ברכות] אבל דבר שבלילתו רכה וטגנו במשקה לכ\"ע לאו לחם הוא [תו' והרא\"ש ור\"ן והר\"י פ' כיצד מברכין]:",
+      "en_plain": "That which was scalded that afterwards one baked it in an oven is absolute bread and one recites on it the blessing \"...Who takes out...\". {Rama: [meaning: like a kind of bread – it is scalded with boiling water] Gloss: And likewise, something thats mixture is loose, that one baked it in an oven without liquid – its law is like bread and one recites on it the blessing \"...Who takes out...\" and three blessings. And likewise, if one baked it in a stewpot without liquid [Tosaphoth and Rabbi Asher and Rabbi Nissim, Chapter \"The Entire Time\"; and Maimonides, Chapter 6 of The Laws of Challah; and She'iltot; and Tur]. And the bit of liquid with which the stewpot is smeared so that it shouldn't burn the dough is not called liquid [Haggahot Maimuniyyot, Chapter 3 of Laws of Blessings]. But something thats mixture is loose, and one fried it in liquid – according to everyone it is not bread [Tosaphoth and Rabbi Asher and Rabbi Nissim and Rabbi Yonah, Chapter \"How Does One Recite Blessings\"].}",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman187/seif-003/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 187,
+      "seif": 3,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.587,
+        "he_chars": 1773,
+        "en_chars": 2814,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2814
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ג) ונשים כו'</b> דפתח בתרתי דנשים ועבדים לא יאמרו ברית ותורה משמע שנשים לא יאמרו לא ברית ולא תורה וכן עבדים לא יאמרו לא ברית ולא תורה וסיים בחדא דנשים לאו בני ברית כו' משמע דתורה יאמרו וכן עבדים משמע דיאמרו ברית:<br />\nובתוס' ר\"פ מ\"ש דף כ' ע\"ב שפי' האיבעי' אי נשים בבה\"מ דרבנן לפי שאינן בברית ותורה ע\"ש הובא לעיל סי' קפ\"ה:<br />\nדף מ\"ט א\"ל רב זירא לר\"ח ניתי מר ונתני א\"ל ברכת מזונא לא גמירנא ותנויי מתנינ'. א\"ל מאי האי א\"ל דאיקלעי לבי ר\"ג ובריכי ברכת מזונא וזקפי' ר\"ש לקועי' עלי כחויא ואמאי דלא אמרי ברית ותורה ולא מלכות א\"ל אמאי לא אמרית א\"ל כדרב חננאל אמר רב דאמר אם לא אמר ברית ותורה ומלכות יצא. ברית לפי שאינו בנשים. תורה ומלכות לפי שאינם בנשים ועבדים. א\"ל ואת שבקית כ\"ה תנאי ואמוראי ועבדית כרב עכ\"ל הגמ':<br />\n<b>למ\"ד המול כו'.</b> דאמרי' שם מנין שגוי פסול למול את ישראל. דרש בר פפא משמיה דר\"א דאמר ה' לאברהם ואתה את בריתי תשמור וזרעך אחריך ור' יוחנן אמר כתיב המול ימול המל ימול ואמר דאיכא בינייהו אשה והא דקאמר בגמ' דר\"ח היה מזמן כו' אין זה מפורש בגמרא וכמש\"ל לשון הש\"ס אלא דהוי קשיא למ\"א מאי התנצל ר\"ח דמה\"ט לא אמר ברית ותורה ומלכות משום דר\"ח משמיה דרב אמר דיוצא מאי התנצלות הוא זה ניהו דבדיעבד יוצא מ\"מ קשיא למה עשה כן לכתחלה ולכן מפרש מ\"א דר\"ח היה מזמן בי ר\"ג והיו מסובים גם נשים והוצרך להוציא גם הנשים וכיון דהנשים אין יכולין לומר ברית כו' וגם באיש דיעבד יצא לכן עשה כן לכתחלה כדי להוציא גם הנשים ואף לפמ\"ש מ\"א דגם באשה שייך ברית ותורה לזה כתב מ\"א דמ\"מ אין האשה שוה לאיש לענין ברית ותורה:<br />\n<b>בפי כו'</b> שהוא סמוך ר\"ל דתיבת בפי סמוך לתיבת כל לכן לא יאמר בפה בה\"א לבסוף כי אז הוא מוכרת מתיבת כל אלא בפי ביו\"ד לבסוף ועמ\"ש בסי' נ\"א ס\"ק א' דבברכת ברוך שאמר יאמר בפה בה\"א:<br />\n<b>שהנקודות עולים כמנין לחם שעולה ע\"ח וקמ\"ץ היא כמו יו\"ד וי\"ו ונחשב לט\"ז.</b> ופת\"ח תחת ס' נחשב לוי\"ו הרי כ\"ב וסגול תחת יו\"ד הרי ג' נקודות והם שלשים הרי נ\"ב ושו\"א תחת החי\"ת ב' נקודות הרי כ' והוי ע\"ב ופת\"ח תחת הס' הרי עוד שש ס\"ה ע\"ח:\n",
+      "en_html": "(s.k. 3) And women, etc.—for he opened with two—that women and slaves do not say covenant and Torah; implies women do not say neither covenant nor Torah; and slaves do not say neither covenant nor Torah; and concluded in one that women are not members of covenant, etc.—implies they say Torah; and slaves implies they say covenant.<br>\r\n<br>\r\nAnd in Tosafot beginning ch. 1 what is written daf 20b who explained the question whether women in birkat hamazon d'rabbanan because they are not in covenant and Torah—see there; brought above siman 185.<br>\r\n<br>\r\nDaf 49a R' Zeira to R' Chiya: let my master come and teach; he said I did not learn birkat mazon and I teach traditions; he said what is this; he said I happened to house of R' Gamliel and blessed birkat mazon and R' Shimon stood over me like a snake; why did you not say covenant and Torah and kingdom; he said why did you not say; he said as Rav Chananel—Rav said: if he did not say covenant and Torah and kingdom he fulfilled; covenant because it is not in women; Torah and kingdom because not in women and slaves; he said you abandoned all these tannaim and amoraim and acted like Rav—end Gemara.<br>\r\n<br>\r\nPer those who say circumcised, etc.—for we say there: whence that a gentile is unfit to circumcise Israel; Bar Papa expounded in name R' Eliezer who said Heaven to Abraham and you shall keep My covenant, your seed after you; R' Yochanan said it is written hamol yimol hamel yimol and said there is between them a woman; and that which Gemara says R' Chiya would zimmun, etc.—this is not explicit in Gemara and as I wrote language of Talmud; rather it is difficult to Magen Avraham what was R' Chiya's excuse why he did not say covenant and Torah and kingdom—for R' Chiya in name Rav said b'dieved he fulfilled; nevertheless difficult why he did so l'chatchila; therefore Magen Avraham explains R' Chiya was zimmun in house of R' Gamliel and they reclined also women and needed to discharge women too; since women cannot say covenant, etc., and also for a man b'dieved he fulfilled—therefore he did so l'chatchila to discharge women; and even per Magen Avraham who also in a woman covenant and Torah applies—for this Magen Avraham wrote nevertheless a woman is not equal to a man regarding covenant and Torah.<br>\r\n<br>\r\nIn mouth of, etc.—it is adjacent—meaning word befikh is adjacent to word kol; therefore do not say befah with heh at end for then it is recognized from word kol; rather befikhi with yod at end; and what I wrote siman 51 s.k.1 in blessing Baruch she'amar say befah with heh.<br>\r\n<br>\r\nThat the vowels ascend like bread count rising 72; kamatz is like yod vav and counts as 16; patach under samekh counts as vav—behold 22; segol under yod behold three points which are thirty—behold 52; shva under chet two points behold 20—and it is 72; patach under samekh behold another six—72.\r\n",
+      "he_plain": "(ס\"ק ג) ונשים כו' דפתח בתרתי דנשים ועבדים לא יאמרו ברית ותורה משמע שנשים לא יאמרו לא ברית ולא תורה וכן עבדים לא יאמרו לא ברית ולא תורה וסיים בחדא דנשים לאו בני ברית כו' משמע דתורה יאמרו וכן עבדים משמע דיאמרו ברית: ובתוס' ר\"פ מ\"ש דף כ' ע\"ב שפי' האיבעי' אי נשים בבה\"מ דרבנן לפי שאינן בברית ותורה ע\"ש הובא לעיל סי' קפ\"ה: דף מ\"ט א\"ל רב זירא לר\"ח ניתי מר ונתני א\"ל ברכת מזונא לא גמירנא ותנויי מתנינ'. א\"ל מאי האי א\"ל דאיקלעי לבי ר\"ג ובריכי ברכת מזונא וזקפי' ר\"ש לקועי' עלי כחויא ואמאי דלא אמרי ברית ותורה ולא מלכות א\"ל אמאי לא אמרית א\"ל כדרב חננאל אמר רב דאמר אם לא אמר ברית ותורה ומלכות יצא. ברית לפי שאינו בנשים. תורה ומלכות לפי שאינם בנשים ועבדים. א\"ל ואת שבקית כ\"ה תנאי ואמוראי ועבדית כרב עכ\"ל הגמ': למ\"ד המול כו'. דאמרי' שם מנין שגוי פסול למול את ישראל. דרש בר פפא משמיה דר\"א דאמר ה' לאברהם ואתה את בריתי תשמור וזרעך אחריך ור' יוחנן אמר כתיב המול ימול המל ימול ואמר דאיכא בינייהו אשה והא דקאמר בגמ' דר\"ח היה מזמן כו' אין זה מפורש בגמרא וכמש\"ל לשון הש\"ס אלא דהוי קשיא למ\"א מאי התנצל ר\"ח דמה\"ט לא אמר ברית ותורה ומלכות משום דר\"ח משמיה דרב אמר דיוצא מאי התנצלות הוא זה ניהו דבדיעבד יוצא מ\"מ קשיא למה עשה כן לכתחלה ולכן מפרש מ\"א דר\"ח היה מזמן בי ר\"ג והיו מסובים גם נשים והוצרך להוציא גם הנשים וכיון דהנשים אין יכולין לומר ברית כו' וגם באיש דיעבד יצא לכן עשה כן לכתחלה כדי להוציא גם הנשים ואף לפמ\"ש מ\"א דגם באשה שייך ברית ותורה לזה כתב מ\"א דמ\"מ אין האשה שוה לאיש לענין ברית ותורה: בפי כו' שהוא סמוך ר\"ל דתיבת בפי סמוך לתיבת כל לכן לא יאמר בפה בה\"א לבסוף כי אז הוא מוכרת מתיבת כל אלא בפי ביו\"ד לבסוף ועמ\"ש בסי' נ\"א ס\"ק א' דבברכת ברוך שאמר יאמר בפה בה\"א: שהנקודות עולים כמנין לחם שעולה ע\"ח וקמ\"ץ היא כמו יו\"ד וי\"ו ונחשב לט\"ז. ופת\"ח תחת ס' נחשב לוי\"ו הרי כ\"ב וסגול תחת יו\"ד הרי ג' נקודות והם שלשים הרי נ\"ב ושו\"א תחת החי\"ת ב' נקודות הרי כ' והוי ע\"ב ופת\"ח תחת הס' הרי עוד שש ס\"ה ע\"ח:",
+      "en_plain": "(s.k. 3) And women, etc.—for he opened with two—that women and slaves do not say covenant and Torah; implies women do not say neither covenant nor Torah; and slaves do not say neither covenant nor Torah; and concluded in one that women are not members of covenant, etc.—implies they say Torah; and slaves implies they say covenant. And in Tosafot beginning ch. 1 what is written daf 20b who explained the question whether women in birkat hamazon d'rabbanan because they are not in covenant and Torah—see there; brought above siman 185. Daf 49a R' Zeira to R' Chiya: let my master come and teach; he said I did not learn birkat mazon and I teach traditions; he said what is this; he said I happened to house of R' Gamliel and blessed birkat mazon and R' Shimon stood over me like a snake; why did you not say covenant and Torah and kingdom; he said why did you not say; he said as Rav Chananel—Rav said: if he did not say covenant and Torah and kingdom he fulfilled; covenant because it is not in women; Torah and kingdom because not in women and slaves; he said you abandoned all these tannaim and amoraim and acted like Rav—end Gemara. Per those who say circumcised, etc.—for we say there: whence that a gentile is unfit to circumcise Israel; Bar Papa expounded in name R' Eliezer who said Heaven to Abraham and you shall keep My covenant, your seed after you; R' Yochanan said it is written hamol yimol hamel yimol and said there is between them a woman; and that which Gemara says R' Chiya would zimmun, etc.—this is not explicit in Gemara and as I wrote language of Talmud; rather it is difficult to Magen Avraham what was R' Chiya's excuse why he did not say covenant and Torah and kingdom—for R' Chiya in name Rav said b'dieved he fulfilled; nevertheless difficult why he did so l'chatchila; therefore Magen Avraham explains R' Chiya was zimmun in house of R' Gamliel and they reclined also women and needed to discharge women too; since women cannot say covenant, etc., and also for a man b'dieved he fulfilled—therefore he did so l'chatchila to discharge women; and even per Magen Avraham who also in a woman covenant and Torah applies—for this Magen Avraham wrote nevertheless a woman is not equal to a man regarding covenant and Torah. In mouth of, etc.—it is adjacent—meaning word befikh is adjacent to word kol; therefore do not say befah with heh at end for then it is recognized from word kol; rather befikhi with yod at end; and what I wrote siman 51 s.k.1 in blessing Baruch she'amar say befah with heh. That the vowels ascend like bread count rising 72; kamatz is like yod vav and counts as 16; patach under samekh counts as vav—behold 22; segol under yod behold three points which are thirty—behold 52; shva under chet two points behold 20—and it is 72; patach under samekh behold another six—72.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman187/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 187,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.444,
+        "he_chars": 1378,
+        "en_chars": 1990,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1990
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>אם לא הזכיר</b>. ואם לא אמר בה הודאה תחלה וסוף מחזירין אותו [כ\"מ בטור], י\"ל בכל עת ובכל שעה כי עתים הם קור וחום והמשנה טועה [ד\"מ וכ\"כ במט\"מ] ואין עונין פה אמן כי איננה סוף הברכה רק שרגילין להפסיק בעל הנסים עסי' רפ\"ד מ\"ש:<br />\n<b>ונשים כו'</b>. צ\"ע דפתח בתרתי וסיים בחדא, ובתו' ר\"פ מ\"ש אית' בהדיא דלא יאמרו ברית ותור' וכן כתבו התו' ורש\"י בערכין וכ\"ה בברכות דף מ\"ח וז\"ל ברית לפי שאינה בנשים תור' ומלכו' אינה לא בנשים ולא בעבדים עכ\"ל וצ\"ע דלא כע\"ת ולבוש וצ\"ע על מה סמכו עכשיו הנשים לאומר' והל\"ח נדחק לתת טעם לדבר ובבד\"ה כתב דנשים הוי כגברים שאין נקרא אדם אלא כשיש לו אשה ואם כן ה\"ל שניהם גוף א' עכ\"ל נדחקו כדי ליישב המנהג ולע\"ד קשה דהא אמרי' ססי' מ\"ז דנשים מברכו' ברכת התורה משום דחייבות ללמוד מצו' שלהם וכ\"פ בי\"ד סי' רמ\"ו ס\"ו ואמרינן כה תאמר לבית יעקב אלו הנשים א\"כ למה לא יאמרו על תורתך שלמדתנו ועוד אמרי בע\"א ד' כ\"ח ע\"א למ\"ד המול ימול איתתא כמאן דמהילי דמי ולמ\"ד ואתה את בריתי נשים לאו בני ברית נינהו וא\"כ אפשר דעל בריתך שחתמת בבשרינו יכולין לומר דכמאן דמהילי דמי והא דקאמר בגמ' דרב חסדא [לא הי' אומר ברית ותורה משום דר\"ח] [גי' נה\"ח] הי' מזמן ומוצי' אף הנשים ולכן לא אמר ברית ותורה שאינ' שוה לנשים כאנשים דעכ\"פ האנשים נימולים ממש ולומדי' כל התורה דלכן ס\"ל אם לא אמרו יצא ידי חובתו ע\"ש, יש לומר לא חיסר לנו בחיר\"ק תחת החי\"ת ואל יחסר לנו שב\"א תחת היו\"ד ופתח תחת החי\"ת וצירי תחת הסמ\"ך שאתה זן קמץ תחת השי\"ן בפי כל חי לפי שהוא סמוך ועמ\"ש סימן נ\"א, של\"ה כתב לומר חסר יחסר שהנקודות עולים כמנין לחם:\n",
+      "en_html": "If he did not mention. And if he did not say therein thanks at beginning and end—they return him [so Tur]; it can be said bekhol et uvekhol sha'ah—for etim are cold and heat; and one who changes is mistaken [Darkei Moshe; so Matat Moshe]; one does not answer amen peh for it is not end of blessing—only accustomed to pause baal hanissim siman 284 what is written.<br>\r\n<br>\r\nAnd women, etc.—requires study—for he opened with two and concluded in one; in Tosafot beginning what is written it is explicit they do not say covenant and Torah; so Tosafot and Rashi in Erchin; so Berakhot 48b: covenant because not in women; Torah and kingdom not in women nor slaves—end; requires study—not like Early Authorities and Levush; requires study on what they relied that now women say; Levushei Serad strained to give reason; in s.v. wrote women are like men not called adam except when has wife—if so both one body—end—strained to settle custom; in my view difficult—for we say siman 47 women bless blessing of Torah because obligated to learn their mitzvot; so Yoreh Deah siman 246 s.6; we say koh tomar leveit Yaakov—these are the women; if so why not say al Toratecha she'limadtanu; also in Avodah Zarah 27a per those who say hamol yimol—woman is like one who bleeds; per those who say ve'atah et briti—women are not members of covenant; if so possible on britcha shechatamta bevasareinu they can say as one who bleeds; that Rav Chisda [did not say covenant and Torah because R' Chiya] [girsa Nehar Shalom] was zimmun and discharged women—therefore did not say covenant and Torah for not equal to women as men—for at least men are circumcised actually and learn entire Torah—therefore hold if they did not say fulfilled—see there; can say do not lack us with chirik under chet and do not cause us to lack with shva under yod and patach under chet and tzere under samekh; she'atah zan kamatz under shin; befikh kol chai for adjacent; see siman 51; Shelah wrote say chasar yechsar—for vowels ascend like bread.\r\n",
+      "he_plain": "אם לא הזכיר . ואם לא אמר בה הודאה תחלה וסוף מחזירין אותו [כ\"מ בטור], י\"ל בכל עת ובכל שעה כי עתים הם קור וחום והמשנה טועה [ד\"מ וכ\"כ במט\"מ] ואין עונין פה אמן כי איננה סוף הברכה רק שרגילין להפסיק בעל הנסים עסי' רפ\"ד מ\"ש: ונשים כו' . צ\"ע דפתח בתרתי וסיים בחדא, ובתו' ר\"פ מ\"ש אית' בהדיא דלא יאמרו ברית ותור' וכן כתבו התו' ורש\"י בערכין וכ\"ה בברכות דף מ\"ח וז\"ל ברית לפי שאינה בנשים תור' ומלכו' אינה לא בנשים ולא בעבדים עכ\"ל וצ\"ע דלא כע\"ת ולבוש וצ\"ע על מה סמכו עכשיו הנשים לאומר' והל\"ח נדחק לתת טעם לדבר ובבד\"ה כתב דנשים הוי כגברים שאין נקרא אדם אלא כשיש לו אשה ואם כן ה\"ל שניהם גוף א' עכ\"ל נדחקו כדי ליישב המנהג ולע\"ד קשה דהא אמרי' ססי' מ\"ז דנשים מברכו' ברכת התורה משום דחייבות ללמוד מצו' שלהם וכ\"פ בי\"ד סי' רמ\"ו ס\"ו ואמרינן כה תאמר לבית יעקב אלו הנשים א\"כ למה לא יאמרו על תורתך שלמדתנו ועוד אמרי בע\"א ד' כ\"ח ע\"א למ\"ד המול ימול איתתא כמאן דמהילי דמי ולמ\"ד ואתה את בריתי נשים לאו בני ברית נינהו וא\"כ אפשר דעל בריתך שחתמת בבשרינו יכולין לומר דכמאן דמהילי דמי והא דקאמר בגמ' דרב חסדא [לא הי' אומר ברית ותורה משום דר\"ח] [גי' נה\"ח] הי' מזמן ומוצי' אף הנשים ולכן לא אמר ברית ותורה שאינ' שוה לנשים כאנשים דעכ\"פ האנשים נימולים ממש ולומדי' כל התורה דלכן ס\"ל אם לא אמרו יצא ידי חובתו ע\"ש, יש לומר לא חיסר לנו בחיר\"ק תחת החי\"ת ואל יחסר לנו שב\"א תחת היו\"ד ופתח תחת החי\"ת וצירי תחת הסמ\"ך שאתה זן קמץ תחת השי\"ן בפי כל חי לפי שהוא סמוך ועמ\"ש סימן נ\"א, של\"ה כתב לומר חסר יחסר שהנקודות עולים כמנין לחם:",
+      "en_plain": "If he did not mention. And if he did not say therein thanks at beginning and end—they return him [so Tur]; it can be said bekhol et uvekhol sha'ah—for etim are cold and heat; and one who changes is mistaken [Darkei Moshe; so Matat Moshe]; one does not answer amen peh for it is not end of blessing—only accustomed to pause baal hanissim siman 284 what is written. And women, etc.—requires study—for he opened with two and concluded in one; in Tosafot beginning what is written it is explicit they do not say covenant and Torah; so Tosafot and Rashi in Erchin; so Berakhot 48b: covenant because not in women; Torah and kingdom not in women nor slaves—end; requires study—not like Early Authorities and Levush; requires study on what they relied that now women say; Levushei Serad strained to give reason; in s.v. wrote women are like men not called adam except when has wife—if so both one body—end—strained to settle custom; in my view difficult—for we say siman 47 women bless blessing of Torah because obligated to learn their mitzvot; so Yoreh Deah siman 246 s.6; we say koh tomar leveit Yaakov—these are the women; if so why not say al Toratecha she'limadtanu; also in Avodah Zarah 27a per those who say hamol yimol—woman is like one who bleeds; per those who say ve'atah et briti—women are not members of covenant; if so possible on britcha shechatamta bevasareinu they can say as one who bleeds; that Rav Chisda [did not say covenant and Torah because R' Chiya] [girsa Nehar Shalom] was zimmun and discharged women—therefore did not say covenant and Torah for not equal to women as men—for at least men are circumcised actually and learn entire Torah—therefore hold if they did not say fulfilled—see there; can say do not lack us with chirik under chet and do not cause us to lack with shva under yod and patach under chet and tzere under samekh; she'atah zan kamatz under shin; befikh kol chai for adjacent; see siman 51; Shelah wrote say chasar yechsar—for vowels ascend like bread.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

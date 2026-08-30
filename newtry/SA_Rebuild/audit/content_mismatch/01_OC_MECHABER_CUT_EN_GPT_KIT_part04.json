@@ -1,0 +1,406 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "mode": "fresh_translate_complete_from_he",
+    "purpose": "120 highest-priority cut/incomplete Mechaber EN (+ Rama display) for GPT retranslate",
+    "source": "OC_MECHABER_CUT_EN_KIT.json + live corpus verify",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).\n\nINPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).\n- Part 3 — commentator names: exact dictionary forms (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.\n\nTASK\n1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.\n2) No additions beyond the source. Plain translated text only.\n3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).\n4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).\n5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.\n6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English for that cell. No corpus edits.",
+    "seed": "oc1/siman244/seif-001/mechaber",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "created": "2026-08-30T20:47:47.495Z",
+    "kit": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "counts": {
+      "total": 120,
+      "by_volume": {
+        "oc1": 120
+      },
+      "by_slug": {
+        "mechaber": 120
+      },
+      "by_priority": {
+        "P0_seed": 1,
+        "P1_cut_strict": 12,
+        "P1_cut_post_rama": 59,
+        "P2_cut_loose": 5,
+        "P2_rama": 43
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).",
+      "",
+      "INPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.",
+      "",
+      "TASK",
+      "1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.",
+      "2) No additions beyond the source. Plain translated text only.",
+      "3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).",
+      "4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).",
+      "5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.",
+      "6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English for that cell. No corpus edits."
+    ],
+    "parent_sha256": "60ec5249a3450a3aaa5ba2edf541740b96624a5f23e88a148a85316387e1c044",
+    "chunk_index": 4,
+    "chunk_total": 11,
+    "case_offset": 37,
+    "cases_in_chunk": 10,
+    "parent_pack": "01_OC_MECHABER_CUT_EN_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman124/seif-008/mechaber",
+      "volume": "oc1",
+      "siman": 124,
+      "seif": 8,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.452,
+        "he_chars": 684,
+        "en_chars": 1677,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 127,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"4\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ט\" data-order=\"9\"></i>לא יענה אמן חטופה דהיינו כאילו האל\"ף נקודה <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כט\"></i>בחטף וכן שלא יחטוף וימהר לענות אותו <i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>קודם שיסיים המברך <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"5\"></i>וכן לא יענה אמן קטופה דהיינו שמחסר קריאת הנו\"ן שאינו מוציאה בפה שתהא נכרת <small>[גם לא יפסיק באמצע המלה] [ב\"י בשם הארוך]</small> ולא יענה אמן יתומה <i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"10\"></i>דהיינו <i data-commentator=\"Turei Zahav\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לא\"></i>שהוא חייב בברכה אחת וש\"ץ מברך אותה וזה אינו שומעה <i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>אע\"פ שיודע איזה ברכה מברך הש\"ץ מאחר שלא שמעה לא יענה אחריו אמן דהוי אמן יתומה: <small>הגה ויש מחמירין דאפי' <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"15\"></i>אינו מחויב באותה ברכה לא יענה אמן <i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>אם אינו יודע באיזה ברכה קאי ש\"צ דזה נמי מקרי אמן יתומה [טור בשם תשב\"ץ] ולא ימתין עם עניית האמן אלא <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>מיד <i data-commentator=\"Mishnah Berurah\" data-label=\"לה\"></i>כשכלה הברכה יענה <i data-commentator=\"Ba'er Hetev\" data-order=\"16\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"16\"></i>אמן [אבודרהם]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"כ\" data-order=\"11\"></i>ולא יענה <i data-commentator=\"Mishnah Berurah\" data-label=\"לו\"></i>אמן קצרה אלא ארוכ' קצת <i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"12\"></i>כדי שיוכל לומר אל מלך נאמן ולא יאריך בה יותר מדאי לפי <i data-commentator=\"Be'er HaGolah\" data-label=\"מ\" data-order=\"13\"></i>שאין קריאת התיבה נשמעת כשמאריך יותר מדאי:\n",
+      "en_html": "One should not respond [with] an \"amen chatufa\" [a hurried amen], which is when one pronounces the \"alef\" as if it is vocalized with a \"chataf\" [half-vowel], and also [means] that one should not rush and hurry to respond [with] it before the blesser finishes [the blessing]. Also, one should not respond [with] an \"amen ketufa\" [a truncated amen], which is when omits the pronunciation of the [letter] \"nun\" and does not pronounce it with one's mouth so that it is cut off And one should not respond [with] an \"amen yetoma\" [orphaned amen], which is when one is obligated in a blessing and the prayer leader is reciting it [as well], but one does not listen to it - even though one knows which blessing the prayer leader is reciting, since one did not hear it, one should not answer \"amen\" after it, for that is an \"amen yetoma\". And one should not respond [with] a \"amen k'tzara\" [shortened amen], but rather lengthen it a little in order that one could say [the words] \"El Melekh Ne-eman\" (\"God, Faithful King\"), but one should not extend it [to be] too long since the recitation of the word cannot be understood when one extends it [to be] too long. {Rama: (One should also not pause in the middle of the word) (Beit Yosef in the name of the Aruch). Gloss: And there are those who are stringent [and say] that even if one is not obligated in that blessing, one should not answer \"amen\" if one does not know which blessing the prayer leader is reciting, for that too is called an \"amen yetoma\" (Tur in the name of Tashba\"tz). And one should not delay with the answering of \"amen\", but rather immediately when the blessing is completed, one should respond \"amen\" (Abudarham).}\n",
+      "he_plain": "לא יענה אמן חטופה דהיינו כאילו האל\"ף נקודה בחטף וכן שלא יחטוף וימהר לענות אותו קודם שיסיים המברך וכן לא יענה אמן קטופה דהיינו שמחסר קריאת הנו\"ן שאינו מוציאה בפה שתהא נכרת [גם לא יפסיק באמצע המלה] [ב\"י בשם הארוך] ולא יענה אמן יתומה דהיינו שהוא חייב בברכה אחת וש\"ץ מברך אותה וזה אינו שומעה אע\"פ שיודע איזה ברכה מברך הש\"ץ מאחר שלא שמעה לא יענה אחריו אמן דהוי אמן יתומה: הגה ויש מחמירין דאפי' אינו מחויב באותה ברכה לא יענה אמן אם אינו יודע באיזה ברכה קאי ש\"צ דזה נמי מקרי אמן יתומה [טור בשם תשב\"ץ] ולא ימתין עם עניית האמן אלא מיד כשכלה הברכה יענה אמן [אבודרהם] ולא יענה אמן קצרה אלא ארוכ' קצת כדי שיוכל לומר אל מלך נאמן ולא יאריך בה יותר מדאי לפי שאין קריאת התיבה נשמעת כשמאריך יותר מדאי:",
+      "en_plain": "One should not respond [with] an \"amen chatufa\" [a hurried amen], which is when one pronounces the \"alef\" as if it is vocalized with a \"chataf\" [half-vowel], and also [means] that one should not rush and hurry to respond [with] it before the blesser finishes [the blessing]. Also, one should not respond [with] an \"amen ketufa\" [a truncated amen], which is when omits the pronunciation of the [letter] \"nun\" and does not pronounce it with one's mouth so that it is cut off And one should not respond [with] an \"amen yetoma\" [orphaned amen], which is when one is obligated in a blessing and the prayer leader is reciting it [as well], but one does not listen to it - even though one knows which blessing the prayer leader is reciting, since one did not hear it, one should not answer \"amen\" after it, for that is an \"amen yetoma\". And one should not respond [with] a \"amen k'tzara\" [shortened amen], but rather lengthen it a little in order that one could say [the words] \"El Melekh Ne-eman\" (\"God, Faithful King\"), but one should not extend it [to be] too long since the recitation of the word cannot be understood when one extends it [to be] too long. {Rama: (One should also not pause in the middle of the word) (Beit Yosef in the name of the Aruch). Gloss: And there are those who are stringent [and say] that even if one is not obligated in that blessing, one should not answer \"amen\" if one does not know which blessing the prayer leader is reciting, for that too is called an \"amen yetoma\" (Tur in the name of Tashba\"tz). And one should not delay with the answering of \"amen\", but rather immediately when the blessing is completed, one should respond \"amen\" (Abudarham).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman128/seif-010/mechaber",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 10,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.131,
+        "he_chars": 405,
+        "en_chars": 863,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 73,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ע\" data-order=\"16\"></i>עומדי' בדוכן פניהם כלפי <i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i>ההיכל ואחוריה' כלפי העם <i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>ואצבעותיה' כפופים לתוך כפיהם עד שש\"צ מסיים מודי' <i data-commentator=\"Be'er HaGolah\" data-label=\"פ\" data-order=\"17\"></i>ואז <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"4\"></i><i data-commentator=\"Turei Zahav\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>אם הם <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i>ב' קורא להם [הש\"ץ] <small>[בטור בשם ר\"י ורמב\"ם]</small> <i data-commentator=\"Ba'er Hetev\" data-order=\"15\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>כהנים: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לה\"></i>ולא יאמר אלהינו ואלהי אבותינו כו' <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i>וי\"א שאומרים אותו <i data-commentator=\"Ba'er Hetev\" data-order=\"16\"></i>בלחש עד מלת כהנים ואז אומרו בקול רם (טור בשם ר\"י ור\"מ מרוטנבורג) <i data-commentator=\"Mishnah Berurah\" data-label=\"לו\"></i>וחוזר ואומר עם קדושך כאמור בלחש וכן נוהגין במדינות אלו.</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"לז\"></i>ומחזירים פניהם <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i>כלפי העם <i data-commentator=\"Mishnah Berurah\" data-label=\"לח\"></i>ואם הוא א' <i data-commentator=\"Magen Avraham\" data-order=\"16\"></i>אינו <i data-commentator=\"Ba'er Hetev\" data-order=\"17\"></i>קורא לו אלא הוא מעצמו <i data-commentator=\"Mishnah Berurah\" data-label=\"לט\"></i>מחזיר פניו:\n",
+      "en_html": "They stand on the platform, their faces towards the ark and their backs towards the people, and their fingers folded into their palms, until the prayer leader finishes Modim. Then, if there are two [Kohanim], [the prayer leader] (Tur in the name of R\"i and the Rambam) calls to them \"Kohanim\". Then, [the Kohanim] turn their faces toward the people. But if there if it is just one [Kohen], [the prayer leader] doesn't call to him; rather, [the Kohen] turns his face on his own. {Rama: Gloss: [The prayer leader] should not say \"E-lokeinu v'E-lokei Avoteinu...\"; but some say that they do recite it quietly until the word \"Kohanim,\" and then [the prayer leader] recites it a loud voice (Tur in the name of R\"i and the R\"m [Meir] of Rothenburg); and then goes back [to reciting] quietly and says \"am k'doshekha ka-amor\". This is how we practice in these countries.}\n",
+      "he_plain": "עומדי' בדוכן פניהם כלפי ההיכל ואחוריה' כלפי העם ואצבעותיה' כפופים לתוך כפיהם עד שש\"צ מסיים מודי' ואז אם הם ב' קורא להם [הש\"ץ] [בטור בשם ר\"י ורמב\"ם] כהנים: הגה ולא יאמר אלהינו ואלהי אבותינו כו' וי\"א שאומרים אותו בלחש עד מלת כהנים ואז אומרו בקול רם (טור בשם ר\"י ור\"מ מרוטנבורג) וחוזר ואומר עם קדושך כאמור בלחש וכן נוהגין במדינות אלו. ומחזירים פניהם כלפי העם ואם הוא א' אינו קורא לו אלא הוא מעצמו מחזיר פניו:",
+      "en_plain": "They stand on the platform, their faces towards the ark and their backs towards the people, and their fingers folded into their palms, until the prayer leader finishes Modim. Then, if there are two [Kohanim], [the prayer leader] (Tur in the name of R\"i and the Rambam) calls to them \"Kohanim\". Then, [the Kohanim] turn their faces toward the people. But if there if it is just one [Kohen], [the prayer leader] doesn't call to him; rather, [the Kohen] turns his face on his own. {Rama: Gloss: [The prayer leader] should not say \"E-lokeinu v'E-lokei Avoteinu...\"; but some say that they do recite it quietly until the word \"Kohanim,\" and then [the prayer leader] recites it a loud voice (Tur in the name of R\"i and the R\"m [Meir] of Rothenburg); and then goes back [to reciting] quietly and says \"am k'doshekha ka-amor\". This is how we practice in these countries.}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman128/seif-013/mechaber",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 13,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.004,
+        "he_chars": 261,
+        "en_chars": 523,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 129,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Magen Avraham\" data-order=\"20\"></i><i data-commentator=\"Turei Zahav\" data-order=\"8\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"6\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ש\" data-order=\"21\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מז\"></i>מתחילין הכהנים <i data-commentator=\"Mishnah Berurah\" data-label=\"מח\"></i>לומר <i data-commentator=\"Ba'er Hetev\" data-order=\"22\"></i>יברכך: <small>הגה וי\"א שגם מלת יברכך יקרא אותם ש\"צ <i data-commentator=\"Ba'er Hetev\" data-order=\"23\"></i>תחלה [טור ור\"ן פ' הקורא והגהות מיימוני] (וכן נוהגים בכל מדינות אלו)</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"מט\"></i>ואח\"כ מקרא אותם ש\"ץ מלה במלה והם עונים אחריו על כל מלה עד שיסיימו פסוק ראשון ואז עונים הצבור אמן וכן אחר פסוק ב' וכן אחר פסוק ג':\n",
+      "en_html": "The Kohanim begin to say \"Y'varekhekha\". Afterward, the prayer leader calls out to them word by word, and they respond after [the leader] with each word, until they conclude the first verse. And then the congregation answers, \"Amen.\" And so after the second verse; and so after the third verse. {Rama: Gloss: Some say that the prayer leader calls out even the word \"Y'varekhekha\" to them first (Tur and the Ran - chapter \"Hakoreh\" [Talmud Megillah Chapter 2], and Hagahot Maimoni), (and so we practice in these countries.)}\n",
+      "he_plain": "מתחילין הכהנים לומר יברכך: הגה וי\"א שגם מלת יברכך יקרא אותם ש\"צ תחלה [טור ור\"ן פ' הקורא והגהות מיימוני] (וכן נוהגים בכל מדינות אלו) ואח\"כ מקרא אותם ש\"ץ מלה במלה והם עונים אחריו על כל מלה עד שיסיימו פסוק ראשון ואז עונים הצבור אמן וכן אחר פסוק ב' וכן אחר פסוק ג':",
+      "en_plain": "The Kohanim begin to say \"Y'varekhekha\". Afterward, the prayer leader calls out to them word by word, and they respond after [the leader] with each word, until they conclude the first verse. And then the congregation answers, \"Amen.\" And so after the second verse; and so after the third verse. {Rama: Gloss: Some say that the prayer leader calls out even the word \"Y'varekhekha\" to them first (Tur and the Ran - chapter \"Hakoreh\" [Talmud Megillah Chapter 2], and Hagahot Maimoni), (and so we practice in these countries.)}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman139/seif-003/mechaber",
+      "volume": "oc1",
+      "siman": 139,
+      "seif": 3,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.492,
+        "he_chars": 768,
+        "en_chars": 1914,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 113,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>אפילו ראש הכנסת או חזן <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>לא יקרא עד שיאמרו לו קרא ונהגו ששליח צבור כשרוצה מברך וקורא בלי נטילת רשות <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>משום דהוי כאלו משעה שמינוהו לש\"ץ הרשוהו על כך: <small>הגה ובמדינות אלו אין נוהגין כן ואין החזן עולה רק כשהסגן אומר לו לעלות אבל <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>אין קורין לו בשמו כמו שאר העולים שקוראים אותם בשמם פלוני בר פלוני. מי שאביו מומר לעכו\"ם קורין בשם אבי אביו אבל לא בשמו לבד <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>שלא לביישו ברבים [ת\"ה סי' כ\"א וס\"ח] ודוקא שלא עלה מימיו בשם אביו אבל אם הוא גדול והורגל באותו העיר לעלות בשם אביו והמיר אביו קורין אותו בשם אביו כמו שהורגל שלא לביישו ברבים וכן אם איכא למיחש לאיבת המומר [מהר\"ם פאדואה סי' פ\"ז] <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>ואסופי ושתוקי קורין אותו <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>בשם אבי <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>אמו <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>ואם אינו יודע קורין אותו בשם אברה' כמו לגר: [ד\"ע]</small> <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i>סומא אינו קורא לפי שאסור לקרות אפי' אות אחת שלא מן הכתב <small>[ומהרי\"ל כתב <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>דעכשיו קורא <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>סומא <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>כמו שאנו מקרין בתורה לע\"ה]:</small>\n",
+      "en_html": "Even the head of the community or the Chazan should not read until he's told to read. And the custom is that the prayer leader may, if he wants to, make the blessing and read without taking permission; because it's as if when he was appointed prayer leader, he was given permission for this. A blind person is forbidden to read, for it is forbidden to read even one letter by heart. {Rama: Rem\"a: And in these countries, this is not the custom; and a Chazan should only go up [to the Torah] if the assistant calls him up. However, he is not called up by his name like all the other \"olim\" (ie. those who get called up to the Torah) who are called by their name, \"Ploni Ben Ploni\" (So and so, the son of so and so). Someone whose father is a transgressor through idol worship, should be called by his father's father's name (ie. the grandfather), but not with his name alone, in order to not shame him in public [Trumat Hadeshen - siman 21 and 68]. And this is only when this person has never been called up to the Torah with his father's name; but if he is an adult and accustomed in that city to be called up by his father's name, and then his father became an apostate, he should be called up to the Torah by his father's name as they are accustomed to, in order to not to embarrass him in public. And so too, if there is as a chance of hostility by the apostate [Mahara\"m Paduah - siman 87]. [Regarding] an Assufi (ie. someone who was collected from the marketplace and doesn’t know the identity of his parents) and a Shtuki (ie. someone who knows the identity of his mother but does not know the identity of his father): we call him by his mother's father's name, and if he doesn't know even that, then we call him up with the name \"Avraham\", just like a convert. [His (ie. the Rem\"a's) own opinion]. [The Mahari\"l wrote that nowadays, we may call up a blind person just like we call up an illiterate person.]}\n",
+      "he_plain": "אפילו ראש הכנסת או חזן לא יקרא עד שיאמרו לו קרא ונהגו ששליח צבור כשרוצה מברך וקורא בלי נטילת רשות משום דהוי כאלו משעה שמינוהו לש\"ץ הרשוהו על כך: הגה ובמדינות אלו אין נוהגין כן ואין החזן עולה רק כשהסגן אומר לו לעלות אבל אין קורין לו בשמו כמו שאר העולים שקוראים אותם בשמם פלוני בר פלוני. מי שאביו מומר לעכו\"ם קורין בשם אבי אביו אבל לא בשמו לבד שלא לביישו ברבים [ת\"ה סי' כ\"א וס\"ח] ודוקא שלא עלה מימיו בשם אביו אבל אם הוא גדול והורגל באותו העיר לעלות בשם אביו והמיר אביו קורין אותו בשם אביו כמו שהורגל שלא לביישו ברבים וכן אם איכא למיחש לאיבת המומר [מהר\"ם פאדואה סי' פ\"ז] ואסופי ושתוקי קורין אותו בשם אבי אמו ואם אינו יודע קורין אותו בשם אברה' כמו לגר: [ד\"ע] סומא אינו קורא לפי שאסור לקרות אפי' אות אחת שלא מן הכתב [ומהרי\"ל כתב דעכשיו קורא סומא כמו שאנו מקרין בתורה לע\"ה]:",
+      "en_plain": "Even the head of the community or the Chazan should not read until he's told to read. And the custom is that the prayer leader may, if he wants to, make the blessing and read without taking permission; because it's as if when he was appointed prayer leader, he was given permission for this. A blind person is forbidden to read, for it is forbidden to read even one letter by heart. {Rama: Rem\"a: And in these countries, this is not the custom; and a Chazan should only go up [to the Torah] if the assistant calls him up. However, he is not called up by his name like all the other \"olim\" (ie. those who get called up to the Torah) who are called by their name, \"Ploni Ben Ploni\" (So and so, the son of so and so). Someone whose father is a transgressor through idol worship, should be called by his father's father's name (ie. the grandfather), but not with his name alone, in order to not shame him in public [Trumat Hadeshen - siman 21 and 68]. And this is only when this person has never been called up to the Torah with his father's name; but if he is an adult and accustomed in that city to be called up by his father's name, and then his father became an apostate, he should be called up to the Torah by his father's name as they are accustomed to, in order to not to embarrass him in public. And so too, if there is as a chance of hostility by the apostate [Mahara\"m Paduah - siman 87]. [Regarding] an Assufi (ie. someone who was collected from the marketplace and doesn’t know the identity of his parents) and a Shtuki (ie. someone who knows the identity of his mother but does not know the identity of his father): we call him by his mother's father's name, and if he doesn't know even that, then we call him up with the name \"Avraham\", just like a convert. [His (ie. the Rem\"a's) own opinion]. [The Mahari\"l wrote that nowadays, we may call up a blind person just like we call up an illiterate person.]}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman162/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 162,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.834,
+        "he_chars": 620,
+        "en_chars": 1137,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 314,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>הגבהה ושפשוף הידים בנטילה. ובו י סעיפים:</b> <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>הנוטל <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>צריך <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>להגביה ידיו <small> (דהיינו <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ראשי <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>אצבעותיו)</small> למעל' <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>שלא יצאו מים חוץ לפרק ויחזרו ויטמאו את הידים <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>וה\"ה אם <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>משפילן מתחלת הנטילה <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>עד סופה דשפיר דמי <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>רק שיזהר שלא יגביה תחלה ראשי אצבעותיו ואח\"כ ישפילם דאז יצאו המים חוץ לפרק ויחזרו ויטמאו <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>הידים (ב\"י בשם מהר\"י בן חביב)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>והיינו כשאינו נוטל כל היד עד מקום <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i>חבור היד עם הזרוע <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>אבל אם נוטל עד שם א\"צ להגביה ידיו <small> <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>(ויש חולקים בזה)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>וכן אם שפך <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>על שתי ידיו רביעית <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>בפעם אחת כיון <i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>דאין שם מים טמאים כלל א\"צ להגביה ידיו <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>וכן המטביל ידיו א\"צ להגביה ידיו <small> (וי\"א דאם שופך על ידיו <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>ג\"פ אין צריך ליזהר בכל זה <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>וכן נהגו להקל: (אגור בשם א\"ז והגהות אשירי פכ\"ה):</small>\n",
+      "en_html": "Raising and rubbing the hands during hand washing. Containing 10 paragraphs: One who washes their hands must raise them upward so that the water does not flow past the wrist joint and return to defile the hands. {Rama: (meaning the fingertips) Gloss: The same applies if one lowers them from the start of washing to the end — that is also valid — but one must be careful not to first raise the fingertips and then lower them, because then the water would flow past the wrist and return to defile the hands (Beit Yosef in the name of Maharai ibn Haviv). This applies when one does not wash the entire hand up to where the hand meets the forearm, but if one washes up to that point, there is no need to raise the hands (and some disagree). Similarly, if one poured a revi'it (a specific measure) over both hands at once, since there are no impure waters at all, there is no need to raise the hands. Similarly, one who immerses their hands need not raise them. (Some say that if one pours three times there is no need to be careful about all this, and this is the lenient custom) (Agur in the name of Or Zarua and Hagahot Asheiri, ch. 25.)}\n",
+      "he_plain": "הגבהה ושפשוף הידים בנטילה. ובו י סעיפים: הנוטל צריך להגביה ידיו (דהיינו ראשי אצבעותיו) למעל' שלא יצאו מים חוץ לפרק ויחזרו ויטמאו את הידים הגה וה\"ה אם משפילן מתחלת הנטילה עד סופה דשפיר דמי רק שיזהר שלא יגביה תחלה ראשי אצבעותיו ואח\"כ ישפילם דאז יצאו המים חוץ לפרק ויחזרו ויטמאו הידים (ב\"י בשם מהר\"י בן חביב) והיינו כשאינו נוטל כל היד עד מקום חבור היד עם הזרוע אבל אם נוטל עד שם א\"צ להגביה ידיו (ויש חולקים בזה) וכן אם שפך על שתי ידיו רביעית בפעם אחת כיון דאין שם מים טמאים כלל א\"צ להגביה ידיו וכן המטביל ידיו א\"צ להגביה ידיו (וי\"א דאם שופך על ידיו ג\"פ אין צריך ליזהר בכל זה וכן נהגו להקל: (אגור בשם א\"ז והגהות אשירי פכ\"ה):",
+      "en_plain": "Raising and rubbing the hands during hand washing. Containing 10 paragraphs: One who washes their hands must raise them upward so that the water does not flow past the wrist joint and return to defile the hands. {Rama: (meaning the fingertips) Gloss: The same applies if one lowers them from the start of washing to the end — that is also valid — but one must be careful not to first raise the fingertips and then lower them, because then the water would flow past the wrist and return to defile the hands (Beit Yosef in the name of Maharai ibn Haviv). This applies when one does not wash the entire hand up to where the hand meets the forearm, but if one washes up to that point, there is no need to raise the hands (and some disagree). Similarly, if one poured a revi'it (a specific measure) over both hands at once, since there are no impure waters at all, there is no need to raise the hands. Similarly, one who immerses their hands need not raise them. (Some say that if one pours three times there is no need to be careful about all this, and this is the lenient custom) (Agur in the name of Or Zarua and Hagahot Asheiri, ch. 25.)}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman188/seif-007/mechaber",
+      "volume": "oc1",
+      "siman": 188,
+      "seif": 7,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.817,
+        "he_chars": 845,
+        "en_chars": 1535,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 424,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>אם טעה ולא הזכיר בה של ר\"ח בין ביום בין בלילה <i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>אומר ברוך שנתן ראשי חדשים לעמו ישראל לזכרון <i data-commentator=\"Be'er HaGolah\" data-label=\"ט\" data-order=\"9\"></i>ואינו חותם בה והוא שנזכר קודם שהתחיל הטוב והמטיב. <i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"10\"></i>אבל אם לא נזכר עד שהתחיל הטוב והמטיב אינו חוזר <i data-commentator=\"Mishnah Berurah\" data-label=\"כו\"></i>מפני <i data-commentator=\"Magen Avraham\" data-order=\"9\"></i>שאינו חייב לאכול פת כדי שיתחייב לברך ברכת המזון <i data-commentator=\"Magen Avraham\" data-order=\"10\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"כ\" data-order=\"11\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כז\"></i>וחול המועד דינו כר\"ח: <small>הגה ואפשר דמ\"מ יש לאמרו בתוך שאר הרחמן כמו שנתבאר לעיל ססי' קפ\"ז גבי על הנסי' ואולי יש לחלק כי ביעלה ויבא יש בו הזכרת שמות <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i>ואין לאמרו לבטל' כן נ\"ל וכן נוהגין.</small> <i data-commentator=\"Turei Zahav\" data-order=\"5\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"12\"></i>אם חל ראש חדש בשבת והזכיר של שבת ולא הזכיר של ראש חדש ולא נזכר עד שהתחיל הטוב והמטיב <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כח\"></i>אינו חוזר <i data-commentator=\"Mishnah Berurah\" data-label=\"כט\"></i>ואם <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i>שכח (גם) של <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>שבת ונזכר קודם שהתחיל הטוב והמטיב כולל ראש חודש עם שבת ואומר שנתן שבתות למנוחה וראשי חדשים לזכרון ואם פתח בהטוב והמטיב חוזר לראש ברכת המזון ומזכיר של שבת ושל ראש חודש ויש מי שאומר שאם שכח של שבת וראש חדש ונזכר קודם שהתחיל הטוב והמטיב אומר שנתן שבתות למנוחה וראשי חדשים לזכרון וחותם בשל שבת <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>ואינו חותם בשל ראש חדש:\n",
+      "en_html": "If one forgot to mention Rosh Chodesh — whether by day or by night — one says: Baruch shenatan Roshei Chodashim l'amo Yisrael l'zikaron, without a closing seal. This applies if one remembered before beginning HaTov veHaMeitiv. But if one did not remember until after beginning HaTov veHaMeitiv, one does not go back, because one is not obligated to eat bread in order to be required to recite Grace After Meals. Chol HaMoed has the same rule as Rosh Chodesh. If Rosh Chodesh falls on Shabbat and one mentioned Shabbat but not Rosh Chodesh, and did not remember until after beginning HaTov veHaMeitiv, one does not go back. If one also forgot Shabbat and remembered before beginning HaTov veHaMeitiv, one combines Rosh Chodesh with Shabbat and says: asher natan Shabbatot limnucha veRoshei Chodashim l'zikaron. If one already began HaTov veHaMeitiv, one returns to the beginning of Grace After Meals and mentions both Shabbat and Rosh Chodesh. Some say that if one forgot both Shabbat and Rosh Chodesh and remembered before beginning HaTov veHaMeitiv, one says asher natan Shabbatot limnucha veRoshei Chodashim l'zikaron and concludes with the Shabbat seal but not the Rosh Chodesh seal. {Rama: Gloss (Rema): It is possible that nonetheless one should say it within the other HaRachaman passages, as was explained above at the end of §187 regarding Al HaNissim — though perhaps there is a distinction, since Ya'aleh veYavo contains mentions of God's name and one should not recite it in vain. So it seems to me, and this is the custom.}\n",
+      "he_plain": "אם טעה ולא הזכיר בה של ר\"ח בין ביום בין בלילה אומר ברוך שנתן ראשי חדשים לעמו ישראל לזכרון ואינו חותם בה והוא שנזכר קודם שהתחיל הטוב והמטיב. אבל אם לא נזכר עד שהתחיל הטוב והמטיב אינו חוזר מפני שאינו חייב לאכול פת כדי שיתחייב לברך ברכת המזון וחול המועד דינו כר\"ח: הגה ואפשר דמ\"מ יש לאמרו בתוך שאר הרחמן כמו שנתבאר לעיל ססי' קפ\"ז גבי על הנסי' ואולי יש לחלק כי ביעלה ויבא יש בו הזכרת שמות ואין לאמרו לבטל' כן נ\"ל וכן נוהגין. אם חל ראש חדש בשבת והזכיר של שבת ולא הזכיר של ראש חדש ולא נזכר עד שהתחיל הטוב והמטיב אינו חוזר ואם שכח (גם) של שבת ונזכר קודם שהתחיל הטוב והמטיב כולל ראש חודש עם שבת ואומר שנתן שבתות למנוחה וראשי חדשים לזכרון ואם פתח בהטוב והמטיב חוזר לראש ברכת המזון ומזכיר של שבת ושל ראש חודש ויש מי שאומר שאם שכח של שבת וראש חדש ונזכר קודם שהתחיל הטוב והמטיב אומר שנתן שבתות למנוחה וראשי חדשים לזכרון וחותם בשל שבת ואינו חותם בשל ראש חדש:",
+      "en_plain": "If one forgot to mention Rosh Chodesh — whether by day or by night — one says: Baruch shenatan Roshei Chodashim l'amo Yisrael l'zikaron, without a closing seal. This applies if one remembered before beginning HaTov veHaMeitiv. But if one did not remember until after beginning HaTov veHaMeitiv, one does not go back, because one is not obligated to eat bread in order to be required to recite Grace After Meals. Chol HaMoed has the same rule as Rosh Chodesh. If Rosh Chodesh falls on Shabbat and one mentioned Shabbat but not Rosh Chodesh, and did not remember until after beginning HaTov veHaMeitiv, one does not go back. If one also forgot Shabbat and remembered before beginning HaTov veHaMeitiv, one combines Rosh Chodesh with Shabbat and says: asher natan Shabbatot limnucha veRoshei Chodashim l'zikaron. If one already began HaTov veHaMeitiv, one returns to the beginning of Grace After Meals and mentions both Shabbat and Rosh Chodesh. Some say that if one forgot both Shabbat and Rosh Chodesh and remembered before beginning HaTov veHaMeitiv, one says asher natan Shabbatot limnucha veRoshei Chodashim l'zikaron and concludes with the Shabbat seal but not the Rosh Chodesh seal. {Rama: Gloss (Rema): It is possible that nonetheless one should say it within the other HaRachaman passages, as was explained above at the end of §187 regarding Al HaNissim — though perhaps there is a distinction, since Ya'aleh veYavo contains mentions of God's name and one should not recite it in vain. So it seems to me, and this is the custom.}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman231/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 231,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.117,
+        "he_chars": 1525,
+        "en_chars": 3229,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 1353,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>שכל כוונותיו יהיו לשם שמים. ובו סעיף אחד:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>אם אי אפשר לו ללמוד בלא שינת הצהרים יישן: <small>הגה <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>וכשנעור משנתו א\"צ לברך אלהי נשמה (ב\"י) ויש אומרים שיקרא קודם שישן <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ויהי נועם (כל בו)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ובלבד שלא יאריך בה שאסור לישן ביום <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>יותר משינת הסוס שהוא שתין נשמי <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ואף בזה המעט לא תהא כוונתו להנאת גופו אלא להחזיק גופו לעבודת הש\"י וכן בכל מה שיהנה בעוה\"ז לא יכוון להנאתו אלא לעבודת הבורא יתברך כדכתיב בכל דרכיך דעהו ואמרו חכמים כל מעשיך יהיו לש\"ש שאפילו דברים של רשות כגון האכילה והשתיה וההליכה והישיבה והקימה והתשמיש והשיחה וכל צרכי גופך יהיו כולם לעבודת בוראך או לדבר הגורם עבודתו שאפילו היה צמא ורעב אם אכל ושתה להנאתו אינו משובח <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>אלא יתכוין שיאכל וישתה כפי חיותו לעבוד את בוראו וכן אפילו לישב <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>בסוד ישרים ולעמוד במקום צדיקים ולילך בעצת תמימים אם עשה להנאת עצמו והשלים חפצו ותאותו אינו משובח אלא א\"כ עשה לשם שמים וכן בשכיבה אין צריך לומר שבזמן שיכול לעסוק בתורה ובמצות לא יתגרה בשינה לענג עצמו אלא אפי' בזמן שהוא יגע וצריך לישן כדי לנוח מיגיעתו אם עשה להנאת גופו אינו משובח אלא יתכוין לתת שינה לעיניו ולגופו מנוחה לצורך הבריאות שלא תטרף דעתו בתורה מחמת מניעת השינה וכן בתשמיש אפילו בעונה האמורה בתורה אם עשה להשלים תאותו או להנאת גופו הרי זה מגונה ואפי' אם נתכוין כדי שיהיו לו בנים שישמשו אותו וימלאו מקומו אינו משובח אלא <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>יתכוין שיהיו לו בנים לעבודת בוראו או שיתכוין לקיים מצות עונה כאדם הפורע חובו וכן בשיחה <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>אפי' לספר בדברי חכמה צריך שתהיה כוונתו לעבודת הבורא או לדבר המביא לעבודתו כללו של דבר חייב אדם לשום עיניו ולבו על דרכיו ולשקול כל מעשיו במאזני שכלו וכשרואה דבר שיביא לידי עבודת הבורא ית' יעשהו ואם לאו לא יעשהו ומי שנוהג כן עובד את <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>בוראו תמיד:\n",
+      "en_html": "That all of one's intentions be for the sake of Heaven. And there is one paragraph in it. If it is impossible for him to study without sleeping in the afternoon, he should sleep. [And this is] so long as he does not make it long; as it is forbidden to sleep during the day more than the sleep of a horse, which is sixty breaths. And even in this little, his intent should not be for the pleasure of his body, but rather to strengthen his body for the service of God, may He be blessed. And likewise with anything that is pleasant for him in this world, his intent should not be for his pleasure, but rather for the service of the Creator, may He be blessed; as it is written (Proverbs 3:6), \"In all of your ways, know Him.\" And the Sages said, \"Let all of your actions be for the sake of Heaven.\" As even optional things – such as eating, drinking, walking, sitting, getting up, sexual relations and conversation – all of them should be for the service of your Creator or for something that enables serving Him. For even if one was thirsty or hungry – if he ate or drank for his pleasure, it is not praiseworthy. Rather he should intend to eat and drink for his sustenance, to serve his Creator. And likewise even to sit in the council of the righteous, to stand in the place of the saintly and to go in the path of the straight – if he does it for his own pleasure and to fulfill his desire, it is not praiseworthy; only when he does it for the sake of Heaven. And likewise with laying down: There is no need to say that at a time when he is able to be in involved with Torah study or with commandments, he should not entice himself with sleep to enjoy himself. Rather even at a time when he is weary and needs to sleep in order to rest from his weariness – if he does [so] for the pleasure of his body, it is not praiseworthy. Rather he should intend to give sleep to his eyes and rest to his body for the requirements of health, so that his mind not get jumbled during Torah study on account of sleep deprivation. And likewise with sexual relations: Even at the time [prescribed] by the Torah, if he does [it] for the pleasure of his body, it is disgraceful. And even if his intent is in order that he will [produce] children that will serve him and take his place, it is not praiseworthy. Rather he should intend that he will [produce] children for the service of his Creator; or he should intend to fulfill the commandment of the [prescribed] time, like someone who is paying his debt. And likewise with conversation: Even to recount words of wisdom, his intent must be for the service of the Creator or for something that leads to serving Him. The principle of the matter [is that] one is obligated to put his eyes and his heart to his ways and evaluate all of his actions on the scales of his intellect: So when he sees something that will bring him to serving the Creator, may He be blessed, he should do it. But if not, he should not do it. And one who acts like this will be serving his Creator constantly. {Rama: Rema: And when he wakes from his sleep, he does not need to recite the blessing, \"My Lord, the soul...\" (Beit Yosef). And some say that he should read, \"May the pleasantness...\" before he sleeps (Kol Bo).}\n",
+      "he_plain": "שכל כוונותיו יהיו לשם שמים. ובו סעיף אחד: אם אי אפשר לו ללמוד בלא שינת הצהרים יישן: הגה וכשנעור משנתו א\"צ לברך אלהי נשמה (ב\"י) ויש אומרים שיקרא קודם שישן ויהי נועם (כל בו) ובלבד שלא יאריך בה שאסור לישן ביום יותר משינת הסוס שהוא שתין נשמי ואף בזה המעט לא תהא כוונתו להנאת גופו אלא להחזיק גופו לעבודת הש\"י וכן בכל מה שיהנה בעוה\"ז לא יכוון להנאתו אלא לעבודת הבורא יתברך כדכתיב בכל דרכיך דעהו ואמרו חכמים כל מעשיך יהיו לש\"ש שאפילו דברים של רשות כגון האכילה והשתיה וההליכה והישיבה והקימה והתשמיש והשיחה וכל צרכי גופך יהיו כולם לעבודת בוראך או לדבר הגורם עבודתו שאפילו היה צמא ורעב אם אכל ושתה להנאתו אינו משובח אלא יתכוין שיאכל וישתה כפי חיותו לעבוד את בוראו וכן אפילו לישב בסוד ישרים ולעמוד במקום צדיקים ולילך בעצת תמימים אם עשה להנאת עצמו והשלים חפצו ותאותו אינו משובח אלא א\"כ עשה לשם שמים וכן בשכיבה אין צריך לומר שבזמן שיכול לעסוק בתורה ובמצות לא יתגרה בשינה לענג עצמו אלא אפי' בזמן שהוא יגע וצריך לישן כדי לנוח מיגיעתו אם עשה להנאת גופו אינו משובח אלא יתכוין לתת שינה לעיניו ולגופו מנוחה לצורך הבריאות שלא תטרף דעתו בתורה מחמת מניעת השינה וכן בתשמיש אפילו בעונה האמורה בתורה אם עשה להשלים תאותו או להנאת גופו הרי זה מגונה ואפי' אם נתכוין כדי שיהיו לו בנים שישמשו אותו וימלאו מקומו אינו משובח אלא יתכוין שיהיו לו בנים לעבודת בוראו או שיתכוין לקיים מצות עונה כאדם הפורע חובו וכן בשיחה אפי' לספר בדברי חכמה צריך שתהיה כוונתו לעבודת הבורא או לדבר המביא לעבודתו כללו של דבר חייב אדם לשום עיניו ולבו על דרכיו ולשקול כל מעשיו במאזני שכלו וכשרואה דבר שיביא לידי עבודת הבורא ית' יעשהו ואם לאו לא יעשהו ומי שנוהג כן עובד את בוראו תמיד:",
+      "en_plain": "That all of one's intentions be for the sake of Heaven. And there is one paragraph in it. If it is impossible for him to study without sleeping in the afternoon, he should sleep. [And this is] so long as he does not make it long; as it is forbidden to sleep during the day more than the sleep of a horse, which is sixty breaths. And even in this little, his intent should not be for the pleasure of his body, but rather to strengthen his body for the service of God, may He be blessed. And likewise with anything that is pleasant for him in this world, his intent should not be for his pleasure, but rather for the service of the Creator, may He be blessed; as it is written (Proverbs 3:6), \"In all of your ways, know Him.\" And the Sages said, \"Let all of your actions be for the sake of Heaven.\" As even optional things – such as eating, drinking, walking, sitting, getting up, sexual relations and conversation – all of them should be for the service of your Creator or for something that enables serving Him. For even if one was thirsty or hungry – if he ate or drank for his pleasure, it is not praiseworthy. Rather he should intend to eat and drink for his sustenance, to serve his Creator. And likewise even to sit in the council of the righteous, to stand in the place of the saintly and to go in the path of the straight – if he does it for his own pleasure and to fulfill his desire, it is not praiseworthy; only when he does it for the sake of Heaven. And likewise with laying down: There is no need to say that at a time when he is able to be in involved with Torah study or with commandments, he should not entice himself with sleep to enjoy himself. Rather even at a time when he is weary and needs to sleep in order to rest from his weariness – if he does [so] for the pleasure of his body, it is not praiseworthy. Rather he should intend to give sleep to his eyes and rest to his body for the requirements of health, so that his mind not get jumbled during Torah study on account of sleep deprivation. And likewise with sexual relations: Even at the time [prescribed] by the Torah, if he does [it] for the pleasure of his body, it is disgraceful. And even if his intent is in order that he will [produce] children that will serve him and take his place, it is not praiseworthy. Rather he should intend that he will [produce] children for the service of his Creator; or he should intend to fulfill the commandment of the [prescribed] time, like someone who is paying his debt. And likewise with conversation: Even to recount words of wisdom, his intent must be for the service of the Creator or for something that leads to serving Him. The principle of the matter [is that] one is obligated to put his eyes and his heart to his ways and evaluate all of his actions on the scales of his intellect: So when he sees something that will bring him to serving the Creator, may He be blessed, he should do it. But if not, he should not do it. And one who acts like this will be serving his Creator constantly. {Rama: Rema: And when he wakes from his sleep, he does not need to recite the blessing, \"My Lord, the soul...\" (Beit Yosef). And some say that he should read, \"May the pleasantness...\" before he sleeps (Kol Bo).}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman248/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 248,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.681,
+        "he_chars": 576,
+        "en_chars": 968,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 174,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<b>דין המפליג בספינה וההולך בשיירא בשבת. ובו ד סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>מותר להפליג בספינה <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>אפילו בערב שבת אם הולך <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>לדבר <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>מצוה <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i><i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>ופוסק עמו <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>שישבות ואם אחר כך לא ישבות אין בכך כלום <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>אבל לדבר הרשות אין מפליגין בספינה <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>בפחות <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>מג' <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>ימים <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>קודם השבת: <small>הגה אבל <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>קודם <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>שלשה ימים שרי <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>אפי' בספינה שמושכין אותו ע\"י בהמות <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>אפי' אין בגובה המים <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>י' טפחים [מהרי\"ק שורש מ\"ה] <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>ואפי' במקום שיצטרך <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i>הישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>לעשות אח\"כ מלאכה בשבת להוליך הספינה [ריב\"ש סי' קנ\"ב]</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>ואם הוא דרך מועט כמו מצור לצידון שאין ביניהם כי אם מהלך יום אחד מות' להפליג בע\"ש <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>בבקר <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>מפני שאפשר שיגיע <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i>שם קודם השבת <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>ומקום שנהגו שלא להפליג בע\"ש כלל אפי' דרך מועט אין מפליגין:\n",
+      "en_html": "1. It is permitted to commence a sea voyage, even on a Friday, if he is traveling for the purpose of a Mitzvah. He must agree [with the captain] to stop on Shabbat; if he subsequently [breaks this agreement] and does not stop it does not matter. For personal reasons (i.e. not for a Mitzvah) one may not commence the journey within three days of Shabbat. If it a short journey, e.g. from Tyre to Sidon which is just one day's journey, one may commence travel on a Friday morning, since it is possible to arrive at the destination before Shabbat. In places where it is customary not to commence journeys on Friday at all, even short journeys, it is forbidden to do so. {Rama: Rema: However, more than three days before [Shabbat] it is permitted, even in ships that will be dragged by animals and even if the depth of the water is less than ten hand breaths [Mahari\"k]; even if a Jew will then be required to do a Melacha on Shabbat in order to steer the boat. [Rivash]}\n",
+      "he_plain": "דין המפליג בספינה וההולך בשיירא בשבת. ובו ד סעיפים: מותר להפליג בספינה אפילו בערב שבת אם הולך לדבר מצוה ופוסק עמו שישבות ואם אחר כך לא ישבות אין בכך כלום אבל לדבר הרשות אין מפליגין בספינה בפחות מג' ימים קודם השבת: הגה אבל קודם שלשה ימים שרי אפי' בספינה שמושכין אותו ע\"י בהמות אפי' אין בגובה המים י' טפחים [מהרי\"ק שורש מ\"ה] ואפי' במקום שיצטרך הישראל לעשות אח\"כ מלאכה בשבת להוליך הספינה [ריב\"ש סי' קנ\"ב] ואם הוא דרך מועט כמו מצור לצידון שאין ביניהם כי אם מהלך יום אחד מות' להפליג בע\"ש בבקר מפני שאפשר שיגיע שם קודם השבת ומקום שנהגו שלא להפליג בע\"ש כלל אפי' דרך מועט אין מפליגין:",
+      "en_plain": "1. It is permitted to commence a sea voyage, even on a Friday, if he is traveling for the purpose of a Mitzvah. He must agree [with the captain] to stop on Shabbat; if he subsequently [breaks this agreement] and does not stop it does not matter. For personal reasons (i.e. not for a Mitzvah) one may not commence the journey within three days of Shabbat. If it a short journey, e.g. from Tyre to Sidon which is just one day's journey, one may commence travel on a Friday morning, since it is possible to arrive at the destination before Shabbat. In places where it is customary not to commence journeys on Friday at all, even short journeys, it is forbidden to do so. {Rama: Rema: However, more than three days before [Shabbat] it is permitted, even in ships that will be dragged by animals and even if the depth of the water is less than ten hand breaths [Mahari\"k]; even if a Jew will then be required to do a Melacha on Shabbat in order to steer the boat. [Rivash]}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman249/seif-002/mechaber",
+      "volume": "oc1",
+      "siman": 249,
+      "seif": 2,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.975,
+        "he_chars": 357,
+        "en_chars": 705,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 143,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>אסור לקבוע <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>בע\"ש סעודה ומשתה <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>שאינו רגיל בימי החול ואפילו הוא <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>סעודת <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>אירוסין מפני <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>כבוד השבת <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>שיכנס לשבת כשהוא תאב לאכול וכל היום בכלל האיסור. <small>הגה <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"2\"></i>וסעודה שזמנה בע\"ש כגון <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>ברית מילה או <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>פדיון הבן <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>מותר כנ\"ל וכן המנהג פשוט.</small> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>ולאכול ולשתות בלי קביעות סעודה <i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>אפילו סעודה שרגיל בה בחול כל היום מותר להתחיל מן הדין אבל מצוה להמנע <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>מלקבוע סעודה שנהוג בה בחול <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>מט' שעות ולמעלה:\n",
+      "en_html": "On Friday, it is forbidden to partake of a celebratory feast that one would not ordinarily partake of on a weekday. [This is so] Even if it is an Erusin meal, because of the honor of Shabbat, so that one will enter Shabbos desiring to eat and partake of the Shabbos meal with an appetite. All day is forbidden. To eat and drink without partaking of the meal, even a meal that one ordinarily partakes of on the weekday, all day is permitted to begin according to the law. Nevertheless, it is a mitzvah to refrain from eating a meal from the ninth hour onward. {Rama: Rema: A Friday meal where one says zimun, such as a bris milah or pidyon ben it is permitted as seen above, and this is the simple custom.}\n",
+      "he_plain": "אסור לקבוע בע\"ש סעודה ומשתה שאינו רגיל בימי החול ואפילו הוא סעודת אירוסין מפני כבוד השבת שיכנס לשבת כשהוא תאב לאכול וכל היום בכלל האיסור. הגה וסעודה שזמנה בע\"ש כגון ברית מילה או פדיון הבן מותר כנ\"ל וכן המנהג פשוט. ולאכול ולשתות בלי קביעות סעודה אפילו סעודה שרגיל בה בחול כל היום מותר להתחיל מן הדין אבל מצוה להמנע מלקבוע סעודה שנהוג בה בחול מט' שעות ולמעלה:",
+      "en_plain": "On Friday, it is forbidden to partake of a celebratory feast that one would not ordinarily partake of on a weekday. [This is so] Even if it is an Erusin meal, because of the honor of Shabbat, so that one will enter Shabbos desiring to eat and partake of the Shabbos meal with an appetite. All day is forbidden. To eat and drink without partaking of the meal, even a meal that one ordinarily partakes of on the weekday, all day is permitted to begin according to the law. Nevertheless, it is a mitzvah to refrain from eating a meal from the ninth hour onward. {Rama: Rema: A Friday meal where one says zimun, such as a bris milah or pidyon ben it is permitted as seen above, and this is the simple custom.}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman307/seif-008/mechaber",
+      "volume": "oc1",
+      "siman": 307,
+      "seif": 8,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 1.869,
+        "he_chars": 648,
+        "en_chars": 1211,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 141,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"פ\" data-order=\"17\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>יכול לומר לחבירו <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i>לכרך פלוני <i data-commentator=\"Turei Zahav\" data-order=\"6\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"10\"></i>אני הולך למחר <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"3\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"צ\" data-order=\"18\"></i>וכן מותר לומר לו לך עמי לכרך פלוני למחר כיון שהיום יוכל לילך ע\"י <i data-commentator=\"Ba'er Hetev\" data-order=\"11\"></i><i data-commentator=\"Turei Zahav\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לא\"></i>בורגנין <i data-commentator=\"Be'er HaGolah\" data-label=\"ק\" data-order=\"19\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>וכן כל כיוצא בזה שיש בו צד היתר לעשותו היום יוכל לומר לחבירו <i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>שיעשנו למחר <i data-commentator=\"Be'er HaGolah\" data-label=\"ר\" data-order=\"20\"></i>ובלבד שלא יזכיר לו שכירות אבל בדבר שאין בו צד היתר לעשותו היום אפי' אם אין בו אלא איסור דרבנן כגון שיש לו <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"12\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>חוץ לתחום <i data-commentator=\"Turei Zahav\" data-order=\"8\"></i>פירות מוקצים כיון שאי אפשר לו להביאם היום אסור לומר לחבירו שיביאם לו למחר <i data-commentator=\"Be'er HaGolah\" data-label=\"ש\" data-order=\"21\"></i>וכן אסור לו להחשיך בסוף התחום כדי שימהר בלילה <i data-commentator=\"Mishnah Berurah\" data-label=\"לה\"></i>לילך שם להביאם: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"לו\"></i>וכן לא יאמר אעשה דבר פלוני למחר [הרא\"ש פ' השואל וע\"ל ריש הסי']</small> אבל יכול להחשיך בסוף התחום כדי למהר לילך שם לשמרם <i data-commentator=\"Mishnah Berurah\" data-label=\"לז\"></i>שאפי' היום היה יכול לשמרן אם הם היו בתוך התחום ואם לא כיון להחשיך אלא לשמרם יכול <i data-commentator=\"Mishnah Berurah\" data-label=\"לח\"></i>אף להביאם:\n",
+      "en_html": "One may say to a friend that I am going to a certain town tomorrow, and one may also say come with me to a certain town tomorrow. It is permitted because it is possible to get there today by way of huts. The same applies to similar cases where there is a permissible manner to accomplish it today, one may instruct someone else to do it tomorrow provided that one does not mention his terms for hire. However, something that cannot be done today, even when it is only prohibited rabbincally, for example one has fruit that are muktze outside of the Techum, since it is not possible to bring them into the Techum it is prohibited to give instructions to bring them tomorrow. Likewise one may not position oneself at the end of the Techum in order to hurry and bring them after Shabbos. However, one may position himself at the end of the Techum in order to hurry and guard them because that could be done on Shabbos were they within the Techum. If one’s intention was only to guard them, then one may [position oneself at the end of the Techum] even [to] bring them. {Rama: Rema: Likewise one may not say that one will do such and such tomorrow [Rosh, Perek HaShoel and see above at the beginning of the siman].}\n",
+      "he_plain": "יכול לומר לחבירו לכרך פלוני אני הולך למחר וכן מותר לומר לו לך עמי לכרך פלוני למחר כיון שהיום יוכל לילך ע\"י בורגנין וכן כל כיוצא בזה שיש בו צד היתר לעשותו היום יוכל לומר לחבירו שיעשנו למחר ובלבד שלא יזכיר לו שכירות אבל בדבר שאין בו צד היתר לעשותו היום אפי' אם אין בו אלא איסור דרבנן כגון שיש לו חוץ לתחום פירות מוקצים כיון שאי אפשר לו להביאם היום אסור לומר לחבירו שיביאם לו למחר וכן אסור לו להחשיך בסוף התחום כדי שימהר בלילה לילך שם להביאם: הגה וכן לא יאמר אעשה דבר פלוני למחר [הרא\"ש פ' השואל וע\"ל ריש הסי'] אבל יכול להחשיך בסוף התחום כדי למהר לילך שם לשמרם שאפי' היום היה יכול לשמרן אם הם היו בתוך התחום ואם לא כיון להחשיך אלא לשמרם יכול אף להביאם:",
+      "en_plain": "One may say to a friend that I am going to a certain town tomorrow, and one may also say come with me to a certain town tomorrow. It is permitted because it is possible to get there today by way of huts. The same applies to similar cases where there is a permissible manner to accomplish it today, one may instruct someone else to do it tomorrow provided that one does not mention his terms for hire. However, something that cannot be done today, even when it is only prohibited rabbincally, for example one has fruit that are muktze outside of the Techum, since it is not possible to bring them into the Techum it is prohibited to give instructions to bring them tomorrow. Likewise one may not position oneself at the end of the Techum in order to hurry and bring them after Shabbos. However, one may position himself at the end of the Techum in order to hurry and guard them because that could be done on Shabbos were they within the Techum. If one’s intention was only to guard them, then one may [position oneself at the end of the Techum] even [to] bring them. {Rama: Rema: Likewise one may not say that one will do such and such tomorrow [Rosh, Perek HaShoel and see above at the beginning of the siman].}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    }
+  ]
+}

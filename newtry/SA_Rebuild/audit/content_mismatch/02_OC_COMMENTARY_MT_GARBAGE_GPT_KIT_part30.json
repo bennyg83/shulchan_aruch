@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 30,
+    "chunk_total": 47,
+    "case_offset": 163,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman452/seif-001/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 1,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.943,
+        "he_chars": 3148,
+        "en_chars": 6115,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 6115
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>א) [סעיף א'] יש ליזהר להגעיל וכו'  </b>סדר הגעלה לוקח יורה גדולה מלאה מים ומרתיחה בלי שיעיר עד שיעלו הרותחין על פני כל הכלי מכל עבריו בפנים ובחוץ ומכניס בה כל הכלים שרוצה להגעיל ויכניס אחד אחד זה אחר זה. לבוש. וכלי גדול שאינו יכול להכניסו בתוך היורה עיין לקמן סעי' ו'.<br />\n<b>ב) ולענין  </b>כמה ישהה הכלי ביורה כשמגעילין אותו כתב הרי\"ף פ' כל שעה דמשהי להו בגווייהו עד דפלטן. וכ\"כ הר\"ן שם. וכ\"כ הרמב\"ם פ\"ה דין כ\"ג. וכ\"כ הראב\"ד בס' תמ\"ד סי' כ\"ה. וכ\"כ הרשב\"א בת\"ה בית ד' שער ד'. וכן הכריח הרדב\"ז בל' הרמב\"ם סי' רמ\"א יעו\"ש. אבל הטור כתב דנוהגין להכניסן ולהוציאן מיד. וכ\"כ בטור יו\"ד סי' קכ\"א יעו\"ש. וכ\"כ המרדכי פ' כל שעה סי' תקע\"ט והב\"ד ב\"י. וכ\"כ הלבוש סעי' ב' וכתב הפר\"ח בסוף סעי' ו' דמנהגן של ישראל תורה היא. אמנם הט\"ז סק\"ב כתב דמ\"ש הטור דנוהגין להכניסן ולהוציאם מיד נראה דלאו ממש קאמר מיד אלא עכ\"פ צריך קצת שהיה וכתב שכ\"כ בכלבו דצריך לדקדק שלא למהר להוציא הכלי מן היורה כדי שיהא פנאי אל הרתיחה ליכנס ולהפליט מה שבלע. וכ\"כ א\"ר או' א' ר\"ז או' ד' בן א\"ח פ' צו או' י\"ב. ועיין לקמן או' י\"ד.<br />\n<b>ג) וא\"ת  </b>למי שסובר דאין מבטלין איסור לכתחלה מדאו' היאך הכשירה תורה כלי מדין בהגעלה והרי הוא מבטל איסור הבלוע בהם לכתחלה במים שהוא מגעיל אותן אלא ודאי לא אמרו אין מבטלין איסור אלא במתכוין לערב איסור בהיתר כדי ליהנות ממנו אבל במתכוין להכשיר הכלי ואינו נהנה מן האיסור שרי. הר\"ן פ' אין מעמידין.<br />\n<b>ד) שם. קודם שעה חמישית.  </b>דאז הוי נ\"ט בר נ\"ט דהיתירא ב\"י ט\"ז סק\"א. וכיצד הוי נ\"ט בר נ\"ט דהיתירא החמץ נותן טעם בכלי והכלי במים והמים חוזרין ונותנין טעם בקערה ועדיין איסור חמץ לא הגיע. מרדכי פ' כל שעה סי' תקע\"ו. לבוש סעי' ג'. ואע\"ג שי\"א דחמץ כיון דשמו עליו מיקרי איסורא בלע ומרן ז\"ל לעיל סי' תנ\"א סעי' ד' חשש לסברתם מ\"מ הכא סמך על המקילים משום דבלא\"ה איכא קצת פו' דמתירים בכל דברים אלו. מאמ\"ר או' א'. ועיין לעיל סי' תנ\"א או' ט\"ל.<br />\n<b>ה) שם. קודם שעה חמישית.  </b>דהיינו תחלת שעה חמישית סוף שעה ד' דכיון דמשעה ד' נאסר עכ\"פ מדרבנן (כמ\"ש לעיל רסי' תמ\"ג) לא מקרי נ\"ט בר נ\"ט דהיתרא. פר\"ח. מט\"י. מק\"ח או' א' נה\"ש או' א'. ר\"ז או' ח' ח\"א כלל קכ\"ה או' ל\"ג.<br />\n<b>ו) שם. כדי שלא יצטרך וכו'  </b>כלומר דאז א\"צ ליזהר שלא יהיה הכלי ב\"י דאפי' הוא ב\"י ואין במים ס' נגד הכלים מותר כיון שעדיין זמן היתר הוא והו\"ל נ\"ט בר נ\"ט דהיתירא. תו' חולין ק\"ח ע\"ב וע\"ז ע\"ו ע\"א. וכ\"כ הרא\"ש בסוף ע\"ז ובפ' כל שעה. וכ\"כ המרדכי פ' כל שעה והר\"ן ס\"פ כל הבשר. והב\"ד הטור וב\"י. וכ\"כ העו\"ש או' א' מ\"א סק\"א. ח\"י או' ב' חק יוסף או' א' מק\"ח או' ב' ר\"ז או' י\"ג. ח\"א שם או' ל\"ג, ואע\"ג דלעיל סי' תמ\"ז סעי' ה' בהגה אוסר דברים המתבשלים בכלי חמץ ולא התיר מטעם נ\"ט בר נ\"ט, י\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי. מ\"א שם. ח\"י שם. מק\"ח שם. וכ\"ז לפום דינא אבל המנהג שלא להגעיל שום כלי ב\"י כמ\"ש לקמן סעי' ב' בהגה יעו\"ש. ועיין עוד לקמן או' כ\"א בענין היורה שמגעילין בה אם צריך להגעילה תחלה יעו\"ש.<br />\n<b>ז) מעשה  </b>שמצאו חתיכת לחם ביורה שהיו מגעילין בה קו\"פ ושאלו אם צריכין להגעיל הכלים פ\"ב העלה הרב\"ד סי' קצ\"ה דלנוהגים כמ\"ד דאינו חו\"נ פשיטא דאינו כלים שטעם הלחם הנפלט במים נתבטל בס' ולנוהגים כמ\"ד חו\"נ נמי א\"צ להגעיל פ\"ב דלא ראינו דקבלו עליהם חו\"נ אלא בממשות לא בטעם ואעפ\"י שנוהגין להגעיל כלי הלישה של מקילים וכו' היינו לכתחלה וכו' וכיון דדבר מנהג הוא אין לנו להוסיף חומרא והבו וכו' אמנם אם המצא ימצא בבירור שמנהגם לאסור אפי' בדיעבד בטעמא לבד אז בודאי צריכין להגעיל כלים אלו פ\"ב יעו\"ש. זכ\"ל סוף סי' תנ\"א. ועיין לעיל סי' תמ\"ז או' נ\"ט ואו' ע\"ו.\n",
+      "en_html": "<b>1) [Se'if 1] One should be careful to kasher with boiling water, etc. </b>The procedure is as follows. One takes a large cauldron filled with water and brings it to a vigorous boil, until the boiling water reaches every surface of the cauldron, inside and out. One places into it all the utensils one wishes to kasher, inserting them individually, one after another. Levush. Regarding a large utensil that cannot be inserted into the cauldron, see below, se'if 6.<br />\n<b>2) Regarding </b>how long a utensil must remain in the cauldron during kashering, Rif in the chapter Kol Sha'ah writes that it should remain there until it expels what it absorbed. Ran writes likewise there, as do Rambam, chapter 5, halachah 23; Raavad in Sefer Tamim De'im, siman 25; and Rashba in Toras HaBayis, bayis 4, sha'ar 4. Radbaz in Leshonos HaRambam, siman 241, demonstrates that this is Rambam's view. See there. Tur, however, writes that the custom is to insert the utensils and remove them immediately. He writes likewise in Yoreh De'ah, siman 121. See there. Mordechai, chapter Kol Sha'ah, siman 579, writes likewise, as cited by Beis Yosef. Levush, se'if 2, also writes likewise. Peri Chadash, at the end of se'if 6, writes that the Jewish people's custom has the force of Torah. Taz, subsection 2, however, writes that Tur's statement to remove them 'immediately' is not literal; they must remain at least briefly. Kol Bo likewise writes that one must be careful not to hurry to remove a utensil from the cauldron, allowing time for the boiling water to enter it and extract what it absorbed. Eliyah Rabbah, subsection 1; Shulchan Aruch HaRav, subsection 4; Ben Ish Chai, parashas Tzav, subsection 12, write likewise. See below, subsection 14.<br />\n<b>3) One might ask: </b>According to the opinion that intentionally nullifying a prohibition is forbidden under Torah law, how did the Torah permit kashering the utensils of Midian with boiling water? This appears to intentionally nullify the prohibition absorbed in them within the kashering water. The answer is that the rule against intentionally nullifying a prohibition applies only when one intends to mix a prohibited substance into permitted food in order to benefit from it. Here, one intends to kasher the utensil and derives no benefit from the prohibited substance, so it is permitted. Ran, chapter Ein Ma'amidin.<br />\n<b>4) There. Before the fifth hour. </b>At that time there is a secondary transfer of permitted flavor. Beis Yosef; Taz, subsection 1. How does this occur? The chametz imparts flavor to the utensil, the utensil imparts flavor to the water, and the water then imparts flavor back into the bowl, while the prohibition of chametz has not yet taken effect. Mordechai, chapter Kol Sha'ah, siman 576; Levush, se'if 3. Although some maintain that since it retains the designation chametz, it is considered to have absorbed a prohibited substance, and Maran took their view into account above in siman 451, se'if 4, here he relies upon the lenient authorities because some authorities independently permit all these matters. Ma'amar Mordechai, subsection 1. See above, siman 451, subsection 39.<br />\n<b>5) There. Before the fifth hour. </b>This means before the beginning of the fifth hour, namely, by the end of the fourth hour. Since chametz is at least rabbinically prohibited from the fifth hour, as stated above at the beginning of siman 443, its flavor is no longer considered a secondary transfer of permitted flavor. Peri Chadash; Mateh Yehudah; Mekor Chaim, subsection 1; Nehar Shalom, subsection 1; Shulchan Aruch HaRav, subsection 8; Chayei Adam, rule 125, subsection 33.<br />\n<b>6) There. So that one will not need, etc. </b>At that time, one need not ensure that the utensil was not used that day. Even if it was used that day and the water does not equal sixty times the utensils, it is permitted, because chametz is still permitted and this is a secondary transfer of permitted flavor. Tosafos, Chullin 108b and Avodah Zarah 76a; Rosh at the end of Avodah Zarah and in the chapter Kol Sha'ah; Mordechai, chapter Kol Sha'ah; Ran at the end of the chapter Kol HaBasar. Tur and Beis Yosef cite these authorities. Olas Shabbos, subsection 1; Magen Avraham, subsection 1; Chok Yaakov, subsection 2; Chok Yosef, subsection 1; Mekor Chaim, subsection 2; Shulchan Aruch HaRav, subsection 13; Chayei Adam, there, subsection 33, write likewise. Although the gloss above in siman 447, se'if 5, prohibits foods cooked in a chametz utensil and does not permit them because of a secondary transfer of flavor, here there are several successive transfers: from the food to the utensil, from the utensil to the water, and from the water to the second utensil. It is therefore permitted. Magen Avraham, there; Chok Yaakov, there; Mekor Chaim, there. All this is the strict law, but the custom is not to kasher any utensil that was used that day, as stated below in the gloss to se'if 2. See there. See also below, subsection 21, regarding whether the cauldron used for kashering must first itself be kashered.<br />\n<b>7) An incident occurred </b>in which a piece of bread was found in the cauldron used to kasher utensils before Pesach. The question was whether the utensils had to be kashered a second time. Beis David, siman 195, concludes that according to communities that do not apply the rule that a piece becomes intrinsically prohibited, it is obvious that the utensils are not prohibited, because the flavor expelled from the bread into the water was nullified in sixty. Even according to communities that do apply that rule, a second kashering is unnecessary. Their acceptance of the rule was observed only regarding a tangible substance, not mere flavor. Although they customarily kasher kneading utensils belonging to lenient communities, and so forth, that is only an initial stringency. Since this is a custom, we should not add further stringency. If it is clearly established, however, that their custom is to prohibit even after the fact because of flavor alone, then these utensils must certainly be kashered again. See there. Zechor LeAvraham, at the end of siman 451. See above, siman 447, subsections 59 and 76.\n",
+      "he_plain": "א) [סעיף א'] יש ליזהר להגעיל וכו' סדר הגעלה לוקח יורה גדולה מלאה מים ומרתיחה בלי שיעיר עד שיעלו הרותחין על פני כל הכלי מכל עבריו בפנים ובחוץ ומכניס בה כל הכלים שרוצה להגעיל ויכניס אחד אחד זה אחר זה. לבוש. וכלי גדול שאינו יכול להכניסו בתוך היורה עיין לקמן סעי' ו'. ב) ולענין כמה ישהה הכלי ביורה כשמגעילין אותו כתב הרי\"ף פ' כל שעה דמשהי להו בגווייהו עד דפלטן. וכ\"כ הר\"ן שם. וכ\"כ הרמב\"ם פ\"ה דין כ\"ג. וכ\"כ הראב\"ד בס' תמ\"ד סי' כ\"ה. וכ\"כ הרשב\"א בת\"ה בית ד' שער ד'. וכן הכריח הרדב\"ז בל' הרמב\"ם סי' רמ\"א יעו\"ש. אבל הטור כתב דנוהגין להכניסן ולהוציאן מיד. וכ\"כ בטור יו\"ד סי' קכ\"א יעו\"ש. וכ\"כ המרדכי פ' כל שעה סי' תקע\"ט והב\"ד ב\"י. וכ\"כ הלבוש סעי' ב' וכתב הפר\"ח בסוף סעי' ו' דמנהגן של ישראל תורה היא. אמנם הט\"ז סק\"ב כתב דמ\"ש הטור דנוהגין להכניסן ולהוציאם מיד נראה דלאו ממש קאמר מיד אלא עכ\"פ צריך קצת שהיה וכתב שכ\"כ בכלבו דצריך לדקדק שלא למהר להוציא הכלי מן היורה כדי שיהא פנאי אל הרתיחה ליכנס ולהפליט מה שבלע. וכ\"כ א\"ר או' א' ר\"ז או' ד' בן א\"ח פ' צו או' י\"ב. ועיין לקמן או' י\"ד. ג) וא\"ת למי שסובר דאין מבטלין איסור לכתחלה מדאו' היאך הכשירה תורה כלי מדין בהגעלה והרי הוא מבטל איסור הבלוע בהם לכתחלה במים שהוא מגעיל אותן אלא ודאי לא אמרו אין מבטלין איסור אלא במתכוין לערב איסור בהיתר כדי ליהנות ממנו אבל במתכוין להכשיר הכלי ואינו נהנה מן האיסור שרי. הר\"ן פ' אין מעמידין. ד) שם. קודם שעה חמישית. דאז הוי נ\"ט בר נ\"ט דהיתירא ב\"י ט\"ז סק\"א. וכיצד הוי נ\"ט בר נ\"ט דהיתירא החמץ נותן טעם בכלי והכלי במים והמים חוזרין ונותנין טעם בקערה ועדיין איסור חמץ לא הגיע. מרדכי פ' כל שעה סי' תקע\"ו. לבוש סעי' ג'. ואע\"ג שי\"א דחמץ כיון דשמו עליו מיקרי איסורא בלע ומרן ז\"ל לעיל סי' תנ\"א סעי' ד' חשש לסברתם מ\"מ הכא סמך על המקילים משום דבלא\"ה איכא קצת פו' דמתירים בכל דברים אלו. מאמ\"ר או' א'. ועיין לעיל סי' תנ\"א או' ט\"ל. ה) שם. קודם שעה חמישית. דהיינו תחלת שעה חמישית סוף שעה ד' דכיון דמשעה ד' נאסר עכ\"פ מדרבנן (כמ\"ש לעיל רסי' תמ\"ג) לא מקרי נ\"ט בר נ\"ט דהיתרא. פר\"ח. מט\"י. מק\"ח או' א' נה\"ש או' א'. ר\"ז או' ח' ח\"א כלל קכ\"ה או' ל\"ג. ו) שם. כדי שלא יצטרך וכו' כלומר דאז א\"צ ליזהר שלא יהיה הכלי ב\"י דאפי' הוא ב\"י ואין במים ס' נגד הכלים מותר כיון שעדיין זמן היתר הוא והו\"ל נ\"ט בר נ\"ט דהיתירא. תו' חולין ק\"ח ע\"ב וע\"ז ע\"ו ע\"א. וכ\"כ הרא\"ש בסוף ע\"ז ובפ' כל שעה. וכ\"כ המרדכי פ' כל שעה והר\"ן ס\"פ כל הבשר. והב\"ד הטור וב\"י. וכ\"כ העו\"ש או' א' מ\"א סק\"א. ח\"י או' ב' חק יוסף או' א' מק\"ח או' ב' ר\"ז או' י\"ג. ח\"א שם או' ל\"ג, ואע\"ג דלעיל סי' תמ\"ז סעי' ה' בהגה אוסר דברים המתבשלים בכלי חמץ ולא התיר מטעם נ\"ט בר נ\"ט, י\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי. מ\"א שם. ח\"י שם. מק\"ח שם. וכ\"ז לפום דינא אבל המנהג שלא להגעיל שום כלי ב\"י כמ\"ש לקמן סעי' ב' בהגה יעו\"ש. ועיין עוד לקמן או' כ\"א בענין היורה שמגעילין בה אם צריך להגעילה תחלה יעו\"ש. ז) מעשה שמצאו חתיכת לחם ביורה שהיו מגעילין בה קו\"פ ושאלו אם צריכין להגעיל הכלים פ\"ב העלה הרב\"ד סי' קצ\"ה דלנוהגים כמ\"ד דאינו חו\"נ פשיטא דאינו כלים שטעם הלחם הנפלט במים נתבטל בס' ולנוהגים כמ\"ד חו\"נ נמי א\"צ להגעיל פ\"ב דלא ראינו דקבלו עליהם חו\"נ אלא בממשות לא בטעם ואעפ\"י שנוהגין להגעיל כלי הלישה של מקילים וכו' היינו לכתחלה וכו' וכיון דדבר מנהג הוא אין לנו להוסיף חומרא והבו וכו' אמנם אם המצא ימצא בבירור שמנהגם לאסור אפי' בדיעבד בטעמא לבד אז בודאי צריכין להגעיל כלים אלו פ\"ב יעו\"ש. זכ\"ל סוף סי' תנ\"א. ועיין לעיל סי' תמ\"ז או' נ\"ט ואו' ע\"ו.",
+      "en_plain": "1) [Se'if 1] One should be careful to kasher with boiling water, etc. The procedure is as follows. One takes a large cauldron filled with water and brings it to a vigorous boil, until the boiling water reaches every surface of the cauldron, inside and out. One places into it all the utensils one wishes to kasher, inserting them individually, one after another. Levush. Regarding a large utensil that cannot be inserted into the cauldron, see below, se'if 6. 2) Regarding how long a utensil must remain in the cauldron during kashering, Rif in the chapter Kol Sha'ah writes that it should remain there until it expels what it absorbed. Ran writes likewise there, as do Rambam, chapter 5, halachah 23; Raavad in Sefer Tamim De'im, siman 25; and Rashba in Toras HaBayis, bayis 4, sha'ar 4. Radbaz in Leshonos HaRambam, siman 241, demonstrates that this is Rambam's view. See there. Tur, however, writes that the custom is to insert the utensils and remove them immediately. He writes likewise in Yoreh De'ah, siman 121. See there. Mordechai, chapter Kol Sha'ah, siman 579, writes likewise, as cited by Beis Yosef. Levush, se'if 2, also writes likewise. Peri Chadash, at the end of se'if 6, writes that the Jewish people's custom has the force of Torah. Taz, subsection 2, however, writes that Tur's statement to remove them 'immediately' is not literal; they must remain at least briefly. Kol Bo likewise writes that one must be careful not to hurry to remove a utensil from the cauldron, allowing time for the boiling water to enter it and extract what it absorbed. Eliyah Rabbah, subsection 1; Shulchan Aruch HaRav, subsection 4; Ben Ish Chai, parashas Tzav, subsection 12, write likewise. See below, subsection 14. 3) One might ask: According to the opinion that intentionally nullifying a prohibition is forbidden under Torah law, how did the Torah permit kashering the utensils of Midian with boiling water? This appears to intentionally nullify the prohibition absorbed in them within the kashering water. The answer is that the rule against intentionally nullifying a prohibition applies only when one intends to mix a prohibited substance into permitted food in order to benefit from it. Here, one intends to kasher the utensil and derives no benefit from the prohibited substance, so it is permitted. Ran, chapter Ein Ma'amidin. 4) There. Before the fifth hour. At that time there is a secondary transfer of permitted flavor. Beis Yosef; Taz, subsection 1. How does this occur? The chametz imparts flavor to the utensil, the utensil imparts flavor to the water, and the water then imparts flavor back into the bowl, while the prohibition of chametz has not yet taken effect. Mordechai, chapter Kol Sha'ah, siman 576; Levush, se'if 3. Although some maintain that since it retains the designation chametz, it is considered to have absorbed a prohibited substance, and Maran took their view into account above in siman 451, se'if 4, here he relies upon the lenient authorities because some authorities independently permit all these matters. Ma'amar Mordechai, subsection 1. See above, siman 451, subsection 39. 5) There. Before the fifth hour. This means before the beginning of the fifth hour, namely, by the end of the fourth hour. Since chametz is at least rabbinically prohibited from the fifth hour, as stated above at the beginning of siman 443, its flavor is no longer considered a secondary transfer of permitted flavor. Peri Chadash; Mateh Yehudah; Mekor Chaim, subsection 1; Nehar Shalom, subsection 1; Shulchan Aruch HaRav, subsection 8; Chayei Adam, rule 125, subsection 33. 6) There. So that one will not need, etc. At that time, one need not ensure that the utensil was not used that day. Even if it was used that day and the water does not equal sixty times the utensils, it is permitted, because chametz is still permitted and this is a secondary transfer of permitted flavor. Tosafos, Chullin 108b and Avodah Zarah 76a; Rosh at the end of Avodah Zarah and in the chapter Kol Sha'ah; Mordechai, chapter Kol Sha'ah; Ran at the end of the chapter Kol HaBasar. Tur and Beis Yosef cite these authorities. Olas Shabbos, subsection 1; Magen Avraham, subsection 1; Chok Yaakov, subsection 2; Chok Yosef, subsection 1; Mekor Chaim, subsection 2; Shulchan Aruch HaRav, subsection 13; Chayei Adam, there, subsection 33, write likewise. Although the gloss above in siman 447, se'if 5, prohibits foods cooked in a chametz utensil and does not permit them because of a secondary transfer of flavor, here there are several successive transfers: from the food to the utensil, from the utensil to the water, and from the water to the second utensil. It is therefore permitted. Magen Avraham, there; Chok Yaakov, there; Mekor Chaim, there. All this is the strict law, but the custom is not to kasher any utensil that was used that day, as stated below in the gloss to se'if 2. See there. See also below, subsection 21, regarding whether the cauldron used for kashering must first itself be kashered. 7) An incident occurred in which a piece of bread was found in the cauldron used to kasher utensils before Pesach. The question was whether the utensils had to be kashered a second time. Beis David, siman 195, concludes that according to communities that do not apply the rule that a piece becomes intrinsically prohibited, it is obvious that the utensils are not prohibited, because the flavor expelled from the bread into the water was nullified in sixty. Even according to communities that do apply that rule, a second kashering is unnecessary. Their acceptance of the rule was observed only regarding a tangible substance, not mere flavor. Although they customarily kasher kneading utensils belonging to lenient communities, and so forth, that is only an initial stringency. Since this is a custom, we should not add further stringency. If it is clearly established, however, that their custom is to prohibit even after the fact because of flavor alone, then these utensils must certainly be kashered again. See there. Zechor LeAvraham, at the end of siman 451. See above, siman 447, subsections 59 and 76.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-001/magen-avraham",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 1,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.239,
+        "he_chars": 1553,
+        "en_chars": 3477,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3477
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>אם הכלים ב\"י</b>. שאע\"פ שהכלי ב\"י ואין ס' במים נגדו אפ\"ה שרי משום דהוי נ\"ט בנ\"ט דהתירא מה שא\"כ אחר שעה ה' וקשה דהא בסי' תמ\"ז ס\"ה אוסר רמ\"א דברים המתבשלים ולא התיר מטעם נ\"ט בנ\"ט ולמה מתיר כאן לכתחלה וי\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי:<br />\n<b>שבליעתן מועטת</b>. כגון כפות וכוסות ויש לחוש שיבלעו ממה שפולטין הקערות והקדירות:<br />\n<b>אך רבים חולקים וכו'</b>. דברי הרמ\"א תמוהים דגם הרב\"י מודה לזה אלא דלאחר איסורו כיון שנחו המים מרתיחתן אסור להרתיחן פעם שנית דכ\"ז שהם רותחין לא בלעו ממי הגעלה ואם נחו מרתיחתן בלעי אבל קודם זמן איסור שרי דהוי נ\"ט בנ\"ט דהיתירא וכ\"כ בהגד\"מ וכ\"כ רש\"ל בתשו':<br />\n<b>ושלא יכניס</b>. כדי שלא יבלע ממי הגעלה:<br />\n<b>תחלה וסוף</b>. פי' דדי כשמגעיל' בתחלה או בסוף:<br />\n<b>צריך ליזהר בכל כו'</b>. פי' שירא' שלא יהיו הכלים ב\"י ואם הוא ב\"י צריך שיהיה במים ס' נגדו ואם מגעיל הרב' כלים זא\"ז צריך שיהא ששי' נגד כול' דהאיסור חוזר וניעור (ב\"י וד\"מ בשם רשב\"א סי' רס\"ב) ובאו\"ה שנ\"ח כ' דשרי בדיעבד דהא י\"א דגם במאכל אינו חוזר וניעור ואם כן בכלי יש להקל וכ\"כ הא\"ר והש\"ך בי\"ד סי' צ\"ט חולק עליהם ע\"ש: ונ\"ל דאם כלי אחד בלע בשר והשני דגים אינו חוזר וניעור כיון שהם טעמים חלוקים וכמ\"ש בי\"ד ססי' צ\"ח: ויגעיל תחלה כלים שבליעתן מועט ואחר כך כלים שבליעתן מרובה ולא ישהה אותם יותר מדאי ולא ינוחו המים מרתיחתן ומגעיל היורה תחלה וסוף: נ\"ל דאם אין היורה ב\"י א\"צ להגעילה תחלה דלא גרע מהכלים עצמן ואם הגעילה תחלה אין צריך להגעיל' בסוף דהא אין הכלים ב\"י אך נהגו להחמיר בכל החומרות אפי' קודם ה' וכ\"כ הב\"ח, וצ\"ע למה נקט רמ\"א אחר שש דהא אחר ד' צריך ליזהר כמש\"ל דאף דאיסורא דרבנן מכל מקום לא שייך נ\"ט בנ\"ט עסי' תמ\"ז ס\"ג דבדבר שאין בו אלא טעם חמץ לא אמרינן חוזר וניעור דלא כע\"ש:\n",
+      "en_html": "<b>If the vessels are ben yomo.</b> For even though the vessel is ben yomo and there is not sixty times [as much] water against it, nevertheless it is permitted, because it is a giving of taste after a giving of taste of what is permitted, which is not so after the fifth hour. And it is difficult: for in siman 447, se'if 5, the Rama forbids things cooked [in such vessels] and did not permit on the grounds of a giving of taste after a giving of taste; so why does he permit here ab initio? One may say that here, since there are many [transfers of] taste from the food to the vessel and from the vessel to the water and from the water to the vessel, it is permitted.<br />\n<b>Whose absorption is slight.</b> Such as spoons and cups; and one must be concerned that they will absorb from what the bowls and pots expel.<br />\n<b>However, many dispute, etc.</b> The words of the Rama are puzzling, for Beis Yosef also agrees to this; rather, after its prohibition, once the water has ceased boiling it is forbidden to bring it to a boil a second time, for so long as they are boiling they have not absorbed from the hagalah water, and if they ceased boiling they absorbed; but before the time of prohibition it is permitted, for it is a giving of taste after a giving of taste of what is permitted; and so wrote Hagahot Maimoniyot; and so wrote Maharshal in a responsum.<br />\n<b>And that one not insert.</b> So that it not absorb from the hagalah water.<br />\n<b>At the beginning and at the end.</b> Meaning that it suffices when one does hagalah at the beginning or at the end.<br />\n<b>One must be careful in all, etc.</b> Meaning that one should see that the vessels not be ben yomo; and if it is ben yomo, there must be sixty times [as much] water against it; and if one does hagalah for many vessels one after another, there must be sixty against all of them, for the prohibition returns and reawakens (Beis Yosef and Darchei Moshe in the name of the Rashba, siman 262). And in Issur VeHetter, [klal] 58, he wrote that after the fact it is permitted, for some say that even regarding food it does not return and reawaken, and if so regarding a vessel one should be lenient; and so wrote Eliyah Rabbah; and the Shach in Yoreh De'ah siman 99 disagrees with them; see there. And it appears to me that if one vessel absorbed meat and the other fish, it does not return and reawaken, since they are distinct tastes, as is written in Yoreh De'ah at the end of siman 98. And one should first do hagalah for vessels whose absorption is slight, and afterward vessels whose absorption is great; and one should not leave them [in] longer than necessary; and the water should not cease boiling; and one does hagalah for the cauldron at the beginning and at the end. It appears to me that if the cauldron is not ben yomo, one need not do hagalah for it at the beginning, for it is no worse than the vessels themselves; and if one did hagalah for it at the beginning, one need not do hagalah for it at the end, for the vessels are not ben yomo; yet the practice is to be stringent with all the stringencies even before the fifth [hour], and so wrote the Bach. And this requires further study: why did the Rama specify after six, for even after four one must be careful, as is written above, for even though it is a rabbinic prohibition, nevertheless a giving of taste after a giving of taste does not apply; see siman 447, se'if 3, that regarding something that has in it only a taste of chametz we do not say it returns and reawakens; not like Olas Shabbos.\n",
+      "he_plain": "אם הכלים ב\"י . שאע\"פ שהכלי ב\"י ואין ס' במים נגדו אפ\"ה שרי משום דהוי נ\"ט בנ\"ט דהתירא מה שא\"כ אחר שעה ה' וקשה דהא בסי' תמ\"ז ס\"ה אוסר רמ\"א דברים המתבשלים ולא התיר מטעם נ\"ט בנ\"ט ולמה מתיר כאן לכתחלה וי\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי: שבליעתן מועטת . כגון כפות וכוסות ויש לחוש שיבלעו ממה שפולטין הקערות והקדירות: אך רבים חולקים וכו' . דברי הרמ\"א תמוהים דגם הרב\"י מודה לזה אלא דלאחר איסורו כיון שנחו המים מרתיחתן אסור להרתיחן פעם שנית דכ\"ז שהם רותחין לא בלעו ממי הגעלה ואם נחו מרתיחתן בלעי אבל קודם זמן איסור שרי דהוי נ\"ט בנ\"ט דהיתירא וכ\"כ בהגד\"מ וכ\"כ רש\"ל בתשו': ושלא יכניס . כדי שלא יבלע ממי הגעלה: תחלה וסוף . פי' דדי כשמגעיל' בתחלה או בסוף: צריך ליזהר בכל כו' . פי' שירא' שלא יהיו הכלים ב\"י ואם הוא ב\"י צריך שיהיה במים ס' נגדו ואם מגעיל הרב' כלים זא\"ז צריך שיהא ששי' נגד כול' דהאיסור חוזר וניעור (ב\"י וד\"מ בשם רשב\"א סי' רס\"ב) ובאו\"ה שנ\"ח כ' דשרי בדיעבד דהא י\"א דגם במאכל אינו חוזר וניעור ואם כן בכלי יש להקל וכ\"כ הא\"ר והש\"ך בי\"ד סי' צ\"ט חולק עליהם ע\"ש: ונ\"ל דאם כלי אחד בלע בשר והשני דגים אינו חוזר וניעור כיון שהם טעמים חלוקים וכמ\"ש בי\"ד ססי' צ\"ח: ויגעיל תחלה כלים שבליעתן מועט ואחר כך כלים שבליעתן מרובה ולא ישהה אותם יותר מדאי ולא ינוחו המים מרתיחתן ומגעיל היורה תחלה וסוף: נ\"ל דאם אין היורה ב\"י א\"צ להגעילה תחלה דלא גרע מהכלים עצמן ואם הגעילה תחלה אין צריך להגעיל' בסוף דהא אין הכלים ב\"י אך נהגו להחמיר בכל החומרות אפי' קודם ה' וכ\"כ הב\"ח, וצ\"ע למה נקט רמ\"א אחר שש דהא אחר ד' צריך ליזהר כמש\"ל דאף דאיסורא דרבנן מכל מקום לא שייך נ\"ט בנ\"ט עסי' תמ\"ז ס\"ג דבדבר שאין בו אלא טעם חמץ לא אמרינן חוזר וניעור דלא כע\"ש:",
+      "en_plain": "If the vessels are ben yomo. For even though the vessel is ben yomo and there is not sixty times [as much] water against it, nevertheless it is permitted, because it is a giving of taste after a giving of taste of what is permitted, which is not so after the fifth hour. And it is difficult: for in siman 447, se'if 5, the Rama forbids things cooked [in such vessels] and did not permit on the grounds of a giving of taste after a giving of taste; so why does he permit here ab initio? One may say that here, since there are many [transfers of] taste from the food to the vessel and from the vessel to the water and from the water to the vessel, it is permitted. Whose absorption is slight. Such as spoons and cups; and one must be concerned that they will absorb from what the bowls and pots expel. However, many dispute, etc. The words of the Rama are puzzling, for Beis Yosef also agrees to this; rather, after its prohibition, once the water has ceased boiling it is forbidden to bring it to a boil a second time, for so long as they are boiling they have not absorbed from the hagalah water, and if they ceased boiling they absorbed; but before the time of prohibition it is permitted, for it is a giving of taste after a giving of taste of what is permitted; and so wrote Hagahot Maimoniyot; and so wrote Maharshal in a responsum. And that one not insert. So that it not absorb from the hagalah water. At the beginning and at the end. Meaning that it suffices when one does hagalah at the beginning or at the end. One must be careful in all, etc. Meaning that one should see that the vessels not be ben yomo; and if it is ben yomo, there must be sixty times [as much] water against it; and if one does hagalah for many vessels one after another, there must be sixty against all of them, for the prohibition returns and reawakens (Beis Yosef and Darchei Moshe in the name of the Rashba, siman 262). And in Issur VeHetter, [klal] 58, he wrote that after the fact it is permitted, for some say that even regarding food it does not return and reawaken, and if so regarding a vessel one should be lenient; and so wrote Eliyah Rabbah; and the Shach in Yoreh De'ah siman 99 disagrees with them; see there. And it appears to me that if one vessel absorbed meat and the other fish, it does not return and reawaken, since they are distinct tastes, as is written in Yoreh De'ah at the end of siman 98. And one should first do hagalah for vessels whose absorption is slight, and afterward vessels whose absorption is great; and one should not leave them [in] longer than necessary; and the water should not cease boiling; and one does hagalah for the cauldron at the beginning and at the end. It appears to me that if the cauldron is not ben yomo, one need not do hagalah for it at the beginning, for it is no worse than the vessels themselves; and if one did hagalah for it at the beginning, one need not do hagalah for it at the end, for the vessels are not ben yomo; yet the practice is to be stringent with all the stringencies even before the fifth [hour], and so wrote the Bach. And this requires further study: why did the Rama specify after six, for even after four one must be careful, as is written above, for even though it is a rabbinic prohibition, nevertheless a giving of taste after a giving of taste does not apply; see siman 447, se'if 3, that regarding something that has in it only a taste of chametz we do not say it returns and reawakens; not like Olas Shabbos.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-002/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 2,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.789,
+        "he_chars": 702,
+        "en_chars": 1256,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1256
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>ב) ולענין  </b>כמה ישהה הכלי ביורה כשמגעילין אותו כתב הרי\"ף פ' כל שעה דמשהי להו בגווייהו עד דפלטן. וכ\"כ הר\"ן שם. וכ\"כ הרמב\"ם פ\"ה דין כ\"ג. וכ\"כ הראב\"ד בס' תמ\"ד סי' כ\"ה. וכ\"כ הרשב\"א בת\"ה בית ד' שער ד'. וכן הכריח הרדב\"ז בל' הרמב\"ם סי' רמ\"א יעו\"ש. אבל הטור כתב דנוהגין להכניסן ולהוציאן מיד. וכ\"כ בטור יו\"ד סי' קכ\"א יעו\"ש. וכ\"כ המרדכי פ' כל שעה סי' תקע\"ט והב\"ד ב\"י. וכ\"כ הלבוש סעי' ב' וכתב הפר\"ח בסוף סעי' ו' דמנהגן של ישראל תורה היא. אמנם הט\"ז סק\"ב כתב דמ\"ש הטור דנוהגין להכניסן ולהוציאם מיד נראה דלאו ממש קאמר מיד אלא עכ\"פ צריך קצת שהיה וכתב שכ\"כ בכלבו דצריך לדקדק שלא למהר להוציא הכלי מן היורה כדי שיהא פנאי אל הרתיחה ליכנס ולהפליט מה שבלע. וכ\"כ א\"ר או' א' ר\"ז או' ד' בן א\"ח פ' צו או' י\"ב. ועיין לקמן או' י\"ד.\n",
+      "en_html": "<b>2) Regarding </b>how long a utensil must remain in the cauldron during kashering, Rif in the chapter Kol Sha'ah writes that it should remain there until it expels what it absorbed. Ran writes likewise there, as do Rambam, chapter 5, halachah 23; Raavad in Sefer Tamim De'im, siman 25; and Rashba in Toras HaBayis, bayis 4, sha'ar 4. Radbaz in Leshonos HaRambam, siman 241, demonstrates that this is Rambam's view. See there. Tur, however, writes that the custom is to insert the utensils and remove them immediately. He writes likewise in Yoreh De'ah, siman 121. See there. Mordechai, chapter Kol Sha'ah, siman 579, writes likewise, as cited by Beis Yosef. Levush, se'if 2, also writes likewise. Peri Chadash, at the end of se'if 6, writes that the Jewish people's custom has the force of Torah. Taz, subsection 2, however, writes that Tur's statement to remove them 'immediately' is not literal; they must remain at least briefly. Kol Bo likewise writes that one must be careful not to hurry to remove a utensil from the cauldron, allowing time for the boiling water to enter it and extract what it absorbed. Eliyah Rabbah, subsection 1; Shulchan Aruch HaRav, subsection 4; Ben Ish Chai, parashas Tzav, subsection 12, write likewise. See below, subsection 14.\n",
+      "he_plain": "ב) ולענין כמה ישהה הכלי ביורה כשמגעילין אותו כתב הרי\"ף פ' כל שעה דמשהי להו בגווייהו עד דפלטן. וכ\"כ הר\"ן שם. וכ\"כ הרמב\"ם פ\"ה דין כ\"ג. וכ\"כ הראב\"ד בס' תמ\"ד סי' כ\"ה. וכ\"כ הרשב\"א בת\"ה בית ד' שער ד'. וכן הכריח הרדב\"ז בל' הרמב\"ם סי' רמ\"א יעו\"ש. אבל הטור כתב דנוהגין להכניסן ולהוציאן מיד. וכ\"כ בטור יו\"ד סי' קכ\"א יעו\"ש. וכ\"כ המרדכי פ' כל שעה סי' תקע\"ט והב\"ד ב\"י. וכ\"כ הלבוש סעי' ב' וכתב הפר\"ח בסוף סעי' ו' דמנהגן של ישראל תורה היא. אמנם הט\"ז סק\"ב כתב דמ\"ש הטור דנוהגין להכניסן ולהוציאם מיד נראה דלאו ממש קאמר מיד אלא עכ\"פ צריך קצת שהיה וכתב שכ\"כ בכלבו דצריך לדקדק שלא למהר להוציא הכלי מן היורה כדי שיהא פנאי אל הרתיחה ליכנס ולהפליט מה שבלע. וכ\"כ א\"ר או' א' ר\"ז או' ד' בן א\"ח פ' צו או' י\"ב. ועיין לקמן או' י\"ד.",
+      "en_plain": "2) Regarding how long a utensil must remain in the cauldron during kashering, Rif in the chapter Kol Sha'ah writes that it should remain there until it expels what it absorbed. Ran writes likewise there, as do Rambam, chapter 5, halachah 23; Raavad in Sefer Tamim De'im, siman 25; and Rashba in Toras HaBayis, bayis 4, sha'ar 4. Radbaz in Leshonos HaRambam, siman 241, demonstrates that this is Rambam's view. See there. Tur, however, writes that the custom is to insert the utensils and remove them immediately. He writes likewise in Yoreh De'ah, siman 121. See there. Mordechai, chapter Kol Sha'ah, siman 579, writes likewise, as cited by Beis Yosef. Levush, se'if 2, also writes likewise. Peri Chadash, at the end of se'if 6, writes that the Jewish people's custom has the force of Torah. Taz, subsection 2, however, writes that Tur's statement to remove them 'immediately' is not literal; they must remain at least briefly. Kol Bo likewise writes that one must be careful not to hurry to remove a utensil from the cauldron, allowing time for the boiling water to enter it and extract what it absorbed. Eliyah Rabbah, subsection 1; Shulchan Aruch HaRav, subsection 4; Ben Ish Chai, parashas Tzav, subsection 12, write likewise. See below, subsection 14.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-002/magen-avraham",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 2,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.025,
+        "he_chars": 750,
+        "en_chars": 1519,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1519
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>יש ליזהר</b>. ולענין דיעבד עבי\"ד סי' צ\"ה ס\"ג:<br />\n<b>ביחד</b>. פי' שתוחב אותו בפעם א' ביורה ואין ס' ביורה נגד שום א' מהן:<br />\n<b>שום כלי ב\"י</b>. אפי' קודם שעה ה' משום גזירה דכלי של איסור דלא מהני ליה הגעלה כ\"ז שהוא ב\"י שחוזר ובולע ממי הגעלה דלא שייך בו נ\"ט בנ\"ט: ואפילו שלחנות ישפשף יפה וישהה אחר השפשוף מע\"ל שלא יהיו ב\"י ויהיו מנוגבין מן המים צוננין שמא יצטנו מהן הרותחין ויזהר לשפוך עליהם בזריזות ולא ע\"י זריקה באויר דזה לא מיחשב עירוי (עבי\"ד סי' צ\"ב) ויזהר שישפוך מן הכלי שבישל בו המים ולא ישאב עם כלי אחר מהקדיר' ולערות עליהן להגעיל דזהו מקרי כ\"ש (ועבט\"ז בי\"ד צ\"ב שהאריך בזה) אכן אם שוה' את הכלי ששואב עמו תוך הקדיר' שמעלין המי' רתיחתן מקרי שפיר כ\"ר (כל זה במהרי\"ל) ומט\"מ כ' להגעיל ג' ימי' קודם פסח וכל זה תלוי במנהג, כתוב בס\"ח סי' תש\"ל בעל תורה הבקי בהגעלה הוא יגעיל:\n",
+      "en_html": "<b>One must be careful.</b> And regarding after the fact, see Yoreh De'ah siman 95, se'if 3.<br />\n<b>Together.</b> Meaning that one inserts them at one time into the cauldron, and there is not sixty times [as much] in the cauldron against any one of them.<br />\n<b>Any ben yomo vessel.</b> Even before the fifth hour, because of a decree regarding a vessel of issur, for which hagalah does not help so long as it is ben yomo, since it returns and absorbs from the hagalah water, for a giving of taste after a giving of taste does not apply to it. And even tables: one should scrub well and wait after the scrubbing twenty-four hours so that they not be ben yomo, and so that they be dry of the cold water, lest the boiling [water] be cooled by them; and one should be careful to pour upon them with alacrity, and not by throwing through the air, for that is not considered pouring (see Yoreh De'ah siman 92); and one should be careful to pour from the vessel in which one boiled the water, and not to draw with another vessel from the pot and pour upon them to do hagalah, for that is called a kli sheini (and see the Taz in Yoreh De'ah siman 92, who elaborated on this); however, if one leaves the vessel with which one draws inside the pot so that the water raises its boil, it is properly called a kli rishon (all this in Maharil). And Mateh Moshe wrote to do hagalah three days before Pesach; and all this depends on custom. It is written in Sefer Chasidim, siman 730: a Torah scholar who is expert in hagalah is the one who should do the hagalah.\n",
+      "he_plain": "יש ליזהר . ולענין דיעבד עבי\"ד סי' צ\"ה ס\"ג: ביחד . פי' שתוחב אותו בפעם א' ביורה ואין ס' ביורה נגד שום א' מהן: שום כלי ב\"י . אפי' קודם שעה ה' משום גזירה דכלי של איסור דלא מהני ליה הגעלה כ\"ז שהוא ב\"י שחוזר ובולע ממי הגעלה דלא שייך בו נ\"ט בנ\"ט: ואפילו שלחנות ישפשף יפה וישהה אחר השפשוף מע\"ל שלא יהיו ב\"י ויהיו מנוגבין מן המים צוננין שמא יצטנו מהן הרותחין ויזהר לשפוך עליהם בזריזות ולא ע\"י זריקה באויר דזה לא מיחשב עירוי (עבי\"ד סי' צ\"ב) ויזהר שישפוך מן הכלי שבישל בו המים ולא ישאב עם כלי אחר מהקדיר' ולערות עליהן להגעיל דזהו מקרי כ\"ש (ועבט\"ז בי\"ד צ\"ב שהאריך בזה) אכן אם שוה' את הכלי ששואב עמו תוך הקדיר' שמעלין המי' רתיחתן מקרי שפיר כ\"ר (כל זה במהרי\"ל) ומט\"מ כ' להגעיל ג' ימי' קודם פסח וכל זה תלוי במנהג, כתוב בס\"ח סי' תש\"ל בעל תורה הבקי בהגעלה הוא יגעיל:",
+      "en_plain": "One must be careful. And regarding after the fact, see Yoreh De'ah siman 95, se'if 3. Together. Meaning that one inserts them at one time into the cauldron, and there is not sixty times [as much] in the cauldron against any one of them. Any ben yomo vessel. Even before the fifth hour, because of a decree regarding a vessel of issur, for which hagalah does not help so long as it is ben yomo, since it returns and absorbs from the hagalah water, for a giving of taste after a giving of taste does not apply to it. And even tables: one should scrub well and wait after the scrubbing twenty-four hours so that they not be ben yomo, and so that they be dry of the cold water, lest the boiling [water] be cooled by them; and one should be careful to pour upon them with alacrity, and not by throwing through the air, for that is not considered pouring (see Yoreh De'ah siman 92); and one should be careful to pour from the vessel in which one boiled the water, and not to draw with another vessel from the pot and pour upon them to do hagalah, for that is called a kli sheini (and see the Taz in Yoreh De'ah siman 92, who elaborated on this); however, if one leaves the vessel with which one draws inside the pot so that the water raises its boil, it is properly called a kli rishon (all this in Maharil). And Mateh Moshe wrote to do hagalah three days before Pesach; and all this depends on custom. It is written in Sefer Chasidim, siman 730: a Torah scholar who is expert in hagalah is the one who should do the hagalah.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-004/levushei-serad",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 4,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.118,
+        "he_chars": 51,
+        "en_chars": 108,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 108
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<small>ט\"ז סקי\"א</small> שנכנס הכלי תוך היורה אחר אינו מועיל כצ\"ל:\n",
+      "en_html": "<small>Taz s.k. 11</small> That if the vessel entered the cauldron afterward, it does not help; this is how it should read.\n",
+      "he_plain": "ט\"ז סקי\"א שנכנס הכלי תוך היורה אחר אינו מועיל כצ\"ל:",
+      "en_plain": "Taz s.k. 11 That if the vessel entered the cauldron afterward, it does not help; this is how it should read.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-006/chok-yaakov",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 6,
+      "slug": "chok-yaakov",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.5,
+        "he_chars": 1168,
+        "en_chars": 1752,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1752
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>שפה לפיו בטיט. </b> ובשאר כל ימות השנה עביד גדנפא דלישא כדאיתא בפרק כל שעה ע' בבית הילל בי\"ד סי' קכ\"א סק\"א כתב וז\"ל ע' בהרא\"ש בפרק כל שעה ומשמע בהדיא דדוקא גבי חמץ בפסח דהתירא בלע מהני לכלי גדול גדפנא אבל גבי שאר איסורים לא מהני לכלי גדול גדפנא אלא צריך מתחלה הגעלה אחת ואח\"כ משום שפתה צריך גדנפא וזה דוקא בשאר איסורים אבל גבי חמץ בפסח א\"צ מתחלה הגעלה אחת ואח\"כ יחזיר ויתן מים רותחין עם גדנפא. אבל מלשון האלפסי לא משמע הכי בפ\"ב דעכו\"ם העתיק הא דמר עוקבא משמע דשוין הם לענין גדפנא עכ\"ל הב\"ח וכל דבריו תמוהים בזה חדא מ\"ש שכן משמע בהרא\"ש להדיא בפ' כל שעה המעיין שם יראה שאין שום משמעות כלל בדבריו לחלק כה\"ג והגעלה תרתי זימנא למה ומה שהוזכר שם בהרא\"ש שיגעיל היורה תרי זימנא זה קאי לענין אם מגעיל בתוך היורה שצריך להגעיל היורה תחלה וסוף וכגוונא שכת' המחבר לעיל בסעיף א' וע\"ש ס\"ק ח' ע\"ש תראה להדיא כמ\"ש גם מ\"ש אבל מלשון האלפסי יותר תמוה דהלא גם הרא\"ש כתב שם כן ע\"ש ס\"פ השוכר את הפועל כלל הדבר דאין חילוק בדין זה כלל רק לענין גדפנא דלישה שאי אפשר בפסח וכמשמעות הש\"ס וכל הפוסקים:<br />\n<b>ויעלו על שפתו. </b> אבל כלי שתשמישו מבחוץ כמו קערה שכופין לפעמים על הקדרה או כלי ששואבין בה מהקדרה אף צד החיצון בעי הגעלה וכת' המ\"א בשם מהרי\"ל כלי שפיהו צר שא\"א לשפשפו בפנים או שיש לה קנים אסור בהגעלה עכ\"ל.\n",
+      "en_html": "<b>He should form a rim at its mouth with clay.</b> During the rest of the year one may form a rim from dough, as stated in Kol Shaah. Beis Hillel, Yoreh Deah 121, seif katan 1, writes that Rosh in Kol Shaah clearly implies that only regarding chametz for Pesach, where permitted matter was absorbed, is such a rim effective for a large utensil. For other prohibitions, a large utensil must first undergo hagalah once, and afterward a rim is needed for its lip. According to him, this distinction applies only to other prohibitions, whereas for chametz before Pesach a first hagalah is unnecessary before refilling it with boiling water and using the rim. He adds that Rif in chapter 2 of Avodah Zarah, who cites the case of Mar Ukva, does not imply such a distinction. These words are astonishing. Rosh contains no implication whatever supporting such a distinction. His reference to performing hagalah on the cauldron twice concerns a case where utensils are kashered within that cauldron, so the cauldron must undergo hagalah before and after, as the Mechaber wrote above in seif 1. Likewise, the claim regarding Rif is even more difficult, for Rosh also cites that case at the end of HaSocher Es HaPoel. The rule is that there is no distinction at all in this law, except that a dough rim cannot be used during Pesach itself, as is evident from the Gemara and all the authorities.<br />\n<b>And the water should rise over its rim.</b> If a utensil is used on its outside, such as a bowl that is sometimes inverted over a pot, or a vessel used to draw food from a pot, its exterior also requires hagalah. Magen Avraham writes in the name of Maharil that a narrow-necked utensil that cannot be scrubbed inside, or a utensil with tubes, cannot be kashered through hagalah.\n",
+      "he_plain": "שפה לפיו בטיט. ובשאר כל ימות השנה עביד גדנפא דלישא כדאיתא בפרק כל שעה ע' בבית הילל בי\"ד סי' קכ\"א סק\"א כתב וז\"ל ע' בהרא\"ש בפרק כל שעה ומשמע בהדיא דדוקא גבי חמץ בפסח דהתירא בלע מהני לכלי גדול גדפנא אבל גבי שאר איסורים לא מהני לכלי גדול גדפנא אלא צריך מתחלה הגעלה אחת ואח\"כ משום שפתה צריך גדנפא וזה דוקא בשאר איסורים אבל גבי חמץ בפסח א\"צ מתחלה הגעלה אחת ואח\"כ יחזיר ויתן מים רותחין עם גדנפא. אבל מלשון האלפסי לא משמע הכי בפ\"ב דעכו\"ם העתיק הא דמר עוקבא משמע דשוין הם לענין גדפנא עכ\"ל הב\"ח וכל דבריו תמוהים בזה חדא מ\"ש שכן משמע בהרא\"ש להדיא בפ' כל שעה המעיין שם יראה שאין שום משמעות כלל בדבריו לחלק כה\"ג והגעלה תרתי זימנא למה ומה שהוזכר שם בהרא\"ש שיגעיל היורה תרי זימנא זה קאי לענין אם מגעיל בתוך היורה שצריך להגעיל היורה תחלה וסוף וכגוונא שכת' המחבר לעיל בסעיף א' וע\"ש ס\"ק ח' ע\"ש תראה להדיא כמ\"ש גם מ\"ש אבל מלשון האלפסי יותר תמוה דהלא גם הרא\"ש כתב שם כן ע\"ש ס\"פ השוכר את הפועל כלל הדבר דאין חילוק בדין זה כלל רק לענין גדפנא דלישה שאי אפשר בפסח וכמשמעות הש\"ס וכל הפוסקים: ויעלו על שפתו. אבל כלי שתשמישו מבחוץ כמו קערה שכופין לפעמים על הקדרה או כלי ששואבין בה מהקדרה אף צד החיצון בעי הגעלה וכת' המ\"א בשם מהרי\"ל כלי שפיהו צר שא\"א לשפשפו בפנים או שיש לה קנים אסור בהגעלה עכ\"ל.",
+      "en_plain": "He should form a rim at its mouth with clay. During the rest of the year one may form a rim from dough, as stated in Kol Shaah. Beis Hillel, Yoreh Deah 121, seif katan 1, writes that Rosh in Kol Shaah clearly implies that only regarding chametz for Pesach, where permitted matter was absorbed, is such a rim effective for a large utensil. For other prohibitions, a large utensil must first undergo hagalah once, and afterward a rim is needed for its lip. According to him, this distinction applies only to other prohibitions, whereas for chametz before Pesach a first hagalah is unnecessary before refilling it with boiling water and using the rim. He adds that Rif in chapter 2 of Avodah Zarah, who cites the case of Mar Ukva, does not imply such a distinction. These words are astonishing. Rosh contains no implication whatever supporting such a distinction. His reference to performing hagalah on the cauldron twice concerns a case where utensils are kashered within that cauldron, so the cauldron must undergo hagalah before and after, as the Mechaber wrote above in seif 1. Likewise, the claim regarding Rif is even more difficult, for Rosh also cites that case at the end of HaSocher Es HaPoel. The rule is that there is no distinction at all in this law, except that a dough rim cannot be used during Pesach itself, as is evident from the Gemara and all the authorities. And the water should rise over its rim. If a utensil is used on its outside, such as a bowl that is sometimes inverted over a pot, or a vessel used to draw food from a pot, its exterior also requires hagalah. Magen Avraham writes in the name of Maharil that a narrow-necked utensil that cannot be scrubbed inside, or a utensil with tubes, cannot be kashered through hagalah.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-006/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 6,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.962,
+        "he_chars": 719,
+        "en_chars": 1411,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1411
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>ו) שם. כדי שלא יצטרך וכו'  </b>כלומר דאז א\"צ ליזהר שלא יהיה הכלי ב\"י דאפי' הוא ב\"י ואין במים ס' נגד הכלים מותר כיון שעדיין זמן היתר הוא והו\"ל נ\"ט בר נ\"ט דהיתירא. תו' חולין ק\"ח ע\"ב וע\"ז ע\"ו ע\"א. וכ\"כ הרא\"ש בסוף ע\"ז ובפ' כל שעה. וכ\"כ המרדכי פ' כל שעה והר\"ן ס\"פ כל הבשר. והב\"ד הטור וב\"י. וכ\"כ העו\"ש או' א' מ\"א סק\"א. ח\"י או' ב' חק יוסף או' א' מק\"ח או' ב' ר\"ז או' י\"ג. ח\"א שם או' ל\"ג, ואע\"ג דלעיל סי' תמ\"ז סעי' ה' בהגה אוסר דברים המתבשלים בכלי חמץ ולא התיר מטעם נ\"ט בר נ\"ט, י\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי. מ\"א שם. ח\"י שם. מק\"ח שם. וכ\"ז לפום דינא אבל המנהג שלא להגעיל שום כלי ב\"י כמ\"ש לקמן סעי' ב' בהגה יעו\"ש. ועיין עוד לקמן או' כ\"א בענין היורה שמגעילין בה אם צריך להגעילה תחלה יעו\"ש.\n",
+      "en_html": "<b>6) There. So that one will not need, etc. </b>At that time, one need not ensure that the utensil was not used that day. Even if it was used that day and the water does not equal sixty times the utensils, it is permitted, because chametz is still permitted and this is a secondary transfer of permitted flavor. Tosafos, Chullin 108b and Avodah Zarah 76a; Rosh at the end of Avodah Zarah and in the chapter Kol Sha'ah; Mordechai, chapter Kol Sha'ah; Ran at the end of the chapter Kol HaBasar. Tur and Beis Yosef cite these authorities. Olas Shabbos, subsection 1; Magen Avraham, subsection 1; Chok Yaakov, subsection 2; Chok Yosef, subsection 1; Mekor Chaim, subsection 2; Shulchan Aruch HaRav, subsection 13; Chayei Adam, there, subsection 33, write likewise. Although the gloss above in siman 447, se'if 5, prohibits foods cooked in a chametz utensil and does not permit them because of a secondary transfer of flavor, here there are several successive transfers: from the food to the utensil, from the utensil to the water, and from the water to the second utensil. It is therefore permitted. Magen Avraham, there; Chok Yaakov, there; Mekor Chaim, there. All this is the strict law, but the custom is not to kasher any utensil that was used that day, as stated below in the gloss to se'if 2. See there. See also below, subsection 21, regarding whether the cauldron used for kashering must first itself be kashered.\n",
+      "he_plain": "ו) שם. כדי שלא יצטרך וכו' כלומר דאז א\"צ ליזהר שלא יהיה הכלי ב\"י דאפי' הוא ב\"י ואין במים ס' נגד הכלים מותר כיון שעדיין זמן היתר הוא והו\"ל נ\"ט בר נ\"ט דהיתירא. תו' חולין ק\"ח ע\"ב וע\"ז ע\"ו ע\"א. וכ\"כ הרא\"ש בסוף ע\"ז ובפ' כל שעה. וכ\"כ המרדכי פ' כל שעה והר\"ן ס\"פ כל הבשר. והב\"ד הטור וב\"י. וכ\"כ העו\"ש או' א' מ\"א סק\"א. ח\"י או' ב' חק יוסף או' א' מק\"ח או' ב' ר\"ז או' י\"ג. ח\"א שם או' ל\"ג, ואע\"ג דלעיל סי' תמ\"ז סעי' ה' בהגה אוסר דברים המתבשלים בכלי חמץ ולא התיר מטעם נ\"ט בר נ\"ט, י\"ל דהכא כיון דאיכא הרבה טעמים מן המאכל לכלי ומן הכלי למים ומן המים לכלי שרי. מ\"א שם. ח\"י שם. מק\"ח שם. וכ\"ז לפום דינא אבל המנהג שלא להגעיל שום כלי ב\"י כמ\"ש לקמן סעי' ב' בהגה יעו\"ש. ועיין עוד לקמן או' כ\"א בענין היורה שמגעילין בה אם צריך להגעילה תחלה יעו\"ש.",
+      "en_plain": "6) There. So that one will not need, etc. At that time, one need not ensure that the utensil was not used that day. Even if it was used that day and the water does not equal sixty times the utensils, it is permitted, because chametz is still permitted and this is a secondary transfer of permitted flavor. Tosafos, Chullin 108b and Avodah Zarah 76a; Rosh at the end of Avodah Zarah and in the chapter Kol Sha'ah; Mordechai, chapter Kol Sha'ah; Ran at the end of the chapter Kol HaBasar. Tur and Beis Yosef cite these authorities. Olas Shabbos, subsection 1; Magen Avraham, subsection 1; Chok Yaakov, subsection 2; Chok Yosef, subsection 1; Mekor Chaim, subsection 2; Shulchan Aruch HaRav, subsection 13; Chayei Adam, there, subsection 33, write likewise. Although the gloss above in siman 447, se'if 5, prohibits foods cooked in a chametz utensil and does not permit them because of a secondary transfer of flavor, here there are several successive transfers: from the food to the utensil, from the utensil to the water, and from the water to the second utensil. It is therefore permitted. Magen Avraham, there; Chok Yaakov, there; Mekor Chaim, there. All this is the strict law, but the custom is not to kasher any utensil that was used that day, as stated below in the gloss to se'if 2. See there. See also below, subsection 21, regarding whether the cauldron used for kashering must first itself be kashered.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman452/seif-007/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 452,
+      "seif": 7,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.071,
+        "he_chars": 536,
+        "en_chars": 1110,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1110
+        },
+        "failure_patterns": [
+          "the_cauldron"
+        ]
+      },
+      "he_html": "<b>ז) מעשה  </b>שמצאו חתיכת לחם ביורה שהיו מגעילין בה קו\"פ ושאלו אם צריכין להגעיל הכלים פ\"ב העלה הרב\"ד סי' קצ\"ה דלנוהגים כמ\"ד דאינו חו\"נ פשיטא דאינו כלים שטעם הלחם הנפלט במים נתבטל בס' ולנוהגים כמ\"ד חו\"נ נמי א\"צ להגעיל פ\"ב דלא ראינו דקבלו עליהם חו\"נ אלא בממשות לא בטעם ואעפ\"י שנוהגין להגעיל כלי הלישה של מקילים וכו' היינו לכתחלה וכו' וכיון דדבר מנהג הוא אין לנו להוסיף חומרא והבו וכו' אמנם אם המצא ימצא בבירור שמנהגם לאסור אפי' בדיעבד בטעמא לבד אז בודאי צריכין להגעיל כלים אלו פ\"ב יעו\"ש. זכ\"ל סוף סי' תנ\"א. ועיין לעיל סי' תמ\"ז או' נ\"ט ואו' ע\"ו.\n",
+      "en_html": "<b>7) An incident occurred </b>in which a piece of bread was found in the cauldron used to kasher utensils before Pesach. The question was whether the utensils had to be kashered a second time. Beis David, siman 195, concludes that according to communities that do not apply the rule that a piece becomes intrinsically prohibited, it is obvious that the utensils are not prohibited, because the flavor expelled from the bread into the water was nullified in sixty. Even according to communities that do apply that rule, a second kashering is unnecessary. Their acceptance of the rule was observed only regarding a tangible substance, not mere flavor. Although they customarily kasher kneading utensils belonging to lenient communities, and so forth, that is only an initial stringency. Since this is a custom, we should not add further stringency. If it is clearly established, however, that their custom is to prohibit even after the fact because of flavor alone, then these utensils must certainly be kashered again. See there. Zechor LeAvraham, at the end of siman 451. See above, siman 447, subsections 59 and 76.\n",
+      "he_plain": "ז) מעשה שמצאו חתיכת לחם ביורה שהיו מגעילין בה קו\"פ ושאלו אם צריכין להגעיל הכלים פ\"ב העלה הרב\"ד סי' קצ\"ה דלנוהגים כמ\"ד דאינו חו\"נ פשיטא דאינו כלים שטעם הלחם הנפלט במים נתבטל בס' ולנוהגים כמ\"ד חו\"נ נמי א\"צ להגעיל פ\"ב דלא ראינו דקבלו עליהם חו\"נ אלא בממשות לא בטעם ואעפ\"י שנוהגין להגעיל כלי הלישה של מקילים וכו' היינו לכתחלה וכו' וכיון דדבר מנהג הוא אין לנו להוסיף חומרא והבו וכו' אמנם אם המצא ימצא בבירור שמנהגם לאסור אפי' בדיעבד בטעמא לבד אז בודאי צריכין להגעיל כלים אלו פ\"ב יעו\"ש. זכ\"ל סוף סי' תנ\"א. ועיין לעיל סי' תמ\"ז או' נ\"ט ואו' ע\"ו.",
+      "en_plain": "7) An incident occurred in which a piece of bread was found in the cauldron used to kasher utensils before Pesach. The question was whether the utensils had to be kashered a second time. Beis David, siman 195, concludes that according to communities that do not apply the rule that a piece becomes intrinsically prohibited, it is obvious that the utensils are not prohibited, because the flavor expelled from the bread into the water was nullified in sixty. Even according to communities that do apply that rule, a second kashering is unnecessary. Their acceptance of the rule was observed only regarding a tangible substance, not mere flavor. Although they customarily kasher kneading utensils belonging to lenient communities, and so forth, that is only an initial stringency. Since this is a custom, we should not add further stringency. If it is clearly established, however, that their custom is to prohibit even after the fact because of flavor alone, then these utensils must certainly be kashered again. See there. Zechor LeAvraham, at the end of siman 451. See above, siman 447, subsections 59 and 76.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

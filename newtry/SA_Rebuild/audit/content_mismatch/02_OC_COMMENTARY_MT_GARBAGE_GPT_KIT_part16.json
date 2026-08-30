@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 16,
+    "chunk_total": 47,
+    "case_offset": 101,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman304/seif-001/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 0.983,
+        "he_chars": 4774,
+        "en_chars": 4694,
+        "cut_deficit": 0.01675743611227487
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4694
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(א) אדם וכו' - וכדי להקל על המעיין לידע טעם חלוקי הדינים המבוארים בסימן זה אקדים הקדמה קטנה וכפי מה שמבואר בגמרא ופוסקים. דהנה תרי קראי כתיבי חד למען ינוח עבדך ואמתך כמוך זה קאי על עבד שמל וטבל לשם עבדות וקבל עליו כל מצות עבדים דהיינו כל מה שאשה חייבת וא\"כ גם מצות שבת בכלל ואסור לעשות מלאכה בשבת ואתי האי קרא לאורויי דשביתת העבד מוטל גם על רבו שהוא מצווה עליו למנעו מעשות מלאכה אפילו לצורך עצמו של העבד ועוד כתיב קרא וינפש בן אמתך והגר ודרשו חז\"ל דקאי על עבד הקנוי לישראל קנין הגוף אבל לא מל וטבל רק קיבל עליו ז' מצות בני נח דגם לזה צריך רבו למנעו מלעשות מלאכה עבורו בשבת וה\"ה דאסור מן התורה לכל ישראל לצוות לו לעשות מלאכה עבורם בשבת אבל לעצמו מותר עבד כזה לעשות מלאכה בשבת כיון דשבת אינו נכלל תוך ז' מצות בני נח ודינו כגר תושב דאינו מוזהר על השבת ומ\"מ אסור מה\"ת לישראל לצוות לו לעשות מלאכה עבורו וכדכתיב וינפש בן אמתך והגר. ועבד הקנוי לישראל קנין גוף ולא מל ולא טבל וגם לא קיבל עליו אפילו ז' מצות בני נח בזה נחלקו הפוסקים אם גם ע\"ז מצווים אנו על שביתתו וכמו שיתבאר:<br />\n(ב) על שביתת עבדו - דמצוה על רבו לשמרו ולמנעו מעשות מלאכה אפילו לצורך עצמו וכנ\"ל. ומותר להשכיר עבדו לא\"י בימי החול אם מתנה עמו שלא יעשה בו מלאכה בשבת ולא דמי לבהמתו דמבואר לעיל בסימן רמ\"ו ס\"ג דאסור להשכירה לא\"י בכי האי גוונא דאין הא\"י נאמן על כך דהכא הא\"י לא יעשה מלאכה בע\"כ של עבד ויש לעבד נאמנות ע\"ז [פמ\"ג]:<br />\n(ג) הנוהגות בעבד - דהיינו כל המצות שהאשה חייבת:<br />\n(ד) הרי הוא כגר תושב - גר תושב מקרי כל שקבל עליו לקיים שבע מצות בני נח ושלא לעבוד ע\"ג אפילו בשיתוף:<br />\n(ה) לעצמו - היינו מלאכת עצמו כגון תפירת בגדיו ותיקון מנעליו וכיו\"ב או שעושה להשתכר כדי שיהיו לו מזונותיו בריוח יתר על הספקת אדוניו:<br />\n(ו) אבל לא לרבו - היינו אפילו לא צוהו רבו בהדיא על המלאכה ג\"כ אסור דמסתמא על דעת רבו הוא עושה והזהירה התורה ע\"ז למנעו וכדכתיב וינפש בן אמתך והגר וכנ\"ל בסק\"א. ואפילו מלאכה דרבנן אסור ג\"כ לעשות בשביל רבו ויש מקילין בזה אם לא הזהירו רבו בהדיא ע\"ז כיון שהוא רק מלאכה דרבנן:<br />\n(ז) ואסור לכל ישראל - היינו מן התורה דכיון דכבר קבל עליו שבע מצות לכו\"ע הוי דינו כגר תושב דאסרה התורה לישראל לעשות מלאכה על ידו:<br />\n(ח) ואם לא קבל - ר\"ל דה\"ה ג\"כ אם לא קבל עליו שום מצוה אפ\"ה כיון שהוא עבד ישראל הקנוי לו קנין הגוף ס\"ל לדעה זו דדינו שוה לקבל עליו שבע מצות ואסור לעשות מלאכה בשביל שום ישראל וכנ\"ל:<br />\n(ט) לומר לעבד ישראל - דדוקא אמירה לסתם א\"י שאינו אלא שבות התירו בדברים אלו אבל בעבד א\"י של ישראל שמוזהרין עליו מן התורה אין לו היתר אלא בפיקוח נפש:<br />\n(י) ויש חולקים ומתירים בזה - היינו בזה שהעבד הוא נכרי גמור ואפ\"ה ס\"ל לדעה ראשונה דהוא שוה לקבל עליו שבע מצות דאסור אפילו לישראל אחר לומר לו לעשות לו מלאכה וע\"ז חולקים וס\"ל דבזה לא אסרה התורה אלא לעשות מלאכה בשביל רבו וכדכתיב וינפש בן אמתך אבל לשאר איש ישראל לא עדיף משאר א\"י דעלמא דאינו אסור רק מדרבנן וממילא לצורך חולה אפילו אין בו סכנה מותר:<br />\n(יא) אם היה עושה וכו' - היינו דאף דמבואר לעיל שמצווה על שביתת עבדו בין כשקבל עליו ז' מצות ובין כשלא קבל עליו שלא יעשה מלאכה עבורו היינו דוקא בדניחא ליה במלאכה זו דאז אמרינן דמסתמא עושה על דעתו וע\"כ מחויב להפרישו מזה משא\"כ כשניכר שאין עושה לדעתו הוי כמלאכת עצמו ואינו מוטל עליו למנעו:<br />\n(יב) ולישראל אחר וכו' - דדוקא גבי רבו שהוא עבדו אמרינן דמסתמא כל מה שהוא עושה על דעת רבו עושה משא\"כ בזה אף שהוא עושה לדעת ישראל כל שלא צוהו ומתחיל העבד או הגר תושב לעשות מאליו אמרינן דהעיקר אדעתיה דנפשיה עביד להרויח לבסוף ממלאכתו ואינו אסור אא\"כ מצוהו לעשות וכנ\"ל בסק\"ז:<br />\n(יג) מותר - ועיין סימן רנ\"ב סוף ס\"ב דלפעמים צריך למחות מדרבנן:<br />\n(יד) ובלבד שלא יהנה - והיינו מדרבנן דלא עדיף העבד משאר אינו יהודי דעלמא שעשה מלאכה לדעת ישראל שאסור לישראל ליהנות מאותה המלאכה בשבת וכנ\"ל בריש סימן רע\"ו:<br />\n(טו) וי\"א שכל וכו' - ס\"ל דלא הזהירה התורה על עבד של ישראל לענין שבת אלא ביש עליו עכ\"פ קצת מצות דהיינו שבע מצות בני נח וכמבואר בב\"י ע\"ש ועיין בא\"ר שהביא בשם כמה פוסקים דלמעשה יש להחמיר כסברא הראשונה. אסור לומר למומר וקראים לעשות לו מלאכה בשבת ויו\"ט דעובר משום לפני עור [פמ\"ג]:<br />\n(טז) וכל עבד וכו' - אי קאי גם אעבד שלא מל וטבל עיין בתו\"ש ופמ\"ג:<br />\n(יז) אסור לצאת וכו' - הנה מתחלה סתם הדבר ואח\"כ ביאר דאם יש בו תרתי למעליותא דהיינו שהחותם היה של טיט והוא תלוי בצוארו מותר לצאת בו דלמאי ניחוש לה דלשמא יסירנה בידו ויביאנה ד\"א בר\"ה בודאי ליכא למיחש דאית עליה אימתא דרביה שיאמר שהסירה כדי להראות שהוא בן חורין ולשמא יפסק וישבר החותם מאליו בר\"ה ואתי לאתויי אח\"כ לביתו ג\"כ ליכא למיחש דלמאי יביאנו דחותם שבור של טיט לא חזי למידי ואם כדי להראות לרבו שהוא כפוף לו ואוחז בידו החותם של עבדות זה אינו סימן כלל על עבדות כ\"א כשתלוי בצוארו או בכסותו אבל אי אית ביה חדא למעליותא שהיה תלוי החותם בכסותו או שהיה החותם של מתכות שהוא חשוב אסור לצאת בו לר\"ה וכדלקמיה:<br />\n(יח) אבל לא בכסותו - דילמא מיפסק החותם מאליו ומירתת מרבו שיאמר שהסירו כדי להראות לכל שהוא בן חורין ויקפל טליתו כדי שלא יתראה מקום החותם וישאנו על כתפו ודמי הטלית על כתפו כמשאוי:<br />\n(יט) ובשל מתכות וכו' - דכיון שהוא חשוב וקפיד עליו רבו שלא יאבד חיישינן דילמא מיפסק ואתי לאתויי ד' אמות בר\"ה:<br />\n(כ) בכל ענין - היינו אפילו כשהוא תלוי על צוארו והטעם דכיון שהוא עשה לעצמו אינו מירתת מרבו כשיסירנו וחיישינן דילמא שקיל ליה בידיה ויביאנו ד\"א בר\"ה:\n",
+      "en_html": "(א) A person etc. — to ease reader knowing reasons of laws in this siman I precede small introduction per Gemara and poskim. Two verses: one \"that your slave and maidservant rest like you\" — slave circumcised immersed for slavery accepted all slave mitzvot i.e. all woman obligated — Shabbat included — forbidden melacha Shabbat; verse teaches slave's rest also on master commanded prevent melacha even for slave's need; second \"son of your maidservant and ger refresh\" — Sages: gentile slave body-acquired to Israel not circumcised only seven Noahide mitzvot — master must prevent melacha for him Shabbat; forbidden all Israel command melacha for them Shabbat; for himself permitted — Shabbat not in seven mitzvot — law like ger toshav not warned Shabbat; nevertheless forbidden d'oraisa Israel command melacha for him; slave body-acquired not circumcised not accepted even seven — poskim dispute if commanded on rest — as will explain.\n<br>(ב) On slave's rest — master commanded guard prevent melacha even for himself as above; permitted rent slave to gentile weekdays if stipulates no Shabbat melacha — unlike animal siman 246 seif 3 forbidden rent gentile such case — gentile not trusted; here gentile won't act against slave will — slave trusted (Peri Megadim).\n<br>(ג) Customary for slave — all mitzvot woman obligated.\n<br>(ד) He is like ger toshav — ger toshav: accepted seven Noahide mitzvot and not serve idols even in partnership.\n<br>(ה) For himself — his own melacha e.g. sewing garments repairing shoes or earning so sustenance beyond master's provision.\n<br>(ו) But not for master — even if master didn't explicitly command melacha forbidden — presumably on master's intent — Torah warned prevent as \"son of your maidservant refresh\" as note 1; even rabbinic melacha forbidden for master; some lenient if master didn't explicitly warn since only rabbinic.\n<br>(ז) Forbidden all Israel — d'oraisa since accepted seven mitzvot all agree law like ger toshav — Torah forbade Israel melacha through him.\n<br>(ח) If didn't accept — meaning likewise if accepted no mitzvah — since Jewish slave body-acquired to him this view law equal accept seven mitzvot — forbidden melacha for any Israel as above.\n<br>(ט) Tell Jewish slave — specifically telling plain gentile — only shevut permitted these; Jewish gentile slave warned d'oraisa — no heter except pikuach nefesh.\n<br>(י) Some dispute and permit — when slave complete gentile yet first view equal accept seven mitzvot — forbidden even other Israel tell him melacha; they dispute Torah only forbade melacha for master as \"son of your maidservish refresh\"; other Israel no worse than other gentile — rabbinic only — therefore sick without danger permitted.\n<br>(כ) If he was doing etc. — though commanded slave's rest whether accepted seven or not not do for him — specifically when pleasing him in this melacha — then presumably on his own intent — must stop; when evident not on intent — like his own melacha — not obligated prevent.\n<br>(ל) Other Israel etc. — only by master presumed all he does on master; here even knowingly for Israel — as long as didn't command and slave or ger toshav begins himself — presumed for himself to profit — not forbidden unless commanded as note 7.\n<br>(מ) Permitted — see siman 252 end seif 2 sometimes must protest rabbinically.\n<br>(נ) Provided not benefit — rabbinically — slave not better than other non-Jew doing knowingly for Israel — Israel forbidden benefit that melacha Shabbat as start siman 276.\n<br>(ס) Some say all etc. — hold Torah didn't warn Jewish slave Shabbat only if accepted some mitzvot i.e. seven as Beit Yosef see there; see Avnei Nezer brought several poskim practice stringent first view; forbidden tell mumar and Karaites melacha Shabbat and Yom Tov — violates lifnei iver (Peri Megadim).\n<br>(ע) Every slave etc. — if also slave not circumcised immersed see Tosafot and Peri Megadim.\n<br>(פ) Forbidden go out etc. — first stam then explained if two stringencies i.e. clay seal hung on neck permitted — why concern carry in hand — certainly no concern fears master say removed to show free; why carry; no concern break off carry afterward home — broken clay seal useless; if to show master subjugation holding slavery seal not sign of slavery except hung on neck or garment; if one stringency hung on garment or metal important — forbidden public domain as below.\n<br>(צ) Not on garment — lest break fears master say removed show free folds tallit hide seal place carries on shoulder like burden.\n<br>(ק) And of metal etc. — important master careful not lose — concern break carry four amot public domain.\n<br>(ר) In any manner — even hung on neck — since made for himself not afraid master when removes — concern take in hand carry public domain.",
+      "he_plain": "(א) אדם וכו' - וכדי להקל על המעיין לידע טעם חלוקי הדינים המבוארים בסימן זה אקדים הקדמה קטנה וכפי מה שמבואר בגמרא ופוסקים. דהנה תרי קראי כתיבי חד למען ינוח עבדך ואמתך כמוך זה קאי על עבד שמל וטבל לשם עבדות וקבל עליו כל מצות עבדים דהיינו כל מה שאשה חייבת וא\"כ גם מצות שבת בכלל ואסור לעשות מלאכה בשבת ואתי האי קרא לאורויי דשביתת העבד מוטל גם על רבו שהוא מצווה עליו למנעו מעשות מלאכה אפילו לצורך עצמו של העבד ועוד כתיב קרא וינפש בן אמתך והגר ודרשו חז\"ל דקאי על עבד הקנוי לישראל קנין הגוף אבל לא מל וטבל רק קיבל עליו ז' מצות בני נח דגם לזה צריך רבו למנעו מלעשות מלאכה עבורו בשבת וה\"ה דאסור מן התורה לכל ישראל לצוות לו לעשות מלאכה עבורם בשבת אבל לעצמו מותר עבד כזה לעשות מלאכה בשבת כיון דשבת אינו נכלל תוך ז' מצות בני נח ודינו כגר תושב דאינו מוזהר על השבת ומ\"מ אסור מה\"ת לישראל לצוות לו לעשות מלאכה עבורו וכדכתיב וינפש בן אמתך והגר. ועבד הקנוי לישראל קנין גוף ולא מל ולא טבל וגם לא קיבל עליו אפילו ז' מצות בני נח בזה נחלקו הפוסקים אם גם ע\"ז מצווים אנו על שביתתו וכמו שיתבאר: (ב) על שביתת עבדו - דמצוה על רבו לשמרו ולמנעו מעשות מלאכה אפילו לצורך עצמו וכנ\"ל. ומותר להשכיר עבדו לא\"י בימי החול אם מתנה עמו שלא יעשה בו מלאכה בשבת ולא דמי לבהמתו דמבואר לעיל בסימן רמ\"ו ס\"ג דאסור להשכירה לא\"י בכי האי גוונא דאין הא\"י נאמן על כך דהכא הא\"י לא יעשה מלאכה בע\"כ של עבד ויש לעבד נאמנות ע\"ז [פמ\"ג]: (ג) הנוהגות בעבד - דהיינו כל המצות שהאשה חייבת: (ד) הרי הוא כגר תושב - גר תושב מקרי כל שקבל עליו לקיים שבע מצות בני נח ושלא לעבוד ע\"ג אפילו בשיתוף: (ה) לעצמו - היינו מלאכת עצמו כגון תפירת בגדיו ותיקון מנעליו וכיו\"ב או שעושה להשתכר כדי שיהיו לו מזונותיו בריוח יתר על הספקת אדוניו: (ו) אבל לא לרבו - היינו אפילו לא צוהו רבו בהדיא על המלאכה ג\"כ אסור דמסתמא על דעת רבו הוא עושה והזהירה התורה ע\"ז למנעו וכדכתיב וינפש בן אמתך והגר וכנ\"ל בסק\"א. ואפילו מלאכה דרבנן אסור ג\"כ לעשות בשביל רבו ויש מקילין בזה אם לא הזהירו רבו בהדיא ע\"ז כיון שהוא רק מלאכה דרבנן: (ז) ואסור לכל ישראל - היינו מן התורה דכיון דכבר קבל עליו שבע מצות לכו\"ע הוי דינו כגר תושב דאסרה התורה לישראל לעשות מלאכה על ידו: (ח) ואם לא קבל - ר\"ל דה\"ה ג\"כ אם לא קבל עליו שום מצוה אפ\"ה כיון שהוא עבד ישראל הקנוי לו קנין הגוף ס\"ל לדעה זו דדינו שוה לקבל עליו שבע מצות ואסור לעשות מלאכה בשביל שום ישראל וכנ\"ל: (ט) לומר לעבד ישראל - דדוקא אמירה לסתם א\"י שאינו אלא שבות התירו בדברים אלו אבל בעבד א\"י של ישראל שמוזהרין עליו מן התורה אין לו היתר אלא בפיקוח נפש: (י) ויש חולקים ומתירים בזה - היינו בזה שהעבד הוא נכרי גמור ואפ\"ה ס\"ל לדעה ראשונה דהוא שוה לקבל עליו שבע מצות דאסור אפילו לישראל אחר לומר לו לעשות לו מלאכה וע\"ז חולקים וס\"ל דבזה לא אסרה התורה אלא לעשות מלאכה בשביל רבו וכדכתיב וינפש בן אמתך אבל לשאר איש ישראל לא עדיף משאר א\"י דעלמא דאינו אסור רק מדרבנן וממילא לצורך חולה אפילו אין בו סכנה מותר: (יא) אם היה עושה וכו' - היינו דאף דמבואר לעיל שמצווה על שביתת עבדו בין כשקבל עליו ז' מצות ובין כשלא קבל עליו שלא יעשה מלאכה עבורו היינו דוקא בדניחא ליה במלאכה זו דאז אמרינן דמסתמא עושה על דעתו וע\"כ מחויב להפרישו מזה משא\"כ כשניכר שאין עושה לדעתו הוי כמלאכת עצמו ואינו מוטל עליו למנעו: (יב) ולישראל אחר וכו' - דדוקא גבי רבו שהוא עבדו אמרינן דמסתמא כל מה שהוא עושה על דעת רבו עושה משא\"כ בזה אף שהוא עושה לדעת ישראל כל שלא צוהו ומתחיל העבד או הגר תושב לעשות מאליו אמרינן דהעיקר אדעתיה דנפשיה עביד להרויח לבסוף ממלאכתו ואינו אסור אא\"כ מצוהו לעשות וכנ\"ל בסק\"ז: (יג) מותר - ועיין סימן רנ\"ב סוף ס\"ב דלפעמים צריך למחות מדרבנן: (יד) ובלבד שלא יהנה - והיינו מדרבנן דלא עדיף העבד משאר אינו יהודי דעלמא שעשה מלאכה לדעת ישראל שאסור לישראל ליהנות מאותה המלאכה בשבת וכנ\"ל בריש סימן רע\"ו: (טו) וי\"א שכל וכו' - ס\"ל דלא הזהירה התורה על עבד של ישראל לענין שבת אלא ביש עליו עכ\"פ קצת מצות דהיינו שבע מצות בני נח וכמבואר בב\"י ע\"ש ועיין בא\"ר שהביא בשם כמה פוסקים דלמעשה יש להחמיר כסברא הראשונה. אסור לומר למומר וקראים לעשות לו מלאכה בשבת ויו\"ט דעובר משום לפני עור [פמ\"ג]: (טז) וכל עבד וכו' - אי קאי גם אעבד שלא מל וטבל עיין בתו\"ש ופמ\"ג: (יז) אסור לצאת וכו' - הנה מתחלה סתם הדבר ואח\"כ ביאר דאם יש בו תרתי למעליותא דהיינו שהחותם היה של טיט והוא תלוי בצוארו מותר לצאת בו דלמאי ניחוש לה דלשמא יסירנה בידו ויביאנה ד\"א בר\"ה בודאי ליכא למיחש דאית עליה אימתא דרביה שיאמר שהסירה כדי להראות שהוא בן חורין ולשמא יפסק וישבר החותם מאליו בר\"ה ואתי לאתויי אח\"כ לביתו ג\"כ ליכא למיחש דלמאי יביאנו דחותם שבור של טיט לא חזי למידי ואם כדי להראות לרבו שהוא כפוף לו ואוחז בידו החותם של עבדות זה אינו סימן כלל על עבדות כ\"א כשתלוי בצוארו או בכסותו אבל אי אית ביה חדא למעליותא שהיה תלוי החותם בכסותו או שהיה החותם של מתכות שהוא חשוב אסור לצאת בו לר\"ה וכדלקמיה: (יח) אבל לא בכסותו - דילמא מיפסק החותם מאליו ומירתת מרבו שיאמר שהסירו כדי להראות לכל שהוא בן חורין ויקפל טליתו כדי שלא יתראה מקום החותם וישאנו על כתפו ודמי הטלית על כתפו כמשאוי: (יט) ובשל מתכות וכו' - דכיון שהוא חשוב וקפיד עליו רבו שלא יאבד חיישינן דילמא מיפסק ואתי לאתויי ד' אמות בר\"ה: (כ) בכל ענין - היינו אפילו כשהוא תלוי על צוארו והטעם דכיון שהוא עשה לעצמו אינו מירתת מרבו כשיסירנו וחיישינן דילמא שקיל ליה בידיה ויביאנו ד\"א בר\"ה:",
+      "en_plain": "(א) A person etc. — to ease reader knowing reasons of laws in this siman I precede small introduction per Gemara and poskim. Two verses: one \"that your slave and maidservant rest like you\" — slave circumcised immersed for slavery accepted all slave mitzvot i.e. all woman obligated — Shabbat included — forbidden melacha Shabbat; verse teaches slave's rest also on master commanded prevent melacha even for slave's need; second \"son of your maidservant and ger refresh\" — Sages: gentile slave body-acquired to Israel not circumcised only seven Noahide mitzvot — master must prevent melacha for him Shabbat; forbidden all Israel command melacha for them Shabbat; for himself permitted — Shabbat not in seven mitzvot — law like ger toshav not warned Shabbat; nevertheless forbidden d'oraisa Israel command melacha for him; slave body-acquired not circumcised not accepted even seven — poskim dispute if commanded on rest — as will explain. (ב) On slave's rest — master commanded guard prevent melacha even for himself as above; permitted rent slave to gentile weekdays if stipulates no Shabbat melacha — unlike animal siman 246 seif 3 forbidden rent gentile such case — gentile not trusted; here gentile won't act against slave will — slave trusted (Peri Megadim). (ג) Customary for slave — all mitzvot woman obligated. (ד) He is like ger toshav — ger toshav: accepted seven Noahide mitzvot and not serve idols even in partnership. (ה) For himself — his own melacha e.g. sewing garments repairing shoes or earning so sustenance beyond master's provision. (ו) But not for master — even if master didn't explicitly command melacha forbidden — presumably on master's intent — Torah warned prevent as \"son of your maidservant refresh\" as note 1; even rabbinic melacha forbidden for master; some lenient if master didn't explicitly warn since only rabbinic. (ז) Forbidden all Israel — d'oraisa since accepted seven mitzvot all agree law like ger toshav — Torah forbade Israel melacha through him. (ח) If didn't accept — meaning likewise if accepted no mitzvah — since Jewish slave body-acquired to him this view law equal accept seven mitzvot — forbidden melacha for any Israel as above. (ט) Tell Jewish slave — specifically telling plain gentile — only shevut permitted these; Jewish gentile slave warned d'oraisa — no heter except pikuach nefesh. (י) Some dispute and permit — when slave complete gentile yet first view equal accept seven mitzvot — forbidden even other Israel tell him melacha; they dispute Torah only forbade melacha for master as \"son of your maidservish refresh\"; other Israel no worse than other gentile — rabbinic only — therefore sick without danger permitted. (כ) If he was doing etc. — though commanded slave's rest whether accepted seven or not not do for him — specifically when pleasing him in this melacha — then presumably on his own intent — must stop; when evident not on intent — like his own melacha — not obligated prevent. (ל) Other Israel etc. — only by master presumed all he does on master; here even knowingly for Israel — as long as didn't command and slave or ger toshav begins himself — presumed for himself to profit — not forbidden unless commanded as note 7. (מ) Permitted — see siman 252 end seif 2 sometimes must protest rabbinically. (נ) Provided not benefit — rabbinically — slave not better than other non-Jew doing knowingly for Israel — Israel forbidden benefit that melacha Shabbat as start siman 276. (ס) Some say all etc. — hold Torah didn't warn Jewish slave Shabbat only if accepted some mitzvot i.e. seven as Beit Yosef see there; see Avnei Nezer brought several poskim practice stringent first view; forbidden tell mumar and Karaites melacha Shabbat and Yom Tov — violates lifnei iver (Peri Megadim). (ע) Every slave etc. — if also slave not circumcised immersed see Tosafot and Peri Megadim. (פ) Forbidden go out etc. — first stam then explained if two stringencies i.e. clay seal hung on neck permitted — why concern carry in hand — certainly no concern fears master say removed to show free; why carry; no concern break off carry afterward home — broken clay seal useless; if to show master subjugation holding slavery seal not sign of slavery except hung on neck or garment; if one stringency hung on garment or metal important — forbidden public domain as below. (צ) Not on garment — lest break fears master say removed show free folds tallit hide seal place carries on shoulder like burden. (ק) And of metal etc. — important master careful not lose — concern break carry four amot public domain. (ר) In any manner — even hung on neck — since made for himself not afraid master when removes — concern take in hand carry public domain.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman304/seif-002/peri-megadim",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 2,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.243,
+        "he_chars": 470,
+        "en_chars": 584,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 584
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ובשל</b> עט״ז והנה עבד ערל שלא מל וטבל לדיעה א׳ דאסור מ״ה לעשות מלאכת רבו א״כ י״ל דאסור בחותם של מתכת דאי מפסיק מייתי לרביה וע״ד רבו הוא עושה ואסור וכמ״ש הלבוש בהדיא אבל בשל טיט בכסותו דיקפל דמרתת מרבו ולא ניחא ליה לרבו בכך שרי בעבד ערל. ולפ״ז נהפוך הוא בחותם דמתכת בעביד רביה אסור בכסותו וצוארו דרבו מקפיד על השברים ומייתי לרביה ע״ד רבו ועביד לנפשיה שרי בכל ענין דלעצמו רשאי לעשות מלאכה ובעבד שמל וטבל בעביד לנפשיה אסור בכל ענין בין טיט ומתכת כדברירנא. ואי״ה במ״א אבאר עוד:\n",
+      "en_html": "And of — Taz: uncircumcised slave per first view forbidden d'oraisa master's melacha — therefore forbidden metal seal — if breaks brings for master on master's intent forbidden — Levush explicit; clay on garment folds fears master master displeased — permitted uncircumcised slave; therefore reversed metal seal master's work forbidden garment and neck master particular about breaks brings for master; made for himself permitted all cases since for himself may do melacha; circumcised immersed slave made for himself forbidden all clay and metal as explained; see Magen Avraham more.\r\n",
+      "he_plain": "ובשל עט״ז והנה עבד ערל שלא מל וטבל לדיעה א׳ דאסור מ״ה לעשות מלאכת רבו א״כ י״ל דאסור בחותם של מתכת דאי מפסיק מייתי לרביה וע״ד רבו הוא עושה ואסור וכמ״ש הלבוש בהדיא אבל בשל טיט בכסותו דיקפל דמרתת מרבו ולא ניחא ליה לרבו בכך שרי בעבד ערל. ולפ״ז נהפוך הוא בחותם דמתכת בעביד רביה אסור בכסותו וצוארו דרבו מקפיד על השברים ומייתי לרביה ע״ד רבו ועביד לנפשיה שרי בכל ענין דלעצמו רשאי לעשות מלאכה ובעבד שמל וטבל בעביד לנפשיה אסור בכל ענין בין טיט ומתכת כדברירנא. ואי״ה במ״א אבאר עוד:",
+      "en_plain": "And of — Taz: uncircumcised slave per first view forbidden d'oraisa master's melacha — therefore forbidden metal seal — if breaks brings for master on master's intent forbidden — Levush explicit; clay on garment folds fears master master displeased — permitted uncircumcised slave; therefore reversed metal seal master's work forbidden garment and neck master particular about breaks brings for master; made for himself permitted all cases since for himself may do melacha; circumcised immersed slave made for himself forbidden all clay and metal as explained; see Magen Avraham more.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman308/seif-002/rabbi-akiva-eiger",
+      "volume": "oc1",
+      "siman": 308,
+      "seif": 2,
+      "slug": "rabbi-akiva-eiger",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.816,
+        "he_chars": 659,
+        "en_chars": 1197,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1197
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<small>ואולם</small> אף אם מע\"ש אמר שאינו רוצה להחזיקו לסכין של מילה אלא כשאר סכין י\"ל דלא מהני דהרי בסי' ש\"י ס\"ז בהג\"ה גבי כיס של מעות אא\"כ עשה בו מעשה שפתחו מלמטה וסלקו מתורת יחוד. והתם בכיס הוי מוקצה מ' חסרון ומשמע דלא מהני בטול יחודו מע\"ש בדבור רק במעשה. ומה דכ' המג\"א סי' ש\"ח סק\"מ דבחריות כיון דקיימא לעצים כמו לישיבה כמו לעצים אלא בטל מחשבתו בגדרן לעצים מש\"ה מחשבת ישיבה מוציאה מידי מחשבת שריפה. צ\"ל דבכיס כיון דיחדה למעות והניח בו מעות הוי מעשה ולא מהני מחשבה לבטלה ושאני בחריות דהגרידה לא מקרי מעשה דגם לישיבה צריך הגרידה ואין המעשה מוכח עלי' דלשריפה הוא. וא\"כ בסכין של מילה ומל בו וכן סכין של שחיטה ושחט בו י\"ל דבאמירה לא נתבטל יחודו אא\"כ ע\"י מעשה. וכ\"ז צל\"ע לדינא: \r\n",
+      "en_html": "<b>Comment.</b> However, even if on erev Shabbos he said that he does not want to keep it as a circumcision knife but as other knives, one can say that it does not help; for in siman 310, seif 7, in the gloss regarding a purse of money, not unless he did an action with it, that he opened it from below and removed it from muktzeh. And there, with a purse, it is muktzeh of monetary loss; and it is implied that speech alone on erev Shabbos does not help, only an action. What Magen Avraham wrote, siman 308 s.k. 60, regarding branches, since they stand for wood as for sitting as for wood, only he nullified his thought in fencing them for wood; thought of sitting removes it from thought of burning. It must be said that with a purse, since he designated it for money and left money in it, it is an action, and thought does not nullify it. Branches are different, for scraping is not called an action, for sitting also needs scraping, and the action is not proven upon it for burning. Thus with a circumcision knife that he circumcised with, and a slaughter knife that he slaughtered with, one can say that speech does not nullify its muktzeh unless by action. All this requires study for practical law\n",
+      "he_plain": "ואולם אף אם מע\"ש אמר שאינו רוצה להחזיקו לסכין של מילה אלא כשאר סכין י\"ל דלא מהני דהרי בסי' ש\"י ס\"ז בהג\"ה גבי כיס של מעות אא\"כ עשה בו מעשה שפתחו מלמטה וסלקו מתורת יחוד. והתם בכיס הוי מוקצה מ' חסרון ומשמע דלא מהני בטול יחודו מע\"ש בדבור רק במעשה. ומה דכ' המג\"א סי' ש\"ח סק\"מ דבחריות כיון דקיימא לעצים כמו לישיבה כמו לעצים אלא בטל מחשבתו בגדרן לעצים מש\"ה מחשבת ישיבה מוציאה מידי מחשבת שריפה. צ\"ל דבכיס כיון דיחדה למעות והניח בו מעות הוי מעשה ולא מהני מחשבה לבטלה ושאני בחריות דהגרידה לא מקרי מעשה דגם לישיבה צריך הגרידה ואין המעשה מוכח עלי' דלשריפה הוא. וא\"כ בסכין של מילה ומל בו וכן סכין של שחיטה ושחט בו י\"ל דבאמירה לא נתבטל יחודו אא\"כ ע\"י מעשה. וכ\"ז צל\"ע לדינא:",
+      "en_plain": "Comment. However, even if on erev Shabbos he said that he does not want to keep it as a circumcision knife but as other knives, one can say that it does not help; for in siman 310, seif 7, in the gloss regarding a purse of money, not unless he did an action with it, that he opened it from below and removed it from muktzeh. And there, with a purse, it is muktzeh of monetary loss; and it is implied that speech alone on erev Shabbos does not help, only an action. What Magen Avraham wrote, siman 308 s.k. 60, regarding branches, since they stand for wood as for sitting as for wood, only he nullified his thought in fencing them for wood; thought of sitting removes it from thought of burning. It must be said that with a purse, since he designated it for money and left money in it, it is an action, and thought does not nullify it. Branches are different, for scraping is not called an action, for sitting also needs scraping, and the action is not proven upon it for burning. Thus with a circumcision knife that he circumcised with, and a slaughter knife that he slaughtered with, one can say that speech does not nullify its muktzeh unless by action. All this requires study for practical law",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman308/seif-052/baer-heitev",
+      "volume": "oc1",
+      "siman": 308,
+      "seif": 52,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.853,
+        "he_chars": 217,
+        "en_chars": 402,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 402
+        },
+        "failure_patterns": [
+          "allocated_muktzeh"
+        ]
+      },
+      "he_html": "<b>לעשירים. </b> כתב הט\"ז הכלל הוא דמה שראוי לעניים והוא בביתו של עני הוה מוקצה לעשירים כיון דלדידהו לא חזי אלא דמי שהוא בביתו של עני גריר בתר הבית אפי' עשיר אבל מוקצה לעשיר והוא בביתו אסור לכל העניים כאלו זרקן כבר לאשפה ע\"ש:\n",
+      "en_html": "for the rich The text of the 16th general is blood that belongs to the poor and it is in the house of a poor man that it is allocated to the rich because it is not a breast but a blood that is in his house that\nFor the poor man, a grieving in the temple is rich, but it is assigned to the rich, and in his house it is forbidden to all the poor, as they have already been thrown into the trash, because:\n",
+      "he_plain": "לעשירים. כתב הט\"ז הכלל הוא דמה שראוי לעניים והוא בביתו של עני הוה מוקצה לעשירים כיון דלדידהו לא חזי אלא דמי שהוא בביתו של עני גריר בתר הבית אפי' עשיר אבל מוקצה לעשיר והוא בביתו אסור לכל העניים כאלו זרקן כבר לאשפה ע\"ש:",
+      "en_plain": "for the rich The text of the 16th general is blood that belongs to the poor and it is in the house of a poor man that it is allocated to the rich because it is not a breast but a blood that is in his house that For the poor man, a grieving in the temple is rich, but it is assigned to the rich, and in his house it is forbidden to all the poor, as they have already been thrown into the trash, because:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman310/seif-003/baer-heitev",
+      "volume": "oc1",
+      "siman": 310,
+      "seif": 3,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.841,
+        "he_chars": 536,
+        "en_chars": 987,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 987
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>חזר. </b> כתב הט\"ז ה\"ה באיזמל שמל בשבת היה בה\"ש מוקצה מחמת חסרון כיס כמו סכין של סופרים דאדם מקפיד הרבה שלא להשתמש באותו איזמל מידי אחרינא שלא יתקלקל וכ\"ש שאין אוכל עמו דהוא נגד טבע בן אדם ע\"כ אע\"פ שעומד למחר במלאכת מילה מ\"מ אחר גמר צורך שלו חוזר לאיסור טלטול של בה\"ש ע\"כ יצניעו באותו חדר שהוא מל שם וכ\"כ מהרי\"ל ועיין בי\"ד סי' רס\"ו אבל הב\"ח סי' ש\"ח מתיר לטלטלו וכ\"כ מהרש\"ל והמ\"א בסי' של\"א ס\"ק ה' האריך בדבר זה ומסיים לכן יש להחמיר שלא יניחנו מידו עד שיוליכנו לביתו דכל מוקצה שהוא בידו מטלטלו לאיזה מקום שירצה ע\"ש ועיין בספר בית יעקב סי' ק\"ב:\n",
+      "en_html": "Returned [to permit]. Taz wrote similarly regarding a knife with which one circumcised on Shabbat — it is muktzeh at bein hashemashos due to monetary loss like a scribe's knife, for a person is very particular not to use that knife for anything else so it will not be ruined; and especially that one does not eat with it, for that is against human nature; therefore even though it stands for tomorrow's milah work, nevertheless after he finishes his need it returns to the prohibition of moving at bein hashemashos; therefore they hide it in that room where he circumcises there; and so Maharil; and see Yoreh De'ah siman 266. But Bach siman 308 permits moving it; and so Maharshal; and Magen Avraham in siman 336 seif kaf 5 elaborated on this matter and concludes therefore one should be strict not to put it down from his hand until he brings it to his house, for any muktzeh in one's hand one may move it to any place he wishes — end of his words; and see Sefer Beit Yaakov siman 102:\r\n",
+      "he_plain": "חזר. כתב הט\"ז ה\"ה באיזמל שמל בשבת היה בה\"ש מוקצה מחמת חסרון כיס כמו סכין של סופרים דאדם מקפיד הרבה שלא להשתמש באותו איזמל מידי אחרינא שלא יתקלקל וכ\"ש שאין אוכל עמו דהוא נגד טבע בן אדם ע\"כ אע\"פ שעומד למחר במלאכת מילה מ\"מ אחר גמר צורך שלו חוזר לאיסור טלטול של בה\"ש ע\"כ יצניעו באותו חדר שהוא מל שם וכ\"כ מהרי\"ל ועיין בי\"ד סי' רס\"ו אבל הב\"ח סי' ש\"ח מתיר לטלטלו וכ\"כ מהרש\"ל והמ\"א בסי' של\"א ס\"ק ה' האריך בדבר זה ומסיים לכן יש להחמיר שלא יניחנו מידו עד שיוליכנו לביתו דכל מוקצה שהוא בידו מטלטלו לאיזה מקום שירצה ע\"ש ועיין בספר בית יעקב סי' ק\"ב:",
+      "en_plain": "Returned [to permit]. Taz wrote similarly regarding a knife with which one circumcised on Shabbat — it is muktzeh at bein hashemashos due to monetary loss like a scribe's knife, for a person is very particular not to use that knife for anything else so it will not be ruined; and especially that one does not eat with it, for that is against human nature; therefore even though it stands for tomorrow's milah work, nevertheless after he finishes his need it returns to the prohibition of moving at bein hashemashos; therefore they hide it in that room where he circumcises there; and so Maharil; and see Yoreh De'ah siman 266. But Bach siman 308 permits moving it; and so Maharshal; and Magen Avraham in siman 336 seif kaf 5 elaborated on this matter and concludes therefore one should be strict not to put it down from his hand until he brings it to his house, for any muktzeh in one's hand one may move it to any place he wishes — end of his words; and see Sefer Beit Yaakov siman 102:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman310/seif-003/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 310,
+      "seif": 3,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.815,
+        "he_chars": 1311,
+        "en_chars": 2380,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2380
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(יד) בין באיסור אכילה וכו' - האי בין בין הוי רבותא טפי ברישא לענין איסור אכילה ור\"ל דלא מיבעיא לענין טלטול בעלמא בודאי אמרינן דאין מוקצה לחצי שבת ומותר לטלטלו אחר שנסתלק מעליו שם מוקצה אלא אפילו לאכלו מותר:<br />\n(טו) אם אירע בו דבר וכו' - כגון שירדו גשמים על הצמוקים ונתפחו עד שאינן ראויין לאכילה ואח\"כ שזפתן השמש ונתיבשו עד שנעשו ראוין חזר להיתרו והטעם דאין שייך שם מוקצה לחצי שבת כיון שביה\"ש היה ראוי. כתב הט\"ז איזמל שמל בו בשבת אין לטלטלו אחר המילה דהא מוקצה הוא מחמת חסרון כיס דהא אדם מקפיד שלא להשתמש בו דבר אחר ודלא כהמקילין לטלטל אותו מטעם דאין מוקצה לחצי שבת דהא בין השמשות ג\"כ היה מוקצה מחמת חסרון כיס ואין לטלטלו אז לשום דבר וע\"כ אע\"פ שעומד למחר למלאכת מילה מ\"מ אחר גמר צורך שלו חוזר לאיסור טלטול של בין השמשות ע\"כ יצניעו באותו חדר שהוא מל שם והמ\"א בסימן של\"א סק\"ה מסכים עמו ג\"כ בעיקר הדין אך דעתו שיש להחמיר שבעוד שהאיזמל בידו לא יניחנו מידו עד שיניחנו במקום המשתמר או שיוליכנו לביתו דכל מוקצה שהוא בידו מטלטלו לאיזה מקום שירצה וכדלעיל בסימן ש\"ח ס\"ג. ואם הוא ג\"כ פורע וצריך להניח האיזמל מידו כתב הא\"ר שיקבל אחר מידו והוא יוליכנו שם למקום המשתמר. ומ\"מ בדיעבד אם הניחו מידו ויש חשש שלא יגנב שם מצדד הא\"ר דיש לסמוך על רמ\"א וש\"ך דסוברים דמותר לטלטלו והביאו החכמת אדם בהלכות מילה:<br />\n(טז) אסור כל היום - דעיקר הכנה מבעוד יום בעי כדכתיב והיה ביום הששי והכינו את אשר יביאו וזה הלא בתחלת כניסת היום הוקצה מלהשתמש בו:\n",
+      "en_html": "(14) Whether with prohibition of eating, etc. — this \"whether\" at the beginning is an additional stringency: first regarding prohibition of eating — and meaning that not only regarding moving in general do we certainly say there is no muktzeh for half Shabbat and it is permitted to move it after the name moktzeh left it — but even to eat it, it is permitted:\n<br>(15) If something happened to it, etc. — such as rain fell on the raisins and they swelled until they were unfit for eating, and afterward the sun shone and they dried until they became fit — it returned to its permission; and the reason is that muktzeh for half Shabbat does not apply, since at bein hashemashos it was fit. Taz wrote: a knife with which he circumcised on Shabbat — one may not move it after the circumcision, for it is muktzeh machmat cheisron kis, for a person is particular not to use it for anything else; and not like those who are lenient to move it from the reason that there is no muktzeh for half Shabbat, for behold at bein hashemashos too it was muktzeh machmat cheisron kis and one may not move it then for any matter; and therefore even though it stands for tomorrow for the melacha of circumcision — nevertheless after his need is finished it returns to the prohibition of moving from bein hashemashos; therefore they hide it in that room where he circumcises there; and Magen Avraham in siman 331 s.k. 5 agrees with him also on the essence of the law; but his view is that one should be strict that while the knife is in his hand he not remove it from his hand until he places it in a guarded place or brings it to his house, for any muktzeh that is in his hand he may move it to any place he wants, as above in siman 308 seif 3. And if he is also uncircumcised and must remove the knife from his hand — the Acharonim wrote that another should receive it from his hand and he brings it to the guarded place. And nevertheless b'dieved if he removed it from his hand and there is concern it will be stolen — the Acharonim wrote one may rely on Rama and Shach who hold it is permitted to move it; and Chachmat Adam brought this in the laws of circumcision:\n<br>(16) Forbidden all day — for the essence of designation requires while it is still day, as is written \"and it shall be on the sixth day that they prepare what they bring\" — and this was designated at the beginning of the day's entry:",
+      "he_plain": "(יד) בין באיסור אכילה וכו' - האי בין בין הוי רבותא טפי ברישא לענין איסור אכילה ור\"ל דלא מיבעיא לענין טלטול בעלמא בודאי אמרינן דאין מוקצה לחצי שבת ומותר לטלטלו אחר שנסתלק מעליו שם מוקצה אלא אפילו לאכלו מותר: (טו) אם אירע בו דבר וכו' - כגון שירדו גשמים על הצמוקים ונתפחו עד שאינן ראויין לאכילה ואח\"כ שזפתן השמש ונתיבשו עד שנעשו ראוין חזר להיתרו והטעם דאין שייך שם מוקצה לחצי שבת כיון שביה\"ש היה ראוי. כתב הט\"ז איזמל שמל בו בשבת אין לטלטלו אחר המילה דהא מוקצה הוא מחמת חסרון כיס דהא אדם מקפיד שלא להשתמש בו דבר אחר ודלא כהמקילין לטלטל אותו מטעם דאין מוקצה לחצי שבת דהא בין השמשות ג\"כ היה מוקצה מחמת חסרון כיס ואין לטלטלו אז לשום דבר וע\"כ אע\"פ שעומד למחר למלאכת מילה מ\"מ אחר גמר צורך שלו חוזר לאיסור טלטול של בין השמשות ע\"כ יצניעו באותו חדר שהוא מל שם והמ\"א בסימן של\"א סק\"ה מסכים עמו ג\"כ בעיקר הדין אך דעתו שיש להחמיר שבעוד שהאיזמל בידו לא יניחנו מידו עד שיניחנו במקום המשתמר או שיוליכנו לביתו דכל מוקצה שהוא בידו מטלטלו לאיזה מקום שירצה וכדלעיל בסימן ש\"ח ס\"ג. ואם הוא ג\"כ פורע וצריך להניח האיזמל מידו כתב הא\"ר שיקבל אחר מידו והוא יוליכנו שם למקום המשתמר. ומ\"מ בדיעבד אם הניחו מידו ויש חשש שלא יגנב שם מצדד הא\"ר דיש לסמוך על רמ\"א וש\"ך דסוברים דמותר לטלטלו והביאו החכמת אדם בהלכות מילה: (טז) אסור כל היום - דעיקר הכנה מבעוד יום בעי כדכתיב והיה ביום הששי והכינו את אשר יביאו וזה הלא בתחלת כניסת היום הוקצה מלהשתמש בו:",
+      "en_plain": "(14) Whether with prohibition of eating, etc. — this \"whether\" at the beginning is an additional stringency: first regarding prohibition of eating — and meaning that not only regarding moving in general do we certainly say there is no muktzeh for half Shabbat and it is permitted to move it after the name moktzeh left it — but even to eat it, it is permitted: (15) If something happened to it, etc. — such as rain fell on the raisins and they swelled until they were unfit for eating, and afterward the sun shone and they dried until they became fit — it returned to its permission; and the reason is that muktzeh for half Shabbat does not apply, since at bein hashemashos it was fit. Taz wrote: a knife with which he circumcised on Shabbat — one may not move it after the circumcision, for it is muktzeh machmat cheisron kis, for a person is particular not to use it for anything else; and not like those who are lenient to move it from the reason that there is no muktzeh for half Shabbat, for behold at bein hashemashos too it was muktzeh machmat cheisron kis and one may not move it then for any matter; and therefore even though it stands for tomorrow for the melacha of circumcision — nevertheless after his need is finished it returns to the prohibition of moving from bein hashemashos; therefore they hide it in that room where he circumcises there; and Magen Avraham in siman 331 s.k. 5 agrees with him also on the essence of the law; but his view is that one should be strict that while the knife is in his hand he not remove it from his hand until he places it in a guarded place or brings it to his house, for any muktzeh that is in his hand he may move it to any place he wants, as above in siman 308 seif 3. And if he is also uncircumcised and must remove the knife from his hand — the Acharonim wrote that another should receive it from his hand and he brings it to the guarded place. And nevertheless b'dieved if he removed it from his hand and there is concern it will be stolen — the Acharonim wrote one may rely on Rama and Shach who hold it is permitted to move it; and Chachmat Adam brought this in the laws of circumcision: (16) Forbidden all day — for the essence of designation requires while it is still day, as is written \"and it shall be on the sixth day that they prepare what they bring\" — and this was designated at the beginning of the day's entry:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman310/seif-003/turei-zahav",
+      "volume": "oc1",
+      "siman": 310,
+      "seif": 3,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.718,
+        "he_chars": 1507,
+        "en_chars": 2589,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2589
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>חזר להתירו. </b> הטעם דאין מוקצה לחצי שבת דהא בב\"ה היה ראוי. בי\"ד סי' רס\"ו כתבתי דאזמל שמל בו בשבת דאין לטלטלו אחר המיל' דלא כתשובת רש\"ל דמתיר מטעם דאין מוקצה לחצי שבת דלא שייך כאן לומר כן דב\"ה לא היה ראוי לטלטול דמוקצה הוא כמו סכין של סופרים דסי' ש\"ח והבאתי ראיה מעלי שקצבו עליו בשר בפ\"ק דביצ' דף י\"א ומשפוד שצלו בו בי\"ט בפר' אין צדין והיינו דכמו שאלו השנים שיש בהם מוקצה מחמת עצמן דהיינו העלי מכח  דמקפיד עליהם ומייחד להו דוכתא כמו סיכי זירי ומזורי דר\"פ כל הכלים והשפוד היינו עץ בעלמא שלקחו לשפוד ואין שם כלי עליו כמ\"ש הטור סימן תקי\"ח וע\"כ הם גרועים מכלי שמלאכתו לאיסור ואף על גב דב\"ה היה עומד למלאכה לצורך י\"ט מכל מקום אחר המלאכה לצורך י\"ט חזר לאיסורו של מוקצה ה\"נ ממש בהאי איזמל דב\"ה היה מוקצה מחמת חסרון כיס כמו סכין של סופרים דזה פשוט דאדם מקפיד הרבה שלא להשתמש באותו איזמל מידי אחרינא שלא יתקלקל וכ\"ש שאין אוכל עמו דהוא נגד טבע בן אדם ע\"כ אע\"פ שעומד למלאכת המילה למחר מכל מקום אחר גמר צורך שלו לכן חוזר לאיסור טלטול של ב\"ה ושוב ראיתי בספר יש\"ש בפרק אין צדין סימן ט\"ז דמחזיק דבריו וז\"ל ונראה דל\"ד דהתם גבי גרוגרות וצמוקים אינם ראוים כלל דהא סריחי אבל האי איזמל ראוי לאכול בו ולעשות בו תשמיש המותר אפילו ב\"ה אלא שהוא מכינו למול בו ולא לתשמיש אחר מכל מקום אינו מוקצה דס\"ס הוא מכינו לשבת עצמו ושאני שפוד שצלו בו דהוא מאיס והכא אינו מאוס מחמת זה כשמקנחו אחר כך ומה שמצניעו למלאכתו וחוזר להיות מוקצה מחסרון כיס זה אינו שהרי ב\"ה נמי עומד לכך עד כאן לשונו ובמ\"ש כאן נסתר כל זה והוא ממש כמו עלי ושפוד שזכרנו ואסור לטלטלו זולת לצורך המילה ואחר כך יצניעו באותו חדר שהוא מל שם וכ\"כ במהרי\"ל ועיין בדברינו בי\"ד סי' רס\"ו:\n",
+      "en_html": "Returned to permit. The reason there is no muktzeh for half Shabbat — for at bein hashemashos it was fit. Yoreh De'ah siman 266 I wrote that a knife with which one circumcised on Shabbat — one may not move it after the milah, unlike Rashal's responsum who permits from the reason there is no muktzeh for half Shabbat; for it does not apply to say so here, for at bein hashemashos it was not fit to move — it was muktzeh like a scribe's knife siman 308; and I brought proof from an upper leaf upon which meat was slaughtered in chapter 1 of Beitzah daf 11, and a spit upon which they roasted on Yom Tov in chapter Ein Tzedin — meaning that just as years that have muktzeh due to themselves, meaning the leaf because he is particular and designates a place for it like pins of gold and silver in chapter Kol HaKelim, and the spit is mere wood taken for a spit and there is no utensil upon it as Tur wrote siman 518 — therefore they are inferior to a utensil whose function is for prohibition; and even though at bein hashemashos it stood for melacha for Yom Tov need, nevertheless after the melacha for Yom Tov need it returned to muktzeh prohibition; so too literally with this knife — at bein hashemashos it was muktzeh due to monetary loss like a scribe's knife, for this is obvious that a person is very particular not to use that knife for anything else so it will not be ruined; and especially that one does not eat with it; therefore even though it stands for milah tomorrow, nevertheless after he finishes his need it returns to the prohibition of moving at bein hashemashos; and again I saw in Yeshuos Yaakov chapter Ein Tzedin siman 16 that he upholds his words: and it appears that he did not hold there regarding dried figs and raisins that they are not fit at all for they spoil; but this knife is fit to eat with and to do permitted use even at bein hashemashos — only he prepares it to circumcise and not for other use; nevertheless it is not muktzeh, for there is a doubt whether he prepares it for Shabbat itself; and a spit upon which they roasted is different for it is repulsive; here it is not repulsive for this when he cleans it afterward; and that he hides it for his melacha and returns to be muktzeh due to monetary loss — this is not, for at bein hashemashos it also stands for that — end of his words; and in what is written here all this is hidden, and it is exactly like the leaf and spit we mentioned — forbidden to move except for milah need; and afterward hide it in that room where he circumcises; and so Maharil; and see in our words Yoreh De'ah siman 266:\r\n",
+      "he_plain": "חזר להתירו. הטעם דאין מוקצה לחצי שבת דהא בב\"ה היה ראוי. בי\"ד סי' רס\"ו כתבתי דאזמל שמל בו בשבת דאין לטלטלו אחר המיל' דלא כתשובת רש\"ל דמתיר מטעם דאין מוקצה לחצי שבת דלא שייך כאן לומר כן דב\"ה לא היה ראוי לטלטול דמוקצה הוא כמו סכין של סופרים דסי' ש\"ח והבאתי ראיה מעלי שקצבו עליו בשר בפ\"ק דביצ' דף י\"א ומשפוד שצלו בו בי\"ט בפר' אין צדין והיינו דכמו שאלו השנים שיש בהם מוקצה מחמת עצמן דהיינו העלי מכח דמקפיד עליהם ומייחד להו דוכתא כמו סיכי זירי ומזורי דר\"פ כל הכלים והשפוד היינו עץ בעלמא שלקחו לשפוד ואין שם כלי עליו כמ\"ש הטור סימן תקי\"ח וע\"כ הם גרועים מכלי שמלאכתו לאיסור ואף על גב דב\"ה היה עומד למלאכה לצורך י\"ט מכל מקום אחר המלאכה לצורך י\"ט חזר לאיסורו של מוקצה ה\"נ ממש בהאי איזמל דב\"ה היה מוקצה מחמת חסרון כיס כמו סכין של סופרים דזה פשוט דאדם מקפיד הרבה שלא להשתמש באותו איזמל מידי אחרינא שלא יתקלקל וכ\"ש שאין אוכל עמו דהוא נגד טבע בן אדם ע\"כ אע\"פ שעומד למלאכת המילה למחר מכל מקום אחר גמר צורך שלו לכן חוזר לאיסור טלטול של ב\"ה ושוב ראיתי בספר יש\"ש בפרק אין צדין סימן ט\"ז דמחזיק דבריו וז\"ל ונראה דל\"ד דהתם גבי גרוגרות וצמוקים אינם ראוים כלל דהא סריחי אבל האי איזמל ראוי לאכול בו ולעשות בו תשמיש המותר אפילו ב\"ה אלא שהוא מכינו למול בו ולא לתשמיש אחר מכל מקום אינו מוקצה דס\"ס הוא מכינו לשבת עצמו ושאני שפוד שצלו בו דהוא מאיס והכא אינו מאוס מחמת זה כשמקנחו אחר כך ומה שמצניעו למלאכתו וחוזר להיות מוקצה מחסרון כיס זה אינו שהרי ב\"ה נמי עומד לכך עד כאן לשונו ובמ\"ש כאן נסתר כל זה והוא ממש כמו עלי ושפוד שזכרנו ואסור לטלטלו זולת לצורך המילה ואחר כך יצניעו באותו חדר שהוא מל שם וכ\"כ במהרי\"ל ועיין בדברינו בי\"ד סי' רס\"ו:",
+      "en_plain": "Returned to permit. The reason there is no muktzeh for half Shabbat — for at bein hashemashos it was fit. Yoreh De'ah siman 266 I wrote that a knife with which one circumcised on Shabbat — one may not move it after the milah, unlike Rashal's responsum who permits from the reason there is no muktzeh for half Shabbat; for it does not apply to say so here, for at bein hashemashos it was not fit to move — it was muktzeh like a scribe's knife siman 308; and I brought proof from an upper leaf upon which meat was slaughtered in chapter 1 of Beitzah daf 11, and a spit upon which they roasted on Yom Tov in chapter Ein Tzedin — meaning that just as years that have muktzeh due to themselves, meaning the leaf because he is particular and designates a place for it like pins of gold and silver in chapter Kol HaKelim, and the spit is mere wood taken for a spit and there is no utensil upon it as Tur wrote siman 518 — therefore they are inferior to a utensil whose function is for prohibition; and even though at bein hashemashos it stood for melacha for Yom Tov need, nevertheless after the melacha for Yom Tov need it returned to muktzeh prohibition; so too literally with this knife — at bein hashemashos it was muktzeh due to monetary loss like a scribe's knife, for this is obvious that a person is very particular not to use that knife for anything else so it will not be ruined; and especially that one does not eat with it; therefore even though it stands for milah tomorrow, nevertheless after he finishes his need it returns to the prohibition of moving at bein hashemashos; and again I saw in Yeshuos Yaakov chapter Ein Tzedin siman 16 that he upholds his words: and it appears that he did not hold there regarding dried figs and raisins that they are not fit at all for they spoil; but this knife is fit to eat with and to do permitted use even at bein hashemashos — only he prepares it to circumcise and not for other use; nevertheless it is not muktzeh, for there is a doubt whether he prepares it for Shabbat itself; and a spit upon which they roasted is different for it is repulsive; here it is not repulsive for this when he cleans it afterward; and that he hides it for his melacha and returns to be muktzeh due to monetary loss — this is not, for at bein hashemashos it also stands for that — end of his words; and in what is written here all this is hidden, and it is exactly like the leaf and spit we mentioned — forbidden to move except for milah need; and afterward hide it in that room where he circumcises; and so Maharil; and see in our words Yoreh De'ah siman 266:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman32/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 32,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.977,
+        "he_chars": 435,
+        "en_chars": 860,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 860
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<b>מעשן עצים</b>. לא ראיתי לא' מהגדולים שנהג כן, וכן בי\"ד כתב שלכתחלה יעשה דיו מדבר הבא מן העץ משמע דלא קפדי' על עשן, והרמב\"ם כתב מצוה לכתוב מדיו שנמחק, ובתשו' מהרי\"ל ד\"ה סי' קכ\"ז כתב שדיו שלנו כמה רבוותא אכשרו לה ותמצא בהג\"מ אמנם הואיל ור\"ת פוסל עפצי' ורש\"י פוסל אדרמינ\"ט ויתר רבותינו פסלו גלוטשטיי\"ן נכון להחמיר לצאת ידי כולן ולכתוב בשטופטינ\"ט שהוא של קוצים או בדיו של עשבים כמ\"ש המיימוני עכ\"ל וע' פ\"ב בשבת דמשמע שהיו עושין דיו מעשן שמני':\n",
+      "en_html": "<b>From the smoke of wood.</b> I have not seen any of the great authorities who practiced this. Also, in Yoreh Deah he wrote that initially one should make ink from something that comes from a tree, which implies that they were not particular about smoke. The Rambam wrote that it is a mitzvah to write with ink that can be erased. In Responsa Maharil, Dapim Heh, siman 127, he wrote that many great authorities validated our ink, and you will find this in Hagahos Maimoniyos. Nevertheless, since Rabbeinu Tam invalidates gallnut ink, Rashi invalidates adramint, and our other rabbis invalidated glotshteyn, it is proper to be stringent in order to satisfy all opinions and to write with shtoftint, which is made from thorns, or with herbal ink, as the Maimonides wrote, end quote. See chapter 2 of Shabbos, where it implies that they made ink from the smoke of oils.\n",
+      "he_plain": "מעשן עצים . לא ראיתי לא' מהגדולים שנהג כן, וכן בי\"ד כתב שלכתחלה יעשה דיו מדבר הבא מן העץ משמע דלא קפדי' על עשן, והרמב\"ם כתב מצוה לכתוב מדיו שנמחק, ובתשו' מהרי\"ל ד\"ה סי' קכ\"ז כתב שדיו שלנו כמה רבוותא אכשרו לה ותמצא בהג\"מ אמנם הואיל ור\"ת פוסל עפצי' ורש\"י פוסל אדרמינ\"ט ויתר רבותינו פסלו גלוטשטיי\"ן נכון להחמיר לצאת ידי כולן ולכתוב בשטופטינ\"ט שהוא של קוצים או בדיו של עשבים כמ\"ש המיימוני עכ\"ל וע' פ\"ב בשבת דמשמע שהיו עושין דיו מעשן שמני':",
+      "en_plain": "From the smoke of wood. I have not seen any of the great authorities who practiced this. Also, in Yoreh Deah he wrote that initially one should make ink from something that comes from a tree, which implies that they were not particular about smoke. The Rambam wrote that it is a mitzvah to write with ink that can be erased. In Responsa Maharil, Dapim Heh, siman 127, he wrote that many great authorities validated our ink, and you will find this in Hagahos Maimoniyos. Nevertheless, since Rabbeinu Tam invalidates gallnut ink, Rashi invalidates adramint, and our other rabbis invalidated glotshteyn, it is proper to be stringent in order to satisfy all opinions and to write with shtoftint, which is made from thorns, or with herbal ink, as the Maimonides wrote, end quote. See chapter 2 of Shabbos, where it implies that they made ink from the smoke of oils.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

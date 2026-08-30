@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 47,
+    "chunk_total": 47,
+    "case_offset": 250,
+    "cases_in_chunk": 7,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman694/seif-001/biur-halacha",
+      "volume": "oc1",
+      "siman": 694,
+      "seif": 1,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.458,
+        "he_chars": 1732,
+        "en_chars": 2525,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2525
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b> ליתן לפחות וכו'</b> -  נסתפקתי מתנה לאביון אי מהני ע\"מ להחזיר ומשלוח מנות לא מהני כי מצוה מאכל ומשקה שישמחו בפורים. ומחצית השקל אם מחלקין לעניים יוצאין ידי מתנות לאביונים [פמ\"ג]:<br />\n<b> לשני עניים</b> -  ולא יתן להם קודם פורים דלמא אכלי להו קודם פורים [מ\"א בשם המאור] ומנהג העולם ליתן קודם פורים אף דמתנות לאביונים מצותו דוקא ביום פורים צ\"ל דע\"כ נותן שתי מתנות לאביונים גם ביום פורים וגם יש הרבה עניים החוזרים על הפתחים בפורים [מחצית השקל]:<br />\n<b> י\"א שיש ליתן וכו'</b> -  ועני המתפרנס מן הצדקה צ\"ע אם מחוייב ליתן מחצית השקל [פמ\"ג]:<br />\n<b> ויש ליתן ג' חצאי גדולים במדינות אלו</b> -  הנה דרך העולם לפרש חצאי גדולים חצי ג\"פ והיינו מה שקורין במדינתינו (חצי גראשין) ולא משמע כן בד\"מ עיי\"ש ואולי הוא שם מטבע אחרת שנקרא כן במדינתו שכתב שם שחצי גדול הוא ט' פשוטין קטנים. ובמדינתינו כעת אין לנו מטבע זו. ולפי מדינתינו נראה דמדינא יוצא במטבע קטנה שנקרא חצי גראש אבל מ\"מ אין זה מטבע חשובה כלל אפילו אם נותן ג' חצאין אם לא שנותן גם בעד בניו הקטנים וראיתי איזה גבאים שנותנין מתחלה בהקערה של צדקה ג' חצאי רו\"כ וכשבא אחד ליתן המחצית השקל נותן לו הגבאי תחת מעותיו הג' חצאי רו\"כ והוא נותן אותם להקערה אבל אין זה מחוור דאם הגבאי נותן לו רק בתורת שאלה על איזה רגעים וגם הנותן אין דעתו להקנותם לצדקה הלא אין זה נתינה כלל והוא מערים רק לעצמו בזה. ואם כונת הגבאי בעצמו באמת להקנות לו והוא נותנם לצדקה זהו עצה רק להראשון ולא להאנשים שאחריו כיון שכבר נעשו צדקה אין רשות להגבאי להחליפם תחת ג' חצאי ג\"פ ואולי כיון שכבר נהגו כך הו\"ל כאלו התנו בהדיא כל הנותנים לצדקה שנותנים על אופן זה שיהיה להגבאי רשות לזה. והנה בזמן הגר\"א היה מצוי חצי זהוב פוליש וכתוב במעשה רב שלא היה נותן כ\"א חצי זהב אחד פוליש אבל כעת אין מצוי מטבע זו כלל אם לא שיתן חצאי ג\"פ או חצי רו\"כ. ומי שעוזרו הקב\"ה שיכול ליתן רו\"כ אחד זכר למחצית השקל וג' חצאי ג\"פ לענין מה שכתוב בפרשה ג' פעמים תרומה וכהי\"א האחרון שכתב רמ\"א אשרי וטוב לו:\n",
+      "en_html": "(א) At least, at the same time, I was given a gift to the intelligence of my mother by returning and delivering non-binding dishes because of food and drink that will be processed in the suburbs. and half the It is easy if the poor are divided by gifts to the gods<br>\r\n<br>\r\n(ב) To the other poor, and not to give them the first fruit of the world to give them to their ancestors, and to the world's custom to their firstborn He gives two gifts to the Sunnis on a fertile day, and there is plenty of poor returning to the open The sign:<br>\r\n<br>\r\n(ג) Heaven’s Word is the same as Heaven’s people, and the people who are willing to give them a half of their sins<br>\r\n<br>\r\n(ד) One should give three half-groats in these countries — behold the common way is to interpret \"half-groats\" as half of three groats, namely what we call in our country (half-groats), and it does not seem so in Darkei Moshe — see there; perhaps it is another coin name called thus in the country he wrote about, where he wrote that a half-groat is nine small pashutim. In our country now we do not have this coin. Per our country it appears a medina issues a small coin called half-groat, but it is not an important coin at all even if one gives three halves unless he also gives for his small children. I saw some collectors who first put three half-reichstaler in the charity bowl, and when one comes to give the half-shekel the collector gives him in place of his money the three half-reichstaler and he puts them in the bowl — but this is not clear, for if the collector gives them only as a loan for a few moments and the giver does not intend to acquire them for charity, behold this is not giving at all and he only deceives himself. If the collector's intent is truly to acquire for him and he gives them to charity, this is advice only for the first one and not for those after, since they already became charity the collector has no permission to exchange them for three half-groats; perhaps since they already practiced thus it is as if all givers to charity stipulated explicitly that the collector may do so. Behold in the time of the Gra a Polish half-zahuv was found and it is written in Maaseh Rav that he would give only one Polish half-gold, but now this coin is not found at all unless one gives half-groats or half-reichstaler. One whom the Holy One blessed be He helps that he can give one reichstaler in memory of half-shekel and three half-groats for what is written in the parashah three times terumah — so wrote the latter Rama: fortunate and good for him.\r\n",
+      "he_plain": "ליתן לפחות וכו' - נסתפקתי מתנה לאביון אי מהני ע\"מ להחזיר ומשלוח מנות לא מהני כי מצוה מאכל ומשקה שישמחו בפורים. ומחצית השקל אם מחלקין לעניים יוצאין ידי מתנות לאביונים [פמ\"ג]: לשני עניים - ולא יתן להם קודם פורים דלמא אכלי להו קודם פורים [מ\"א בשם המאור] ומנהג העולם ליתן קודם פורים אף דמתנות לאביונים מצותו דוקא ביום פורים צ\"ל דע\"כ נותן שתי מתנות לאביונים גם ביום פורים וגם יש הרבה עניים החוזרים על הפתחים בפורים [מחצית השקל]: י\"א שיש ליתן וכו' - ועני המתפרנס מן הצדקה צ\"ע אם מחוייב ליתן מחצית השקל [פמ\"ג]: ויש ליתן ג' חצאי גדולים במדינות אלו - הנה דרך העולם לפרש חצאי גדולים חצי ג\"פ והיינו מה שקורין במדינתינו (חצי גראשין) ולא משמע כן בד\"מ עיי\"ש ואולי הוא שם מטבע אחרת שנקרא כן במדינתו שכתב שם שחצי גדול הוא ט' פשוטין קטנים. ובמדינתינו כעת אין לנו מטבע זו. ולפי מדינתינו נראה דמדינא יוצא במטבע קטנה שנקרא חצי גראש אבל מ\"מ אין זה מטבע חשובה כלל אפילו אם נותן ג' חצאין אם לא שנותן גם בעד בניו הקטנים וראיתי איזה גבאים שנותנין מתחלה בהקערה של צדקה ג' חצאי רו\"כ וכשבא אחד ליתן המחצית השקל נותן לו הגבאי תחת מעותיו הג' חצאי רו\"כ והוא נותן אותם להקערה אבל אין זה מחוור דאם הגבאי נותן לו רק בתורת שאלה על איזה רגעים וגם הנותן אין דעתו להקנותם לצדקה הלא אין זה נתינה כלל והוא מערים רק לעצמו בזה. ואם כונת הגבאי בעצמו באמת להקנות לו והוא נותנם לצדקה זהו עצה רק להראשון ולא להאנשים שאחריו כיון שכבר נעשו צדקה אין רשות להגבאי להחליפם תחת ג' חצאי ג\"פ ואולי כיון שכבר נהגו כך הו\"ל כאלו התנו בהדיא כל הנותנים לצדקה שנותנים על אופן זה שיהיה להגבאי רשות לזה. והנה בזמן הגר\"א היה מצוי חצי זהוב פוליש וכתוב במעשה רב שלא היה נותן כ\"א חצי זהב אחד פוליש אבל כעת אין מצוי מטבע זו כלל אם לא שיתן חצאי ג\"פ או חצי רו\"כ. ומי שעוזרו הקב\"ה שיכול ליתן רו\"כ אחד זכר למחצית השקל וג' חצאי ג\"פ לענין מה שכתוב בפרשה ג' פעמים תרומה וכהי\"א האחרון שכתב רמ\"א אשרי וטוב לו:",
+      "en_plain": "(א) At least, at the same time, I was given a gift to the intelligence of my mother by returning and delivering non-binding dishes because of food and drink that will be processed in the suburbs. and half the It is easy if the poor are divided by gifts to the gods (ב) To the other poor, and not to give them the first fruit of the world to give them to their ancestors, and to the world's custom to their firstborn He gives two gifts to the Sunnis on a fertile day, and there is plenty of poor returning to the open The sign: (ג) Heaven’s Word is the same as Heaven’s people, and the people who are willing to give them a half of their sins (ד) One should give three half-groats in these countries — behold the common way is to interpret \"half-groats\" as half of three groats, namely what we call in our country (half-groats), and it does not seem so in Darkei Moshe — see there; perhaps it is another coin name called thus in the country he wrote about, where he wrote that a half-groat is nine small pashutim. In our country now we do not have this coin. Per our country it appears a medina issues a small coin called half-groat, but it is not an important coin at all even if one gives three halves unless he also gives for his small children. I saw some collectors who first put three half-reichstaler in the charity bowl, and when one comes to give the half-shekel the collector gives him in place of his money the three half-reichstaler and he puts them in the bowl — but this is not clear, for if the collector gives them only as a loan for a few moments and the giver does not intend to acquire them for charity, behold this is not giving at all and he only deceives himself. If the collector's intent is truly to acquire for him and he gives them to charity, this is advice only for the first one and not for those after, since they already became charity the collector has no permission to exchange them for three half-groats; perhaps since they already practiced thus it is as if all givers to charity stipulated explicitly that the collector may do so. Behold in the time of the Gra a Polish half-zahuv was found and it is written in Maaseh Rav that he would give only one Polish half-gold, but now this coin is not found at all unless one gives half-groats or half-reichstaler. One whom the Holy One blessed be He helps that he can give one reichstaler in memory of half-shekel and three half-groats for what is written in the parashah three times terumah — so wrote the latter Rama: fortunate and good for him.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman696/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 696,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.244,
+        "he_chars": 450,
+        "en_chars": 560,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 560
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"א והעושה. </b>פסחים נ' ב' ובכ\"מ שיש נדנוד עבירה:<br />\n<b>ומותר לעשות כל מלאכת מצוה. </b>בפ\"ק דשקלים בט\"ו קורין כו' ומתקנין כו' ואפי' בכרכים מפני שהוא מצוה כמש\"ש בגמרא ומכין שאם לא כו':<br />\n<b>כגון לכתוב. </b>מתניתין י\"ז א' היה כותבה. ואע\"ג דבירושלמי מוכח משם דמותר בעשיית מלאכה היינו דלא קבלו עלייהו י\"ט ממש אבל משום המנהג מותר כמ\"ש בגמ' ה' ב' ואב\"א לעולם נהוג ורבי נטיעה כו' משמע אבל אי הוי י\"ט אף של שמחה אסור:<br />\n<b>וכן מותר. </b>כנ\"ל נטיעה של שמחה וכן פסקי הלכות מטעם זה פקודי כו':\n",
+      "en_html": "(א) C. and does. Heaven is a sign of sin:<br>\r\n<br>\r\n(ב) It is possible to do every task. In the Gemara, he says that he is in the midst of Heaven’s Word, and that he is in heaven, and that if he is not<br>\r\n<br>\r\n(ג) Like writing. He was a writer. And Heaven’s promise is that Heaven’s Word is a gift from Heaven’s Word, and Heaven’s Word is a gift to Heaven’s people, and Heaven’s promise to the world of Heaven’s Word is not to be done, but Heaven’s Word is not to say:<br>\r\n<br>\r\n(ד) And also allowed. It is the same as Heaven’s grace and mercy, and the glory of Heaven’s Word is the same:\r\n",
+      "he_plain": "ס\"א והעושה. פסחים נ' ב' ובכ\"מ שיש נדנוד עבירה: ומותר לעשות כל מלאכת מצוה. בפ\"ק דשקלים בט\"ו קורין כו' ומתקנין כו' ואפי' בכרכים מפני שהוא מצוה כמש\"ש בגמרא ומכין שאם לא כו': כגון לכתוב. מתניתין י\"ז א' היה כותבה. ואע\"ג דבירושלמי מוכח משם דמותר בעשיית מלאכה היינו דלא קבלו עלייהו י\"ט ממש אבל משום המנהג מותר כמ\"ש בגמ' ה' ב' ואב\"א לעולם נהוג ורבי נטיעה כו' משמע אבל אי הוי י\"ט אף של שמחה אסור: וכן מותר. כנ\"ל נטיעה של שמחה וכן פסקי הלכות מטעם זה פקודי כו':",
+      "en_plain": "(א) C. and does. Heaven is a sign of sin: (ב) It is possible to do every task. In the Gemara, he says that he is in the midst of Heaven’s Word, and that he is in heaven, and that if he is not (ג) Like writing. He was a writer. And Heaven’s promise is that Heaven’s Word is a gift from Heaven’s Word, and Heaven’s Word is a gift to Heaven’s people, and Heaven’s promise to the world of Heaven’s Word is not to be done, but Heaven’s Word is not to say: (ד) And also allowed. It is the same as Heaven’s grace and mercy, and the glory of Heaven’s Word is the same:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman7/seif-001/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 7,
+      "seif": 1,
+      "slug": "shaarei-teshuvah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.643,
+        "he_chars": 589,
+        "en_chars": 968,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 968
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<b>אשר </b> יצר. עבה\"ט מ\"ש במי ששותה כוס המשלשל כו', כתב בשלמי צבור שהמנהג פשוט לברך א\"י בכל פעם ע\"ש. אך נראה דבשילשול חזק שמרגיש שמיד יצטרך לפנות שנית אסור לברך כדלקמן סימן צ\"ב שאפילו בד\"ת אסור ע\"ש וכן מבואר ממה שכתב בש\"ל בשם תשובה כ\"י למהר\"א נחום ששאלוהו על מי שעשה צרכיו או הטיל מים ולא בירך א\"י עד כמה יש לו זמן לברך ומסיק שאם נזכר קודם שהתחיל להתאוות פשיטא שיברך ואם נזכר לאחר שהתחיל להתאוות לא יברך וא\"כ מכ\"ש בזה. ומ\"ש לענין יוצא מהבכ\"ס עיין בא\"ר דמוכח מסי' קס\"ה דא\"צ ועיין סי' רכ\"ז. ומ\"מ יש מחמירין על עצמם כמ\"ש לעיל סי' ד' בשם מח\"ב דרבנן קשישאי הוי עבדי הכי לרחוץ ג\"פ אחר יציאה מבהכ\"ס ע\"ש:\r\n",
+      "en_html": "<b>which </b> created. Abhat M.S. For those who drink a cup of laxatives, Bashlimi Tzbor wrote that the custom is simply to bless Ai every time. But it seems like a strong Debashilshul who feels that he will immediately have to turn a second time. It is forbidden to bless, as follows, the Chav sign, which even in the OT is forbidden, and it is also explained by what he wrote in the Shal in the name of Tshuva 20, to Mahara Nahum, who asked him about someone who defecated or poured water and did not bless Ai. How much time does he have to bless, and concludes that if he remembers before he started lusting, he should bless, and if he remembers after he started lusting, he should not bless, etc. M.A.S. in this. And M.A.S. for the matter comes from the B.A.S. Ayan Ba\n\n\"R. Damokh from C. 65 DAC and Eyen C. R. And from M.M. there are those who are stricter on themselves as the M.S. above C. D. in the name of M.H.B. Darbanan Kshishai Hoy my servant the most to bathe G.P.\n",
+      "he_plain": "אשר יצר. עבה\"ט מ\"ש במי ששותה כוס המשלשל כו', כתב בשלמי צבור שהמנהג פשוט לברך א\"י בכל פעם ע\"ש. אך נראה דבשילשול חזק שמרגיש שמיד יצטרך לפנות שנית אסור לברך כדלקמן סימן צ\"ב שאפילו בד\"ת אסור ע\"ש וכן מבואר ממה שכתב בש\"ל בשם תשובה כ\"י למהר\"א נחום ששאלוהו על מי שעשה צרכיו או הטיל מים ולא בירך א\"י עד כמה יש לו זמן לברך ומסיק שאם נזכר קודם שהתחיל להתאוות פשיטא שיברך ואם נזכר לאחר שהתחיל להתאוות לא יברך וא\"כ מכ\"ש בזה. ומ\"ש לענין יוצא מהבכ\"ס עיין בא\"ר דמוכח מסי' קס\"ה דא\"צ ועיין סי' רכ\"ז. ומ\"מ יש מחמירין על עצמם כמ\"ש לעיל סי' ד' בשם מח\"ב דרבנן קשישאי הוי עבדי הכי לרחוץ ג\"פ אחר יציאה מבהכ\"ס ע\"ש:",
+      "en_plain": "which created. Abhat M.S. For those who drink a cup of laxatives, Bashlimi Tzbor wrote that the custom is simply to bless Ai every time. But it seems like a strong Debashilshul who feels that he will immediately have to turn a second time. It is forbidden to bless, as follows, the Chav sign, which even in the OT is forbidden, and it is also explained by what he wrote in the Shal in the name of Tshuva 20, to Mahara Nahum, who asked him about someone who defecated or poured water and did not bless Ai. How much time does he have to bless, and concludes that if he remembers before he started lusting, he should bless, and if he remembers after he started lusting, he should not bless, etc. M.A.S. in this. And M.A.S. for the matter comes from the B.A.S. Ayan Ba \"R. Damokh from C. 65 DAC and Eyen C. R. And from M.M. there are those who are stricter on themselves as the M.S. above C. D. in the name of M.H.B. Darbanan Kshishai Hoy my servant the most to bathe G.P.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman72/seif-001/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 72,
+      "seif": 1,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.349,
+        "he_chars": 456,
+        "en_chars": 615,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 615
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "[א] <b>מאחר שלמטה וכו'.</b> הלבוש פירש דוקא בסמוכים למטה אבל בלחם חמודות דף י\"ט פירש דברי הרמב\"ם דהענין הוא שהיו בזמנים ההם ואפשר עדיין במקצת מקומות חבורות מזומנות לכך, ואם כן בין סמוכין בין אין סמוכין, עד כאן, וכן משמע בפירוש משנה לרמב\"ם פרק מי שמתו. ומכל מקום במקום שאין חבורות נושאי המטה מזומנים אלא כל מי שרוצה הוא נושא דברי לבוש נכונים לדינא. כתב בית יוסף דאף שיש שהות לאחרונים לקרוא בעוד שנושאים כת שניה אפילו הכי פטורים שפעמים נמלכים שכת שלישית כשניה יסעו:\n",
+      "en_html": "(a) because it is below and so on. The dress was cut down, but in a lovely bread, the Rambam's words were circumcised in those times and ap\nThe minister is still a bit of scattered places, and if there is no snail between there is no stalling, so far, and it means, in other words, that it means that the Rambam is a part of who is\nDied. And everywhere, where there are no pits of the staff of cash, but anyone who wants to be wearing the right words for Dana. Joseph's house wrote\nPutting the others to read while carrying a second class even the most exempt ones that sometimes last a third term when it comes to:\n",
+      "he_plain": "[א] מאחר שלמטה וכו'. הלבוש פירש דוקא בסמוכים למטה אבל בלחם חמודות דף י\"ט פירש דברי הרמב\"ם דהענין הוא שהיו בזמנים ההם ואפשר עדיין במקצת מקומות חבורות מזומנות לכך, ואם כן בין סמוכין בין אין סמוכין, עד כאן, וכן משמע בפירוש משנה לרמב\"ם פרק מי שמתו. ומכל מקום במקום שאין חבורות נושאי המטה מזומנים אלא כל מי שרוצה הוא נושא דברי לבוש נכונים לדינא. כתב בית יוסף דאף שיש שהות לאחרונים לקרוא בעוד שנושאים כת שניה אפילו הכי פטורים שפעמים נמלכים שכת שלישית כשניה יסעו:",
+      "en_plain": "(a) because it is below and so on. The dress was cut down, but in a lovely bread, the Rambam's words were circumcised in those times and ap The minister is still a bit of scattered places, and if there is no snail between there is no stalling, so far, and it means, in other words, that it means that the Rambam is a part of who is Died. And everywhere, where there are no pits of the staff of cash, but anyone who wants to be wearing the right words for Dana. Joseph's house wrote Putting the others to read while carrying a second class even the most exempt ones that sometimes last a third term when it comes to:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman9/seif-001/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 9,
+      "seif": 1,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.197,
+        "he_chars": 2383,
+        "en_chars": 2853,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2853
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<b>א) [סעיף א'] אין חייב בציצית מן התורה וכו'  </b>או של צמר רחלים, וה\"ה צמר אלים, ב\"י, מ\"א ס\"ק א', א\"ר סק\"א, פרמ\"ג א\"א אות א', מחה\"ש או' א', שו\"ג אות א', מור וקציעה, קיצור ש\"ע סי' ט' אות י\"ב. ומ\"ש בבאה\"ט ס\"ק א' ט\"ס הוא. אח\"כ ראיתי שכן כתב מאמ\"ר או' ה':<br />\n<b>ב) שם  </b>או של צמר רחלים, אבל של עזים נוצה מיקרי ושל גמלים אע\"פ שנקרה צמר גמלים וכן צמר ארנבים צמר סתם לא איקרי ב\"י, עו\"ש. עו\"ת אות ב' מחה\"ש שם:<br />\n<b>ג) שם  </b>או של צמר רחלים, ורחל בת עז צמרה פסול לציצית, הרמב\"ם פ\"ב, וא\"כ לא חשיב צמר כלל ואינו פוטר בציצית אלא במינו דוקא, ב\"י. עו\"ת אות ב' מ\"א ס\"ק א' פרמ\"ג א\"א אות א' וכן רחל בת רחל בת עז נמי שוה לרחל בת עז, עו\"ת שם, וכן רחל שאביה תיש ואמה רחל, פרמ\"ג שם, ואם פוטרין זא\"ז עיין שם בפרמ\"ג שהניח בצ\"ע:<br />\n<b>ד) שם  </b>או של צמר רחלים וכו' צמר רחלים ושאר מינים שטרפם זה בזה אזלינן בתר הרוב מ\"א שם וכתב שכ\"מ פ' בתרא דכלאיים וכתב מחה\"ש על דבר המ\"א הנ\"ל ר\"ל בהיותן עדיין צמר קודם שטוה מהן חוטין המועט מתבטל ברוב כ\"ה במשנה שם והכי קיי\"ל ביו\"ד סי' רצ\"ט סעי' א' משא\"כ כשכבר טוה מהן חוטין אין מתבטלין וכדאיתא שם וכ\"ה לקמן ס\"ק ד' עכ\"ל, וכ\"כ ר\"ז אות ו' ואם הוא מחצה על מחצה כתב מחה\"ש שם דאזלינן לחומרא דכ\"ה שם ביו\"ד ור\"ל שיעשה ציצית של צמר שפוטרים בכל המינים ככתוב בסעי' ב' וכ\"כ ר\"ז שם מיהו לדברי האומרים דאין ציצית של צמר פוטרים בשאר המינים כאשר יבואר לקמן בס\"ד אין לטלית זו תקנה וכ\"כ ר\"ז שם:<br />\n<b>ד) וכ\"ז  </b>לדברי מ\"א דסב\"ל אף מין בשאינו מינו בבגדים אזלינן בתר הרוב אבל הפרמ\"ג שם כתב דיש מחלוקת בזה די\"א דאין בעל ברוב אלא מינו עי\"ש:<br />\n<b>ה) שם  </b>אבל בגדי שאר מינים וכו' הגה. וי\"א דכולהו חייבים מדאורייתא וכו'. הנה בגמרא פ' התכלת דף ט\"ל ע\"ב יש פלוגתא אם שאר המינים חייבים מדאורייתא או מדרבנן דרב נחמן ס\"ל בגדי שאר המינים אין חייבין מדאורייתא ורבא ס\"ל דבגדי שאר מינים נמי חייבים מדאורייתא והרי\"ף והרמ\"בה פסקו כרב נחמן וכן פסק מרן ז\"ל כי כן דרכו אבל התוספות והרא\"ש וסמ\"ג והמרדכי פסקו כרבא וזה סברת מור\"ם ז\"ל ובדברי רבא איכא פלוגתא כי י\"א דאף לרבא צמר או פשתים פוטרם בשאר מיני בגדים ואפי' צמר ופשתים יחדיו נמי דהוי כלאים פוטרים אבל מהר\"ם הביאו הגהות מיי' ותה\"ד והאגור ס\"ל דלרבא בשאר מינים דחייבים דאורייתא לא פטר אלא צמר ופשתים יחדיו דהיינו בזמן שהיה תכלת אבל עכשיו לא פטר צמר או פשתים בשאר מינים אלא דוקא במינם פוטרים כגון ציצית של משי במשי וצמר גפן בצמר גפן דדרשינן הכנף מין כנף דמין כנף דוקא עיין ב\"י וב\"ח ומחה\"ש סק\"ג. ע\"כ כל יר\"ש יחמיר לעצמו ולא יתן בטלית של צמר גפן אלא ציצית של צמר גפן וכן בשאר המינים כדי להנצל מפלוגתא. וכ\"כ ר\"ז אות ד' חסד לאלפים אות ב' קי' ש\"ע סי' ט' אות י\"ב, בן איש חי נר\"ו פ' נח אות א' ועיין סעי' ו' ובדברינו שם:\n",
+      "en_html": "<b>a) [Section 1] One is not required to wear a tzizit from the Torah, etc. </b>or of the wool of Rachel, and the 5th wool of the gods, 21, MA SK 1, AR SKA, Parmag 11 letter 1, Mahash 01 letter 1, Shog letter 1 letter 1, Mor and Katzea, Kitzur 19th letter 12b. And M.S. in Ba'at Sec. A. TS is. Later I saw that a neighbor wrote from AMR O. H.:<br />\n<b>b) Ibid </b>Or of Rachel's wool, but of goats, a mikri feather, and of camels, aka camels' wool, as well as rabbit wool, wool just not ikari 21, op.<br />\n<b>c) Ibid </b>or Rachel's wool, and Rachel daughter of a goat is invalid for tzitzit, Rambam PBV, and so does not consider wool at all and is not exempt from tzitzit, but only because of its kind, 22. Ort. letter 2 MA seq. 1 Parmag 1a letter 1 and also Rachel bet Rachel bet Eaz Nami is the same as Rachel bet Eaz, Ort. Ibid., and also Rachel whose father is Tish and mother Rachel, Parmag Ibid., and if putrin 17, see Ibid in the Parmag that he laid down in Tze:<br />\n<b>d) Name </b>or of Rachel wool, etc. Rachel wool and other species that preyed on each other are extinct in the Bater HaRov MA there and the writing of KCM P. Batra Dakhlaiim and the writing of the Mahash on the words of the above MA RL since they are still wool before it is wrong of them the little thong is canceled in the majority of the 25th Mishnah there and the most KL in Yod C. Rzat Sai' A. Masha Kakabar when There is no idleness in them.\n\nIn Sai'i 2 and 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20.<br />\n<b>d) and 27 </b>According to MA Dasbal, there is no gender in which they are not classified in clothes, but the Parmag there wrote a discord in this, DA Dain Baal in the majority, but the gender is Aish:<br />\n<b>e) name </b>but clothes of other species, etc. Helm. 11. All of them must be from Daorita, etc. Here in the Gemara, 5, Hatkalt, page 11 1B, there is a flaguta if the other species must be from Daorita or from Darbanan, Rabbi Nachman, Sal. And the Rash and Samaj and Mordechai ruled as Raba and this is the opinion of the late Moram and in the words of Raba Icha Plugta that 11 Daff for Raba wool or linen is putram in other kinds of clothes and af\n\nY. Wool and linen together, faded wool, hybrids are exempt, but the Maharam brought glosses from May and 18th, and the Hagar S.L. Dlarba in other species are required by Dauriyta not wool but wool and linen together, that is, when it was blue, but now it is not wool or linen in other species, but precisely in the type of exemption, such as a tassel of silk in silk and cotton in cotton wool. Knaf Doka Eyan 2 and 2H and 3G. Therefore, every Yrash will not give a cotton swab but a cotton swab, as well as the other species in order to take advantage of Plugta\n\nLetter 4, Kindness to thousands, Letter 2, Ki, 6, 6, 9, Letter 12, Ben Ish Chai, Narvo 5, Noah, Letter 1, and Eyen Sai, 6, and in our words there:\n",
+      "he_plain": "א) [סעיף א'] אין חייב בציצית מן התורה וכו' או של צמר רחלים, וה\"ה צמר אלים, ב\"י, מ\"א ס\"ק א', א\"ר סק\"א, פרמ\"ג א\"א אות א', מחה\"ש או' א', שו\"ג אות א', מור וקציעה, קיצור ש\"ע סי' ט' אות י\"ב. ומ\"ש בבאה\"ט ס\"ק א' ט\"ס הוא. אח\"כ ראיתי שכן כתב מאמ\"ר או' ה': ב) שם או של צמר רחלים, אבל של עזים נוצה מיקרי ושל גמלים אע\"פ שנקרה צמר גמלים וכן צמר ארנבים צמר סתם לא איקרי ב\"י, עו\"ש. עו\"ת אות ב' מחה\"ש שם: ג) שם או של צמר רחלים, ורחל בת עז צמרה פסול לציצית, הרמב\"ם פ\"ב, וא\"כ לא חשיב צמר כלל ואינו פוטר בציצית אלא במינו דוקא, ב\"י. עו\"ת אות ב' מ\"א ס\"ק א' פרמ\"ג א\"א אות א' וכן רחל בת רחל בת עז נמי שוה לרחל בת עז, עו\"ת שם, וכן רחל שאביה תיש ואמה רחל, פרמ\"ג שם, ואם פוטרין זא\"ז עיין שם בפרמ\"ג שהניח בצ\"ע: ד) שם או של צמר רחלים וכו' צמר רחלים ושאר מינים שטרפם זה בזה אזלינן בתר הרוב מ\"א שם וכתב שכ\"מ פ' בתרא דכלאיים וכתב מחה\"ש על דבר המ\"א הנ\"ל ר\"ל בהיותן עדיין צמר קודם שטוה מהן חוטין המועט מתבטל ברוב כ\"ה במשנה שם והכי קיי\"ל ביו\"ד סי' רצ\"ט סעי' א' משא\"כ כשכבר טוה מהן חוטין אין מתבטלין וכדאיתא שם וכ\"ה לקמן ס\"ק ד' עכ\"ל, וכ\"כ ר\"ז אות ו' ואם הוא מחצה על מחצה כתב מחה\"ש שם דאזלינן לחומרא דכ\"ה שם ביו\"ד ור\"ל שיעשה ציצית של צמר שפוטרים בכל המינים ככתוב בסעי' ב' וכ\"כ ר\"ז שם מיהו לדברי האומרים דאין ציצית של צמר פוטרים בשאר המינים כאשר יבואר לקמן בס\"ד אין לטלית זו תקנה וכ\"כ ר\"ז שם: ד) וכ\"ז לדברי מ\"א דסב\"ל אף מין בשאינו מינו בבגדים אזלינן בתר הרוב אבל הפרמ\"ג שם כתב דיש מחלוקת בזה די\"א דאין בעל ברוב אלא מינו עי\"ש: ה) שם אבל בגדי שאר מינים וכו' הגה. וי\"א דכולהו חייבים מדאורייתא וכו'. הנה בגמרא פ' התכלת דף ט\"ל ע\"ב יש פלוגתא אם שאר המינים חייבים מדאורייתא או מדרבנן דרב נחמן ס\"ל בגדי שאר המינים אין חייבין מדאורייתא ורבא ס\"ל דבגדי שאר מינים נמי חייבים מדאורייתא והרי\"ף והרמ\"בה פסקו כרב נחמן וכן פסק מרן ז\"ל כי כן דרכו אבל התוספות והרא\"ש וסמ\"ג והמרדכי פסקו כרבא וזה סברת מור\"ם ז\"ל ובדברי רבא איכא פלוגתא כי י\"א דאף לרבא צמר או פשתים פוטרם בשאר מיני בגדים ואפי' צמר ופשתים יחדיו נמי דהוי כלאים פוטרים אבל מהר\"ם הביאו הגהות מיי' ותה\"ד והאגור ס\"ל דלרבא בשאר מינים דחייבים דאורייתא לא פטר אלא צמר ופשתים יחדיו דהיינו בזמן שהיה תכלת אבל עכשיו לא פטר צמר או פשתים בשאר מינים אלא דוקא במינם פוטרים כגון ציצית של משי במשי וצמר גפן בצמר גפן דדרשינן הכנף מין כנף דמין כנף דוקא עיין ב\"י וב\"ח ומחה\"ש סק\"ג. ע\"כ כל יר\"ש יחמיר לעצמו ולא יתן בטלית של צמר גפן אלא ציצית של צמר גפן וכן בשאר המינים כדי להנצל מפלוגתא. וכ\"כ ר\"ז אות ד' חסד לאלפים אות ב' קי' ש\"ע סי' ט' אות י\"ב, בן איש חי נר\"ו פ' נח אות א' ועיין סעי' ו' ובדברינו שם:",
+      "en_plain": "a) [Section 1] One is not required to wear a tzizit from the Torah, etc. or of the wool of Rachel, and the 5th wool of the gods, 21, MA SK 1, AR SKA, Parmag 11 letter 1, Mahash 01 letter 1, Shog letter 1 letter 1, Mor and Katzea, Kitzur 19th letter 12b. And M.S. in Ba'at Sec. A. TS is. Later I saw that a neighbor wrote from AMR O. H.: b) Ibid Or of Rachel's wool, but of goats, a mikri feather, and of camels, aka camels' wool, as well as rabbit wool, wool just not ikari 21, op. c) Ibid or Rachel's wool, and Rachel daughter of a goat is invalid for tzitzit, Rambam PBV, and so does not consider wool at all and is not exempt from tzitzit, but only because of its kind, 22. Ort. letter 2 MA seq. 1 Parmag 1a letter 1 and also Rachel bet Rachel bet Eaz Nami is the same as Rachel bet Eaz, Ort. Ibid., and also Rachel whose father is Tish and mother Rachel, Parmag Ibid., and if putrin 17, see Ibid in the Parmag that he laid down in Tze: d) Name or of Rachel wool, etc. Rachel wool and other species that preyed on each other are extinct in the Bater HaRov MA there and the writing of KCM P. Batra Dakhlaiim and the writing of the Mahash on the words of the above MA RL since they are still wool before it is wrong of them the little thong is canceled in the majority of the 25th Mishnah there and the most KL in Yod C. Rzat Sai' A. Masha Kakabar when There is no idleness in them. In Sai'i 2 and 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20. d) and 27 According to MA Dasbal, there is no gender in which they are not classified in clothes, but the Parmag there wrote a discord in this, DA Dain Baal in the majority, but the gender is Aish: e) name but clothes of other species, etc. Helm. 11. All of them must be from Daorita, etc. Here in the Gemara, 5, Hatkalt, page 11 1B, there is a flaguta if the other species must be from Daorita or from Darbanan, Rabbi Nachman, Sal. And the Rash and Samaj and Mordechai ruled as Raba and this is the opinion of the late Moram and in the words of Raba Icha Plugta that 11 Daff for Raba wool or linen is putram in other kinds of clothes and af Y. Wool and linen together, faded wool, hybrids are exempt, but the Maharam brought glosses from May and 18th, and the Hagar S.L. Dlarba in other species are required by Dauriyta not wool but wool and linen together, that is, when it was blue, but now it is not wool or linen in other species, but precisely in the type of exemption, such as a tassel of silk in silk and cotton in cotton wool. Knaf Doka Eyan 2 and 2H and 3G. Therefore, every Yrash will not give a cotton swab but a cotton swab, as well as the other species in order to take advantage of Plugta Letter 4, Kindness to thousands, Letter 2, Ki, 6, 6, 9, Letter 12, Ben Ish Chai, Narvo 5, Noah, Letter 1, and Eyen Sai, 6, and in our words there:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman9/seif-005/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 9,
+      "seif": 5,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.158,
+        "he_chars": 995,
+        "en_chars": 1152,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1152
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<b>ה) שם  </b>אבל בגדי שאר מינים וכו' הגה. וי\"א דכולהו חייבים מדאורייתא וכו'. הנה בגמרא פ' התכלת דף ט\"ל ע\"ב יש פלוגתא אם שאר המינים חייבים מדאורייתא או מדרבנן דרב נחמן ס\"ל בגדי שאר המינים אין חייבין מדאורייתא ורבא ס\"ל דבגדי שאר מינים נמי חייבים מדאורייתא והרי\"ף והרמ\"בה פסקו כרב נחמן וכן פסק מרן ז\"ל כי כן דרכו אבל התוספות והרא\"ש וסמ\"ג והמרדכי פסקו כרבא וזה סברת מור\"ם ז\"ל ובדברי רבא איכא פלוגתא כי י\"א דאף לרבא צמר או פשתים פוטרם בשאר מיני בגדים ואפי' צמר ופשתים יחדיו נמי דהוי כלאים פוטרים אבל מהר\"ם הביאו הגהות מיי' ותה\"ד והאגור ס\"ל דלרבא בשאר מינים דחייבים דאורייתא לא פטר אלא צמר ופשתים יחדיו דהיינו בזמן שהיה תכלת אבל עכשיו לא פטר צמר או פשתים בשאר מינים אלא דוקא במינם פוטרים כגון ציצית של משי במשי וצמר גפן בצמר גפן דדרשינן הכנף מין כנף דמין כנף דוקא עיין ב\"י וב\"ח ומחה\"ש סק\"ג. ע\"כ כל יר\"ש יחמיר לעצמו ולא יתן בטלית של צמר גפן אלא ציצית של צמר גפן וכן בשאר המינים כדי להנצל מפלוגתא. וכ\"כ ר\"ז אות ד' חסד לאלפים אות ב' קי' ש\"ע סי' ט' אות י\"ב, בן איש חי נר\"ו פ' נח אות א' ועיין סעי' ו' ובדברינו שם:\n",
+      "en_html": "<b>e) name </b>but clothes of other species, etc. Helm. 11. All of them must be from Daorita, etc. Here in the Gemara, 5, Hatkalt, page 11 1B, there is a flaguta if the other species must be from Daorita or from Darbanan, Rabbi Nachman, Sal. And the Rash and Samaj and Mordechai ruled as Raba and this is the opinion of the late Moram and in the words of Raba Icha Plugta that 11 Daff for Raba wool or linen is putram in other kinds of clothes and af\n\nY. Wool and linen together, faded wool, hybrids are exempt, but the Maharam brought glosses from May and 18th, and the Hagar S.L. Dlarba in other species are required by Dauriyta not wool but wool and linen together, that is, when it was blue, but now it is not wool or linen in other species, but precisely in the type of exemption, such as a tassel of silk in silk and cotton in cotton wool. Knaf Doka Eyan 2 and 2H and 3G. Therefore, every Yrash will not give a cotton swab but a cotton swab, as well as the other species in order to take advantage of Plugta\n\nLetter 4, Kindness to thousands, Letter 2, Ki, 6, 6, 9, Letter 12, Ben Ish Chai, Narvo 5, Noah, Letter 1, and Eyen Sai, 6, and in our words there:\n",
+      "he_plain": "ה) שם אבל בגדי שאר מינים וכו' הגה. וי\"א דכולהו חייבים מדאורייתא וכו'. הנה בגמרא פ' התכלת דף ט\"ל ע\"ב יש פלוגתא אם שאר המינים חייבים מדאורייתא או מדרבנן דרב נחמן ס\"ל בגדי שאר המינים אין חייבין מדאורייתא ורבא ס\"ל דבגדי שאר מינים נמי חייבים מדאורייתא והרי\"ף והרמ\"בה פסקו כרב נחמן וכן פסק מרן ז\"ל כי כן דרכו אבל התוספות והרא\"ש וסמ\"ג והמרדכי פסקו כרבא וזה סברת מור\"ם ז\"ל ובדברי רבא איכא פלוגתא כי י\"א דאף לרבא צמר או פשתים פוטרם בשאר מיני בגדים ואפי' צמר ופשתים יחדיו נמי דהוי כלאים פוטרים אבל מהר\"ם הביאו הגהות מיי' ותה\"ד והאגור ס\"ל דלרבא בשאר מינים דחייבים דאורייתא לא פטר אלא צמר ופשתים יחדיו דהיינו בזמן שהיה תכלת אבל עכשיו לא פטר צמר או פשתים בשאר מינים אלא דוקא במינם פוטרים כגון ציצית של משי במשי וצמר גפן בצמר גפן דדרשינן הכנף מין כנף דמין כנף דוקא עיין ב\"י וב\"ח ומחה\"ש סק\"ג. ע\"כ כל יר\"ש יחמיר לעצמו ולא יתן בטלית של צמר גפן אלא ציצית של צמר גפן וכן בשאר המינים כדי להנצל מפלוגתא. וכ\"כ ר\"ז אות ד' חסד לאלפים אות ב' קי' ש\"ע סי' ט' אות י\"ב, בן איש חי נר\"ו פ' נח אות א' ועיין סעי' ו' ובדברינו שם:",
+      "en_plain": "e) name but clothes of other species, etc. Helm. 11. All of them must be from Daorita, etc. Here in the Gemara, 5, Hatkalt, page 11 1B, there is a flaguta if the other species must be from Daorita or from Darbanan, Rabbi Nachman, Sal. And the Rash and Samaj and Mordechai ruled as Raba and this is the opinion of the late Moram and in the words of Raba Icha Plugta that 11 Daff for Raba wool or linen is putram in other kinds of clothes and af Y. Wool and linen together, faded wool, hybrids are exempt, but the Maharam brought glosses from May and 18th, and the Hagar S.L. Dlarba in other species are required by Dauriyta not wool but wool and linen together, that is, when it was blue, but now it is not wool or linen in other species, but precisely in the type of exemption, such as a tassel of silk in silk and cotton in cotton wool. Knaf Doka Eyan 2 and 2H and 3G. Therefore, every Yrash will not give a cotton swab but a cotton swab, as well as the other species in order to take advantage of Plugta Letter 4, Kindness to thousands, Letter 2, Ki, 6, 6, 9, Letter 12, Ben Ish Chai, Narvo 5, Noah, Letter 1, and Eyen Sai, 6, and in our words there:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman94/seif-002/beer-hagolah",
+      "volume": "oc1",
+      "siman": 94,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.118,
+        "he_chars": 17,
+        "en_chars": 36,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 36
+        },
+        "failure_patterns": [
+          "abu_dhabi"
+        ]
+      },
+      "he_html": "מהר\"י אבוהב וסמ\"ק\n",
+      "en_html": "From the mountain of Abu Dhabi and C\n",
+      "he_plain": "מהר\"י אבוהב וסמ\"ק",
+      "en_plain": "From the mountain of Abu Dhabi and C",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

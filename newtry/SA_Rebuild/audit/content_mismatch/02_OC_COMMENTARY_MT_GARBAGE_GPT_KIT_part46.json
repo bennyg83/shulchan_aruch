@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 46,
+    "chunk_total": 47,
+    "case_offset": 242,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman660/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 660,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.852,
+        "he_chars": 122,
+        "en_chars": 226,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 226
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>וי\"א שמי וכו'</b>. ורש\"ל כ' דביום ז' אף מי שאין לו לולב יקיף בערבה אלא דמיחזי כיוהרא ומ\"מ אם אין לולב בעיר יקיפו בערבה (ב\"ח):\n",
+      "en_html": "11. My name, etc. And Rashel 20 Dabiom 7: Even those who do not have a Lulav shall be circumcised in the desert, but Damichazi, as a Jew, and M.M. If there is no Lulav in the city, they shall be circumcised in the desert (28):\r\n",
+      "he_plain": "וי\"א שמי וכו' . ורש\"ל כ' דביום ז' אף מי שאין לו לולב יקיף בערבה אלא דמיחזי כיוהרא ומ\"מ אם אין לולב בעיר יקיפו בערבה (ב\"ח):",
+      "en_plain": "11. My name, etc. And Rashel 20 Dabiom 7: Even those who do not have a Lulav shall be circumcised in the desert, but Damichazi, as a Jew, and M.M. If there is no Lulav in the city, they shall be circumcised in the desert (28):",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman664/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 664,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.939,
+        "he_chars": 848,
+        "en_chars": 1644,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1644
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>א ביום שביעי כו'. </b>כמש\"ו לפי שבחג כו' ועט\"ז ס\"ק א' וכ\"ה בטור וכמ\"ש בפ\"ק דר\"ה נסכו מים לפני כדי כו' וקי\"ל כת\"ק דניסוך המים אינו אלא שבעה ולכך עושין במקצת כיה\"כ ועושין גם כן כמו י\"ט כמ\"ש במתני' פ\"ד דסוכה שהיו מרבין בשמחה מיד התינוקות כו' וכל ימי הדין הוא י\"ט הד' פרקים בשנה וכמ\"ש במדרש ובירושלמי פ\"ק דר\"ה איזה אומה כאומה זו שיודעת אופיא כו':<br />\n<b>וא\"א נשמת. </b>עיין רשב\"ם פ' ע\"פ ק\"ב ב' סוף העמוד ד\"ה ושמואל אמר. ומה שאין כו':<br />\n<b>ואומרים מזמור לתודה. </b>כמ\"ש בפ\"ב די\"ט י\"ט ב':<br />\n<b>ואומרים כו'. </b>כנ\"ל:<br />\n<b>כתבו כו'. </b>שאז גמר דין של האדם גם כן עם המים שהמים חיים לעולם ואמרו עשרה דברים נקראו חיים כו' וכתיב ונסו הצללים סר צלם מעליהם:<br />\n<b>בצל הלבנה. </b>שהיא ממונה על המים והם מתרבים ומתחסרים בחסרונה ותוספתה:<br />\n<b>ויש מי כו'. </b>כמ\"ש בפר' בתרא דהוריות ובפ\"ק דכריתות:<br />\n<b>ויותר כו'. </b>כמ\"ש בפ' ע\"פ ע\"ש:<br />\n<b>ויש נוהגים כו'. </b>עמ\"א ובמדינתנו כו' וכמ\"ש בירושלמי הנ\"ל לובשין לבנים כו':<br />\n<b>ומרבים תחנונים כו'. </b>כנ\"ל:\n",
+      "en_html": "<b>On the seventh day.</b> This is because of the water judgment associated with the festival. See Taz, seif katan 1, and Tur. Rosh Hashanah teaches, “Pour water before Me,” and we follow the first Tanna that the water libation lasts seven days. Therefore Hoshana Rabbah is treated in some respects like Yom Kippur and in some respects like Yom Tov. The Mishnah in Sukkah, chapter 4, describes the exceptional rejoicing, including the children’s lulavim. All the days of judgment are also festivals, as taught regarding the four periods of judgment during the year, and as stated in the Midrash and Yerushalmi: what nation is like this nation, which knows the character of its God.<br /><br />\n<b>Nishmat is not recited.</b> See Rashbam, Pesachim 102b, at the end of the page, beginning “And Shmuel said,” and the continuation there.<br /><br />\n<b>Mizmor LeTodah is recited.</b> As stated in Beitzah 19b.<br /><br />\n<b>And they recite.</b> As explained above.<br /><br />\n<b>They wrote.</b> At that time the judgment of the person is completed together with the judgment concerning water, for water gives life to the world. The Sages said that ten things are called living, and Scripture states, “The shadows have fled,” and “Their protective shade has departed from them.”<br /><br />\n<b>In the moonlight.</b> The moon is appointed over the waters, which increase and diminish with its waning and waxing.<br /><br />\n<b>Some maintain.</b> As stated in the final chapter of Horayot and the first chapter of Keritot.<br /><br />\n<b>And more.</b> As stated in Arvei Pesachim; see there.<br /><br />\n<b>Some have the custom.</b> See Magen Avraham concerning the custom in our country, and the aforementioned Yerushalmi that they wear white garments.<br /><br />\n<b>They increase their supplications.</b> As explained above.\n",
+      "he_plain": "א ביום שביעי כו'. כמש\"ו לפי שבחג כו' ועט\"ז ס\"ק א' וכ\"ה בטור וכמ\"ש בפ\"ק דר\"ה נסכו מים לפני כדי כו' וקי\"ל כת\"ק דניסוך המים אינו אלא שבעה ולכך עושין במקצת כיה\"כ ועושין גם כן כמו י\"ט כמ\"ש במתני' פ\"ד דסוכה שהיו מרבין בשמחה מיד התינוקות כו' וכל ימי הדין הוא י\"ט הד' פרקים בשנה וכמ\"ש במדרש ובירושלמי פ\"ק דר\"ה איזה אומה כאומה זו שיודעת אופיא כו': וא\"א נשמת. עיין רשב\"ם פ' ע\"פ ק\"ב ב' סוף העמוד ד\"ה ושמואל אמר. ומה שאין כו': ואומרים מזמור לתודה. כמ\"ש בפ\"ב די\"ט י\"ט ב': ואומרים כו'. כנ\"ל: כתבו כו'. שאז גמר דין של האדם גם כן עם המים שהמים חיים לעולם ואמרו עשרה דברים נקראו חיים כו' וכתיב ונסו הצללים סר צלם מעליהם: בצל הלבנה. שהיא ממונה על המים והם מתרבים ומתחסרים בחסרונה ותוספתה: ויש מי כו'. כמ\"ש בפר' בתרא דהוריות ובפ\"ק דכריתות: ויותר כו'. כמ\"ש בפ' ע\"פ ע\"ש: ויש נוהגים כו'. עמ\"א ובמדינתנו כו' וכמ\"ש בירושלמי הנ\"ל לובשין לבנים כו': ומרבים תחנונים כו'. כנ\"ל:",
+      "en_plain": "On the seventh day. This is because of the water judgment associated with the festival. See Taz, seif katan 1, and Tur. Rosh Hashanah teaches, “Pour water before Me,” and we follow the first Tanna that the water libation lasts seven days. Therefore Hoshana Rabbah is treated in some respects like Yom Kippur and in some respects like Yom Tov. The Mishnah in Sukkah, chapter 4, describes the exceptional rejoicing, including the children’s lulavim. All the days of judgment are also festivals, as taught regarding the four periods of judgment during the year, and as stated in the Midrash and Yerushalmi: what nation is like this nation, which knows the character of its God. Nishmat is not recited. See Rashbam, Pesachim 102b, at the end of the page, beginning “And Shmuel said,” and the continuation there. Mizmor LeTodah is recited. As stated in Beitzah 19b. And they recite. As explained above. They wrote. At that time the judgment of the person is completed together with the judgment concerning water, for water gives life to the world. The Sages said that ten things are called living, and Scripture states, “The shadows have fled,” and “Their protective shade has departed from them.” In the moonlight. The moon is appointed over the waters, which increase and diminish with its waning and waxing. Some maintain. As stated in the final chapter of Horayot and the first chapter of Keritot. And more. As stated in Arvei Pesachim; see there. Some have the custom. See Magen Avraham concerning the custom in our country, and the aforementioned Yerushalmi that they wear white garments. They increase their supplications. As explained above.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman67/seif-001/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 67,
+      "seif": 1,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.85,
+        "he_chars": 4426,
+        "en_chars": 8189,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 8189
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>א) [סעיף א'] ספק אם קרא ק\"ש חוזר וקורא ומברך וכו'  </b>משום דק\"ל ק\"ש דאורייתא וכל דבר שהוא ספק של תורה מברכין עליו. ב\"י בשם הר' יונה לבוש. ב\"ח. פרישה. ט\"ז סק\"א. ואע\"ג דאמרינן לעיל סי' י\"ז סעי' ב' טומטום ואנדרוגינוס חייבים מספק ויתעטפו בלא ברכה והתם ציצית דאורייתא כתב בדרישה דלא דמי כלל דהתם הספק אם הוא כלל בר חיובא או לא להכי לא יברך מספק דשמא אשה הוא אבל כאן עכ\"פ הוא בר חיובא לומר ק\"ש מן התורה להכי כיון שאינו יודע בבירור שקרא חוזר וקורא ומברך עכ\"ד. וכ\"כ הכנה\"ג בהגב\"י יעו\"ש. מיהו עדיין יש להקשות דהא לא דמי לברכת המצות דהתם מברכין על עשיית המצוה אבל הכא אין מברכין לקרוא את שמע כמש\"ל סי' ס\"ו אות כ\"ז וא\"כ למה מברכין על הספק כיון שאינו מברך לקרוא את שמע. אמנם בתשו' הרשב\"א סי' ש\"ך כתב ט\"א וז\"ל שעדיין קשה על דברי רבינו (ר\"ל הרמב\"ם) שהוא ז\"ל כתב מפורש שכל הברכות דרבנן וכל שנסתפק אם עשה המצוה אעפ\"י שעיקר עשיית המצוה דאורייתא או שהוא מסופק אם הוא חייב בה כמילת מי שנולד מהול או בשמיני דסוכה שהוא ספק שביעי לא מברכינן כלל וכן השיב לחכמי לוני\"ל ואני אומר באולי לדעת הרב שהוא סבור דמעיקרא כך היתה התקנה דכל שהוא חייב לקרות לכתחלה עם ברכותיה אלא אם יגרום לו סבה כענין קריאת מקדש שאינו מברך אלא ברכה אחת. א\"נ משום עסק תורה כדרבי שהיה מעביר ידיו על עיניו ומקבל מלכות שמים בקריאת פסוק ראשון הא במקום אחר כשהוא קורא צריך הוא לקרות לכתחלה בברכותיה וכמ\"ש דמאחר לקרות לאחר זמנו מכאן ואילך לא הפסיד כאדם שקורא בתורה ופירשו מאי לא הפסיד לא הפסיד הברכות. ואולי למדה עוד הרב ממה שאמר רבי אלעזר ספק קרא ק\"ש ספק לא קרא חוזר וקורא ומדקאמר סתם חוזר וקורא משמע דכל פרשיותיה הוא קורא ואעפ\"י שאין דאורייתא אלא פסוק ראשון ולא אמרו שיחזור ויקרא פסוק ראשון והשאר דהוי דרבנן לא. וטעמא דכל שהוא חייב לקרות קורא הוא בעיקר תקנתו ומדומה אני שטעם זה שמעתי מפי מורי הרב החסיד ז\"ל בחוזר וקורא כל פרשיותיה ולא סגי לן בחוזר וקורא פסוק א' ואולי מהסכמה זו כתב הרב כן אפי' בברכות עכ\"ל. והביאו כ\"מ פ\"ב דק\"ש דין י\"ג. כנה\"ג בהגב\"י. עו\"ת או' ב' מ\"א סק\"א. א\"ר אות א'. מיהו הפר\"ח הסכים לתירוץ הכנה\"ג יעו\"ש. ועיין י\"א ומאמ\"ר אות ב' והנ\"מ בין הטעמים עיין פרמ\"ג בא\"א או' א':<br />\n<b>א) ואם  </b>יודע שאמר פסוק ראשון וספק אם קרא השאר כתב שם המ\"א דמשמע בל\"ח סי' מ' דא\"צ לחזור ולקרות מיהו בסי' ס\"ד סעי' ג' משמע שצריך לחזור יעו\"ש ונ\"ל דמעיקרא כך תיקנו שיחזור עכ\"ד. והביאו א\"ר שם. ור\"ז אות ב'. וכתב ר\"ז שם דה\"ה אם יודע שקרא פרשה א'. ומסופק בשניה דצריך לחזור ולקרותה יעו\"ש. ועיין מאמ\"ר אות ב' שכתב דאף הל\"ח לא קאמר שא\"צ לחזור אלא בברכו' אבל בלא ברכו' יחזור יעו\"ש:<br />\n<b>א) ואם  </b>ברי לו שקרא ב' פרשיות הראשונות וספק לו בפ' ציצית ואמת ויציב אם אמרן או לו אמרן כתב הב\"ח דצריך לחזור ולומר פ' ציצית וברכת אמת ויציב אבל ברי לו שאמר כל הג' פרשיות וספק לו בברכות שלפניה ובברכת אמת ויציב א\"צ לחזור ולברך יעו\"ש. וכ\"כ הט\"ז סק\"א. מ\"א שם. א\"ר אות ב' וכתב דלא כהעו\"ת שכתב דיקרא פ' ציצית ולא יברך אמת ויציב יעו\"ש. ר\"ז אות א' אמנם הרב שאגת אריה סי' י\"א כתב כדברי העו\"ת דיקרא פ' ציצית לחוד ולא יברך אמת ויציב יעו\"ש. ואע\"ג דהער\"ה אות ב' חלק על הש\"א מ\"מ מידי ספק לא נפיק וע\"כ לענין דינא נראה דיאמר פ' ציצית וגם אמת ויציב אלא שלא יחתום בסוף ברכת אמת ויציב בהזכרת השם אלא יאמר ברוך גאל ישראל משום סב\"ל. וה\"ה אם נסתפק לו בלילה אם אמר פ' ציצית ואמת ואמונה דיאמר פ' ציצית ואמת ואמונה רק שלא יחתום בהזכרת השם כנז'. ועיין ר\"ז וש\"א שם:<br />\n<b>א) ואם  </b>מסופק שקרא ק\"ש ויודע שאמר אמת ויציב כתבו התוספות דאינו חוזר ואפי' כשידוע שהרהר אמת ויציב אינו חוזר. תשו' בית יעקב סי' קל\"ה. א\"ר אות ב'. אמנם המאמ\"ר אות א' האריך בזה והביא תשובת ב\"י הנז' וחלק עליו וכתב דדוקא אם יודע שאמר אמת ויציב א\"צ לחזור אבל אם יודע שהרהר אמת ויציב חייב לקרות ק\"ש עם ברכותיה. ואפי' אם יודע שאמר אמת ויציב ומסופק בק\"ש כתב דשוב ונכון לחזור ולקרות הק\"ש בלא ברכות יעוש\"ב. ועיין פרמ\"ג א\"א אות א':<br />\n<b>א) ולענין  </b>חיוב ק\"ש מדאורייתא יש דעות חלוקות בזה. דאיכא דאמר דפסוק א' בלבד הוי דאורייתא. וכן נראה דעת מרן ז\"ל בב\"י ססי' ס\"ג. ואיכא דאמרי כל פרשה ראשונה הוי דאורייתא. ואיכא דאמרי כל שני פרשיות ראשונות הוי דאורייתא משום ק\"ש ופ' ציצית משום זכירת יציאת מצרים. כאשר האריך בזה הפר\"ח בזה הסי' ודעתו נטה דכל שני פרשיות ראשונות הוי דאורייתא והביא ראיות לזה כיעו\"ש. מיהו הרב ש\"א סי' ב' חלק עליו וכת' דלא הוי דאורייתא. אלא פ' ראשונה בלבד כיעו\"ש. ועיין כנה\"ג בהגה\"ט בזה הסי' שכתב י\"א דכל הני פרשיות של ק\"ש דאירייתא יעו\"ש. ועוד עיין מ\"א סי' ס\"ג סק\"ח והנ\"מ בזה אע\"ג דתיקנו רבנן דצריך לקרות כל הג' פרשיות אפי' אם תמצא לומר אין כולם דאורייתא כמ\"ש בראש פ' היה קורא מ\"מ נ\"מ למי שהוא דחוק ואנוס וחושש שמא יעבור זמן ק\"ש לכתחילה שכתבנו לעיל סי' ס\"ז אות ב\"ן דיקרא ק\"ש בלא ברכות ואח\"כ כשיפנה יקרא אותה עם ברכותיה ויתפלל יעו\"ש דאם יש לו פנאי יקרא כל הג' פרשיות כדי לצאת אליבא דכ\"ע ק\"ש ש\"ת בזמנה ואם הוא דחוק יקרא ב' פרשיות ואם הוא דחוק ביותר יקרא רק פ' ראשונה כפי יכולתו, ועוד עיין מש\"ל סוף סימן מ\"ו:\n",
+      "en_html": "(א) [Se'if 1] If one is in doubt whether he recited Keriat Shema, he returns and reads and blesses, etc.; because we hold Keriat Shema is from the Torah, and anything that is a Torah doubt; one blesses on it. Beit Yosef in the name of Rabbenu Yonah, Levush, Beit Chadash, Perishah, Taz note 1. And although we said above siman 17 se'if 2 regarding tumtum and androgynus that they are obligated out of doubt and wrap themselves without a blessing (and there tzitzit is from the Torah, as Derishah wrote) it is not comparable at all: there the doubt is whether he is at all subject to obligation or not, therefore one does not bless out of doubt lest he be a woman; but here in any event he is subject to obligation to say Keriat Shema from the Torah; therefore since he does not know clearly that he read, he returns and reads and blesses (until here. And so Kenesset HaGedolah in Hagahot Beit Yosef) see there. However, there is still to question: for it is not comparable to blessing on mitzvot, where there one blesses on performing the mitzvah; but here one does not bless to read Shema, as written above siman 66 note 27. If so, why does one bless on the doubt, since he does not bless to read Shema? Nevertheless, in the responsum of Rashba siman 372 he wrote, and these are his words: \"It is still difficult on the words of our teacher\" (meaning Rambam) \"who wrote explicitly that all blessings are rabbinic; and all that one is in doubt whether he performed the mitzvah; even though the essence of performing the mitzvah is from the Torah, or he is in doubt whether he is obligated in it, like one born circumcised, or on the eighth day of Sukkot when it is a doubt whether it is the seventh; we do not bless at all\"; and so he answered the sages of Lunel. And I say: perhaps per the rabbi's view he holds that initially such was the enactment: whoever is obligated to read lekhatchilah reads with its blessings, unless a circumstance causes him, as in reading the Temple; where one does not bless except one blessing. Or, on account of involvement in Torah; as Rabbi, who would pass his hands over his eyes and accept the kingdom of Heaven through reading the first verse; but in another place, when he reads, he must read lekhatchilah with its blessings; and as written: since he did not lose by reading after its time from here onward; as one who reads in the Torah; and they explained what \"he did not lose\" means: he did not lose the blessings. And perhaps the rabbi learned further from what R. Elazar said: \"If in doubt whether he recited Keriat Shema (in doubt whether he did not) he returns and reads\"; and since he said plainly \"he returns and reads,\" it implies he reads all its paragraphs, even though only the first verse is from the Torah; and they did not say he should return and read only the first verse while the rest are rabbinic; no. And the reason is: whatever he is obligated to read, he reads as the essence of his enactment; and it seems to me I heard this reason from my teacher the pious rabbi z\"l: in returning and reading all its paragraphs, and it does not suffice for us to return and read one verse. And perhaps from this agreement the rabbi wrote so even regarding blessings; until here. And they brought Kessef Mishneh chapter 2 of Keriat Shema law 13; Kenesset HaGedolah in Hagahot Beit Yosef; Orach Tzedek note 2, Magen Avraham note 1; Avnei Nezer note 1. However, Peri Chadash agreed to the answer of Kenesset HaGedolah; see there. And see Yeshu'ot Yaakov and Ma'amar Mordechai note 2; and the practical difference between the reasons; see Pri Megadim, Eshel Avraham note 1.<br />\n(א) And if he knows he said the first verse and is in doubt whether he read the rest; Magen Avraham wrote there that it is implied in Beit Yosef siman 40 that he need not return and read; however in siman 64 seif 3 it is implied that he must return (see there; and it seems that initially they enacted that he should return) until here. And Avnei Nezer brought it there; and Razah note 2. And Razah wrote there the same: if he knows he read paragraph one and is in doubt about the second, he must return and read it; see there. And see Ma'amar Mordechai note 2, who wrote that even Beit Yosef did not say he need not return except regarding blessings, but without blessings he returns; see there.<br />\n(א) And if it is clear to him that he read the two first paragraphs and he is in doubt about parashat tzitzit and emet veyatziv (whether he said them or not) Beit Chadash wrote that he must return and say parashat tzitzit and the blessing emet veyatziv. But if it is clear to him that he said all three paragraphs and he is in doubt only about the blessings before and the blessing emet veyatziv, he need not return and bless; see there. And so Taz note 1, Magen Avraham there, Avnei Nezer note 2; and he wrote unlike Orach Tzedek, who wrote that he should read parashat tzitzit and not bless emet veyatziv; see there; Razah note 1. However, Sha'agat Aryeh siman 11 wrote like Orach Tzedek: he should read parashat tzitzit alone and not bless emet veyatziv (see there. And although Eshel Avraham note 2 disagreed with Shulchan Arukh HaRav) nevertheless from a doubt one does not emerge; and therefore for practical law it seems he should say parashat tzitzit and also emet veyatziv, only he should not conclude at the end of the blessing emet veyatziv with mention of the Name, but say \"Barukh Ga'al Yisrael\" out of doubt. And the same if at night he is in doubt whether he said parashat tzitzit and emet ve'emunah; he says parashat tzitzit and emet ve'emunah, only he does not conclude with mention of the Name, as stated. And see Razah and Shulchan Arukh HaRav there.<br />\n(א) And if he is in doubt whether he recited Keriat Shema and he knows he said emet veyatziv; Tosafot wrote that he does not return, even when he knows he contemplated emet veyatziv. Responsum of Beit Yaakov siman 135; Avnei Nezer note 2. However, Ma'amar Mordechai note 1 elaborated on this and brought the responsum of Beit Yosef cited above and disagreed with him; and he wrote that only if he knows he said emet veyatziv he need not return, but if he knows he contemplated emet veyatziv he is obligated to read Keriat Shema with its blessings. And even if he knows he said emet veyatziv and is in doubt about Keriat Shema; he wrote that it is again proper to return and read Keriat Shema without blessings; see Shulchan Arukh HaRav. And see Pri Megadim, Eshel Avraham note 1.<br />\n(א) And regarding the obligation of Keriat Shema from the Torah; there are divided opinions. Some say only one verse is from the Torah; and so appears the view of Maran z\"l in Beit Yosef siman 63. Some say the entire first paragraph is from the Torah. Some say the two first paragraphs are from the Torah; on account of Keriat Shema and parashat tzitzit on account of remembering the Exodus from Egypt; as Peri Chadash elaborated in this siman; and his view leaned that the two first paragraphs are from the Torah, and he brought proofs; see there. However, Rav Shlomo Auerbach siman 2 disagreed with him and wrote that it is not from the Torah, but only the first paragraph; see there. And see Kenesset HaGedolah in Hagahot Tur in this siman, who wrote Yeshu'ot Yaakov (that all these paragraphs of Keriat Shema are from the Torah) see there. And further see Magen Avraham siman 63 note 8 and the practical difference. And although the Sages enacted that one must read all three paragraphs; even if you were to say not all are from the Torah, as written at the head of the chapter \"he was reading\"; nevertheless there is a practical difference for one who is pressed and under constraint and fears lest the time of Keriat Shema pass: lekhatchilah we wrote above siman 67 note 52 that he reads Keriat Shema without blessings, and afterward when he is free he reads it with its blessings and prays; see there; for if he has leisure he reads all three paragraphs in order to fulfill according to all opinions Keriat Shema in its time; and if he is pressed he reads two paragraphs; and if he is greatly pressed he reads only the first paragraph according to his ability. And further see what is written at the end of siman 46.\n",
+      "he_plain": "א) [סעיף א'] ספק אם קרא ק\"ש חוזר וקורא ומברך וכו' משום דק\"ל ק\"ש דאורייתא וכל דבר שהוא ספק של תורה מברכין עליו. ב\"י בשם הר' יונה לבוש. ב\"ח. פרישה. ט\"ז סק\"א. ואע\"ג דאמרינן לעיל סי' י\"ז סעי' ב' טומטום ואנדרוגינוס חייבים מספק ויתעטפו בלא ברכה והתם ציצית דאורייתא כתב בדרישה דלא דמי כלל דהתם הספק אם הוא כלל בר חיובא או לא להכי לא יברך מספק דשמא אשה הוא אבל כאן עכ\"פ הוא בר חיובא לומר ק\"ש מן התורה להכי כיון שאינו יודע בבירור שקרא חוזר וקורא ומברך עכ\"ד. וכ\"כ הכנה\"ג בהגב\"י יעו\"ש. מיהו עדיין יש להקשות דהא לא דמי לברכת המצות דהתם מברכין על עשיית המצוה אבל הכא אין מברכין לקרוא את שמע כמש\"ל סי' ס\"ו אות כ\"ז וא\"כ למה מברכין על הספק כיון שאינו מברך לקרוא את שמע. אמנם בתשו' הרשב\"א סי' ש\"ך כתב ט\"א וז\"ל שעדיין קשה על דברי רבינו (ר\"ל הרמב\"ם) שהוא ז\"ל כתב מפורש שכל הברכות דרבנן וכל שנסתפק אם עשה המצוה אעפ\"י שעיקר עשיית המצוה דאורייתא או שהוא מסופק אם הוא חייב בה כמילת מי שנולד מהול או בשמיני דסוכה שהוא ספק שביעי לא מברכינן כלל וכן השיב לחכמי לוני\"ל ואני אומר באולי לדעת הרב שהוא סבור דמעיקרא כך היתה התקנה דכל שהוא חייב לקרות לכתחלה עם ברכותיה אלא אם יגרום לו סבה כענין קריאת מקדש שאינו מברך אלא ברכה אחת. א\"נ משום עסק תורה כדרבי שהיה מעביר ידיו על עיניו ומקבל מלכות שמים בקריאת פסוק ראשון הא במקום אחר כשהוא קורא צריך הוא לקרות לכתחלה בברכותיה וכמ\"ש דמאחר לקרות לאחר זמנו מכאן ואילך לא הפסיד כאדם שקורא בתורה ופירשו מאי לא הפסיד לא הפסיד הברכות. ואולי למדה עוד הרב ממה שאמר רבי אלעזר ספק קרא ק\"ש ספק לא קרא חוזר וקורא ומדקאמר סתם חוזר וקורא משמע דכל פרשיותיה הוא קורא ואעפ\"י שאין דאורייתא אלא פסוק ראשון ולא אמרו שיחזור ויקרא פסוק ראשון והשאר דהוי דרבנן לא. וטעמא דכל שהוא חייב לקרות קורא הוא בעיקר תקנתו ומדומה אני שטעם זה שמעתי מפי מורי הרב החסיד ז\"ל בחוזר וקורא כל פרשיותיה ולא סגי לן בחוזר וקורא פסוק א' ואולי מהסכמה זו כתב הרב כן אפי' בברכות עכ\"ל. והביאו כ\"מ פ\"ב דק\"ש דין י\"ג. כנה\"ג בהגב\"י. עו\"ת או' ב' מ\"א סק\"א. א\"ר אות א'. מיהו הפר\"ח הסכים לתירוץ הכנה\"ג יעו\"ש. ועיין י\"א ומאמ\"ר אות ב' והנ\"מ בין הטעמים עיין פרמ\"ג בא\"א או' א': א) ואם יודע שאמר פסוק ראשון וספק אם קרא השאר כתב שם המ\"א דמשמע בל\"ח סי' מ' דא\"צ לחזור ולקרות מיהו בסי' ס\"ד סעי' ג' משמע שצריך לחזור יעו\"ש ונ\"ל דמעיקרא כך תיקנו שיחזור עכ\"ד. והביאו א\"ר שם. ור\"ז אות ב'. וכתב ר\"ז שם דה\"ה אם יודע שקרא פרשה א'. ומסופק בשניה דצריך לחזור ולקרותה יעו\"ש. ועיין מאמ\"ר אות ב' שכתב דאף הל\"ח לא קאמר שא\"צ לחזור אלא בברכו' אבל בלא ברכו' יחזור יעו\"ש: א) ואם ברי לו שקרא ב' פרשיות הראשונות וספק לו בפ' ציצית ואמת ויציב אם אמרן או לו אמרן כתב הב\"ח דצריך לחזור ולומר פ' ציצית וברכת אמת ויציב אבל ברי לו שאמר כל הג' פרשיות וספק לו בברכות שלפניה ובברכת אמת ויציב א\"צ לחזור ולברך יעו\"ש. וכ\"כ הט\"ז סק\"א. מ\"א שם. א\"ר אות ב' וכתב דלא כהעו\"ת שכתב דיקרא פ' ציצית ולא יברך אמת ויציב יעו\"ש. ר\"ז אות א' אמנם הרב שאגת אריה סי' י\"א כתב כדברי העו\"ת דיקרא פ' ציצית לחוד ולא יברך אמת ויציב יעו\"ש. ואע\"ג דהער\"ה אות ב' חלק על הש\"א מ\"מ מידי ספק לא נפיק וע\"כ לענין דינא נראה דיאמר פ' ציצית וגם אמת ויציב אלא שלא יחתום בסוף ברכת אמת ויציב בהזכרת השם אלא יאמר ברוך גאל ישראל משום סב\"ל. וה\"ה אם נסתפק לו בלילה אם אמר פ' ציצית ואמת ואמונה דיאמר פ' ציצית ואמת ואמונה רק שלא יחתום בהזכרת השם כנז'. ועיין ר\"ז וש\"א שם: א) ואם מסופק שקרא ק\"ש ויודע שאמר אמת ויציב כתבו התוספות דאינו חוזר ואפי' כשידוע שהרהר אמת ויציב אינו חוזר. תשו' בית יעקב סי' קל\"ה. א\"ר אות ב'. אמנם המאמ\"ר אות א' האריך בזה והביא תשובת ב\"י הנז' וחלק עליו וכתב דדוקא אם יודע שאמר אמת ויציב א\"צ לחזור אבל אם יודע שהרהר אמת ויציב חייב לקרות ק\"ש עם ברכותיה. ואפי' אם יודע שאמר אמת ויציב ומסופק בק\"ש כתב דשוב ונכון לחזור ולקרות הק\"ש בלא ברכות יעוש\"ב. ועיין פרמ\"ג א\"א אות א': א) ולענין חיוב ק\"ש מדאורייתא יש דעות חלוקות בזה. דאיכא דאמר דפסוק א' בלבד הוי דאורייתא. וכן נראה דעת מרן ז\"ל בב\"י ססי' ס\"ג. ואיכא דאמרי כל פרשה ראשונה הוי דאורייתא. ואיכא דאמרי כל שני פרשיות ראשונות הוי דאורייתא משום ק\"ש ופ' ציצית משום זכירת יציאת מצרים. כאשר האריך בזה הפר\"ח בזה הסי' ודעתו נטה דכל שני פרשיות ראשונות הוי דאורייתא והביא ראיות לזה כיעו\"ש. מיהו הרב ש\"א סי' ב' חלק עליו וכת' דלא הוי דאורייתא. אלא פ' ראשונה בלבד כיעו\"ש. ועיין כנה\"ג בהגה\"ט בזה הסי' שכתב י\"א דכל הני פרשיות של ק\"ש דאירייתא יעו\"ש. ועוד עיין מ\"א סי' ס\"ג סק\"ח והנ\"מ בזה אע\"ג דתיקנו רבנן דצריך לקרות כל הג' פרשיות אפי' אם תמצא לומר אין כולם דאורייתא כמ\"ש בראש פ' היה קורא מ\"מ נ\"מ למי שהוא דחוק ואנוס וחושש שמא יעבור זמן ק\"ש לכתחילה שכתבנו לעיל סי' ס\"ז אות ב\"ן דיקרא ק\"ש בלא ברכות ואח\"כ כשיפנה יקרא אותה עם ברכותיה ויתפלל יעו\"ש דאם יש לו פנאי יקרא כל הג' פרשיות כדי לצאת אליבא דכ\"ע ק\"ש ש\"ת בזמנה ואם הוא דחוק יקרא ב' פרשיות ואם הוא דחוק ביותר יקרא רק פ' ראשונה כפי יכולתו, ועוד עיין מש\"ל סוף סימן מ\"ו:",
+      "en_plain": "(א) [Se'if 1] If one is in doubt whether he recited Keriat Shema, he returns and reads and blesses, etc.; because we hold Keriat Shema is from the Torah, and anything that is a Torah doubt; one blesses on it. Beit Yosef in the name of Rabbenu Yonah, Levush, Beit Chadash, Perishah, Taz note 1. And although we said above siman 17 se'if 2 regarding tumtum and androgynus that they are obligated out of doubt and wrap themselves without a blessing (and there tzitzit is from the Torah, as Derishah wrote) it is not comparable at all: there the doubt is whether he is at all subject to obligation or not, therefore one does not bless out of doubt lest he be a woman; but here in any event he is subject to obligation to say Keriat Shema from the Torah; therefore since he does not know clearly that he read, he returns and reads and blesses (until here. And so Kenesset HaGedolah in Hagahot Beit Yosef) see there. However, there is still to question: for it is not comparable to blessing on mitzvot, where there one blesses on performing the mitzvah; but here one does not bless to read Shema, as written above siman 66 note 27. If so, why does one bless on the doubt, since he does not bless to read Shema? Nevertheless, in the responsum of Rashba siman 372 he wrote, and these are his words: \"It is still difficult on the words of our teacher\" (meaning Rambam) \"who wrote explicitly that all blessings are rabbinic; and all that one is in doubt whether he performed the mitzvah; even though the essence of performing the mitzvah is from the Torah, or he is in doubt whether he is obligated in it, like one born circumcised, or on the eighth day of Sukkot when it is a doubt whether it is the seventh; we do not bless at all\"; and so he answered the sages of Lunel. And I say: perhaps per the rabbi's view he holds that initially such was the enactment: whoever is obligated to read lekhatchilah reads with its blessings, unless a circumstance causes him, as in reading the Temple; where one does not bless except one blessing. Or, on account of involvement in Torah; as Rabbi, who would pass his hands over his eyes and accept the kingdom of Heaven through reading the first verse; but in another place, when he reads, he must read lekhatchilah with its blessings; and as written: since he did not lose by reading after its time from here onward; as one who reads in the Torah; and they explained what \"he did not lose\" means: he did not lose the blessings. And perhaps the rabbi learned further from what R. Elazar said: \"If in doubt whether he recited Keriat Shema (in doubt whether he did not) he returns and reads\"; and since he said plainly \"he returns and reads,\" it implies he reads all its paragraphs, even though only the first verse is from the Torah; and they did not say he should return and read only the first verse while the rest are rabbinic; no. And the reason is: whatever he is obligated to read, he reads as the essence of his enactment; and it seems to me I heard this reason from my teacher the pious rabbi z\"l: in returning and reading all its paragraphs, and it does not suffice for us to return and read one verse. And perhaps from this agreement the rabbi wrote so even regarding blessings; until here. And they brought Kessef Mishneh chapter 2 of Keriat Shema law 13; Kenesset HaGedolah in Hagahot Beit Yosef; Orach Tzedek note 2, Magen Avraham note 1; Avnei Nezer note 1. However, Peri Chadash agreed to the answer of Kenesset HaGedolah; see there. And see Yeshu'ot Yaakov and Ma'amar Mordechai note 2; and the practical difference between the reasons; see Pri Megadim, Eshel Avraham note 1. (א) And if he knows he said the first verse and is in doubt whether he read the rest; Magen Avraham wrote there that it is implied in Beit Yosef siman 40 that he need not return and read; however in siman 64 seif 3 it is implied that he must return (see there; and it seems that initially they enacted that he should return) until here. And Avnei Nezer brought it there; and Razah note 2. And Razah wrote there the same: if he knows he read paragraph one and is in doubt about the second, he must return and read it; see there. And see Ma'amar Mordechai note 2, who wrote that even Beit Yosef did not say he need not return except regarding blessings, but without blessings he returns; see there. (א) And if it is clear to him that he read the two first paragraphs and he is in doubt about parashat tzitzit and emet veyatziv (whether he said them or not) Beit Chadash wrote that he must return and say parashat tzitzit and the blessing emet veyatziv. But if it is clear to him that he said all three paragraphs and he is in doubt only about the blessings before and the blessing emet veyatziv, he need not return and bless; see there. And so Taz note 1, Magen Avraham there, Avnei Nezer note 2; and he wrote unlike Orach Tzedek, who wrote that he should read parashat tzitzit and not bless emet veyatziv; see there; Razah note 1. However, Sha'agat Aryeh siman 11 wrote like Orach Tzedek: he should read parashat tzitzit alone and not bless emet veyatziv (see there. And although Eshel Avraham note 2 disagreed with Shulchan Arukh HaRav) nevertheless from a doubt one does not emerge; and therefore for practical law it seems he should say parashat tzitzit and also emet veyatziv, only he should not conclude at the end of the blessing emet veyatziv with mention of the Name, but say \"Barukh Ga'al Yisrael\" out of doubt. And the same if at night he is in doubt whether he said parashat tzitzit and emet ve'emunah; he says parashat tzitzit and emet ve'emunah, only he does not conclude with mention of the Name, as stated. And see Razah and Shulchan Arukh HaRav there. (א) And if he is in doubt whether he recited Keriat Shema and he knows he said emet veyatziv; Tosafot wrote that he does not return, even when he knows he contemplated emet veyatziv. Responsum of Beit Yaakov siman 135; Avnei Nezer note 2. However, Ma'amar Mordechai note 1 elaborated on this and brought the responsum of Beit Yosef cited above and disagreed with him; and he wrote that only if he knows he said emet veyatziv he need not return, but if he knows he contemplated emet veyatziv he is obligated to read Keriat Shema with its blessings. And even if he knows he said emet veyatziv and is in doubt about Keriat Shema; he wrote that it is again proper to return and read Keriat Shema without blessings; see Shulchan Arukh HaRav. And see Pri Megadim, Eshel Avraham note 1. (א) And regarding the obligation of Keriat Shema from the Torah; there are divided opinions. Some say only one verse is from the Torah; and so appears the view of Maran z\"l in Beit Yosef siman 63. Some say the entire first paragraph is from the Torah. Some say the two first paragraphs are from the Torah; on account of Keriat Shema and parashat tzitzit on account of remembering the Exodus from Egypt; as Peri Chadash elaborated in this siman; and his view leaned that the two first paragraphs are from the Torah, and he brought proofs; see there. However, Rav Shlomo Auerbach siman 2 disagreed with him and wrote that it is not from the Torah, but only the first paragraph; see there. And see Kenesset HaGedolah in Hagahot Tur in this siman, who wrote Yeshu'ot Yaakov (that all these paragraphs of Keriat Shema are from the Torah) see there. And further see Magen Avraham siman 63 note 8 and the practical difference. And although the Sages enacted that one must read all three paragraphs; even if you were to say not all are from the Torah, as written at the head of the chapter \"he was reading\"; nevertheless there is a practical difference for one who is pressed and under constraint and fears lest the time of Keriat Shema pass: lekhatchilah we wrote above siman 67 note 52 that he reads Keriat Shema without blessings, and afterward when he is free he reads it with its blessings and prays; see there; for if he has leisure he reads all three paragraphs in order to fulfill according to all opinions Keriat Shema in its time; and if he is pressed he reads two paragraphs; and if he is greatly pressed he reads only the first paragraph according to his ability. And further see what is written at the end of siman 46.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman670/seif-002/peri-megadim",
+      "volume": "oc1",
+      "siman": 670,
+      "seif": 2,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.545,
+        "he_chars": 268,
+        "en_chars": 414,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 414
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>שאין</b> עט״ז המחבר השמיט כל היום כו׳ והעלה שי״ל אף כל היום לנשים במקום שנהגו איסור ובמהרי״ל משמע אף לאנשים בשעה שדולקים וביום א׳ ואחרון במקום שנהגו לאסור כל יום ראשון ואחרון אף לאנשים אין להתירם ועא״ר י״א ובמ״א ב׳. ויש טעם בעוד שדולקים להיכרא שאסור ליהנות לאורם עיין טור:\n",
+      "en_html": "that there is no OT7, the author omitted all day 20 and added Shil even all day for women where they used to prohibit and Maharil means even for people at the time they light and on Sunday and last where they used to forbid every Sunday and last even for people not to be circumcised and A'R 11 and MA 2. And there is a point while the lights are on to make it clear that one should not enjoy their light, see Tor:\r\n",
+      "he_plain": "שאין עט״ז המחבר השמיט כל היום כו׳ והעלה שי״ל אף כל היום לנשים במקום שנהגו איסור ובמהרי״ל משמע אף לאנשים בשעה שדולקים וביום א׳ ואחרון במקום שנהגו לאסור כל יום ראשון ואחרון אף לאנשים אין להתירם ועא״ר י״א ובמ״א ב׳. ויש טעם בעוד שדולקים להיכרא שאסור ליהנות לאורם עיין טור:",
+      "en_plain": "that there is no OT7, the author omitted all day 20 and added Shil even all day for women where they used to prohibit and Maharil means even for people at the time they light and on Sunday and last where they used to forbid every Sunday and last even for people not to be circumcised and A'R 11 and MA 2. And there is a point while the lights are on to make it clear that one should not enjoy their light, see Tor:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman672/seif-002/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 672,
+      "seif": 2,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.379,
+        "he_chars": 1577,
+        "en_chars": 2174,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2174
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "(ה) הלכך צריך ליתן וכו' כזה וכו' - משמע דאם הדליק זמן מה אחר שקיעת החמה א\"צ ליתן שמן כ\"כ רק עד שתכלה רגל מן השוק אכן כ\"ז הוא לדין התלמוד שהיה ההיכר לעוברים ושבים אבל האידנא דההיכר הוא רק לב\"ב לעולם בעי שיעור הידוע [פר\"ח] ואף מדליק אחר שכלה הרגל משוק בעי זה השיעור [פמ\"ג]:<br />\n(ו) השיעור - ואף בזמנינו צריך לשיעור הזה אבל אם נותן בה שמן הרבה שידליק יותר אין בו שום מצוה אבל בנרות של שעוה יש הידור מצוה כשהן ארוכות ומ\"מ אין לעשותם גדולות יותר מדאי. כתב הב\"י בשם א\"ח מי שבירך והדליק נר אחת בלילה שניה ידליק אח\"כ עוד נר אחת ולא יברך ועיין בפמ\"ג שמצדד דאפילו לא היה דעתו מתחלה רק על נר אחת ואח\"כ נזדמן לו עוד נר ג\"כ לא יברך עוד כי מדינא אין חיוב רק נר א' והשאר משום הידור כנ\"ל:<br />\n(ז) יכול לכבותה וכו' - שאינו מקצה השמן רק מה שצריך לשיעור חצי שעה למצותו וע\"כ מותר לכבותו ולהנות ממנו ומ\"מ הסכימו כמה אחרונים דלכתחלה טוב להתנות שאינו מקצה השמן אלא לשיעור הדלקה משום דיש מן הפוסקים שסוברים דאם נתן בסתם הקצה למצותה הכל:<br />\n(ח) להשתמש לאורה וכו' - ויש מחמירין שבעוד שהנרות דולקין אין להשתמש לאורן משום הרואה שלא ידע לחלק בין תוך זמן שיעורו לאחר זה הזמן:<br />\n(ט) שבזמן הזה שמדליקין בפנים - ר\"ל וא\"כ ההיכר הוא רק לב\"ב:<br />\n(י) אינו צריך - וידליק כשבני הבית מקובצים יחד. ואפילו ללמוד אסור משהגיע זמנה וכ\"ש אכילה וש\"ד ואפילו התחיל פוסק:<br />\n(יא) כל הלילה - עד עמוד השחר ובברכה והיינו דוקא אם בני הבית נעורים אבל אם ישנים אין לברך עליהם אלא ידליק בלא ברכה דכמו דלדידהו לא היה מברך אלא בזמן פרסום הנס ה\"נ לדידן. ואם בא לביתו קודם עה\"ש ומצא ב\"ב ישנים מן הנכון שיקיצם כדי שיוכל להדליק בברכה:<br />\n(יב) כמו שאר בני אדם - ר\"ל בלילה שניה שתי נרות ובלילה שלישית שלש ולא נימא דלדידיה הלילה שניה היא ראשונה וידליק רק אחת [ד\"מ]:\n",
+      "en_html": "(א) (b) This is what should be given and so on, and so on, it means that if you turn away from the market, the Talmud that was recognized for embryos and chips, but the ideana de lamentation is only to the world with the familiarity of the Torah and even to the extent that it is known to the extent of this type\n<br>(2) (f) The lesson - even in our time it is necessary for this lesson, but if you put a lot of oil in it to light more, there is no mitzvah in it, but with the candles of an hour there is a compilation of the mitzvah when they are long and MM, they should not be made larger than necessary. the Gemara wrote in the name of Ah, whoever blessed and lit a candle one night, he will later light one more candle and not bless it. Ner Gach will no longer bless because there is no obligation from Madina, only Ner A and the rest due to compilation as above:\n<br>(ג) (e) It can turn off, etc. - which is not the end of oil only what is needed for a half-hour rate, and therefore it is permissible to turn off and enjoy it, and from which the latter agreed how good it is for the oil-adjustment, but to the rate of fuel from the occupants whose sulfate was given only the end to its exhaustion:\n<br>(ד) (h) To use Laura and so on - and there is a stricter that while the candles dolkin should not be used for a seer who does not know how to divide within time of his class after this time:\n<br>(ה) (T) At this time, which is inscribed inside, R.L. and the Sages is only a heart:\n<br>(ו) (i) You do not need to - and when the houses are together. And even learning is forbidden from the time of eating and drinking and even beginning:\n<br>(ז) (a) All night – until the dawn and blessing, we would have been if the children of the house were young, but if they were sleeping, they should not be blessed with them, but without the blessing of Dalaidhu, he would not have greeted but during the publication of the miracle of the Dan. And if he came to his house first, and he found that he was sleeping in the right place so that he could be blessed:\n<br>(ח) (b) Like the rest of people, R.E. on a second night two candles and a third night, and not a second-night napkin is the first and only one",
+      "he_plain": "(ה) הלכך צריך ליתן וכו' כזה וכו' - משמע דאם הדליק זמן מה אחר שקיעת החמה א\"צ ליתן שמן כ\"כ רק עד שתכלה רגל מן השוק אכן כ\"ז הוא לדין התלמוד שהיה ההיכר לעוברים ושבים אבל האידנא דההיכר הוא רק לב\"ב לעולם בעי שיעור הידוע [פר\"ח] ואף מדליק אחר שכלה הרגל משוק בעי זה השיעור [פמ\"ג]: (ו) השיעור - ואף בזמנינו צריך לשיעור הזה אבל אם נותן בה שמן הרבה שידליק יותר אין בו שום מצוה אבל בנרות של שעוה יש הידור מצוה כשהן ארוכות ומ\"מ אין לעשותם גדולות יותר מדאי. כתב הב\"י בשם א\"ח מי שבירך והדליק נר אחת בלילה שניה ידליק אח\"כ עוד נר אחת ולא יברך ועיין בפמ\"ג שמצדד דאפילו לא היה דעתו מתחלה רק על נר אחת ואח\"כ נזדמן לו עוד נר ג\"כ לא יברך עוד כי מדינא אין חיוב רק נר א' והשאר משום הידור כנ\"ל: (ז) יכול לכבותה וכו' - שאינו מקצה השמן רק מה שצריך לשיעור חצי שעה למצותו וע\"כ מותר לכבותו ולהנות ממנו ומ\"מ הסכימו כמה אחרונים דלכתחלה טוב להתנות שאינו מקצה השמן אלא לשיעור הדלקה משום דיש מן הפוסקים שסוברים דאם נתן בסתם הקצה למצותה הכל: (ח) להשתמש לאורה וכו' - ויש מחמירין שבעוד שהנרות דולקין אין להשתמש לאורן משום הרואה שלא ידע לחלק בין תוך זמן שיעורו לאחר זה הזמן: (ט) שבזמן הזה שמדליקין בפנים - ר\"ל וא\"כ ההיכר הוא רק לב\"ב: (י) אינו צריך - וידליק כשבני הבית מקובצים יחד. ואפילו ללמוד אסור משהגיע זמנה וכ\"ש אכילה וש\"ד ואפילו התחיל פוסק: (יא) כל הלילה - עד עמוד השחר ובברכה והיינו דוקא אם בני הבית נעורים אבל אם ישנים אין לברך עליהם אלא ידליק בלא ברכה דכמו דלדידהו לא היה מברך אלא בזמן פרסום הנס ה\"נ לדידן. ואם בא לביתו קודם עה\"ש ומצא ב\"ב ישנים מן הנכון שיקיצם כדי שיוכל להדליק בברכה: (יב) כמו שאר בני אדם - ר\"ל בלילה שניה שתי נרות ובלילה שלישית שלש ולא נימא דלדידיה הלילה שניה היא ראשונה וידליק רק אחת [ד\"מ]:",
+      "en_plain": "(א) (b) This is what should be given and so on, and so on, it means that if you turn away from the market, the Talmud that was recognized for embryos and chips, but the ideana de lamentation is only to the world with the familiarity of the Torah and even to the extent that it is known to the extent of this type (2) (f) The lesson - even in our time it is necessary for this lesson, but if you put a lot of oil in it to light more, there is no mitzvah in it, but with the candles of an hour there is a compilation of the mitzvah when they are long and MM, they should not be made larger than necessary. the Gemara wrote in the name of Ah, whoever blessed and lit a candle one night, he will later light one more candle and not bless it. Ner Gach will no longer bless because there is no obligation from Madina, only Ner A and the rest due to compilation as above: (ג) (e) It can turn off, etc. - which is not the end of oil only what is needed for a half-hour rate, and therefore it is permissible to turn off and enjoy it, and from which the latter agreed how good it is for the oil-adjustment, but to the rate of fuel from the occupants whose sulfate was given only the end to its exhaustion: (ד) (h) To use Laura and so on - and there is a stricter that while the candles dolkin should not be used for a seer who does not know how to divide within time of his class after this time: (ה) (T) At this time, which is inscribed inside, R.L. and the Sages is only a heart: (ו) (i) You do not need to - and when the houses are together. And even learning is forbidden from the time of eating and drinking and even beginning: (ז) (a) All night – until the dawn and blessing, we would have been if the children of the house were young, but if they were sleeping, they should not be blessed with them, but without the blessing of Dalaidhu, he would not have greeted but during the publication of the miracle of the Dan. And if he came to his house first, and he found that he was sleeping in the right place so that he could be blessed: (ח) (b) Like the rest of people, R.E. on a second night two candles and a third night, and not a second-night napkin is the first and only one",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman689/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 689,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.118,
+        "he_chars": 364,
+        "en_chars": 771,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 771
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "משוחררים. לדברי ב\"י אף עבדים שאינם משוחררים רק שמלו וטבלו לשם עבדות נמי חייבים בקריאת המגילה ורנ\"ש חולק עליו גם הרא\"ם ז\"ל בחדושיו לסמ\"ג כ' דדעת הסמ\"ג דעבדים אינם חייבים בקריאת מגילה ע\"כ נ\"ל בלי פקפוק אליבא דכ\"ע שהעבדים שאינם משוחררים אינם חייבים בקריאת המגילה ומורי כ' שאף עבדים שאינם משוחררים חייבים רק שאינם מוציאים אבל מ\"מ נ\"ל עיקר שאין חייבים כלל בקריאתה כנ\"ל:\n",
+      "en_html": "Freed. According to the Beis Yosef, even slaves who have not been freed, but who were circumcised and immersed for the sake of slavery, are also obligated in the reading of the megillah. Rabbeinu Shimshon disagrees with him. The Re'em, of blessed memory, in his novellae to Sefer Mitzvos Gadol, also wrote that the opinion of Sefer Mitzvos Gadol is that slaves are not obligated in reading the megillah. Therefore it appears to me without hesitation, according to everyone, that slaves who have not been freed are not obligated in reading the megillah. My teacher wrote that even slaves who have not been freed are obligated, only they do not discharge others; but nevertheless the main view appears to me to be that they are not obligated in reading it at all, as above.\n",
+      "he_plain": "משוחררים. לדברי ב\"י אף עבדים שאינם משוחררים רק שמלו וטבלו לשם עבדות נמי חייבים בקריאת המגילה ורנ\"ש חולק עליו גם הרא\"ם ז\"ל בחדושיו לסמ\"ג כ' דדעת הסמ\"ג דעבדים אינם חייבים בקריאת מגילה ע\"כ נ\"ל בלי פקפוק אליבא דכ\"ע שהעבדים שאינם משוחררים אינם חייבים בקריאת המגילה ומורי כ' שאף עבדים שאינם משוחררים חייבים רק שאינם מוציאים אבל מ\"מ נ\"ל עיקר שאין חייבים כלל בקריאתה כנ\"ל:",
+      "en_plain": "Freed. According to the Beis Yosef, even slaves who have not been freed, but who were circumcised and immersed for the sake of slavery, are also obligated in the reading of the megillah. Rabbeinu Shimshon disagrees with him. The Re'em, of blessed memory, in his novellae to Sefer Mitzvos Gadol, also wrote that the opinion of Sefer Mitzvos Gadol is that slaves are not obligated in reading the megillah. Therefore it appears to me without hesitation, according to everyone, that slaves who have not been freed are not obligated in reading the megillah. My teacher wrote that even slaves who have not been freed are obligated, only they do not discharge others; but nevertheless the main view appears to me to be that they are not obligated in reading it at all, as above.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman689/seif-002/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 689,
+      "seif": 2,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.559,
+        "he_chars": 551,
+        "en_chars": 859,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 859
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ב) ועבדים.</b> משמע בטור אפילו אינן כו' כצ\"ל. דהטור כתב עבדים סתמא אבל בש\"ע כתב הרב\"י עבדים משוחררים וכתב הרב\"י דזה תליא בפי' מימרא דריב\"ל דאמר נשים חייבות במקרא מגלה שאף הם היו באותו נס. דלהמפרשים הם היו באותו נס שנעשה הנס ע\"י אשה. א\"כ עבדים שאין משוחררי' פטורים כיון שהוא מ\"ע שהזמן גרמ' וחיוב אשה אינה רק הואיל ונעש' הנס ע\"י אשה משא\"כ עבדים. אבל להמפרשים שאף הם היו באותו הנס. שר\"ל שאף הנשים היו בכלל גזרת המן להשמיד להרוג א\"כ גם עבדים שאין משוחררים. כיון שהיו נימולים ונוהגים בדת ישראל כאשה. ודאי גם עליהם היה עוב' ח\"ו כוס הגזרה. א\"כ גם הם חייבים:\n",
+      "en_html": "(section 2) and slaves. Meaning in the column they are not even 2000. Dehtor wrote Abdim Satma, but in the Sha'a the Rabbi wrote Abdim Mokhorim and Rabbi Deza Talia wrote in P. Mimra Daribal Damer women are obligated in the Gemara reveals that they were also in the same miracle. For the scribes they were in the same miracle that the miracle was performed by a woman. Thus slaves who are not freed are exempt because it is a time of the Omnipresent and the obligation of a woman is not only because the miracle is performed by a woman from among slaves. But for the scribes they were also in the same miracle. Israel even the women were in general the portion of the manna to destroy so also slaves who are not freed. Since they were circumcised and practice the religion of Israel As a woman. Of course, they also had an ob' hu cut. However, they also must:\r\n",
+      "he_plain": "(ס\"ק ב) ועבדים. משמע בטור אפילו אינן כו' כצ\"ל. דהטור כתב עבדים סתמא אבל בש\"ע כתב הרב\"י עבדים משוחררים וכתב הרב\"י דזה תליא בפי' מימרא דריב\"ל דאמר נשים חייבות במקרא מגלה שאף הם היו באותו נס. דלהמפרשים הם היו באותו נס שנעשה הנס ע\"י אשה. א\"כ עבדים שאין משוחררי' פטורים כיון שהוא מ\"ע שהזמן גרמ' וחיוב אשה אינה רק הואיל ונעש' הנס ע\"י אשה משא\"כ עבדים. אבל להמפרשים שאף הם היו באותו הנס. שר\"ל שאף הנשים היו בכלל גזרת המן להשמיד להרוג א\"כ גם עבדים שאין משוחררים. כיון שהיו נימולים ונוהגים בדת ישראל כאשה. ודאי גם עליהם היה עוב' ח\"ו כוס הגזרה. א\"כ גם הם חייבים:",
+      "en_plain": "(section 2) and slaves. Meaning in the column they are not even 2000. Dehtor wrote Abdim Satma, but in the Sha'a the Rabbi wrote Abdim Mokhorim and Rabbi Deza Talia wrote in P. Mimra Daribal Damer women are obligated in the Gemara reveals that they were also in the same miracle. For the scribes they were in the same miracle that the miracle was performed by a woman. Thus slaves who are not freed are exempt because it is a time of the Omnipresent and the obligation of a woman is not only because the miracle is performed by a woman from among slaves. But for the scribes they were also in the same miracle. Israel even the women were in general the portion of the manna to destroy so also slaves who are not freed. Since they were circumcised and practice the religion of Israel As a woman. Of course, they also had an ob' hu cut. However, they also must:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman691/seif-006/biur-halacha",
+      "volume": "oc1",
+      "siman": 691,
+      "seif": 6,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.315,
+        "he_chars": 311,
+        "en_chars": 409,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 409
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> ומפני שיש בו פירושים שונים</b> -  דרש\"י פי' שמחלק לד' חלקים את אורך היריעה ויהיה תפירה אחת למעלה בסוף רביע והשניה בסוף חציה והשלישית בתחלת הרביע של צד מטה והרי\"ף פי' משולשין כפשוטו שנים בשני ראשי היריעה ואחת באמצע ממש והרמב\"ם מפרש משולשין ג' תפירות בראש היריעה וג' בסופה וג' באמצעיתה וכשיעשה כעצת המחבר יצא ידי כולם:\n",
+      "en_html": "And because it has different meanings, the P.P., which divides the length of the shooting and will be one counter at the end of the hearing and the other at the end of the crossing and the third in the shadow of the downside, and the PLO has been circumcised for two years, and one in the middle of the fire and the radar sails from the head of the fire and the end of the psalmist, and all, when it comes out\r\n",
+      "he_plain": "ומפני שיש בו פירושים שונים - דרש\"י פי' שמחלק לד' חלקים את אורך היריעה ויהיה תפירה אחת למעלה בסוף רביע והשניה בסוף חציה והשלישית בתחלת הרביע של צד מטה והרי\"ף פי' משולשין כפשוטו שנים בשני ראשי היריעה ואחת באמצע ממש והרמב\"ם מפרש משולשין ג' תפירות בראש היריעה וג' בסופה וג' באמצעיתה וכשיעשה כעצת המחבר יצא ידי כולם:",
+      "en_plain": "And because it has different meanings, the P.P., which divides the length of the shooting and will be one counter at the end of the hearing and the other at the end of the crossing and the third in the shadow of the downside, and the PLO has been circumcised for two years, and one in the middle of the fire and the radar sails from the head of the fire and the end of the psalmist, and all, when it comes out",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

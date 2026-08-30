@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 21,
+    "chunk_total": 47,
+    "case_offset": 119,
+    "cases_in_chunk": 7,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman331/seif-003/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 3,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.918,
+        "he_chars": 134,
+        "en_chars": 257,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 257
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ג) ונולד כו'</b> לראות אח\"ז שמא יהיה נראה מהול אחר קישוי וא\"כ אע\"ג שעת' בלי קישוי אינו נראה מהול מ\"מ נולד מהול מקרי ואסור למולו בשבת:\n",
+      "en_html": "(s.k. 3) And born, etc. — to examine afterward lest he appear circumcised after erection; and if so even though at the time without erection he does not appear circumcised — nevertheless born circumcised is called and forbidden to circumcise him on Shabbat:\r\n",
+      "he_plain": "(ס\"ק ג) ונולד כו' לראות אח\"ז שמא יהיה נראה מהול אחר קישוי וא\"כ אע\"ג שעת' בלי קישוי אינו נראה מהול מ\"מ נולד מהול מקרי ואסור למולו בשבת:",
+      "en_plain": "(s.k. 3) And born, etc. — to examine afterward lest he appear circumcised after erection; and if so even though at the time without erection he does not appear circumcised — nevertheless born circumcised is called and forbidden to circumcise him on Shabbat:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.079,
+        "he_chars": 215,
+        "en_chars": 447,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 447
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ונולד כשהוא מהול</b>. מ\"כ צ\"ע למה לא נהגו עתה לראות אחר זה וצ\"ל כמ\"ש הב\"ח בי\"ד סי' רס\"ד דצריך שירא' מהול אפי' שלא בשעת קישוי ע\"ש וה\"נ אם לא נרא' מהול שלא בשעת קישוי מוהלין בשב' עכ\"ל וצ\"ע אם יש לסמוך ע\"ז לחלל שבת החמור:\n",
+      "en_html": "And born when he is already circumcised. Machatzit HaShekel: requires study why they do not practice now to examine afterward; and one must say as Bach wrote in Yoreh De'ah siman 264 that one must see him circumcised even not at the time of erection on erev Shabbat; and likewise if not seen circumcised not at the time of erection — they circumcise on Shabbat — end; and requires study whether one may rely on this for severe Shabbat desecration:\r\n",
+      "he_plain": "ונולד כשהוא מהול . מ\"כ צ\"ע למה לא נהגו עתה לראות אחר זה וצ\"ל כמ\"ש הב\"ח בי\"ד סי' רס\"ד דצריך שירא' מהול אפי' שלא בשעת קישוי ע\"ש וה\"נ אם לא נרא' מהול שלא בשעת קישוי מוהלין בשב' עכ\"ל וצ\"ע אם יש לסמוך ע\"ז לחלל שבת החמור:",
+      "en_plain": "And born when he is already circumcised. Machatzit HaShekel: requires study why they do not practice now to examine afterward; and one must say as Bach wrote in Yoreh De'ah siman 264 that one must see him circumcised even not at the time of erection on erev Shabbat; and likewise if not seen circumcised not at the time of erection — they circumcise on Shabbat — end; and requires study whether one may rely on this for severe Shabbat desecration:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-004/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 4,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.523,
+        "he_chars": 1341,
+        "en_chars": 2043,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2043
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ד') שתי ערלות ב' עורות זה על גב זה.</b> ראיתי בתשובת פנים מאירות ח\"ב ס\"ס ל\"א וז\"ל באתי להזכיר הא דכתב בש\"ע א\"ח סי' של\"א מי שי\"ל שני ערלות אין מילתן דוחה שבת. וכ' מ\"א פי' ב' עורות זה ע\"ג זה רש\"י ורמב\"ם והעולם נכשלים בזה וראוי להזהיר למוהל כשרואים שני עורות זה ע\"ג זה שלא יפרעו עור בשבת וימתינו עד אחר השבת דאין כאן סכנה כלל אם לא יפרע עד אחר השבת עכ\"ל. משמע מדבריו שהבין דב' עורות הללו ר\"ל עורות הפריעה ומ\"ש ימתינו עד אחר השבת כו' משמע שכוונתו שיפרעו ביום א' דבמוצאי שבת א\"א דהא קי\"ל אפי' מילה שלא בזמנה צריך להיות דוקא ביום וכיון דעור הפריעה היא דקה ואם ימתינו כל כך היא נדבקת מאד בהגיד ואי אפשר לפורעו ואפשר להבי' התינוק לידי סכנה ויהיה התינוק נשאר ערל כל ימיו:<br />\nויותר נראה לפי עניות דעתי שר\"ל שני עורות עליונים שהן נקראים סתם עור אבל מה שפורעי' במקומות רבים נקראו קרום (גם לפעמים קורין אותו עור) ולא תקשה לך איך נידע זה שיש תחת עור עליונה עוד עור אחרת י\"ל משכחת לה שי\"ל עור א' המכסה כל הגיד ואין לו בו כ\"א נקב קטן שממנו יוצא השתן כדרך ערלת כל התינוקות ועוד י\"ל ערלה אחרת ע\"ג והיא פתוחה למעלה הרבה וכן מצינו בתינוקות שאין להם כ\"א עור א' אך אותו העור פתוחה למעלה הרבה במקום יציאת השתן בראש הגיד ותחת אותו העור הגיד נראה מהול אבל זה שיש להם שני ערלות היינו שיש להם ערלה א' כדרך כל התינוקות סתומה ואיננה פתוחה כ\"א במקום יציאת השתן וע\"ג עוד עור שמכסה הגיד רק בראש הגיד במקום יציאת השתן היא פתוחה הרבה עי\"ז רואים שיש שני עורות שצריך לחתוך שתיהן:\n",
+      "en_html": "(א) (s.k. 4) Two arlot — two skins one atop the other. I saw in responsum Pnei Me'orot part 2 siman 31, and thus: I come to mention that which is written in Shulchan Aruch Orach Chayim siman 331: one who has two arlot — their milah does not override Shabbat. And Magen Avraham explained two skins one atop the other — Rashi and Rambam; and the world errs in this and one should warn a kosher mohel when he sees two skins one atop the other not to perform priyah of skin on Shabbat and wait until after Shabbat, for there is no danger at all if he does not perform priyah until after Shabbat — end. It is implied from his words that he understood these two skins mean skins of priyah; and what he wrote \"wait until after Shabbat,\" etc. — it implies his intent that they perform priyah on the first day, for perforce we hold even milah not at its time must specifically be by day; and since priyah skin is thin and if they wait so long it sticks very much to the gid and priyah is impossible — the infant may come to danger and remain uncircumcised all his days:<br>\r\n<br>\r\n(ב) (s.k. 4) And more reasonable according to my poor opinion that it means two upper skins called simply skin, but what they perform priyah in many places is called kerum (sometimes also called skin); and do not question how we know there is another skin beneath the upper skin — one can find cases where there is one skin covering the whole gid and it has only a small hole from which urine exits as is usual for foreskin of all infants; and further one can say another foreskin atop it open greatly upward; and so we find in infants who have only one skin but that skin is open greatly upward at the place of urine exit at the head of the gid, and beneath that skin the gid appears circumcised; but one who has two arlot — namely they have one foreskin as all infants, closed and not open except at urine exit place, and atop another skin covering the gid only at the head of the gid at urine exit place open greatly — thereby one sees there are two skins that both need cutting:\r\n",
+      "he_plain": "(ס\"ק ד') שתי ערלות ב' עורות זה על גב זה. ראיתי בתשובת פנים מאירות ח\"ב ס\"ס ל\"א וז\"ל באתי להזכיר הא דכתב בש\"ע א\"ח סי' של\"א מי שי\"ל שני ערלות אין מילתן דוחה שבת. וכ' מ\"א פי' ב' עורות זה ע\"ג זה רש\"י ורמב\"ם והעולם נכשלים בזה וראוי להזהיר למוהל כשרואים שני עורות זה ע\"ג זה שלא יפרעו עור בשבת וימתינו עד אחר השבת דאין כאן סכנה כלל אם לא יפרע עד אחר השבת עכ\"ל. משמע מדבריו שהבין דב' עורות הללו ר\"ל עורות הפריעה ומ\"ש ימתינו עד אחר השבת כו' משמע שכוונתו שיפרעו ביום א' דבמוצאי שבת א\"א דהא קי\"ל אפי' מילה שלא בזמנה צריך להיות דוקא ביום וכיון דעור הפריעה היא דקה ואם ימתינו כל כך היא נדבקת מאד בהגיד ואי אפשר לפורעו ואפשר להבי' התינוק לידי סכנה ויהיה התינוק נשאר ערל כל ימיו: ויותר נראה לפי עניות דעתי שר\"ל שני עורות עליונים שהן נקראים סתם עור אבל מה שפורעי' במקומות רבים נקראו קרום (גם לפעמים קורין אותו עור) ולא תקשה לך איך נידע זה שיש תחת עור עליונה עוד עור אחרת י\"ל משכחת לה שי\"ל עור א' המכסה כל הגיד ואין לו בו כ\"א נקב קטן שממנו יוצא השתן כדרך ערלת כל התינוקות ועוד י\"ל ערלה אחרת ע\"ג והיא פתוחה למעלה הרבה וכן מצינו בתינוקות שאין להם כ\"א עור א' אך אותו העור פתוחה למעלה הרבה במקום יציאת השתן בראש הגיד ותחת אותו העור הגיד נראה מהול אבל זה שיש להם שני ערלות היינו שיש להם ערלה א' כדרך כל התינוקות סתומה ואיננה פתוחה כ\"א במקום יציאת השתן וע\"ג עוד עור שמכסה הגיד רק בראש הגיד במקום יציאת השתן היא פתוחה הרבה עי\"ז רואים שיש שני עורות שצריך לחתוך שתיהן:",
+      "en_plain": "(א) (s.k. 4) Two arlot — two skins one atop the other. I saw in responsum Pnei Me'orot part 2 siman 31, and thus: I come to mention that which is written in Shulchan Aruch Orach Chayim siman 331: one who has two arlot — their milah does not override Shabbat. And Magen Avraham explained two skins one atop the other — Rashi and Rambam; and the world errs in this and one should warn a kosher mohel when he sees two skins one atop the other not to perform priyah of skin on Shabbat and wait until after Shabbat, for there is no danger at all if he does not perform priyah until after Shabbat — end. It is implied from his words that he understood these two skins mean skins of priyah; and what he wrote \"wait until after Shabbat,\" etc. — it implies his intent that they perform priyah on the first day, for perforce we hold even milah not at its time must specifically be by day; and since priyah skin is thin and if they wait so long it sticks very much to the gid and priyah is impossible — the infant may come to danger and remain uncircumcised all his days: (ב) (s.k. 4) And more reasonable according to my poor opinion that it means two upper skins called simply skin, but what they perform priyah in many places is called kerum (sometimes also called skin); and do not question how we know there is another skin beneath the upper skin — one can find cases where there is one skin covering the whole gid and it has only a small hole from which urine exits as is usual for foreskin of all infants; and further one can say another foreskin atop it open greatly upward; and so we find in infants who have only one skin but that skin is open greatly upward at the place of urine exit at the head of the gid, and beneath that skin the gid appears circumcised; but one who has two arlot — namely they have one foreskin as all infants, closed and not open except at urine exit place, and atop another skin covering the gid only at the head of the gid at urine exit place open greatly — thereby one sees there are two skins that both need cutting:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-005/baer-heitev",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 5,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.834,
+        "he_chars": 1085,
+        "en_chars": 1990,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1990
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>בין השמשות. </b> עיין מ\"א שהעלה דאם נולד רביע שעה קודם צאת הכוכבים הוי ספק ואם נולד קודם לכן מוהלין ביום ו'. ואם נולד בשבת רביעית שעה קודם הלילה מוהלין בשבת ע\"ש ובהרדב\"ז סי' רפ\"ב כתב תינוק שנולד ע\"ש אחר שקיעת החמה קודם שנראו ג' כוכבים בינונים אם הדבר ספק אם נולד קודם הסוף שקיעה או אחר סוף השקיעה וקודם שנראו ג' כוכבים כיון דאיכא תלתא ספיקא ידחה לעשירי ע\"ש ועיין בסוף ספר דרכי נועם קונטרס גדול ממלחמות מצוה בכל פרטי דינים וחלוקים רבים באורך. ועיין בשו\"ת הב\"ח סי' קנ\"ד. ומהרמ\"ש סי' מ\"א:<br />\n<b>כשהוא מהול. </b> צ\"ע למה לא נהגו עתה לראות אחר זה. ונ\"ל כמ\"ש הב\"ח ביו\"ד סי' רס\"ד דצריך שיראה מהול אפילו שלא בשעת קישוי ע\"ש. וה\"נ אם לא נראה מהול שלא בשעת קישוי מוהלין בשבת. וצ\"ע אם יש לסמוך ע\"ז לחלל שבת החמור מ\"א. <small>(ועיין בש\"ך ליו\"ד ס\"ס רס\"ד ועיין יו\"ד סי' רס\"ג דאם יש ערלה כבושה פי' העור נדבק מאד בבשר דוחה שבת ובתשובת מבי\"ט ח\"א סי' פ\"ט כתב דאם יש בו ציצין המעכבין המילה דוחה. ובאגודה פרק ר\"א דמילה כ' נולד מהול בשבת טוב למולו ביום שלאחריו ע\"כ משמע דס\"ל דלא הוי איסורא כשמל בשבת אך צ\"ע דהא ש\"ס ערוכה בשבת קל\"ה שאין דוחה שבת ודוחק גדול לפרש האגודה בענין אחר ע\"ש ורי\"ף מסופק בו וכ\"כ מהרי\"ל עיין בס' אליהו רבה)</small>:\n",
+      "en_html": "(א) Twilight. See Magen Avraham who raised that if he was born a quarter-hour before nightfall it is a safek, and if born before that they circumcise on the sixth day; and if born on Shabbat a quarter-hour before night they circumcise on Shabbat erev Shabbat; and in Radbaz siman 282 he wrote: an infant born on erev Shabbat after sunset of the sun before three medium stars appeared — if the matter is doubtful whether he was born before the end of sunset or after the end of sunset and before three stars appeared — since there are three doubts, it is deferred to the tenth [day] erev Shabbat; and see at the end of Sefer Darkei Noam, large pamphlet from Milchamot Mitzvah, with all details of laws and many distinctions at length. And see in responsa Bach siman 154. And Maharam Schick siman 41:<br>\r\n<br>\r\n(ב) When he is already circumcised. Requires study why they do not practice now to examine afterward. And it appears to me as Bach wrote in Yoreh De'ah siman 264 that one must see him circumcised even not at the time of erection on erev Shabbat; and likewise if he was not seen circumcised not at the time of erection — they circumcise on Shabbat. And requires study whether one may rely on this to desecrate severe Shabbat (Magen Avraham). (And see in Shach Yoreh De'ah end of siman 264 and see Yoreh De'ah siman 263 that if there is a pressed foreskin, meaning the skin is very stuck to the flesh — it overrides Shabbat; and in responsum Mahari Beit siman 89 he wrote that if there are tzitzin impeding the milah — it overrides; and in Agudah chapter R' Eliezer of Milah he wrote: one born circumcised on Shabbat — good to circumcise him on the day after, from which it implies he holds there is no prohibition when circumcising on Shabbat; but requires study, for the gemara is arranged in Shabbos 135 that it does not override Shabbat, and it is a great stretch to explain Agudah on another matter on erev Shabbat; and Rif is in doubt on it, and so Maharil — see in Sefer Eliyah Rabbah):\r\n",
+      "he_plain": "בין השמשות. עיין מ\"א שהעלה דאם נולד רביע שעה קודם צאת הכוכבים הוי ספק ואם נולד קודם לכן מוהלין ביום ו'. ואם נולד בשבת רביעית שעה קודם הלילה מוהלין בשבת ע\"ש ובהרדב\"ז סי' רפ\"ב כתב תינוק שנולד ע\"ש אחר שקיעת החמה קודם שנראו ג' כוכבים בינונים אם הדבר ספק אם נולד קודם הסוף שקיעה או אחר סוף השקיעה וקודם שנראו ג' כוכבים כיון דאיכא תלתא ספיקא ידחה לעשירי ע\"ש ועיין בסוף ספר דרכי נועם קונטרס גדול ממלחמות מצוה בכל פרטי דינים וחלוקים רבים באורך. ועיין בשו\"ת הב\"ח סי' קנ\"ד. ומהרמ\"ש סי' מ\"א: כשהוא מהול. צ\"ע למה לא נהגו עתה לראות אחר זה. ונ\"ל כמ\"ש הב\"ח ביו\"ד סי' רס\"ד דצריך שיראה מהול אפילו שלא בשעת קישוי ע\"ש. וה\"נ אם לא נראה מהול שלא בשעת קישוי מוהלין בשבת. וצ\"ע אם יש לסמוך ע\"ז לחלל שבת החמור מ\"א. (ועיין בש\"ך ליו\"ד ס\"ס רס\"ד ועיין יו\"ד סי' רס\"ג דאם יש ערלה כבושה פי' העור נדבק מאד בבשר דוחה שבת ובתשובת מבי\"ט ח\"א סי' פ\"ט כתב דאם יש בו ציצין המעכבין המילה דוחה. ובאגודה פרק ר\"א דמילה כ' נולד מהול בשבת טוב למולו ביום שלאחריו ע\"כ משמע דס\"ל דלא הוי איסורא כשמל בשבת אך צ\"ע דהא ש\"ס ערוכה בשבת קל\"ה שאין דוחה שבת ודוחק גדול לפרש האגודה בענין אחר ע\"ש ורי\"ף מסופק בו וכ\"כ מהרי\"ל עיין בס' אליהו רבה) :",
+      "en_plain": "(א) Twilight. See Magen Avraham who raised that if he was born a quarter-hour before nightfall it is a safek, and if born before that they circumcise on the sixth day; and if born on Shabbat a quarter-hour before night they circumcise on Shabbat erev Shabbat; and in Radbaz siman 282 he wrote: an infant born on erev Shabbat after sunset of the sun before three medium stars appeared — if the matter is doubtful whether he was born before the end of sunset or after the end of sunset and before three stars appeared — since there are three doubts, it is deferred to the tenth [day] erev Shabbat; and see at the end of Sefer Darkei Noam, large pamphlet from Milchamot Mitzvah, with all details of laws and many distinctions at length. And see in responsa Bach siman 154. And Maharam Schick siman 41: (ב) When he is already circumcised. Requires study why they do not practice now to examine afterward. And it appears to me as Bach wrote in Yoreh De'ah siman 264 that one must see him circumcised even not at the time of erection on erev Shabbat; and likewise if he was not seen circumcised not at the time of erection — they circumcise on Shabbat. And requires study whether one may rely on this to desecrate severe Shabbat (Magen Avraham). (And see in Shach Yoreh De'ah end of siman 264 and see Yoreh De'ah siman 263 that if there is a pressed foreskin, meaning the skin is very stuck to the flesh — it overrides Shabbat; and in responsum Mahari Beit siman 89 he wrote that if there are tzitzin impeding the milah — it overrides; and in Agudah chapter R' Eliezer of Milah he wrote: one born circumcised on Shabbat — good to circumcise him on the day after, from which it implies he holds there is no prohibition when circumcising on Shabbat; but requires study, for the gemara is arranged in Shabbos 135 that it does not override Shabbat, and it is a great stretch to explain Agudah on another matter on erev Shabbat; and Rif is in doubt on it, and so Maharil — see in Sefer Eliyah Rabbah):",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-005/beur-hagra",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.748,
+        "he_chars": 214,
+        "en_chars": 374,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 374
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ס\"ה ונולד כשהוא מהול.</b> כרבה שם דאמר חיישינן כו' דהל' כרבה נגד רב יוסף:<br />\n<b>ויוצא דופן ונכרית כו' ומי כו'.</b> דמספקא לן כמאן משום דרב אסי דלא כת\"ק ומספקא לן אי שמיע ליה וס\"ל דלא כת\"ק או לא שמיע ליה הברייתא ואי הוה שמיע כו':\n",
+      "en_html": "(א) Seif 65 and born circumcised. Like Rava there who said we are concerned, etc. — halacha like Rava against Rav Yosef:<br>\r\n<br>\r\n(ב) Born by caesarean section and cut, etc. \"Who,\" etc. — for we are uncertain like whom on account of Rav Asi unlike first tanna; and we are uncertain whether he heard and holds unlike first tanna or did not hear the baraita; and if he had heard, etc.:\r\n",
+      "he_plain": "ס\"ה ונולד כשהוא מהול. כרבה שם דאמר חיישינן כו' דהל' כרבה נגד רב יוסף: ויוצא דופן ונכרית כו' ומי כו'. דמספקא לן כמאן משום דרב אסי דלא כת\"ק ומספקא לן אי שמיע ליה וס\"ל דלא כת\"ק או לא שמיע ליה הברייתא ואי הוה שמיע כו':",
+      "en_plain": "(א) Seif 65 and born circumcised. Like Rava there who said we are concerned, etc. — halacha like Rava against Rav Yosef: (ב) Born by caesarean section and cut, etc. \"Who,\" etc. — for we are uncertain like whom on account of Rav Asi unlike first tanna; and we are uncertain whether he heard and holds unlike first tanna or did not hear the baraita; and if he had heard, etc.:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-005/biur-halacha",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 5,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.642,
+        "he_chars": 2839,
+        "en_chars": 4661,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4661
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> בין השמשות</b> -  עיין במ\"ב מה שהעתקתי בשם הרדב\"ז ולא הוי ספק ספיקא ספק יום ספק ביה\"ש וביה\"ש גופא הוי ספק כתב הפמ\"ג דאפשר משום דאוקי אחזקת מעוברת [נ\"ל מה שכתב בלשון שאפשר משום דס\"ל דאותה חזקה לא אלימא כ\"כ לענין דחית שבת ונ\"מ לענין אם נולד ולד בשבת ואין אנו יודעין אם ביום ע\"ש או בלילה ואין לנו ממי לשאול כגון שמתה האשה וכה\"ג לא אמרינן דמסתמא השתא הוא דילדה ואפילו בחול יש לעיין ועיין מה שכתבנו לקמיה] ועוד אפשר לומר משום דשם ספק חד הוא וכ\"כ בספר מנחת כהן ועיין בסימן רצ\"ג ס\"ג בהג\"ה וכבר עמד שם בזה בחידושי רע\"א ע\"ש ואגב דאיירינן בההוא ענינא דבין השמשות אמרתי להזכיר איזה דברים נחוצים לדינא והוא ביורה דעה סימן רס\"ב ס\"ו אם לאלתר כשהוציא הולד ראשו חוץ לפרוזדור נראו ג' כוכבים בינונים וכו' קשה לי הא קי\"ל בשבת ל\"ד דהלכה כר' יוסי לענין תרומה ור' יוסי ס\"ל דשני כוכבים הוי בין השמשות וכהרף עין אח\"כ יוצאין ג' כוכבים וא\"כ בתוך כך שאחד יוצא מבית היולדת לחוץ לראות אם הוא לילה מאי הוי אפילו אם הוא רואה ג' כוכבים בינונים שמא השתא הוא דיצא וכהרף עין מקודם לא היו רק שנים ולא הוי רק ביה\"ש ולא יצוייר דין השו\"ע רק אם בעת הלידה ממש רואה שיש ג' כוכבים כגון שהחלון פתוח בבית ויושב אצל החלון וכששמע שהילד הוציא ראשו הביט תיכף דרך החלון וראה ג' כוכבים בינונים ודוחק. אמנם אם רואה לאלתר כוכבים קטנים מסתברא דיש לסמוך דמקודם בשעת הלידה היו בינונים דקטנים נראין אחר שכבר הוא לילה כדאיתא שם גמרא. ואף זה אין ברור כ\"כ דלמא הם בינונים ומקודם היו גדולים הנראים ביום אם לא שיש הרבה כוכבים קטנים אז בודאי יש לסמוך ע\"ז עוד אמרתי להעיר במה שכתב בעל דה\"ח בדיני מילה וז\"ל אם הוציא ראשו חוץ לפרוזדור ונשתהה קצת עד שנולד כולו ואח\"כ כשנולד כולו ראו שלשה כוכבים בינונים אם לפי השיהוי נראה להם שהיה יום בהוצאת הראש אין להם אלא מה שעיניהם רואות ויהא נמול לשמונה אפילו אם יארע בשבת היינו אם נולד במו\"ש עכ\"ל וזה נובע משו\"ע יורה דעה בסימן רס\"ב ע\"ש אך מה שמסיק שם וכתב דאם אינן יכולין לידע אזלינן בתר חזקה דהשתא הוא דנולד ואם הוא בע\"ש מותר למולו בשבת וכו' וציין ע\"ז ש\"ך סימן רס\"ו סק\"ט הוא תמוה כיון דאיירי דנשתהא קצת א\"כ יש לספק בודאי שבעת הוצאת הראש לא היו כ\"א שני כוכבים או אולי כוכב אחד ומה דציין לש\"ך הנ\"ל אין ענין לזה דהסמ\"ק מיירי שאין אנו יודעין כלל אם היה שום שיהוי מעת הוצאת ראש הולד חוץ לפרוזדור עד הלידה והלידה הלא היתה בודאי בלילה לכך כתב דאם אינן יודעות יש לילך אחר חזקה ור\"ל דמחזקינן לה בחזקת מעוברת עד השתא ולא מספקינן דהיה שיהוי בין יציאת הראש ללידת הגוף או דמיירי הסמ\"ק שנולד הולד זמן הרבה אחר צאת הכוכבים משא\"כ בנידון דידיה דמיירי שהיה שיהוי קצת בין לידת הראש להגוף ולאחר שנשלם הלידה ראו ג' כוכבים בינונים וא\"כ לא נוכל לאוקמה אחזקתה לומר דעד השתא היתה מעוברת דמן התורה ע\"י הראש חשיב לידה מי יאמר שלא היו מתחלה שנים ועיקר סברתו מה שכתב דאזלינן בתר חזקה דהשתא הוא דנולד לא שייך בזה דע\"כ מה שכתב דהשתא הוא לאו דוקא דהא מיירי דאשתהי קצת אלא ע\"כ כונתו דחזקה דבלילה נולד ומסתמא היו השלשה כוכבים מתחלה ג\"כ ובאמת לא שייך ע\"ז חזקה וצ\"ע אח\"כ מצאתי בעז\"ה בספר סדרי טהרה שמכריע לדינא כדברינו דאם יודע שהיה קצת שיהוי בן לידת הראש להגוף יש להחמיר ולומר דשמא היה אז בין השמשות עי\"ש:\n",
+      "en_html": "Twilight — see in Mishna Berurah what I copied in name of Radbaz, and it is not a safek-safeka of safek day safek twilight, and twilight itself is a safek — Peri Megadim wrote that perhaps because they establish the presumption of pregnancy [it appears to me that what he wrote with language \"perhaps\" is because he holds that presumption is not so strong regarding pushing aside Shabbat, and the practical difference is if an infant was born on Shabbat and we do not know whether by day on erev Shabbat or at night and we have no one to ask, such as if the woman died and the like — we do not say that presumably she gave birth now, and even on a weekday requires study; and see what we wrote below]; and further it is possible to say because there is one doubt there, and so too in Sefer Minchat Kohen; and see in siman 293 s.k. 3 in the gloss; and Rabbi Akiva Eiger already addressed this there — see there; and incidentally since we discuss that matter of twilight I said to mention several things needed for the law, namely in Yoreh De'ah siman 262 seif 6: if immediately when the infant put his head outside the corridor three medium stars appeared, etc. — it is difficult to me: behold we rule in Shabbos 34 that the halacha is like R' Yosi regarding terumah, and R' Yosi holds that two stars are twilight, and in the blink of an eye afterward three stars emerge; if so, within the time one goes out from the birthing house outside to see if it is night — what is it; even if he sees three medium stars, perhaps now they emerged and in the blink of an eye before there were only two and it was only twilight, and the ruling of Shulchan Aruch can only be imagined if at the time of birth itself he sees three stars, such as if the window is open in the house and he sits by the window and when he heard the child put out his head he immediately looked through the window and saw three medium stars — a stretch. However if he sees immediately small stars — it is reasonable to rely that before, at the time of birth, they were medium, for small ones are seen after it is already night as stated in the gemara there. And even this is not so clear, lest they are medium and before they were large visible in daytime, unless there are many small stars — then certainly one may rely on this. Further I said to note what Beit HaChidush wrote in laws of milah, thus: if he put his head outside the corridor and delayed somewhat until he was fully born, and afterward when fully born they saw three medium stars — if per the delay it appears to them that it was day at the emergence of the head, they have only what their eyes see and he shall be circumcised on the eighth even if it occurs on Shabbat, meaning if born at Motzei Shabbat — end of his words; and this follows from Shulchan Aruch Yoreh De'ah siman 262 — see there; but what he concludes there and wrote that if they cannot know — we follow the presumption that now he was born, and if it is on erev Shabbat permitted to circumcise him on Shabbat, etc., and he cited on this Shach siman 266 s.k. 9 — it is astounding, since it deals that he delayed somewhat — therefore there is certainly doubt that at the time of emergence of the head there were only two stars or perhaps one star; and what he cited to Shach there — it is irrelevant, for Semak deals where we do not know at all whether there was any delay from the time the head of the infant emerged outside the corridor until birth, and the birth was certainly at night — therefore he wrote that if they do not know, one follows presumption, meaning we presume her in presumption of pregnancy until now and we do not doubt that there was delay between emergence of head and birth of body; or Semak deals where the infant was born long after nightfall, unlike our case which deals where there was some delay between birth of head and body, and afterward when birth was completed they saw three medium stars — if so we cannot establish her presumption to say until now she was pregnant, for from the Torah through the head it is considered birth — who will say there were not two at first; and the essence of his reasoning from what he wrote \"now he was born\" is not precise, for perforce it deals that he delayed somewhat — rather perforce his intent is presumption that he was born at night and presumably the three stars were also at first; and in truth presumption is not relevant here — requires study; afterward I found in Azulai in Sefer Seder Taharah that he decides for the law like our words that if one knows there was some delay between birth of head and body — one should be stringent and say perhaps it was then twilight — see there:\r\n",
+      "he_plain": "בין השמשות - עיין במ\"ב מה שהעתקתי בשם הרדב\"ז ולא הוי ספק ספיקא ספק יום ספק ביה\"ש וביה\"ש גופא הוי ספק כתב הפמ\"ג דאפשר משום דאוקי אחזקת מעוברת [נ\"ל מה שכתב בלשון שאפשר משום דס\"ל דאותה חזקה לא אלימא כ\"כ לענין דחית שבת ונ\"מ לענין אם נולד ולד בשבת ואין אנו יודעין אם ביום ע\"ש או בלילה ואין לנו ממי לשאול כגון שמתה האשה וכה\"ג לא אמרינן דמסתמא השתא הוא דילדה ואפילו בחול יש לעיין ועיין מה שכתבנו לקמיה] ועוד אפשר לומר משום דשם ספק חד הוא וכ\"כ בספר מנחת כהן ועיין בסימן רצ\"ג ס\"ג בהג\"ה וכבר עמד שם בזה בחידושי רע\"א ע\"ש ואגב דאיירינן בההוא ענינא דבין השמשות אמרתי להזכיר איזה דברים נחוצים לדינא והוא ביורה דעה סימן רס\"ב ס\"ו אם לאלתר כשהוציא הולד ראשו חוץ לפרוזדור נראו ג' כוכבים בינונים וכו' קשה לי הא קי\"ל בשבת ל\"ד דהלכה כר' יוסי לענין תרומה ור' יוסי ס\"ל דשני כוכבים הוי בין השמשות וכהרף עין אח\"כ יוצאין ג' כוכבים וא\"כ בתוך כך שאחד יוצא מבית היולדת לחוץ לראות אם הוא לילה מאי הוי אפילו אם הוא רואה ג' כוכבים בינונים שמא השתא הוא דיצא וכהרף עין מקודם לא היו רק שנים ולא הוי רק ביה\"ש ולא יצוייר דין השו\"ע רק אם בעת הלידה ממש רואה שיש ג' כוכבים כגון שהחלון פתוח בבית ויושב אצל החלון וכששמע שהילד הוציא ראשו הביט תיכף דרך החלון וראה ג' כוכבים בינונים ודוחק. אמנם אם רואה לאלתר כוכבים קטנים מסתברא דיש לסמוך דמקודם בשעת הלידה היו בינונים דקטנים נראין אחר שכבר הוא לילה כדאיתא שם גמרא. ואף זה אין ברור כ\"כ דלמא הם בינונים ומקודם היו גדולים הנראים ביום אם לא שיש הרבה כוכבים קטנים אז בודאי יש לסמוך ע\"ז עוד אמרתי להעיר במה שכתב בעל דה\"ח בדיני מילה וז\"ל אם הוציא ראשו חוץ לפרוזדור ונשתהה קצת עד שנולד כולו ואח\"כ כשנולד כולו ראו שלשה כוכבים בינונים אם לפי השיהוי נראה להם שהיה יום בהוצאת הראש אין להם אלא מה שעיניהם רואות ויהא נמול לשמונה אפילו אם יארע בשבת היינו אם נולד במו\"ש עכ\"ל וזה נובע משו\"ע יורה דעה בסימן רס\"ב ע\"ש אך מה שמסיק שם וכתב דאם אינן יכולין לידע אזלינן בתר חזקה דהשתא הוא דנולד ואם הוא בע\"ש מותר למולו בשבת וכו' וציין ע\"ז ש\"ך סימן רס\"ו סק\"ט הוא תמוה כיון דאיירי דנשתהא קצת א\"כ יש לספק בודאי שבעת הוצאת הראש לא היו כ\"א שני כוכבים או אולי כוכב אחד ומה דציין לש\"ך הנ\"ל אין ענין לזה דהסמ\"ק מיירי שאין אנו יודעין כלל אם היה שום שיהוי מעת הוצאת ראש הולד חוץ לפרוזדור עד הלידה והלידה הלא היתה בודאי בלילה לכך כתב דאם אינן יודעות יש לילך אחר חזקה ור\"ל דמחזקינן לה בחזקת מעוברת עד השתא ולא מספקינן דהיה שיהוי בין יציאת הראש ללידת הגוף או דמיירי הסמ\"ק שנולד הולד זמן הרבה אחר צאת הכוכבים משא\"כ בנידון דידיה דמיירי שהיה שיהוי קצת בין לידת הראש להגוף ולאחר שנשלם הלידה ראו ג' כוכבים בינונים וא\"כ לא נוכל לאוקמה אחזקתה לומר דעד השתא היתה מעוברת דמן התורה ע\"י הראש חשיב לידה מי יאמר שלא היו מתחלה שנים ועיקר סברתו מה שכתב דאזלינן בתר חזקה דהשתא הוא דנולד לא שייך בזה דע\"כ מה שכתב דהשתא הוא לאו דוקא דהא מיירי דאשתהי קצת אלא ע\"כ כונתו דחזקה דבלילה נולד ומסתמא היו השלשה כוכבים מתחלה ג\"כ ובאמת לא שייך ע\"ז חזקה וצ\"ע אח\"כ מצאתי בעז\"ה בספר סדרי טהרה שמכריע לדינא כדברינו דאם יודע שהיה קצת שיהוי בן לידת הראש להגוף יש להחמיר ולומר דשמא היה אז בין השמשות עי\"ש:",
+      "en_plain": "Twilight — see in Mishna Berurah what I copied in name of Radbaz, and it is not a safek-safeka of safek day safek twilight, and twilight itself is a safek — Peri Megadim wrote that perhaps because they establish the presumption of pregnancy [it appears to me that what he wrote with language \"perhaps\" is because he holds that presumption is not so strong regarding pushing aside Shabbat, and the practical difference is if an infant was born on Shabbat and we do not know whether by day on erev Shabbat or at night and we have no one to ask, such as if the woman died and the like — we do not say that presumably she gave birth now, and even on a weekday requires study; and see what we wrote below]; and further it is possible to say because there is one doubt there, and so too in Sefer Minchat Kohen; and see in siman 293 s.k. 3 in the gloss; and Rabbi Akiva Eiger already addressed this there — see there; and incidentally since we discuss that matter of twilight I said to mention several things needed for the law, namely in Yoreh De'ah siman 262 seif 6: if immediately when the infant put his head outside the corridor three medium stars appeared, etc. — it is difficult to me: behold we rule in Shabbos 34 that the halacha is like R' Yosi regarding terumah, and R' Yosi holds that two stars are twilight, and in the blink of an eye afterward three stars emerge; if so, within the time one goes out from the birthing house outside to see if it is night — what is it; even if he sees three medium stars, perhaps now they emerged and in the blink of an eye before there were only two and it was only twilight, and the ruling of Shulchan Aruch can only be imagined if at the time of birth itself he sees three stars, such as if the window is open in the house and he sits by the window and when he heard the child put out his head he immediately looked through the window and saw three medium stars — a stretch. However if he sees immediately small stars — it is reasonable to rely that before, at the time of birth, they were medium, for small ones are seen after it is already night as stated in the gemara there. And even this is not so clear, lest they are medium and before they were large visible in daytime, unless there are many small stars — then certainly one may rely on this. Further I said to note what Beit HaChidush wrote in laws of milah, thus: if he put his head outside the corridor and delayed somewhat until he was fully born, and afterward when fully born they saw three medium stars — if per the delay it appears to them that it was day at the emergence of the head, they have only what their eyes see and he shall be circumcised on the eighth even if it occurs on Shabbat, meaning if born at Motzei Shabbat — end of his words; and this follows from Shulchan Aruch Yoreh De'ah siman 262 — see there; but what he concludes there and wrote that if they cannot know — we follow the presumption that now he was born, and if it is on erev Shabbat permitted to circumcise him on Shabbat, etc., and he cited on this Shach siman 266 s.k. 9 — it is astounding, since it deals that he delayed somewhat — therefore there is certainly doubt that at the time of emergence of the head there were only two stars or perhaps one star; and what he cited to Shach there — it is irrelevant, for Semak deals where we do not know at all whether there was any delay from the time the head of the infant emerged outside the corridor until birth, and the birth was certainly at night — therefore he wrote that if they do not know, one follows presumption, meaning we presume her in presumption of pregnancy until now and we do not doubt that there was delay between emergence of head and birth of body; or Semak deals where the infant was born long after nightfall, unlike our case which deals where there was some delay between birth of head and body, and afterward when birth was completed they saw three medium stars — if so we cannot establish her presumption to say until now she was pregnant, for from the Torah through the head it is considered birth — who will say there were not two at first; and the essence of his reasoning from what he wrote \"now he was born\" is not precise, for perforce it deals that he delayed somewhat — rather perforce his intent is presumption that he was born at night and presumably the three stars were also at first; and in truth presumption is not relevant here — requires study; afterward I found in Azulai in Sefer Seder Taharah that he decides for the law like our words that if one knows there was some delay between birth of head and body — one should be stringent and say perhaps it was then twilight — see there:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman331/seif-005/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 331,
+      "seif": 5,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.035,
+        "he_chars": 1139,
+        "en_chars": 2318,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2318
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "[ב] <b>[לבוש] בין השמשות וכו'.</b> פירשו אחרונים דוקא כשנולד רביעית שעה סמוך לצאת הכוכבים אבל נולד קודם רביעית שעה מצאת הכוכבים מלין ביום ו' וכן אם נולד בשבת רביעית שעה קודם לילה מלין בשבת. כתב בתשובת רדב\"ז דאף ספק נולד תוך רביעית שעה או קודם בערב שבת מלין ביום ראשון ולא אמרינן דמלין ביום שבת מספק ספיקא:<br />\n[ג] <b>נולד מהול וכו'.</b> מצאתי כתוב וצריך עיון למה לא נהגו עתה לראות אחר זה וצריך לומר כמו שכתב הב\"ח אם לא נראה מהול שלא בשעת קישוי מוהלין בשבת, עד כאן, וצריך עיון אם יש לסמוך על זה לחלל שבת החמור (מגן אברהם), ועיין בשפתי כהן ליו\"ד סוף סימן רע\"ד ועיין יו\"ד סימן רס\"ג דאם יש ערלה כבושה פירוש שעור הנדבק מאוד בבשר דוחה שבת ובתשובת מבי\"ט חלק א' סימן פ\"ט דאם יש בו ציצין המעכבין המילה דוחה ועיו\"ד סימן רס\"ד סעיף ה' ובאגודה בפרק ר' אליעזר דמילה כתב נולד מהול בשבת טוב למולו ביום שלאחריו, עד כאן, משמע דסבירא ליה דלאו איסורא כשמל בשבת, אך צריך עיון דהא ש\"ס ערוכה בשבת קל\"ה שאין דוחה שבת ודוחק גדול לפרש אגודה בענין אחר עיין שם, ורי\"ף כתב דנולד מהול ספק אם מחללין שבת וכן כתב מהרי\"ל שתי ערלות פירש רש\"י שתי עורות זה על גבי זה ויש אומרים שתי גידין וכן כתב בלבוש יו\"ד:<br />\n[ד] <b>יוצא דופן וכו'.</b> פירוש שפתחו רחמה על ידי סם והוציאוהו לחוץ ונתרפאות (משאת בנימין):\n",
+      "en_html": "<b>[2] [Levush] During bein hashmashot, etc.</b> The later authorities explain that this applies specifically when the child was born within one quarter of an hour before the appearance of the stars. But if he was born earlier than a quarter hour before the stars on Friday evening, he is circumcised on Friday. Likewise, if he was born on Shabbos a quarter hour before nightfall, he is circumcised on Shabbos. The Radbaz writes that even if there is doubt whether he was born within the quarter hour or before it on Friday evening, he is circumcised on Sunday. We do not say that he should be circumcised on Shabbos because of a double doubt.<br />\n<b>[3] Born circumcised, etc.</b> I found it written that this requires study, because why is the custom nowadays not to inspect for this? One must say as the Bach writes, that if the child does not appear circumcised when the organ is not erect, he is circumcised on Shabbos. This requires study as to whether one may rely on this to desecrate the severe sanctity of Shabbos, as stated by the Magen Avraham. See the Shach to Yoreh Deah at the end of siman 274. See also Yoreh Deah siman 263, where if there is a concealed foreskin, meaning skin tightly attached to the flesh, circumcision overrides Shabbos. Responsa Mabit, part 1, siman 89, writes that if there are remnants that invalidate the circumcision, their removal overrides Shabbos. See Yoreh Deah siman 264, seif 5. The Agudah in Perek Rabbi Eliezer DeMilah writes that if a child is born circumcised on Shabbos, it is preferable to circumcise him on the following day. This implies that he holds there is no actual prohibition if it is done on Shabbos. This requires study, because the explicit Gemara in Shabbos 135 says that such circumcision does not override Shabbos, and it is very strained to interpret the Agudah otherwise. See there. The Rif writes that regarding a child born circumcised there is uncertainty whether Shabbos is desecrated. The Maharil likewise writes that 'two foreskins' means, according to Rashi, two layers of skin, one upon the other, while some explain it as two organs. The Levush in Yoreh Deah writes likewise.<br />\n<b>[4] Born by Caesarean delivery, etc.</b> This means that the womb was opened through medication and the child was removed, after which the mother recovered, as stated by Masat Binyamin.\n",
+      "he_plain": "[ב] [לבוש] בין השמשות וכו'. פירשו אחרונים דוקא כשנולד רביעית שעה סמוך לצאת הכוכבים אבל נולד קודם רביעית שעה מצאת הכוכבים מלין ביום ו' וכן אם נולד בשבת רביעית שעה קודם לילה מלין בשבת. כתב בתשובת רדב\"ז דאף ספק נולד תוך רביעית שעה או קודם בערב שבת מלין ביום ראשון ולא אמרינן דמלין ביום שבת מספק ספיקא: [ג] נולד מהול וכו'. מצאתי כתוב וצריך עיון למה לא נהגו עתה לראות אחר זה וצריך לומר כמו שכתב הב\"ח אם לא נראה מהול שלא בשעת קישוי מוהלין בשבת, עד כאן, וצריך עיון אם יש לסמוך על זה לחלל שבת החמור (מגן אברהם), ועיין בשפתי כהן ליו\"ד סוף סימן רע\"ד ועיין יו\"ד סימן רס\"ג דאם יש ערלה כבושה פירוש שעור הנדבק מאוד בבשר דוחה שבת ובתשובת מבי\"ט חלק א' סימן פ\"ט דאם יש בו ציצין המעכבין המילה דוחה ועיו\"ד סימן רס\"ד סעיף ה' ובאגודה בפרק ר' אליעזר דמילה כתב נולד מהול בשבת טוב למולו ביום שלאחריו, עד כאן, משמע דסבירא ליה דלאו איסורא כשמל בשבת, אך צריך עיון דהא ש\"ס ערוכה בשבת קל\"ה שאין דוחה שבת ודוחק גדול לפרש אגודה בענין אחר עיין שם, ורי\"ף כתב דנולד מהול ספק אם מחללין שבת וכן כתב מהרי\"ל שתי ערלות פירש רש\"י שתי עורות זה על גבי זה ויש אומרים שתי גידין וכן כתב בלבוש יו\"ד: [ד] יוצא דופן וכו'. פירוש שפתחו רחמה על ידי סם והוציאוהו לחוץ ונתרפאות (משאת בנימין):",
+      "en_plain": "[2] [Levush] During bein hashmashot, etc. The later authorities explain that this applies specifically when the child was born within one quarter of an hour before the appearance of the stars. But if he was born earlier than a quarter hour before the stars on Friday evening, he is circumcised on Friday. Likewise, if he was born on Shabbos a quarter hour before nightfall, he is circumcised on Shabbos. The Radbaz writes that even if there is doubt whether he was born within the quarter hour or before it on Friday evening, he is circumcised on Sunday. We do not say that he should be circumcised on Shabbos because of a double doubt. [3] Born circumcised, etc. I found it written that this requires study, because why is the custom nowadays not to inspect for this? One must say as the Bach writes, that if the child does not appear circumcised when the organ is not erect, he is circumcised on Shabbos. This requires study as to whether one may rely on this to desecrate the severe sanctity of Shabbos, as stated by the Magen Avraham. See the Shach to Yoreh Deah at the end of siman 274. See also Yoreh Deah siman 263, where if there is a concealed foreskin, meaning skin tightly attached to the flesh, circumcision overrides Shabbos. Responsa Mabit, part 1, siman 89, writes that if there are remnants that invalidate the circumcision, their removal overrides Shabbos. See Yoreh Deah siman 264, seif 5. The Agudah in Perek Rabbi Eliezer DeMilah writes that if a child is born circumcised on Shabbos, it is preferable to circumcise him on the following day. This implies that he holds there is no actual prohibition if it is done on Shabbos. This requires study, because the explicit Gemara in Shabbos 135 says that such circumcision does not override Shabbos, and it is very strained to interpret the Agudah otherwise. See there. The Rif writes that regarding a child born circumcised there is uncertainty whether Shabbos is desecrated. The Maharil likewise writes that 'two foreskins' means, according to Rashi, two layers of skin, one upon the other, while some explain it as two organs. The Levush in Yoreh Deah writes likewise. [4] Born by Caesarean delivery, etc. This means that the womb was opened through medication and the child was removed, after which the mother recovered, as stated by Masat Binyamin.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

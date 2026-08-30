@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 31,
+    "chunk_total": 47,
+    "case_offset": 171,
+    "cases_in_chunk": 4,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman455/seif-003/biur-halacha",
+      "volume": "oc1",
+      "siman": 455,
+      "seif": 3,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.351,
+        "he_chars": 930,
+        "en_chars": 1256,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1256
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> מדוד גדול</b> -  עיין מ\"ב הטעם ועיין פמ\"ג שזהו שייך דוקא שהמולייר עדיין פושר קצת שהועתק מאש סמוך זמן מה הא נתקרר זמן רב פשיטא שאין לחוש:<br />\n<b> ומים שבתוכו פושרין</b> -  אבל אם ציננן לגמרי לכו\"ע מותר בזה [אפילו לדעת המחמירים בחמי האור שנצטננו] כיון שלא היה מתחלה חמי האור וכמ\"ש בס\"ק כ\"ט [אחרונים]:<br />\n<b> יש לסמוך עליהם</b> -  והנה הב\"ח מחמיר בכל גווני אך כמה אחרונים כתבו כדעת השו\"ע והרמ\"א ואפילו לדעת הב\"ח אם נשאבו מן הנהרות יש לסמוך להקל בדיעבד בשוגג דידוע דלדעת רש\"י עיקר הדין דמים שלא לנו קאי דוקא אמעינות וכן במים שלנו אך שהיו חמין שציננן שלש בהם בשוגג ג\"כ יש להקל אפילו לדעת הב\"ח וכ\"כ הא\"ר:<br />\n<b> מים שלא לנו שנתבטלו חד בתרי וכו'</b> -  ומים חמין או פושרין שנתערבו בהרבה מים צוננין עד שנצטננו דעת ע\"ש וח\"י וא\"ר [וכן העתיק הגר\"ז] להקל כיון שנתבטלו בצונן וחק יוסף ובגדי ישע מחמירין בזה וכן משמע במגן אלף וכן הפמ\"ג מפקפק בזה דלא מצינו ההיתר כ\"א במים שלנו וע\"כ לענין ללוש בהם לכתחלה בודאי יש ליזהר אכן בדיעבד במקום הפסד מרובה או מניעת שמחת יו\"ט יש להקל כ\"כ בבגדי ישע:\n",
+      "en_html": "Large kettle — see Mishna Berurah for the reason; see Peri Megadim that this applies only when the kettle is still somewhat lukewarm from having been moved from the fire a short time ago; if it cooled a long time, obviously there is no concern.<br>\r\n<br>\r\nAnd from the water in which Pushin is in, but if he is completely clouded, it is permitted [even to see the strings of light] that he did not have the slightest darkness of light, and that he would not have been circumcised by the light<br>\r\n<br>\r\nOne may rely on them — Beit Chadash is stringent in all cases; but many acharonim wrote like Shulchan Aruch and Rama; and even according to Beit Chadash, if drawn from rivers one may rely to be lenient b'dieved b'shogeg, for it is known that according to Rashi the main law of water not left overnight applies specifically to springs; and likewise in mayim shelanu that were hot and one cooled them b'shogeg — one may be lenient even per Beit Chadash; and so Eliyah Rabbah.<br>\r\n<br>\r\nThe water we do not know is that we will take a lot of water in the mountains and so on, and that we will be able to take care of it, and that we will be able to do so, and that we will be able to do so with it, and that we will not be able to do so with it, and that we will be able to do so with it\r\n",
+      "he_plain": "מדוד גדול - עיין מ\"ב הטעם ועיין פמ\"ג שזהו שייך דוקא שהמולייר עדיין פושר קצת שהועתק מאש סמוך זמן מה הא נתקרר זמן רב פשיטא שאין לחוש: ומים שבתוכו פושרין - אבל אם ציננן לגמרי לכו\"ע מותר בזה [אפילו לדעת המחמירים בחמי האור שנצטננו] כיון שלא היה מתחלה חמי האור וכמ\"ש בס\"ק כ\"ט [אחרונים]: יש לסמוך עליהם - והנה הב\"ח מחמיר בכל גווני אך כמה אחרונים כתבו כדעת השו\"ע והרמ\"א ואפילו לדעת הב\"ח אם נשאבו מן הנהרות יש לסמוך להקל בדיעבד בשוגג דידוע דלדעת רש\"י עיקר הדין דמים שלא לנו קאי דוקא אמעינות וכן במים שלנו אך שהיו חמין שציננן שלש בהם בשוגג ג\"כ יש להקל אפילו לדעת הב\"ח וכ\"כ הא\"ר: מים שלא לנו שנתבטלו חד בתרי וכו' - ומים חמין או פושרין שנתערבו בהרבה מים צוננין עד שנצטננו דעת ע\"ש וח\"י וא\"ר [וכן העתיק הגר\"ז] להקל כיון שנתבטלו בצונן וחק יוסף ובגדי ישע מחמירין בזה וכן משמע במגן אלף וכן הפמ\"ג מפקפק בזה דלא מצינו ההיתר כ\"א במים שלנו וע\"כ לענין ללוש בהם לכתחלה בודאי יש ליזהר אכן בדיעבד במקום הפסד מרובה או מניעת שמחת יו\"ט יש להקל כ\"כ בבגדי ישע:",
+      "en_plain": "Large kettle — see Mishna Berurah for the reason; see Peri Megadim that this applies only when the kettle is still somewhat lukewarm from having been moved from the fire a short time ago; if it cooled a long time, obviously there is no concern. And from the water in which Pushin is in, but if he is completely clouded, it is permitted [even to see the strings of light] that he did not have the slightest darkness of light, and that he would not have been circumcised by the light One may rely on them — Beit Chadash is stringent in all cases; but many acharonim wrote like Shulchan Aruch and Rama; and even according to Beit Chadash, if drawn from rivers one may rely to be lenient b'dieved b'shogeg, for it is known that according to Rashi the main law of water not left overnight applies specifically to springs; and likewise in mayim shelanu that were hot and one cooled them b'shogeg — one may be lenient even per Beit Chadash; and so Eliyah Rabbah. The water we do not know is that we will take a lot of water in the mountains and so on, and that we will be able to take care of it, and that we will be able to do so, and that we will be able to do so with it, and that we will not be able to do so with it, and that we will be able to do so with it",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman46/seif-001/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 46,
+      "seif": 1,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.738,
+        "he_chars": 3681,
+        "en_chars": 6399,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 6399
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>א) [סעיף א'] כשיעור משנתו וכו'.  </b>מה טוב ומה נעים אם יוכל עמוד שלא ידבר שום דבר ותהיה תחילת דבורו בעמדו משנתו מתחיל במצוה לברך ליוצר נשמתו הנה טוב מאוד. חס\"ל אות ב'. ועיין מו\"ב אות ס\"ג ומש\"ל סי' א' אות מ' יעו\"ש:<br />\n<b>ב) בטור  </b>כתב ואחר שהניח תפילין יסדר הברכות וכו' וכבר כתבנו לעיל סי' כ\"ה אות כ\"ו שהאר\"י ז\"ל היה מסדר כל ברכות של שחר עד פרשת העקידה ואח\"כ היה מתעטף בטלית ומניח תפילין ומתפלל יעו\"ש:<br />\n<b>ג) שם  </b>כשיעור משנתו יאמר אלהי נשמה. ברכה זו אינה פותחת בברוך מפני שהיא ברכת ההודאה וברכות ההודאה אין פותחות בברוך כמ\"ש מרן ז\"ל סי' ו' סעי' ג' יעו\"ש. מיהו צריך לסמוך אותה לברכת אשר יצר כמש\"ל סי' ו' אות ג' ואות ה' בשם האר\"י ז\"ל יעו\"ש. ועיין עוד לקמן אות ז':<br />\n<b>ד) שם  </b>יאמר אלהי נשמה. צריך להפסיק מעט בין אלהי לנשמה שלא ישמע שהנשמה הוא אלהיו ח\"ו, ספר אבודרהם. עט\"ז. א\"ר אות א' הש\"ץ דמ\"ה ע\"ד. בי\"ע אות א' חס\"ל אות ג'. יפה ללב אות ב'. בן א\"ח פ' וישב אות ב':<br />\n<b>ה) אין  </b>לומר טהורה היא רק טהורה אתה בראת וכו' מטעם דעל הרוב חטא ואינה טהורה. קשר גודל סי' ה' אות ח'. וכ\"כ ש\"ץ דמ\"ו ע\"א מטעמים אחרים יעו\"ש. סידור בי\"ע אות ב'. חס\"ל שם. בן א\"ח שם. ועיין יפה ללב אות ד' מה שהאריך בזה יעו\"ש. וכן במסכת ברכות דף ס' ע\"ב ליתא תיבת היא. והביאו הש\"ץ שם. ואע\"ג דבשער הכוו' דף ב' ע\"א איתא טהורה היא י\"ל דלאו דוקא וכן הוא המנהג דאין אומרים תיבת היא:<br />\n<b>ו) שם  </b>יאמר אלהי נשמה. ברכה זו צריך להיות בה מ\"ז תיבות כמנין הוי\"ה אהי\"ה שהם או\"א דלא מתפרשן לעלמין. עיין נה\"ש דף י\"א ע\"ג הנד\"מ ומש\"ל סי' ו' אות ג'. וכ\"כ ש\"ץ דמ\"ו ע\"א חס\"ל אות ג': (וזהו הנוסח)<br />\n<b>ו) אלהי  </b>נשמה שנתת בי טהורה אתה בראתה. אתה יצרתם אתה נפחתה בי ואתה משמרה בקרבי. ואתה עתיד ליטלה ממני ולהחזירה בי לעתיד לבא. כל זמן שהנשמה בקרבי מודה אני לפניך ה' אלהי ואלהי אבותי רבון כל המעשים אדון כל הנשמות. ברוך אתה ה' המחזיר נשמות לפגרים מתים. חס\"ל שם. ודלא כהעט\"ז סי' ו' ונמשך אחריו סידור בי\"ע אות ג' שכתב דצ\"ל אתה נפחתה ולא יאמר אתה נפחתה בי. וכן הש\"ץ שם דחה דברי העט\"ז וכתב דכן הוא מנהג העולם וכן עיקר יעו\"ש. וכן הוא בש\"ס ברכות דף ס' ע\"ב. וכן הוא בשער הכוו' כמ\"ש באות שאח\"ז:<br />\n<b>ז) שם  </b>יאמר אלהי נשמה. ברכת אלהי נשמה שנתת בי וכו' ברכה זו סמוכה לחברתה לפי שהיא כנגד אמא המחוברת תמיד עם אבא. והבן זה. והנה אעפ\"י שלא כל אדם זוכה לחלק הנקרא נשמה. עכ\"ז הנה יש לו חלק בנשמת אדה\"ר שהיה כולל כל הנבראים אעפ\"י שהאדם הזה עדיין לא זכה אליה הוא בעצמו. ואומרו טהורה (היא) כנגד עולם האצילות אשר משה נשמה לנשמה. אתה בראת כנגד חלק הנשמה הבאה מן הבריאה. אתה יצרתה הוא סוד הרוח הבא מן היצירה. אתה נפחתה בי הוא סוד הנפש שבעשיה. ונמצא כי באומרו נשמה שנתת בי כולל כל הד' חלקים הנז' וקראם כולם בשם נשמה. ואתה עתיד ליטלה ממני וכו' הוא בסוד מ\"ן כי לעתיד תקח המלכות את נשמות הצדיקים בסוד חדשים לבקרים וכו' כדי שיהיו בה בבחי' מ\"ן ואח\"כ אתה עתיד להחזירה בי בבוקר בסוד חדשים לבקרים. שער הכוו' דף ב' ע\"א. ועיין בדרושי הלילה דרוש ג' דף נ\"ג ותבין. ועיין ש\"ץ דף מ\"ה ע\"ד ודמ\"ו ע\"א שכתב בזה ענין אחר יעו\"ש. ועיין בסידור בי\"ע וחס\"ל ושאר סידורים שכתבו כשאומר אלהי נשמה יכוין בשילוב אותיות נשמה עם אותיות שמו. ועיין יפה ללב אות ג' ולפי שהאר\"י ז\"ל לא כתב זה ואין אנו נוהגין בו על כן לא כתבנו בזה כלום:<br />\n<b>ח) שם  </b>יאמר אלהי נשמה. ואם בירך מחיה המתים במקום אלהי נשמה יצא. פר\"ח. יד אהרן בהגה\"ט. קשר גודל סי' ה' אות ט'. ש\"ץ דמ\"ו ע\"ב. סידור בי\"ע בדיני ברה\"ש אות ב' שתילי זיתים אות א'. והגם דהמאמ\"ר או' א' פקפק בדברי הפר\"ח מ\"מ בסוף סיים דיש לחוש לדבריו יעו\"ש. והב\"ד הש\"ץ שם. ובפרט דספק ברכות להקל וכך פסקו האחרונים:<br />\n<b>ט) שם  </b>שכח ולא בירך ברה\"ש קודם תפילה יברך אותם אחר תפילה חוץ מברכת המחזיר נשמות שלא יברך שכבר נפטר בברכת מחיה המתים. וחוץ מברכת התורה שכבר נפטר באהבת עולם כמו שיתבאר בדברינו לקמן בס\"ד על סי' מ\"ז סעי' ז' וסעי' ח' ועל דברי מור\"ם ז\"ל שבסוף סי' נ\"ב יעו\"ש. ואם לא בירך אותם גם אחר התפילה עד אימת נמשך זמנה ויכול לברך עיין לקמן בדברינו לסי' ע\"א אות ד' יעוש\"ב. אמנם לכתחילה פשיטא דאין להניח ברכת השחר עד אחר התפלה דהא מהפך סדר התיקון הנעשה על ידם. עיין פרע\"ח שער הברכות פ\"ג ונה\"ש די\"א ע\"ג הנד\"מ. ועוד עיין לקמן סוף אות ל\"ב:\n",
+      "en_html": "<b>1) [Se'if 1] When he awakens from his sleep, etc.</b> How good and pleasant it is if one can avoid speaking at all, so that his first speech upon rising from sleep begins with the mitzvah of blessing the Creator of his soul. This is exceedingly good. Chesed LaAlafim, paragraph 2. See Moreh Be'Etzba, paragraph 63, and what we wrote above in siman 1, paragraph 40.<br />\n<b>2) Tur writes:</b> After putting on tefillin, he should arrange the blessings, etc. We already wrote above in siman 25, paragraph 26, that the Arizal would recite all Birchos HaShachar through the passage of the Akeidah, then wrap himself in a tallis, put on tefillin, and pray; see there.<br />\n<b>3) There: When he awakens from his sleep, he should say Elokai Neshamah.</b> This blessing does not begin with Baruch because it is a blessing of thanksgiving, and blessings of thanksgiving do not begin with Baruch, as Maran writes in siman 6, se'if 3. Nevertheless, it should be placed immediately after Asher Yatzar, as we wrote above in siman 6, paragraphs 3 and 5, in the name of the Arizal. See also below, paragraph 7.<br />\n<b>4) There: He should say Elokai Neshamah.</b> One should pause slightly between \"Elokai\" and \"neshamah,\" lest it sound as though the soul were his god, Heaven forbid. Abudraham; Ateres Zekenim; Eliyah Rabbah, paragraph 1; Shaliach Tzibbur, folio 45d; Siddur Beis Oved, paragraph 1; Chesed LaAlafim, paragraph 3; Yafeh LaLev, paragraph 2; Ben Ish Chai, Parashas Vayeishev, paragraph 2.<br />\n<b>5) One should not say, \"tehorah hi\"; \"it is pure,\"</b> but only \"tehorah; Atah verasah,\" etc., because in most cases a person has sinned and the soul is not pure. Kesher Gudal, siman 5, paragraph 8. Shaliach Tzibbur, folio 46a, writes likewise for other reasons; see there. Siddur Beis Oved, paragraph 2; Chesed LaAlafim there; Ben Ish Chai there. See Yafeh LaLev, paragraph 4, who discusses this at length. The word \"hi\" likewise does not appear in Berachos 60b, as Shaliach Tzibbur notes. Although Shaar HaKavanos, folio 2a, reads \"tehorah hi,\" this need not be exact. The custom is not to say \"hi.\"<br />\n<b>6) There: He should say Elokai Neshamah.</b> This blessing should contain forty-seven words, corresponding to the combined numerical values of the Divine Names Havayah and Ehyeh, which represent Abba and Imma, who are never separated. See Nahar Shalom, folio 11c in the new edition, and what we wrote above in siman 6, paragraph 3. Shaliach Tzibbur, folio 46a, and Chesed LaAlafim, paragraph 3, write likewise. This is the text:<br />\n<b>6) My God, the soul You placed within me is pure. You created it; You formed it; You breathed it into me, and You preserve it within me. You will ultimately take it from me and restore it to me in the future. As long as the soul is within me, I thank You, Hashem my God and God of my ancestors, Master of all deeds, Lord of all souls. Blessed are You, Hashem, Who restores souls to lifeless bodies.</b> Chesed LaAlafim there. This is unlike Ateres Zekenim to siman 6 and Siddur Beis Oved, paragraph 3, which follows him and says that the text should be \"You breathed it,\" omitting \"into me.\" Shaliach Tzibbur there rejects Ateres Zekenim and writes that the common custom is correct. This is also the text in Berachos 60b and in Shaar HaKavanos, as stated in the following paragraph.<br />\n<b>7) There: He should say Elokai Neshamah.</b> The blessing \"Elokai Neshamah shenasata bi,\" etc., is adjacent to the preceding blessing because it corresponds to Imma, which is always joined with Abba. Understand this. Although not every person merits the component called neshamah, he nevertheless possesses a share in the soul of Adam HaRishon, which encompassed all created beings, even if this individual has not yet personally attained it. \"Tehorah\" corresponds to the world of Atzilus, from which comes the neshamah of the neshamah. \"You created it\" corresponds to the component of neshamah that comes from Beriah. \"You formed it\" alludes to ruach, which comes from Yetzirah. \"You breathed it into me\" alludes to nefesh, which is in Asiyah. Thus, when saying \"the soul You placed within me,\" he includes all four components and calls them all neshamah. \"You will ultimately take it from me,\" etc., concerns the mystical elevation of feminine waters: in the future Malchus takes the souls of the righteous in the mystery of \"new every morning,\" so that they become feminine waters within it; afterward, \"You will ultimately restore it to me\" in the morning, in the mystery of \"new every morning.\" Shaar HaKavanos, folio 2a. See the discourses of the night, discourse 3, folio 53, and understand. See Shaliach Tzibbur, folios 45d and 46a, who gives another explanation. Siddur Beis Oved, Chesed LaAlafim, and other siddurim write that when saying Elokai Neshamah one should intend an interweaving of the letters of neshamah with the letters of his name. See Yafeh LaLev, paragraph 3. Since the Arizal did not write this and we do not practice it, we have written nothing further about it.<br />\n<b>8) There: He should say Elokai Neshamah.</b> If one recited Mechayeh HaMeisim in place of Elokai Neshamah, he has fulfilled his obligation. Pri Chadash; Yad Aharon, Hagahos on the Tur; Kesher Gudal, siman 5, paragraph 9; Shaliach Tzibbur, folio 46b; Siddur Beis Oved, laws of Birchos HaShachar, paragraph 2; Shesilei Zeitim, paragraph 1. Although Maamar Mordechai, paragraph 1, questions Pri Chadash, he concludes that one should take account of his view. Shaliach Tzibbur there cites this. In particular, doubts concerning blessings are ruled leniently, and the later authorities rule accordingly.<br />\n<b>9) There.</b> If one forgot to recite Birchos HaShachar before prayer, he should recite them afterward, except for HaMachazir Neshamos, because he has already been exempted through Mechayeh HaMeisim, and except for Birchos HaTorah, because Ahavas Olam has already exempted him. This will be explained, with Hashem's help, below in our discussion of siman 47, se'ifim 7 and 8, and Rema's words at the end of siman 52. If he did not recite them after prayer either, see our discussion below in siman 71, paragraph 4, regarding how long their time extends. Initially, however, it is obvious that one should not delay Birchos HaShachar until after prayer, because that reverses the order of the spiritual rectification they accomplish. See Pri Etz Chaim, Shaar HaBerachos, chapter 3, and Nahar Shalom, folio 11c in the new edition. See also below at the end of paragraph 32.\n",
+      "he_plain": "א) [סעיף א'] כשיעור משנתו וכו'. מה טוב ומה נעים אם יוכל עמוד שלא ידבר שום דבר ותהיה תחילת דבורו בעמדו משנתו מתחיל במצוה לברך ליוצר נשמתו הנה טוב מאוד. חס\"ל אות ב'. ועיין מו\"ב אות ס\"ג ומש\"ל סי' א' אות מ' יעו\"ש: ב) בטור כתב ואחר שהניח תפילין יסדר הברכות וכו' וכבר כתבנו לעיל סי' כ\"ה אות כ\"ו שהאר\"י ז\"ל היה מסדר כל ברכות של שחר עד פרשת העקידה ואח\"כ היה מתעטף בטלית ומניח תפילין ומתפלל יעו\"ש: ג) שם כשיעור משנתו יאמר אלהי נשמה. ברכה זו אינה פותחת בברוך מפני שהיא ברכת ההודאה וברכות ההודאה אין פותחות בברוך כמ\"ש מרן ז\"ל סי' ו' סעי' ג' יעו\"ש. מיהו צריך לסמוך אותה לברכת אשר יצר כמש\"ל סי' ו' אות ג' ואות ה' בשם האר\"י ז\"ל יעו\"ש. ועיין עוד לקמן אות ז': ד) שם יאמר אלהי נשמה. צריך להפסיק מעט בין אלהי לנשמה שלא ישמע שהנשמה הוא אלהיו ח\"ו, ספר אבודרהם. עט\"ז. א\"ר אות א' הש\"ץ דמ\"ה ע\"ד. בי\"ע אות א' חס\"ל אות ג'. יפה ללב אות ב'. בן א\"ח פ' וישב אות ב': ה) אין לומר טהורה היא רק טהורה אתה בראת וכו' מטעם דעל הרוב חטא ואינה טהורה. קשר גודל סי' ה' אות ח'. וכ\"כ ש\"ץ דמ\"ו ע\"א מטעמים אחרים יעו\"ש. סידור בי\"ע אות ב'. חס\"ל שם. בן א\"ח שם. ועיין יפה ללב אות ד' מה שהאריך בזה יעו\"ש. וכן במסכת ברכות דף ס' ע\"ב ליתא תיבת היא. והביאו הש\"ץ שם. ואע\"ג דבשער הכוו' דף ב' ע\"א איתא טהורה היא י\"ל דלאו דוקא וכן הוא המנהג דאין אומרים תיבת היא: ו) שם יאמר אלהי נשמה. ברכה זו צריך להיות בה מ\"ז תיבות כמנין הוי\"ה אהי\"ה שהם או\"א דלא מתפרשן לעלמין. עיין נה\"ש דף י\"א ע\"ג הנד\"מ ומש\"ל סי' ו' אות ג'. וכ\"כ ש\"ץ דמ\"ו ע\"א חס\"ל אות ג': (וזהו הנוסח) ו) אלהי נשמה שנתת בי טהורה אתה בראתה. אתה יצרתם אתה נפחתה בי ואתה משמרה בקרבי. ואתה עתיד ליטלה ממני ולהחזירה בי לעתיד לבא. כל זמן שהנשמה בקרבי מודה אני לפניך ה' אלהי ואלהי אבותי רבון כל המעשים אדון כל הנשמות. ברוך אתה ה' המחזיר נשמות לפגרים מתים. חס\"ל שם. ודלא כהעט\"ז סי' ו' ונמשך אחריו סידור בי\"ע אות ג' שכתב דצ\"ל אתה נפחתה ולא יאמר אתה נפחתה בי. וכן הש\"ץ שם דחה דברי העט\"ז וכתב דכן הוא מנהג העולם וכן עיקר יעו\"ש. וכן הוא בש\"ס ברכות דף ס' ע\"ב. וכן הוא בשער הכוו' כמ\"ש באות שאח\"ז: ז) שם יאמר אלהי נשמה. ברכת אלהי נשמה שנתת בי וכו' ברכה זו סמוכה לחברתה לפי שהיא כנגד אמא המחוברת תמיד עם אבא. והבן זה. והנה אעפ\"י שלא כל אדם זוכה לחלק הנקרא נשמה. עכ\"ז הנה יש לו חלק בנשמת אדה\"ר שהיה כולל כל הנבראים אעפ\"י שהאדם הזה עדיין לא זכה אליה הוא בעצמו. ואומרו טהורה (היא) כנגד עולם האצילות אשר משה נשמה לנשמה. אתה בראת כנגד חלק הנשמה הבאה מן הבריאה. אתה יצרתה הוא סוד הרוח הבא מן היצירה. אתה נפחתה בי הוא סוד הנפש שבעשיה. ונמצא כי באומרו נשמה שנתת בי כולל כל הד' חלקים הנז' וקראם כולם בשם נשמה. ואתה עתיד ליטלה ממני וכו' הוא בסוד מ\"ן כי לעתיד תקח המלכות את נשמות הצדיקים בסוד חדשים לבקרים וכו' כדי שיהיו בה בבחי' מ\"ן ואח\"כ אתה עתיד להחזירה בי בבוקר בסוד חדשים לבקרים. שער הכוו' דף ב' ע\"א. ועיין בדרושי הלילה דרוש ג' דף נ\"ג ותבין. ועיין ש\"ץ דף מ\"ה ע\"ד ודמ\"ו ע\"א שכתב בזה ענין אחר יעו\"ש. ועיין בסידור בי\"ע וחס\"ל ושאר סידורים שכתבו כשאומר אלהי נשמה יכוין בשילוב אותיות נשמה עם אותיות שמו. ועיין יפה ללב אות ג' ולפי שהאר\"י ז\"ל לא כתב זה ואין אנו נוהגין בו על כן לא כתבנו בזה כלום: ח) שם יאמר אלהי נשמה. ואם בירך מחיה המתים במקום אלהי נשמה יצא. פר\"ח. יד אהרן בהגה\"ט. קשר גודל סי' ה' אות ט'. ש\"ץ דמ\"ו ע\"ב. סידור בי\"ע בדיני ברה\"ש אות ב' שתילי זיתים אות א'. והגם דהמאמ\"ר או' א' פקפק בדברי הפר\"ח מ\"מ בסוף סיים דיש לחוש לדבריו יעו\"ש. והב\"ד הש\"ץ שם. ובפרט דספק ברכות להקל וכך פסקו האחרונים: ט) שם שכח ולא בירך ברה\"ש קודם תפילה יברך אותם אחר תפילה חוץ מברכת המחזיר נשמות שלא יברך שכבר נפטר בברכת מחיה המתים. וחוץ מברכת התורה שכבר נפטר באהבת עולם כמו שיתבאר בדברינו לקמן בס\"ד על סי' מ\"ז סעי' ז' וסעי' ח' ועל דברי מור\"ם ז\"ל שבסוף סי' נ\"ב יעו\"ש. ואם לא בירך אותם גם אחר התפילה עד אימת נמשך זמנה ויכול לברך עיין לקמן בדברינו לסי' ע\"א אות ד' יעוש\"ב. אמנם לכתחילה פשיטא דאין להניח ברכת השחר עד אחר התפלה דהא מהפך סדר התיקון הנעשה על ידם. עיין פרע\"ח שער הברכות פ\"ג ונה\"ש די\"א ע\"ג הנד\"מ. ועוד עיין לקמן סוף אות ל\"ב:",
+      "en_plain": "1) [Se'if 1] When he awakens from his sleep, etc. How good and pleasant it is if one can avoid speaking at all, so that his first speech upon rising from sleep begins with the mitzvah of blessing the Creator of his soul. This is exceedingly good. Chesed LaAlafim, paragraph 2. See Moreh Be'Etzba, paragraph 63, and what we wrote above in siman 1, paragraph 40. 2) Tur writes: After putting on tefillin, he should arrange the blessings, etc. We already wrote above in siman 25, paragraph 26, that the Arizal would recite all Birchos HaShachar through the passage of the Akeidah, then wrap himself in a tallis, put on tefillin, and pray; see there. 3) There: When he awakens from his sleep, he should say Elokai Neshamah. This blessing does not begin with Baruch because it is a blessing of thanksgiving, and blessings of thanksgiving do not begin with Baruch, as Maran writes in siman 6, se'if 3. Nevertheless, it should be placed immediately after Asher Yatzar, as we wrote above in siman 6, paragraphs 3 and 5, in the name of the Arizal. See also below, paragraph 7. 4) There: He should say Elokai Neshamah. One should pause slightly between \"Elokai\" and \"neshamah,\" lest it sound as though the soul were his god, Heaven forbid. Abudraham; Ateres Zekenim; Eliyah Rabbah, paragraph 1; Shaliach Tzibbur, folio 45d; Siddur Beis Oved, paragraph 1; Chesed LaAlafim, paragraph 3; Yafeh LaLev, paragraph 2; Ben Ish Chai, Parashas Vayeishev, paragraph 2. 5) One should not say, \"tehorah hi\"; \"it is pure,\" but only \"tehorah; Atah verasah,\" etc., because in most cases a person has sinned and the soul is not pure. Kesher Gudal, siman 5, paragraph 8. Shaliach Tzibbur, folio 46a, writes likewise for other reasons; see there. Siddur Beis Oved, paragraph 2; Chesed LaAlafim there; Ben Ish Chai there. See Yafeh LaLev, paragraph 4, who discusses this at length. The word \"hi\" likewise does not appear in Berachos 60b, as Shaliach Tzibbur notes. Although Shaar HaKavanos, folio 2a, reads \"tehorah hi,\" this need not be exact. The custom is not to say \"hi.\" 6) There: He should say Elokai Neshamah. This blessing should contain forty-seven words, corresponding to the combined numerical values of the Divine Names Havayah and Ehyeh, which represent Abba and Imma, who are never separated. See Nahar Shalom, folio 11c in the new edition, and what we wrote above in siman 6, paragraph 3. Shaliach Tzibbur, folio 46a, and Chesed LaAlafim, paragraph 3, write likewise. This is the text: 6) My God, the soul You placed within me is pure. You created it; You formed it; You breathed it into me, and You preserve it within me. You will ultimately take it from me and restore it to me in the future. As long as the soul is within me, I thank You, Hashem my God and God of my ancestors, Master of all deeds, Lord of all souls. Blessed are You, Hashem, Who restores souls to lifeless bodies. Chesed LaAlafim there. This is unlike Ateres Zekenim to siman 6 and Siddur Beis Oved, paragraph 3, which follows him and says that the text should be \"You breathed it,\" omitting \"into me.\" Shaliach Tzibbur there rejects Ateres Zekenim and writes that the common custom is correct. This is also the text in Berachos 60b and in Shaar HaKavanos, as stated in the following paragraph. 7) There: He should say Elokai Neshamah. The blessing \"Elokai Neshamah shenasata bi,\" etc., is adjacent to the preceding blessing because it corresponds to Imma, which is always joined with Abba. Understand this. Although not every person merits the component called neshamah, he nevertheless possesses a share in the soul of Adam HaRishon, which encompassed all created beings, even if this individual has not yet personally attained it. \"Tehorah\" corresponds to the world of Atzilus, from which comes the neshamah of the neshamah. \"You created it\" corresponds to the component of neshamah that comes from Beriah. \"You formed it\" alludes to ruach, which comes from Yetzirah. \"You breathed it into me\" alludes to nefesh, which is in Asiyah. Thus, when saying \"the soul You placed within me,\" he includes all four components and calls them all neshamah. \"You will ultimately take it from me,\" etc., concerns the mystical elevation of feminine waters: in the future Malchus takes the souls of the righteous in the mystery of \"new every morning,\" so that they become feminine waters within it; afterward, \"You will ultimately restore it to me\" in the morning, in the mystery of \"new every morning.\" Shaar HaKavanos, folio 2a. See the discourses of the night, discourse 3, folio 53, and understand. See Shaliach Tzibbur, folios 45d and 46a, who gives another explanation. Siddur Beis Oved, Chesed LaAlafim, and other siddurim write that when saying Elokai Neshamah one should intend an interweaving of the letters of neshamah with the letters of his name. See Yafeh LaLev, paragraph 3. Since the Arizal did not write this and we do not practice it, we have written nothing further about it. 8) There: He should say Elokai Neshamah. If one recited Mechayeh HaMeisim in place of Elokai Neshamah, he has fulfilled his obligation. Pri Chadash; Yad Aharon, Hagahos on the Tur; Kesher Gudal, siman 5, paragraph 9; Shaliach Tzibbur, folio 46b; Siddur Beis Oved, laws of Birchos HaShachar, paragraph 2; Shesilei Zeitim, paragraph 1. Although Maamar Mordechai, paragraph 1, questions Pri Chadash, he concludes that one should take account of his view. Shaliach Tzibbur there cites this. In particular, doubts concerning blessings are ruled leniently, and the later authorities rule accordingly. 9) There. If one forgot to recite Birchos HaShachar before prayer, he should recite them afterward, except for HaMachazir Neshamos, because he has already been exempted through Mechayeh HaMeisim, and except for Birchos HaTorah, because Ahavas Olam has already exempted him. This will be explained, with Hashem's help, below in our discussion of siman 47, se'ifim 7 and 8, and Rema's words at the end of siman 52. If he did not recite them after prayer either, see our discussion below in siman 71, paragraph 4, regarding how long their time extends. Initially, however, it is obvious that one should not delay Birchos HaShachar until after prayer, because that reverses the order of the spiritual rectification they accomplish. See Pri Etz Chaim, Shaar HaBerachos, chapter 3, and Nahar Shalom, folio 11c in the new edition. See also below at the end of paragraph 32.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman46/seif-007/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 46,
+      "seif": 7,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.715,
+        "he_chars": 983,
+        "en_chars": 1686,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1686
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ז) שם  </b>יאמר אלהי נשמה. ברכת אלהי נשמה שנתת בי וכו' ברכה זו סמוכה לחברתה לפי שהיא כנגד אמא המחוברת תמיד עם אבא. והבן זה. והנה אעפ\"י שלא כל אדם זוכה לחלק הנקרא נשמה. עכ\"ז הנה יש לו חלק בנשמת אדה\"ר שהיה כולל כל הנבראים אעפ\"י שהאדם הזה עדיין לא זכה אליה הוא בעצמו. ואומרו טהורה (היא) כנגד עולם האצילות אשר משה נשמה לנשמה. אתה בראת כנגד חלק הנשמה הבאה מן הבריאה. אתה יצרתה הוא סוד הרוח הבא מן היצירה. אתה נפחתה בי הוא סוד הנפש שבעשיה. ונמצא כי באומרו נשמה שנתת בי כולל כל הד' חלקים הנז' וקראם כולם בשם נשמה. ואתה עתיד ליטלה ממני וכו' הוא בסוד מ\"ן כי לעתיד תקח המלכות את נשמות הצדיקים בסוד חדשים לבקרים וכו' כדי שיהיו בה בבחי' מ\"ן ואח\"כ אתה עתיד להחזירה בי בבוקר בסוד חדשים לבקרים. שער הכוו' דף ב' ע\"א. ועיין בדרושי הלילה דרוש ג' דף נ\"ג ותבין. ועיין ש\"ץ דף מ\"ה ע\"ד ודמ\"ו ע\"א שכתב בזה ענין אחר יעו\"ש. ועיין בסידור בי\"ע וחס\"ל ושאר סידורים שכתבו כשאומר אלהי נשמה יכוין בשילוב אותיות נשמה עם אותיות שמו. ועיין יפה ללב אות ג' ולפי שהאר\"י ז\"ל לא כתב זה ואין אנו נוהגין בו על כן לא כתבנו בזה כלום:\n",
+      "en_html": "<b>7) There: He should say Elokai Neshamah.</b> The blessing \"Elokai Neshamah shenasata bi,\" etc., is adjacent to the preceding blessing because it corresponds to Imma, which is always joined with Abba. Understand this. Although not every person merits the component called neshamah, he nevertheless possesses a share in the soul of Adam HaRishon, which encompassed all created beings, even if this individual has not yet personally attained it. \"Tehorah\" corresponds to the world of Atzilus, from which comes the neshamah of the neshamah. \"You created it\" corresponds to the component of neshamah that comes from Beriah. \"You formed it\" alludes to ruach, which comes from Yetzirah. \"You breathed it into me\" alludes to nefesh, which is in Asiyah. Thus, when saying \"the soul You placed within me,\" he includes all four components and calls them all neshamah. \"You will ultimately take it from me,\" etc., concerns the mystical elevation of feminine waters: in the future Malchus takes the souls of the righteous in the mystery of \"new every morning,\" so that they become feminine waters within it; afterward, \"You will ultimately restore it to me\" in the morning, in the mystery of \"new every morning.\" Shaar HaKavanos, folio 2a. See the discourses of the night, discourse 3, folio 53, and understand. See Shaliach Tzibbur, folios 45d and 46a, who gives another explanation. Siddur Beis Oved, Chesed LaAlafim, and other siddurim write that when saying Elokai Neshamah one should intend an interweaving of the letters of neshamah with the letters of his name. See Yafeh LaLev, paragraph 3. Since the Arizal did not write this and we do not practice it, we have written nothing further about it.\n",
+      "he_plain": "ז) שם יאמר אלהי נשמה. ברכת אלהי נשמה שנתת בי וכו' ברכה זו סמוכה לחברתה לפי שהיא כנגד אמא המחוברת תמיד עם אבא. והבן זה. והנה אעפ\"י שלא כל אדם זוכה לחלק הנקרא נשמה. עכ\"ז הנה יש לו חלק בנשמת אדה\"ר שהיה כולל כל הנבראים אעפ\"י שהאדם הזה עדיין לא זכה אליה הוא בעצמו. ואומרו טהורה (היא) כנגד עולם האצילות אשר משה נשמה לנשמה. אתה בראת כנגד חלק הנשמה הבאה מן הבריאה. אתה יצרתה הוא סוד הרוח הבא מן היצירה. אתה נפחתה בי הוא סוד הנפש שבעשיה. ונמצא כי באומרו נשמה שנתת בי כולל כל הד' חלקים הנז' וקראם כולם בשם נשמה. ואתה עתיד ליטלה ממני וכו' הוא בסוד מ\"ן כי לעתיד תקח המלכות את נשמות הצדיקים בסוד חדשים לבקרים וכו' כדי שיהיו בה בבחי' מ\"ן ואח\"כ אתה עתיד להחזירה בי בבוקר בסוד חדשים לבקרים. שער הכוו' דף ב' ע\"א. ועיין בדרושי הלילה דרוש ג' דף נ\"ג ותבין. ועיין ש\"ץ דף מ\"ה ע\"ד ודמ\"ו ע\"א שכתב בזה ענין אחר יעו\"ש. ועיין בסידור בי\"ע וחס\"ל ושאר סידורים שכתבו כשאומר אלהי נשמה יכוין בשילוב אותיות נשמה עם אותיות שמו. ועיין יפה ללב אות ג' ולפי שהאר\"י ז\"ל לא כתב זה ואין אנו נוהגין בו על כן לא כתבנו בזה כלום:",
+      "en_plain": "7) There: He should say Elokai Neshamah. The blessing \"Elokai Neshamah shenasata bi,\" etc., is adjacent to the preceding blessing because it corresponds to Imma, which is always joined with Abba. Understand this. Although not every person merits the component called neshamah, he nevertheless possesses a share in the soul of Adam HaRishon, which encompassed all created beings, even if this individual has not yet personally attained it. \"Tehorah\" corresponds to the world of Atzilus, from which comes the neshamah of the neshamah. \"You created it\" corresponds to the component of neshamah that comes from Beriah. \"You formed it\" alludes to ruach, which comes from Yetzirah. \"You breathed it into me\" alludes to nefesh, which is in Asiyah. Thus, when saying \"the soul You placed within me,\" he includes all four components and calls them all neshamah. \"You will ultimately take it from me,\" etc., concerns the mystical elevation of feminine waters: in the future Malchus takes the souls of the righteous in the mystery of \"new every morning,\" so that they become feminine waters within it; afterward, \"You will ultimately restore it to me\" in the morning, in the mystery of \"new every morning.\" Shaar HaKavanos, folio 2a. See the discourses of the night, discourse 3, folio 53, and understand. See Shaliach Tzibbur, folios 45d and 46a, who gives another explanation. Siddur Beis Oved, Chesed LaAlafim, and other siddurim write that when saying Elokai Neshamah one should intend an interweaving of the letters of neshamah with the letters of his name. See Yafeh LaLev, paragraph 3. Since the Arizal did not write this and we do not practice it, we have written nothing further about it.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman461/seif-004/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 461,
+      "seif": 4,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.423,
+        "he_chars": 1272,
+        "en_chars": 1810,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1810
+        },
+        "failure_patterns": [
+          "hand_recoils"
+        ]
+      },
+      "he_html": "(יז) יוצא אדם וכו' - היינו דיעבד. ולזקן ולחולה שקשה לו לאכול מצה יבשה מותר אפילו לכתחלה לשרות המצה במים אך צריך ליזהר שלא יהיה שרוי מעל\"ע דכבוש כמבושל:<br />\n(יח) שרויה - במים ואם מותר לשרותה בשאר משקין ומי פירות או במרק יש דעות בין הפוסקים י\"א דאסור לפי שהן מפיגין את טעם המצה שנותנין בה טעם שלהן וי\"א דוקא ע\"י בישול מפיג טעם מצה ולא ע\"י שריה וע\"כ זקן או חולה שא\"א לו לאכול מצה השרויה במים מותר לו לשרותה ביין או בשאר משקין אבל שאר כל אדם שאכל מצה השרויה בשאר משקין חוץ ממים לא יצא י\"ח וצריך לחזור ולאכול מצה אחרת בין הכזית של ברכת מצה בין הכזית של אפיקומן. וכ\"ז דוקא כששורה את המצה בהן אבל להטביל אותה בהן כתב רבינו מנוח בפשיטות דשרי דבזה לא נתבטל טעם מצה. ודע עוד דמה דמקילינן בשרויה במים דוקא כששורה כזית שלם ביחד אבל אם ישרה פרוסות פחותות מכזית אינו יוצא בהן י\"ח אם נישרו כ\"כ עד שנתלבנו המים מחמתן שכבר נתבטלו מתורת לחם עי\"ז כן כתב המ\"א בסימן קס\"ח סק\"ל ועי\"ש במ\"ב ס\"ק ס\"ג דביררנו שם דאם שורה אותן זמן מועט ולא נתלבן המים עי\"ז אפילו הם פחותות מכזית לא אבד מהן שם לחם:<br />\n(יט) והוא שלא נימוחה - עיין בה\"ל:<br />\n(כ) בישלה וכו' - אפילו אם יש בכל פתיתה כזית וגם יש עדיין תואר לחם עליה לפי שאחר הבישול נתבטל ממנה טעם מצה. וכתבו האחרונים דלאו דוקא בישלה דה\"ה בשרוי לתוך רותחין. ואפילו בכלי שני יש להחמיר דלא לשרותה אם לא לצורך וכ\"ז בשהיד סולדת בו. ודוקא במים אבל במרק יש להחמיר בכל גווני:\n",
+      "en_html": "<b>A person fulfills his obligation, etc.</b> This is after the fact. An elderly or ill person who finds dry matzah difficult to eat may even initially soak it in water, provided it is not soaked for twenty-four hours, since soaking for that period is comparable to cooking.<br><b>Soaked.</b> This means soaked in water. The poskim dispute whether it may be soaked in other beverages, fruit juice, or soup. Some prohibit this because those liquids weaken the taste of matzah by imparting their own flavor, while others maintain that only cooking removes the taste of matzah. Therefore, an elderly or ill person who cannot eat matzah soaked in water may soak it in wine or another beverage. An ordinary person who ate matzah soaked in a liquid other than water has not fulfilled his obligation and must eat another matzah, both for the kezayis of the matzah blessing and for the afikoman. This applies to soaking, but merely dipping the matzah is permitted because its taste is not nullified. The leniency of soaking in water applies when a whole kezayis is soaked together. Pieces smaller than a kezayis do not fulfill the obligation if they were soaked until the water whitened, because they thereby lost the status of bread. If they were soaked only briefly and the water did not whiten, even pieces smaller than a kezayis retain the status of bread.<br><b>Provided it did not dissolve.</b> See Biur Halachah.<br><b>If he cooked it, etc.</b> Even if each piece remains a kezayis and retains the appearance of bread, cooking nullifies the taste of matzah. The Acharonim write that the same applies to soaking in boiling liquid. One should be stringent even in a secondary vessel unless needed, whenever the liquid is hot enough that the hand recoils. This applies to water; in soup one should be stringent in all circumstances. See reference 168.\n",
+      "he_plain": "(יז) יוצא אדם וכו' - היינו דיעבד. ולזקן ולחולה שקשה לו לאכול מצה יבשה מותר אפילו לכתחלה לשרות המצה במים אך צריך ליזהר שלא יהיה שרוי מעל\"ע דכבוש כמבושל: (יח) שרויה - במים ואם מותר לשרותה בשאר משקין ומי פירות או במרק יש דעות בין הפוסקים י\"א דאסור לפי שהן מפיגין את טעם המצה שנותנין בה טעם שלהן וי\"א דוקא ע\"י בישול מפיג טעם מצה ולא ע\"י שריה וע\"כ זקן או חולה שא\"א לו לאכול מצה השרויה במים מותר לו לשרותה ביין או בשאר משקין אבל שאר כל אדם שאכל מצה השרויה בשאר משקין חוץ ממים לא יצא י\"ח וצריך לחזור ולאכול מצה אחרת בין הכזית של ברכת מצה בין הכזית של אפיקומן. וכ\"ז דוקא כששורה את המצה בהן אבל להטביל אותה בהן כתב רבינו מנוח בפשיטות דשרי דבזה לא נתבטל טעם מצה. ודע עוד דמה דמקילינן בשרויה במים דוקא כששורה כזית שלם ביחד אבל אם ישרה פרוסות פחותות מכזית אינו יוצא בהן י\"ח אם נישרו כ\"כ עד שנתלבנו המים מחמתן שכבר נתבטלו מתורת לחם עי\"ז כן כתב המ\"א בסימן קס\"ח סק\"ל ועי\"ש במ\"ב ס\"ק ס\"ג דביררנו שם דאם שורה אותן זמן מועט ולא נתלבן המים עי\"ז אפילו הם פחותות מכזית לא אבד מהן שם לחם: (יט) והוא שלא נימוחה - עיין בה\"ל: (כ) בישלה וכו' - אפילו אם יש בכל פתיתה כזית וגם יש עדיין תואר לחם עליה לפי שאחר הבישול נתבטל ממנה טעם מצה. וכתבו האחרונים דלאו דוקא בישלה דה\"ה בשרוי לתוך רותחין. ואפילו בכלי שני יש להחמיר דלא לשרותה אם לא לצורך וכ\"ז בשהיד סולדת בו. ודוקא במים אבל במרק יש להחמיר בכל גווני:",
+      "en_plain": "A person fulfills his obligation, etc. This is after the fact. An elderly or ill person who finds dry matzah difficult to eat may even initially soak it in water, provided it is not soaked for twenty-four hours, since soaking for that period is comparable to cooking. Soaked. This means soaked in water. The poskim dispute whether it may be soaked in other beverages, fruit juice, or soup. Some prohibit this because those liquids weaken the taste of matzah by imparting their own flavor, while others maintain that only cooking removes the taste of matzah. Therefore, an elderly or ill person who cannot eat matzah soaked in water may soak it in wine or another beverage. An ordinary person who ate matzah soaked in a liquid other than water has not fulfilled his obligation and must eat another matzah, both for the kezayis of the matzah blessing and for the afikoman. This applies to soaking, but merely dipping the matzah is permitted because its taste is not nullified. The leniency of soaking in water applies when a whole kezayis is soaked together. Pieces smaller than a kezayis do not fulfill the obligation if they were soaked until the water whitened, because they thereby lost the status of bread. If they were soaked only briefly and the water did not whiten, even pieces smaller than a kezayis retain the status of bread. Provided it did not dissolve. See Biur Halachah. If he cooked it, etc. Even if each piece remains a kezayis and retains the appearance of bread, cooking nullifies the taste of matzah. The Acharonim write that the same applies to soaking in boiling liquid. One should be stringent even in a secondary vessel unless needed, whenever the liquid is hot enough that the hand recoils. This applies to water; in soup one should be stringent in all circumstances. See reference 168.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

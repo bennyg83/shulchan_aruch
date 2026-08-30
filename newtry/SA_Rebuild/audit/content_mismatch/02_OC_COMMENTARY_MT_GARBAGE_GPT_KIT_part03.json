@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 3,
+    "chunk_total": 47,
+    "case_offset": 20,
+    "cases_in_chunk": 7,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman114/seif-001/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 114,
+      "seif": 1,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.746,
+        "he_chars": 1445,
+        "en_chars": 2523,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2523
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "(א) בברכה שניה - מפני שיש בה תחיית המתים והגשמים הם חיים לעולם כתחיית המתים:<br />\n(ב) בתפילת מוסף וכו' - והיה ראוי להזכיר לרצות לפני הש\"י מיו\"ט הראשון של חג שנידונין בו על המים אלא לפי שהגשמים הם סימן קללה בחג הסוכות שא\"א לישב בסוכה בשעת הגשם אין מזכירין הגשם עד עבור ז' ימי ישיבה בסוכה וראוי היה מן הדין להתחיל להזכיר מיד בליל יו\"ט האחרון אלא לפי שבתפלת ערבית אין כל העם בבהכ\"נ נמצא זה מזכיר וזה אין מזכיר ויעשו אגודות אגודות ולמה אין מזכירין בשחרית יש שכתבו מפני שאסור להזכיר הגשם עד שיכריז הש\"ץ או השמש בקול רם מוריד הגשם קודם התפלה וכדלקמיה וזה א\"א להכריז בשחרית מפני שצריך לסמוך גאולה לתפלה ועוד טעם אחר עיין בט\"ז. ואם טעה והזכיר משיב הרוח ומוריד הגשם במעריב של שמ\"ע או בשחרית אינו חוזר:<br />\n(ג) עד תפלת מוסף - הטעם דאין פוסקין מבערב הוא ג\"כ כנ\"ל שלא יהיה דבר מעורב ביניהם שזה מזכיר וזה אינו מזכיר אבל עתה שפוסקין במוסף ידעו הכל ע\"י הש\"ץ או השמש שמכריז קודם תפלת מוסף מוריד הטל שהכרזת הזכרת הטל סימן הוא להם להפסקת הזכרת הגשם עוד וזה הוא למנהג ספרד שנוהגין לומר מוריד הטל במקום מוריד הגשם בימות החמה אבל במדינותינו שאין נוהגין לומר מוריד הטל בימות החמה וא\"א להכריז בלשון זה ולהכריז להדיא שיפסקו מלומר מוריד הגשם ג\"כ אין נכון מפני שנראה כממאנים בגשמים ע\"ד שאמרו אין מתפללין על רוב טובה ע\"כ פסק הרמ\"א בס\"ג שנוהגין שלא להפסיק מלהזכיר גשם עד תפלת המנחה ששמעו כבר מש\"ץ שפסק בתפלת מוסף אבל בתפלת מוסף כל הקהל וגם הש\"ץ מזכירין הגשם בתפילת לחש כדי שלא יהיה דבר מעורב בין הצבור ואם טעה במעריב של פסח או בשחרית ומוסף ולא הזכיר משיב הרוח ומוה\"ג לכו\"ע אין חוזר:\n",
+      "en_html": "(1) In the second blessing — because it contains resurrection of the dead, and rains are life to the world like resurrection of the dead.\n<br>(2) In Musaf prayer, etc. — and it would have been fitting to mention from the first Yom Tov of the festival, for on it we are judged regarding water; but because rain is a sign of curse on the festival of Sukkot, since one cannot sit in the sukkah during rain, we do not mention rain until the seven days of sitting in the sukkah have passed. And by right one should begin immediately on the night of the last Yom Tov; but in Maariv not all the people are in the synagogue — one mentions and one does not mention, and they would form factions. And why do we not mention in Shacharis? Some wrote because it is forbidden to mention rain until the chazzan or shamash proclaims aloud Morid ha'geshem before the prayer, as below; and this is impossible to proclaim in Shacharis because one must adjoin redemption to prayer. And see another reason in Taz. And if one erred and mentioned Mashiv ha'ruach u'morid ha'geshem in Maariv of Shemini Atzeret or in Shacharis, one does not return.\n<br>(3) Until the Musaf prayer—the reason one does not cease from the evening is also as stated above, so there should not be confusion between them where this one mentions and this one does not mention. But now that they cease at Musaf, everyone knows via the shaliach tzibur or shamash who announces before the Musaf prayer morid ha-tal, for the announcement of mentioning dew is a sign for them to cease mentioning rain further. And this is for the Sephardic custom who practice saying morid ha-tal instead of morid ha-geshem in summer days. But in our countries where they do not practice saying morid ha-tal in summer days, and it is impossible to announce in this language, and to announce explicitly that they should cease saying morid ha-geshem also is not proper because it appears as if refusing rain, in the manner they said one does not pray for an abundance of goodness. Therefore Rama ruled in siman 113 that the practice is not to cease mentioning rain until the Minchah prayer, for they already heard from the shaliach tzibur who ceased in the Musaf prayer. But in the Musaf prayer the entire congregation and also the shaliach tzibur mention rain in the silent prayer so there should not be confusion among the congregation. And if he erred on the Maariv of Pesach or at Shacharit and Musaf and did not mention Mashiv ha-ruach and morid ha-geshem, according to everyone he does not repeat.",
+      "he_plain": "(א) בברכה שניה - מפני שיש בה תחיית המתים והגשמים הם חיים לעולם כתחיית המתים: (ב) בתפילת מוסף וכו' - והיה ראוי להזכיר לרצות לפני הש\"י מיו\"ט הראשון של חג שנידונין בו על המים אלא לפי שהגשמים הם סימן קללה בחג הסוכות שא\"א לישב בסוכה בשעת הגשם אין מזכירין הגשם עד עבור ז' ימי ישיבה בסוכה וראוי היה מן הדין להתחיל להזכיר מיד בליל יו\"ט האחרון אלא לפי שבתפלת ערבית אין כל העם בבהכ\"נ נמצא זה מזכיר וזה אין מזכיר ויעשו אגודות אגודות ולמה אין מזכירין בשחרית יש שכתבו מפני שאסור להזכיר הגשם עד שיכריז הש\"ץ או השמש בקול רם מוריד הגשם קודם התפלה וכדלקמיה וזה א\"א להכריז בשחרית מפני שצריך לסמוך גאולה לתפלה ועוד טעם אחר עיין בט\"ז. ואם טעה והזכיר משיב הרוח ומוריד הגשם במעריב של שמ\"ע או בשחרית אינו חוזר: (ג) עד תפלת מוסף - הטעם דאין פוסקין מבערב הוא ג\"כ כנ\"ל שלא יהיה דבר מעורב ביניהם שזה מזכיר וזה אינו מזכיר אבל עתה שפוסקין במוסף ידעו הכל ע\"י הש\"ץ או השמש שמכריז קודם תפלת מוסף מוריד הטל שהכרזת הזכרת הטל סימן הוא להם להפסקת הזכרת הגשם עוד וזה הוא למנהג ספרד שנוהגין לומר מוריד הטל במקום מוריד הגשם בימות החמה אבל במדינותינו שאין נוהגין לומר מוריד הטל בימות החמה וא\"א להכריז בלשון זה ולהכריז להדיא שיפסקו מלומר מוריד הגשם ג\"כ אין נכון מפני שנראה כממאנים בגשמים ע\"ד שאמרו אין מתפללין על רוב טובה ע\"כ פסק הרמ\"א בס\"ג שנוהגין שלא להפסיק מלהזכיר גשם עד תפלת המנחה ששמעו כבר מש\"ץ שפסק בתפלת מוסף אבל בתפלת מוסף כל הקהל וגם הש\"ץ מזכירין הגשם בתפילת לחש כדי שלא יהיה דבר מעורב בין הצבור ואם טעה במעריב של פסח או בשחרית ומוסף ולא הזכיר משיב הרוח ומוה\"ג לכו\"ע אין חוזר:",
+      "en_plain": "(1) In the second blessing — because it contains resurrection of the dead, and rains are life to the world like resurrection of the dead. (2) In Musaf prayer, etc. — and it would have been fitting to mention from the first Yom Tov of the festival, for on it we are judged regarding water; but because rain is a sign of curse on the festival of Sukkot, since one cannot sit in the sukkah during rain, we do not mention rain until the seven days of sitting in the sukkah have passed. And by right one should begin immediately on the night of the last Yom Tov; but in Maariv not all the people are in the synagogue — one mentions and one does not mention, and they would form factions. And why do we not mention in Shacharis? Some wrote because it is forbidden to mention rain until the chazzan or shamash proclaims aloud Morid ha'geshem before the prayer, as below; and this is impossible to proclaim in Shacharis because one must adjoin redemption to prayer. And see another reason in Taz. And if one erred and mentioned Mashiv ha'ruach u'morid ha'geshem in Maariv of Shemini Atzeret or in Shacharis, one does not return. (3) Until the Musaf prayer—the reason one does not cease from the evening is also as stated above, so there should not be confusion between them where this one mentions and this one does not mention. But now that they cease at Musaf, everyone knows via the shaliach tzibur or shamash who announces before the Musaf prayer morid ha-tal, for the announcement of mentioning dew is a sign for them to cease mentioning rain further. And this is for the Sephardic custom who practice saying morid ha-tal instead of morid ha-geshem in summer days. But in our countries where they do not practice saying morid ha-tal in summer days, and it is impossible to announce in this language, and to announce explicitly that they should cease saying morid ha-geshem also is not proper because it appears as if refusing rain, in the manner they said one does not pray for an abundance of goodness. Therefore Rama ruled in siman 113 that the practice is not to cease mentioning rain until the Minchah prayer, for they already heard from the shaliach tzibur who ceased in the Musaf prayer. But in the Musaf prayer the entire congregation and also the shaliach tzibur mention rain in the silent prayer so there should not be confusion among the congregation. And if he erred on the Maariv of Pesach or at Shacharit and Musaf and did not mention Mashiv ha-ruach and morid ha-geshem, according to everyone he does not repeat.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman114/seif-004/baer-heitev",
+      "volume": "oc1",
+      "siman": 114,
+      "seif": 4,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.991,
+        "he_chars": 113,
+        "en_chars": 225,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 225
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>אותו. </b> דגשמים קשים לעולם בימות החמה:<br />\n<b>טל. </b> לפי מנהג ספרד שאומר בימות החמה משיב הרוח ומוריד הטל אומר זה גשם במקום טל:\n",
+      "en_html": "<b>Him.</b> Rain is harmful to the world during the summer.<br />\n<b>Dew.</b> According to the Sephardic custom, under which one says during the summer, “Who makes the wind blow and the dew descend,” this means that he said rain in place of dew.\n",
+      "he_plain": "אותו. דגשמים קשים לעולם בימות החמה: טל. לפי מנהג ספרד שאומר בימות החמה משיב הרוח ומוריד הטל אומר זה גשם במקום טל:",
+      "en_plain": "Him. Rain is harmful to the world during the summer. Dew. According to the Sephardic custom, under which one says during the summer, “Who makes the wind blow and the dew descend,” this means that he said rain in place of dew.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman114/seif-004/turei-zahav",
+      "volume": "oc1",
+      "siman": 114,
+      "seif": 4,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.875,
+        "he_chars": 168,
+        "en_chars": 315,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 315
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>אמר מוריד הגשם כו'. </b> דכיון שיש בימות החמה זמן שהגשמים קשים לעולם דהיינו בזמן הקציר וגשם נעצר וזה יתפלל על גשם ויביאם והם אינם נוחים לעולם ע\"כ מחזירין אותו בכל ימות החמה:\n",
+      "en_html": "He said \"He Who makes the rain descend,\" etc. For since in the summer days there is a time when rain is harmful to the world — that is, during the harvest season — and rain is stopped, and this one prays for rain and brings it, and they are never suitable — therefore they return him throughout all the summer days.\r\n",
+      "he_plain": "אמר מוריד הגשם כו'. דכיון שיש בימות החמה זמן שהגשמים קשים לעולם דהיינו בזמן הקציר וגשם נעצר וזה יתפלל על גשם ויביאם והם אינם נוחים לעולם ע\"כ מחזירין אותו בכל ימות החמה:",
+      "en_plain": "He said \"He Who makes the rain descend,\" etc. For since in the summer days there is a time when rain is harmful to the world — that is, during the harvest season — and rain is stopped, and this one prays for rain and brings it, and they are never suitable — therefore they return him throughout all the summer days.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman114/seif-005/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 114,
+      "seif": 5,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.039,
+        "he_chars": 798,
+        "en_chars": 1627,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1627
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ה) שם בתפילת מוסף של יו\"ט האחרון וכו'  </b>והא דאין מתחילין בערבית מפני שאין כולם בבה\"כ ויעשו אגודות אגודות זה מזכיר וזה אינו מזכיר, והאי דאין מתחילין בשחרית מפני שלא יהיה סבור שמבערב הזכירו ולשנה הבאה יזכיר בערב ועוד טעם אחר למה לא מתחילין בשחרית דא\"ר חגי בר פדת אסור ליחיד להזכיר עד שיזכיר ש\"צ פי' שצריך שיאמר הש\"ץ קודם התפילה משיב הרוח בקול רם וזה א\"א בשחרית לפי שצריך להסמיך גאלה לתפלה. כ\"ב הרא\"ש ע\"ף הירושלמי והביאו ב\"י, דרישה או' א' ט\"ז סק\"ב. מ\"א סק\"א. ר\"ז שם. ועוד מפרש בירושלמי טעם אחר. רבי אבין בשם רבי יוחנן טעמא דרבי יהודה כדי שיצאו המועדות בטל מפני שהטל יפה לעולם ופי' הרא\"ש והאי טעמא קאי אהזכרה ולא אהפסקה כי ביו\"ט הכל באים לבהכ\"נ בערב כי אין עושין מלאכה בחו\"ה ולכן אין מספיק טעם הראשון ולכך מפריש כדי שיזכיר טל במועדות גם בערבית ושחרית עכ\"ל, והביאו ב\"י ודרישה שם, ועיין באות שאח\"ז ואות ז':\n",
+      "en_html": "<b>5) There: In the Musaf prayer of the last Yom Tov, etc.</b> The reason one does not begin at Maariv is that not everyone is in the synagogue, and they would form separate groups, this one mentioning [rain] and that one not mentioning it. And the reason one does not begin at Shacharis is so that a person should not think that they had mentioned it from the evening, and the following year mention it in the evening. There is yet another reason why one does not begin at Shacharis: for Rabbi Chaggai bar Padas said that it is forbidden for an individual to mention [rain] until the shaliach tzibbur mentions it; that is, the shaliach tzibbur must say 'Mashiv haruach' aloud before the tefillah, and this is impossible at Shacharis, since one must juxtapose [the berachah of] redemption to the tefillah. So wrote the Rosh according to the Yerushalmi, and the Beis Yosef cited it. Derishah, ot 1; Taz, s.k. 2; Magen Avraham, s.k. 1; Shulchan Aruch HaRav there. The Yerushalmi further explains another reason: Rabbi Avin said in the name of Rabbi Yochanan that the reason of Rabbi Yehudah is so that the festivals depart with dew, because dew is beneficial to the world. The Rosh explained that this reason applies to the mentioning [of rain] and not to the stopping of it, for on Yom Tov everyone comes to the synagogue in the evening, since one does not perform melacha on Chol HaMoed; therefore the first reason is not sufficient, and so he differentiates, in order that dew be mentioned on the festivals also at Maariv and Shacharis. End of his words. The Beis Yosef and the Derishah cited it there. See the following ot and ot 7.\n",
+      "he_plain": "ה) שם בתפילת מוסף של יו\"ט האחרון וכו' והא דאין מתחילין בערבית מפני שאין כולם בבה\"כ ויעשו אגודות אגודות זה מזכיר וזה אינו מזכיר, והאי דאין מתחילין בשחרית מפני שלא יהיה סבור שמבערב הזכירו ולשנה הבאה יזכיר בערב ועוד טעם אחר למה לא מתחילין בשחרית דא\"ר חגי בר פדת אסור ליחיד להזכיר עד שיזכיר ש\"צ פי' שצריך שיאמר הש\"ץ קודם התפילה משיב הרוח בקול רם וזה א\"א בשחרית לפי שצריך להסמיך גאלה לתפלה. כ\"ב הרא\"ש ע\"ף הירושלמי והביאו ב\"י, דרישה או' א' ט\"ז סק\"ב. מ\"א סק\"א. ר\"ז שם. ועוד מפרש בירושלמי טעם אחר. רבי אבין בשם רבי יוחנן טעמא דרבי יהודה כדי שיצאו המועדות בטל מפני שהטל יפה לעולם ופי' הרא\"ש והאי טעמא קאי אהזכרה ולא אהפסקה כי ביו\"ט הכל באים לבהכ\"נ בערב כי אין עושין מלאכה בחו\"ה ולכן אין מספיק טעם הראשון ולכך מפריש כדי שיזכיר טל במועדות גם בערבית ושחרית עכ\"ל, והביאו ב\"י ודרישה שם, ועיין באות שאח\"ז ואות ז':",
+      "en_plain": "5) There: In the Musaf prayer of the last Yom Tov, etc. The reason one does not begin at Maariv is that not everyone is in the synagogue, and they would form separate groups, this one mentioning [rain] and that one not mentioning it. And the reason one does not begin at Shacharis is so that a person should not think that they had mentioned it from the evening, and the following year mention it in the evening. There is yet another reason why one does not begin at Shacharis: for Rabbi Chaggai bar Padas said that it is forbidden for an individual to mention [rain] until the shaliach tzibbur mentions it; that is, the shaliach tzibbur must say 'Mashiv haruach' aloud before the tefillah, and this is impossible at Shacharis, since one must juxtapose [the berachah of] redemption to the tefillah. So wrote the Rosh according to the Yerushalmi, and the Beis Yosef cited it. Derishah, ot 1; Taz, s.k. 2; Magen Avraham, s.k. 1; Shulchan Aruch HaRav there. The Yerushalmi further explains another reason: Rabbi Avin said in the name of Rabbi Yochanan that the reason of Rabbi Yehudah is so that the festivals depart with dew, because dew is beneficial to the world. The Rosh explained that this reason applies to the mentioning [of rain] and not to the stopping of it, for on Yom Tov everyone comes to the synagogue in the evening, since one does not perform melacha on Chol HaMoed; therefore the first reason is not sufficient, and so he differentiates, in order that dew be mentioned on the festivals also at Maariv and Shacharis. End of his words. The Beis Yosef and the Derishah cited it there. See the following ot and ot 7.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman117/seif-002/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 117,
+      "seif": 2,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.788,
+        "he_chars": 3545,
+        "en_chars": 6340,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 6340
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ב) עד תפלת כו'</b> וכ' הב\"ח כו' ואותו צ\"ל כו' ר\"ל אם טעה בתפלת שחרית והתפלל תפלת חול עד ברך עלינו צ\"ל תוך ברכת ברך עלינו ותן טל ומטר:<br />\nמלהזכיר ר\"ל משיב הרוח כו':<br />\n<b>ובשאלה כו'</b> כמש\"ל ר\"ס קי\"ד ובלא\"ה אין כלם מתחילים ביום א'. ואע\"ג דהשתא לענין הפסק' קיימי' והא באמת כלם פוסקים ביום א' מ\"מ כמו דאין הקפדה לענין התחלה ה\"ה לענין ההפסקה דעכ\"פ מצינו בשאלה שזה שואל וזה אינו שואל דהיינו בהתחלה כדלעיל סי' קי\"ד:<br />\nוא\"כ אם לבסוף היה א' שואל וא' אינו שואל לא הוי הקפדה: גם עיקר סמיכתו על מ\"ש חז\"ל:<br />\n<b>א\"כ אף יחיד אינו שואל בערבית כו'</b> ר\"ל דהא חזי' דאי לאו חשש דאגודות אגודות היה ראוי להזכיר מבערב ומה\"ט בשאלה דלא שייך הכי בהתחל' לכן מתחילים בערב. וא\"כ ה\"ה בהפסקה היכי דליכ' חשש אגודות ראוי להפסיק מבערב וכיון דבאמת הציבור מתפללים בערבית תפלת י\"ט ואין שואלים בתפלה א\"כ אף יחיד שטעה והתפלל של חול אינו שואל אדרבא בזה שאינו שואל לא הוי אגודות אגודות דהא גם צבור לא שאלו. וכ\"ה בהדי' בתענית דף ד' מהא דתנן ריש תענית ר' יודא או' העובר לפני התיב' בי\"ט ראשון של פסח ומתפלל שחרית מזכיר משיב הרוח והאחרון היינו המתפלל מוסף שוב אינו מזכיר. ובדף ד' ע\"ב פריך והתניא רי\"א עד אימתי שואלים הגשמים דהיינו ותן טל ומטר עד שיעבור הפסח וס\"ד דהזכר' ושאלה זמן הפסקתם שוה. ומשני ר' יוסף מאי עד שיעבור הפסח דקתני בבריי' עד שיעבו' ש\"ץ המתפלל שחרית בי\"ט א' של פסח: ופריך אביי שאלה בי\"ט מי איתא. והא בברייתא בשאלה מיירי. ואיך א\"ל עד שיעבור ש\"ץ המתפלל שחרית הא כבר בערב ובשחרית לא שאלו. ובתפלת י\"ט אין שאלה וא\"א לדברי הב\"ח הל\"ל דנ\"מ עד שיעבור ש\"ץ המתפלל שחרית אם טעה יחיד והתפלל של חול עד ברך עלינו צריך לשאול א\"ו דליתא לדברי הב\"ח. וכמש\"ל דיצאו כו' ט\"ס יש כאן וכצ\"ל ועוד לפי מש\"ל הרב\"י בסי' קי\"ד בשם הירושלמי ר' אבין בשם ר' יוחנן טעמא דר\"י כדי שיצאו המועדות בטל מפני שהטל יפה לעולם (ור\"ל דהגשמים בי\"ט אף שכבר יצאו מן הסוכה ול\"ש טעם שאמרו בסוכה גשמים בחג סי' קללה שדומה לעבד שמזוג כוס לרבו ושופך לו על פניו מ\"מ לב האדם יותר שמח אם רקיע בטהרתו ואין הגשמים יורדים) מאלו היו הגשמים יורדים ופי' הרא\"ש דבא לתת טעם למה אין מתחילים לשאול בש\"ע ערבית דס\"ל דהטע' שנתן ירוש' לפני זה לפי שאין כולם בבה\"כ בערבית ובמ\"ש מ\"א ר\"ס קי\"ד אינו מספיק כ\"א להפסקה שמפסיקים במוסף של י\"ט ראשון של פסח דבערב אין כלם בבה\"כ לפי שעי\"ט העם טרודים במלאכה לצורך י\"ט ומצ' ומרור משא\"כ ליל ש\"ע שהיה לפניו חה\"מ ואין העם טרודים א\"כ בליל ש\"ע כלם נכנסים לבה\"כ וה\"ל להזכיר בערבית של ש\"ע משיב הרוח ומ\"ה לזה נתן טעם שיצאו המועדים בטל ואפי' להזכיר גשם לא רצו וא\"כ איך כתב הב\"ח דהיחיד אם טעה ושאל ותן טל ומטר. וכ\"מ בטור. ר\"ל אע\"ג דהיחיד היה ראוי להזכיר או לשאול מ\"מ כיון דהצבור לא שאלו היחיד נגרר אחר הצבור דהטור כ' בשם ראבי\"ה דהני ס' יום שאחר התקופה בעי' מע\"לע לכן אם התקופה נפלה ג' שעות ביום אם הצבור מתפללים ביום ס' קודם ג' שעות ביום אין שואלים ואם אח\"ז מתפלל יחיד אחר ג' שעות אף דאז כבר הוא זמן השאלה מ\"מ כיון שהציבו' שהתפללו קודם ג' שעות לא שאלו ותן טל ומטר גם היחיד המתפלל אחר ג' שעות נגרר אחר הצבור ואינו שואל. וניהו דלא קי\"ל בהא כראבי\"ה ולא בעי' מעת לעת מ\"מ בהא דהיחיד נגרר אחר הצבור כה\"ג אין חולק וה\"ה הכא:<br />\n<b>ובד\"מ כ' תי' אחר כו'</b> ר\"ל איך אפשר לדחות דברי הב\"ח הא י\"ל ראיה מדברי הטור ליישב קושית הרב\"י הנ\"ל ולזה כתב הלא הד\"מ תי' תי' אחר:<br />\n<b>כדי להודיע כו'</b> ר\"ל כיון דאין מכריזים שפוסקים כמ\"ש מ\"א סי' קי\"ד ס\"ק ה'. לכן ע\"י אמירת הפיוטי' ששואלי' טל לברכה כמ\"ש מ\"א סי' קי\"ד ס\"ק ד' מזה מתפרסם שפוסקים לשאול גשם:<br />\nכמנהג ספרד המזכירי' על כל ימות החמה כדלעיל סי' קי\"ד ואנו בני אשכנז עכ\"פ בתחלת ימות החמה דהיינו בתפלת מוסף של יום א' של פסח מתפללים על טל לברכה וכיון שעד אותו זמן של אמירת פיוטים טל אינו מתפרסם שפוסקים להזכיר ולשאול א\"ש ל' הטור עד מוסף דעד אותו זמן נראה שנמשך זמן השאלה:<br />\n<b>י\"ל כו'</b> מטובך ולא מטובה והטעם כתב רש\"ל דהשביעה איננה מטובת הארץ שהיא ברכה אחר' וכמ\"ש רש\"י פ' בחקותי ע\"פ ואכלתם לחמכם לשובע זו היא ברכה אחרת אוכל קמעא ומתברך במעיו:\n",
+      "en_html": "<b>Seif katan 2, until the prayer, etc.</b> The Bach wrote, etc., and he must say it, etc. Meaning, if one erred in Shacharis and prayed the weekday Amidah until Barech Aleinu, he must say “Grant dew and rain” within Barech Aleinu.<br />\nTo mention, meaning “He causes the wind to blow,” etc.<br />\n<b>And regarding the request, etc.</b> As stated above at the beginning of siman 114. In any event, not everyone begins on the same day. Although we are presently discussing cessation, and in fact everyone ceases on the same day, just as uniformity is not essential regarding the beginning, so too it is not essential regarding cessation. At least with respect to the request we find that one person requests and another does not, namely at the beginning, as stated above in siman 114.<br />\nAccordingly, even if at the end one person requests and another does not, this does not constitute forbidden factionalism. His primary reliance is also upon the statement of Chazal.<br />\n<b>If so, even an individual should not request it at Maariv, etc.</b> Meaning, we see that were it not for the concern of forming factions, it would have been proper to begin mentioning rain at night. For this reason, with respect to the request, where this concern does not apply at the beginning, they begin at night. The same should apply to cessation: where there is no concern of factions, it is proper to cease at night. Since the congregation actually prays the Yom Tov Amidah at Maariv and does not request rain, an individual who mistakenly prays the weekday Amidah should likewise not request it. On the contrary, by not requesting rain he does not form a faction, because the congregation also did not request it. This is explicit in Taanis 4a. The Mishnah states that Rabbi Yehudah says: On the first day of Pesach, the one who leads Shacharis mentions rain, while the latter one, namely the one who leads Mussaf, no longer mentions it. On 4b the Gemara challenges this from a Baraisa in which Rabbi Yehudah states that rain is requested until Pesach has passed. The Gemara initially assumes that mention and request cease at the same time. Rav Yosef explains that “until Pesach has passed” means until the chazzan who leads Shacharis on the first day of Pesach has passed before the ark. Abaye objects: Is there a request for rain on Yom Tov? The Baraisa discusses requesting rain, yet neither at Maariv nor at Shacharis is the request made because the Yom Tov Amidah contains no such request. According to the Bach, the Gemara could have answered that the practical difference concerns an individual who mistakenly prayed the weekday Amidah through Barech Aleinu and would need to request rain. Since it did not answer this way, the Bach's ruling is necessarily incorrect. The text “as stated above, that they went out, etc.” contains a scribal error. It should read: Moreover, according to what the Beit Yosef stated above in siman 114 in the name of the Yerushalmi, Rabbi Avin said in the name of Rabbi Yochanan that Rabbi Yehudah's reason is so that the festivals should conclude with dew, because dew is beneficial to the world. Meaning, even though on Yom Tov rain is not an adverse sign once they have left the sukkah, and the comparison to a servant whose master pours the cup in his face no longer applies, nevertheless a person's heart rejoices more when the sky is clear and rain does not fall. The Rosh explains that this gives the reason why we do not begin mentioning rain at Maariv of Shemini Atzeres. The earlier Yerushalmi explanation, that not everyone attends shul at Maariv, suffices only for the cessation at Mussaf on the first day of Pesach, since before Yom Tov people are occupied with preparing matzah and maror. On the night of Shemini Atzeres, however, Chol HaMoed preceded it and people are not occupied, so everyone attends shul and rain should have been mentioned at Maariv. Therefore the Yerushalmi gives the additional reason that the festivals should conclude with dew, showing that they did not wish even to mention rain. How, then, could the Bach rule that an individual who erred should request “Grant dew and rain”? This also appears from the Tur. Although an individual might otherwise have been fit to mention or request rain, because the congregation did not do so he follows the congregation. The Tur cites Raavyah that the sixty days after the tekufah must be complete twenty-four-hour periods. Therefore, if the tekufah fell three hours into the day and the congregation prays on the sixtieth day before those three hours, they do not request rain. Even if an individual prays after those three hours, when the time for the request has already arrived, since the congregation did not request it earlier, he follows the congregation and does not request it. Although we do not follow Raavyah regarding the need for complete twenty-four-hour periods, no one disputes the principle that an individual follows the congregation in such a case. The same applies here.<br />\n<b>And in Darchei Moshe he wrote another answer, etc.</b> Meaning, how can the Bach's ruling be rejected when proof for it might be derived from the Tur's resolution of the Beit Yosef's question? Therefore he notes that Darchei Moshe offered a different answer.<br />\n<b>In order to publicize, etc.</b> Meaning, because there is no announcement that the congregation is ceasing, as Magen Avraham writes in siman 114, seif katan 5, the recitation of the liturgical poems requesting blessed dew, as stated there in seif katan 4, publicizes that they are ceasing to request rain.<br />\nThis follows the Sephardic custom of mentioning dew throughout the summer, as stated above in siman 114. We Ashkenazim, at least at the beginning of summer, namely during Mussaf of the first day of Pesach, pray for blessed dew. Since until the recital of the dew poems it is not publicized that the congregation is ceasing to mention and request rain, the Tur's wording, “until Mussaf,” is understandable, for until then the time of the request appears to continue.<br />\n<b>One should say, etc.</b> “From Your goodness,” and not “from its goodness.” The Maharshal explains that satisfaction does not come from the goodness of the land, which is a separate blessing. As Rashi explains on “You shall eat your bread to satisfaction” in Parashas Bechukosai, this is an additional blessing: one eats a little and it is blessed within his stomach.\n",
+      "he_plain": "(ס\"ק ב) עד תפלת כו' וכ' הב\"ח כו' ואותו צ\"ל כו' ר\"ל אם טעה בתפלת שחרית והתפלל תפלת חול עד ברך עלינו צ\"ל תוך ברכת ברך עלינו ותן טל ומטר: מלהזכיר ר\"ל משיב הרוח כו': ובשאלה כו' כמש\"ל ר\"ס קי\"ד ובלא\"ה אין כלם מתחילים ביום א'. ואע\"ג דהשתא לענין הפסק' קיימי' והא באמת כלם פוסקים ביום א' מ\"מ כמו דאין הקפדה לענין התחלה ה\"ה לענין ההפסקה דעכ\"פ מצינו בשאלה שזה שואל וזה אינו שואל דהיינו בהתחלה כדלעיל סי' קי\"ד: וא\"כ אם לבסוף היה א' שואל וא' אינו שואל לא הוי הקפדה: גם עיקר סמיכתו על מ\"ש חז\"ל: א\"כ אף יחיד אינו שואל בערבית כו' ר\"ל דהא חזי' דאי לאו חשש דאגודות אגודות היה ראוי להזכיר מבערב ומה\"ט בשאלה דלא שייך הכי בהתחל' לכן מתחילים בערב. וא\"כ ה\"ה בהפסקה היכי דליכ' חשש אגודות ראוי להפסיק מבערב וכיון דבאמת הציבור מתפללים בערבית תפלת י\"ט ואין שואלים בתפלה א\"כ אף יחיד שטעה והתפלל של חול אינו שואל אדרבא בזה שאינו שואל לא הוי אגודות אגודות דהא גם צבור לא שאלו. וכ\"ה בהדי' בתענית דף ד' מהא דתנן ריש תענית ר' יודא או' העובר לפני התיב' בי\"ט ראשון של פסח ומתפלל שחרית מזכיר משיב הרוח והאחרון היינו המתפלל מוסף שוב אינו מזכיר. ובדף ד' ע\"ב פריך והתניא רי\"א עד אימתי שואלים הגשמים דהיינו ותן טל ומטר עד שיעבור הפסח וס\"ד דהזכר' ושאלה זמן הפסקתם שוה. ומשני ר' יוסף מאי עד שיעבור הפסח דקתני בבריי' עד שיעבו' ש\"ץ המתפלל שחרית בי\"ט א' של פסח: ופריך אביי שאלה בי\"ט מי איתא. והא בברייתא בשאלה מיירי. ואיך א\"ל עד שיעבור ש\"ץ המתפלל שחרית הא כבר בערב ובשחרית לא שאלו. ובתפלת י\"ט אין שאלה וא\"א לדברי הב\"ח הל\"ל דנ\"מ עד שיעבור ש\"ץ המתפלל שחרית אם טעה יחיד והתפלל של חול עד ברך עלינו צריך לשאול א\"ו דליתא לדברי הב\"ח. וכמש\"ל דיצאו כו' ט\"ס יש כאן וכצ\"ל ועוד לפי מש\"ל הרב\"י בסי' קי\"ד בשם הירושלמי ר' אבין בשם ר' יוחנן טעמא דר\"י כדי שיצאו המועדות בטל מפני שהטל יפה לעולם (ור\"ל דהגשמים בי\"ט אף שכבר יצאו מן הסוכה ול\"ש טעם שאמרו בסוכה גשמים בחג סי' קללה שדומה לעבד שמזוג כוס לרבו ושופך לו על פניו מ\"מ לב האדם יותר שמח אם רקיע בטהרתו ואין הגשמים יורדים) מאלו היו הגשמים יורדים ופי' הרא\"ש דבא לתת טעם למה אין מתחילים לשאול בש\"ע ערבית דס\"ל דהטע' שנתן ירוש' לפני זה לפי שאין כולם בבה\"כ בערבית ובמ\"ש מ\"א ר\"ס קי\"ד אינו מספיק כ\"א להפסקה שמפסיקים במוסף של י\"ט ראשון של פסח דבערב אין כלם בבה\"כ לפי שעי\"ט העם טרודים במלאכה לצורך י\"ט ומצ' ומרור משא\"כ ליל ש\"ע שהיה לפניו חה\"מ ואין העם טרודים א\"כ בליל ש\"ע כלם נכנסים לבה\"כ וה\"ל להזכיר בערבית של ש\"ע משיב הרוח ומ\"ה לזה נתן טעם שיצאו המועדים בטל ואפי' להזכיר גשם לא רצו וא\"כ איך כתב הב\"ח דהיחיד אם טעה ושאל ותן טל ומטר. וכ\"מ בטור. ר\"ל אע\"ג דהיחיד היה ראוי להזכיר או לשאול מ\"מ כיון דהצבור לא שאלו היחיד נגרר אחר הצבור דהטור כ' בשם ראבי\"ה דהני ס' יום שאחר התקופה בעי' מע\"לע לכן אם התקופה נפלה ג' שעות ביום אם הצבור מתפללים ביום ס' קודם ג' שעות ביום אין שואלים ואם אח\"ז מתפלל יחיד אחר ג' שעות אף דאז כבר הוא זמן השאלה מ\"מ כיון שהציבו' שהתפללו קודם ג' שעות לא שאלו ותן טל ומטר גם היחיד המתפלל אחר ג' שעות נגרר אחר הצבור ואינו שואל. וניהו דלא קי\"ל בהא כראבי\"ה ולא בעי' מעת לעת מ\"מ בהא דהיחיד נגרר אחר הצבור כה\"ג אין חולק וה\"ה הכא: ובד\"מ כ' תי' אחר כו' ר\"ל איך אפשר לדחות דברי הב\"ח הא י\"ל ראיה מדברי הטור ליישב קושית הרב\"י הנ\"ל ולזה כתב הלא הד\"מ תי' תי' אחר: כדי להודיע כו' ר\"ל כיון דאין מכריזים שפוסקים כמ\"ש מ\"א סי' קי\"ד ס\"ק ה'. לכן ע\"י אמירת הפיוטי' ששואלי' טל לברכה כמ\"ש מ\"א סי' קי\"ד ס\"ק ד' מזה מתפרסם שפוסקים לשאול גשם: כמנהג ספרד המזכירי' על כל ימות החמה כדלעיל סי' קי\"ד ואנו בני אשכנז עכ\"פ בתחלת ימות החמה דהיינו בתפלת מוסף של יום א' של פסח מתפללים על טל לברכה וכיון שעד אותו זמן של אמירת פיוטים טל אינו מתפרסם שפוסקים להזכיר ולשאול א\"ש ל' הטור עד מוסף דעד אותו זמן נראה שנמשך זמן השאלה: י\"ל כו' מטובך ולא מטובה והטעם כתב רש\"ל דהשביעה איננה מטובת הארץ שהיא ברכה אחר' וכמ\"ש רש\"י פ' בחקותי ע\"פ ואכלתם לחמכם לשובע זו היא ברכה אחרת אוכל קמעא ומתברך במעיו:",
+      "en_plain": "Seif katan 2, until the prayer, etc. The Bach wrote, etc., and he must say it, etc. Meaning, if one erred in Shacharis and prayed the weekday Amidah until Barech Aleinu, he must say “Grant dew and rain” within Barech Aleinu. To mention, meaning “He causes the wind to blow,” etc. And regarding the request, etc. As stated above at the beginning of siman 114. In any event, not everyone begins on the same day. Although we are presently discussing cessation, and in fact everyone ceases on the same day, just as uniformity is not essential regarding the beginning, so too it is not essential regarding cessation. At least with respect to the request we find that one person requests and another does not, namely at the beginning, as stated above in siman 114. Accordingly, even if at the end one person requests and another does not, this does not constitute forbidden factionalism. His primary reliance is also upon the statement of Chazal. If so, even an individual should not request it at Maariv, etc. Meaning, we see that were it not for the concern of forming factions, it would have been proper to begin mentioning rain at night. For this reason, with respect to the request, where this concern does not apply at the beginning, they begin at night. The same should apply to cessation: where there is no concern of factions, it is proper to cease at night. Since the congregation actually prays the Yom Tov Amidah at Maariv and does not request rain, an individual who mistakenly prays the weekday Amidah should likewise not request it. On the contrary, by not requesting rain he does not form a faction, because the congregation also did not request it. This is explicit in Taanis 4a. The Mishnah states that Rabbi Yehudah says: On the first day of Pesach, the one who leads Shacharis mentions rain, while the latter one, namely the one who leads Mussaf, no longer mentions it. On 4b the Gemara challenges this from a Baraisa in which Rabbi Yehudah states that rain is requested until Pesach has passed. The Gemara initially assumes that mention and request cease at the same time. Rav Yosef explains that “until Pesach has passed” means until the chazzan who leads Shacharis on the first day of Pesach has passed before the ark. Abaye objects: Is there a request for rain on Yom Tov? The Baraisa discusses requesting rain, yet neither at Maariv nor at Shacharis is the request made because the Yom Tov Amidah contains no such request. According to the Bach, the Gemara could have answered that the practical difference concerns an individual who mistakenly prayed the weekday Amidah through Barech Aleinu and would need to request rain. Since it did not answer this way, the Bach's ruling is necessarily incorrect. The text “as stated above, that they went out, etc.” contains a scribal error. It should read: Moreover, according to what the Beit Yosef stated above in siman 114 in the name of the Yerushalmi, Rabbi Avin said in the name of Rabbi Yochanan that Rabbi Yehudah's reason is so that the festivals should conclude with dew, because dew is beneficial to the world. Meaning, even though on Yom Tov rain is not an adverse sign once they have left the sukkah, and the comparison to a servant whose master pours the cup in his face no longer applies, nevertheless a person's heart rejoices more when the sky is clear and rain does not fall. The Rosh explains that this gives the reason why we do not begin mentioning rain at Maariv of Shemini Atzeres. The earlier Yerushalmi explanation, that not everyone attends shul at Maariv, suffices only for the cessation at Mussaf on the first day of Pesach, since before Yom Tov people are occupied with preparing matzah and maror. On the night of Shemini Atzeres, however, Chol HaMoed preceded it and people are not occupied, so everyone attends shul and rain should have been mentioned at Maariv. Therefore the Yerushalmi gives the additional reason that the festivals should conclude with dew, showing that they did not wish even to mention rain. How, then, could the Bach rule that an individual who erred should request “Grant dew and rain”? This also appears from the Tur. Although an individual might otherwise have been fit to mention or request rain, because the congregation did not do so he follows the congregation. The Tur cites Raavyah that the sixty days after the tekufah must be complete twenty-four-hour periods. Therefore, if the tekufah fell three hours into the day and the congregation prays on the sixtieth day before those three hours, they do not request rain. Even if an individual prays after those three hours, when the time for the request has already arrived, since the congregation did not request it earlier, he follows the congregation and does not request it. Although we do not follow Raavyah regarding the need for complete twenty-four-hour periods, no one disputes the principle that an individual follows the congregation in such a case. The same applies here. And in Darchei Moshe he wrote another answer, etc. Meaning, how can the Bach's ruling be rejected when proof for it might be derived from the Tur's resolution of the Beit Yosef's question? Therefore he notes that Darchei Moshe offered a different answer. In order to publicize, etc. Meaning, because there is no announcement that the congregation is ceasing, as Magen Avraham writes in siman 114, seif katan 5, the recitation of the liturgical poems requesting blessed dew, as stated there in seif katan 4, publicizes that they are ceasing to request rain. This follows the Sephardic custom of mentioning dew throughout the summer, as stated above in siman 114. We Ashkenazim, at least at the beginning of summer, namely during Mussaf of the first day of Pesach, pray for blessed dew. Since until the recital of the dew poems it is not publicized that the congregation is ceasing to mention and request rain, the Tur's wording, “until Mussaf,” is understandable, for until then the time of the request appears to continue. One should say, etc. “From Your goodness,” and not “from its goodness.” The Maharshal explains that satisfaction does not come from the goodness of the land, which is a separate blessing. As Rashi explains on “You shall eat your bread to satisfaction” in Parashas Bechukosai, this is an additional blessing: one eats a little and it is blessed within his stomach.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman127/seif-002/turei-zahav",
+      "volume": "oc1",
+      "siman": 127,
+      "seif": 2,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.078,
+        "he_chars": 1995,
+        "en_chars": 4145,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4145
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ואין הצבור כו'. </b> דאין עונין אמן אלא (אחר) המברך שהוא הכהן ומשמע כאן דא\"א כי\"ר אלא אחר סיום אמירת ברכת כהנים והעולם נהגו שאחר ב' ברכות הראשונות אומרים י\"ר ואחר הג' אומרים כי\"ר נראה לתת טעם לפי שאם אין שלום אין כלום והברכה הג' היא שלום והוא גמר הברכה העיקרית ע\"כ אומרים שם כי\"ר להורות שבזה היא עיקר הברכה: <b>העתק </b> מספר עץ חיים  שחיבר האלקי מהר\"מ קלפיראס תלמיד האלקי קודש קדשים מהר\"רי לוריא ז\"ל בעניני תפלה: <b>אחד </b> פ' התמיד יאמר פטום הקטורת. יין קפריסין היו\"ד בציר\"י. רובע הקב אל יאמר אלא רובע כי סתמ' הוא כן בגמ'. והקטרת לאיברים לא יאמר קודמת. אחר הקטורת יאמר ה' צבאות ג\"פ וערבה לה'. ובזיכין קודמין לתמיד של בין הערבים. עליה השלם כל הקרבנות יאמר השלם בציר\"י תחת הלמ\"ד. אח\"כ אנא בכח ונוסח אנא בכח יאמר בלשון זה אנא בכח גדולת ימינך תתיר צרורה בנשימה א' דהיינו אבגית\"ץ וכן השמות האחרים דהיינו קר\"ע שט\"ן נג\"ד יכ\"ש בט\"ר צת\"ג חק\"ב טנ\"ע. יג\"ל פז\"ק. שק\"ו צי\"ת. כל פסוק שאומר יאמר אותו בניגון כקורא בתורה. וכן שני כתובים. יאמר וכאן שני כתובים כו'. צריך להסתכל כל יום בציצית כמ\"ש וראיתם אותו והיא תועלת גדול לנשמה ולא יזדמן חטא על ידו. צריך שיכסה הטלית תפילין של ראש. בכל פעם שיאמר אשרי יאמר אחר כך ואנחנו נברך יה כו'. לא היה מסיר טלית ותפילין עד עלינו. אחר עלינו י\"ל והיה ה' למלך על כל הארץ ביום ההוא יהיה ה' אחד ושמו אחד. ויכוין שמתחיל בוי\"ו ומסיים בד' שהוא עשרה לי' ספירות ע\"כ ראיתי שם. הברייתא של ת\"ר אין לך דבר קודם לתמיד של שחר כו'. היא בפ' תמיד נשחט דנ\"ט וכתבו שם התוס' דנר' לר\"י דל\"ג ונרות דע\"כ לא חשיב אלא מידי דהקטרה דבהא הקפיד' תורה לאחר כדכתיב והקטיר עליה חלבי השלמים עכ\"ל. כשאומר בפסוק ראשון ה' אלהינו ה' אחד יכוין על ד' אותיות של הוי\"ה כשאומר ברוך שם כבוד מלכותו יכוין על ד' אותיות של אדנות. כשאומר לעולם ועד יכוין לשם יאהדונה\"י. כשאומר יהא שמיה רבא יכוין שהוא ית' שליט בד' עולמות אבי\"ע דהיינו לעלם שהוא ל' יחיד נגד עולם האצילות ששם אחדות גדול. ולעלמי נגד עולם הבריאה כשיאמר עלמיא יכוין נגד עולם היצירה בעלמא נגד עולם העשיה וכשאומר יתברך יכרע שהוא ברך לך תכרע. בנוסח מתרצה ברחמים ומתפייס בתחנונים הוגה בדפוס חדש ומתפתה בתחנונים והוא שלא כדין דהרמב\"ן כתב בפ' משפטים בפסוק וכי יפתה פתוי הוא על דברי שקר:\n",
+      "en_html": "<b>And the congregation does not, etc.</b> For Amen is answered only after the one reciting the blessing, namely the kohen. It appears from here that one should not say, “May it be His will,” except after the completion of Birkat Kohanim. The common practice, however, is to say, “May it be His will,” after the first two blessings, and after the third to say, “So may it be His will.” A reason may be given: if there is no peace, there is nothing, and the third blessing is peace and is the completion of the principal blessing. Therefore they say, “So may it be His will,” there, to indicate that this is the essence of the blessing. <b>Copy</b> from the book Etz Chaim, composed by the divine Maharam Kalphiras, a disciple of the divine, holy of holies, Maharari Luria, of blessed memory, concerning prayer. <b>First:</b> After the passage of the Tamid one should recite Pittum HaKetoret. In “Cyprus wine,” the yud is vocalized with a tzeirei. One should not say “a quarter of a kav,” but only “a quarter,” for this is the unstated meaning in the Gemara. One should not say that the incense precedes the limbs. After the incense one should say “Hashem Tzevakot” three times and then “May it be pleasing to Hashem.” The bowls of frankincense precede the afternoon Tamid. In the phrase “upon it complete all the offerings,” the word “complete” should be pronounced with a tzeirei beneath the lamed. Afterward one should say Ana Bekoach. The wording should be: “Please, with the power of the greatness of Your right hand, release the bound,” in one breath, namely the Name formed by the initials Avgitatz. The same applies to the other Names, namely Kera Satan, Neged Yachash, Betar Tzitag, Chakav Tana, Yagal Pazak, and Shaku Tzayit. Each verse should be recited with a melody, like one reading from the Torah. Likewise, when saying “and two verses,” one should say, “and here are two verses,” etc. One must look at the tzitzit every day, as it is written, “And you shall see it.” This is of great benefit to the soul, and sin will not come about through him. The tallit should cover the tefillin of the head. Whenever one says Ashrei, he should afterward say, “And we shall bless God,” etc. He would not remove his tallit and tefillin until after Aleinu. After Aleinu one should say, “Hashem shall be King over all the earth; on that day Hashem shall be One and His Name One.” One should have in mind that it begins with a vav and ends with a dalet, which together equal ten, corresponding to the ten sefirot. This is what I saw there. The Baraita, “Our Rabbis taught: Nothing precedes the morning Tamid,” etc., is in the chapter Tamid Nishchat, folio 59. Tosafot write there that Rabbeinu Yitzchak holds that the word “lamps” should not be included, because the teaching lists only matters of burning on the altar, regarding which the Torah was particular that they come afterward, as it is written, “and he shall burn upon it the fats of the peace offerings.” End quote. When reciting the first verse, “Hashem is our God, Hashem is One,” one should have in mind the four letters of the Name Yud Hei Vav Hei. When saying, “Blessed is the Name of His glorious kingdom,” one should have in mind the four letters of the Name of lordship. When saying, “forever and ever,” one should have in mind the combined Name Yud Alef Hei Dalet Vav Nun Hei Yud. When saying, “May His great Name be exalted,” one should have in mind that He, blessed is He, rules over the four worlds of Atzilut, Beriah, Yetzirah, and Asiyah. “Le'alam,” in the singular, corresponds to the world of Atzilut, where there is great unity. “Ul'almei” corresponds to the world of Beriah. When saying “almaya,” one should have in mind the world of Yetzirah, and “b'alma” corresponds to the world of Asiyah. When saying “Yitbarach,” one should bow, because the word contains the root meaning knee, and at “Lecha” one bows. In the wording “He is appeased with mercy and reconciled through supplications,” a new edition printed “and enticed through supplications.” This is incorrect, for the Ramban writes on Parashat Mishpatim, regarding the verse “If a man entices,” that enticement concerns false words.\n",
+      "he_plain": "ואין הצבור כו'. דאין עונין אמן אלא (אחר) המברך שהוא הכהן ומשמע כאן דא\"א כי\"ר אלא אחר סיום אמירת ברכת כהנים והעולם נהגו שאחר ב' ברכות הראשונות אומרים י\"ר ואחר הג' אומרים כי\"ר נראה לתת טעם לפי שאם אין שלום אין כלום והברכה הג' היא שלום והוא גמר הברכה העיקרית ע\"כ אומרים שם כי\"ר להורות שבזה היא עיקר הברכה: העתק מספר עץ חיים שחיבר האלקי מהר\"מ קלפיראס תלמיד האלקי קודש קדשים מהר\"רי לוריא ז\"ל בעניני תפלה: אחד פ' התמיד יאמר פטום הקטורת. יין קפריסין היו\"ד בציר\"י. רובע הקב אל יאמר אלא רובע כי סתמ' הוא כן בגמ'. והקטרת לאיברים לא יאמר קודמת. אחר הקטורת יאמר ה' צבאות ג\"פ וערבה לה'. ובזיכין קודמין לתמיד של בין הערבים. עליה השלם כל הקרבנות יאמר השלם בציר\"י תחת הלמ\"ד. אח\"כ אנא בכח ונוסח אנא בכח יאמר בלשון זה אנא בכח גדולת ימינך תתיר צרורה בנשימה א' דהיינו אבגית\"ץ וכן השמות האחרים דהיינו קר\"ע שט\"ן נג\"ד יכ\"ש בט\"ר צת\"ג חק\"ב טנ\"ע. יג\"ל פז\"ק. שק\"ו צי\"ת. כל פסוק שאומר יאמר אותו בניגון כקורא בתורה. וכן שני כתובים. יאמר וכאן שני כתובים כו'. צריך להסתכל כל יום בציצית כמ\"ש וראיתם אותו והיא תועלת גדול לנשמה ולא יזדמן חטא על ידו. צריך שיכסה הטלית תפילין של ראש. בכל פעם שיאמר אשרי יאמר אחר כך ואנחנו נברך יה כו'. לא היה מסיר טלית ותפילין עד עלינו. אחר עלינו י\"ל והיה ה' למלך על כל הארץ ביום ההוא יהיה ה' אחד ושמו אחד. ויכוין שמתחיל בוי\"ו ומסיים בד' שהוא עשרה לי' ספירות ע\"כ ראיתי שם. הברייתא של ת\"ר אין לך דבר קודם לתמיד של שחר כו'. היא בפ' תמיד נשחט דנ\"ט וכתבו שם התוס' דנר' לר\"י דל\"ג ונרות דע\"כ לא חשיב אלא מידי דהקטרה דבהא הקפיד' תורה לאחר כדכתיב והקטיר עליה חלבי השלמים עכ\"ל. כשאומר בפסוק ראשון ה' אלהינו ה' אחד יכוין על ד' אותיות של הוי\"ה כשאומר ברוך שם כבוד מלכותו יכוין על ד' אותיות של אדנות. כשאומר לעולם ועד יכוין לשם יאהדונה\"י. כשאומר יהא שמיה רבא יכוין שהוא ית' שליט בד' עולמות אבי\"ע דהיינו לעלם שהוא ל' יחיד נגד עולם האצילות ששם אחדות גדול. ולעלמי נגד עולם הבריאה כשיאמר עלמיא יכוין נגד עולם היצירה בעלמא נגד עולם העשיה וכשאומר יתברך יכרע שהוא ברך לך תכרע. בנוסח מתרצה ברחמים ומתפייס בתחנונים הוגה בדפוס חדש ומתפתה בתחנונים והוא שלא כדין דהרמב\"ן כתב בפ' משפטים בפסוק וכי יפתה פתוי הוא על דברי שקר:",
+      "en_plain": "And the congregation does not, etc. For Amen is answered only after the one reciting the blessing, namely the kohen. It appears from here that one should not say, “May it be His will,” except after the completion of Birkat Kohanim. The common practice, however, is to say, “May it be His will,” after the first two blessings, and after the third to say, “So may it be His will.” A reason may be given: if there is no peace, there is nothing, and the third blessing is peace and is the completion of the principal blessing. Therefore they say, “So may it be His will,” there, to indicate that this is the essence of the blessing. Copy from the book Etz Chaim, composed by the divine Maharam Kalphiras, a disciple of the divine, holy of holies, Maharari Luria, of blessed memory, concerning prayer. First: After the passage of the Tamid one should recite Pittum HaKetoret. In “Cyprus wine,” the yud is vocalized with a tzeirei. One should not say “a quarter of a kav,” but only “a quarter,” for this is the unstated meaning in the Gemara. One should not say that the incense precedes the limbs. After the incense one should say “Hashem Tzevakot” three times and then “May it be pleasing to Hashem.” The bowls of frankincense precede the afternoon Tamid. In the phrase “upon it complete all the offerings,” the word “complete” should be pronounced with a tzeirei beneath the lamed. Afterward one should say Ana Bekoach. The wording should be: “Please, with the power of the greatness of Your right hand, release the bound,” in one breath, namely the Name formed by the initials Avgitatz. The same applies to the other Names, namely Kera Satan, Neged Yachash, Betar Tzitag, Chakav Tana, Yagal Pazak, and Shaku Tzayit. Each verse should be recited with a melody, like one reading from the Torah. Likewise, when saying “and two verses,” one should say, “and here are two verses,” etc. One must look at the tzitzit every day, as it is written, “And you shall see it.” This is of great benefit to the soul, and sin will not come about through him. The tallit should cover the tefillin of the head. Whenever one says Ashrei, he should afterward say, “And we shall bless God,” etc. He would not remove his tallit and tefillin until after Aleinu. After Aleinu one should say, “Hashem shall be King over all the earth; on that day Hashem shall be One and His Name One.” One should have in mind that it begins with a vav and ends with a dalet, which together equal ten, corresponding to the ten sefirot. This is what I saw there. The Baraita, “Our Rabbis taught: Nothing precedes the morning Tamid,” etc., is in the chapter Tamid Nishchat, folio 59. Tosafot write there that Rabbeinu Yitzchak holds that the word “lamps” should not be included, because the teaching lists only matters of burning on the altar, regarding which the Torah was particular that they come afterward, as it is written, “and he shall burn upon it the fats of the peace offerings.” End quote. When reciting the first verse, “Hashem is our God, Hashem is One,” one should have in mind the four letters of the Name Yud Hei Vav Hei. When saying, “Blessed is the Name of His glorious kingdom,” one should have in mind the four letters of the Name of lordship. When saying, “forever and ever,” one should have in mind the combined Name Yud Alef Hei Dalet Vav Nun Hei Yud. When saying, “May His great Name be exalted,” one should have in mind that He, blessed is He, rules over the four worlds of Atzilut, Beriah, Yetzirah, and Asiyah. “Le'alam,” in the singular, corresponds to the world of Atzilut, where there is great unity. “Ul'almei” corresponds to the world of Beriah. When saying “almaya,” one should have in mind the world of Yetzirah, and “b'alma” corresponds to the world of Asiyah. When saying “Yitbarach,” one should bow, because the word contains the root meaning knee, and at “Lecha” one bows. In the wording “He is appeased with mercy and reconciled through supplications,” a new edition printed “and enticed through supplications.” This is incorrect, for the Ramban writes on Parashat Mishpatim, regarding the verse “If a man entices,” that enticement concerns false words.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-001/chatam-sofer",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 1,
+      "slug": "chatam-sofer",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.528,
+        "he_chars": 390,
+        "en_chars": 596,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 596
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<small>במג\"א סוף ס\"ק א' </small>נ\"ב דבריו צ\"ע וכבר עמד עליהם השער המלך פרק י\"ט מהלכות שבת ובתשובה הארכתי בזה. ועיקר נ\"ל דהמעיין בד\"מ יבין הדבר לאשורו בלי שום דוחק ופקפוק והוא דס\"ל דאי איכא בלאו הכי כהנים העולים לדוכן הישראל העולה עמהם הוי ליה הידור מצוה ברוב עם הדרת מלך וכל שיש הידור מצוה ליכא בל תוסיף כמ\"ש הרמב\"ם פ\"ו מהלכו' סוכה ולולב הלכה ז' וע\"ש בכ\"מ וה\"ה הכא ליכא משום עשה דכה תברכו וזה נראה לי אמת:\r\n",
+      "en_html": "In the Maga at the end of Section 1, the words of the 19th chapter of the Shabbat Laws, and the king's gate already stood on them, and in the answer I extended it. And the main point of the above-mentioned reference in the DM is that the matter will be understood by its approval without any pressure or doubt, and it is a dsal dai icha in the most priests who come up to the pulpit of Israel who comes up with them. Maimonides 5:15 of the Sukkah and Lulav of the 7th and 8th of the 20th century and the 15th 20th and 20th, because he did so, you will be blessed, and this seems to me to be true:\n",
+      "he_plain": "במג\"א סוף ס\"ק א' נ\"ב דבריו צ\"ע וכבר עמד עליהם השער המלך פרק י\"ט מהלכות שבת ובתשובה הארכתי בזה. ועיקר נ\"ל דהמעיין בד\"מ יבין הדבר לאשורו בלי שום דוחק ופקפוק והוא דס\"ל דאי איכא בלאו הכי כהנים העולים לדוכן הישראל העולה עמהם הוי ליה הידור מצוה ברוב עם הדרת מלך וכל שיש הידור מצוה ליכא בל תוסיף כמ\"ש הרמב\"ם פ\"ו מהלכו' סוכה ולולב הלכה ז' וע\"ש בכ\"מ וה\"ה הכא ליכא משום עשה דכה תברכו וזה נראה לי אמת:",
+      "en_plain": "In the Maga at the end of Section 1, the words of the 19th chapter of the Shabbat Laws, and the king's gate already stood on them, and in the answer I extended it. And the main point of the above-mentioned reference in the DM is that the matter will be understood by its approval without any pressure or doubt, and it is a dsal dai icha in the most priests who come up to the pulpit of Israel who comes up with them. Maimonides 5:15 of the Sukkah and Lulav of the 7th and 8th of the 20th century and the 15th 20th and 20th, because he did so, you will be blessed, and this seems to me to be true:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

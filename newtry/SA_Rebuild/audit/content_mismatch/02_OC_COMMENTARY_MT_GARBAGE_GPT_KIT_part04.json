@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 4,
+    "chunk_total": 47,
+    "case_offset": 27,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman128/seif-006/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 6,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.446,
+        "he_chars": 8492,
+        "en_chars": 12278,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 12278
+        },
+        "failure_patterns": [
+          "holy_person"
+        ]
+      },
+      "he_html": "<b>לה) [סעיף ו'] אעפ\"י שנטלו הכהנים וכו'  </b>דהכי איתא במס' סוטה ט\"ל ע\"א א\"ר יהושע ב\"ל כל כהן שלא נטל ידיו לא ישא את כפיו שנאמר שאו ידיכם קודש וברכו את ה' ע\"כ וכתב ב\"י שמדברי הרמב\"ם משמע דוקא דכשידיו טמאות כגון שלא נטל שחרית קאמר דצריך ליטול הא אם נטל ידיו שחרית ואינו יודע להם שוה טמאה א\"צ לחזור ולנטלם וכתב שכן נוהגים בארץ מצרים שלא ליטול הכהן ידיו בשעת נ\"כ אלא סומך על הנטילה שנטל ידיו שחרית יעו\"ש. וכ\"כ בא\"ח בשם הר' אברהם בן הרמב\"ם ז\"ל ז\"ל שהלכה למעשה לפני אביו הרמב\"ם ז\"ל וזולתו ממורי התורה שכל כהן העומד בתפלה יגש לב\"כ וסומך על נטילת ידיו לק\"ש ולתפלה עכ\"ד והביאו ב\"י וכ\"כ התו' שם בסוטה ע\"ש רש\"י ז\"ל שאמר לו רבו אלא שכתבו שזהו הועתק מהגהת תלמיד אבל מלשון רש\"י ז\"ל לא משמע הכי דפי' שלא נטל ידיו לפני עלותו לדוכן משמע ממש סמוך. וכתבו עוד שכן משמע מתלמודא דידן ומהירושלמי דאפי' נטל ידיו שחרית צריך לחזור וליטול סמוך לב\"כ ולא ישהה יותר משיעור מהלך כ\"ב אמה יעו\"ש. והב\"ד ב\"י וכתב וכ\"ה דעת הטור כדעת התו' יעו\"ש. וכן הוא דעת מרן ז\"ל כאן בש\"ע. וכ\"כ הלבוש, ב\"ח, פר\"ח אות ו', ר\"ז אות ח' חס\"ל אות ג' בן א\"ח פ' תצוה אות ז'. וכ\"מ מהזוה\"ק לקמן אות מ'. וכן המנהג פה עיה\"ק ירושת\"ו כדעת מרן ז\"ל ודעמיה, רק היכא דלא אפשר כגון ש\"ץ העומד בתפלה דאיכא הפסק אם יטול ידיו וכדומה יש לסמוך על הרמב\"ם. ועיין באות שאח\"ז:<br />\n<b>לו) שם אעפ\"י שנטלו הכהנים ידיהם שחרית וכו'  </b>ומיהו אם נטל ידיו בשחרית אפי' רק עד סוף קשרי אצבעותיו ואין לו מים ליטול לדוכן כדאי הוא הרמב\"ם וסיעתו לסמוך עליו ומותר לישא את כפיו והוא כשלא הסיח דעתו מהם. עו\"ת אות י\"ב, א\"ר אות ח' ח\"א כלל ל\"ב אות ח' מ\"ב אות ך' אבל אם לא נטל גם בשחרית אסור לישא את כפיו דלא מהני מידי דמנקי אלא לתפלה אבל לדוכן מים בעינן עו\"ת שם, א\"ר שם וכ\"נ דעת הפר\"ח שם ועיין לקמן אות ט\"ל:<br />\n<b>לז) כתב  </b>בא\"ח בשם בעל התמיד לא מצינו מי שכתב שצריך לרחוץ רגליו אבל כך נהגו באלו הארצות ומנהג ישראל תורה היא עכ\"ל והביאו ב\"י, וכתב הפר\"ח שם ואולי יצא להם זה דומיא דקידוש דכתיב ורחצו ידיהם ורגליהם ועכשיו לא נהגו כן וכן בדין דבקרא ידיכם כתיב רגליכם לא כתיב וגם לשון ס' הזוהר די בעי לקדשא ידוי עכ\"ד וכ\"ב ב\"י דאנו לא ראינו מעולם מי שנהג כן וכ\"כ מור\"ם ז\"ל בד\"מ אות ו' דגם במדינתינו אין המנהג כן, ועיין בדברינו לעיל סי' ד' אות ה' ודו\"ק:<br />\n<b>לח) שם אעפ\"י שנטלו הכהנים ידיהם שחרית וכו'  </b>מנהג מצרים שבשחרית אינו נוטל ידיו ובמוסף נוטל משום הסח הדעת. הרדב\"ז ח\"א סי' קמ\"ז כנה\"ג בהגב\"י מ\"א סק\"ו, ומיהו הירא את דבר ה' ובמצותיו חפץ יטול גם בשחרית כדי לצאת דעת מרן ז\"ל ודעמיה והזוה\"ק:<br />\n<b>טל) שם עד הפרק שהוא חבור היד והזרוע,  </b>והטעם כתב בהרמב\"ם פ' ט\"ו מה\"ת דין ה' כדרך שמקדשין לעבודה, והביאו הטור וב\"י וכ\"ה בגמרא חולין ק\"ו ע\"ב דקידוש ידים ורגלים במקדש עד הפרק ופי' רש\"י ז\"ל עד הפרק העליון מקום חבור היד והזרוע. והביאו ב\"י וכ\"כ הלבוש, ומ\"מ כשאין לו מים רק מעט שלא יגיעו אלא רק עד סוף קשרי אצבעותיו כתב העו\"ת אות י\"ב דאעפ\"י שלא נטל ידיו שחרית רק בירך והתפלל ע\"י נקיות ידים מותר לעלות לדוכן בנטילה זו וכתב דגם לדעת מרן ז\"ל י\"ל כן יעו\"ש ועיין לקמן סס\"י קס\"א ובדברנו סי' ד' אות ג' ולכן בט\"ב וביוה\"כ לא יטול לנ\"כ יותר מסוף קשרי אצבעותיו וכ\"מ מדברי מור\"ם ז\"ל בסי' תרי\"ג ס\"ב וכ\"מ מסתמיות דברי מרן ז\"ל בסי' תרי\"ג ס\"ב דאין לחלק בין נטילת שחרית לנטילת נ\"כ אלא הכל יהיו עד סוף קשרי אצבעותיו ולא יותר וכן דעת הפרמ\"ג בא\"א סי' תרי\"ג אות ג' וכן דעת היפ\"ל אות ו' ועיין מ\"ש הדג\"מ בגליון המגנים בסי' תרי\"ג והביאו היפ\"ל שם אות ד' ועי\"ש ביפ\"ל שהביא עוד פלוגתא בזה וכתב דאינן נקטינן כדברי מרן ז\"ל שנראה מדבריו דביו נטילת שחרית ובין נטילת כהנים העולים לדוכן אין לטול אלא רק עד סוף קשרי אצבועותיו דכתב דכן הוא דעת מור\"ם ז\"ל וגם הוא שמע על כהני חשיבי שנזהרין בכך יעו\"ש. ונראה דמנהג נכון הוא דכל דבר שהוא בפלוגתא שב ואל תעשה עדיף ובפרט שכן הוא דעת מרן ומור\"ם ז\"ל וכן עמא דבר, ועיין לעיל אות ל\"ו:<br />\n<b>מ) שם והלוי יוצק מים וכו'  </b>דהכי איתא בזוה\"ק פ' נשא דף קמ\"ו ע\"א בסופו תאנא כהן דבעי לפרשא ידוי בעי דיתוסף קדושה על קדושה דיליה דבעי לקדשא ידוי על ידא דקדישא, מאן ידא דקדישא דא ליואה דבעי כהנא ליטול קדושא דמיא מידוי דכתיב וקדשת את הלוים הא אינון קדישין וכתיב בהו בלוים וגם את אחיך מטה לוי וגו' מכאן דכל כהן דפריס ידוי בעי לאתקדשא ע\"י דקדישא ליתוסף קדושה על קדושתיה וע\"ד לא יטול קדושה דמייא מבר נש אחרא דלא הוי קדישא, ובצניעותא דספרא תאנא לוי דאתקדש כהנא על ידוי בעי הוא לאתקדשא בקדמיתא. ואמאי לוי ויתקדש על ידא דכהנא אחרא. תאנא כהנא אחרא לא בעי דהא כהן דלא שלים לא בעי האי כהנא שלים לאתפגם על ידא דפגימא דלא שלים, אבל לוי דאיהו שלים ואתחזי לסלקא בדוכנא ולמפלת במשכן זמנא הא שלים הוא והא איקרי קדוש דכתיב וקדשת את הלוים עכ\"ל, והביאו ב\"י וכך הם דבריו כאן בש\"ע, ומשמע מדברי הזוה\"ק הנז' דאם אין שם לוי לא יטול ע\"י ישראל ולא ע\"י כהן אחר אלא יטול בידיו, מיהו הב\"ח כתב בשם מהר\"י מולין דבמקום שאין לוים אם יש בכור פטר רחם יתן מים לכהנים לנטילה לעלות לדוכן יעו\"ש והביאו שכנה\"ג בהגב\"י או' ג' עו\"ת או' י\"ג, ט\"ז סק\"ג, עט\"ז או' א' מ\"א סק\"ז א\"ר או' יו\"ד, וכתב שם המ\"א דמשמע מלשינו דוקא בכור לאם אבל בכור לאב לבד לא מצינו בו קדושה האידנא עכ\"ל, והביאו ש\"ץ דקמ\"ג ע\"א, ר\"ז אות יו\"ד, ח\"א כלל ל\"ב. אות ח' חס\"ל אות ג' בי\"מ אות י\"א, בן א\"ח פ' תצוה אות ז' אמנם לא ראיתי מי שנוהג כן ונראה דסומכין על פשט דברי הזוהר דמשמע דוקא לוי ואם לאו לא יטול כ\"א בידיו:<br />\n<b>מא) שם והלוי יצוק מים וכו'  </b>אם הכהנים עמי הארץ והלוי ת\"ח ואינו רוצה ליצוק מים ע\"י הכהנים אין עליו שום אשם אפי' שאין לוי אלא הוא, ואפי' שנהג הלוי ליצוק מים ע\"י הכהנים ושוב נמלך שלא לצוק אין שום אשם, הר\"י הלוי סי' ט\"ל ומהר\"ר יצחק הלוי ובנו הר\"ש הלוי והרח\"ש ז\"ל שם סי' מ' וסי' מ\"א, אבל מהר\"ר ליב סרואל שם בסי' מ' כתב שאין ללוי ליפטר עצמו מליצוק מים על הכהנים אם לא שהכהנים אינם ראוים לישא את כפיהם כגון מאנשי בית שאן ובית חיפא וקטנים יעו\"ש, והב\"ד כנה\"נ בהגה\"ט, עו\"ת אות י\"ד, מ\"א סק\"ז, א\"ר אות יו\"ד וכתב דכן ראוי להחמיר כס' האחרונה יעו\"ש, אבל הפר\"ח אות ח' כתב דכיון דיציקת לוי לא מעכבא דהא עיר שכולה כהנים כולם עולים לדוכן אעפ\"י שאין שם לוי הדבר ברור שאם הכהנים ע\"ה והלוי ת\"ח ואינו רוצה ליצוק מים ע\"י כהנים שפיר קעביד אעפ\"י שאין לוי אלא הוא ואדרבא חייב מיתה אם יצק מים ע\"י כהן ע\"ה יעו\"ש, וכן מ\"ש עוד הכנה\"ג שם בשם הר\"ש הלוי סי' מ\"א דאם יש כהנים ת\"ח וע\"ה דצריך ליצוק מים לכולם והביאו העו\"ת ומ\"א וא\"ר שם כתב עליו הפר\"ח שם דליתא דהא חיוב מיתא איכא יעו\"ש, והביאו י\"א בהגב\"י, ש\"ץ דקמ\"ג ע\"ב, א\"א אות ז' חס\"ל שם כף התיים סי' ט\"ו אות ע\"א וכתב שם החס\"ל דאף דיש מתירין למיחש בעי ושוא\"ת עדיף ואפי' אם אין שם לוי אלא הוא, וכ\"כ בן א\"ח שם:<br />\n<b>מב) שם הגה, ולא נהגו הלוים ליטול וכו'  </b>מיהו היכא דהסיח הלוי דעתו הגון הוא שיטול הלוי קודם ואצ\"ל היכא דנגע בגופו או במנעליו, ב\"ח, והביאו שכנה\"ג בהגב\"י אות ב' עו\"ת אות ט\"ו, מ\"א סק\"ח, א\"ר אות י\"א, וכתב שם השכנה\"ג דהמנהג הפשוט ביניהם ליטול גם הלוים את ידם אף בשעת שיוצקים מ\"ם ע\"י הכהנים עכ\"ד, וכן ראוי לנהוג כל הירא את דבר ה' ליטול ידיו ואח\"כ ליצוק ע\"י כהנים אף במקום שלא נהגו הלוים ליטול כדי לקיים דברי הזו\"ק:<br />\n<b>מג) וכתב  </b>המ\"א שם דבעינן מים שלא נשתנו מברייתן כמ\"ש סי' ק\"ס וכח גברא דומיא דכהנים בעבודתם, והביאו הסו\"ב אות ט' ש\"ץ דף קמ\"ג ע\"ג, ר\"ז אות ח' חס\"ל אות ד' בן א\"ח פ' תצוה אות ח' ונראה דבעינן נמי כלי ורביעית כדין נט\"י כמ\"ש בריש סי' קנ\"ט וסי' ק\"ס סעי' י\"ג והגם דבהרמב\"ם הלכות ביאת מקדש פ\"ה דין י\"א כתב דמקדשין בכלי אפי' שאין בו רביעית התם שאני דאתו ממקום שיש בו שיעור וכמ\"ש בכ\"מ שם אבל הנוטל מן הכלי צריך שיהיה בו רביעית:<br />\n<b>מד) כתב  </b>הט\"ז בסי' תקי\"א סק\"ח ראיתי בקצת קהילות ששופכין שמן של ריח לתוך המים ביו\"ט לצורך נטילת ידי הכהנים לדוכן ואיסורא קא עבדי דמולידין ריח במים ואפי' שופכין בערב יו\"ט מ\"מ מולידין ריח ביו\"ט ע\"י הכהנים וזה ניחא להו ומכוונים לכך ע\"כ יש למנוע מלעשות כן עכ\"ל וכ\"כ המ\"א שם ס\"ק י\"א ובזה הסי' סק\"ח, וכ\"כ הלק\"ט ח\"ב סי' ך' דאסור לרחוץ בשבת פניהם וזקנם במי ורדים משום דקא מוליד ריחא בשער זקנו ושערו ככסותו יעו\"ש, מיהו הא\"ר בסי' זה אות ח' כתב דכיון דשמן עצמו מעורב במים לא הוי מוליד ריחה דהוי כמו שמריח בשמן ומותר לשפוך בין למים ובין לידים יעו\"ש, וכן הרב חכם צבי סי' צ\"ב פליג אט\"ז ומ\"א וכתב דלא שייך מוליד ריחא לא בבשר האדם ולא באוכלין ומשקין יעו\"ש, והרב גו\"ר כלל ג' סי' ט\"ז התיר לתת לידים ופנים וזקן ורק לתת מי ורדים לתוך המים הסכים לאסור כדעת הט\"ז ומ\"א יע\"וש, והרב נחפה בכסף סי' ד' הליץ בעד המנהג שנוהגים להטיל מי ורדים לתיך הכוס של יין בשבח ויו\"ט והתיר בפשיטות רק לתת בשמים במים העומדים לרחיצה העלה להחמיר ואם נתונים במים בע\"ש מותר לרחוץ בהם יעו\"ש והסכים לדבריו מהרי\"ע בסוף ס' שבט יהודה יעו\"ש והב\"ד החיד\"א בברכ\"י סי' תקי\"א אות ה' ובמחב\"ר שם אות ה' יעו\"ש, ועיין בליקוטי פר\"ח סי' תקי\"א שכתב דכל שהוא מכוין להוליד ריחא אסור, וכ\"נ דעת הב\"ד ח\"א סי' רצ\"ג דכל שהוא מכוין להוליד ריחא בין בגוף האדם בין בכלים אסור וכל שאין מכוק מותר יעו\"ש, ועוד עיין בתשו' שואל ומשיב תניינא ח\"ב סי' ז' שהאריך קצת בהאי פלוגתא והכריע בס' הט\"ז יעו\"ש, וכן הקשל\"ה בדיני יו\"ט פסק כדברי הט\"ז וכ\"ף ר\"ז בססי' תקי\"א, וע\"כ הנראה לענין דינא דכל שהוא מכוין להוליד ריחא כגון שניתן מי ורדים לתוך מים כדי לרחוץ בהם פניו וידיו או לרחוץ במי ורדים עצמם פניו וידיו וכ\"ש שערו אסור כיון שרבו האוסרים בזה אבל אם נותן באוכלין ומשקין כדי למתקם או אם שופך לתוך ידו כדי להריח במי ורדים עצמם כמו שנוהגים בקצת מקומות שביום שמחות נותנים מי ורדים לתוך יד של כל אחד ואחד כדי לברך ואינו מכוין להוליד ריחא בידו יש להתיר, וכ\"ף הרב רב פעלים ח\"ב סי' נ\"א יעו\"ש:\n",
+      "en_html": "<b>35) [Se'if 6] Although the kohanim washed, etc.</b> Sotah 39a states in Rabbi Yehoshua ben Levi's name: A kohen who has not washed his hands may not recite the Priestly Blessing, for it says, 'Raise your hands in holiness and bless Hashem.' Beis Yosef understands Rambam to require washing only when the hands are impure, such as when one did not wash in the morning. If he washed then and knows of no later impurity, he need not wash again. This was the Egyptian custom. Orchos Chaim likewise cites Rabbi Avraham ben Rambam that in practice before his father Rambam and other Torah teachers, every kohen standing in prayer proceeded to the blessing relying on his washing for Shema and the Amidah. Tosafos in Sotah cites a similar view in Rashi's name but says it was copied from a student's gloss; Rashi's own words, 'who did not wash before ascending,' imply washing immediately beforehand. Tosafos further proves from the Bavli and Yerushalmi that even one who washed in the morning must wash again near the blessing, with no delay exceeding the time to walk twenty-two amos. Beis Yosef cites this and says Tur agrees with Tosafos. This is Maran's ruling here, and so rule Levush; Bach; Peri Chadash, os 6; Shulchan Aruch HaRav, os 8; Chesed LaAlafim, os 3; and Ben Ish Chai, Tetzaveh, os 7. It also follows from the Zohar cited below, os 40, and is the custom here in holy Jerusalem. Only when impossible; such as a prayer leader for whom washing would interrupt the Amidah; may one rely on Rambam. See the next os.<br />\n<b>36) There: Although the kohanim washed their hands in the morning, etc.</b> If he washed in the morning, even only to the ends of his finger joints, and has no water for washing before the platform, Rambam and his followers may be relied upon. He may bless provided he did not divert his attention from his hands. Olas Tamid, os 12; Eliyah Rabbah, os 8; Chayei Adam 32:8; Mishnah Berurah, os 20. If he did not wash even in the morning, he may not bless. Cleaning the hands by another method suffices for prayer but not for the platform, which requires water. Olas Tamid and Eliyah Rabbah there; this also appears to be Peri Chadash's view. See below, os 39.<br />\n<b>37)</b> Orchos Chaim writes in Baal HaTamid's name: We have found no author who requires washing the feet, but this was the custom in those lands, and Jewish custom has the force of Torah. Beis Yosef cites him. Peri Chadash says the custom may have been modeled on the priestly sanctification in the Temple, of which the verse says, 'They shall wash their hands and feet.' It is no longer practiced, correctly so: The present verse says 'your hands,' not 'your feet,' and the Zohar likewise says that he must sanctify his hands. Beis Yosef says we have never seen anyone practice it, and Rama in Darkei Moshe, os 6, says it is not the custom in his lands either. See our words above, siman 4, os 5.<br />\n<b>38) There: Although the kohanim washed their hands in the morning, etc.</b> The Egyptian custom is not to wash again at Shacharis but to wash at Mussaf because attention has meanwhile been diverted. Radbaz, part 1, siman 147; Knesses HaGedolah, Hagahos Beis Yosef; Magen Avraham, se'if katan 6. Nevertheless, one who fears Hashem and delights in His commandments should wash again even at Shacharis, thereby satisfying Maran, those who agree with him, and the Zohar.<br />\n<b>39) There: Up to the joint connecting the hand and arm.</b> Rambam, Hilchos Tefillah 15:5, explains that this parallels sanctification for the Temple service; Tur and Beis Yosef cite him. Chullin 106b likewise says that the Temple sanctification of hands and feet extended to the joint, which Rashi defines as the upper joint where hand and arm meet. So writes Levush. If only enough water is available to reach the ends of the finger joints, Olas Tamid, os 12, permits one who did not wash in the morning but prayed after cleaning his hands to ascend after this limited washing, and says Maran may agree. See the end of siman 161 and our words in siman 4, os 3. On Tishah BeAv and Yom Kippur, therefore, one should wash for the Priestly Blessing only to the ends of the finger joints. This follows from Rama 613:2 and Maran's unqualified language there, which does not distinguish morning washing from washing for the blessing. Peri Megadim, Eshel Avraham 613:3, and Yafeh LaLev, os 6, agree. See Dagul Merevavah's gloss there, cited by Yafeh LaLev, os 4, and Yafeh LaLev's further discussion. He concludes that we follow Maran and Rama: Both morning washing and washing for the platform extend only to the finger joints on those days, and he heard that distinguished kohanim observe this. It is a proper custom, since passive restraint is preferable in a dispute, especially when Maran and Rama agree and this is common practice. See above, os 36.<br />\n<b>40) There: The Levi pours water, etc.</b> Zohar, Naso 146a, teaches: A kohen who spreads his hands must add holiness to his holiness by sanctifying his hands through a holy hand. That holy hand is the Levi's, from whom the kohen receives the sanctifying water, for it says, 'You shall sanctify the Levites'; they are holy. It also says, 'And also your brethren, the tribe of Levi.' Thus every kohen who spreads his hands must be sanctified by a holy person, adding holiness to his holiness, and should not receive the sanctifying water from an unholy person. Tzinius DiSifra further teaches that the Levi through whom the kohen is sanctified must first sanctify himself. Why specifically a Levi rather than another kohen? Another kohen might be deficient, and a complete kohen should not be impaired through one who is incomplete. A complete Levi, however, was fit to ascend the platform and serve in the Tabernacle, and is called holy, as it says, 'You shall sanctify the Levites.' Beis Yosef cites this, and it is the basis of Maran's words here. The Zohar implies that when no Levi is present, neither an Israelite nor another kohen should wash his hands; he should wash them himself. Bach, however, cites Maharil that in the absence of Levites, a firstborn who opened his mother's womb should pour for the kohanim. Knesses HaGedolah, Hagahos Beis Yosef, os 3; Olas Tamid, os 13; Taz, se'if katan 3; Ateres Zekeinim, os 1; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite this. Magen Avraham notes that this means specifically a maternal firstborn; a paternal firstborn alone has no recognized sanctity today. Shaliach Tzibbur, page 143a; Shulchan Aruch HaRav, os 10; Chayei Adam 32:8; Chesed LaAlafim, os 3; Beis Menuchah, os 11; and Ben Ish Chai, Tetzaveh, os 7, cite it. I have not seen anyone follow this. They apparently rely on the Zohar's plain implication that only a Levi pours; without one, each kohen washes his own hands.<br />\n<b>41) There: The Levi pours water, etc.</b> If the kohanim are unlearned and the Levi is a Torah scholar who refuses to pour for them, he bears no guilt, even if he is the only Levi. This remains so even if he previously followed the practice and then changed his mind. Rabbi Yaakov HaLevi, siman 39; Rabbi Yitzchak HaLevi, his son Rabbi Shmuel HaLevi, and Rabbi Chaim Shabsai, simanim 40-41. Rabbi Leib Sarval, however, writes in siman 40 that a Levi may not exempt himself from pouring unless the kohanim are unfit for the blessing, such as people of Beis She'an and Beis Haifa or minors. Knesses HaGedolah, Hagahos HaTur; Olas Tamid, os 14; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite the dispute, and Eliyah Rabbah says one should follow the latter stringent view. Peri Chadash, os 8, disagrees. Since a Levi's pouring is not indispensable; a city consisting entirely of kohanim has everyone ascend though no Levi is present; a learned Levi who declines to pour for unlearned kohanim acts correctly even when he is the only Levi. On the contrary, he incurs death at Heaven's hands if he serves an unlearned kohen. Knesses HaGedolah further cites Rabbi Shmuel HaLevi, siman 41, that if learned and unlearned kohanim are both present the Levi must pour for all. Olas Tamid, Magen Avraham, and Eliyah Rabbah cite this, but Peri Chadash rejects it because of the liability just mentioned. Yad Aharon, Hagahos Beis Yosef; Shaliach Tzibbur, page 143b; Eshel Avraham, os 7; Chesed LaAlafim there; and Kaf HaChaim, siman 15, os 71, cite the discussion. Chesed LaAlafim says that although some permit it, caution is required and passive restraint is preferable, even when he is the only Levi. Ben Ish Chai rules likewise.<br />\n<b>42) There, gloss: The Levites did not customarily wash, etc.</b> If the Levi diverted his attention from his hands, it is proper that he wash first; certainly so if he touched his body or shoes. Bach; cited by Knesses HaGedolah, Hagahos Beis Yosef, os 2; Olas Tamid, os 15; Magen Avraham, se'if katan 8; Eliyah Rabbah, os 11. Knesses HaGedolah says the widespread custom among them is for Levites to wash even while pouring water over the kohanim's hands. Every G-d-fearing person should follow this: Wash his own hands and then pour for the kohanim, even where Levites did not customarily wash, thereby fulfilling the Zohar's words.<br />\n<b>43)</b> Magen Avraham writes that the water must not have changed from its natural state, as stated in siman 160, and must be poured by human force, paralleling the kohanim's Temple service. Soles Belulah, os 9; Shaliach Tzibbur, page 143c; Shulchan Aruch HaRav, os 8; Chesed LaAlafim, os 4; Ben Ish Chai, Tetzaveh, os 8. It appears that a vessel and a revi'is are also required, as for hand washing under the beginning of siman 159 and siman 160:13. Although Rambam, Hilchos Bias HaMikdash 5:11, permits sanctification from a vessel holding less than a revi'is, that case differs because the water comes from a source containing the requisite measure, as Kesef Mishneh explains. One washing directly from a vessel requires a revi'is in it.<br />\n<b>44)</b> Taz 511:8 writes: I saw communities pour scented oil into water on Yom Tov for washing the kohanim's hands before the platform. They act improperly, because this creates fragrance in the water. Even if poured before Yom Tov, the kohanim create fragrance on Yom Tov when it transfers to them; they desire and intend this, so the practice must be stopped. Magen Avraham there, se'if katan 11, and here, se'if katan 8, agrees. Leket HaKemach, part 2, siman 20, likewise forbids washing face and beard with rosewater on Shabbos because it creates fragrance in the beard hair, and hair resembles clothing. Eliyah Rabbah here, os 8, says that because the oil itself is mixed with the water, this is no more creating fragrance than smelling the oil; it may be poured either into the water or onto the hands. Chacham Tzvi, siman 92, likewise disputes Taz and Magen Avraham and holds that creating fragrance does not apply to human flesh, foods, or drinks. Ginas Veradim 3:16 permits applying it to hands, face, and beard, but agrees with Taz and Magen Avraham that rosewater may not be added to water. Nechpah BaKesef, siman 4, defends the custom of adding rosewater to wine on Shabbos and Yom Tov and permits it plainly. He is stringent only about adding fragrance to water intended for washing; if it was added before Shabbos, washing is permitted. Mahari Ayash agrees at the end of Shevet Yehudah. Chida cites them in Birkei Yosef 511:5 and Machazik Berachah there, os 5. Likkutei Peri Chadash 511 says any intent to create fragrance is forbidden. Batei Kehunah, part 1, siman 293, likewise appears to forbid intentional creation of fragrance on a person or object, permitting it when unintended. Responsa Shoel UMeishiv, second edition, part 2, siman 7, discusses the dispute and rules like Taz. Shelah's summary of Yom Tov laws and Shulchan Aruch HaRav at the end of siman 511 rule likewise. Therefore, practically, anything intended to create fragrance is forbidden; for example, putting rosewater into washing water, or washing one's face, hands, and certainly hair with rosewater itself; because the prohibiting authorities are the majority. It is permitted to add it to foods and drinks to sweeten them, or to pour it into one's hand in order to smell the rosewater itself, as some communities do at celebrations so each person can recite the fragrance blessing, since he does not intend to perfume his hand. Rav Pe'alim, part 2, siman 51, rules accordingly.\n",
+      "he_plain": "לה) [סעיף ו'] אעפ\"י שנטלו הכהנים וכו' דהכי איתא במס' סוטה ט\"ל ע\"א א\"ר יהושע ב\"ל כל כהן שלא נטל ידיו לא ישא את כפיו שנאמר שאו ידיכם קודש וברכו את ה' ע\"כ וכתב ב\"י שמדברי הרמב\"ם משמע דוקא דכשידיו טמאות כגון שלא נטל שחרית קאמר דצריך ליטול הא אם נטל ידיו שחרית ואינו יודע להם שוה טמאה א\"צ לחזור ולנטלם וכתב שכן נוהגים בארץ מצרים שלא ליטול הכהן ידיו בשעת נ\"כ אלא סומך על הנטילה שנטל ידיו שחרית יעו\"ש. וכ\"כ בא\"ח בשם הר' אברהם בן הרמב\"ם ז\"ל ז\"ל שהלכה למעשה לפני אביו הרמב\"ם ז\"ל וזולתו ממורי התורה שכל כהן העומד בתפלה יגש לב\"כ וסומך על נטילת ידיו לק\"ש ולתפלה עכ\"ד והביאו ב\"י וכ\"כ התו' שם בסוטה ע\"ש רש\"י ז\"ל שאמר לו רבו אלא שכתבו שזהו הועתק מהגהת תלמיד אבל מלשון רש\"י ז\"ל לא משמע הכי דפי' שלא נטל ידיו לפני עלותו לדוכן משמע ממש סמוך. וכתבו עוד שכן משמע מתלמודא דידן ומהירושלמי דאפי' נטל ידיו שחרית צריך לחזור וליטול סמוך לב\"כ ולא ישהה יותר משיעור מהלך כ\"ב אמה יעו\"ש. והב\"ד ב\"י וכתב וכ\"ה דעת הטור כדעת התו' יעו\"ש. וכן הוא דעת מרן ז\"ל כאן בש\"ע. וכ\"כ הלבוש, ב\"ח, פר\"ח אות ו', ר\"ז אות ח' חס\"ל אות ג' בן א\"ח פ' תצוה אות ז'. וכ\"מ מהזוה\"ק לקמן אות מ'. וכן המנהג פה עיה\"ק ירושת\"ו כדעת מרן ז\"ל ודעמיה, רק היכא דלא אפשר כגון ש\"ץ העומד בתפלה דאיכא הפסק אם יטול ידיו וכדומה יש לסמוך על הרמב\"ם. ועיין באות שאח\"ז: לו) שם אעפ\"י שנטלו הכהנים ידיהם שחרית וכו' ומיהו אם נטל ידיו בשחרית אפי' רק עד סוף קשרי אצבעותיו ואין לו מים ליטול לדוכן כדאי הוא הרמב\"ם וסיעתו לסמוך עליו ומותר לישא את כפיו והוא כשלא הסיח דעתו מהם. עו\"ת אות י\"ב, א\"ר אות ח' ח\"א כלל ל\"ב אות ח' מ\"ב אות ך' אבל אם לא נטל גם בשחרית אסור לישא את כפיו דלא מהני מידי דמנקי אלא לתפלה אבל לדוכן מים בעינן עו\"ת שם, א\"ר שם וכ\"נ דעת הפר\"ח שם ועיין לקמן אות ט\"ל: לז) כתב בא\"ח בשם בעל התמיד לא מצינו מי שכתב שצריך לרחוץ רגליו אבל כך נהגו באלו הארצות ומנהג ישראל תורה היא עכ\"ל והביאו ב\"י, וכתב הפר\"ח שם ואולי יצא להם זה דומיא דקידוש דכתיב ורחצו ידיהם ורגליהם ועכשיו לא נהגו כן וכן בדין דבקרא ידיכם כתיב רגליכם לא כתיב וגם לשון ס' הזוהר די בעי לקדשא ידוי עכ\"ד וכ\"ב ב\"י דאנו לא ראינו מעולם מי שנהג כן וכ\"כ מור\"ם ז\"ל בד\"מ אות ו' דגם במדינתינו אין המנהג כן, ועיין בדברינו לעיל סי' ד' אות ה' ודו\"ק: לח) שם אעפ\"י שנטלו הכהנים ידיהם שחרית וכו' מנהג מצרים שבשחרית אינו נוטל ידיו ובמוסף נוטל משום הסח הדעת. הרדב\"ז ח\"א סי' קמ\"ז כנה\"ג בהגב\"י מ\"א סק\"ו, ומיהו הירא את דבר ה' ובמצותיו חפץ יטול גם בשחרית כדי לצאת דעת מרן ז\"ל ודעמיה והזוה\"ק: טל) שם עד הפרק שהוא חבור היד והזרוע, והטעם כתב בהרמב\"ם פ' ט\"ו מה\"ת דין ה' כדרך שמקדשין לעבודה, והביאו הטור וב\"י וכ\"ה בגמרא חולין ק\"ו ע\"ב דקידוש ידים ורגלים במקדש עד הפרק ופי' רש\"י ז\"ל עד הפרק העליון מקום חבור היד והזרוע. והביאו ב\"י וכ\"כ הלבוש, ומ\"מ כשאין לו מים רק מעט שלא יגיעו אלא רק עד סוף קשרי אצבעותיו כתב העו\"ת אות י\"ב דאעפ\"י שלא נטל ידיו שחרית רק בירך והתפלל ע\"י נקיות ידים מותר לעלות לדוכן בנטילה זו וכתב דגם לדעת מרן ז\"ל י\"ל כן יעו\"ש ועיין לקמן סס\"י קס\"א ובדברנו סי' ד' אות ג' ולכן בט\"ב וביוה\"כ לא יטול לנ\"כ יותר מסוף קשרי אצבעותיו וכ\"מ מדברי מור\"ם ז\"ל בסי' תרי\"ג ס\"ב וכ\"מ מסתמיות דברי מרן ז\"ל בסי' תרי\"ג ס\"ב דאין לחלק בין נטילת שחרית לנטילת נ\"כ אלא הכל יהיו עד סוף קשרי אצבעותיו ולא יותר וכן דעת הפרמ\"ג בא\"א סי' תרי\"ג אות ג' וכן דעת היפ\"ל אות ו' ועיין מ\"ש הדג\"מ בגליון המגנים בסי' תרי\"ג והביאו היפ\"ל שם אות ד' ועי\"ש ביפ\"ל שהביא עוד פלוגתא בזה וכתב דאינן נקטינן כדברי מרן ז\"ל שנראה מדבריו דביו נטילת שחרית ובין נטילת כהנים העולים לדוכן אין לטול אלא רק עד סוף קשרי אצבועותיו דכתב דכן הוא דעת מור\"ם ז\"ל וגם הוא שמע על כהני חשיבי שנזהרין בכך יעו\"ש. ונראה דמנהג נכון הוא דכל דבר שהוא בפלוגתא שב ואל תעשה עדיף ובפרט שכן הוא דעת מרן ומור\"ם ז\"ל וכן עמא דבר, ועיין לעיל אות ל\"ו: מ) שם והלוי יוצק מים וכו' דהכי איתא בזוה\"ק פ' נשא דף קמ\"ו ע\"א בסופו תאנא כהן דבעי לפרשא ידוי בעי דיתוסף קדושה על קדושה דיליה דבעי לקדשא ידוי על ידא דקדישא, מאן ידא דקדישא דא ליואה דבעי כהנא ליטול קדושא דמיא מידוי דכתיב וקדשת את הלוים הא אינון קדישין וכתיב בהו בלוים וגם את אחיך מטה לוי וגו' מכאן דכל כהן דפריס ידוי בעי לאתקדשא ע\"י דקדישא ליתוסף קדושה על קדושתיה וע\"ד לא יטול קדושה דמייא מבר נש אחרא דלא הוי קדישא, ובצניעותא דספרא תאנא לוי דאתקדש כהנא על ידוי בעי הוא לאתקדשא בקדמיתא. ואמאי לוי ויתקדש על ידא דכהנא אחרא. תאנא כהנא אחרא לא בעי דהא כהן דלא שלים לא בעי האי כהנא שלים לאתפגם על ידא דפגימא דלא שלים, אבל לוי דאיהו שלים ואתחזי לסלקא בדוכנא ולמפלת במשכן זמנא הא שלים הוא והא איקרי קדוש דכתיב וקדשת את הלוים עכ\"ל, והביאו ב\"י וכך הם דבריו כאן בש\"ע, ומשמע מדברי הזוה\"ק הנז' דאם אין שם לוי לא יטול ע\"י ישראל ולא ע\"י כהן אחר אלא יטול בידיו, מיהו הב\"ח כתב בשם מהר\"י מולין דבמקום שאין לוים אם יש בכור פטר רחם יתן מים לכהנים לנטילה לעלות לדוכן יעו\"ש והביאו שכנה\"ג בהגב\"י או' ג' עו\"ת או' י\"ג, ט\"ז סק\"ג, עט\"ז או' א' מ\"א סק\"ז א\"ר או' יו\"ד, וכתב שם המ\"א דמשמע מלשינו דוקא בכור לאם אבל בכור לאב לבד לא מצינו בו קדושה האידנא עכ\"ל, והביאו ש\"ץ דקמ\"ג ע\"א, ר\"ז אות יו\"ד, ח\"א כלל ל\"ב. אות ח' חס\"ל אות ג' בי\"מ אות י\"א, בן א\"ח פ' תצוה אות ז' אמנם לא ראיתי מי שנוהג כן ונראה דסומכין על פשט דברי הזוהר דמשמע דוקא לוי ואם לאו לא יטול כ\"א בידיו: מא) שם והלוי יצוק מים וכו' אם הכהנים עמי הארץ והלוי ת\"ח ואינו רוצה ליצוק מים ע\"י הכהנים אין עליו שום אשם אפי' שאין לוי אלא הוא, ואפי' שנהג הלוי ליצוק מים ע\"י הכהנים ושוב נמלך שלא לצוק אין שום אשם, הר\"י הלוי סי' ט\"ל ומהר\"ר יצחק הלוי ובנו הר\"ש הלוי והרח\"ש ז\"ל שם סי' מ' וסי' מ\"א, אבל מהר\"ר ליב סרואל שם בסי' מ' כתב שאין ללוי ליפטר עצמו מליצוק מים על הכהנים אם לא שהכהנים אינם ראוים לישא את כפיהם כגון מאנשי בית שאן ובית חיפא וקטנים יעו\"ש, והב\"ד כנה\"נ בהגה\"ט, עו\"ת אות י\"ד, מ\"א סק\"ז, א\"ר אות יו\"ד וכתב דכן ראוי להחמיר כס' האחרונה יעו\"ש, אבל הפר\"ח אות ח' כתב דכיון דיציקת לוי לא מעכבא דהא עיר שכולה כהנים כולם עולים לדוכן אעפ\"י שאין שם לוי הדבר ברור שאם הכהנים ע\"ה והלוי ת\"ח ואינו רוצה ליצוק מים ע\"י כהנים שפיר קעביד אעפ\"י שאין לוי אלא הוא ואדרבא חייב מיתה אם יצק מים ע\"י כהן ע\"ה יעו\"ש, וכן מ\"ש עוד הכנה\"ג שם בשם הר\"ש הלוי סי' מ\"א דאם יש כהנים ת\"ח וע\"ה דצריך ליצוק מים לכולם והביאו העו\"ת ומ\"א וא\"ר שם כתב עליו הפר\"ח שם דליתא דהא חיוב מיתא איכא יעו\"ש, והביאו י\"א בהגב\"י, ש\"ץ דקמ\"ג ע\"ב, א\"א אות ז' חס\"ל שם כף התיים סי' ט\"ו אות ע\"א וכתב שם החס\"ל דאף דיש מתירין למיחש בעי ושוא\"ת עדיף ואפי' אם אין שם לוי אלא הוא, וכ\"כ בן א\"ח שם: מב) שם הגה, ולא נהגו הלוים ליטול וכו' מיהו היכא דהסיח הלוי דעתו הגון הוא שיטול הלוי קודם ואצ\"ל היכא דנגע בגופו או במנעליו, ב\"ח, והביאו שכנה\"ג בהגב\"י אות ב' עו\"ת אות ט\"ו, מ\"א סק\"ח, א\"ר אות י\"א, וכתב שם השכנה\"ג דהמנהג הפשוט ביניהם ליטול גם הלוים את ידם אף בשעת שיוצקים מ\"ם ע\"י הכהנים עכ\"ד, וכן ראוי לנהוג כל הירא את דבר ה' ליטול ידיו ואח\"כ ליצוק ע\"י כהנים אף במקום שלא נהגו הלוים ליטול כדי לקיים דברי הזו\"ק: מג) וכתב המ\"א שם דבעינן מים שלא נשתנו מברייתן כמ\"ש סי' ק\"ס וכח גברא דומיא דכהנים בעבודתם, והביאו הסו\"ב אות ט' ש\"ץ דף קמ\"ג ע\"ג, ר\"ז אות ח' חס\"ל אות ד' בן א\"ח פ' תצוה אות ח' ונראה דבעינן נמי כלי ורביעית כדין נט\"י כמ\"ש בריש סי' קנ\"ט וסי' ק\"ס סעי' י\"ג והגם דבהרמב\"ם הלכות ביאת מקדש פ\"ה דין י\"א כתב דמקדשין בכלי אפי' שאין בו רביעית התם שאני דאתו ממקום שיש בו שיעור וכמ\"ש בכ\"מ שם אבל הנוטל מן הכלי צריך שיהיה בו רביעית: מד) כתב הט\"ז בסי' תקי\"א סק\"ח ראיתי בקצת קהילות ששופכין שמן של ריח לתוך המים ביו\"ט לצורך נטילת ידי הכהנים לדוכן ואיסורא קא עבדי דמולידין ריח במים ואפי' שופכין בערב יו\"ט מ\"מ מולידין ריח ביו\"ט ע\"י הכהנים וזה ניחא להו ומכוונים לכך ע\"כ יש למנוע מלעשות כן עכ\"ל וכ\"כ המ\"א שם ס\"ק י\"א ובזה הסי' סק\"ח, וכ\"כ הלק\"ט ח\"ב סי' ך' דאסור לרחוץ בשבת פניהם וזקנם במי ורדים משום דקא מוליד ריחא בשער זקנו ושערו ככסותו יעו\"ש, מיהו הא\"ר בסי' זה אות ח' כתב דכיון דשמן עצמו מעורב במים לא הוי מוליד ריחה דהוי כמו שמריח בשמן ומותר לשפוך בין למים ובין לידים יעו\"ש, וכן הרב חכם צבי סי' צ\"ב פליג אט\"ז ומ\"א וכתב דלא שייך מוליד ריחא לא בבשר האדם ולא באוכלין ומשקין יעו\"ש, והרב גו\"ר כלל ג' סי' ט\"ז התיר לתת לידים ופנים וזקן ורק לתת מי ורדים לתוך המים הסכים לאסור כדעת הט\"ז ומ\"א יע\"וש, והרב נחפה בכסף סי' ד' הליץ בעד המנהג שנוהגים להטיל מי ורדים לתיך הכוס של יין בשבח ויו\"ט והתיר בפשיטות רק לתת בשמים במים העומדים לרחיצה העלה להחמיר ואם נתונים במים בע\"ש מותר לרחוץ בהם יעו\"ש והסכים לדבריו מהרי\"ע בסוף ס' שבט יהודה יעו\"ש והב\"ד החיד\"א בברכ\"י סי' תקי\"א אות ה' ובמחב\"ר שם אות ה' יעו\"ש, ועיין בליקוטי פר\"ח סי' תקי\"א שכתב דכל שהוא מכוין להוליד ריחא אסור, וכ\"נ דעת הב\"ד ח\"א סי' רצ\"ג דכל שהוא מכוין להוליד ריחא בין בגוף האדם בין בכלים אסור וכל שאין מכוק מותר יעו\"ש, ועוד עיין בתשו' שואל ומשיב תניינא ח\"ב סי' ז' שהאריך קצת בהאי פלוגתא והכריע בס' הט\"ז יעו\"ש, וכן הקשל\"ה בדיני יו\"ט פסק כדברי הט\"ז וכ\"ף ר\"ז בססי' תקי\"א, וע\"כ הנראה לענין דינא דכל שהוא מכוין להוליד ריחא כגון שניתן מי ורדים לתוך מים כדי לרחוץ בהם פניו וידיו או לרחוץ במי ורדים עצמם פניו וידיו וכ\"ש שערו אסור כיון שרבו האוסרים בזה אבל אם נותן באוכלין ומשקין כדי למתקם או אם שופך לתוך ידו כדי להריח במי ורדים עצמם כמו שנוהגים בקצת מקומות שביום שמחות נותנים מי ורדים לתוך יד של כל אחד ואחד כדי לברך ואינו מכוין להוליד ריחא בידו יש להתיר, וכ\"ף הרב רב פעלים ח\"ב סי' נ\"א יעו\"ש:",
+      "en_plain": "35) [Se'if 6] Although the kohanim washed, etc. Sotah 39a states in Rabbi Yehoshua ben Levi's name: A kohen who has not washed his hands may not recite the Priestly Blessing, for it says, 'Raise your hands in holiness and bless Hashem.' Beis Yosef understands Rambam to require washing only when the hands are impure, such as when one did not wash in the morning. If he washed then and knows of no later impurity, he need not wash again. This was the Egyptian custom. Orchos Chaim likewise cites Rabbi Avraham ben Rambam that in practice before his father Rambam and other Torah teachers, every kohen standing in prayer proceeded to the blessing relying on his washing for Shema and the Amidah. Tosafos in Sotah cites a similar view in Rashi's name but says it was copied from a student's gloss; Rashi's own words, 'who did not wash before ascending,' imply washing immediately beforehand. Tosafos further proves from the Bavli and Yerushalmi that even one who washed in the morning must wash again near the blessing, with no delay exceeding the time to walk twenty-two amos. Beis Yosef cites this and says Tur agrees with Tosafos. This is Maran's ruling here, and so rule Levush; Bach; Peri Chadash, os 6; Shulchan Aruch HaRav, os 8; Chesed LaAlafim, os 3; and Ben Ish Chai, Tetzaveh, os 7. It also follows from the Zohar cited below, os 40, and is the custom here in holy Jerusalem. Only when impossible; such as a prayer leader for whom washing would interrupt the Amidah; may one rely on Rambam. See the next os. 36) There: Although the kohanim washed their hands in the morning, etc. If he washed in the morning, even only to the ends of his finger joints, and has no water for washing before the platform, Rambam and his followers may be relied upon. He may bless provided he did not divert his attention from his hands. Olas Tamid, os 12; Eliyah Rabbah, os 8; Chayei Adam 32:8; Mishnah Berurah, os 20. If he did not wash even in the morning, he may not bless. Cleaning the hands by another method suffices for prayer but not for the platform, which requires water. Olas Tamid and Eliyah Rabbah there; this also appears to be Peri Chadash's view. See below, os 39. 37) Orchos Chaim writes in Baal HaTamid's name: We have found no author who requires washing the feet, but this was the custom in those lands, and Jewish custom has the force of Torah. Beis Yosef cites him. Peri Chadash says the custom may have been modeled on the priestly sanctification in the Temple, of which the verse says, 'They shall wash their hands and feet.' It is no longer practiced, correctly so: The present verse says 'your hands,' not 'your feet,' and the Zohar likewise says that he must sanctify his hands. Beis Yosef says we have never seen anyone practice it, and Rama in Darkei Moshe, os 6, says it is not the custom in his lands either. See our words above, siman 4, os 5. 38) There: Although the kohanim washed their hands in the morning, etc. The Egyptian custom is not to wash again at Shacharis but to wash at Mussaf because attention has meanwhile been diverted. Radbaz, part 1, siman 147; Knesses HaGedolah, Hagahos Beis Yosef; Magen Avraham, se'if katan 6. Nevertheless, one who fears Hashem and delights in His commandments should wash again even at Shacharis, thereby satisfying Maran, those who agree with him, and the Zohar. 39) There: Up to the joint connecting the hand and arm. Rambam, Hilchos Tefillah 15:5, explains that this parallels sanctification for the Temple service; Tur and Beis Yosef cite him. Chullin 106b likewise says that the Temple sanctification of hands and feet extended to the joint, which Rashi defines as the upper joint where hand and arm meet. So writes Levush. If only enough water is available to reach the ends of the finger joints, Olas Tamid, os 12, permits one who did not wash in the morning but prayed after cleaning his hands to ascend after this limited washing, and says Maran may agree. See the end of siman 161 and our words in siman 4, os 3. On Tishah BeAv and Yom Kippur, therefore, one should wash for the Priestly Blessing only to the ends of the finger joints. This follows from Rama 613:2 and Maran's unqualified language there, which does not distinguish morning washing from washing for the blessing. Peri Megadim, Eshel Avraham 613:3, and Yafeh LaLev, os 6, agree. See Dagul Merevavah's gloss there, cited by Yafeh LaLev, os 4, and Yafeh LaLev's further discussion. He concludes that we follow Maran and Rama: Both morning washing and washing for the platform extend only to the finger joints on those days, and he heard that distinguished kohanim observe this. It is a proper custom, since passive restraint is preferable in a dispute, especially when Maran and Rama agree and this is common practice. See above, os 36. 40) There: The Levi pours water, etc. Zohar, Naso 146a, teaches: A kohen who spreads his hands must add holiness to his holiness by sanctifying his hands through a holy hand. That holy hand is the Levi's, from whom the kohen receives the sanctifying water, for it says, 'You shall sanctify the Levites'; they are holy. It also says, 'And also your brethren, the tribe of Levi.' Thus every kohen who spreads his hands must be sanctified by a holy person, adding holiness to his holiness, and should not receive the sanctifying water from an unholy person. Tzinius DiSifra further teaches that the Levi through whom the kohen is sanctified must first sanctify himself. Why specifically a Levi rather than another kohen? Another kohen might be deficient, and a complete kohen should not be impaired through one who is incomplete. A complete Levi, however, was fit to ascend the platform and serve in the Tabernacle, and is called holy, as it says, 'You shall sanctify the Levites.' Beis Yosef cites this, and it is the basis of Maran's words here. The Zohar implies that when no Levi is present, neither an Israelite nor another kohen should wash his hands; he should wash them himself. Bach, however, cites Maharil that in the absence of Levites, a firstborn who opened his mother's womb should pour for the kohanim. Knesses HaGedolah, Hagahos Beis Yosef, os 3; Olas Tamid, os 13; Taz, se'if katan 3; Ateres Zekeinim, os 1; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite this. Magen Avraham notes that this means specifically a maternal firstborn; a paternal firstborn alone has no recognized sanctity today. Shaliach Tzibbur, page 143a; Shulchan Aruch HaRav, os 10; Chayei Adam 32:8; Chesed LaAlafim, os 3; Beis Menuchah, os 11; and Ben Ish Chai, Tetzaveh, os 7, cite it. I have not seen anyone follow this. They apparently rely on the Zohar's plain implication that only a Levi pours; without one, each kohen washes his own hands. 41) There: The Levi pours water, etc. If the kohanim are unlearned and the Levi is a Torah scholar who refuses to pour for them, he bears no guilt, even if he is the only Levi. This remains so even if he previously followed the practice and then changed his mind. Rabbi Yaakov HaLevi, siman 39; Rabbi Yitzchak HaLevi, his son Rabbi Shmuel HaLevi, and Rabbi Chaim Shabsai, simanim 40-41. Rabbi Leib Sarval, however, writes in siman 40 that a Levi may not exempt himself from pouring unless the kohanim are unfit for the blessing, such as people of Beis She'an and Beis Haifa or minors. Knesses HaGedolah, Hagahos HaTur; Olas Tamid, os 14; Magen Avraham, se'if katan 7; and Eliyah Rabbah, os 10, cite the dispute, and Eliyah Rabbah says one should follow the latter stringent view. Peri Chadash, os 8, disagrees. Since a Levi's pouring is not indispensable; a city consisting entirely of kohanim has everyone ascend though no Levi is present; a learned Levi who declines to pour for unlearned kohanim acts correctly even when he is the only Levi. On the contrary, he incurs death at Heaven's hands if he serves an unlearned kohen. Knesses HaGedolah further cites Rabbi Shmuel HaLevi, siman 41, that if learned and unlearned kohanim are both present the Levi must pour for all. Olas Tamid, Magen Avraham, and Eliyah Rabbah cite this, but Peri Chadash rejects it because of the liability just mentioned. Yad Aharon, Hagahos Beis Yosef; Shaliach Tzibbur, page 143b; Eshel Avraham, os 7; Chesed LaAlafim there; and Kaf HaChaim, siman 15, os 71, cite the discussion. Chesed LaAlafim says that although some permit it, caution is required and passive restraint is preferable, even when he is the only Levi. Ben Ish Chai rules likewise. 42) There, gloss: The Levites did not customarily wash, etc. If the Levi diverted his attention from his hands, it is proper that he wash first; certainly so if he touched his body or shoes. Bach; cited by Knesses HaGedolah, Hagahos Beis Yosef, os 2; Olas Tamid, os 15; Magen Avraham, se'if katan 8; Eliyah Rabbah, os 11. Knesses HaGedolah says the widespread custom among them is for Levites to wash even while pouring water over the kohanim's hands. Every G-d-fearing person should follow this: Wash his own hands and then pour for the kohanim, even where Levites did not customarily wash, thereby fulfilling the Zohar's words. 43) Magen Avraham writes that the water must not have changed from its natural state, as stated in siman 160, and must be poured by human force, paralleling the kohanim's Temple service. Soles Belulah, os 9; Shaliach Tzibbur, page 143c; Shulchan Aruch HaRav, os 8; Chesed LaAlafim, os 4; Ben Ish Chai, Tetzaveh, os 8. It appears that a vessel and a revi'is are also required, as for hand washing under the beginning of siman 159 and siman 160:13. Although Rambam, Hilchos Bias HaMikdash 5:11, permits sanctification from a vessel holding less than a revi'is, that case differs because the water comes from a source containing the requisite measure, as Kesef Mishneh explains. One washing directly from a vessel requires a revi'is in it. 44) Taz 511:8 writes: I saw communities pour scented oil into water on Yom Tov for washing the kohanim's hands before the platform. They act improperly, because this creates fragrance in the water. Even if poured before Yom Tov, the kohanim create fragrance on Yom Tov when it transfers to them; they desire and intend this, so the practice must be stopped. Magen Avraham there, se'if katan 11, and here, se'if katan 8, agrees. Leket HaKemach, part 2, siman 20, likewise forbids washing face and beard with rosewater on Shabbos because it creates fragrance in the beard hair, and hair resembles clothing. Eliyah Rabbah here, os 8, says that because the oil itself is mixed with the water, this is no more creating fragrance than smelling the oil; it may be poured either into the water or onto the hands. Chacham Tzvi, siman 92, likewise disputes Taz and Magen Avraham and holds that creating fragrance does not apply to human flesh, foods, or drinks. Ginas Veradim 3:16 permits applying it to hands, face, and beard, but agrees with Taz and Magen Avraham that rosewater may not be added to water. Nechpah BaKesef, siman 4, defends the custom of adding rosewater to wine on Shabbos and Yom Tov and permits it plainly. He is stringent only about adding fragrance to water intended for washing; if it was added before Shabbos, washing is permitted. Mahari Ayash agrees at the end of Shevet Yehudah. Chida cites them in Birkei Yosef 511:5 and Machazik Berachah there, os 5. Likkutei Peri Chadash 511 says any intent to create fragrance is forbidden. Batei Kehunah, part 1, siman 293, likewise appears to forbid intentional creation of fragrance on a person or object, permitting it when unintended. Responsa Shoel UMeishiv, second edition, part 2, siman 7, discusses the dispute and rules like Taz. Shelah's summary of Yom Tov laws and Shulchan Aruch HaRav at the end of siman 511 rule likewise. Therefore, practically, anything intended to create fragrance is forbidden; for example, putting rosewater into washing water, or washing one's face, hands, and certainly hair with rosewater itself; because the prohibiting authorities are the majority. It is permitted to add it to foods and drinks to sweeten them, or to pour it into one's hand in order to smell the rosewater itself, as some communities do at celebrations so each person can recite the fragrance blessing, since he does not intend to perfume his hand. Rav Pe'alim, part 2, siman 51, rules accordingly.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-007/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 7,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.654,
+        "he_chars": 358,
+        "en_chars": 592,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 592
+        },
+        "failure_patterns": [
+          "holy_person"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ז) הלוי כו'</b> לא מצינו בו קדוש'. דפטר רחם צריך פדיון והר\"י כ' בשם זוהר הטעם דלוי יוצק דכהן הוא קדוש וכן הלוי לכן ראוי שירחץ קדוש לקדוש. וכן פטר רחם ישראל יש בו צד קדושה:<br />\n<b>ואם הלוי כו'</b> א\"צ ליתן כו' ואם קצת כהנים ת\"ח צריך כו' והפר\"ח חולק בתרתי וס\"ל דאפי' קצת ת\"ח ל\"מ דאינו חייב ליצוק לכהן ע\"ה. אלא אפי' איסורא עביד אי יוצק לע\"ה והוי בכלל ומשנאי אהבו מות ע\"ש:\n",
+      "en_html": "<b>A Levi pours water over their hands.</b> Does a firstborn possess sanctity? He must, after all, be redeemed. Ri writes in the name of the Zohar that a Levi pours because both the kohen and Levi are holy, and one holy person washes another. An Israelite firstborn likewise has an aspect of sanctity.<br />\nIf the Levi is a Torah scholar, he need not pour. Does the presence of some learned kohanim alter the rule? Pri Chadash disputes both points: Even when some kohanim are scholars, a learned Levi should not pour for an ignorant kohen; indeed, doing so is forbidden, for 'all who hate Me love death.'\n",
+      "he_plain": "(ס\"ק ז) הלוי כו' לא מצינו בו קדוש'. דפטר רחם צריך פדיון והר\"י כ' בשם זוהר הטעם דלוי יוצק דכהן הוא קדוש וכן הלוי לכן ראוי שירחץ קדוש לקדוש. וכן פטר רחם ישראל יש בו צד קדושה: ואם הלוי כו' א\"צ ליתן כו' ואם קצת כהנים ת\"ח צריך כו' והפר\"ח חולק בתרתי וס\"ל דאפי' קצת ת\"ח ל\"מ דאינו חייב ליצוק לכהן ע\"ה. אלא אפי' איסורא עביד אי יוצק לע\"ה והוי בכלל ומשנאי אהבו מות ע\"ש:",
+      "en_plain": "A Levi pours water over their hands. Does a firstborn possess sanctity? He must, after all, be redeemed. Ri writes in the name of the Zohar that a Levi pours because both the kohen and Levi are holy, and one holy person washes another. An Israelite firstborn likewise has an aspect of sanctity. If the Levi is a Torah scholar, he need not pour. Does the presence of some learned kohanim alter the rule? Pri Chadash disputes both points: Even when some kohanim are scholars, a learned Levi should not pour for an ignorant kohen; indeed, doing so is forbidden, for 'all who hate Me love death.'",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-019/levushei-serad",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 19,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.839,
+        "he_chars": 112,
+        "en_chars": 206,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 206
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<small>סקט\"ז</small> מחויב. חולק אהט\"ז סק\"ב וס\"ל דכיון שאין קורין ליחיד אינו מחוייב לעלות מן התורה אפ\"ה מברך משום דעולה מדרבנן:\n",
+      "en_html": "Skat 16 is obligated. The division of AHT 16 Skav and Sal Dakhion, which does not originate with an individual, is not obligated to come up from the Torah, if it blesses because it is a deula from Darbanan:\n",
+      "he_plain": "סקט\"ז מחויב. חולק אהט\"ז סק\"ב וס\"ל דכיון שאין קורין ליחיד אינו מחוייב לעלות מן התורה אפ\"ה מברך משום דעולה מדרבנן:",
+      "en_plain": "Skat 16 is obligated. The division of AHT 16 Skav and Sal Dakhion, which does not originate with an individual, is not obligated to come up from the Torah, if it blesses because it is a deula from Darbanan:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-033/peri-megadim",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 33,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.769,
+        "he_chars": 52,
+        "en_chars": 144,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 144
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>מל</b> עט״ז השמיט שמא לא כלו חדשיו עמ״א אות נ״ב ומ״ש שם:\n",
+      "en_html": "<b>Circumcised.</b> See Taz, who omits the possibility that the child's gestation was incomplete. See Magen Avraham, letter 52, and what I wrote there.\n",
+      "he_plain": "מל עט״ז השמיט שמא לא כלו חדשיו עמ״א אות נ״ב ומ״ש שם:",
+      "en_plain": "Circumcised. See Taz, who omits the possibility that the child's gestation was incomplete. See Magen Avraham, letter 52, and what I wrote there.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-036/beur-hagra",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 36,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.722,
+        "he_chars": 18,
+        "en_chars": 49,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 49
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>סל\"ו מל כו'. </b>עמ\"א:\n",
+      "en_html": "<b>Se'if 36: He circumcised, etc.</b> See Magen Avraham.\n",
+      "he_plain": "סל\"ו מל כו'. עמ\"א:",
+      "en_plain": "Se'if 36: He circumcised, etc. See Magen Avraham.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-036/magen-avraham",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 36,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.041,
+        "he_chars": 315,
+        "en_chars": 643,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 643
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>מל תינוק</b>. דאכוון לשם מצוה ועוד מי יימר דכלו ליה חדשיו ועוד שמא הרוח בלבלתו (מרדכי הג\"מ) וטענה זו דהרוח בלבלתו שייך אפי' בהורג גדול בשוגג ולא מת מיד כדאמרי' בגיטין דף ע' ע\"ב ע\"ש דיש עוד טענה כשפירכס ועי' בתו' שם:<br />\n<b>מרננין</b>. ומיהו אם יודע בעצמו שאמת הוא לא ישא כפיו (רלב\"ח קי\"ז), דחף אשה הרה והפילה נושא כפיו (שם כ\"ה):\n",
+      "en_html": "<b>He circumcised an infant.</b> For he intended for the sake of a mitzvah. Furthermore, who says that his months had been completed? Furthermore, perhaps the wind confused him (Mordechai, Hagahos Maimoniyos). This claim, that the wind confused him, applies even to one who killed an adult unintentionally and he did not die immediately, as we say in Gittin, folio 70b; see there, for there is also another claim when he convulsed, and see Tosafos there.<br />\n<b>People murmur.</b> However, if he himself knows that it is true, he should not raise his hands (Ralbach, siman 117). If he pushed a pregnant woman and she miscarried, he raises his hands (ibid., 25).\n",
+      "he_plain": "מל תינוק . דאכוון לשם מצוה ועוד מי יימר דכלו ליה חדשיו ועוד שמא הרוח בלבלתו (מרדכי הג\"מ) וטענה זו דהרוח בלבלתו שייך אפי' בהורג גדול בשוגג ולא מת מיד כדאמרי' בגיטין דף ע' ע\"ב ע\"ש דיש עוד טענה כשפירכס ועי' בתו' שם: מרננין . ומיהו אם יודע בעצמו שאמת הוא לא ישא כפיו (רלב\"ח קי\"ז), דחף אשה הרה והפילה נושא כפיו (שם כ\"ה):",
+      "en_plain": "He circumcised an infant. For he intended for the sake of a mitzvah. Furthermore, who says that his months had been completed? Furthermore, perhaps the wind confused him (Mordechai, Hagahos Maimoniyos). This claim, that the wind confused him, applies even to one who killed an adult unintentionally and he did not die immediately, as we say in Gittin, folio 70b; see there, for there is also another claim when he convulsed, and see Tosafos there. People murmur. However, if he himself knows that it is true, he should not raise his hands (Ralbach, siman 117). If he pushed a pregnant woman and she miscarried, he raises his hands (ibid., 25).",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-036/mechaber",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 36,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.574,
+        "he_chars": 94,
+        "en_chars": 242,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 242
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Magen Avraham\" data-order=\"52\"></i><i data-commentator=\"Turei Zahav\" data-order=\"33\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"56\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"קלב\"></i>מל <i data-commentator=\"Ba'er Hetev\" data-order=\"61\"></i>תינוק ומת נושא את כפיו ואם העם <i data-commentator=\"Magen Avraham\" data-order=\"53\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"קלג\"></i>מרננים <i data-commentator=\"Ba'er Hetev\" data-order=\"62\"></i>אחריו שהוא שופך דמים <i data-commentator=\"Be'er HaGolah\" data-label=\"מ\" data-order=\"57\"></i>כיון דלא נתברר הדבר ישא את כפיו:\n",
+      "en_html": "If he circumcised a baby and he died, he may lift his hands [to perform the priestly blessing]. And if the public is speaking ill about him that he is a spiller of blood, since the matter has not been clarified, he may [still] lift his hands.\n",
+      "he_plain": "מל תינוק ומת נושא את כפיו ואם העם מרננים אחריו שהוא שופך דמים כיון דלא נתברר הדבר ישא את כפיו:",
+      "en_plain": "If he circumcised a baby and he died, he may lift his hands [to perform the priestly blessing]. And if the public is speaking ill about him that he is a spiller of blood, since the matter has not been clarified, he may [still] lift his hands.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman128/seif-036/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 128,
+      "seif": 36,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.793,
+        "he_chars": 324,
+        "en_chars": 581,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 581
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(קלב) מל תינוק ומת וכו' - חדא דאיכוין לשם מצוה ועוד מי יימר דכלו ליה חדשיו ועוד שמא הרוח בלבלתו אח\"כ ומת:<br />\n(קלג) מרננים אחריו וכו' - לא קאי אמל תינוק דבזה אפילו יש עדים נושא כפיו אלא מרננים אחריו שהרג ממש אפ\"ה כיון שאין עדים אין לפוסלו מנשיאת כפים ומיהו הוא בעצמו אם יודע שאמת הוא לא ישא את כפיו בין לעצמו בין עם כהנים אחרים:\n",
+      "en_html": "<b>132) Circumcised a baby and it died, etc.</b> First, he intended to perform a mitzvah. Second, who says the child had completed its gestation? Third, perhaps the wind later harmed the child and caused its death.<br />\n<b>133) People accuse him, etc.</b> This does not refer to circumcising the baby; in that case, even witnesses do not disqualify him. It refers to an allegation that he actually killed someone. Even then, without witnesses he cannot be disqualified. If he himself knows the allegation is true, however, he may not recite the Priestly Blessing, whether alone or with other kohanim.\n",
+      "he_plain": "(קלב) מל תינוק ומת וכו' - חדא דאיכוין לשם מצוה ועוד מי יימר דכלו ליה חדשיו ועוד שמא הרוח בלבלתו אח\"כ ומת: (קלג) מרננים אחריו וכו' - לא קאי אמל תינוק דבזה אפילו יש עדים נושא כפיו אלא מרננים אחריו שהרג ממש אפ\"ה כיון שאין עדים אין לפוסלו מנשיאת כפים ומיהו הוא בעצמו אם יודע שאמת הוא לא ישא את כפיו בין לעצמו בין עם כהנים אחרים:",
+      "en_plain": "132) Circumcised a baby and it died, etc. First, he intended to perform a mitzvah. Second, who says the child had completed its gestation? Third, perhaps the wind later harmed the child and caused its death. 133) People accuse him, etc. This does not refer to circumcising the baby; in that case, even witnesses do not disqualify him. It refers to an allegation that he actually killed someone. Even then, without witnesses he cannot be disqualified. If he himself knows the allegation is true, however, he may not recite the Priestly Blessing, whether alone or with other kohanim.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 44,
+    "chunk_total": 47,
+    "case_offset": 229,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman616/seif-002/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 616,
+      "seif": 2,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.028,
+        "he_chars": 2255,
+        "en_chars": 4573,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4573
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ב) מחנכי' כו'</b> ע\"ש תוס'. והוא בתו' ישנים וכ\"ה בת\"ה סימן צ\"ד. שהקשו אהא דתנן ביומא דף פ\"ב מחנכי' הקטנים לשעות. והקשו שם והא קטן אוכל נבלות אין ב\"ד מצווי' להפרישו. והשתא חנוכי מחנכי אפרושי מבעי' ותי' ר\"י דחינוך קטנים ליתא אלא באב אבל באדם אחר לא. ולכן אין מצווין להפרישו והקשו מהאי דפ\"ק דסכה דהלני המלכה ישבה עם ז' בני' בסכה אלמא אי ליכא אב שייך נמי חינוך. ומתרצי' שמא ה\"ל אב דמחנכם לכך. ואפי' לא ה\"ל אב היתה האם מחנכתן למצוה בעלמא עכ\"ל התוס'. וכ\"ה בת\"ה הנ\"ל. וכ\"כ התוס' בנזיר דף ך\"ח ע\"ב וברף כ\"ט ע\"א מסקי' הגמרא להדיא לר\"ל דאין האם חייבת לחנך את בנה. ואע\"ג דר\"י שם פליג עם ר\"ל ולר\"י אין צורך לומר דאשה אינה חייבת לחנך בנה מ\"מ עדיף למעט במחלוקת ולומר דגם ר\"י מורה בזה לר\"ל. וע\"ל במ\"א סימן שמ\"ג:<br />\nומ\"מ נ\"ל דלא תתן כו' ר\"ל האם אע\"ג דאינה חייבת בחינוך:<br />\n<b>ול\"ד לסכה שרשאי' כו'</b> דאלת\"ה מאי הקשו התוספות מהלני מלכה שישבה ע\"ב בסכה כנ\"ל הא אסיר לה ליתן להם לאכול חוץ לסכה:<br />\nואינה מחוייבת להכניסו כו' דהאם אינה חייבת בחינוך:<br />\nועוד דהתם הוי מ\"ע. ר\"ל לאכול בסכה הוא מ\"ע:<br />\nואיסור לאו חמור מעשה כדאי' פ\"ק דיבמות בשמעתא דעליה וכדמוכח נמי פ\"ב דיבמות עכ\"ל ת\"ה סימן צ\"ד. ולכן כיון דאכילה בסכה לא הוי רק עשה לכן אפי' ליתן להם מותר. אלא שמ\"א ר\"ס רס\"ט דחה זה לפי מאי דקי\"ל דאפי' איסור דרבנן אין מאכילים בידים כ\"ש עשה דאוריית'. לכן צ\"ל דמ\"ש פה ועוד דהתם הוי מ\"ע נשאר עיקר תירוצו הראשון דשאני סכה דבאכילה אין איסור כו' ובאמת להאכיל לקטן בידים חוץ לסכה אפי' לאשה אסור וכ\"כ להדיא לקמן סי' ר\"מ. אלא מה שחילק לעיל דביו\"כ האכילה בעצמה איסור כתב עכשיו סברא אחרת אפי' יהי' יוה\"כ דומה ממש לסכה בזה. יש להקל יותר בסכה דהוי מ\"ע מביוה\"כ. אולם הת\"ה בסוף התשובה הקשה על התוס' הנ\"ל והוכיח ממס' עירובין רגם האם חייבת בחינוך בנה וסיים שאין להקל ע\"ש:<br />\n<b>מה שאין כו'</b> בשנת י\"ב. ר\"ל כשהוא בן י\"א שלימים כמ\"ש רמ\"א דאין להקל כ\"א בנער כחוש:<br />\n<b>משום דהכל לומדים כו'</b> וסמכינן על. דעת רש\"י בכתובות דף נו\"ן ע\"א כפי פרושו של הב\"ח דברי רש\"י ע\"ש אבל כשהוא בן י\"ב שנים שלימים ונכנס לשנת י\"ג מודה רש\"י וגם הב\"ח דצריך להשלים מדרבנן אם לא בנער כחוש דסמכינן על דעת י\"א שהביא רמ\"א. ובס' א\"ר כתב בשם הב\"ח על מ\"ש רמ\"א ויש לסמוך עלייהו בנער שהוא כחוש. וז\"ל ומנהגנו בכל התינוקות כן כיון שלומדים כלם. וגם בזה\"ז מסתמא חשיבי חולים (ב\"ח) באמת הב\"ח לא הקיל כ\"א כשהו' בן י\"ח כנ\"ל. ואפשר דבס' א\"ד כתב כן מסברא דנפשיה ע\"פ סברת הב\"ח. ועוד דסחמא חשיבי חולים. ר\"ל בזמן הזה דירדה חולשה לעולם. וסיים הב\"ח וכיון דלא בקיאים אימת ספק נפשות להקל:\n",
+      "en_html": "<b>(Se'if katan 2) We train, etc.</b> See there in Tosafos. This is in Tosafos Yeshanim, and so too in Terumas HaDeshen, siman 94. They asked about what we learned in Yoma 82, that we train minors by hours: but a minor who eats neveilos, the court is not commanded to separate him. If so, can we train them, when separation itself should be required? Rabbeinu Yitzchak answered that training minors applies only to the father, but not to another person, and therefore they are not commanded to separate him. They asked from the case at the beginning of Sukkah, that Queen Helen sat with her seven sons in a sukkah, which shows that even where there is no father, training applies. They answered: perhaps they had a father who trained them for this; and even if they had no father, their mother trained them only as a general mitzvah matter. End quote of Tosafos. So too in the Terumas HaDeshen mentioned above. Tosafos wrote similarly in Nazir 28b, and on page 29a the Gemara concludes explicitly according to Reish Lakish that a mother is not obligated to train her son. Although Rabbi Yochanan there disagrees with Reish Lakish, and according to Rabbi Yochanan it is not necessary to say that a woman is not obligated to train her son, nevertheless it is better to minimize the dispute and say that Rabbi Yochanan too agrees with Reish Lakish on this point. See above in the Magen Avraham, siman 343.<br />\nNevertheless, it seems to me that she should not give, etc. Meaning, the mother, although she is not obligated in training.<br />\n<b>And it is not comparable to sukkah, where she is permitted, etc.</b> For if you would not say so, what did Tosafos ask from Queen Helen sitting with her seven sons in a sukkah, as above? It would have been forbidden for her to give them food outside the sukkah.<br />\nAnd she is not obligated to bring him in, etc., because the mother is not obligated in training.<br />\nFurthermore, there it is a positive commandment. Meaning, eating in the sukkah is a positive commandment.<br />\nA negative prohibition is more severe than a positive commandment, as stated in the first chapter of Yevamos in the sugya of 'aleha,' and as is also proven in the second chapter of Yevamos. End quote of Terumas HaDeshen, siman 94. Therefore, since eating in a sukkah is only a positive commandment, even giving them food is permitted. However, the Magen Avraham at the beginning of siman 269 rejected this, according to what we rule that even a rabbinic prohibition may not be fed directly to a minor, all the more so a Torah positive commandment. Therefore one must say that what he wrote here, 'furthermore, there it is a positive commandment,' leaves his first answer primary: sukkah is different, because in the eating itself there is no prohibition. In truth, directly feeding a minor outside the sukkah is forbidden even for a woman, and so he wrote explicitly below in siman 640. Rather, after he previously distinguished that on Yom Kippur the eating itself is prohibited, he now writes another reasoning: even if Yom Kippur were exactly comparable to sukkah in this respect, there is more room for leniency with sukkah, because it is a positive commandment, than with Yom Kippur. However, the Terumas HaDeshen at the end of the responsum challenged the Tosafos mentioned above and proved from Eruvin that the mother too is obligated to train her son, and he concluded that one should not be lenient; see there.<br />\n<b>That which is not, etc.</b> In his twelfth year. Meaning, when he is eleven complete years old, as the Rema wrote, one should be lenient only with a thin youth.<br />\n<b>Because everyone studies, etc.</b> We rely on Rashi's view in Kesubos 50a according to the Bach's explanation of Rashi's words; see there. But when he is twelve complete years old and enters his thirteenth year, Rashi, and also the Bach, agree that he must complete the fast rabbinically, except for a thin youth, where we rely on the 'some say' opinion brought by the Rema. In Eliyah Rabbah he wrote in the name of the Bach on what the Rema wrote, 'and one may rely on them regarding a youth who is thin': our custom is so with all children, since they all study, and also nowadays they are ordinarily considered sick. In truth, the Bach was lenient only when he is eleven, as above. It is possible that in Eliyah Rabbah he wrote this from his own reasoning based on the Bach's reasoning. And also because ordinarily they are considered sick, meaning nowadays, when weakness has descended to the world. The Bach concluded: since we are not expert when it is danger to life, in a doubt involving life we rule leniently.\n",
+      "he_plain": "(ס\"ק ב) מחנכי' כו' ע\"ש תוס'. והוא בתו' ישנים וכ\"ה בת\"ה סימן צ\"ד. שהקשו אהא דתנן ביומא דף פ\"ב מחנכי' הקטנים לשעות. והקשו שם והא קטן אוכל נבלות אין ב\"ד מצווי' להפרישו. והשתא חנוכי מחנכי אפרושי מבעי' ותי' ר\"י דחינוך קטנים ליתא אלא באב אבל באדם אחר לא. ולכן אין מצווין להפרישו והקשו מהאי דפ\"ק דסכה דהלני המלכה ישבה עם ז' בני' בסכה אלמא אי ליכא אב שייך נמי חינוך. ומתרצי' שמא ה\"ל אב דמחנכם לכך. ואפי' לא ה\"ל אב היתה האם מחנכתן למצוה בעלמא עכ\"ל התוס'. וכ\"ה בת\"ה הנ\"ל. וכ\"כ התוס' בנזיר דף ך\"ח ע\"ב וברף כ\"ט ע\"א מסקי' הגמרא להדיא לר\"ל דאין האם חייבת לחנך את בנה. ואע\"ג דר\"י שם פליג עם ר\"ל ולר\"י אין צורך לומר דאשה אינה חייבת לחנך בנה מ\"מ עדיף למעט במחלוקת ולומר דגם ר\"י מורה בזה לר\"ל. וע\"ל במ\"א סימן שמ\"ג: ומ\"מ נ\"ל דלא תתן כו' ר\"ל האם אע\"ג דאינה חייבת בחינוך: ול\"ד לסכה שרשאי' כו' דאלת\"ה מאי הקשו התוספות מהלני מלכה שישבה ע\"ב בסכה כנ\"ל הא אסיר לה ליתן להם לאכול חוץ לסכה: ואינה מחוייבת להכניסו כו' דהאם אינה חייבת בחינוך: ועוד דהתם הוי מ\"ע. ר\"ל לאכול בסכה הוא מ\"ע: ואיסור לאו חמור מעשה כדאי' פ\"ק דיבמות בשמעתא דעליה וכדמוכח נמי פ\"ב דיבמות עכ\"ל ת\"ה סימן צ\"ד. ולכן כיון דאכילה בסכה לא הוי רק עשה לכן אפי' ליתן להם מותר. אלא שמ\"א ר\"ס רס\"ט דחה זה לפי מאי דקי\"ל דאפי' איסור דרבנן אין מאכילים בידים כ\"ש עשה דאוריית'. לכן צ\"ל דמ\"ש פה ועוד דהתם הוי מ\"ע נשאר עיקר תירוצו הראשון דשאני סכה דבאכילה אין איסור כו' ובאמת להאכיל לקטן בידים חוץ לסכה אפי' לאשה אסור וכ\"כ להדיא לקמן סי' ר\"מ. אלא מה שחילק לעיל דביו\"כ האכילה בעצמה איסור כתב עכשיו סברא אחרת אפי' יהי' יוה\"כ דומה ממש לסכה בזה. יש להקל יותר בסכה דהוי מ\"ע מביוה\"כ. אולם הת\"ה בסוף התשובה הקשה על התוס' הנ\"ל והוכיח ממס' עירובין רגם האם חייבת בחינוך בנה וסיים שאין להקל ע\"ש: מה שאין כו' בשנת י\"ב. ר\"ל כשהוא בן י\"א שלימים כמ\"ש רמ\"א דאין להקל כ\"א בנער כחוש: משום דהכל לומדים כו' וסמכינן על. דעת רש\"י בכתובות דף נו\"ן ע\"א כפי פרושו של הב\"ח דברי רש\"י ע\"ש אבל כשהוא בן י\"ב שנים שלימים ונכנס לשנת י\"ג מודה רש\"י וגם הב\"ח דצריך להשלים מדרבנן אם לא בנער כחוש דסמכינן על דעת י\"א שהביא רמ\"א. ובס' א\"ר כתב בשם הב\"ח על מ\"ש רמ\"א ויש לסמוך עלייהו בנער שהוא כחוש. וז\"ל ומנהגנו בכל התינוקות כן כיון שלומדים כלם. וגם בזה\"ז מסתמא חשיבי חולים (ב\"ח) באמת הב\"ח לא הקיל כ\"א כשהו' בן י\"ח כנ\"ל. ואפשר דבס' א\"ד כתב כן מסברא דנפשיה ע\"פ סברת הב\"ח. ועוד דסחמא חשיבי חולים. ר\"ל בזמן הזה דירדה חולשה לעולם. וסיים הב\"ח וכיון דלא בקיאים אימת ספק נפשות להקל:",
+      "en_plain": "(Se'if katan 2) We train, etc. See there in Tosafos. This is in Tosafos Yeshanim, and so too in Terumas HaDeshen, siman 94. They asked about what we learned in Yoma 82, that we train minors by hours: but a minor who eats neveilos, the court is not commanded to separate him. If so, can we train them, when separation itself should be required? Rabbeinu Yitzchak answered that training minors applies only to the father, but not to another person, and therefore they are not commanded to separate him. They asked from the case at the beginning of Sukkah, that Queen Helen sat with her seven sons in a sukkah, which shows that even where there is no father, training applies. They answered: perhaps they had a father who trained them for this; and even if they had no father, their mother trained them only as a general mitzvah matter. End quote of Tosafos. So too in the Terumas HaDeshen mentioned above. Tosafos wrote similarly in Nazir 28b, and on page 29a the Gemara concludes explicitly according to Reish Lakish that a mother is not obligated to train her son. Although Rabbi Yochanan there disagrees with Reish Lakish, and according to Rabbi Yochanan it is not necessary to say that a woman is not obligated to train her son, nevertheless it is better to minimize the dispute and say that Rabbi Yochanan too agrees with Reish Lakish on this point. See above in the Magen Avraham, siman 343. Nevertheless, it seems to me that she should not give, etc. Meaning, the mother, although she is not obligated in training. And it is not comparable to sukkah, where she is permitted, etc. For if you would not say so, what did Tosafos ask from Queen Helen sitting with her seven sons in a sukkah, as above? It would have been forbidden for her to give them food outside the sukkah. And she is not obligated to bring him in, etc., because the mother is not obligated in training. Furthermore, there it is a positive commandment. Meaning, eating in the sukkah is a positive commandment. A negative prohibition is more severe than a positive commandment, as stated in the first chapter of Yevamos in the sugya of 'aleha,' and as is also proven in the second chapter of Yevamos. End quote of Terumas HaDeshen, siman 94. Therefore, since eating in a sukkah is only a positive commandment, even giving them food is permitted. However, the Magen Avraham at the beginning of siman 269 rejected this, according to what we rule that even a rabbinic prohibition may not be fed directly to a minor, all the more so a Torah positive commandment. Therefore one must say that what he wrote here, 'furthermore, there it is a positive commandment,' leaves his first answer primary: sukkah is different, because in the eating itself there is no prohibition. In truth, directly feeding a minor outside the sukkah is forbidden even for a woman, and so he wrote explicitly below in siman 640. Rather, after he previously distinguished that on Yom Kippur the eating itself is prohibited, he now writes another reasoning: even if Yom Kippur were exactly comparable to sukkah in this respect, there is more room for leniency with sukkah, because it is a positive commandment, than with Yom Kippur. However, the Terumas HaDeshen at the end of the responsum challenged the Tosafos mentioned above and proved from Eruvin that the mother too is obligated to train her son, and he concluded that one should not be lenient; see there. That which is not, etc. In his twelfth year. Meaning, when he is eleven complete years old, as the Rema wrote, one should be lenient only with a thin youth. Because everyone studies, etc. We rely on Rashi's view in Kesubos 50a according to the Bach's explanation of Rashi's words; see there. But when he is twelve complete years old and enters his thirteenth year, Rashi, and also the Bach, agree that he must complete the fast rabbinically, except for a thin youth, where we rely on the 'some say' opinion brought by the Rema. In Eliyah Rabbah he wrote in the name of the Bach on what the Rema wrote, 'and one may rely on them regarding a youth who is thin': our custom is so with all children, since they all study, and also nowadays they are ordinarily considered sick. In truth, the Bach was lenient only when he is eleven, as above. It is possible that in Eliyah Rabbah he wrote this from his own reasoning based on the Bach's reasoning. And also because ordinarily they are considered sick, meaning nowadays, when weakness has descended to the world. The Bach concluded: since we are not expert when it is danger to life, in a doubt involving life we rule leniently.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman621/seif-003/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 621,
+      "seif": 3,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.991,
+        "he_chars": 470,
+        "en_chars": 936,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 936
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק ג) ונותנים כו'</b> לכן די כשנותנים לתינוק כו' אבל לשאר תינוקות אסור דלמא אתי למסרך:<br />\n<b>ואע\"ג דאם חל מילה בט\"ב כתב בסי' תקנ\"ט סעיף ז' דנותנים לתינוקות.</b> כיון דאינו קבוע בכל שנה שיהי' מילה בט\"ב לכן ל\"ח דלמא אתי למסרך. מ\"מ יוהכ\"פ דהוא דאורייתא החמיר רמ\"א יותר מבט\"ב כן כתב מ\"א לעיל סי' תקנ\"ט:<br />\n<b>ובלבוש כתב כיון שכתב במנהגים שנותנים לתינוקות.</b> רצה לו' לשאר תינוקות. ולא לתינוק הנימול לבד כמו שכתב רמ\"א. ומשוה יוהכ\"פ לט\"ב:<br />\n<b>ומ\"מ צ\"ל מלבד כו'</b> זה קאי ע\"ד רמ\"א שכתב שצ\"ל לתינוק הנימול:\n",
+      "en_html": "<b>(Se'if katan 3) And they give, etc.</b> Therefore it is sufficient when they give it to the infant, etc. But to other children it is forbidden, lest they come to be drawn after it.<br />\n<b>And although if a milah falls on Tishah B'Av, he wrote in siman 559, se'if 7, that they give it to children.</b> Since it is not fixed every year that there will be a milah on Tishah B'Av, we are not concerned lest they come to be drawn after it. Nevertheless, Yom Kippur, which is according to the Torah, the Rema treated more stringently than Tishah B'Av. So wrote the Magen Avraham above, siman 559.<br />\n<b>And the Levush wrote: since it is written in the Minhagim that they give it to children.</b> Meaning, to other children, and not only to the infant being circumcised, as the Rema wrote. He equates Yom Kippur with Tishah B'Av.<br />\n<b>Nevertheless, one must say, besides, etc.</b> This refers to the words of the Rema, who wrote that it must be given to the circumcised infant.\n",
+      "he_plain": "(ס\"ק ג) ונותנים כו' לכן די כשנותנים לתינוק כו' אבל לשאר תינוקות אסור דלמא אתי למסרך: ואע\"ג דאם חל מילה בט\"ב כתב בסי' תקנ\"ט סעיף ז' דנותנים לתינוקות. כיון דאינו קבוע בכל שנה שיהי' מילה בט\"ב לכן ל\"ח דלמא אתי למסרך. מ\"מ יוהכ\"פ דהוא דאורייתא החמיר רמ\"א יותר מבט\"ב כן כתב מ\"א לעיל סי' תקנ\"ט: ובלבוש כתב כיון שכתב במנהגים שנותנים לתינוקות. רצה לו' לשאר תינוקות. ולא לתינוק הנימול לבד כמו שכתב רמ\"א. ומשוה יוהכ\"פ לט\"ב: ומ\"מ צ\"ל מלבד כו' זה קאי ע\"ד רמ\"א שכתב שצ\"ל לתינוק הנימול:",
+      "en_plain": "(Se'if katan 3) And they give, etc. Therefore it is sufficient when they give it to the infant, etc. But to other children it is forbidden, lest they come to be drawn after it. And although if a milah falls on Tishah B'Av, he wrote in siman 559, se'if 7, that they give it to children. Since it is not fixed every year that there will be a milah on Tishah B'Av, we are not concerned lest they come to be drawn after it. Nevertheless, Yom Kippur, which is according to the Torah, the Rema treated more stringently than Tishah B'Av. So wrote the Magen Avraham above, siman 559. And the Levush wrote: since it is written in the Minhagim that they give it to children. Meaning, to other children, and not only to the infant being circumcised, as the Rema wrote. He equates Yom Kippur with Tishah B'Av. Nevertheless, one must say, besides, etc. This refers to the words of the Rema, who wrote that it must be given to the circumcised infant.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman621/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 621,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.945,
+        "he_chars": 435,
+        "en_chars": 846,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 846
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ונותנין לתינוק הנימול</b>. כיון דטעימת כוס אינו אלא משו' גנאי שלא יאמרו שלא לצורך הוא ברכ' זו לכן די כשנותנין לתינוק קטן כזה (ראב\"ן פ\"ג דעירובין) ובתשו' הר\"ן סי' נ\"ב כתב בשם הרשב\"א דהוי ברכה לבטלה כיון שנותן לתינוק קטן כזה ובלבוש כתוב כיון שכתוב במנהגים ונותנים לתינוקות אין למחות ביד הנוהגים היתר עכ\"ל ומ\"מ נ\"ל דמלבד מה שנותנין לפי התינוק כשאו' בדמיך חיי צריך ליתן לו לשתות קצת מהכוס דאל\"כ מ\"מ איכא גנאי להכוס ועבי\"ד סי' רס\"ה סס\"א וסס\"ד:\n",
+      "en_html": "<b>And they give it to the circumcised infant.</b> Since tasting from the cup is only because of disgrace, so that people should not say that this blessing is unnecessary, it is sufficient when they give it to such a small child (Ra'avan, chapter 3 of Eruvin). In Responsa Ran, siman 52, he wrote in the name of the Rashba that it is a blessing in vain, since he gives it to such a small child. In the Levush it is written: Since it is written in the Minhagim, 'and they give it to children,' one should not protest against those who practice leniently. End quote. Nevertheless, it seems to me that besides what they place in the infant's mouth when saying 'Through your blood you shall live,' one must give him a little to drink from the cup; otherwise, there is still disgrace to the cup. See Yoreh De'ah, siman 265, end of se'if 1 and end of se'if 4.\n",
+      "he_plain": "ונותנין לתינוק הנימול . כיון דטעימת כוס אינו אלא משו' גנאי שלא יאמרו שלא לצורך הוא ברכ' זו לכן די כשנותנין לתינוק קטן כזה (ראב\"ן פ\"ג דעירובין) ובתשו' הר\"ן סי' נ\"ב כתב בשם הרשב\"א דהוי ברכה לבטלה כיון שנותן לתינוק קטן כזה ובלבוש כתוב כיון שכתוב במנהגים ונותנים לתינוקות אין למחות ביד הנוהגים היתר עכ\"ל ומ\"מ נ\"ל דמלבד מה שנותנין לפי התינוק כשאו' בדמיך חיי צריך ליתן לו לשתות קצת מהכוס דאל\"כ מ\"מ איכא גנאי להכוס ועבי\"ד סי' רס\"ה סס\"א וסס\"ד:",
+      "en_plain": "And they give it to the circumcised infant. Since tasting from the cup is only because of disgrace, so that people should not say that this blessing is unnecessary, it is sufficient when they give it to such a small child (Ra'avan, chapter 3 of Eruvin). In Responsa Ran, siman 52, he wrote in the name of the Rashba that it is a blessing in vain, since he gives it to such a small child. In the Levush it is written: Since it is written in the Minhagim, 'and they give it to children,' one should not protest against those who practice leniently. End quote. Nevertheless, it seems to me that besides what they place in the infant's mouth when saying 'Through your blood you shall live,' one must give him a little to drink from the cup; otherwise, there is still disgrace to the cup. See Yoreh De'ah, siman 265, end of se'if 1 and end of se'if 4.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman629/seif-006/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 629,
+      "seif": 6,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.292,
+        "he_chars": 1792,
+        "en_chars": 2316,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2316
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(יד) שאינה ראויה לשכיבה - אין הלשון מדוקדק דאי אינה ראויה כלל אמאי אמרינן דסתמא לשכיבה אלא ר\"ל שאינה שאינה ראויה כ\"כ וכן הוא בהדיא בטור:<br />\n(טו) אם היא קטנה - היינו כדי שכיבה:<br />\n(טז) סתמא עומדת לשכיבה ומקבלת טומאה וכו' - פי' דכיון דסתמא לשכיבה היא ראויה לקבל טומאה לכשישכב בה הזב וכיון שכן אף מעתה אינה ראויה לסיכוך שכל הראוי לקבל טומאה אין מסככין בו וכנ\"ל:<br />\n(יז) דהיינו שרוב וכו' - הנה אם עשאה בפירוש לסיכוך מהני אפילו במקום שאין מנהג מבורר בעיר בזה ולא אתי הרמ\"א לאפוקי רק ההיפוך דאם המנהג בעיר לשכיבה לא מהני במה שהוא עושה לסיכוך או שקנאה בפירוש לסיכוך דמי יודע דבר זה ואתו כ\"ע לסכוכי בהו. ופעמים שדבר זה מהני גם להקל דהיינו אם עשאה סתמא או שאינו ידוע לן אם עשאה לסיכוך או לשכיבה ורוב בני העיר עושין אותה לסיכוך תלינן שגם הוא עשה לסיכוך:<br />\n(יח) אלא א\"כ עשאה לשכיבה דהיינו וכו' - אין ר\"ל לאפוקי אם היה המנהג לסיכוך אז גם מחשבה דידיה שחשב לשכיבה לא מהני מידי ומותר לסכך דזה אינו דכיון שחשב לשכיבה הרי ירדה לה תורת טומאה ואסור לסכך אלא אתי לאשמועינן דלאו דוקא אם עשאה לשכיבה אלא דה\"ה אם מנהג המקום לשכיבה הוי כאלו עשאה בעצמו לשכיבה. ואם אינו ידוע מנהג המקום לכו\"ע מותר לסכך בה כ\"ז שלא ידעינן שעשאה לשכיבה. ודע דבמקומות הללו כל מחצלת עשויות לשכיבה וא\"כ אפילו הוא עשאה לסיכוך ג\"כ אין מסככין בם:<br />\n(יט) בענין שראויה לקבל - ר\"ל כיון שראויה לקבל הרי יש עליה שם כלי ומקבלת טומאה ואין מסככין בה וה\"מ בסתמא אז אמרינן דכיון שיש לה שפה מוכח דנעשית לקבלה וממילא מקבלת טומאה אבל אם דעתו בהדיא לסיכוך אע\"פ שיש לה שפה אינה מקבלת טומאה וקיבול זה אינו חשיב כלום כיון שאינה עשויה לקבלה ויש מאחרונים שסוברין דכיון שיש לה שפה בכל גווני מקבלת טומאה ואין מסככין בה:<br />\n(כ) אפילו אם ניטל שפתה - דומיא דכל שברי כלים שאין מסככין בהם מדרבנן וכנ\"ל בס\"ב:<br />\n(כא) אין מסככין בהם - ר\"ל אפילו נעשו לסיכוך שאין מקבלין טומאה גזירה שמא ישב תחת תקרת הבית שעשוי ממחצלאות ומחצלאות של תקרת הבית פסולין מן התורה שלא הוקבעו שם לשם צל אלא לשם דירה:\n",
+      "en_html": "(א) (d) that is not worthy of an obligation, the tongue from Doc Dawy is not worthy of any mother, but rather, a lawyer who is not so worthy of the order:\n<br>(ב) If she was small, we were to be called:\n<br>(ג) (Ts) Sethma is about to sit down and receive uncleanness and so on, and so on, according to Dr. D.D., she deserves to receive a uncleanness to the extent that he is inhabited, and that he is not worthy of any reason that he should be given to him, and that he has no intention:\n<br>(ד) (a) That is to say that most of this and so on is not the case of the Omnipresent’s wrath, even in the place where there is no blessing in the city in this city, and not with the people of the Holy One, it is only the opposite of the city’s custom in order to dwell not in what it does to the end or that envy of this thing, and it is as a result. And sometimes this is what I can also make it easier, namely, if it is not known to them, if it has been adopted in the end or in the neighborhood, and most of the people of the city owe it to the end of the city, it is also done to the end:\n<br>(ה) (b) But then, I am not afraid of the the Omnipresent’s Prayer, nor do I believe that it is not my fault, nor is it possible for him to be called the the Omnipresent’s Prayer, and that he should not be rejected, and that he should not be called to his father’s house, if he is not his own. And if it is not known, it is permissible for the the spirit to do so as to do so. In these places, all the groves may dwell And he’s not even willing to do so\n<br>(ו) (T) In a matter worthy of receiving, R. A.D. is worthy of receiving an instrument and receiving uncleanness, and does not agree with it, and says, “There is a proven language that is made to receive it, and therefore it is not possible for it to receive it, but if it is thought that it is not a language that does not receive any reason for it\n<br>(ז) (b) Even if it has been circumcised, Dommya has not prepared any tools that do not contain any of them from a rabbinical and ISA:\n<br>(ח) (a) There is no filter in them - R.L. even made a conclusion that no one receives a hundred grams of cliche that is sitting under the ceiling of the house that is made from the graves and shadows of the roof of the house from the Torah that was not carried out there for a shadow but for an apartment:",
+      "he_plain": "(יד) שאינה ראויה לשכיבה - אין הלשון מדוקדק דאי אינה ראויה כלל אמאי אמרינן דסתמא לשכיבה אלא ר\"ל שאינה שאינה ראויה כ\"כ וכן הוא בהדיא בטור: (טו) אם היא קטנה - היינו כדי שכיבה: (טז) סתמא עומדת לשכיבה ומקבלת טומאה וכו' - פי' דכיון דסתמא לשכיבה היא ראויה לקבל טומאה לכשישכב בה הזב וכיון שכן אף מעתה אינה ראויה לסיכוך שכל הראוי לקבל טומאה אין מסככין בו וכנ\"ל: (יז) דהיינו שרוב וכו' - הנה אם עשאה בפירוש לסיכוך מהני אפילו במקום שאין מנהג מבורר בעיר בזה ולא אתי הרמ\"א לאפוקי רק ההיפוך דאם המנהג בעיר לשכיבה לא מהני במה שהוא עושה לסיכוך או שקנאה בפירוש לסיכוך דמי יודע דבר זה ואתו כ\"ע לסכוכי בהו. ופעמים שדבר זה מהני גם להקל דהיינו אם עשאה סתמא או שאינו ידוע לן אם עשאה לסיכוך או לשכיבה ורוב בני העיר עושין אותה לסיכוך תלינן שגם הוא עשה לסיכוך: (יח) אלא א\"כ עשאה לשכיבה דהיינו וכו' - אין ר\"ל לאפוקי אם היה המנהג לסיכוך אז גם מחשבה דידיה שחשב לשכיבה לא מהני מידי ומותר לסכך דזה אינו דכיון שחשב לשכיבה הרי ירדה לה תורת טומאה ואסור לסכך אלא אתי לאשמועינן דלאו דוקא אם עשאה לשכיבה אלא דה\"ה אם מנהג המקום לשכיבה הוי כאלו עשאה בעצמו לשכיבה. ואם אינו ידוע מנהג המקום לכו\"ע מותר לסכך בה כ\"ז שלא ידעינן שעשאה לשכיבה. ודע דבמקומות הללו כל מחצלת עשויות לשכיבה וא\"כ אפילו הוא עשאה לסיכוך ג\"כ אין מסככין בם: (יט) בענין שראויה לקבל - ר\"ל כיון שראויה לקבל הרי יש עליה שם כלי ומקבלת טומאה ואין מסככין בה וה\"מ בסתמא אז אמרינן דכיון שיש לה שפה מוכח דנעשית לקבלה וממילא מקבלת טומאה אבל אם דעתו בהדיא לסיכוך אע\"פ שיש לה שפה אינה מקבלת טומאה וקיבול זה אינו חשיב כלום כיון שאינה עשויה לקבלה ויש מאחרונים שסוברין דכיון שיש לה שפה בכל גווני מקבלת טומאה ואין מסככין בה: (כ) אפילו אם ניטל שפתה - דומיא דכל שברי כלים שאין מסככין בהם מדרבנן וכנ\"ל בס\"ב: (כא) אין מסככין בהם - ר\"ל אפילו נעשו לסיכוך שאין מקבלין טומאה גזירה שמא ישב תחת תקרת הבית שעשוי ממחצלאות ומחצלאות של תקרת הבית פסולין מן התורה שלא הוקבעו שם לשם צל אלא לשם דירה:",
+      "en_plain": "(א) (d) that is not worthy of an obligation, the tongue from Doc Dawy is not worthy of any mother, but rather, a lawyer who is not so worthy of the order: (ב) If she was small, we were to be called: (ג) (Ts) Sethma is about to sit down and receive uncleanness and so on, and so on, according to Dr. D.D., she deserves to receive a uncleanness to the extent that he is inhabited, and that he is not worthy of any reason that he should be given to him, and that he has no intention: (ד) (a) That is to say that most of this and so on is not the case of the Omnipresent’s wrath, even in the place where there is no blessing in the city in this city, and not with the people of the Holy One, it is only the opposite of the city’s custom in order to dwell not in what it does to the end or that envy of this thing, and it is as a result. And sometimes this is what I can also make it easier, namely, if it is not known to them, if it has been adopted in the end or in the neighborhood, and most of the people of the city owe it to the end of the city, it is also done to the end: (ה) (b) But then, I am not afraid of the the Omnipresent’s Prayer, nor do I believe that it is not my fault, nor is it possible for him to be called the the Omnipresent’s Prayer, and that he should not be rejected, and that he should not be called to his father’s house, if he is not his own. And if it is not known, it is permissible for the the spirit to do so as to do so. In these places, all the groves may dwell And he’s not even willing to do so (ו) (T) In a matter worthy of receiving, R. A.D. is worthy of receiving an instrument and receiving uncleanness, and does not agree with it, and says, “There is a proven language that is made to receive it, and therefore it is not possible for it to receive it, but if it is thought that it is not a language that does not receive any reason for it (ז) (b) Even if it has been circumcised, Dommya has not prepared any tools that do not contain any of them from a rabbinical and ISA: (ח) (a) There is no filter in them - R.L. even made a conclusion that no one receives a hundred grams of cliche that is sitting under the ceiling of the house that is made from the graves and shadows of the roof of the house from the Torah that was not carried out there for a shadow but for an apartment:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman63/seif-002/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 63,
+      "seif": 2,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.9,
+        "he_chars": 2725,
+        "en_chars": 5177,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 5177
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ה) [סעיף ב'] מי שרוצה להחמיר וכו'.  </b>כתב מהרש\"ל ביש\"ש פ\"ז דב\"ק סי' מ\"א דמי שמחמיר בפני רבים בדבר שמותר ואיכא למיחש ליוהרא מנדין אותו ואם ידוע שעושה לש\"ש אין מנדין אותו ואם מחמיר לפני רבו ורבו מיקל מנדין אותו אפי' עושה לש\"ש ואפי' אין פשוט כ\"כ להתיר לא יחמיר נגד דברי רבו אם לא שיש לו ראיה לסתור דבריו, מ\"א סק\"ב, סו\"ב אות ב', א\"ר אות ד' חס\"ל אות ב'. ועיין א\"א ומחה\"ש אות ב', וכתב הברכ\"י אות א' בשם מהר\"ר מנחם לבית מאיר והובא בשיטה מקובצת קמא דפ\"א ע\"ב דדבר שהתרו פשוט אין ראוי להחמיר בפני מי שגדול בחכמה בשעה שהגדול נוהג היתר. ואם עשה כן יכול הגדול לנדותו. ואם נודע המחמיר בחסידות הרי זה עושה. ועיין מהרד\"ך בתשו' סוף בית כ\"ו יעוש\"ב. ועוד עיין גו\"ר יו\"ד כלל ג' סוף סי' ו':<br />\n<b>ו) שם  </b>מי שרוצה להחמיר לעמוד כשהוא יושב ולקרותה מעומד נקרא עבריין בטור סיים משם רב עמרם וצריך לגעור בו שמצותה מיושב וכתב ב\"י דנראה לו שה\"ק שמצותה אף מיושב יעו\"ש. אבל הפרישה אות ו' כתב דמצותה מיושב דוקא קאמר יעו\"ש. וכ\"נ דעת מור\"ם ז\"ל בד\"מ אות א' שכתב על דברי ב\"י הנ\"ל וז\"ל והגמ\"י פ\"ב משמע דטוב יותר מיושב מעומד עכ\"ל משמע דבא לחלוק על מרן ז\"ל ולומר דמצותה מיושב דוקא. וכ\"כ הפר\"ח אות ב' דמ\"ש הטור בשם ר\"ע דעיקר המצוה הויא מיושב כדי שתהא דעתו מיושבת עליו ביותר וכדאמרינן בס\"פ שלשה שאכלו והלכתא בכולהו יושב ומברך עכ\"ד. והביאו מאמ\"ר אות ב' וכתב שדבריו נכונים יעו\"ש. וכ\"מ ממ\"ש במדרש בב\"ר פ' מ\"ח והוא יושב פתח האוהל ר\"ב משוס ר\"ל אמר ישב כתיב בקש לעמוד א\"ל הקב\"ה שב וכו' כך בניך יושבים כשישראל נכנסים לב\"כ ונב\"מ וקורין ק\"ש והם יושבים לכבודי ואני ע\"ג שנאמר אלהים נצב בעדת אל, וכן איתא במד\"ר ס' נשא פ' י\"א ובמדרש חזית בפסוק דומה דודי לצבי יעו\"ש, יפ\"ל אות ב', וכ\"מ מדברי שער הכוו' דרוש ב', דחזרת העמידה דל\"ח ע\"ד ופע\"ח שער הק\"ש סוף פרק כ\"ט דכוון דק\"ש היא בבחי' עולם הבריאה צ\"ל מיושב יעו\"ש, ואע\"ג דבשער הכוו' דרוש ו' דק\"ש דכ\"ב ע\"ג כתב דאין אנו חייבין לאומרה וכו' משמע דאם רוצה לאומרה מעומד לא איכפת מ\"מ לפי סודם של דברים מיושב עדיף כדמשמע בדרוש ב' דחזרת העמידה ופע\"ח כנז' ועיין עט\"ז אות ב', בן א\"ח ז\"ל פ' וארא אות ט\"ז:<br />\n<b>ז) שם  </b>ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק:<br />\n<b>ח) שם  </b>נקרא עבריין. משמע דיצא י\"ח. ואף לרב יוסף דאמר עשה כב\"ש לא עשה כלום היינו שלא קיים המצוה כראוי דהא מדמי לה למי שהיה ראשו ורובו בסוכה ושולחנו בתוך הבית דיצא בדיעבד כמ\"ש הר\"ן ס\"פ ע\"פ אמתניתין דמי שלא אמר ג' דברים אלו בפסח לא יצא י\"ח וכה\"ג כתב הרמב\"ן במלחמות בפ\"ק דברכות והטור סס\"י ס\"ו יעו\"ש. ער\"ה אות א'. ועיין מט\"י אות א' מ\"ש בזה. וכן הסכים פתה\"ד אות ב' לדברי הער\"ה יעו\"ש. וכן נראה דעת היפ\"ל ז\"ל באות ב' יעו\"ש:<br />\n<b>ט) שם  </b>נקרא עבריין. ואם עושה כדי להעביר השינה שרי. חס\"ל אות ב'. בן א\"ח פ' וארא אות ט\"ו:\n",
+      "en_html": "<b>5) [Se'if 2] One who wishes to be stringent, etc.</b> Maharshal writes in Yam Shel Shlomo, Bava Kamma, chapter 7, siman 41, that one who publicly acts stringently regarding a permitted matter when there is concern for ostentation is placed under a ban. If he is known to act for the sake of Heaven, he is not banned. If he acts stringently before his rav while his rav is lenient, he is banned even if he acts for the sake of Heaven. Even where the permission is not entirely obvious, he should not be stringent against his rav's ruling unless he has proof refuting it. Magen Avraham, paragraph 2; Soles Belulah, paragraph 2; Eliyah Rabbah, paragraph 4; Chesed LaAlafim, paragraph 2. See Pri Megadim, Eshel Avraham, and Machatzis HaShekel, paragraph 2. Birkei Yosef, paragraph 1, cites Rabbi Menachem of Beis Meir, brought in Shitah Mekubetzes, Bava Kamma 81b: when a matter's permission is obvious, it is improper to be stringent in the presence of one greater in wisdom while that scholar follows the lenient ruling. If he does so, the scholar may place him under a ban. If the stringent person is recognized for piety, however, he may act stringently. See Responsa Maharadakh, end of responsum 26, and Ginnas Veradim, Yoreh Deah, rule 3, end of siman 6.<br />\n<b>6) There: One who wishes to be stringent by standing when seated and reciting it standing is called a transgressor.</b> Tur concludes in the name of Rav Amram that one should rebuke him, because the mitzvah is recited while seated. Beis Yosef explains this to mean that it may be recited even while seated. Prishah, paragraph 6, however, writes that it specifically should be recited while seated. Rema in Darkei Moshe, paragraph 1, also appears to hold this. He comments upon Beis Yosef that Hagahos Maimoniyos, chapter 2, implies that sitting is better than standing, apparently disagreeing with Maran and requiring sitting. Pri Chadash, paragraph 2, similarly writes that Tur's statement in the name of Rav Amram means that the principal mitzvah is seated, so that one's mind will be more settled, like the conclusion at the end of the chapter Sheloshah She'achlu that in all those cases the halachah is to sit and recite the blessing. Maamar Mordechai, paragraph 2, cites him and approves. This is also implied by Bereishis Rabbah, chapter 48, on \"He was sitting at the entrance of the tent\": Rabbi Berechyah in the name of Rabbi Levi says the word is written \"sit.\" Avraham wished to stand, but the Holy One, blessed be He, told him, \"Sit.\" So too your descendants will sit: when Israel enters synagogues and study halls and recites Krias Shema, they sit in My honor, while I stand over them, as it is stated, \"God stands in the congregation of the Almighty.\" The same appears in Bamidbar Rabbah, Parashas Naso, chapter 11, and Midrash Chazis on \"My Beloved resembles a gazelle.\" Yafeh LaLev, paragraph 2. Shaar HaKavanos, discourse 2 concerning the repetition of the Amidah, folio 38d, and Pri Etz Chaim, Shaar Krias Shema, end of chapter 29, likewise imply that since Krias Shema corresponds to the world of Beriah it must be recited while seated. Although Shaar HaKavanos, discourse 6 concerning Krias Shema, folio 22c, writes that we are not obligated to recite it, etc., implying that standing would not matter, according to the mystical teaching sitting remains preferable, as implied by the cited discourse 2 and Pri Etz Chaim. See Ateres Zekenim, paragraph 2, and Ben Ish Chai, Parashas Va'eira, paragraph 16.<br />\n<b>7) There: And recite it standing, etc.</b> Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully.<br />\n<b>8) There: He is called a transgressor.</b> This implies that he nevertheless fulfilled his obligation. Even according to Rav Yosef, who says that one who acted like Beis Shammai accomplished nothing, this means that he did not fulfill the mitzvah properly. The Gemara compares it to one whose head and most of his body were in a sukkah while his table was inside the house; after the fact he fulfilled the obligation, as Ran writes at the end of Arvei Pesachim regarding the Mishnah's statement that one who did not mention these three matters on Pesach did not fulfill his obligation. Ramban writes similarly in Milchamos at the beginning of Berachos, as does Tur at the end of siman 66. Erekh HaShulchan, paragraph 1. See Mateh Yehudah, paragraph 1, for his discussion. Pischei HaDvir, paragraph 2, agrees with Erekh HaShulchan, and Yafeh LaLev, paragraph 2, appears to agree as well.<br />\n<b>9) There: He is called a transgressor.</b> If he stands in order to dispel sleep, it is permitted. Chesed LaAlafim, paragraph 2; Ben Ish Chai, Parashas Va'eira, paragraph 15.\n",
+      "he_plain": "ה) [סעיף ב'] מי שרוצה להחמיר וכו'. כתב מהרש\"ל ביש\"ש פ\"ז דב\"ק סי' מ\"א דמי שמחמיר בפני רבים בדבר שמותר ואיכא למיחש ליוהרא מנדין אותו ואם ידוע שעושה לש\"ש אין מנדין אותו ואם מחמיר לפני רבו ורבו מיקל מנדין אותו אפי' עושה לש\"ש ואפי' אין פשוט כ\"כ להתיר לא יחמיר נגד דברי רבו אם לא שיש לו ראיה לסתור דבריו, מ\"א סק\"ב, סו\"ב אות ב', א\"ר אות ד' חס\"ל אות ב'. ועיין א\"א ומחה\"ש אות ב', וכתב הברכ\"י אות א' בשם מהר\"ר מנחם לבית מאיר והובא בשיטה מקובצת קמא דפ\"א ע\"ב דדבר שהתרו פשוט אין ראוי להחמיר בפני מי שגדול בחכמה בשעה שהגדול נוהג היתר. ואם עשה כן יכול הגדול לנדותו. ואם נודע המחמיר בחסידות הרי זה עושה. ועיין מהרד\"ך בתשו' סוף בית כ\"ו יעוש\"ב. ועוד עיין גו\"ר יו\"ד כלל ג' סוף סי' ו': ו) שם מי שרוצה להחמיר לעמוד כשהוא יושב ולקרותה מעומד נקרא עבריין בטור סיים משם רב עמרם וצריך לגעור בו שמצותה מיושב וכתב ב\"י דנראה לו שה\"ק שמצותה אף מיושב יעו\"ש. אבל הפרישה אות ו' כתב דמצותה מיושב דוקא קאמר יעו\"ש. וכ\"נ דעת מור\"ם ז\"ל בד\"מ אות א' שכתב על דברי ב\"י הנ\"ל וז\"ל והגמ\"י פ\"ב משמע דטוב יותר מיושב מעומד עכ\"ל משמע דבא לחלוק על מרן ז\"ל ולומר דמצותה מיושב דוקא. וכ\"כ הפר\"ח אות ב' דמ\"ש הטור בשם ר\"ע דעיקר המצוה הויא מיושב כדי שתהא דעתו מיושבת עליו ביותר וכדאמרינן בס\"פ שלשה שאכלו והלכתא בכולהו יושב ומברך עכ\"ד. והביאו מאמ\"ר אות ב' וכתב שדבריו נכונים יעו\"ש. וכ\"מ ממ\"ש במדרש בב\"ר פ' מ\"ח והוא יושב פתח האוהל ר\"ב משוס ר\"ל אמר ישב כתיב בקש לעמוד א\"ל הקב\"ה שב וכו' כך בניך יושבים כשישראל נכנסים לב\"כ ונב\"מ וקורין ק\"ש והם יושבים לכבודי ואני ע\"ג שנאמר אלהים נצב בעדת אל, וכן איתא במד\"ר ס' נשא פ' י\"א ובמדרש חזית בפסוק דומה דודי לצבי יעו\"ש, יפ\"ל אות ב', וכ\"מ מדברי שער הכוו' דרוש ב', דחזרת העמידה דל\"ח ע\"ד ופע\"ח שער הק\"ש סוף פרק כ\"ט דכוון דק\"ש היא בבחי' עולם הבריאה צ\"ל מיושב יעו\"ש, ואע\"ג דבשער הכוו' דרוש ו' דק\"ש דכ\"ב ע\"ג כתב דאין אנו חייבין לאומרה וכו' משמע דאם רוצה לאומרה מעומד לא איכפת מ\"מ לפי סודם של דברים מיושב עדיף כדמשמע בדרוש ב' דחזרת העמידה ופע\"ח כנז' ועיין עט\"ז אות ב', בן א\"ח ז\"ל פ' וארא אות ט\"ז: ז) שם ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק: ח) שם נקרא עבריין. משמע דיצא י\"ח. ואף לרב יוסף דאמר עשה כב\"ש לא עשה כלום היינו שלא קיים המצוה כראוי דהא מדמי לה למי שהיה ראשו ורובו בסוכה ושולחנו בתוך הבית דיצא בדיעבד כמ\"ש הר\"ן ס\"פ ע\"פ אמתניתין דמי שלא אמר ג' דברים אלו בפסח לא יצא י\"ח וכה\"ג כתב הרמב\"ן במלחמות בפ\"ק דברכות והטור סס\"י ס\"ו יעו\"ש. ער\"ה אות א'. ועיין מט\"י אות א' מ\"ש בזה. וכן הסכים פתה\"ד אות ב' לדברי הער\"ה יעו\"ש. וכן נראה דעת היפ\"ל ז\"ל באות ב' יעו\"ש: ט) שם נקרא עבריין. ואם עושה כדי להעביר השינה שרי. חס\"ל אות ב'. בן א\"ח פ' וארא אות ט\"ו:",
+      "en_plain": "5) [Se'if 2] One who wishes to be stringent, etc. Maharshal writes in Yam Shel Shlomo, Bava Kamma, chapter 7, siman 41, that one who publicly acts stringently regarding a permitted matter when there is concern for ostentation is placed under a ban. If he is known to act for the sake of Heaven, he is not banned. If he acts stringently before his rav while his rav is lenient, he is banned even if he acts for the sake of Heaven. Even where the permission is not entirely obvious, he should not be stringent against his rav's ruling unless he has proof refuting it. Magen Avraham, paragraph 2; Soles Belulah, paragraph 2; Eliyah Rabbah, paragraph 4; Chesed LaAlafim, paragraph 2. See Pri Megadim, Eshel Avraham, and Machatzis HaShekel, paragraph 2. Birkei Yosef, paragraph 1, cites Rabbi Menachem of Beis Meir, brought in Shitah Mekubetzes, Bava Kamma 81b: when a matter's permission is obvious, it is improper to be stringent in the presence of one greater in wisdom while that scholar follows the lenient ruling. If he does so, the scholar may place him under a ban. If the stringent person is recognized for piety, however, he may act stringently. See Responsa Maharadakh, end of responsum 26, and Ginnas Veradim, Yoreh Deah, rule 3, end of siman 6. 6) There: One who wishes to be stringent by standing when seated and reciting it standing is called a transgressor. Tur concludes in the name of Rav Amram that one should rebuke him, because the mitzvah is recited while seated. Beis Yosef explains this to mean that it may be recited even while seated. Prishah, paragraph 6, however, writes that it specifically should be recited while seated. Rema in Darkei Moshe, paragraph 1, also appears to hold this. He comments upon Beis Yosef that Hagahos Maimoniyos, chapter 2, implies that sitting is better than standing, apparently disagreeing with Maran and requiring sitting. Pri Chadash, paragraph 2, similarly writes that Tur's statement in the name of Rav Amram means that the principal mitzvah is seated, so that one's mind will be more settled, like the conclusion at the end of the chapter Sheloshah She'achlu that in all those cases the halachah is to sit and recite the blessing. Maamar Mordechai, paragraph 2, cites him and approves. This is also implied by Bereishis Rabbah, chapter 48, on \"He was sitting at the entrance of the tent\": Rabbi Berechyah in the name of Rabbi Levi says the word is written \"sit.\" Avraham wished to stand, but the Holy One, blessed be He, told him, \"Sit.\" So too your descendants will sit: when Israel enters synagogues and study halls and recites Krias Shema, they sit in My honor, while I stand over them, as it is stated, \"God stands in the congregation of the Almighty.\" The same appears in Bamidbar Rabbah, Parashas Naso, chapter 11, and Midrash Chazis on \"My Beloved resembles a gazelle.\" Yafeh LaLev, paragraph 2. Shaar HaKavanos, discourse 2 concerning the repetition of the Amidah, folio 38d, and Pri Etz Chaim, Shaar Krias Shema, end of chapter 29, likewise imply that since Krias Shema corresponds to the world of Beriah it must be recited while seated. Although Shaar HaKavanos, discourse 6 concerning Krias Shema, folio 22c, writes that we are not obligated to recite it, etc., implying that standing would not matter, according to the mystical teaching sitting remains preferable, as implied by the cited discourse 2 and Pri Etz Chaim. See Ateres Zekenim, paragraph 2, and Ben Ish Chai, Parashas Va'eira, paragraph 16. 7) There: And recite it standing, etc. Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully. 8) There: He is called a transgressor. This implies that he nevertheless fulfilled his obligation. Even according to Rav Yosef, who says that one who acted like Beis Shammai accomplished nothing, this means that he did not fulfill the mitzvah properly. The Gemara compares it to one whose head and most of his body were in a sukkah while his table was inside the house; after the fact he fulfilled the obligation, as Ran writes at the end of Arvei Pesachim regarding the Mishnah's statement that one who did not mention these three matters on Pesach did not fulfill his obligation. Ramban writes similarly in Milchamos at the beginning of Berachos, as does Tur at the end of siman 66. Erekh HaShulchan, paragraph 1. See Mateh Yehudah, paragraph 1, for his discussion. Pischei HaDvir, paragraph 2, agrees with Erekh HaShulchan, and Yafeh LaLev, paragraph 2, appears to agree as well. 9) There: He is called a transgressor. If he stands in order to dispel sleep, it is permitted. Chesed LaAlafim, paragraph 2; Ben Ish Chai, Parashas Va'eira, paragraph 15.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman63/seif-006/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 63,
+      "seif": 6,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.844,
+        "he_chars": 1203,
+        "en_chars": 2218,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2218
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ו) שם  </b>מי שרוצה להחמיר לעמוד כשהוא יושב ולקרותה מעומד נקרא עבריין בטור סיים משם רב עמרם וצריך לגעור בו שמצותה מיושב וכתב ב\"י דנראה לו שה\"ק שמצותה אף מיושב יעו\"ש. אבל הפרישה אות ו' כתב דמצותה מיושב דוקא קאמר יעו\"ש. וכ\"נ דעת מור\"ם ז\"ל בד\"מ אות א' שכתב על דברי ב\"י הנ\"ל וז\"ל והגמ\"י פ\"ב משמע דטוב יותר מיושב מעומד עכ\"ל משמע דבא לחלוק על מרן ז\"ל ולומר דמצותה מיושב דוקא. וכ\"כ הפר\"ח אות ב' דמ\"ש הטור בשם ר\"ע דעיקר המצוה הויא מיושב כדי שתהא דעתו מיושבת עליו ביותר וכדאמרינן בס\"פ שלשה שאכלו והלכתא בכולהו יושב ומברך עכ\"ד. והביאו מאמ\"ר אות ב' וכתב שדבריו נכונים יעו\"ש. וכ\"מ ממ\"ש במדרש בב\"ר פ' מ\"ח והוא יושב פתח האוהל ר\"ב משוס ר\"ל אמר ישב כתיב בקש לעמוד א\"ל הקב\"ה שב וכו' כך בניך יושבים כשישראל נכנסים לב\"כ ונב\"מ וקורין ק\"ש והם יושבים לכבודי ואני ע\"ג שנאמר אלהים נצב בעדת אל, וכן איתא במד\"ר ס' נשא פ' י\"א ובמדרש חזית בפסוק דומה דודי לצבי יעו\"ש, יפ\"ל אות ב', וכ\"מ מדברי שער הכוו' דרוש ב', דחזרת העמידה דל\"ח ע\"ד ופע\"ח שער הק\"ש סוף פרק כ\"ט דכוון דק\"ש היא בבחי' עולם הבריאה צ\"ל מיושב יעו\"ש, ואע\"ג דבשער הכוו' דרוש ו' דק\"ש דכ\"ב ע\"ג כתב דאין אנו חייבין לאומרה וכו' משמע דאם רוצה לאומרה מעומד לא איכפת מ\"מ לפי סודם של דברים מיושב עדיף כדמשמע בדרוש ב' דחזרת העמידה ופע\"ח כנז' ועיין עט\"ז אות ב', בן א\"ח ז\"ל פ' וארא אות ט\"ז:\n",
+      "en_html": "<b>6) There: One who wishes to be stringent by standing when seated and reciting it standing is called a transgressor.</b> Tur concludes in the name of Rav Amram that one should rebuke him, because the mitzvah is recited while seated. Beis Yosef explains this to mean that it may be recited even while seated. Prishah, paragraph 6, however, writes that it specifically should be recited while seated. Rema in Darkei Moshe, paragraph 1, also appears to hold this. He comments upon Beis Yosef that Hagahos Maimoniyos, chapter 2, implies that sitting is better than standing, apparently disagreeing with Maran and requiring sitting. Pri Chadash, paragraph 2, similarly writes that Tur's statement in the name of Rav Amram means that the principal mitzvah is seated, so that one's mind will be more settled, like the conclusion at the end of the chapter Sheloshah She'achlu that in all those cases the halachah is to sit and recite the blessing. Maamar Mordechai, paragraph 2, cites him and approves. This is also implied by Bereishis Rabbah, chapter 48, on \"He was sitting at the entrance of the tent\": Rabbi Berechyah in the name of Rabbi Levi says the word is written \"sit.\" Avraham wished to stand, but the Holy One, blessed be He, told him, \"Sit.\" So too your descendants will sit: when Israel enters synagogues and study halls and recites Krias Shema, they sit in My honor, while I stand over them, as it is stated, \"God stands in the congregation of the Almighty.\" The same appears in Bamidbar Rabbah, Parashas Naso, chapter 11, and Midrash Chazis on \"My Beloved resembles a gazelle.\" Yafeh LaLev, paragraph 2. Shaar HaKavanos, discourse 2 concerning the repetition of the Amidah, folio 38d, and Pri Etz Chaim, Shaar Krias Shema, end of chapter 29, likewise imply that since Krias Shema corresponds to the world of Beriah it must be recited while seated. Although Shaar HaKavanos, discourse 6 concerning Krias Shema, folio 22c, writes that we are not obligated to recite it, etc., implying that standing would not matter, according to the mystical teaching sitting remains preferable, as implied by the cited discourse 2 and Pri Etz Chaim. See Ateres Zekenim, paragraph 2, and Ben Ish Chai, Parashas Va'eira, paragraph 16.\n",
+      "he_plain": "ו) שם מי שרוצה להחמיר לעמוד כשהוא יושב ולקרותה מעומד נקרא עבריין בטור סיים משם רב עמרם וצריך לגעור בו שמצותה מיושב וכתב ב\"י דנראה לו שה\"ק שמצותה אף מיושב יעו\"ש. אבל הפרישה אות ו' כתב דמצותה מיושב דוקא קאמר יעו\"ש. וכ\"נ דעת מור\"ם ז\"ל בד\"מ אות א' שכתב על דברי ב\"י הנ\"ל וז\"ל והגמ\"י פ\"ב משמע דטוב יותר מיושב מעומד עכ\"ל משמע דבא לחלוק על מרן ז\"ל ולומר דמצותה מיושב דוקא. וכ\"כ הפר\"ח אות ב' דמ\"ש הטור בשם ר\"ע דעיקר המצוה הויא מיושב כדי שתהא דעתו מיושבת עליו ביותר וכדאמרינן בס\"פ שלשה שאכלו והלכתא בכולהו יושב ומברך עכ\"ד. והביאו מאמ\"ר אות ב' וכתב שדבריו נכונים יעו\"ש. וכ\"מ ממ\"ש במדרש בב\"ר פ' מ\"ח והוא יושב פתח האוהל ר\"ב משוס ר\"ל אמר ישב כתיב בקש לעמוד א\"ל הקב\"ה שב וכו' כך בניך יושבים כשישראל נכנסים לב\"כ ונב\"מ וקורין ק\"ש והם יושבים לכבודי ואני ע\"ג שנאמר אלהים נצב בעדת אל, וכן איתא במד\"ר ס' נשא פ' י\"א ובמדרש חזית בפסוק דומה דודי לצבי יעו\"ש, יפ\"ל אות ב', וכ\"מ מדברי שער הכוו' דרוש ב', דחזרת העמידה דל\"ח ע\"ד ופע\"ח שער הק\"ש סוף פרק כ\"ט דכוון דק\"ש היא בבחי' עולם הבריאה צ\"ל מיושב יעו\"ש, ואע\"ג דבשער הכוו' דרוש ו' דק\"ש דכ\"ב ע\"ג כתב דאין אנו חייבין לאומרה וכו' משמע דאם רוצה לאומרה מעומד לא איכפת מ\"מ לפי סודם של דברים מיושב עדיף כדמשמע בדרוש ב' דחזרת העמידה ופע\"ח כנז' ועיין עט\"ז אות ב', בן א\"ח ז\"ל פ' וארא אות ט\"ז:",
+      "en_plain": "6) There: One who wishes to be stringent by standing when seated and reciting it standing is called a transgressor. Tur concludes in the name of Rav Amram that one should rebuke him, because the mitzvah is recited while seated. Beis Yosef explains this to mean that it may be recited even while seated. Prishah, paragraph 6, however, writes that it specifically should be recited while seated. Rema in Darkei Moshe, paragraph 1, also appears to hold this. He comments upon Beis Yosef that Hagahos Maimoniyos, chapter 2, implies that sitting is better than standing, apparently disagreeing with Maran and requiring sitting. Pri Chadash, paragraph 2, similarly writes that Tur's statement in the name of Rav Amram means that the principal mitzvah is seated, so that one's mind will be more settled, like the conclusion at the end of the chapter Sheloshah She'achlu that in all those cases the halachah is to sit and recite the blessing. Maamar Mordechai, paragraph 2, cites him and approves. This is also implied by Bereishis Rabbah, chapter 48, on \"He was sitting at the entrance of the tent\": Rabbi Berechyah in the name of Rabbi Levi says the word is written \"sit.\" Avraham wished to stand, but the Holy One, blessed be He, told him, \"Sit.\" So too your descendants will sit: when Israel enters synagogues and study halls and recites Krias Shema, they sit in My honor, while I stand over them, as it is stated, \"God stands in the congregation of the Almighty.\" The same appears in Bamidbar Rabbah, Parashas Naso, chapter 11, and Midrash Chazis on \"My Beloved resembles a gazelle.\" Yafeh LaLev, paragraph 2. Shaar HaKavanos, discourse 2 concerning the repetition of the Amidah, folio 38d, and Pri Etz Chaim, Shaar Krias Shema, end of chapter 29, likewise imply that since Krias Shema corresponds to the world of Beriah it must be recited while seated. Although Shaar HaKavanos, discourse 6 concerning Krias Shema, folio 22c, writes that we are not obligated to recite it, etc., implying that standing would not matter, according to the mystical teaching sitting remains preferable, as implied by the cited discourse 2 and Pri Etz Chaim. See Ateres Zekenim, paragraph 2, and Ben Ish Chai, Parashas Va'eira, paragraph 16.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman63/seif-007/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 63,
+      "seif": 7,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.849,
+        "he_chars": 352,
+        "en_chars": 651,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 651
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ז) שם  </b>ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק:\n",
+      "en_html": "<b>7) There: And recite it standing, etc.</b> Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully.\n",
+      "he_plain": "ז) שם ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק:",
+      "en_plain": "7) There: And recite it standing, etc. Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman631/seif-001/beer-hagolah",
+      "volume": "oc1",
+      "siman": 631,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.75,
+        "he_chars": 36,
+        "en_chars": 63,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 63
+        },
+        "failure_patterns": [
+          "dinliness"
+        ]
+      },
+      "he_html": "הכי דייקינן בגמ' דסוכה כ\"ב מהמשנה שם\n",
+      "en_html": "The most dinliness in the Omnipresent is called “What’s there?”\r\n",
+      "he_plain": "הכי דייקינן בגמ' דסוכה כ\"ב מהמשנה שם",
+      "en_plain": "The most dinliness in the Omnipresent is called “What’s there?”",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

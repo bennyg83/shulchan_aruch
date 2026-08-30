@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "mode": "fresh_translate_complete_from_he",
+    "purpose": "120 highest-priority cut/incomplete Mechaber EN (+ Rama display) for GPT retranslate",
+    "source": "OC_MECHABER_CUT_EN_KIT.json + live corpus verify",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).\n\nINPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).\n- Part 3 — commentator names: exact dictionary forms (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.\n\nTASK\n1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.\n2) No additions beyond the source. Plain translated text only.\n3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).\n4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).\n5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.\n6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English for that cell. No corpus edits.",
+    "seed": "oc1/siman244/seif-001/mechaber",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "created": "2026-08-30T20:47:47.495Z",
+    "kit": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "counts": {
+      "total": 120,
+      "by_volume": {
+        "oc1": 120
+      },
+      "by_slug": {
+        "mechaber": 120
+      },
+      "by_priority": {
+        "P0_seed": 1,
+        "P1_cut_strict": 12,
+        "P1_cut_post_rama": 59,
+        "P2_cut_loose": 5,
+        "P2_rama": 43
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).",
+      "",
+      "INPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.",
+      "",
+      "TASK",
+      "1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.",
+      "2) No additions beyond the source. Plain translated text only.",
+      "3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).",
+      "4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).",
+      "5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.",
+      "6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English for that cell. No corpus edits."
+    ],
+    "parent_sha256": "60ec5249a3450a3aaa5ba2edf541740b96624a5f23e88a148a85316387e1c044",
+    "chunk_index": 10,
+    "chunk_total": 11,
+    "case_offset": 108,
+    "cases_in_chunk": 11,
+    "parent_pack": "01_OC_MECHABER_CUT_EN_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman98/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 98,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_he_hagah_unreflected",
+        "html_json_leak"
+      ],
+      "severity": 14,
+      "scores": {
+        "en_he_ratio": 2.052,
+        "he_chars": 823,
+        "en_chars": 1689,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1689
+        },
+        "leaks": [
+          "html_entities_leak"
+        ]
+      },
+      "he_html": "<b>צריך שיהיה לו כוונה בתפלתו. ובו ה סעיפים:</b><br><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>המתפלל צריך שיכוין <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>בלבו <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>פי' המלות שמוציא בשפתיו ויחשוב כאלו שכינה <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>כנגדו <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i>ויסיר כל המחשבות הטורדות אותו עד שתשאר מחשבתו וכוונתו זכה בתפלתו ויחשוב כאלו היה מדבר לפני מלך בשר ודם היה מסדר דבריו ומכוין בהם יפה לבל יכשל ק\"ו לפני ממ\"ה הקב\"ה שהוא חוקר כל המחשבות וכך היו עושים חסידים ואנשי מעשה שהיו מתבודדים ומכוונין בתפלתם עד שהיו מגיעים להתפשטות הגשמיות ולהתגברות כח השכלי עד שהיו מגיעים קרוב למעלת הנבואה ואם תבא לו מחשבה אחרת בתוך התפלה <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>ישתוק עד שיתבטל המחשב' <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>וצריך שיחשוב בדברי' המכניעים הלב ומכוונים אותו לאביו שבשמי' ולא יחשוב בדברי' שיש בהם קלות ראש: <small>הגה ויחשוב קודם התפלה מרוממות האל יתעלה ובשפלו' האדם ויסיר כל תענוגי האדם מלבו [הר\"י ריש פ' אין עומדין] ואסור לאדם לנשק <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>בניו <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>הקטנים בב\"ה כדי לקבוע בלבו שאין אהבה כאהבת המקום ברוך הוא [בנימין זאב סימן קס\"ג ואגודה פרק כיצד מברכין]:</small>\n",
+      "en_html": "<b>One Needs to Have Concentration While Praying, containing 5 s'ifim: One who prays needs</b><br> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i> to concentrate on the meaning of the <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i> words which <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i> one brings forth from one's mouth. One should consider [it] as if the Divine <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i> Presence is <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i> opposite one, and remove all distracting thoughts from one, until one's thought and intention remain purely about one's prayer. And one should consider [it] as if one were speaking to before a king of flesh and blood, and one were organizing one's words beautifully and concentrating on them so as not to stumble, all the more [one should do so] before the King of kings of kings, the Holy One, who is Blessed, who examines all thoughts. And so did the pious ones and the men of action, who would seclude themselves and concentrate on their prayers until they would transcend [their] corporeality and strengthen [their] mental power, until nearly arriving at the level of prophecy. And if another thought comes to one in the <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i> midst of the prayer, one should be silent' <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i> until the thought is eliminated. And one should think about things that humble the heart and concentrate it on one's Father in Heaven, and not think about things that contain levity (&quot;light-headedness&quot;).<small>Gloss: Before prayer, one should think about the loftiness of God who is raised up and the lowliness of humanity, and remove all human pleasures from one's heart (Ri, beginning of chapter &quot;Ein Om'din&quot; [Berachot Chapter 5] ). And it is forbidden for a <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i> person to <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i> kiss one's small children in synagogue, in order to fix in one's heart that there is no love like the love of the Omnipresent Who is Blessed (Binyomin Ze'ev siman 163 and Agudah Chapter &quot;Keitzad Mevarchin&quot; [Berachot Chapter 6]).]:</small>\r\n",
+      "he_plain": "צריך שיהיה לו כוונה בתפלתו. ובו ה סעיפים: המתפלל צריך שיכוין בלבו פי' המלות שמוציא בשפתיו ויחשוב כאלו שכינה כנגדו ויסיר כל המחשבות הטורדות אותו עד שתשאר מחשבתו וכוונתו זכה בתפלתו ויחשוב כאלו היה מדבר לפני מלך בשר ודם היה מסדר דבריו ומכוין בהם יפה לבל יכשל ק\"ו לפני ממ\"ה הקב\"ה שהוא חוקר כל המחשבות וכך היו עושים חסידים ואנשי מעשה שהיו מתבודדים ומכוונין בתפלתם עד שהיו מגיעים להתפשטות הגשמיות ולהתגברות כח השכלי עד שהיו מגיעים קרוב למעלת הנבואה ואם תבא לו מחשבה אחרת בתוך התפלה ישתוק עד שיתבטל המחשב' וצריך שיחשוב בדברי' המכניעים הלב ומכוונים אותו לאביו שבשמי' ולא יחשוב בדברי' שיש בהם קלות ראש: הגה ויחשוב קודם התפלה מרוממות האל יתעלה ובשפלו' האדם ויסיר כל תענוגי האדם מלבו [הר\"י ריש פ' אין עומדין] ואסור לאדם לנשק בניו הקטנים בב\"ה כדי לקבוע בלבו שאין אהבה כאהבת המקום ברוך הוא [בנימין זאב סימן קס\"ג ואגודה פרק כיצד מברכין]:",
+      "en_plain": "One Needs to Have Concentration While Praying, containing 5 s'ifim: One who prays needs to concentrate on the meaning of the words which one brings forth from one's mouth. One should consider [it] as if the Divine Presence is opposite one, and remove all distracting thoughts from one, until one's thought and intention remain purely about one's prayer. And one should consider [it] as if one were speaking to before a king of flesh and blood, and one were organizing one's words beautifully and concentrating on them so as not to stumble, all the more [one should do so] before the King of kings of kings, the Holy One, who is Blessed, who examines all thoughts. And so did the pious ones and the men of action, who would seclude themselves and concentrate on their prayers until they would transcend [their] corporeality and strengthen [their] mental power, until nearly arriving at the level of prophecy. And if another thought comes to one in the midst of the prayer, one should be silent' until the thought is eliminated. And one should think about things that humble the heart and concentrate it on one's Father in Heaven, and not think about things that contain levity (\"light-headedness\"). Gloss: Before prayer, one should think about the loftiness of God who is raised up and the lowliness of humanity, and remove all human pleasures from one's heart (Ri, beginning of chapter \"Ein Om'din\" [Berachot Chapter 5] ). And it is forbidden for a person to kiss one's small children in synagogue, in order to fix in one's heart that there is no love like the love of the Omnipresent Who is Blessed (Binyomin Ze'ev siman 163 and Agudah Chapter \"Keitzad Mevarchin\" [Berachot Chapter 6]).]:",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman240/seif-012/mechaber",
+      "volume": "oc1",
+      "siman": 240,
+      "seif": 12,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_he_hagah_unreflected",
+        "missing_cross_ref"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 2.674,
+        "he_chars": 132,
+        "en_chars": 353,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 353
+        },
+        "missing_siman_refs": [
+          574
+        ]
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"32\"></i>אסור לשמש מטתו <i data-commentator=\"Eshel Avraham\" data-label=\"ב\" data-order=\"2\"></i>בשני רעבון <i data-commentator=\"Mishnah Berurah\" data-label=\"מו\"></i>אלא לחשוכי בנים <small>[פירוש מי <i data-commentator=\"Mishnah Berurah\" data-label=\"מז\"></i>שאין לו בנים] הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"מח\"></i>וע\"ל סי' תקע\"ד ס\"ד וה\"ה בשאר צרות שהם כרעבון [ירושלמי דתענית]:</small>\n",
+      "en_html": "Il est interdit d'avoir des relations conjugales en période de famine, sauf pour ceux qui sont sans enfants [c’est-à-dire ceux qui n'ont pas d'enfants]. Selon le glossaire, et voir également dans le chapitre 114, §4. De même, cela s'applique à d'autres situations de grande détresse qui sont comparables à la famine [Talmud de Jérusalem, Traité Ta'anit]\n",
+      "he_plain": "אסור לשמש מטתו בשני רעבון אלא לחשוכי בנים [פירוש מי שאין לו בנים] הגה וע\"ל סי' תקע\"ד ס\"ד וה\"ה בשאר צרות שהם כרעבון [ירושלמי דתענית]:",
+      "en_plain": "Il est interdit d'avoir des relations conjugales en période de famine, sauf pour ceux qui sont sans enfants [c’est-à-dire ceux qui n'ont pas d'enfants]. Selon le glossaire, et voir également dans le chapitre 114, §4. De même, cela s'applique à d'autres situations de grande détresse qui sont comparables à la famine [Talmud de Jérusalem, Traité Ta'anit]",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman244/seif-003/mechaber",
+      "volume": "oc1",
+      "siman": 244,
+      "seif": 3,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_duplicate_prefix",
+        "missing_cross_ref"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.45,
+        "he_chars": 222,
+        "en_chars": 322,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "missing_siman_refs": [
+          543
+        ]
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>אם בנו עכו\"ם לישראל בית בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>באיסור <i data-commentator=\"Magen Avraham\" data-order=\"10\"></i><i data-commentator=\"Turei Zahav\" data-order=\"4\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"6\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>נכון להחמיר <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>שלא יכנסו בו: <small>הגה <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i>מיהו אם התנה ישראל עם עכו\"ם שלא לעשות לו מלאכה בשבת והעכו\"ם עשאה <i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>בעל כרחו למהר להשלים מלאכתו אין לחוש [מרדכי ריש פרק מי שהפך ור' ירוחם וב\"י וע\"ל סי' תקמ\"ג]:</small>\n",
+      "en_html": "If a non-Jew built a house on Shabbat for a Jew in a forbidden manner, it is proper to be stringent by not entering it. {Rama: RAMA: However, if the Jew stipulated with the non-Jew to not do work for him on Shabbat and the non-Jew did it against his will to finish the work faster, you have nothing to be concerned about.}\n",
+      "he_plain": "אם בנו עכו\"ם לישראל בית בשבת באיסור נכון להחמיר שלא יכנסו בו: הגה מיהו אם התנה ישראל עם עכו\"ם שלא לעשות לו מלאכה בשבת והעכו\"ם עשאה בעל כרחו למהר להשלים מלאכתו אין לחוש [מרדכי ריש פרק מי שהפך ור' ירוחם וב\"י וע\"ל סי' תקמ\"ג]:",
+      "en_plain": "If a non-Jew built a house on Shabbat for a Jew in a forbidden manner, it is proper to be stringent by not entering it. {Rama: RAMA: However, if the Jew stipulated with the non-Jew to not do work for him on Shabbat and the non-Jew did it against his will to finish the work faster, you have nothing to be concerned about.}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman245/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 245,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.617,
+        "he_chars": 835,
+        "en_chars": 1350,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1350
+        }
+      },
+      "he_html": "<b>ישראל ועכו\"ם שותפין איך יתנהגו בשבת. ובו ו סעיפים:</b><br><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ישראל ועכו\"ם שיש להם שדה או <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>תנור או מרחץ או <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>רחיים של מים <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>בשותפו' או שהם שותפין בחנות בסחורה <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>אם התנו מתחלה בשעה שבאו להשתתף <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>שיהיה שכר השבת לעכו\"ם לבדו <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>אם מעט <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>ואם הרבה ושכר יום אחד כנגד יום השבת לישראל לבדו <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>מות' <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>ואם לא התנו בתחל' כשיבואו לחלוק נוטל עכו\"ם שכר השבתו' כולם והשאר חולקים אותו <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ואם לא היה שכר השבת ידוע יטול העכו\"ם לבדו שביעית השכר וחולקים השאר: <small>הגה ויש מתירין השכר בדעבד אפילו לא התנו <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>וחלקו סתם [הרא\"ש פרק קמא דע\"א ור' ירוחם חי\"ב] ונ\"ל דבהפסד גדול יש לסמוך עלייהו וי\"א שכל זה לא מיירי אלא בשותפות שכל א' <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i>עוסק <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>ביומו [ב\"י] אבל כששניהם עוסקי' ביחד כל ימי החול ובשבת עוסק העכו\"ם לבדו מות' לחלוק עמו כל השכר דעכו\"ם <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>אדעתיה דנפשיה קא עביד <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>ואין הישראל נהנה במלאכתו בשבת כיון שאין המלאכה מוטלת עליו לעשות ומ\"מ לא יטול שכר שבת אלא <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>בהבלעה עם שאר הימים [ר\"ן פ\"ק דשבת ס\"פ כ\"כ ופ\"ק דע\"א]:</small>\n",
+      "en_html": "<b>A Jew and a non-Jew that have a field or oven or bathhouse or millstone of water in a partnership, or they are partners in a store in a business: if</b><br> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i> they stipulated in the beginning at the time they came into the partnership that the profits of <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i> Shabbat would go to the non-Jew alone corresponding to <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i> another day that would go to the Jew <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i> alone, that is permissible. If they didn’t stipulate from the beginning, when they come to distribute the profits, the non-Jew should take <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i> all of the profits of Shabbat and the rest they should split. If the profits of Shabbat are not known,<i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i> the non-Jew should take a 7th of the profits and split the rest. RAMA: There are authorities <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i> that permit the profits <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i> after-the-fact, even if he did not stipulate and split. It appears to me that in a situation of great loss there is what to rely on this opinion. Some say <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i> that all' <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i> of this is only applicable to partners that each work their own day, but when both are working together all the days of the week, and on Shabbat the non-Jew works alone, then it is permissible to split with him all the profits because the non-Jew is <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i> working for his own benefit and the Jew is not benefiting from his work on Shabbat since the work wasn't obligated for him to do. Nevertheless, he shouldn't take the profits of Shabbat unless they are swallowed up with the other days.<small> <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>' <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i> <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i> <i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i> <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i> <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>]:</small>\r\n",
+      "he_plain": "ישראל ועכו\"ם שותפין איך יתנהגו בשבת. ובו ו סעיפים: ישראל ועכו\"ם שיש להם שדה או תנור או מרחץ או רחיים של מים בשותפו' או שהם שותפין בחנות בסחורה אם התנו מתחלה בשעה שבאו להשתתף שיהיה שכר השבת לעכו\"ם לבדו אם מעט ואם הרבה ושכר יום אחד כנגד יום השבת לישראל לבדו מות' ואם לא התנו בתחל' כשיבואו לחלוק נוטל עכו\"ם שכר השבתו' כולם והשאר חולקים אותו ואם לא היה שכר השבת ידוע יטול העכו\"ם לבדו שביעית השכר וחולקים השאר: הגה ויש מתירין השכר בדעבד אפילו לא התנו וחלקו סתם [הרא\"ש פרק קמא דע\"א ור' ירוחם חי\"ב] ונ\"ל דבהפסד גדול יש לסמוך עלייהו וי\"א שכל זה לא מיירי אלא בשותפות שכל א' עוסק ביומו [ב\"י] אבל כששניהם עוסקי' ביחד כל ימי החול ובשבת עוסק העכו\"ם לבדו מות' לחלוק עמו כל השכר דעכו\"ם אדעתיה דנפשיה קא עביד ואין הישראל נהנה במלאכתו בשבת כיון שאין המלאכה מוטלת עליו לעשות ומ\"מ לא יטול שכר שבת אלא בהבלעה עם שאר הימים [ר\"ן פ\"ק דשבת ס\"פ כ\"כ ופ\"ק דע\"א]:",
+      "en_plain": "A Jew and a non-Jew that have a field or oven or bathhouse or millstone of water in a partnership, or they are partners in a store in a business: if they stipulated in the beginning at the time they came into the partnership that the profits of Shabbat would go to the non-Jew alone corresponding to another day that would go to the Jew alone, that is permissible. If they didn’t stipulate from the beginning, when they come to distribute the profits, the non-Jew should take all of the profits of Shabbat and the rest they should split. If the profits of Shabbat are not known, the non-Jew should take a 7th of the profits and split the rest. RAMA: There are authorities that permit the profits after-the-fact, even if he did not stipulate and split. It appears to me that in a situation of great loss there is what to rely on this opinion. Some say that all' of this is only applicable to partners that each work their own day, but when both are working together all the days of the week, and on Shabbat the non-Jew works alone, then it is permissible to split with him all the profits because the non-Jew is working for his own benefit and the Jew is not benefiting from his work on Shabbat since the work wasn't obligated for him to do. Nevertheless, he shouldn't take the profits of Shabbat unless they are swallowed up with the other days. ' ]:",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman245/seif-003/mechaber",
+      "volume": "oc1",
+      "siman": 245,
+      "seif": 3,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 2.112,
+        "he_chars": 446,
+        "en_chars": 942,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 942
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>היכא שלא התנו בתחלה יש תיקון ע\"י <i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>שיחזיר המוכר להם <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i>דמי הקרקע או ימכרוהו לאיש אחר ויחזרו ויקנוהו בשותפות ויתנו בשעת הקניה ואם נשתתפו בחנו' ולא התנו יחזור כל אחד ויטול חלקו ויבטלו השותפות ואח\"כ יחזרו להשתתף ויתנו בתחל' ואם קבל הקרקע לעשות בו מלאכה בשותפות יבטלו השיתוף וימחלו זה לזה ואח\"כ יחזרו להשתתף ויתנו בתחל': <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>ואם ירצה <i data-commentator=\"Magen Avraham\" data-order=\"8\"></i>להשכיר לעכו\"ם חלקו <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>בשבת או לשכרו בקבולת שרי וכמו שיתבאר לעיל ס\"ס רמ\"ד לענין מכס ומטבע דשרי וכ\"ש כאן דשרי עם שותפו' עכו\"ם:</small>\n",
+      "en_html": "Where they didn’t stipulate in the beginning, there is a fix by the buyer returning the money of the land or they sell it to a different person afterward and they return and they buy it as a partnership and they stipulate at the time of the sale. If they were partners in a shop and did not stipulate, everybody returns and takes their share and they nullify the partnership. Afterwards they return to partner and they stipulate at the beginning. If he received land to do work as a partnership, they should nullify partnership and forgive each other. Afterwards they return to form a partnership and stipulate at the beginning. RAMA: If he wants to rent to a non-Jew his share on Shabbat or to rent in a way where they share the profits, it is permissible. Just like we clarified above at the end of the siman 242 regarding a tax collector and coins it’s permissible and all the more so here it’s permissible in a partnership with a non-Jew.\n",
+      "he_plain": "היכא שלא התנו בתחלה יש תיקון ע\"י שיחזיר המוכר להם דמי הקרקע או ימכרוהו לאיש אחר ויחזרו ויקנוהו בשותפות ויתנו בשעת הקניה ואם נשתתפו בחנו' ולא התנו יחזור כל אחד ויטול חלקו ויבטלו השותפות ואח\"כ יחזרו להשתתף ויתנו בתחל' ואם קבל הקרקע לעשות בו מלאכה בשותפות יבטלו השיתוף וימחלו זה לזה ואח\"כ יחזרו להשתתף ויתנו בתחל': הגה ואם ירצה להשכיר לעכו\"ם חלקו בשבת או לשכרו בקבולת שרי וכמו שיתבאר לעיל ס\"ס רמ\"ד לענין מכס ומטבע דשרי וכ\"ש כאן דשרי עם שותפו' עכו\"ם:",
+      "en_plain": "Where they didn’t stipulate in the beginning, there is a fix by the buyer returning the money of the land or they sell it to a different person afterward and they return and they buy it as a partnership and they stipulate at the time of the sale. If they were partners in a shop and did not stipulate, everybody returns and takes their share and they nullify the partnership. Afterwards they return to partner and they stipulate at the beginning. If he received land to do work as a partnership, they should nullify partnership and forgive each other. Afterwards they return to form a partnership and stipulate at the beginning. RAMA: If he wants to rent to a non-Jew his share on Shabbat or to rent in a way where they share the profits, it is permissible. Just like we clarified above at the end of the siman 242 regarding a tax collector and coins it’s permissible and all the more so here it’s permissible in a partnership with a non-Jew.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman245/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 245,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.645,
+        "he_chars": 383,
+        "en_chars": 630,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 630
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i>יכול ישראל ליתן לעכו\"ם <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>מעות להתעסק בהם ואף ע\"פ שהעכו\"ם נושא ונותן בהם בשבת חולק עמו כל השכר בשוה <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>מפני שאין מלאכה זו מוטלת על ישראל לעשותה <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>שנא' שהעכו\"ם עושה שליחותו <i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>וכן אין העסק ניכר ממי הוא: <small>הגה ודוקא בכה\"ג שהעכו\"ם נושא ונותן לחוד עם המעות אבל אם כ\"א עוסק ביומו וישראל צריך לעסוק נגד מה שעסק העכו\"ם בשב' <i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>אסור [ב\"י בשם גאון] וישראל שיש לו משכון מן העכו\"ם ע' לקמן סי' שכ\"ה סעיף ב' וג':</small>\n",
+      "en_html": "A Jew is able to give to a non-Jew money to do business with even though the non-Jew will do business with it on Shabbat. He splits with him all the profits equally since this work isn’t considered that the Jew said to do work, that they non-Jew did it as his agent. Also the work isn’t recognizable to be his. RAMA: This is referring specifically to cases where the non-Jew did work by himself with the money but if everyone worked their day and the Jew needs to work corresponding to what the non-Jew did on Shabbat, then it’s prohibited. And regarding the Jew that has collateral from the non-Jew look below at siman 325 sif 2.\n",
+      "he_plain": "יכול ישראל ליתן לעכו\"ם מעות להתעסק בהם ואף ע\"פ שהעכו\"ם נושא ונותן בהם בשבת חולק עמו כל השכר בשוה מפני שאין מלאכה זו מוטלת על ישראל לעשותה שנא' שהעכו\"ם עושה שליחותו וכן אין העסק ניכר ממי הוא: הגה ודוקא בכה\"ג שהעכו\"ם נושא ונותן לחוד עם המעות אבל אם כ\"א עוסק ביומו וישראל צריך לעסוק נגד מה שעסק העכו\"ם בשב' אסור [ב\"י בשם גאון] וישראל שיש לו משכון מן העכו\"ם ע' לקמן סי' שכ\"ה סעיף ב' וג':",
+      "en_plain": "A Jew is able to give to a non-Jew money to do business with even though the non-Jew will do business with it on Shabbat. He splits with him all the profits equally since this work isn’t considered that the Jew said to do work, that they non-Jew did it as his agent. Also the work isn’t recognizable to be his. RAMA: This is referring specifically to cases where the non-Jew did work by himself with the money but if everyone worked their day and the Jew needs to work corresponding to what the non-Jew did on Shabbat, then it’s prohibited. And regarding the Jew that has collateral from the non-Jew look below at siman 325 sif 2.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman247/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 247,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.82,
+        "he_chars": 471,
+        "en_chars": 857,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 857
+        }
+      },
+      "he_html": "<b>דין עכו\"ם המביאים כתבים בשבת. ובו ו סעיפים:</b> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>שולח אדם <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>אגרת ביד עכו\"ם ואפי' בע\"ש <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>עם חשיכה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>והוא <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>שקוצץ לו דמים <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ובלבד שלא יאמר לו <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>שילך בשבת ואם לא קצב <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>אי <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>לא קביע <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>בי דואר <small>(פי' איש ידוע שכל כתב אליו יובל והוא משלחם למי ששלוח אליו)</small> במתא <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>אסור לשלוח <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>אפילו מיום ראשון <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>ואי קביע בי דואר במתא משלחין אפי' בע\"ש <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>והוא שיהא שהות ביום כדי שיוכל להגיע לבית <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>הסמוך <i data-commentator=\"Be'er HaGolah\" data-label=\"•\" data-order=\"3\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>לחומה: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>ויש מתירין אפי' לא קצץ <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>ואפילו לא קבוע בי דואר במתא אם משלחו <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i>ביום ה' או קודם לכן (טור) ויש לסמוך עלייהו אם צריכין לכך:</small>\n",
+      "en_html": "(1) A letter may be sent with a non-Jew even on the eve of Shabbat close to dark, [provided] he specified his wages and he doesn't tell him to travel on Shabbos and if he did not specify [wages], if there is not an established Ba'y Do'ar (meaning, a person about whom it is known to send letters to him and he delivers the letters to their addresses) in town, it is forbidden to send the letter even from Sunday and if there is an established Ba'y Do'ar in town, he may send it even on the eve of Shabbat, provided there is enough time remaining in the day that he is able to reach the house adjacent to the city wall. RAMA: There are those [authorities] who permit this even if he did not specify the wages and there is not an established Ba'y Do'ar in town provided he sends it on Thursday or prior to this and there is basis to rely on this if necessary.\n",
+      "he_plain": "דין עכו\"ם המביאים כתבים בשבת. ובו ו סעיפים: שולח אדם אגרת ביד עכו\"ם ואפי' בע\"ש עם חשיכה והוא שקוצץ לו דמים ובלבד שלא יאמר לו שילך בשבת ואם לא קצב אי לא קביע בי דואר (פי' איש ידוע שכל כתב אליו יובל והוא משלחם למי ששלוח אליו) במתא אסור לשלוח אפילו מיום ראשון ואי קביע בי דואר במתא משלחין אפי' בע\"ש והוא שיהא שהות ביום כדי שיוכל להגיע לבית הסמוך לחומה: הגה ויש מתירין אפי' לא קצץ ואפילו לא קבוע בי דואר במתא אם משלחו ביום ה' או קודם לכן (טור) ויש לסמוך עלייהו אם צריכין לכך:",
+      "en_plain": "(1) A letter may be sent with a non-Jew even on the eve of Shabbat close to dark, [provided] he specified his wages and he doesn't tell him to travel on Shabbos and if he did not specify [wages], if there is not an established Ba'y Do'ar (meaning, a person about whom it is known to send letters to him and he delivers the letters to their addresses) in town, it is forbidden to send the letter even from Sunday and if there is an established Ba'y Do'ar in town, he may send it even on the eve of Shabbat, provided there is enough time remaining in the day that he is able to reach the house adjacent to the city wall. RAMA: There are those [authorities] who permit this even if he did not specify the wages and there is not an established Ba'y Do'ar in town provided he sends it on Thursday or prior to this and there is basis to rely on this if necessary.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman247/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 247,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.973,
+        "he_chars": 301,
+        "en_chars": 594,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 594
+        }
+      },
+      "he_html": "(אם) <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"6\"></i>העכו\"ם מוליך הכתב בחנם אפילו נתנה לו בערב שבת מותר <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>שהרי העכו\"ם מאליו הוא עוש' זה ואינו אלא להחזיק טובה לישראל מפני מה שקיבל ממנו והו\"ל כאלו קצץ: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i>ויש חולקים וסבירא להו דכל שעושה בחנם <i data-commentator=\"Ba'er Hetev\" data-order=\"6\"></i>אסור <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>וטוב להחמיר אבל במקום שהעכו\"ם מתחיל עם הישראל לומר שילך לו בחנם ודאי דעתו על הטובה שקיבל ממנו ושרי (ב\"י):</small>\n",
+      "en_html": "(4) If the non-Jew carries the letter for free, even if he gave it to him on the eve of Shabbat, it is permitted because the non-Jew is only doing it to return favor because of what he receives from him [prior]. This is like they established a price. RAMA: There are some who disagree and maintain that anyone who does it for free is prohibited and it’s good to be stringent about this but in a place where the non-Jew takes the initiative with the Jew saying that he’ll travel for free, certainly his intention is on the benefit that he will receive from him and that’s permitted. (Beis Yosef)\n",
+      "he_plain": "(אם) העכו\"ם מוליך הכתב בחנם אפילו נתנה לו בערב שבת מותר שהרי העכו\"ם מאליו הוא עוש' זה ואינו אלא להחזיק טובה לישראל מפני מה שקיבל ממנו והו\"ל כאלו קצץ: הגה ויש חולקים וסבירא להו דכל שעושה בחנם אסור וטוב להחמיר אבל במקום שהעכו\"ם מתחיל עם הישראל לומר שילך לו בחנם ודאי דעתו על הטובה שקיבל ממנו ושרי (ב\"י):",
+      "en_plain": "(4) If the non-Jew carries the letter for free, even if he gave it to him on the eve of Shabbat, it is permitted because the non-Jew is only doing it to return favor because of what he receives from him [prior]. This is like they established a price. RAMA: There are some who disagree and maintain that anyone who does it for free is prohibited and it’s good to be stringent about this but in a place where the non-Jew takes the initiative with the Jew saying that he’ll travel for free, certainly his intention is on the benefit that he will receive from him and that’s permitted. (Beis Yosef)",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman247/seif-006/mechaber",
+      "volume": "oc1",
+      "siman": 247,
+      "seif": 6,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.868,
+        "he_chars": 136,
+        "en_chars": 254,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 254
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"8\"></i>מי שיש לו שכיר עכו\"ם לשנה או יותר <i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>אסור לשלחו <i data-commentator=\"Magen Avraham\" data-order=\"9\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"8\"></i>ערב שבת באגרת: <small>הגה ומיהו אם לא שכרו רק בשליחות אגרת יש מתירין <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>כמו שנתבאר לעיל סי' רמ\"ד ס\"ה:</small>\n",
+      "en_html": "(6) One who employs a non-Jew for the period of a year or more is forbidden from sending a letter with him on the eve of Shabbat. RAMA: However, if he is only employed for letter-carrying, there some who permit this, as established prior in Siman 244: 6.\n",
+      "he_plain": "מי שיש לו שכיר עכו\"ם לשנה או יותר אסור לשלחו ערב שבת באגרת: הגה ומיהו אם לא שכרו רק בשליחות אגרת יש מתירין כמו שנתבאר לעיל סי' רמ\"ד ס\"ה:",
+      "en_plain": "(6) One who employs a non-Jew for the period of a year or more is forbidden from sending a letter with him on the eve of Shabbat. RAMA: However, if he is only employed for letter-carrying, there some who permit this, as established prior in Siman 244: 6.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman250/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 250,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_outside_braces",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.571,
+        "he_chars": 457,
+        "en_chars": 718,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 718
+        }
+      },
+      "he_html": "<b>הכנת הסעודה לשבת. ובו ב סעיפים:</b><br><i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ישכים בבוקר <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>ביום הששי להכין צרכי שבת <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ואפי' יש לו כמה עבדים לשמשו ישתדל <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>להכין <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i>בעצמו שום דבר לצרכי שבת כדי לכבדו כי רב חסדא היה מחתך הירק דק דק ורבה ורב יוסף היו מבקעים עצים ורבי זירא היה מדליק האש ורב נחמן היה מתקן הבית ומכניס כלים הצריכים לשבת ומפנה כלי החול <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ומהם ילמוד כל אדם ולא יאמר לא אפגום כבודי <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>כי זה הוא כבודו שמכבד השבת: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i>ויש להשחיז <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>הסכין בערב שבת כי זהו מכבוד השבת שמכין עצמו לאכילה (כל בו וב\"י בשם ספר חיי עולם):</small>\n",
+      "en_html": "<b>A person should be arise on friday early</b><br> <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i> <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i> <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i> <i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i> to prepare for Shabbat;<i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i> even if he has many servants to <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i> serve him he should find something small to do,<i data-commentator=\"Magen Avraham\" data-order=\"2\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i> for the <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i> <i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i> honor (of Shabbat). We see this with Rav Chisda who would cut vegetables finely; Rabah and Rav Yosef, who would chop wood; Rabbi Zeira who would light the flame; And Rav Nachman, who would clean the house and replace the weekday cutlery with cutlery designated for Shabbat. We can emulate <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i> these people and one should not say: &quot;It is unbecoming of me,&quot;<i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i> for this is the honor of Shabbat.<small>RAMA:<i data-commentator=\"Turei Zahav\" data-order=\"2\"></i> Additionally one should sharpen <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i> his knife to ease eating on Erev Shabbat for this honors the Shabbat and helps him eat (Kol Bo; Beis Yosef in the name of Sefer Chayei Olam).</small>\r\n",
+      "he_plain": "הכנת הסעודה לשבת. ובו ב סעיפים: ישכים בבוקר ביום הששי להכין צרכי שבת ואפי' יש לו כמה עבדים לשמשו ישתדל להכין בעצמו שום דבר לצרכי שבת כדי לכבדו כי רב חסדא היה מחתך הירק דק דק ורבה ורב יוסף היו מבקעים עצים ורבי זירא היה מדליק האש ורב נחמן היה מתקן הבית ומכניס כלים הצריכים לשבת ומפנה כלי החול ומהם ילמוד כל אדם ולא יאמר לא אפגום כבודי כי זה הוא כבודו שמכבד השבת: הגה ויש להשחיז הסכין בערב שבת כי זהו מכבוד השבת שמכין עצמו לאכילה (כל בו וב\"י בשם ספר חיי עולם):",
+      "en_plain": "A person should be arise on friday early to prepare for Shabbat; even if he has many servants to serve him he should find something small to do, for the honor (of Shabbat). We see this with Rav Chisda who would cut vegetables finely; Rabah and Rav Yosef, who would chop wood; Rabbi Zeira who would light the flame; And Rav Nachman, who would clean the house and replace the weekday cutlery with cutlery designated for Shabbat. We can emulate these people and one should not say: \"It is unbecoming of me,\" for this is the honor of Shabbat. RAMA: Additionally one should sharpen his knife to ease eating on Erev Shabbat for this honors the Shabbat and helps him eat (Kol Bo; Beis Yosef in the name of Sefer Chayei Olam).",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman252/seif-002/mechaber",
+      "volume": "oc1",
+      "siman": 252,
+      "seif": 2,
+      "slug": "mechaber",
+      "priority": "P2_rama",
+      "kinds": [
+        "rama_duplicate_prefix",
+        "rama_partial_missing"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 1.692,
+        "he_chars": 390,
+        "en_chars": 660,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 2,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        }
+      },
+      "he_html": "<i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i>מותר <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>ליתן בגדיו לכובס נכרי ועורות לעבדן (פירוש האומן שמעבד ומתקן העורות) <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>סמוך לחשיכה <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>אם קצץ לו דמים או שעושה אותם <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>בטובת הנאה <i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>והוא שלא יאמר לו <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>לעשות בשבת <i data-commentator=\"Be'er HaGolah\" data-label=\"ט\" data-order=\"9\"></i>וגם שיעשה העכו\"ם המלאכה <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>בביתו: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>ואם לא קצץ <i data-commentator=\"Magen Avraham\" data-order=\"8\"></i>אסור <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>בערב שבת וע\"ל סי' רמ\"ז <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>דיש חולקין אם עושה לו <i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>בחנם דהיינו בטובת הנאה:</small> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"2\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"10\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>ואם ראהו עושה מלאכתו בשבת <i data-commentator=\"Magen Avraham\" data-order=\"9\"></i>אם היה עושה בטובת הנאה צריך לומר שלא יעשה בה בשבת: <small>הגה ואפילו אם נתנן לו <i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>כמה ימים לפני שבת:</small>\n",
+      "en_html": "A person is permitted to give his garments to a non-Jewish launderer and his hides to a non-Jewish leather worker [to work on] close to nightfall [on Friday] if he established a price or he does them for a favor, and he does not tell him to do it on Shabbat, and the non-Jew performs the work in his house. If he sees that he performs his work on Shabbat, if it was being done as a favor he must tell him it cannot be done on Shabbat. {Rama: RAMA: If he did not fix (a price) it is forbidden on Erev Shabbat, and see Siman 247 that there is a difference if one does it for free, for this is a favor. RAMA: Even if he gave it to him several days before Shabbat}\n",
+      "he_plain": "מותר ליתן בגדיו לכובס נכרי ועורות לעבדן (פירוש האומן שמעבד ומתקן העורות) סמוך לחשיכה אם קצץ לו דמים או שעושה אותם בטובת הנאה והוא שלא יאמר לו לעשות בשבת וגם שיעשה העכו\"ם המלאכה בביתו: הגה ואם לא קצץ אסור בערב שבת וע\"ל סי' רמ\"ז דיש חולקין אם עושה לו בחנם דהיינו בטובת הנאה: ואם ראהו עושה מלאכתו בשבת אם היה עושה בטובת הנאה צריך לומר שלא יעשה בה בשבת: הגה ואפילו אם נתנן לו כמה ימים לפני שבת:",
+      "en_plain": "A person is permitted to give his garments to a non-Jewish launderer and his hides to a non-Jewish leather worker [to work on] close to nightfall [on Friday] if he established a price or he does them for a favor, and he does not tell him to do it on Shabbat, and the non-Jew performs the work in his house. If he sees that he performs his work on Shabbat, if it was being done as a favor he must tell him it cannot be done on Shabbat. {Rama: RAMA: If he did not fix (a price) it is forbidden on Erev Shabbat, and see Siman 247 that there is a difference if one does it for free, for this is a favor. RAMA: Even if he gave it to him several days before Shabbat}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    }
+  ]
+}

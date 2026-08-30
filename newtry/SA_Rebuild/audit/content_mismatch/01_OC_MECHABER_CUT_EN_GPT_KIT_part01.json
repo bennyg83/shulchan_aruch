@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "mode": "fresh_translate_complete_from_he",
+    "purpose": "120 highest-priority cut/incomplete Mechaber EN (+ Rama display) for GPT retranslate",
+    "source": "OC_MECHABER_CUT_EN_KIT.json + live corpus verify",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).\n\nINPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).\n- Part 3 — commentator names: exact dictionary forms (never anglicize).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.\n\nTASK\n1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.\n2) No additions beyond the source. Plain translated text only.\n3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).\n4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).\n5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.\n6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English for that cell. No corpus edits.",
+    "seed": "oc1/siman244/seif-001/mechaber",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "created": "2026-08-30T20:47:47.495Z",
+    "kit": "01_OC_MECHABER_CUT_EN_GPT_KIT",
+    "counts": {
+      "total": 120,
+      "by_volume": {
+        "oc1": 120
+      },
+      "by_slug": {
+        "mechaber": 120
+      },
+      "by_priority": {
+        "P0_seed": 1,
+        "P1_cut_strict": 12,
+        "P1_cut_post_rama": 59,
+        "P2_cut_loose": 5,
+        "P2_rama": 43
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC MECHABER CUT-EN — FRESH TRANSLATE / COMPLETE FROM HE (hardened).",
+      "",
+      "INPUTS: 01_OC_MECHABER_CUT_EN_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term (melacha, muktzeh, kli rishon, etc.).",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE from live corpus (NO truncation). Translate from HE; current EN is draft/bad only.",
+      "",
+      "TASK",
+      "1) Replace EN entirely from HE (fresh_translate / complete). Every Hebrew clause must appear in English — no omissions, no summarizing.",
+      "2) No additions beyond the source. Plain translated text only.",
+      "3) Rama: any הגה / <small>הגה ...</small> → {Rama: ...} once. NEVER {Rama: RAMA: ...}. Place the gloss in HE order (do not move Rama after later Mechaber clauses).",
+      "4) After Rama, continue with any remaining Mechaber clauses (common cut failure: post-Rama HE omitted).",
+      "5) Restore missing cross-refs (e.g. ע\"ל סי׳ …) when present in HE.",
+      "6) Strip HTML for meaning; output plain EN (no tags). Note markers <i data-label=\"א\"> → (1) only if the HE text flow requires the label; do not invent commentary.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English for that cell. No corpus edits."
+    ],
+    "parent_sha256": "60ec5249a3450a3aaa5ba2edf541740b96624a5f23e88a148a85316387e1c044",
+    "chunk_index": 1,
+    "chunk_total": 11,
+    "case_offset": 0,
+    "cases_in_chunk": 16,
+    "parent_pack": "01_OC_MECHABER_CUT_EN_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman244/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 244,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P0_seed",
+      "kinds": [
+        "rama_duplicate_prefix",
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama",
+        "missing_cross_ref",
+        "seed_confirmed"
+      ],
+      "severity": 34,
+      "scores": {
+        "en_he_ratio": 1.703,
+        "he_chars": 738,
+        "en_chars": 1257,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 145,
+          "post_rama_en_chars": 0
+        },
+        "missing_siman_refs": [
+          537
+        ],
+        "prior_flag": "CONTENT_FIX_FLAGS.json → oc1-mechaber-244-1-cut-en-rama-display (confirmed)"
+      },
+      "he_html": "<b>איזו מלאכות יכול העכו\"ם לעשות בעד הישראל. ובו ו סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>פוסק אדם <small>[פי' מתנה]</small> עם העכו\"ם על המלאכה <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>וקוצץ דמים והעכו\"ם <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>עושה <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>לעצמו ואע\"פ שהוא עושה בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>מות' בד\"א <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>בצנעא <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>שאין מכירי' הכל שזו המלאכ' הנעשית בשבת של ישראל היא אבל אם היתה ידועה ומפורסמת אסו' שהרוא' את העכו\"ם עוסק אינו יודע שקצץ <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>ואומ' שפלוני שכר <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>העכו\"ם לעשות בו מלאכ' בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>לפיכך הפוסק עם העכו\"ם <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>לבנות לו <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>חצירו או כותלו <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i>או <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>לקצור לו שדהו <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>אם היתה המלאכ' <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>במדינה או בתוך <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>התחום אסו' לו <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>להניח לעשו' לו מלאכ' בשבת מפני הרואי' שאינם יודעים שפסק: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"3\"></i>ואפי' <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>אם דר בין העכו\"ם יש לחוש <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i>לאורחי' הבאים שם או <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"5\"></i>לבני ביתו שיחשדו אותו [ב\"י בשם תשובת אשכנזים]</small> ואם היתה המלאכה <i data-commentator=\"Magen Avraham\" data-order=\"8\"></i>חוץ לתחום <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>וגם אין עיר אחרת בתוך תחומו של מקום שעושין בו מלאכ' <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>מותר ועכו\"ם שהכניס צאן של ישראל לדיר שדהו <small>(ע\"ל סי' תקל\"ז סעיף י\"ד):</small>\n",
+      "en_html": "A person agrees with a non-Jew about work to be done and sets a price, and the non-Jew does the work by himself, even if he works on Shabbat, it is permissible. This law is discussed when the work is done in private since most people won’t recognize that this work is being done on Shabbat for the Jew, but if it was well known and publicized, then it is prohibited because when others look at the non-Jew work, they don’t know that the Jew and the non-Jew set a price and they will say that the Jew is hiring the non-Jew to do work for him on Shabbat. Therefore, one who establishes work with a non-Jew to build a house, a courtyard, a wall, or to harvest his field: if the work is in the same state, and in the t’chum, it is forbidden to allow the non-Jew to work on Shabbat because those who see him will not know a price has been set. And if the work was outside the t’chum and also no other city is within the t’chum where work is being done then it is permissible, and the non-Jews that enter sheep belonging to Jews to pen of his field. {Rama: RAMA: And even if the Jew lives among non-Jews, there is still what to be concerned regarding guests or members of his own household who will suspect him.[Beit Yosef in the name of the Teshuvot Ashkenazim]}\n",
+      "he_plain": "איזו מלאכות יכול העכו\"ם לעשות בעד הישראל. ובו ו סעיפים: פוסק אדם [פי' מתנה] עם העכו\"ם על המלאכה וקוצץ דמים והעכו\"ם עושה לעצמו ואע\"פ שהוא עושה בשבת מות' בד\"א בצנעא שאין מכירי' הכל שזו המלאכ' הנעשית בשבת של ישראל היא אבל אם היתה ידועה ומפורסמת אסו' שהרוא' את העכו\"ם עוסק אינו יודע שקצץ ואומ' שפלוני שכר העכו\"ם לעשות בו מלאכ' בשבת לפיכך הפוסק עם העכו\"ם לבנות לו חצירו או כותלו או לקצור לו שדהו אם היתה המלאכ' במדינה או בתוך התחום אסו' לו להניח לעשו' לו מלאכ' בשבת מפני הרואי' שאינם יודעים שפסק: הגה ואפי' אם דר בין העכו\"ם יש לחוש לאורחי' הבאים שם או לבני ביתו שיחשדו אותו [ב\"י בשם תשובת אשכנזים] ואם היתה המלאכה חוץ לתחום וגם אין עיר אחרת בתוך תחומו של מקום שעושין בו מלאכ' מותר ועכו\"ם שהכניס צאן של ישראל לדיר שדהו (ע\"ל סי' תקל\"ז סעיף י\"ד):",
+      "en_plain": "A person agrees with a non-Jew about work to be done and sets a price, and the non-Jew does the work by himself, even if he works on Shabbat, it is permissible. This law is discussed when the work is done in private since most people won’t recognize that this work is being done on Shabbat for the Jew, but if it was well known and publicized, then it is prohibited because when others look at the non-Jew work, they don’t know that the Jew and the non-Jew set a price and they will say that the Jew is hiring the non-Jew to do work for him on Shabbat. Therefore, one who establishes work with a non-Jew to build a house, a courtyard, a wall, or to harvest his field: if the work is in the same state, and in the t’chum, it is forbidden to allow the non-Jew to work on Shabbat because those who see him will not know a price has been set. And if the work was outside the t’chum and also no other city is within the t’chum where work is being done then it is permissible, and the non-Jews that enter sheep belonging to Jews to pen of his field. {Rama: RAMA: And even if the Jew lives among non-Jews, there is still what to be concerned regarding guests or members of his own household who will suspect him.[Beit Yosef in the name of the Teshuvot Ashkenazim]}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman303/seif-015/mechaber",
+      "volume": "oc1",
+      "siman": 303,
+      "seif": 15,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected",
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 32,
+      "scores": {
+        "en_he_ratio": 0.005,
+        "he_chars": 559,
+        "en_chars": 3,
+        "cut_deficit": 0.9946332737030411
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 342,
+          "post_rama_en_chars": 3
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"30\"></i>יוצאת בקשר שעושין <i data-commentator=\"Mishnah Berurah\" data-label=\"לט\"></i>לרפואת קיטוף עין הרע שלא ישלוט <i data-commentator=\"Be'er HaGolah\" data-label=\"ט\" data-order=\"31\"></i>ובמוך <i data-commentator=\"Mishnah Berurah\" data-label=\"מ\"></i>הקשור ומהודק <i data-commentator=\"Mishnah Berurah\" data-label=\"מא\"></i>באזנה ובמוך <i data-commentator=\"Mishnah Berurah\" data-label=\"מב\"></i>שבסנדלה <i data-commentator=\"Mishnah Berurah\" data-label=\"מג\"></i>הקשור בסנדלה <i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"32\"></i>ובסנדל ומנעל הסתומים <i data-commentator=\"Mishnah Berurah\" data-label=\"מד\"></i>מכל צד אפי' אינו קשור מותר <i data-commentator=\"Be'er HaGolah\" data-label=\"כ\" data-order=\"33\"></i>ובמוך שהתקינה לנדתה: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"10\"></i>שלא יפול דם עליה <i data-commentator=\"Ba'er Hetev\" data-order=\"9\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מה\"></i>ויצערנה (ב\"י בשם הפוסקים)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"34\"></i>אפי' אינו קשור דכיון שהוא מאוס לא חיישי' דלמא שקלא ליה אפי' יש לו <i data-commentator=\"Mishnah Berurah\" data-label=\"מו\"></i>בית יד <i data-commentator=\"Be'er HaGolah\" data-label=\"מ\" data-order=\"35\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מז\"></i>ובפלפל ובגרגיר מלח ובכל בשם שתתן לתוך פיה <i data-commentator=\"Magen Avraham\" data-order=\"10\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מח\"></i>ובלבד <i data-commentator=\"Mishnah Berurah\" data-label=\"מט\"></i>שלא תתנם לכתחילה בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"נ\"></i>ואם נפל <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i>לא תחזיר <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"10\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"נ\" data-order=\"36\"></i>ובבתי שוקיים <i data-commentator=\"Mishnah Berurah\" data-label=\"נא\"></i>שקושרים <i data-commentator=\"Mishnah Berurah\" data-label=\"נב\"></i>במשיחה סביב שוקיה אע\"פ שאין המשיחה קשורה בהם ולא חיישי' שמא ישתלשלו למטה <i data-commentator=\"Be'er HaGolah\" data-label=\"ס\" data-order=\"37\"></i>ויוצאה <i data-commentator=\"Mishnah Berurah\" data-label=\"נג\"></i>באצעדה שמניחין בזרוע או בשוק והוא <i data-commentator=\"Mishnah Berurah\" data-label=\"נד\"></i>שתהא דבוקה לבשר ולא תשמט <i data-commentator=\"Turei Zahav\" data-order=\"11\"></i>ויש <i data-commentator=\"Be'er HaGolah\" data-label=\"ע\" data-order=\"38\"></i>מי שאוסר בשל זרוע:\n",
+      "en_html": "15.\n",
+      "he_plain": "יוצאת בקשר שעושין לרפואת קיטוף עין הרע שלא ישלוט ובמוך הקשור ומהודק באזנה ובמוך שבסנדלה הקשור בסנדלה ובסנדל ומנעל הסתומים מכל צד אפי' אינו קשור מותר ובמוך שהתקינה לנדתה: הגה שלא יפול דם עליה ויצערנה (ב\"י בשם הפוסקים) אפי' אינו קשור דכיון שהוא מאוס לא חיישי' דלמא שקלא ליה אפי' יש לו בית יד ובפלפל ובגרגיר מלח ובכל בשם שתתן לתוך פיה ובלבד שלא תתנם לכתחילה בשבת ואם נפל לא תחזיר ובבתי שוקיים שקושרים במשיחה סביב שוקיה אע\"פ שאין המשיחה קשורה בהם ולא חיישי' שמא ישתלשלו למטה ויוצאה באצעדה שמניחין בזרוע או בשוק והוא שתהא דבוקה לבשר ולא תשמט ויש מי שאוסר בשל זרוע:",
+      "en_plain": "15.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman307/seif-011/mechaber",
+      "volume": "oc1",
+      "siman": 307,
+      "seif": 11,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 18,
+      "scores": {
+        "en_he_ratio": 0.009,
+        "he_chars": 325,
+        "en_chars": 3,
+        "cut_deficit": 0.9907692307692307
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"24\"></i>השואל דבר מחבירו לא יאמר לו הלוני דמשמע <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מב\"></i>לזמן מרובה <i data-commentator=\"Mishnah Berurah\" data-label=\"מג\"></i>ואיכא למיחש <i data-commentator=\"Ba'er Hetev\" data-order=\"14\"></i>שמא יכתוב אלא יאמר לו השאילני <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"25\"></i>ובלשון לעז שאין חילוק בין הלויני להשאילני צריך שיאמר <i data-commentator=\"Turei Zahav\" data-order=\"9\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"15\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"מד\"></i>תן לי: <small>הגה וכשלוה בשבת ואינו רוצה להאמינו <i data-commentator=\"Mishnah Berurah\" data-label=\"מה\"></i>יניח משכון אצלו אבל לא יאמר לו הילך משכון דהוי כעובדא דחול <i data-commentator=\"Be'er HaGolah\" data-label=\"•\" data-order=\"26\"></i>[ב\"י בשם אורחות חיים] כשם שאין לוין בשבת <i data-commentator=\"Mishnah Berurah\" data-label=\"מו\"></i>כך <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i>אין פורעין בשבת [אשירי סימן קט\"ו]:</small>\n",
+      "en_html": "11.\n",
+      "he_plain": "השואל דבר מחבירו לא יאמר לו הלוני דמשמע לזמן מרובה ואיכא למיחש שמא יכתוב אלא יאמר לו השאילני ובלשון לעז שאין חילוק בין הלויני להשאילני צריך שיאמר תן לי: הגה וכשלוה בשבת ואינו רוצה להאמינו יניח משכון אצלו אבל לא יאמר לו הילך משכון דהוי כעובדא דחול [ב\"י בשם אורחות חיים] כשם שאין לוין בשבת כך אין פורעין בשבת [אשירי סימן קט\"ו]:",
+      "en_plain": "11.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman307/seif-021/mechaber",
+      "volume": "oc1",
+      "siman": 307,
+      "seif": 21,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 18,
+      "scores": {
+        "en_he_ratio": 0.019,
+        "he_chars": 154,
+        "en_chars": 3,
+        "cut_deficit": 0.9805194805194806
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3
+        }
+      },
+      "he_html": "<i data-commentator=\"Magen Avraham\" data-order=\"29\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ק\" data-order=\"42\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"עג\"></i>אסור לומר לעכו\"ם <i data-commentator=\"Mishnah Berurah\" data-label=\"עד\"></i>בשבת הילך בשר זה ובשל אותו לצרכך אפי' אין מזונותיו עליו: <small>הגה אבל מותר לומר לו לעשות מלאכה לעצמו [הגהות מרדכי פ\"ה ורמב\"ן פרשת בא אל פרעה]:</small>\n",
+      "en_html": "21.\n",
+      "he_plain": "אסור לומר לעכו\"ם בשבת הילך בשר זה ובשל אותו לצרכך אפי' אין מזונותיו עליו: הגה אבל מותר לומר לו לעשות מלאכה לעצמו [הגהות מרדכי פ\"ה ורמב\"ן פרשת בא אל פרעה]:",
+      "en_plain": "21.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman307/seif-022/mechaber",
+      "volume": "oc1",
+      "siman": 307,
+      "seif": 22,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 18,
+      "scores": {
+        "en_he_ratio": 0.005,
+        "he_chars": 599,
+        "en_chars": 3,
+        "cut_deficit": 0.994991652754591
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ר\" data-order=\"43\"></i>כל שבות דרבנן מותר בין השמשות לצורך מצוה כגון לומר לעכו\"ם <i data-commentator=\"Be'er HaGolah\" data-label=\"ש\" data-order=\"44\"></i>להדליק לו נר בין השמשות <i data-commentator=\"Be'er HaGolah\" data-label=\"ת\" data-order=\"45\"></i>או <i data-commentator=\"Mishnah Berurah\" data-label=\"עה\"></i>אם היה טרוד והוצרך <i data-commentator=\"Magen Avraham\" data-order=\"30\"></i>לעשר בין השמשות: <small>הגה <i data-commentator=\"Be'er HaGolah\" data-label=\"•\" data-order=\"46\"></i>כל דבר שאסור לומר לעכו\"ם לעשותו בשבת <i data-commentator=\"Magen Avraham\" data-order=\"31\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"עו\"></i>אסור <i data-commentator=\"Ba'er Hetev\" data-order=\"24\"></i>לרמוז לו לעשותו אבל מותר לרמוז לו מלאכה לעשות אחר שבת (א\"ז): עכו\"ם המביאים תבואה בשבת לישראל שחייבים להם והישראל נותן לו מפתחו לאוצרו והעכו\"ם נותנו לשם ומודדים ומונים יש מי שמתיר משום דעכו\"ם <i data-commentator=\"Magen Avraham\" data-order=\"32\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"עז\"></i>במלאכת <i data-commentator=\"Ba'er Hetev\" data-order=\"25\"></i>עצמו עוסק ואינו של ישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"עח\"></i>עד אחר המדידה ויחשוב עמו אח\"כ וכן עכו\"ם העושים גבינות בשבת והישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"עט\"></i>רואה יקנה אותם ממנו דמ\"מ העכו\"ם אדעתיה דנפשיה קעביד ואע\"פ שהישראל <i data-commentator=\"Magen Avraham\" data-order=\"33\"></i>עומד <i data-commentator=\"Ba'er Hetev\" data-order=\"26\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"26\"></i>בעדר חדש או חדשים <i data-commentator=\"Mishnah Berurah\" data-label=\"פ\"></i>ואדעתא למכרם לישראל קא עביד שרי (בית יוסף בשם אגודה):</small>\n",
+      "en_html": "22.\n",
+      "he_plain": "כל שבות דרבנן מותר בין השמשות לצורך מצוה כגון לומר לעכו\"ם להדליק לו נר בין השמשות או אם היה טרוד והוצרך לעשר בין השמשות: הגה כל דבר שאסור לומר לעכו\"ם לעשותו בשבת אסור לרמוז לו לעשותו אבל מותר לרמוז לו מלאכה לעשות אחר שבת (א\"ז): עכו\"ם המביאים תבואה בשבת לישראל שחייבים להם והישראל נותן לו מפתחו לאוצרו והעכו\"ם נותנו לשם ומודדים ומונים יש מי שמתיר משום דעכו\"ם במלאכת עצמו עוסק ואינו של ישראל עד אחר המדידה ויחשוב עמו אח\"כ וכן עכו\"ם העושים גבינות בשבת והישראל רואה יקנה אותם ממנו דמ\"מ העכו\"ם אדעתיה דנפשיה קעביד ואע\"פ שהישראל עומד בעדר חדש או חדשים ואדעתא למכרם לישראל קא עביד שרי (בית יוסף בשם אגודה):",
+      "en_plain": "22.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman206/seif-006/mechaber",
+      "volume": "oc1",
+      "siman": 206,
+      "seif": 6,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 16,
+      "scores": {
+        "en_he_ratio": 0.524,
+        "he_chars": 529,
+        "en_chars": 277,
+        "cut_deficit": 0.4763705103969754
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 2,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 277
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"י\" data-order=\"10\"></i>נטל בידו פרי לאכלו ובירך עליו <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"6\"></i>ונפל מידו ונאבד <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>או נמאס צריך לחזור ולברך <i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>אף ע\"פ שהיה מאותו מין לפניו יותר כשבירך על הראשון: <small>הגה <i data-commentator=\"Turei Zahav\" data-order=\"8\"></i><i data-commentator=\"Magen Avraham\" data-order=\"8\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כו\"></i>רק שלא היה דעתו <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"5\"></i>עליו לאכלו [הגהות מיימוני פרק ד' וכל בו ואגור ואבודרהם ותשו' מהרי\"ל סי' צ\"ב]</small> וצריך לומ' ברוך שם כבוד מלכותו לעולם ועד על שהוציא ש\"ש לבטלה <i data-commentator=\"Be'er HaGolah\" data-label=\"כ\" data-order=\"11\"></i>ואם אמר כשנפל ברוך אתה ה' ולא אמר אלהינו יסיים ויאמר למדני חוקיך שיהא נראה כקורא פסוק ואין כאן מוציא ש\"ש לבטלה <i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"12\"></i>אבל העומד על אמת המים מברך ושותה אע\"פ שהמים ששותה לא היו לפניו כשבירך מפני <i data-commentator=\"Turei Zahav\" data-order=\"9\"></i>שלכך נתכוין תחלה: <small>הגה ועיין לעיל סעיף א' אם בירך בטעות מה דינו:</small>\n",
+      "en_html": "...One who is standing by an aqueduct, one blesses upon the water annd drinks the water, even though the water that one is drinking was not in front of the person when the person blessed upon it, since the person had intended to drink from the flowing water from the outset....\n",
+      "he_plain": "נטל בידו פרי לאכלו ובירך עליו ונפל מידו ונאבד או נמאס צריך לחזור ולברך אף ע\"פ שהיה מאותו מין לפניו יותר כשבירך על הראשון: הגה רק שלא היה דעתו עליו לאכלו [הגהות מיימוני פרק ד' וכל בו ואגור ואבודרהם ותשו' מהרי\"ל סי' צ\"ב] וצריך לומ' ברוך שם כבוד מלכותו לעולם ועד על שהוציא ש\"ש לבטלה ואם אמר כשנפל ברוך אתה ה' ולא אמר אלהינו יסיים ויאמר למדני חוקיך שיהא נראה כקורא פסוק ואין כאן מוציא ש\"ש לבטלה אבל העומד על אמת המים מברך ושותה אע\"פ שהמים ששותה לא היו לפניו כשבירך מפני שלכך נתכוין תחלה: הגה ועיין לעיל סעיף א' אם בירך בטעות מה דינו:",
+      "en_plain": "...One who is standing by an aqueduct, one blesses upon the water annd drinks the water, even though the water that one is drinking was not in front of the person when the person blessed upon it, since the person had intended to drink from the flowing water from the outset....",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman246/seif-005/mechaber",
+      "volume": "oc1",
+      "siman": 246,
+      "seif": 5,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 16,
+      "scores": {
+        "en_he_ratio": 0.451,
+        "he_chars": 907,
+        "en_chars": 409,
+        "cut_deficit": 0.5490628445424477
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 409
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ל\" data-order=\"12\"></i>אם ישראל ועכו\"ם שותפין בבהמה מות' לעשות בה עכו\"ם מלאכה בשבת <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i>ע\"י שיתנה <i data-commentator=\"Ba'er Hetev\" data-order=\"10\"></i>עם העכו\"ם <i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>בתחלה כשקנו אות' שיטול העכו\"ם בשבת וישראל ביום חול <i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>ואם לא התנו מתחלה אסור <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>אע\"פ שהתנו אחר כך <i data-commentator=\"Be'er HaGolah\" data-label=\"מ\" data-order=\"13\"></i>ואם ילוה אותה לעכו\"ם בהלואה גמורה שיהא רשות בידו להוציאה אם ירצה שלא ברשות ישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>ויזקוף הדמי' על העכו\"ם ואחריות השוורים על העכו\"ם מותר <i data-commentator=\"Be'er HaGolah\" data-label=\"נ\" data-order=\"14\"></i>ויש מתירים אפי' לא יהא רשות ביד העכו\"ם <i data-commentator=\"Mishnah Berurah\" data-label=\"כו\"></i>להוציאם על ידי שיזקוף הדמים על העכו\"ם במלוה ויחזור העכ\"ם ויעשם אפותיקי <small>(פירוש אפו תהא קאי כלומר לא יהיה לך פרעון אלא מזה)</small> לישראל או <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כז\"></i>יהרהנם <small>[פירוש משכון בלשון ישמעאל רהן)</small> אצלו <i data-commentator=\"Mishnah Berurah\" data-label=\"כח\"></i>ובלבד שלא יאמר לו מעכשיו <i data-commentator=\"Be'er HaGolah\" data-label=\"ס\" data-order=\"15\"></i>ויש מתירים <i data-commentator=\"Mishnah Berurah\" data-label=\"כט\"></i>על ידי שיזהיר ישראל את העכו\"ם שלא יעשה בה מלאכ' בשבת ואם יעבור ויעשה תהיה אחריות עליו אפילו מהאונסים <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>ויכתוב כן <i data-commentator=\"Ba'er Hetev\" data-order=\"11\"></i>בערכאותיהם דהשתא אם בא לעשות בו מלאכה בשבת אינה בהמת ישראל שהרי קנא' העכו\"ם להתחייב באונסיה: <small>הגה וכל צדדי היתרים אלו <i data-commentator=\"Mishnah Berurah\" data-label=\"לא\"></i>הלכתא נינהו ויכול לעשות <i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>איזה מהן שירצה <i data-commentator=\"Magen Avraham\" data-order=\"16\"></i>ואפי' אם הבהמה כולה של <i data-commentator=\"Ba'er Hetev\" data-order=\"12\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"12\"></i>ישראל דינו <i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>כאלו היתה בשותפות העכו\"ם <i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>רק שיפרסם שעשה דרך היתר:</small>\n",
+      "en_html": "If a Jew and a Non-Jew are partners in an animal, the Non-Jew may use it for work on Shabbat if it was established with the non-Jew at the beginning, when it was bought, that the non-Jew will assume control of it on Shabbat and the Jew will have control of it during the weekdays. If they did not stipulate to this at the beginning, it is forbidden, even though they may have stipulated to this afterwards....\n",
+      "he_plain": "אם ישראל ועכו\"ם שותפין בבהמה מות' לעשות בה עכו\"ם מלאכה בשבת ע\"י שיתנה עם העכו\"ם בתחלה כשקנו אות' שיטול העכו\"ם בשבת וישראל ביום חול ואם לא התנו מתחלה אסור אע\"פ שהתנו אחר כך ואם ילוה אותה לעכו\"ם בהלואה גמורה שיהא רשות בידו להוציאה אם ירצה שלא ברשות ישראל ויזקוף הדמי' על העכו\"ם ואחריות השוורים על העכו\"ם מותר ויש מתירים אפי' לא יהא רשות ביד העכו\"ם להוציאם על ידי שיזקוף הדמים על העכו\"ם במלוה ויחזור העכ\"ם ויעשם אפותיקי (פירוש אפו תהא קאי כלומר לא יהיה לך פרעון אלא מזה) לישראל או יהרהנם [פירוש משכון בלשון ישמעאל רהן) אצלו ובלבד שלא יאמר לו מעכשיו ויש מתירים על ידי שיזהיר ישראל את העכו\"ם שלא יעשה בה מלאכ' בשבת ואם יעבור ויעשה תהיה אחריות עליו אפילו מהאונסים ויכתוב כן בערכאותיהם דהשתא אם בא לעשות בו מלאכה בשבת אינה בהמת ישראל שהרי קנא' העכו\"ם להתחייב באונסיה: הגה וכל צדדי היתרים אלו הלכתא נינהו ויכול לעשות איזה מהן שירצה ואפי' אם הבהמה כולה של ישראל דינו כאלו היתה בשותפות העכו\"ם רק שיפרסם שעשה דרך היתר:",
+      "en_plain": "If a Jew and a Non-Jew are partners in an animal, the Non-Jew may use it for work on Shabbat if it was established with the non-Jew at the beginning, when it was bought, that the non-Jew will assume control of it on Shabbat and the Jew will have control of it during the weekdays. If they did not stipulate to this at the beginning, it is forbidden, even though they may have stipulated to this afterwards....",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman307/seif-019/mechaber",
+      "volume": "oc1",
+      "siman": 307,
+      "seif": 19,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "missing_cross_ref"
+      ],
+      "severity": 16,
+      "scores": {
+        "en_he_ratio": 0.007,
+        "he_chars": 406,
+        "en_chars": 3,
+        "cut_deficit": 0.9926108374384236
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3
+        },
+        "missing_siman_refs": [
+          338,
+          90
+        ]
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ס\" data-order=\"38\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"סח\"></i>סחורה הנפסדת בשבת ע\"י גשמים או דבר אחר או אי אתי בידקא <small>(פי' נחל או אגם מים)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ע\" data-order=\"39\"></i>דמיא ומפסיד ממונו או שנתרועעה <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"6\"></i>חבית של יין והולך לאיבוד <i data-commentator=\"Mishnah Berurah\" data-label=\"סט\"></i>מותר לקרות עכו\"ם אע\"פ שודאי יודע שהעכו\"ם יציל הממון <small>[ולכסות סחורה או פירות או דבר אחר מפני הגשמים ע\"ל סי' של\"ח סעיף ז']</small> וכן מותר לומר לעכו\"ם <i data-commentator=\"Mishnah Berurah\" data-label=\"ע\"></i>כל המציל אינו מפסיד כמו בדליקה שהתירו לומר כל המכבה אינו מפסיד <i data-commentator=\"Magen Avraham\" data-order=\"27\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"22\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"פ\" data-order=\"40\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"עא\"></i>ויש מי שאומר שלא התירו אלא <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"5\"></i>בדליקה דוקא <small>[וע\"ל סימן של\"ד וש\"ה ושל\"ו ס\"ט]:</small>\n",
+      "en_html": "19.\n",
+      "he_plain": "סחורה הנפסדת בשבת ע\"י גשמים או דבר אחר או אי אתי בידקא (פי' נחל או אגם מים) דמיא ומפסיד ממונו או שנתרועעה חבית של יין והולך לאיבוד מותר לקרות עכו\"ם אע\"פ שודאי יודע שהעכו\"ם יציל הממון [ולכסות סחורה או פירות או דבר אחר מפני הגשמים ע\"ל סי' של\"ח סעיף ז'] וכן מותר לומר לעכו\"ם כל המציל אינו מפסיד כמו בדליקה שהתירו לומר כל המכבה אינו מפסיד ויש מי שאומר שלא התירו אלא בדליקה דוקא [וע\"ל סימן של\"ד וש\"ה ושל\"ו ס\"ט]:",
+      "en_plain": "19.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman539/seif-003/mechaber",
+      "volume": "oc1",
+      "siman": 539,
+      "seif": 3,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 16,
+      "scores": {
+        "en_he_ratio": 0.546,
+        "he_chars": 445,
+        "en_chars": 243,
+        "cut_deficit": 0.4539325842696629
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 1,
+          "post_rama_en_chars": 243
+        }
+      },
+      "he_html": "מכר לחבירו פרקמטיא קודם מועד <i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>יש מי <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i>שאוסר לתבוע דמיה במועד אלא אם כן יהא לוקח אדם שאינו מצוי במקום המוכר ונזדמן לו בחול המועד דהוי דבר האבד <i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>ולי נראה שכיון שזקף עליו המעו' בחובו קודם המועד הוי ליה כהלואה ומותר לגבו' ממנו בחול המועד אפילו הוא אדם שמצוי במקום המוכר: <small>הגה וכן <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i>מותר <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>לקבול <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i>במשפט בשביל חובותיו המותרים לתבוע (מרדכי ס\"פ מי שהפך) <i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>וכן מותר לעשות זקיפה עם חובותיו במועד <i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>כדי להבטיחן דכל זה בכלל דבר האבד ושרי: (המגיד פ\"ז ונ\"י פרקא קמא דמ\"ק)</small>:\n",
+      "en_html": "3. If one sold merchandise before the Moed there are those who forbid him to demand (collect) his money on the Moed unless someone will take something not found from the place of sale and by chance it is found to be a lost item on the Moed....\n",
+      "he_plain": "מכר לחבירו פרקמטיא קודם מועד יש מי שאוסר לתבוע דמיה במועד אלא אם כן יהא לוקח אדם שאינו מצוי במקום המוכר ונזדמן לו בחול המועד דהוי דבר האבד ולי נראה שכיון שזקף עליו המעו' בחובו קודם המועד הוי ליה כהלואה ומותר לגבו' ממנו בחול המועד אפילו הוא אדם שמצוי במקום המוכר: הגה וכן מותר לקבול במשפט בשביל חובותיו המותרים לתבוע (מרדכי ס\"פ מי שהפך) וכן מותר לעשות זקיפה עם חובותיו במועד כדי להבטיחן דכל זה בכלל דבר האבד ושרי: (המגיד פ\"ז ונ\"י פרקא קמא דמ\"ק) :",
+      "en_plain": "3. If one sold merchandise before the Moed there are those who forbid him to demand (collect) his money on the Moed unless someone will take something not found from the place of sale and by chance it is found to be a lost item on the Moed....",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman545/seif-005/mechaber",
+      "volume": "oc1",
+      "siman": 545,
+      "seif": 5,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict",
+        "rama_he_hagah_unreflected"
+      ],
+      "severity": 16,
+      "scores": {
+        "en_he_ratio": 0.494,
+        "he_chars": 703,
+        "en_chars": 347,
+        "cut_deficit": 0.5064011379800853
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 158,
+          "post_rama_en_chars": 347
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>מותר לכתוב <i data-commentator=\"Turei Zahav\" data-order=\"7\"></i>שטר קדושין ושטרי <i data-commentator=\"Magen Avraham\" data-order=\"12\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>פסיקתא גיטין שוברים <i data-commentator=\"Magen Avraham\" data-order=\"13\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כב\"></i>דייתיקי מתנות <i data-commentator=\"Magen Avraham\" data-order=\"14\"></i>פרוזבולין <i data-commentator=\"Magen Avraham\" data-order=\"15\"></i>אגרו' שום <i data-commentator=\"Magen Avraham\" data-order=\"16\"></i>ואגרו' מזון <small>(פי' שטרי פסיקתא שאדם פוסק לתת לבנו או לבתו כך וכך. ופירוש דייתיקי שטר דא תהא למיקם ולהיות. ופירוש פרוזבול פרוזבלי ובוטי כלומר תקנת המלוה <i data-commentator=\"Mishnah Berurah\" data-label=\"כג\"></i>שלא יאבד ממונו והקנה ללוה שימצא מי שילוונו. ופירוש אגרות שום ששמו בית דין נכסי לוה ונתנום למלוה. ואגרת מזון שמכרו בית דין את הקרקע למזון האשה והבנות וכתבו מעשה בית דין על זה. אי נמי מי שקיבל עליו לזון את בת אשתו)</small> שטרי חליצה <i data-commentator=\"Mishnah Berurah\" data-label=\"כד\"></i>ומיאונין <i data-commentator=\"Turei Zahav\" data-order=\"8\"></i>ושטרי <i data-commentator=\"Magen Avraham\" data-order=\"17\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כה\"></i>ברורין <i data-commentator=\"Mishnah Berurah\" data-label=\"כו\"></i>ופסקי דינין: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"כז\"></i>ומותר לכתוב <i data-commentator=\"Turei Zahav\" data-order=\"9\"></i><i data-commentator=\"Magen Avraham\" data-order=\"18\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כח\"></i>כתובה במועד (כל בו) <i data-commentator=\"Magen Avraham\" data-order=\"19\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"כט\"></i>ויש <i data-commentator=\"Ba'er Hetev\" data-order=\"8\"></i>אוסרים (סמ\"ק)</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ז\" data-order=\"7\"></i><i data-commentator=\"Turei Zahav\" data-order=\"10\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ל\"></i>ואגרת שאלת שלום שאדם שולח לחבירו <i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>ואפילו על דבר פרקמטיא <i data-commentator=\"Magen Avraham\" data-order=\"20\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לא\"></i>שאינה אבודה <small>(<i data-commentator=\"Mishnah Berurah\" data-label=\"לב\"></i>ויש אוסרים <i data-commentator=\"Mishnah Berurah\" data-label=\"לג\"></i>בשאלת שלום) (טור בשם ה\"ג): <i data-commentator=\"Magen Avraham\" data-order=\"21\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"לד\"></i>ונהגו <i data-commentator=\"Ba'er Hetev\" data-order=\"9\"></i>להחמיר אפילו בכתיבה שלנו <i data-commentator=\"Mishnah Berurah\" data-label=\"לה\"></i>שהיא כתיבה משיט\"א)</small>:\n",
+      "en_html": "5. It is permitted to write Kiddushin contracts, Pesikta contracts, bills of divorce (Gittin), proof of divorce, Final Will &amp; Testimony (Datiki), gifts, Prozbul, Assessment Letters, Sustenance Letters. Explanation of pesikta contracts is that a person allocates to give to his son or his daughter such and such (amount). Explanation of Datiki ....\n",
+      "he_plain": "מותר לכתוב שטר קדושין ושטרי פסיקתא גיטין שוברים דייתיקי מתנות פרוזבולין אגרו' שום ואגרו' מזון (פי' שטרי פסיקתא שאדם פוסק לתת לבנו או לבתו כך וכך. ופירוש דייתיקי שטר דא תהא למיקם ולהיות. ופירוש פרוזבול פרוזבלי ובוטי כלומר תקנת המלוה שלא יאבד ממונו והקנה ללוה שימצא מי שילוונו. ופירוש אגרות שום ששמו בית דין נכסי לוה ונתנום למלוה. ואגרת מזון שמכרו בית דין את הקרקע למזון האשה והבנות וכתבו מעשה בית דין על זה. אי נמי מי שקיבל עליו לזון את בת אשתו) שטרי חליצה ומיאונין ושטרי ברורין ופסקי דינין: הגה ומותר לכתוב כתובה במועד (כל בו) ויש אוסרים (סמ\"ק) ואגרת שאלת שלום שאדם שולח לחבירו ואפילו על דבר פרקמטיא שאינה אבודה ( ויש אוסרים בשאלת שלום) (טור בשם ה\"ג): ונהגו להחמיר אפילו בכתיבה שלנו שהיא כתיבה משיט\"א) :",
+      "en_plain": "5. It is permitted to write Kiddushin contracts, Pesikta contracts, bills of divorce (Gittin), proof of divorce, Final Will & Testimony (Datiki), gifts, Prozbul, Assessment Letters, Sustenance Letters. Explanation of pesikta contracts is that a person allocates to give to his son or his daughter such and such (amount). Explanation of Datiki ....",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman302/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 302,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict"
+      ],
+      "severity": 12,
+      "scores": {
+        "en_he_ratio": 0.011,
+        "he_chars": 187,
+        "en_chars": 2,
+        "cut_deficit": 0.9893048128342246
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2
+        }
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ח\" data-order=\"8\"></i>מכבש <small>(הוא כלי שכובשין בו בגדים אחר הכביסה והם שתי לוחות זה על זה והבגדים ביניהם)</small> של בעל הבית מתירין אותו ליטול ממנו בגדים <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>לצורך השבת <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"7\"></i>ושל אומן אסור מפני שהוא תחוב <i data-commentator=\"Mishnah Berurah\" data-label=\"כא\"></i>בחזקה והתרתו דומה לסתירה:\n",
+      "en_html": "4.\n",
+      "he_plain": "מכבש (הוא כלי שכובשין בו בגדים אחר הכביסה והם שתי לוחות זה על זה והבגדים ביניהם) של בעל הבית מתירין אותו ליטול ממנו בגדים לצורך השבת ושל אומן אסור מפני שהוא תחוב בחזקה והתרתו דומה לסתירה:",
+      "en_plain": "4.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman449/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 449,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 0.391,
+        "he_chars": 320,
+        "en_chars": 125,
+        "cut_deficit": 0.609375
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 125
+        }
+      },
+      "he_html": "<b>דין חמץ שנמצא בחנות ישראל והפועלים עכו\"ם או בהיפך. ובו סעיף אחד:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Chok Yaakov\" data-order=\"1\"></i>חנות של ישראל <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>ומלאי <small>(<i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>פי' הסחורה וכלי החנות)</small> של ישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>והפועלים הנכנסים לשם עכו\"ם חמץ שנמצא שם אחר הפסח <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>אסור בהנאה חנות של עכו\"ם ומלאי של עכו\"ם ופועלים הנכנסים לשם ישראל חמץ שנמצא שם <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>מותר אפי' באכילה <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>כך היא גירסת רש\"י ורבינו האי אבל רבינו חננאל <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>גורס <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>בהיפך:\n",
+      "en_html": "The law of Chametz found in an Israelite's shop where the workers are non-Jews, or vice versa. And it contains one paragraph:\n",
+      "he_plain": "דין חמץ שנמצא בחנות ישראל והפועלים עכו\"ם או בהיפך. ובו סעיף אחד: חנות של ישראל ומלאי ( פי' הסחורה וכלי החנות) של ישראל והפועלים הנכנסים לשם עכו\"ם חמץ שנמצא שם אחר הפסח אסור בהנאה חנות של עכו\"ם ומלאי של עכו\"ם ופועלים הנכנסים לשם ישראל חמץ שנמצא שם מותר אפי' באכילה כך היא גירסת רש\"י ורבינו האי אבל רבינו חננאל גורס בהיפך:",
+      "en_plain": "The law of Chametz found in an Israelite's shop where the workers are non-Jews, or vice versa. And it contains one paragraph:",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman680/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 680,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_strict",
+      "kinds": [
+        "cut_en_strict"
+      ],
+      "severity": 10,
+      "scores": {
+        "en_he_ratio": 0.514,
+        "he_chars": 138,
+        "en_chars": 71,
+        "cut_deficit": 0.48550724637681164
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 71
+        }
+      },
+      "he_html": "<b>שלא להניח הנרות סמוך לפתח בליל שבת. ובו ב סעיפים:</b><br><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>בליל שבת <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>צריך ליתן <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>שום דבר לחוץ <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>בין הנרות לפתח בשביל הרוח <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i>שלא יכבה הנרות כשפותח את הדלת:\n",
+      "en_html": "﻿<b>Not to Leave the Lights</b><br> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i> <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i> Near <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i> the <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i> Entrance <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i> on the Shabbat <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i> Eve, 2 Seifim:",
+      "he_plain": "שלא להניח הנרות סמוך לפתח בליל שבת. ובו ב סעיפים: בליל שבת צריך ליתן שום דבר לחוץ בין הנרות לפתח בשביל הרוח שלא יכבה הנרות כשפותח את הדלת:",
+      "en_plain": "Not to Leave the Lights Near the Entrance on the Shabbat Eve, 2 Seifim:",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman664/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 664,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_duplicate_prefix",
+        "rama_partial_missing",
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama"
+      ],
+      "severity": 24,
+      "scores": {
+        "en_he_ratio": 1.658,
+        "he_chars": 811,
+        "en_chars": 1345,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 2,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 98,
+          "post_rama_en_chars": 18
+        }
+      },
+      "he_html": "<b>סדר יום הושענא רבה. ובו יא סעיפים:</b> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>ביום שביעי שהוא הושענא רבה נוהגים להרבות במזמורים <i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>כמו ביום טוב: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>ואין אומרים נשמת ואומרים מזמור לתודה ואומרים אין כמוך שמע ישראל וכו' <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>כמו בי\"ט ואומרים קדיש של אחר תפלת מוסף בניגון יום טוב ואין רגילין לעשות <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>מלאכה <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>של חול עד אחר יציאה מבית הכנסת ויש לומר <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>פזמון זכור ברית כשיש מילה בהושענא רבה ואומרים אותו <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>קודם אנא אזון חין כו': כתבו הראשונים ז\"ל שיש סימן בצל <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>הלבנה בליל הו\"ר מה שיקרה לו או לקרוביו באותה השנה ויש מי שכתב שאין לדקדק בזה כדי שלא ליתרע מזליה גם כי רבים אינם מבינים הענין על בוריו ויותר טוב להיות תמים ולא לחקור עתידות כנ\"ל:</small> ומרבים קצת בנרות <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>כמו ביום הכפורים: <small>הגה והמדקדקים נוהגים <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>לטבול עצמן <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>קודם עלות השחר כמו בעיו\"כ [מנהגים] ויש נוהגים <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>ללבוש <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>הקיטל <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>כמו ביום כפור</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>לפי שבחג נידונים על המים <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ונוהגים להתיר בו אגודו <i data-commentator=\"Be'er HaGolah\" data-label=\"•\" data-order=\"3\"></i>של לולב <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>ומקיפים שבעה פעמים ומרבים תחנונים על המים:\n",
+      "en_html": "The Order of Prayer on Hoshana Rabbah, 11 Seifim: On the seventh day, Hoshana Rabbah, it is customary to sing lots of Tehillim, like on Yom Tov. We have lots of candles, similar to Yom Kippur. Those who are careful have the practice of immersing themselves before dawn, just like on the day before Yom Kippur (Minhagim). There are some who wear a kittel like on Yom Kippur. This is because on the holiday [of Sukkot], the matter of water is decided. It is customary to unbind the lulav. We circle seven times and say many prayers about water. {Rama: Rama: We do not say \"Nishmat, \" we do say \"Mizmor l'Todah,\" we say \"Ein Kamocha\" and \"Shma Yisrael\" [in the Torah service] like on Yom Tov. We sing the kaddish after Mussaf in the Yom Tov tune. One normally does not do weekday labor until after leaving the synagogue. We say the song \"Zchor Brit\" when there is a circumcision on Hoshana Rabba, and we say it before \"Ana hazon hin....\" The early rabbis z\"l wrote that the shadow of the moon on Hoshana Rabba evening holds a sign for what will happen to a person and their family in that year. There is one who writes not to be concerned with this so as not to upset one's fortune and also because many do not understand this matter fully. It is better to be pious and not to investigate the future. This is how it seems to me.} See reference 122.\n",
+      "he_plain": "סדר יום הושענא רבה. ובו יא סעיפים: ביום שביעי שהוא הושענא רבה נוהגים להרבות במזמורים כמו ביום טוב: הגה ואין אומרים נשמת ואומרים מזמור לתודה ואומרים אין כמוך שמע ישראל וכו' כמו בי\"ט ואומרים קדיש של אחר תפלת מוסף בניגון יום טוב ואין רגילין לעשות מלאכה של חול עד אחר יציאה מבית הכנסת ויש לומר פזמון זכור ברית כשיש מילה בהושענא רבה ואומרים אותו קודם אנא אזון חין כו': כתבו הראשונים ז\"ל שיש סימן בצל הלבנה בליל הו\"ר מה שיקרה לו או לקרוביו באותה השנה ויש מי שכתב שאין לדקדק בזה כדי שלא ליתרע מזליה גם כי רבים אינם מבינים הענין על בוריו ויותר טוב להיות תמים ולא לחקור עתידות כנ\"ל: ומרבים קצת בנרות כמו ביום הכפורים: הגה והמדקדקים נוהגים לטבול עצמן קודם עלות השחר כמו בעיו\"כ [מנהגים] ויש נוהגים ללבוש הקיטל כמו ביום כפור לפי שבחג נידונים על המים ונוהגים להתיר בו אגודו של לולב ומקיפים שבעה פעמים ומרבים תחנונים על המים:",
+      "en_plain": "The Order of Prayer on Hoshana Rabbah, 11 Seifim: On the seventh day, Hoshana Rabbah, it is customary to sing lots of Tehillim, like on Yom Tov. We have lots of candles, similar to Yom Kippur. Those who are careful have the practice of immersing themselves before dawn, just like on the day before Yom Kippur (Minhagim). There are some who wear a kittel like on Yom Kippur. This is because on the holiday [of Sukkot], the matter of water is decided. It is customary to unbind the lulav. We circle seven times and say many prayers about water. {Rama: Rama: We do not say \"Nishmat, \" we do say \"Mizmor l'Todah,\" we say \"Ein Kamocha\" and \"Shma Yisrael\" [in the Torah service] like on Yom Tov. We sing the kaddish after Mussaf in the Yom Tov tune. One normally does not do weekday labor until after leaving the synagogue. We say the song \"Zchor Brit\" when there is a circumcision on Hoshana Rabba, and we say it before \"Ana hazon hin....\" The early rabbis z\"l wrote that the shadow of the moon on Hoshana Rabba evening holds a sign for what will happen to a person and their family in that year. There is one who writes not to be concerned with this so as not to upset one's fortune and also because many do not understand this matter fully. It is better to be pious and not to investigate the future. This is how it seems to me.} See reference 122.",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman119/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 119,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama",
+        "html_json_leak"
+      ],
+      "severity": 22,
+      "scores": {
+        "en_he_ratio": 2.064,
+        "he_chars": 719,
+        "en_chars": 1484,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 404,
+          "post_rama_en_chars": 0
+        },
+        "leaks": [
+          "json_array_leak"
+        ]
+      },
+      "he_html": "<b>דין הרוצה להוסיף בברכות. ובו ד סעיפים:</b> <i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>אם רצה להוסיף בכל <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>ברכ' מהאמצעיות מעין הברכה מוסיף כיצד <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>היה לו חולה מבקש עליו <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>רחמים בברכת רפאינו היה צריך פרנסה מבקש עלי' בברכת השנים <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>ובשומע תפל' יכול לשאול כל <i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>צרכיו שהיא כוללת כל הבקשו': <small>הגה וכשהוא מוסיף <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>יתחיל בברכה ואח\"כ מוסיף אבל לא יוסיף ואח\"כ יתחיל הברכה (טור סימן תקס\"ז)</small> <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>ולהר\"ר יונה כשמוסיף בברכה מעין אותה ברכה אם מוסיף אותה <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>בשביל כל ישראל אומר אותה בלשון רבים <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>ולא בלשון יחיד ולא יוסיף אלא <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>בסוף הברכ' <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>ולא באמצע ואם שואל צרכיו ממש כגון שיש לו חולה בתוך ביתו או שהוא צריך לפרנסה יכול לשאול אפילו באמצע הברכה והוא שישאל בלשון יחיד <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>ולא בלשון רבים <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i>ובברכת <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>שומע תפלה וכן בסוף התפלה <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i>בין <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>קודם יהיו לרצון בין אחריו יכול לשאול בין בלשון יחיד בין בלשון רבים בין צרכיו ממש בין צרכי רבים:\n",
+      "en_html": "The Laws of the One Who Wants To Add [Personal Prayers] In The Blessings. Containing 4 S'ifim: If one wanted to add in any of the middle blessings, something similar the blessing, one may add. How so? If one had a sick person, one asks for mercy for [that person] in the blessing of \"Refa'einu\" [\"Heal us\"]. If one needs a livelihood, one may ask for it in the \"Blessing of the Years\". And in [the blessing] of \"Shomeya Tefilla\" [\"Who hears prayers\"], one may ask for any of one's needs, for it includes all the requests. . And according to Rabbeinu Yona, when one adds to the blessing something similar to that blessing, if one is adding it on behalf of all of Israel, one says it in plural language and not singular language, and one should only add at the end of the blessing and not the middle. And if one is asking specifically for one's own needs, for example: there is a sick person in one's home or one needs a livelihood, one can ask even in the middle of the blessing, as long as one does so in singular language and not plural language. And in the blessing of \"Shomeya Tefilla\" and similarly at the end of prayer, either right before \"Yihyu l'ratzon\" [\"May it be acceptable before You\"] or after it, one may ask in either singular language or plural language, whether it is specifically for one own needs or for of the public. {Rama: Gloss: And when one adds, one should begin the blessing and, after that, add, but one should not add and then begin the blessing (Tur 567)}\n",
+      "he_plain": "דין הרוצה להוסיף בברכות. ובו ד סעיפים: אם רצה להוסיף בכל ברכ' מהאמצעיות מעין הברכה מוסיף כיצד היה לו חולה מבקש עליו רחמים בברכת רפאינו היה צריך פרנסה מבקש עלי' בברכת השנים ובשומע תפל' יכול לשאול כל צרכיו שהיא כוללת כל הבקשו': הגה וכשהוא מוסיף יתחיל בברכה ואח\"כ מוסיף אבל לא יוסיף ואח\"כ יתחיל הברכה (טור סימן תקס\"ז) ולהר\"ר יונה כשמוסיף בברכה מעין אותה ברכה אם מוסיף אותה בשביל כל ישראל אומר אותה בלשון רבים ולא בלשון יחיד ולא יוסיף אלא בסוף הברכ' ולא באמצע ואם שואל צרכיו ממש כגון שיש לו חולה בתוך ביתו או שהוא צריך לפרנסה יכול לשאול אפילו באמצע הברכה והוא שישאל בלשון יחיד ולא בלשון רבים ובברכת שומע תפלה וכן בסוף התפלה בין קודם יהיו לרצון בין אחריו יכול לשאול בין בלשון יחיד בין בלשון רבים בין צרכיו ממש בין צרכי רבים:",
+      "en_plain": "The Laws of the One Who Wants To Add [Personal Prayers] In The Blessings. Containing 4 S'ifim: If one wanted to add in any of the middle blessings, something similar the blessing, one may add. How so? If one had a sick person, one asks for mercy for [that person] in the blessing of \"Refa'einu\" [\"Heal us\"]. If one needs a livelihood, one may ask for it in the \"Blessing of the Years\". And in [the blessing] of \"Shomeya Tefilla\" [\"Who hears prayers\"], one may ask for any of one's needs, for it includes all the requests. . And according to Rabbeinu Yona, when one adds to the blessing something similar to that blessing, if one is adding it on behalf of all of Israel, one says it in plural language and not singular language, and one should only add at the end of the blessing and not the middle. And if one is asking specifically for one's own needs, for example: there is a sick person in one's home or one needs a livelihood, one can ask even in the middle of the blessing, as long as one does so in singular language and not plural language. And in the blessing of \"Shomeya Tefilla\" and similarly at the end of prayer, either right before \"Yihyu l'ratzon\" [\"May it be acceptable before You\"] or after it, one may ask in either singular language or plural language, whether it is specifically for one own needs or for of the public. {Rama: Gloss: And when one adds, one should begin the blessing and, after that, add, but one should not add and then begin the blessing (Tur 567)}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    },
+    {
+      "id": "oc1/siman122/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 122,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_cut_post_rama",
+      "kinds": [
+        "rama_placement_or_cut_post_rama",
+        "cut_post_rama",
+        "html_json_leak"
+      ],
+      "severity": 22,
+      "scores": {
+        "en_he_ratio": 2.518,
+        "he_chars": 573,
+        "en_chars": 1443,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 150,
+          "post_rama_en_chars": 0
+        },
+        "leaks": [
+          "json_array_leak"
+        ]
+      },
+      "he_html": "<b>דינים השייכין בין י\"ח ליהיו לרצון. ובו ג סעיפים:</b> <i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i>אם בא להפסיק ולענות קדיש וקדושה בין י\"ח ליהיו לרצון אינו פוסק שיהיו לרצון מכלל התפלה הוא <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>אבל בין יהיו לרצון לשאר תחנונים <i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>שפיר דמי: <small>הגה ודוקא במקום שנוהגים לו' יהיו לרצון מיד אחר התפלה <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>אבל במקום שנוהגין לומר <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>תחנונים קודם יהיו לרצון <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i>מפסיק ג\"כ לקדיש וקדושה ובמקומות אלו נוהגים להפסיק באלהי נצור קודם יהיו לרצון ולכן מפסיקים ג\"כ לקדוש' <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ולקדיש <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>וברכו [ד\"ע לפי' רשב\"א שהביא הב\"י]:</small> <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>מיהו הרגיל לומר תחנונים אחר תפלתו אם התחיל ש\"צ לסדר תפלתו והגיע לקדיש או לקדושה <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>מקצר <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i>ועולה ואם לא קצר יכול להפסיק כדרך שמפסיק בברכה של ק\"ש אפי' באמצע:\n",
+      "en_html": "Laws that are Applicable Between Sh'moneh Esrei and \"Yih'yu L'Ratzon\". Containing 3 S'ifim: If one is inclined to interrupt [one's prayer] to respond to Kaddish or K'dusha between [the end of] Sh'moneh Esrei and \"Yih'yu L'Ratzon\" [\"May it be acceptable\"], one does not interrupt; for \"Yih'yu L'Ratzon\" is included in the [Sh'moneh Esrei] prayer. But between \"Yih'yu L'Ratzon\" and the rest of the supplications [that are said afterwards], it is fine [to interrupt]. One who was accustomed to say supplications after his [Sh'moneh Esrei] prayer - if the prayer leader began to order [i.e. recite] his [repetition of the] prayer and reached Kaddish or K'dusha, one should truncate [one's supplications] and stand up. And if one did not truncate [one's supplications], one may interrupt in the same way that one interrupts in a blessing of the Recitation of the Sh'ma; even in the middle of [one's recitation]. {Rama: Gloss: And this is specifically in a place where it is practiced to say \"Yih'yu L'Ratzon\" immediately after the [Sh'moneh Esrei] prayer. But in a place where they practice by saying supplications before \"Yih'yu L'Ratzon\", one may interrupt also for Kaddish and K'dusha. And in these places, it is practiced to interrupt in \"Elokai, Netzor\" [\"My God, guard\"], before \"Yih'yu L'Ratzon\". And therefore, we interrupt also for K'dusha, Kaddish, and Bar'khu. [His own words, following to the Rashba that was brought by the Beit Yosef]}\n",
+      "he_plain": "דינים השייכין בין י\"ח ליהיו לרצון. ובו ג סעיפים: אם בא להפסיק ולענות קדיש וקדושה בין י\"ח ליהיו לרצון אינו פוסק שיהיו לרצון מכלל התפלה הוא אבל בין יהיו לרצון לשאר תחנונים שפיר דמי: הגה ודוקא במקום שנוהגים לו' יהיו לרצון מיד אחר התפלה אבל במקום שנוהגין לומר תחנונים קודם יהיו לרצון מפסיק ג\"כ לקדיש וקדושה ובמקומות אלו נוהגים להפסיק באלהי נצור קודם יהיו לרצון ולכן מפסיקים ג\"כ לקדוש' ולקדיש וברכו [ד\"ע לפי' רשב\"א שהביא הב\"י]: מיהו הרגיל לומר תחנונים אחר תפלתו אם התחיל ש\"צ לסדר תפלתו והגיע לקדיש או לקדושה מקצר ועולה ואם לא קצר יכול להפסיק כדרך שמפסיק בברכה של ק\"ש אפי' באמצע:",
+      "en_plain": "Laws that are Applicable Between Sh'moneh Esrei and \"Yih'yu L'Ratzon\". Containing 3 S'ifim: If one is inclined to interrupt [one's prayer] to respond to Kaddish or K'dusha between [the end of] Sh'moneh Esrei and \"Yih'yu L'Ratzon\" [\"May it be acceptable\"], one does not interrupt; for \"Yih'yu L'Ratzon\" is included in the [Sh'moneh Esrei] prayer. But between \"Yih'yu L'Ratzon\" and the rest of the supplications [that are said afterwards], it is fine [to interrupt]. One who was accustomed to say supplications after his [Sh'moneh Esrei] prayer - if the prayer leader began to order [i.e. recite] his [repetition of the] prayer and reached Kaddish or K'dusha, one should truncate [one's supplications] and stand up. And if one did not truncate [one's supplications], one may interrupt in the same way that one interrupts in a blessing of the Recitation of the Sh'ma; even in the middle of [one's recitation]. {Rama: Gloss: And this is specifically in a place where it is practiced to say \"Yih'yu L'Ratzon\" immediately after the [Sh'moneh Esrei] prayer. But in a place where they practice by saying supplications before \"Yih'yu L'Ratzon\", one may interrupt also for Kaddish and K'dusha. And in these places, it is practiced to interrupt in \"Elokai, Netzor\" [\"My God, guard\"], before \"Yih'yu L'Ratzon\". And therefore, we interrupt also for K'dusha, Kaddish, and Bar'khu. [His own words, following to the Rashba that was brought by the Beit Yosef]}",
+      "instruction": "Retranslate EN completely from HE. Preserve {Rama: ...} for הגה. No duplicate RAMA: prefix. Do not omit clauses after Rama. Edit EN only."
+    }
+  ]
+}

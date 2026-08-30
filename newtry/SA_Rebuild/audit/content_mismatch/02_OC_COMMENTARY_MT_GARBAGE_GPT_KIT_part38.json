@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 38,
+    "chunk_total": 47,
+    "case_offset": 202,
+    "cases_in_chunk": 1,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman548/seif-001/chokhmat-shlomo",
+      "volume": "oc1",
+      "siman": 548,
+      "seif": 1,
+      "slug": "chokhmat-shlomo",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.044,
+        "he_chars": 1515,
+        "en_chars": 3096,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3096
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>סעיף א'  </b>הקובר את מתו בתוך הרגל לא חל עליו אבילות ברגל וכו'. נ\"ב בא מעשה ידי באחד שנעשה אבל בחג הסוכות ר\"ל והוריתי לו להתיר לעלות לתורה בשמחת תורה והיינו בזה כיון דנוהגין כל העולם לעלות לתורה אם לא יעלה האבל לתורה הוי פרהסיא ואף דיש לחלק דהתם היה נוהג ר\"ת לעלות במקום הזה והוי פרהסיא אבל כאן אולי עלה במקום אחר וכיוצא בזה כתב הרש\"ל בתשובה סי' ע\"א לענין אבל המל בנו שאינו עולה לתורה מכל מקום י\"ל הכא טעם אחריתא הוי כיון דמבואר בש\"ע דבער\"ה מותר לאבל לצאת מביתו לו' סליחות אף דבשאר ימים אסור לאבל לצאת מ\"מ בזה כיון דהעולם מרבים בסליחות הוי לו צער אם ישב הוא בביתו א\"כ ה\"נ כיון דבשמחת תורה נהגו כל ישראל לעלות לתורה איכא צערא אם ישב הוא ולא יעלה לתורה והוי דמי כמו התם דמותר לצאת מביתו ועוד נראה דזה דומה למ\"ש הט\"ז הלכות שבת סי' רמ\"ד לענין מלאכת מחובר דאינו מותר מכח מראית עין רק באם יש ב' צדדים להתיר אבל אם יש רק צד אחד להתיר חיישינן דלמא ידע זה דאינו בקיבולת וכו' ויסבור שהוא שכיר יום ע\"ש כן ה\"נ בזה. בשלמא במי שמל בנו יש שני צדדים להיתר אחד דלמא לא ידעו כלל שהיום יום מילת בנו ואם אין לו מילת בנו אין לו היום בלא\"ה לעלות לתורה ואף אם ידעו שהיום מל בנו אכתי אולי עלה כבר בבהכ\"נ אחר ולכך איכא תרי צדדי להתירא ולכך לא חיישינן לפרהסיא. אבל בשמחת תורה כיון שהכל עולין לתורה היום ואין צד היתר רק מכח אולי עליו במקום אחר שפיר יש לחוש אולי ידעו רבים שלא עלה במקום אחר ויכירו כי מכח האבילות היא נמנע מלעלות והוי פרהסיא. הן אמת דיש לחלק בין נדון הט\"ז לנדון דידן די\"ל עכ\"פ פרהסיא לא הוי מכל מקום כיון דמלתא דרבנן בעלמא היא בפרט ברגל דלא חלה עליו אבילות וגם מכח טעם הנ\"ל שצער הוא לו דיש להקל כה\"ג וזה ברור ונכון לדינא ודוק היטב:\r\n",
+      "en_html": "<b>Se'if 1.</b> One who buries his dead during the festival: mourning does not take effect upon him on the festival, etc. Note: a case came to my hand of one who became a mourner on Sukkos, may his rest be in Eden, and I instructed him to permit being called up to the Torah on Simchas Torah; and the reason is this: since the entire world has the practice of being called up to the Torah, if the mourner is not called up to the Torah that is public [mourning display]. And even though one may distinguish that there Rabbeinu Tam had the practice of being called up in that place and [hence] it was public, but here perhaps he was called up in another place; and similarly wrote Maharshal in a responsum, siman 71, regarding a mourner who circumcised his son who is not called up to the Torah. Nevertheless one may say that here there is a different reason: since it is clarified in the Shulchan Aruch that on the eve of Rosh Hashanah a mourner is permitted to leave his house to say Selichos, even though on other days a mourner is forbidden to leave; nevertheless in this, since the world multiplies Selichos, it would cause him anguish if he sat in his house. If so, here too, since on Simchas Torah all Israel have the practice of being called up to the Torah, there is anguish if he sits and is not called up to the Torah, and it is similar to there, where he is permitted to leave his house. And further it appears that this resembles what the Taz wrote in Hilchos Shabbos, siman 244, regarding attached [field] work: it is not permitted on account of appearance only if there are two sides [grounds] for permission; but if there is only one side for permission we are concerned that perhaps someone will know that it is not contracted work, etc., and will assume he is a day-hired worker; see there; so too here. Granted, regarding one who circumcised his son there are two sides for permission: one, perhaps they did not know at all that today is the day of his son's circumcision, and if he has no son's circumcision he would in any case have no [reason] today to be called up to the Torah; and even if they knew that today he circumcised his son, still perhaps he was already called up in another synagogue; and therefore there are two sides for permission, and so we are not concerned for public display. But on Simchas Torah, since everyone is called up to the Torah today and there is no side for permission except perhaps he was called up elsewhere, it is proper to be concerned that perhaps many will know he was not called up elsewhere and will recognize that because of mourning he refrained from being called up, and that is public. It is true that one may distinguish between the Taz's case and our case, for one may say that at any rate it is not [true] public [display]; nevertheless, since it is a merely rabbinic matter, especially on the festival when mourning has not taken effect upon him, and also because of the aforementioned reason that it is anguish for him, one should be lenient in such a case; and this is clear and correct for the practical law; and examine carefully.\n",
+      "he_plain": "סעיף א' הקובר את מתו בתוך הרגל לא חל עליו אבילות ברגל וכו'. נ\"ב בא מעשה ידי באחד שנעשה אבל בחג הסוכות ר\"ל והוריתי לו להתיר לעלות לתורה בשמחת תורה והיינו בזה כיון דנוהגין כל העולם לעלות לתורה אם לא יעלה האבל לתורה הוי פרהסיא ואף דיש לחלק דהתם היה נוהג ר\"ת לעלות במקום הזה והוי פרהסיא אבל כאן אולי עלה במקום אחר וכיוצא בזה כתב הרש\"ל בתשובה סי' ע\"א לענין אבל המל בנו שאינו עולה לתורה מכל מקום י\"ל הכא טעם אחריתא הוי כיון דמבואר בש\"ע דבער\"ה מותר לאבל לצאת מביתו לו' סליחות אף דבשאר ימים אסור לאבל לצאת מ\"מ בזה כיון דהעולם מרבים בסליחות הוי לו צער אם ישב הוא בביתו א\"כ ה\"נ כיון דבשמחת תורה נהגו כל ישראל לעלות לתורה איכא צערא אם ישב הוא ולא יעלה לתורה והוי דמי כמו התם דמותר לצאת מביתו ועוד נראה דזה דומה למ\"ש הט\"ז הלכות שבת סי' רמ\"ד לענין מלאכת מחובר דאינו מותר מכח מראית עין רק באם יש ב' צדדים להתיר אבל אם יש רק צד אחד להתיר חיישינן דלמא ידע זה דאינו בקיבולת וכו' ויסבור שהוא שכיר יום ע\"ש כן ה\"נ בזה. בשלמא במי שמל בנו יש שני צדדים להיתר אחד דלמא לא ידעו כלל שהיום יום מילת בנו ואם אין לו מילת בנו אין לו היום בלא\"ה לעלות לתורה ואף אם ידעו שהיום מל בנו אכתי אולי עלה כבר בבהכ\"נ אחר ולכך איכא תרי צדדי להתירא ולכך לא חיישינן לפרהסיא. אבל בשמחת תורה כיון שהכל עולין לתורה היום ואין צד היתר רק מכח אולי עליו במקום אחר שפיר יש לחוש אולי ידעו רבים שלא עלה במקום אחר ויכירו כי מכח האבילות היא נמנע מלעלות והוי פרהסיא. הן אמת דיש לחלק בין נדון הט\"ז לנדון דידן די\"ל עכ\"פ פרהסיא לא הוי מכל מקום כיון דמלתא דרבנן בעלמא היא בפרט ברגל דלא חלה עליו אבילות וגם מכח טעם הנ\"ל שצער הוא לו דיש להקל כה\"ג וזה ברור ונכון לדינא ודוק היטב:",
+      "en_plain": "Se'if 1. One who buries his dead during the festival: mourning does not take effect upon him on the festival, etc. Note: a case came to my hand of one who became a mourner on Sukkos, may his rest be in Eden, and I instructed him to permit being called up to the Torah on Simchas Torah; and the reason is this: since the entire world has the practice of being called up to the Torah, if the mourner is not called up to the Torah that is public [mourning display]. And even though one may distinguish that there Rabbeinu Tam had the practice of being called up in that place and [hence] it was public, but here perhaps he was called up in another place; and similarly wrote Maharshal in a responsum, siman 71, regarding a mourner who circumcised his son who is not called up to the Torah. Nevertheless one may say that here there is a different reason: since it is clarified in the Shulchan Aruch that on the eve of Rosh Hashanah a mourner is permitted to leave his house to say Selichos, even though on other days a mourner is forbidden to leave; nevertheless in this, since the world multiplies Selichos, it would cause him anguish if he sat in his house. If so, here too, since on Simchas Torah all Israel have the practice of being called up to the Torah, there is anguish if he sits and is not called up to the Torah, and it is similar to there, where he is permitted to leave his house. And further it appears that this resembles what the Taz wrote in Hilchos Shabbos, siman 244, regarding attached [field] work: it is not permitted on account of appearance only if there are two sides [grounds] for permission; but if there is only one side for permission we are concerned that perhaps someone will know that it is not contracted work, etc., and will assume he is a day-hired worker; see there; so too here. Granted, regarding one who circumcised his son there are two sides for permission: one, perhaps they did not know at all that today is the day of his son's circumcision, and if he has no son's circumcision he would in any case have no [reason] today to be called up to the Torah; and even if they knew that today he circumcised his son, still perhaps he was already called up in another synagogue; and therefore there are two sides for permission, and so we are not concerned for public display. But on Simchas Torah, since everyone is called up to the Torah today and there is no side for permission except perhaps he was called up elsewhere, it is proper to be concerned that perhaps many will know he was not called up elsewhere and will recognize that because of mourning he refrained from being called up, and that is public. It is true that one may distinguish between the Taz's case and our case, for one may say that at any rate it is not [true] public [display]; nevertheless, since it is a merely rabbinic matter, especially on the festival when mourning has not taken effect upon him, and also because of the aforementioned reason that it is anguish for him, one should be lenient in such a case; and this is clear and correct for the practical law; and examine carefully.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

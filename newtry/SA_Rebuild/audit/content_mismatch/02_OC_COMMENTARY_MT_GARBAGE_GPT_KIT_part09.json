@@ -1,0 +1,453 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 9,
+    "chunk_total": 47,
+    "case_offset": 58,
+    "cases_in_chunk": 10,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman189/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 189,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.833,
+        "he_chars": 3063,
+        "en_chars": 5616,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 5616
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק א) היטב כו'.</b> ועכשיו כו' דדעת הש\"ע הוא דעת הרא\"ש דלא חשיב הטוב והמטיב בכלל ג' הטבות דהטוב ומטיב נתקן בשביל הרוגי ביתר הטוב שלא הסריחו והמטיב שנתנו לקבור' וצ\"ל ג' הטבות מלבד זה לכן חלק אלו ג' הטבות ואומר בכ\"א הוא הטיב לנו כו' משא\"כ המנהג לחשוב ג\"כ הטוב והמטיב בכלל ג' הטבות וחושבים הטוב ומטיב לשתים א\"כ הוא היטב מטיב ייטיב נחשב לחדא לכן אינו אומר תיבת הוא ותיבת לנו כ\"א פעם א' לכללן יחד:<br />\n<b>אלא יאמר אל בכל יום כו'</b> והט\"ז כ' שגם תיבת אל לא יאמר אלא בכל יום דהא כבר אמר המלך הטוב כו' ע\"ש וכ' הט\"ז בי\"ד סי' רל\"ב ס\"ק י\"ד וטעמו וראייתו מהא דאמרי' שם נדר שהותר מקצתו הותר כולו כיצד ראה מרחוק אנשי' אוכלין פירותיו ואוסרן עליהם וכשקרב עליהם ראה שאביו ביניהם ואמר אלו הייתי יודע שאבא ביניכם הייתי אומר חוץ מאבא כלם מותרים ודוקא כשהחליף דבריו ממה שאמר תחלה כיצד אמר תחל' כלכם אסורים ולבסוף אמר הייתי אומר פלוני ופלוני אסורים ואבא מותר או שאמר תחלה אסורים לזה ולזה ולזה וכשהכירם אמר הייתי אומר כלכם אסורים חוץ מאבא וכיון שהחליף עקר הנדר וכיון שהותר אצל אביו הותר אצל כלם וכתב הר\"ן טעם למה נקרא ענין זה חילוף משום דכ\"א רוצה שלא יחשדוהו שדעתו לאסור גם אביו וכ\"א בוחר לשון לעצמו שממהר לגלות דעתו שאינו מכוין לאביו ויש שבוחר לו' כולכם אסורים חוץ מאבא שאלו יאמר פלוני ופלוני אסורים חוץ מאבא כיון שהם אנשים הרבה טרם שיגיע לו' חוץ מאבא יחשדוהו שלבסוף יאסור גם על אביו משא\"כ כשאו' כלכם אסורים חוץ מאבא שממהר מיד לאחר אמירת התיב' א' היינו כלכם להוציא אביו ויש בוחר להיפך וניחא ליה לו' פלוני ופלוני אסורים חוץ מאבא דאלו יאמר כלכם אסורים חוץ מאבא א\"כ כשאמר כלכם הרי גם אביו בכלל אע\"ג שלבסוף אמר חוץ מאבא מ\"מ לא ניחא ליה שיהא אביו רגע א' בכלל האיסור עכת\"ד הר\"ן:<br />\nא\"כ ה\"ה הכא כשאו' כולנו יחד בני ברית ניהו שלבסוף מוציא העובדי כוכבים מכלל ברכה מ\"מ תחלה כשאמר כלנו יחד הוה שעה א' העובדי כוכבים בכלל הברכה ולכן טוב לו' להיפוך אותנו בני ברית כלנו יחד:<br />\n<b>והטעם לפי' כו'</b> זה קאי אעיקר הדבר שאומרים בני ברית:<br />\n<b>כמ\"ש התו' כו'</b> דקתני התם סדר ההתרא' לרוצח שא\"ל העדים כתי' שופך דם אדם באדם דמו ישפך וישראל הוא ובן ברית הוא וכתבו התוס' הא דצ\"ל תרתי ישראל ובן ברית ישראל לאפוקי עובדי כוכבים דאינו חייב על רציחתו. ובן ברית לאפוקי שאינו ישראל מומר דהוי בכלל מורידין ולא מעלין דג\"כ אינו חייב על רציחתו עכת\"ד:<br />\n<b>וקשה כו'</b> דמומר דינו כפסול עדות דאורייתא משמע דאם נתקיים כו' שכתב שם דפסולי עדות מדרבנן כשרים לשליחות הגט על ידם אבל פסולי עדות מן התורה אין שולחין גט על ידם אא\"כ נתקיים הגט (לחד דעה הדין כן) ועז\"כ רמ\"א דמומר דינו כפסול עדות מן התורה ולפ\"ז אין לשלוח גט ע\"י אא\"כ נתקיים ת\"ל אפי' נתקיים הא ממועט משליחות דילפינן מתרומ' דכתיב גבה גם אתם ודרשו בגיטין ובקדושין מה אתם בני ברית אף שלוחכם בני ברית. וטעם דבעינן קיום בפסולי עדות ע\"ש בא\"ע:<br />\n<b>ובגיטין כו'</b> דנשים כו' עבדים כו' דכשרים לשליחות הגט דהם ב\"ב וגם עבדים ה\"ה מולים. וכתב שם רש\"י דכתיב גבייהו מחוטב עציך כו' גבי כריתות ברית:<br />\nולענין נשים עיין מה שכתב מ\"א סי' קפ\"ז:<br />\n<b>שהוא שבחו של הקב\"ה כו'</b> אע\"ג דמסיימים הוא יעשה שלום עלינו כו' מ\"מ עיקר הדבר שבח. ועוד עכ\"פ מצוה לענות אמן משום שבח של הקב\"ה שבו:<br />\nהחול\"ם הוי מלך גדול ר\"ל תנועה גדול' הנקרא מלך. מלך קטן ר\"ל תנועה קטנה משא\"כ חיר\"ק עם י' הוי ג\"כ תנועה גדול':<br />\nיש לענות אמן א\"ה דהשומע תפלה מפי ישראל יש לענות אמן:<br />\n<b>כאו\"א כמו שנתברכו כו'</b> כצ\"ל מאת ה' ולא מעם ה' דטוב לו' לישנא דקרא. וידגיש הא' של מאת שלא יהא נראה ח\"ו מת:\n",
+      "en_html": "(s.k.1) He has done good, etc. And now, etc.—for the opinion of Shulchan Aruch is the opinion of Rosh that haTov and haMetiv are not counted among the three hatovot—for haTov and haMetiv were enacted for the slain of Betar: haTov that they did not putrefy and haMetiv that they were given for burial; and three hatovot must be said besides this—therefore he separates these three hatovot and says in each \"He has done good to us,\" etc., unlike the custom to count also haTov and haMetiv among the three hatovot and consider haTov and haMetiv as two—if so \"has done good, does good, will do good\" counts as one; therefore he does not say the word \"He\" and the word \"to us\" except once for all of them together.<br>\r\n<br>\r\nRather he should say \"El every day,\" etc. And Taz wrote that also the word \"El\" one should not say but \"every day\"—for he already said \"the King Who is good,\" etc., there. And Taz wrote in Yoreh De'ah siman 342 s.k.14 and his reason and proof from what we say there: a vow partially permitted is wholly permitted—how? He saw from afar people eating his fruits and forbade them; when he approached he saw his father among them and said had I known my father is among you I would have said except my father all are permitted; and specifically when he exchanged his words from what he said initially—how he began saying all of you are forbidden and finally said I would have said so-and-so and so-and-so are forbidden and father permitted; or said initially forbidden to this one and that one and when he recognized them said I would have said all of you forbidden except father; and since he exchanged he uprooted the vow and since permitted regarding father permitted regarding all; and Ran wrote the reason this matter is called exchange (chiluf): each wants that they not suspect him his intent was to forbid also his father; and each chooses language for himself that hurries to reveal his intent he did not intend regarding father; and some choose to say \"all of you forbidden except father\"—for if he said so-and-so and so-and-so forbidden except father, since they are many people before reaching \"except father\" they might suspect him he will finally forbid also his father—unlike when he says \"all of you forbidden except father\" who hurries immediately after saying the word \"all of you\" to exclude his father; and some choose the opposite and it is comfortable for him to say so-and-so and so-and-so forbidden except father—for if he says \"all of you forbidden except father\" then when he said \"all of you\" behold also his father was included—even though afterward he said except father, nevertheless it is not comfortable that his father be a moment in the prohibition—until here Ran.<br>\r\n<br>\r\nIf so it is the same here when he says \"all of us together sons of the covenant\"—it comes out that finally he excludes the gentile worshippers from the berachah; nevertheless initially when he said \"all of us together\" there was an hour the gentile worshippers were included in the berachah; therefore it is better to say the opposite: \"us, sons of the covenant, all of us together.\"<br>\r\n<br>\r\nAnd the reason according to his explanation, etc.—this refers to the essence of the matter that they say sons of the covenant.<br>\r\n<br>\r\nAs Tosafot wrote, etc.—for we teach there the order of warning for a murderer that witnesses tell him as written \"one who sheds man's blood, by man shall his blood be shed\" and he is Israel and son of covenant; and Tosafot wrote: therefore one must say two—Israel and son of covenant Israel—to exclude gentile worshippers who are not liable for killing him; and son of covenant to exclude one who is not Israel—an apostate who is in the category of moridin velo ma'alin—for likewise he is not liable for killing him—until here.<br>\r\n<br>\r\nAnd it is difficult, etc.—for an apostate's law is like disqualified testimony d'oraisa implying if validated, etc.—for there it is written disqualified testimony d'rabbanan are fit for agency of the get by them but disqualified testimony from the Torah one does not send a get by them unless the get was validated (according to one opinion the law is so); and therefore Rama wrote an apostate's law is like disqualified testimony from the Torah and accordingly one should not send a get by him unless validated; we learn even if validated it is excluded from agency—for we derive from terumah as written \"take from them\" and we expound in Gittin and Kiddushin: as you are sons of covenant so your agents sons of covenant. And the reason we require validation for disqualified testimony—see there in Even haEzer.<br>\r\n<br>\r\nAnd in Gittin, etc.—women, etc., slaves, etc.—for they are fit for agency of the get for they are sons of the covenant; and also slaves likewise circumcised. And Rashi wrote there regarding them \"from hewer of your wood,\" etc., regarding cutting of covenant.<br>\r\n<br>\r\nAnd regarding women see what Magen Avraham wrote siman 187.<br>\r\n<br>\r\nFor it is praise of the Holy One, blessed be He, etc.—even though they conclude \"He will make peace upon us,\" etc., nevertheless the essence is praise. And in any case it is a mitzvah to answer amen because of the praise of the Holy One, blessed be He that is in it.<br>\r\n<br>\r\nThe cholam makes a great king—meaning a great vowel called king. A small king—meaning a small vowel; unlike chirik with yod which is also a great vowel.<br>\r\n<br>\r\nOne should answer amen—for one who hears prayer from the mouth of Israel should answer amen.<br>\r\n<br>\r\nEach one as they were blessed, etc.—it should read \"from Heaven\" and not \"from the people of Heaven\"—for it is better the language of the verse. And one should emphasize the alef of \"from\" so it not appear heaven forbid \"dead.\"\r\n",
+      "he_plain": "(ס\"ק א) היטב כו'. ועכשיו כו' דדעת הש\"ע הוא דעת הרא\"ש דלא חשיב הטוב והמטיב בכלל ג' הטבות דהטוב ומטיב נתקן בשביל הרוגי ביתר הטוב שלא הסריחו והמטיב שנתנו לקבור' וצ\"ל ג' הטבות מלבד זה לכן חלק אלו ג' הטבות ואומר בכ\"א הוא הטיב לנו כו' משא\"כ המנהג לחשוב ג\"כ הטוב והמטיב בכלל ג' הטבות וחושבים הטוב ומטיב לשתים א\"כ הוא היטב מטיב ייטיב נחשב לחדא לכן אינו אומר תיבת הוא ותיבת לנו כ\"א פעם א' לכללן יחד: אלא יאמר אל בכל יום כו' והט\"ז כ' שגם תיבת אל לא יאמר אלא בכל יום דהא כבר אמר המלך הטוב כו' ע\"ש וכ' הט\"ז בי\"ד סי' רל\"ב ס\"ק י\"ד וטעמו וראייתו מהא דאמרי' שם נדר שהותר מקצתו הותר כולו כיצד ראה מרחוק אנשי' אוכלין פירותיו ואוסרן עליהם וכשקרב עליהם ראה שאביו ביניהם ואמר אלו הייתי יודע שאבא ביניכם הייתי אומר חוץ מאבא כלם מותרים ודוקא כשהחליף דבריו ממה שאמר תחלה כיצד אמר תחל' כלכם אסורים ולבסוף אמר הייתי אומר פלוני ופלוני אסורים ואבא מותר או שאמר תחלה אסורים לזה ולזה ולזה וכשהכירם אמר הייתי אומר כלכם אסורים חוץ מאבא וכיון שהחליף עקר הנדר וכיון שהותר אצל אביו הותר אצל כלם וכתב הר\"ן טעם למה נקרא ענין זה חילוף משום דכ\"א רוצה שלא יחשדוהו שדעתו לאסור גם אביו וכ\"א בוחר לשון לעצמו שממהר לגלות דעתו שאינו מכוין לאביו ויש שבוחר לו' כולכם אסורים חוץ מאבא שאלו יאמר פלוני ופלוני אסורים חוץ מאבא כיון שהם אנשים הרבה טרם שיגיע לו' חוץ מאבא יחשדוהו שלבסוף יאסור גם על אביו משא\"כ כשאו' כלכם אסורים חוץ מאבא שממהר מיד לאחר אמירת התיב' א' היינו כלכם להוציא אביו ויש בוחר להיפך וניחא ליה לו' פלוני ופלוני אסורים חוץ מאבא דאלו יאמר כלכם אסורים חוץ מאבא א\"כ כשאמר כלכם הרי גם אביו בכלל אע\"ג שלבסוף אמר חוץ מאבא מ\"מ לא ניחא ליה שיהא אביו רגע א' בכלל האיסור עכת\"ד הר\"ן: א\"כ ה\"ה הכא כשאו' כולנו יחד בני ברית ניהו שלבסוף מוציא העובדי כוכבים מכלל ברכה מ\"מ תחלה כשאמר כלנו יחד הוה שעה א' העובדי כוכבים בכלל הברכה ולכן טוב לו' להיפוך אותנו בני ברית כלנו יחד: והטעם לפי' כו' זה קאי אעיקר הדבר שאומרים בני ברית: כמ\"ש התו' כו' דקתני התם סדר ההתרא' לרוצח שא\"ל העדים כתי' שופך דם אדם באדם דמו ישפך וישראל הוא ובן ברית הוא וכתבו התוס' הא דצ\"ל תרתי ישראל ובן ברית ישראל לאפוקי עובדי כוכבים דאינו חייב על רציחתו. ובן ברית לאפוקי שאינו ישראל מומר דהוי בכלל מורידין ולא מעלין דג\"כ אינו חייב על רציחתו עכת\"ד: וקשה כו' דמומר דינו כפסול עדות דאורייתא משמע דאם נתקיים כו' שכתב שם דפסולי עדות מדרבנן כשרים לשליחות הגט על ידם אבל פסולי עדות מן התורה אין שולחין גט על ידם אא\"כ נתקיים הגט (לחד דעה הדין כן) ועז\"כ רמ\"א דמומר דינו כפסול עדות מן התורה ולפ\"ז אין לשלוח גט ע\"י אא\"כ נתקיים ת\"ל אפי' נתקיים הא ממועט משליחות דילפינן מתרומ' דכתיב גבה גם אתם ודרשו בגיטין ובקדושין מה אתם בני ברית אף שלוחכם בני ברית. וטעם דבעינן קיום בפסולי עדות ע\"ש בא\"ע: ובגיטין כו' דנשים כו' עבדים כו' דכשרים לשליחות הגט דהם ב\"ב וגם עבדים ה\"ה מולים. וכתב שם רש\"י דכתיב גבייהו מחוטב עציך כו' גבי כריתות ברית: ולענין נשים עיין מה שכתב מ\"א סי' קפ\"ז: שהוא שבחו של הקב\"ה כו' אע\"ג דמסיימים הוא יעשה שלום עלינו כו' מ\"מ עיקר הדבר שבח. ועוד עכ\"פ מצוה לענות אמן משום שבח של הקב\"ה שבו: החול\"ם הוי מלך גדול ר\"ל תנועה גדול' הנקרא מלך. מלך קטן ר\"ל תנועה קטנה משא\"כ חיר\"ק עם י' הוי ג\"כ תנועה גדול': יש לענות אמן א\"ה דהשומע תפלה מפי ישראל יש לענות אמן: כאו\"א כמו שנתברכו כו' כצ\"ל מאת ה' ולא מעם ה' דטוב לו' לישנא דקרא. וידגיש הא' של מאת שלא יהא נראה ח\"ו מת:",
+      "en_plain": "(s.k.1) He has done good, etc. And now, etc.—for the opinion of Shulchan Aruch is the opinion of Rosh that haTov and haMetiv are not counted among the three hatovot—for haTov and haMetiv were enacted for the slain of Betar: haTov that they did not putrefy and haMetiv that they were given for burial; and three hatovot must be said besides this—therefore he separates these three hatovot and says in each \"He has done good to us,\" etc., unlike the custom to count also haTov and haMetiv among the three hatovot and consider haTov and haMetiv as two—if so \"has done good, does good, will do good\" counts as one; therefore he does not say the word \"He\" and the word \"to us\" except once for all of them together. Rather he should say \"El every day,\" etc. And Taz wrote that also the word \"El\" one should not say but \"every day\"—for he already said \"the King Who is good,\" etc., there. And Taz wrote in Yoreh De'ah siman 342 s.k.14 and his reason and proof from what we say there: a vow partially permitted is wholly permitted—how? He saw from afar people eating his fruits and forbade them; when he approached he saw his father among them and said had I known my father is among you I would have said except my father all are permitted; and specifically when he exchanged his words from what he said initially—how he began saying all of you are forbidden and finally said I would have said so-and-so and so-and-so are forbidden and father permitted; or said initially forbidden to this one and that one and when he recognized them said I would have said all of you forbidden except father; and since he exchanged he uprooted the vow and since permitted regarding father permitted regarding all; and Ran wrote the reason this matter is called exchange (chiluf): each wants that they not suspect him his intent was to forbid also his father; and each chooses language for himself that hurries to reveal his intent he did not intend regarding father; and some choose to say \"all of you forbidden except father\"—for if he said so-and-so and so-and-so forbidden except father, since they are many people before reaching \"except father\" they might suspect him he will finally forbid also his father—unlike when he says \"all of you forbidden except father\" who hurries immediately after saying the word \"all of you\" to exclude his father; and some choose the opposite and it is comfortable for him to say so-and-so and so-and-so forbidden except father—for if he says \"all of you forbidden except father\" then when he said \"all of you\" behold also his father was included—even though afterward he said except father, nevertheless it is not comfortable that his father be a moment in the prohibition—until here Ran. If so it is the same here when he says \"all of us together sons of the covenant\"—it comes out that finally he excludes the gentile worshippers from the berachah; nevertheless initially when he said \"all of us together\" there was an hour the gentile worshippers were included in the berachah; therefore it is better to say the opposite: \"us, sons of the covenant, all of us together.\" And the reason according to his explanation, etc.—this refers to the essence of the matter that they say sons of the covenant. As Tosafot wrote, etc.—for we teach there the order of warning for a murderer that witnesses tell him as written \"one who sheds man's blood, by man shall his blood be shed\" and he is Israel and son of covenant; and Tosafot wrote: therefore one must say two—Israel and son of covenant Israel—to exclude gentile worshippers who are not liable for killing him; and son of covenant to exclude one who is not Israel—an apostate who is in the category of moridin velo ma'alin—for likewise he is not liable for killing him—until here. And it is difficult, etc.—for an apostate's law is like disqualified testimony d'oraisa implying if validated, etc.—for there it is written disqualified testimony d'rabbanan are fit for agency of the get by them but disqualified testimony from the Torah one does not send a get by them unless the get was validated (according to one opinion the law is so); and therefore Rama wrote an apostate's law is like disqualified testimony from the Torah and accordingly one should not send a get by him unless validated; we learn even if validated it is excluded from agency—for we derive from terumah as written \"take from them\" and we expound in Gittin and Kiddushin: as you are sons of covenant so your agents sons of covenant. And the reason we require validation for disqualified testimony—see there in Even haEzer. And in Gittin, etc.—women, etc., slaves, etc.—for they are fit for agency of the get for they are sons of the covenant; and also slaves likewise circumcised. And Rashi wrote there regarding them \"from hewer of your wood,\" etc., regarding cutting of covenant. And regarding women see what Magen Avraham wrote siman 187. For it is praise of the Holy One, blessed be He, etc.—even though they conclude \"He will make peace upon us,\" etc., nevertheless the essence is praise. And in any case it is a mitzvah to answer amen because of the praise of the Holy One, blessed be He that is in it. The cholam makes a great king—meaning a great vowel called king. A small king—meaning a small vowel; unlike chirik with yod which is also a great vowel. One should answer amen—for one who hears prayer from the mouth of Israel should answer amen. Each one as they were blessed, etc.—it should read \"from Heaven\" and not \"from the people of Heaven\"—for it is better the language of the verse. And one should emphasize the alef of \"from\" so it not appear heaven forbid \"dead.\"",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman190/seif-001/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 190,
+      "seif": 1,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.834,
+        "he_chars": 451,
+        "en_chars": 827,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 827
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "מברך בורא פרי הגפן כו': עיין בתוס' פרק ע\"פ ובהרא\"ש טעם למה נשתנה ברכת המזון מכל דברים האחרים הטעונין כוס שכולן ברכ' בפה\"ג קודמין וכאן פה\"ג באחרונ' ע\"ש ואמרי' סברי מרנן אע\"פ שבית הבליעה פנוי שלא לחלק בברכת היין וה\"ה בקידוש והבדלה ויש מאיזו טעמים למה אומרים סברי על היין ולא על השכר ומצאתי טעם א' משום שהיין הביא קללה לעולם בימי נח שנשתכר ונתארר בני כנען ע\"כ אנו אומרים סברי כלומר תבינו שבדעתי לשתות ובדעתיכם אשתה דלא יזיק וע\"כ רגילין להשיב אחריו לחיים:\n",
+      "en_html": "He blesses Borei peri hagafen, etc. See Tosafot chapter Eruvin and in Ra'ash the reason why birkat hamazon was changed from all other matters that require a cup—for all of them one blesses Borei peri hagafen first, and here Borei peri hagafen is last; see there. And we say savri maranan even though the house of swallowing is empty, so as not to divide the blessing over the wine; and the same applies in kiddush and havdalah. And there are several reasons why we say savri over wine and not over beer; and I found one reason: because wine brought a curse to the world in the days of Noah when he became drunk and the sons of Canaan were cursed; therefore we say savri—meaning, understand that I intend to drink with your consent I will drink so that no harm come—and therefore they are accustomed to answer after him lechaim.\r\n",
+      "he_plain": "מברך בורא פרי הגפן כו': עיין בתוס' פרק ע\"פ ובהרא\"ש טעם למה נשתנה ברכת המזון מכל דברים האחרים הטעונין כוס שכולן ברכ' בפה\"ג קודמין וכאן פה\"ג באחרונ' ע\"ש ואמרי' סברי מרנן אע\"פ שבית הבליעה פנוי שלא לחלק בברכת היין וה\"ה בקידוש והבדלה ויש מאיזו טעמים למה אומרים סברי על היין ולא על השכר ומצאתי טעם א' משום שהיין הביא קללה לעולם בימי נח שנשתכר ונתארר בני כנען ע\"כ אנו אומרים סברי כלומר תבינו שבדעתי לשתות ובדעתיכם אשתה דלא יזיק וע\"כ רגילין להשיב אחריו לחיים:",
+      "en_plain": "He blesses Borei peri hagafen, etc. See Tosafot chapter Eruvin and in Ra'ash the reason why birkat hamazon was changed from all other matters that require a cup—for all of them one blesses Borei peri hagafen first, and here Borei peri hagafen is last; see there. And we say savri maranan even though the house of swallowing is empty, so as not to divide the blessing over the wine; and the same applies in kiddush and havdalah. And there are several reasons why we say savri over wine and not over beer; and I found one reason: because wine brought a curse to the world in the days of Noah when he became drunk and the sons of Canaan were cursed; therefore we say savri—meaning, understand that I intend to drink with your consent I will drink so that no harm come—and therefore they are accustomed to answer after him lechaim.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman199/seif-003/chokhmat-shlomo",
+      "volume": "oc1",
+      "siman": 199,
+      "seif": 3,
+      "slug": "chokhmat-shlomo",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.803,
+        "he_chars": 1180,
+        "en_chars": 2128,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2128
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>שם סעיף ג'  </b>עכו\"ם אין מזמנין עליו ואפילו גר שמל ולא טבל אין מזמנין עליו. נ\"ב עיין במג\"א מ\"ש כל שלא טבל כראוי כמ\"ש ביו\"ד סי' קכ\"ד סעיף ב'. ולפענ\"ד אין ראיה דבשלמא התם לחומרא לכך כל שלא טבל כראוי עושה יי\"נ אבל כאן כיון דמן התורה מחוייב בזימון אף דמדרבנן לא הוי טבילה מכל מקום כיון דמן התורה הוי גר ומן התורה חייבין בבהמ\"ז מצטרפין ולא גרע גם בזה מכותי שמזמנין עליו והיינו כגון אם לא טבל לפני ג' דמפורש ביו\"ד סי' רס\"ח דלהרי\"ף והרמב\"ם פסול מכל מקום כיון דהוי רק מדרבנן דהרי מודים דבניו כשרים כמ\"ש שם והדבר מוכרח לדידהו מגוף הש\"ס דקאמר ר\"י מל ולא טבל כאלו לא מל ולמה לא קמ\"ל דאפילו (לא) טבל רק דלא הוי בפני שלשה לא הוי גר והרי אם לא טבל לא הוי בפני שלשה והו\"ל לאשמעינן רבותא יתירה דאפילו טבל שלא בפני ג' דלא הוי גר. ובע\"כ מוכח דאף לדידהו הוי רק מדרבנן ור\"י קמ\"ל דלא טבל כלל הוי כאילו לא מל ולא הוי גר מן התורה אבל אם טבל שלא בפני ג' הוי גר מן התורה רק מדרבנן לא הוי גר לכך מצרפין אותו לזימון, וראיה ממה דמשני בברכות דפריך שם והנכרי פשיטא ומשני בגר שמל ולא טבל כדאמר רחב\"א גר שמל ולא טבל כאילו לא מל וקשה כאן שפיר הו\"ל לאשמועינן רבותא ולומר דאפילו טבל רק דלא טבל כראוי נמי אין מזמנין עליו ולמה לי' לתרץ דלא טביל כלל. ובע\"כ מוכח דאם טבל אף דלא הוי כראוי מזמנין עליו ודלא כהמג\"א ודו\"ק היטב:\r\n",
+      "en_html": "<b>There, seif 3.</b> A non-Jew is not included in zimun, and even a convert who circumcised but did not immerse is not included. Note: See Magen Avraham, who writes that this applies whenever he did not immerse properly, as in Yoreh Deah 124:2. In my humble opinion there is no proof. There the law is stringent, and therefore one who did not immerse properly renders wine forbidden as gentile wine. Here, however, since by Torah law he is obligated in zimun, even if his immersion was invalid only Rabbinically, he is a convert by Torah law and obligated in Bircas HaMazon, and may join. He is no worse than a Kusi, who may be included. An example is one who did not immerse before three judges. Yoreh Deah 268 states that according to Rif and Rambam such immersion is invalid, yet this invalidity is only Rabbinic, since they agree that his children are valid. Their position is also compelled by the Gemara. Rabbi Yehudah says that one who circumcised but did not immerse is as though he did not circumcise. Why did he not teach the greater novelty that even one who immersed, but not before three, is not a convert? Necessarily, even according to those authorities, immersion without three is deficient only Rabbinically. Rabbi Yehudah teaches that one who did not immerse at all is as though he did not circumcise and is not a convert by Torah law. One who immersed outside the presence of three, however, is a convert by Torah law, though not Rabbinically, and therefore may join zimun. There is further proof from Berachos. The Gemara asks why it was necessary to teach that a non-Jew may not be included and answers that it refers to a convert who circumcised but did not immerse, in accordance with Rabbi Chiya bar Abba’s statement that such a person is as though he did not circumcise. If improper immersion also disqualified him from zimun, the Gemara should have taught the greater novelty that even one who immersed, but improperly, is excluded. Since it specifies one who did not immerse at all, it follows that one who immersed, although not properly, may be included, contrary to Magen Avraham. Examine this carefully.\n",
+      "he_plain": "שם סעיף ג' עכו\"ם אין מזמנין עליו ואפילו גר שמל ולא טבל אין מזמנין עליו. נ\"ב עיין במג\"א מ\"ש כל שלא טבל כראוי כמ\"ש ביו\"ד סי' קכ\"ד סעיף ב'. ולפענ\"ד אין ראיה דבשלמא התם לחומרא לכך כל שלא טבל כראוי עושה יי\"נ אבל כאן כיון דמן התורה מחוייב בזימון אף דמדרבנן לא הוי טבילה מכל מקום כיון דמן התורה הוי גר ומן התורה חייבין בבהמ\"ז מצטרפין ולא גרע גם בזה מכותי שמזמנין עליו והיינו כגון אם לא טבל לפני ג' דמפורש ביו\"ד סי' רס\"ח דלהרי\"ף והרמב\"ם פסול מכל מקום כיון דהוי רק מדרבנן דהרי מודים דבניו כשרים כמ\"ש שם והדבר מוכרח לדידהו מגוף הש\"ס דקאמר ר\"י מל ולא טבל כאלו לא מל ולמה לא קמ\"ל דאפילו (לא) טבל רק דלא הוי בפני שלשה לא הוי גר והרי אם לא טבל לא הוי בפני שלשה והו\"ל לאשמעינן רבותא יתירה דאפילו טבל שלא בפני ג' דלא הוי גר. ובע\"כ מוכח דאף לדידהו הוי רק מדרבנן ור\"י קמ\"ל דלא טבל כלל הוי כאילו לא מל ולא הוי גר מן התורה אבל אם טבל שלא בפני ג' הוי גר מן התורה רק מדרבנן לא הוי גר לכך מצרפין אותו לזימון, וראיה ממה דמשני בברכות דפריך שם והנכרי פשיטא ומשני בגר שמל ולא טבל כדאמר רחב\"א גר שמל ולא טבל כאילו לא מל וקשה כאן שפיר הו\"ל לאשמועינן רבותא ולומר דאפילו טבל רק דלא טבל כראוי נמי אין מזמנין עליו ולמה לי' לתרץ דלא טביל כלל. ובע\"כ מוכח דאם טבל אף דלא הוי כראוי מזמנין עליו ודלא כהמג\"א ודו\"ק היטב:",
+      "en_plain": "There, seif 3. A non-Jew is not included in zimun, and even a convert who circumcised but did not immerse is not included. Note: See Magen Avraham, who writes that this applies whenever he did not immerse properly, as in Yoreh Deah 124:2. In my humble opinion there is no proof. There the law is stringent, and therefore one who did not immerse properly renders wine forbidden as gentile wine. Here, however, since by Torah law he is obligated in zimun, even if his immersion was invalid only Rabbinically, he is a convert by Torah law and obligated in Bircas HaMazon, and may join. He is no worse than a Kusi, who may be included. An example is one who did not immerse before three judges. Yoreh Deah 268 states that according to Rif and Rambam such immersion is invalid, yet this invalidity is only Rabbinic, since they agree that his children are valid. Their position is also compelled by the Gemara. Rabbi Yehudah says that one who circumcised but did not immerse is as though he did not circumcise. Why did he not teach the greater novelty that even one who immersed, but not before three, is not a convert? Necessarily, even according to those authorities, immersion without three is deficient only Rabbinically. Rabbi Yehudah teaches that one who did not immerse at all is as though he did not circumcise and is not a convert by Torah law. One who immersed outside the presence of three, however, is a convert by Torah law, though not Rabbinically, and therefore may join zimun. There is further proof from Berachos. The Gemara asks why it was necessary to teach that a non-Jew may not be included and answers that it refers to a convert who circumcised but did not immerse, in accordance with Rabbi Chiya bar Abba’s statement that such a person is as though he did not circumcise. If improper immersion also disqualified him from zimun, the Gemara should have taught the greater novelty that even one who immersed, but improperly, is excluded. Since it specifies one who did not immerse at all, it follows that one who immersed, although not properly, may be included, contrary to Magen Avraham. Examine this carefully.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman199/seif-004/mechaber",
+      "volume": "oc1",
+      "siman": 199,
+      "seif": 4,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.152,
+        "he_chars": 125,
+        "en_chars": 269,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 269
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>עכו\"ם אין מזמנין עליו <i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i>ואפי' גר שמל <i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>ולא טבל <i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>אין מזמנין עליו אבל גר גמור מזמנין עליו <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>ויכול לברך בהמ\"ז <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>ולומר על שהנחלת <i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>לאבותינו:\n",
+      "en_html": "4. A gentile is not included in a zimun. Even a convert who was circumcised but did not immerse may not be included in a zimun. Someone who is a full fledged convert is included in a zimun and he may recite birkas hamazon including the words Al Shehinchalta La'avoteinu\n",
+      "he_plain": "עכו\"ם אין מזמנין עליו ואפי' גר שמל ולא טבל אין מזמנין עליו אבל גר גמור מזמנין עליו ויכול לברך בהמ\"ז ולומר על שהנחלת לאבותינו:",
+      "en_plain": "4. A gentile is not included in a zimun. Even a convert who was circumcised but did not immerse may not be included in a zimun. Someone who is a full fledged convert is included in a zimun and he may recite birkas hamazon including the words Al Shehinchalta La'avoteinu",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman202/seif-016/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 202,
+      "seif": 16,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.66,
+        "he_chars": 745,
+        "en_chars": 1237,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1237
+        },
+        "failure_patterns": [
+          "hand_recoils"
+        ]
+      },
+      "he_html": "<b>טז) על  </b>ארופי מברך שהכל ופשוט הוא. ב\"י בשם או\"ח. וענין הארופי הוא שדורכין הענבים ואחר דריכתן משימין בתירוש עפר לבן ידוע שעה א' או יותר כדי שיציל היין היוצא מהם במהרה ויעמוד במתיקותו ואח\"כ מחממין אותו בכדי שהיד סולדת בו. וגם השרביט עושין כן ודעתי מסכמת לברך עליו שהכל וכמדומה שבקושט\"א נוהגין כן. כנה\"ג בתשו' ח\"ב סימן א' י\"א שם בהגב\"י או' א' וכ\"כ הברכ\"י או' ב' בשם מהר\"א אזולאי דעל ארופי שהוא מי ענבים שנקפא מברך שהכל. וכן הענבים המבושלים הנקרא טראנקופי\"ט וכן קאמר\"ן די\"ן שעושין מהמשמשי\"ם מברך שהכל יעו\"ש, ועיין לקמן סימן ר\"ד או' ס\"ג. ודע דיש אנשי מעשה שאין אוכלין הקאמ\"ר הדי\"ן שמוכרין בשוק משום דידוע דזה שמוכרין בשוק עושין הרבה ביחד ויש בהם מתולעים וגם אפשר שיתהווה בהם יתושים מהפורחים באויר או מן הרומשים באדמה אא\"כ שורין אותם במים ומסננין אותם:\n",
+      "en_html": "<b>16) Over arrope, one recites Shehakol, and this is obvious.</b> Beis Yosef in the name of Orchos Chaim. Arrope is made by pressing grapes and, after pressing, placing a certain white earth into the grape juice for an hour or longer, so that the wine emerging from them clarifies quickly and retains its sweetness. It is then heated until it is hot enough that the hand recoils. Sherbet is made similarly. My view agrees that one should recite Shehakol over it, and I believe this is the practice in Constantinople. Knesses HaGedolah, Responsa, volume 2, siman 1; Yad Aharon there, Hagahos Beis Yosef, paragraph 1. Birkei Yosef, paragraph 2, likewise writes in the name of R' Avraham Azulai that over arrope, which is congealed grape juice, one recites Shehakol. The same applies to cooked grapes called trankopit and to kamardin made from apricots; one recites Shehakol; see there. See below, siman 204, paragraph 63. Know that some people of deeds do not eat the kamardin sold in the market, because it is known that market producers prepare a large quantity together, including worm-infested fruit. Flying insects from the air or crawling insects from the ground may also form in it. They eat it only if it is soaked in water and strained.\n",
+      "he_plain": "טז) על ארופי מברך שהכל ופשוט הוא. ב\"י בשם או\"ח. וענין הארופי הוא שדורכין הענבים ואחר דריכתן משימין בתירוש עפר לבן ידוע שעה א' או יותר כדי שיציל היין היוצא מהם במהרה ויעמוד במתיקותו ואח\"כ מחממין אותו בכדי שהיד סולדת בו. וגם השרביט עושין כן ודעתי מסכמת לברך עליו שהכל וכמדומה שבקושט\"א נוהגין כן. כנה\"ג בתשו' ח\"ב סימן א' י\"א שם בהגב\"י או' א' וכ\"כ הברכ\"י או' ב' בשם מהר\"א אזולאי דעל ארופי שהוא מי ענבים שנקפא מברך שהכל. וכן הענבים המבושלים הנקרא טראנקופי\"ט וכן קאמר\"ן די\"ן שעושין מהמשמשי\"ם מברך שהכל יעו\"ש, ועיין לקמן סימן ר\"ד או' ס\"ג. ודע דיש אנשי מעשה שאין אוכלין הקאמ\"ר הדי\"ן שמוכרין בשוק משום דידוע דזה שמוכרין בשוק עושין הרבה ביחד ויש בהם מתולעים וגם אפשר שיתהווה בהם יתושים מהפורחים באויר או מן הרומשים באדמה אא\"כ שורין אותם במים ומסננין אותם:",
+      "en_plain": "16) Over arrope, one recites Shehakol, and this is obvious. Beis Yosef in the name of Orchos Chaim. Arrope is made by pressing grapes and, after pressing, placing a certain white earth into the grape juice for an hour or longer, so that the wine emerging from them clarifies quickly and retains its sweetness. It is then heated until it is hot enough that the hand recoils. Sherbet is made similarly. My view agrees that one should recite Shehakol over it, and I believe this is the practice in Constantinople. Knesses HaGedolah, Responsa, volume 2, siman 1; Yad Aharon there, Hagahos Beis Yosef, paragraph 1. Birkei Yosef, paragraph 2, likewise writes in the name of R' Avraham Azulai that over arrope, which is congealed grape juice, one recites Shehakol. The same applies to cooked grapes called trankopit and to kamardin made from apricots; one recites Shehakol; see there. See below, siman 204, paragraph 63. Know that some people of deeds do not eat the kamardin sold in the market, because it is known that market producers prepare a large quantity together, including worm-infested fruit. Flying insects from the air or crawling insects from the ground may also form in it. They eat it only if it is soaked in water and strained.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman204/seif-001/peri-megadim",
+      "volume": "oc1",
+      "siman": 204,
+      "seif": 1,
+      "slug": "peri-megadim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.85,
+        "he_chars": 532,
+        "en_chars": 984,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 984
+        },
+        "failure_patterns": [
+          "cold_spot"
+        ]
+      },
+      "he_html": "<b>ופת</b> עט״ז. הב״ח העלה בפה״ג בטעמא חלא וריחיה חמרא ולא הקרים או הקרים וטעמא חמרא פה״ג והקרים וטעמא חלא שהכל הא לקידוש טעמא חלא או הקרים לחוד אין מקדשין והא דמקדשין בקמחין בסיננו או דהקרי״ם קרום לבן הוא יותר מקמחין שרק נקודות לבינות או הקרים התחיל קצת להחמיץ יע״ש ולהלכה יש לפסוק כט״ז ברע״ב ג׳ והמ״א ב׳ הסכים לזה ומש״ה לא כתב המחבר שם טעמא אלא דפשוט הוא דאין מברכין פה״ג אף בלא הקרים (ומ״ש הר״ב י״ל אפי׳ בבוקר ולא הוי כחמר מדינה וע״ש בס״ט) וקרום לבן לקידוש פסול ול״ד לקמחין עמ״א רע״ב אות ד׳ הודה לב״ח בזה ואי״ה שם יבואר וכאן אין להאריך:\n",
+      "en_html": "<b>Bread.</b> Taz — Bach raised borei peri haAdamah with taste of vinegar and smell of wine without cold spots, or with cold spots and smell of wine borei peri haAdamah and cold spots and taste of vinegar shehakol; or for kiddush taste of vinegar or cold spots alone one does not make kiddush; and that one makes kiddush on flour in snifo or white mold is more than flour that only has white specks, or cold spots that began slightly to sour — see there; and for practical law one should rule like Taz in Raavad 3 and Magen Avraham 2 agreed to this; and therefore the Mechaber did not write there \"taste\" but that it is obvious one does not bless borei peri haAdamah even without cold spots (and what Ran wrote — one can say even in the morning and it is not like country wine — see there in Shaarei Teshuvah); and white mold for kiddush is invalid; and see regarding flour Magen Avraham Raavad note 4 conceded to Bach on this, and it will be explained there; and here one should not extend.\r\n",
+      "he_plain": "ופת עט״ז. הב״ח העלה בפה״ג בטעמא חלא וריחיה חמרא ולא הקרים או הקרים וטעמא חמרא פה״ג והקרים וטעמא חלא שהכל הא לקידוש טעמא חלא או הקרים לחוד אין מקדשין והא דמקדשין בקמחין בסיננו או דהקרי״ם קרום לבן הוא יותר מקמחין שרק נקודות לבינות או הקרים התחיל קצת להחמיץ יע״ש ולהלכה יש לפסוק כט״ז ברע״ב ג׳ והמ״א ב׳ הסכים לזה ומש״ה לא כתב המחבר שם טעמא אלא דפשוט הוא דאין מברכין פה״ג אף בלא הקרים (ומ״ש הר״ב י״ל אפי׳ בבוקר ולא הוי כחמר מדינה וע״ש בס״ט) וקרום לבן לקידוש פסול ול״ד לקמחין עמ״א רע״ב אות ד׳ הודה לב״ח בזה ואי״ה שם יבואר וכאן אין להאריך:",
+      "en_plain": "Bread. Taz — Bach raised borei peri haAdamah with taste of vinegar and smell of wine without cold spots, or with cold spots and smell of wine borei peri haAdamah and cold spots and taste of vinegar shehakol; or for kiddush taste of vinegar or cold spots alone one does not make kiddush; and that one makes kiddush on flour in snifo or white mold is more than flour that only has white specks, or cold spots that began slightly to sour — see there; and for practical law one should rule like Taz in Raavad 3 and Magen Avraham 2 agreed to this; and therefore the Mechaber did not write there \"taste\" but that it is obvious one does not bless borei peri haAdamah even without cold spots (and what Ran wrote — one can say even in the morning and it is not like country wine — see there in Shaarei Teshuvah); and white mold for kiddush is invalid; and see regarding flour Magen Avraham Raavad note 4 conceded to Bach on this, and it will be explained there; and here one should not extend.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman214/seif-001/baer-heitev",
+      "volume": "oc1",
+      "siman": 214,
+      "seif": 1,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.859,
+        "he_chars": 419,
+        "en_chars": 779,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 779
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>שם ומלכות. </b> והא דבתפלת י\"ח לא תקנו מלכות תירץ ב\"י בשם הרא\"ש דברכה ראשונה כיון דאית בה האל הגדול חשוב כמו מלכות וכולהו בתרא דראשונה גרירא. כתב הרמב\"ם פי\"א מברכות העושה מצוה ולא בירך אם היא מצוה שעדיין עשייתה קיימת כגון ציצית תפילין וסוכה מברך אחר שנתעטף אבל אם שחט או כסה או מל בלא ברכה אינו חוזר ומברך אחר עשייה וכן כל כיוצא בזה עיין מ\"א. <small>(ועיין בספר אבן העוזר שתמה על פסק ש\"ע באם דילג מלת העולם דצריך לחזור ולברך ע\"ש)</small>:\n",
+      "en_html": "<b>Name and malchut.</b> And that in the prayer of eighteen they did not enact malchut — Beit Yosef answers in the name of the Rosh that the first berachah, since it contains \"the great God,\" is considered like malchut, and all the later ones are dragged along after the first. Rambam wrote chapter 11 of Berachot: one who performs a mitzvah and did not bless — if it is a mitzvah whose performance still persists, such as tzitzit, tefillin, and sukkah, he blesses after he wrapped himself; but if he slaughtered or covered or circumcised without a blessing, he does not return and bless after the act; and so with everything similar — see Magen Avraham. (And see in Sefer Even HaEzer who wondered on Shulchan Aruch's ruling that if he skipped the word haOlam he must return and bless.)\r\n",
+      "he_plain": "שם ומלכות. והא דבתפלת י\"ח לא תקנו מלכות תירץ ב\"י בשם הרא\"ש דברכה ראשונה כיון דאית בה האל הגדול חשוב כמו מלכות וכולהו בתרא דראשונה גרירא. כתב הרמב\"ם פי\"א מברכות העושה מצוה ולא בירך אם היא מצוה שעדיין עשייתה קיימת כגון ציצית תפילין וסוכה מברך אחר שנתעטף אבל אם שחט או כסה או מל בלא ברכה אינו חוזר ומברך אחר עשייה וכן כל כיוצא בזה עיין מ\"א. (ועיין בספר אבן העוזר שתמה על פסק ש\"ע באם דילג מלת העולם דצריך לחזור ולברך ע\"ש) :",
+      "en_plain": "Name and malchut. And that in the prayer of eighteen they did not enact malchut — Beit Yosef answers in the name of the Rosh that the first berachah, since it contains \"the great God,\" is considered like malchut, and all the later ones are dragged along after the first. Rambam wrote chapter 11 of Berachot: one who performs a mitzvah and did not bless — if it is a mitzvah whose performance still persists, such as tzitzit, tefillin, and sukkah, he blesses after he wrapped himself; but if he slaughtered or covered or circumcised without a blessing, he does not return and bless after the act; and so with everything similar — see Magen Avraham. (And see in Sefer Even HaEzer who wondered on Shulchan Aruch's ruling that if he skipped the word haOlam he must return and bless.)",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman218/seif-007/beur-hagra",
+      "volume": "oc1",
+      "siman": 218,
+      "seif": 7,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.599,
+        "he_chars": 332,
+        "en_chars": 531,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 531
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ס\"ז על כו'. </b>ירושלמי הנ\"ל מהו כו' וחביריו מברך. ופי' ב\"י דמ\"ש מברך הוא פושט לכולהו שיברך אאביו ורבו ואדם מסויים ואדם שנתקדש כו' אבל הטור מפ' דל\"ק אלא אאדם מסויים כו' אבל לפי הגי' שלנו בירושלמי מהו כו' דניאל וחבריו נס של שבטים כו' ול\"ג מברך לא נפשט הבעיא בכולהו ועמ\"א וצ\"ל בירושלמי היה אדם כו' ול\"ג ואם היה כו':<br />\n<b>לפיכך כו'. </b>גמ' נ\"ז ב':\n",
+      "en_html": "Seif 67 — on etc. — Yerushalmi Maharil what he etc. and his colleagues exempt him. And Rashi explained Beit Yosef he is exempt for his forefathers and his master and person reclining and person who was circumcised etc.; but Tur Magen Avraham that only person reclining etc.; but per our girsa in Yerushalmi Maharil what he etc. Daniel and his colleagues miracle of tribes etc., and to exempt the fool in all of it and Magen Avraham; and Tzelach in Yerushalmi he was person etc. and if he was etc.<br>\r\n<br>\r\nTherefore etc. — Gemara Nazir 23b.\r\n",
+      "he_plain": "ס\"ז על כו'. ירושלמי הנ\"ל מהו כו' וחביריו מברך. ופי' ב\"י דמ\"ש מברך הוא פושט לכולהו שיברך אאביו ורבו ואדם מסויים ואדם שנתקדש כו' אבל הטור מפ' דל\"ק אלא אאדם מסויים כו' אבל לפי הגי' שלנו בירושלמי מהו כו' דניאל וחבריו נס של שבטים כו' ול\"ג מברך לא נפשט הבעיא בכולהו ועמ\"א וצ\"ל בירושלמי היה אדם כו' ול\"ג ואם היה כו': לפיכך כו'. גמ' נ\"ז ב':",
+      "en_plain": "Seif 67 — on etc. — Yerushalmi Maharil what he etc. and his colleagues exempt him. And Rashi explained Beit Yosef he is exempt for his forefathers and his master and person reclining and person who was circumcised etc.; but Tur Magen Avraham that only person reclining etc.; but per our girsa in Yerushalmi Maharil what he etc. Daniel and his colleagues miracle of tribes etc., and to exempt the fool in all of it and Magen Avraham; and Tzelach in Yerushalmi he was person etc. and if he was etc. Therefore etc. — Gemara Nazir 23b.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman223/seif-005/beur-hagra",
+      "volume": "oc1",
+      "siman": 223,
+      "seif": 5,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.201,
+        "he_chars": 492,
+        "en_chars": 591,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 591
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"ה קנה כו'. </b>כנ\"ל ס\"ב וכמ\"ש בגמ' קצרו כו':<br />\n<b>שהיא כו'. </b>הרא\"ש. וכמה דבריו חלושין דא\"כ גם הנותן יברך מלבד זה כו' אבל הירוש' ס\"ל דאין חילוק בין י\"ל אחרים או לא רק אם הוא דבר חדש כמו מציאה ומתנה וילדה זכר וירושה וכיוצא הטוב והמטיב אבל קנה שהחליף מעות בכלים שהחיינו וזה היה ס' המקשן בגמ' שלנו דפריש וכל היכא דליתא כו' וגם מבנה בית כו' ובברייתא קצרו ש\"ד כו' אלמא דס\"ל דוקא כיוצא דבנה כו' משא\"כ בגשמים לעולם הטוב והמטיב. ועיין במ\"א שהניח בצ\"ע ועיין פ\"ק דקדושין דוקא שעשיר אדם חשוב ולא קשה קושייתו ע\"ש:\n",
+      "en_html": "(א) C. bought a kno. This is the same as Heaven’s Word:<br>\r\n<br>\r\n(ב) She's called \". The radar. And how much does he say, “there will bless you, but there will not bring you away from there.” I am a new thing such as mitzvah and gift and a child of male and inheritance, and the good and the good, but he bought that was replaced with the tools that we lived and it was a scheze in there “And all the things of there’s house, and the earth’s house, and there’s house, and there’s house shall be turned to the world of good.” and the nature. See the Gemara, which is not difficult for Heaven’s people:\r\n",
+      "he_plain": "ס\"ה קנה כו'. כנ\"ל ס\"ב וכמ\"ש בגמ' קצרו כו': שהיא כו'. הרא\"ש. וכמה דבריו חלושין דא\"כ גם הנותן יברך מלבד זה כו' אבל הירוש' ס\"ל דאין חילוק בין י\"ל אחרים או לא רק אם הוא דבר חדש כמו מציאה ומתנה וילדה זכר וירושה וכיוצא הטוב והמטיב אבל קנה שהחליף מעות בכלים שהחיינו וזה היה ס' המקשן בגמ' שלנו דפריש וכל היכא דליתא כו' וגם מבנה בית כו' ובברייתא קצרו ש\"ד כו' אלמא דס\"ל דוקא כיוצא דבנה כו' משא\"כ בגשמים לעולם הטוב והמטיב. ועיין במ\"א שהניח בצ\"ע ועיין פ\"ק דקדושין דוקא שעשיר אדם חשוב ולא קשה קושייתו ע\"ש:",
+      "en_plain": "(א) C. bought a kno. This is the same as Heaven’s Word: (ב) She's called \". The radar. And how much does he say, “there will bless you, but there will not bring you away from there.” I am a new thing such as mitzvah and gift and a child of male and inheritance, and the good and the good, but he bought that was replaced with the tools that we lived and it was a scheze in there “And all the things of there’s house, and the earth’s house, and there’s house, and there’s house shall be turned to the world of good.” and the nature. See the Gemara, which is not difficult for Heaven’s people:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman229/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 229,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.838,
+        "he_chars": 402,
+        "en_chars": 739,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 739
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"ק א נאמן.</b> והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':\n",
+      "en_html": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.\r\n",
+      "he_plain": "ס\"ק א נאמן. והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':",
+      "en_plain": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

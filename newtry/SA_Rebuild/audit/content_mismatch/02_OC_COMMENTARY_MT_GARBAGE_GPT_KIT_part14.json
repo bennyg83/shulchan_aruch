@@ -1,0 +1,593 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 14,
+    "chunk_total": 47,
+    "case_offset": 82,
+    "cases_in_chunk": 14,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman276/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 276,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.272,
+        "he_chars": 1271,
+        "en_chars": 1617,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1617
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"א אפילו למי.</b> דומיא דרישא משתמש כו' ושם לא הודלק בשבילו וע' תוס' שם ובפ\"ב דיו\"ט כ\"ה א' ברש\"י ותוס' שם:<br />\n<b>ואין חילוק כו'.</b> דומיא דנכרי שבא לכבות שם שאמרו נכרי אדעתא דנפשיה קעביד וע\"כ בכה\"ג וצ\"ל משום דנהנה ממלאכה עצמה ואפי' בכה\"ג אסור כאן ובלא\"ה הא קבולת בביתו של ישראל כמ\"ש בירושלמי הביאו תוס' בפ\"ק דשבת וש\"פ. הגמ\"ר פ\"ק דשבת סי' כ\"ד ע\"ש בארוכה:<br />\n<b>דהואיל והישראל כו'.</b> ר\"ל משא\"כ באגרת שאין הישראל נהנה מגוף ההולכה רק מהאגרת:<br />\n<b>או לצורך חולה.</b> חולין ט\"ו ב' הלכתא השוחט כו' וכן בחולה שאין בו סכנה בפ\"ג דעירובין ניחום לי' אגב אימי' ושם אחר ז' הוה כמ\"ש תוס' בפ\"ק דהא ביום סברא אחרונה עיקר כמ\"ש בחולין שם במבשל לחולה וכן כאן וכמ\"ש תוס' דגיטין שם דדוקא במילה התירו להרבות ע\"ש:<br />\n<b>או לצורך קטנים.</b> כמ\"ש הר\"ן בריש יומא דלהכי רביתייהו ביה\"כ דלא כהרשב\"א שמוכיח משם דיסורא דרבנן ספין להו בידים לעולם וע\"ל סי' שמ\"ג ומ\"ש לצורך קטנים היינו מה שהם צריכין הרבה אבל בלא\"ה לא כמ\"ש בעירובין פ\"ו ניחים ליה אגב אימי':<br />\n<b>ויש אוסרין.</b> כמש\"ש בד\"א שאין מכירו כו' וס' הראשונה ס\"ל דגם במדורה בין לא' בין למאה:<br />\n<b>מיהו אם עשה כו'.</b> אבל כשרואה צריך למחות בידו ואפילו בביתו של גוי אמרי' בירושלמי חם רואה עושה צרך למחות בידו אם עושה בחנם וכאן אין חילוק בין חנם או שכר כנ\"ל וכ\"ש הוא דהא שם אם אינו רואה מותר ומותר להנות דאצ\"ל אל תכבה משום דגוי אדעתי' דנפשיה עביד משח\"כ כאן כנ\"ל וע\"כ צריך למחות וע' בהגמ\"ר שם שהאריך בזה הרבה:\n",
+      "en_html": "(א) Even to whom. Domya Darsha uses a name and does not be fueled for him, and he is named after him, and in the U.S., he says, “A. is in charge of him.”<br>\r\n<br>\r\n(2) And there is no division etc. Dumia Danchari who came to extinguish there they said Nechari Adeta Danfshiya Keavid and AK in 203 and Tzal because Danhanah from the work itself and Afi' in 203 is forbidden here and in the Omnipresent is it accepted in the house of Israel as a musher in Yerushalmi they brought a Tos' in the Peka Dashab and Shaf. Hagmar PK Dashabt C. 24 in the name of Barucha:<br>\r\n<br>\r\n(ג) Darius and Israel are the same. R. N. A.A. in a row that Israel does not enjoy the body that only moves from the box:<br>\r\n<br>\r\n(4) or for a patient. Chulin 12 2 Halkta Shochat 20 and also in a patient who is not in danger in Pg Deirobin Nichum Li' by the way of my mother' and there after 7. He is a Kmash Tos' in Pk Daha on the day of the last Shabbat, the main part of Kmash in Chulin there is in the brew for the patient and also here and Kms Tos' Digitin there Ddoka in the word he allowed for plurals:<br>\r\n<br>\r\n(5) or for small purposes. As the Rabbinate of the Rabbinate Barish Yoma Delahchi Rabitiyahu the High Court Dela Kaharshaba that proves from there Disura d'rabbanan spin him hands to the world and for the sake of small things we were what they needed a lot but in the the Master not as the Rabbinate in Irobin P.O.<br>\r\n<br>\r\n(ו) There is a ban. In the Gemara, you don’t know as the first S. and the first S.D. model in the corridor between a and a century:<br>\r\n<br>\r\n(7) Who is if he did etc. But when you see, you have to protest with your hand and even in the house of a Gentile.''\r\n",
+      "he_plain": "ס\"א אפילו למי. דומיא דרישא משתמש כו' ושם לא הודלק בשבילו וע' תוס' שם ובפ\"ב דיו\"ט כ\"ה א' ברש\"י ותוס' שם: ואין חילוק כו'. דומיא דנכרי שבא לכבות שם שאמרו נכרי אדעתא דנפשיה קעביד וע\"כ בכה\"ג וצ\"ל משום דנהנה ממלאכה עצמה ואפי' בכה\"ג אסור כאן ובלא\"ה הא קבולת בביתו של ישראל כמ\"ש בירושלמי הביאו תוס' בפ\"ק דשבת וש\"פ. הגמ\"ר פ\"ק דשבת סי' כ\"ד ע\"ש בארוכה: דהואיל והישראל כו'. ר\"ל משא\"כ באגרת שאין הישראל נהנה מגוף ההולכה רק מהאגרת: או לצורך חולה. חולין ט\"ו ב' הלכתא השוחט כו' וכן בחולה שאין בו סכנה בפ\"ג דעירובין ניחום לי' אגב אימי' ושם אחר ז' הוה כמ\"ש תוס' בפ\"ק דהא ביום סברא אחרונה עיקר כמ\"ש בחולין שם במבשל לחולה וכן כאן וכמ\"ש תוס' דגיטין שם דדוקא במילה התירו להרבות ע\"ש: או לצורך קטנים. כמ\"ש הר\"ן בריש יומא דלהכי רביתייהו ביה\"כ דלא כהרשב\"א שמוכיח משם דיסורא דרבנן ספין להו בידים לעולם וע\"ל סי' שמ\"ג ומ\"ש לצורך קטנים היינו מה שהם צריכין הרבה אבל בלא\"ה לא כמ\"ש בעירובין פ\"ו ניחים ליה אגב אימי': ויש אוסרין. כמש\"ש בד\"א שאין מכירו כו' וס' הראשונה ס\"ל דגם במדורה בין לא' בין למאה: מיהו אם עשה כו'. אבל כשרואה צריך למחות בידו ואפילו בביתו של גוי אמרי' בירושלמי חם רואה עושה צרך למחות בידו אם עושה בחנם וכאן אין חילוק בין חנם או שכר כנ\"ל וכ\"ש הוא דהא שם אם אינו רואה מותר ומותר להנות דאצ\"ל אל תכבה משום דגוי אדעתי' דנפשיה עביד משח\"כ כאן כנ\"ל וע\"כ צריך למחות וע' בהגמ\"ר שם שהאריך בזה הרבה:",
+      "en_plain": "(א) Even to whom. Domya Darsha uses a name and does not be fueled for him, and he is named after him, and in the U.S., he says, “A. is in charge of him.” (2) And there is no division etc. Dumia Danchari who came to extinguish there they said Nechari Adeta Danfshiya Keavid and AK in 203 and Tzal because Danhanah from the work itself and Afi' in 203 is forbidden here and in the Omnipresent is it accepted in the house of Israel as a musher in Yerushalmi they brought a Tos' in the Peka Dashab and Shaf. Hagmar PK Dashabt C. 24 in the name of Barucha: (ג) Darius and Israel are the same. R. N. A.A. in a row that Israel does not enjoy the body that only moves from the box: (4) or for a patient. Chulin 12 2 Halkta Shochat 20 and also in a patient who is not in danger in Pg Deirobin Nichum Li' by the way of my mother' and there after 7. He is a Kmash Tos' in Pk Daha on the day of the last Shabbat, the main part of Kmash in Chulin there is in the brew for the patient and also here and Kms Tos' Digitin there Ddoka in the word he allowed for plurals: (5) or for small purposes. As the Rabbinate of the Rabbinate Barish Yoma Delahchi Rabitiyahu the High Court Dela Kaharshaba that proves from there Disura d'rabbanan spin him hands to the world and for the sake of small things we were what they needed a lot but in the the Master not as the Rabbinate in Irobin P.O. (ו) There is a ban. In the Gemara, you don’t know as the first S. and the first S.D. model in the corridor between a and a century: (7) Who is if he did etc. But when you see, you have to protest with your hand and even in the house of a Gentile.''",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman277/seif-003/ateret-zekenim",
+      "volume": "oc1",
+      "siman": 277,
+      "seif": 3,
+      "slug": "ateret-zekenim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.017,
+        "he_chars": 117,
+        "en_chars": 119,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 119
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "ואם הניח עליה מדעת כו'. ונרות שהניחו על השלחן על דעת ליטלו למחר ע\"י עכו\"ם דינו כשכח שלא נעשה בסיס לדבר האיסור (בב\"ח):\n",
+      "en_html": "And if you put a science on it.” “And we have made it clear that we should not speak of Heaven’s promise to the world.”\r\n",
+      "he_plain": "ואם הניח עליה מדעת כו'. ונרות שהניחו על השלחן על דעת ליטלו למחר ע\"י עכו\"ם דינו כשכח שלא נעשה בסיס לדבר האיסור (בב\"ח):",
+      "en_plain": "And if you put a science on it.” “And we have made it clear that we should not speak of Heaven’s promise to the world.”",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman282/seif-004/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 282,
+      "seif": 4,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.574,
+        "he_chars": 3424,
+        "en_chars": 5390,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 5390
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "[א] <b>[לבוש] וביום טוב וכו'.</b> דאיכא איסור מלאכה, וביום הכיפור איכא עונש כרת ובשבת סקילה (ש\"ס), רמז לזה שמ\"ע ג' אותיות ישראל חמישה אותיות ה' ד' אותיות אלקינו ו' אותיות ה' אחד ז' אותיות ובכולם הם כמנין כ\"ה שנאמר כ\"ה תברכו (מטה משה):<br />\n[ב] <b>[לבוש] ובשבת וכו'.</b> ועוד שאם יארע לאדם שום אונס שלא בא לבית הכנסת כל שבעת ימי השבוע ולא שמע ברכו יאזין בשבת מפי הקורין ז' פעמים ברכו ויוצא ידי חובתו כן הוא בהגה לבושים ישנים וכן בבית יוסף. עוד מצאתי טעם דשבת נמשל לעולם הבא שהוא יום מנוחה לצדיקים ולכן קורין שבעה, וביום הכיפור שבא לכפר על מעשה עולם הזה שנמשל לששת ימי החול קורין ו':<br />\n[ג] <b>[לבוש] אבל מוסיפין וכו'.</b> והתשב\"ץ כתב דעכשיו דכולן מברכין אין להוסיף משום ברכה לבטלה וכן ראוי לנהוג אם לא בחתונה או מילה (כנסת הגדולה ועולת תמיד ומגן אברהם), והמקילין לא הפסידו דמכל שארי פוסקים משמע היתר גם דעת מגן אברהם נוטה כן, ודבריו קצת סותרין גם מה שהשיג על עולת שבת אינו השגה ואולי טעות סופר יש בדבריו, וזקיני הזקן הגאון זכרונו לברכה תיקן פה פראג שלא לקרות יותר מעשרה חוץ ממפטיר ומפני טורח ציבור והוספתי על דבריו שלא יוסיפו אפילו בימים נוראים יותר מעשרה דאם כן יהא קדושים יותר משבת:<br />\n[ד] <b>[לבוש] הרשות וכו'.</b> צריך עיון דרמ\"א כתב עלה ויש אוסרין וכן נהגו חוץ מבשמחת תורה, עד כאן, וכן מלבוש גופיה סימן תרס\"ט משמע כן וכן בסימן קל\"ו סעיף ד' ואפילו בחתונה או כשיש חיובים הרבה כתב מגן אברהם דלא נהגו להקל, ודע דגם המתירין מודים דאינו עולה למנין שבעה:<br />\n[ה] <b>[לבוש] וכן נוהגים.</b> לא בכל מקום וכו' (מלבושי יום טוב), וכן פה פראג נוהגין להוסיף ביום טוב ויום הכיפור, וכן נראה לי ראיה ממתניתין ריש פרק הקורא עומד דתניא ברישא גבי שני וחמישי וגם גבי ראש חודש וחול המועד אין מוסיפין ולא תנא לה נמי גבי יום טוב ויום הכיפור. ועוד נראה לי ראיה ממגילה דף כ\"ג דאמר ר' עקיבא ביום כיפור שבעה ובשבת ששה אין פוחתין אבל מוסיפין ומשמע ודאי דקאי נמי אשבת דתנא בסוף אם כן ממילא נלמד לר\"י דסבירא ליה דבשבת שבעה דהוא הדין ביום טוב ויום כיפור מוסיפין, ולדעת האוסרין צריך עיון לתרץ זה וכן משמע בתוס' שם ד\"ה חד וכו' ואגודה שם דמותר כן פסק בתשובת ריב\"ש סימן פ\"ד:<br />\n[ו] <b>וקטן.</b> האידנא לא נהיגי לקרות קטן כלל אלא למפטיר, והטעם כתב הפרישה דדוקא בימיהם שהיה כהן מברך תחילה ואחרון מברך בסוף הוא דעולה ולא לדידן שכל אחד מברך תחילה וסוף, וראיה לזה בהרא\"ש פרק קמא דקידושין. ומגן אברהם כתב זה לשונו ומצאתי בריב\"ש סימן שכ\"א בשם רש\"י דמה שכתב בגמרא הכל עולין וכו' היינו דוקא למפטיר וכן משמע בהגהות מיימוני מבית יוסף סימן קל\"ה בשם הרוקח עד כאן לשונו, ותימא לפרש למנין שבעה אמפטיר, גם עיינתי שם ולא מצאתי כלום ואדרבה כתב שם בשם רבינו תם דלמנין שבעה עולה ולא למפטיר כיון שהוא חובת היום, שוב ראיתי בסימן שכ\"ו שכתב שם בשם רבינו תם דמתניתין דקטן קורא קאי אמפטיר, ומזה תימה יותר על מגן אברהם דסיים להדיא הריב\"ש דגמרא דעולין למניין שבעה מיירי בשבעה עצמן אף לפירוש רש\"י ולא אמפטיר אלא דממתניתין ליכא ראיה דיש לומר דקאי אמפטיר ומיירי שם שגם הגדול קורא קודם מה שקורא קטן וקטן המפטיר חוזר וקורא לכבוד התורה עיין שם, ומה שפירש בית יוסף סימן קל\"ה דברי רוקח נמי ליתא דהכי פירושו קטן עושה סניף דהיינו דרק קטן אחד נקרא לשבעה וכמו שכתב הריב\"ש סימן ל\"ה אפילו קטן אפילו אשה ולא קתני נשים, וכן נראה פירוש הגמרא ודו\"ק, והברטנורא משנה ו' פרק ד' דמגילה דוקא משלישי ואילך עולה וכן כתב הרמב\"ם שם ובזה נדחה נמי דברי בית יוסף בסימן קל\"ה ואין להאריך. כתב מגן אברהם הנשים חייבות לשמוע קריאת ספר כאנשים ומצוה לתרגם להם שיבינו (מסכת סופרים פרק י\"ח) וכן נהגו הנשים לצאת חוצה, עד כאן, ודבריו סותרים ואפשר לדחוק דקאי למעלה עיין שם:<br />\n[ז] <b>[לבוש] שאין כבודו וכו'.</b> לשון בית יוסף בשם הר\"ן דכיון דלאו בני חיובא נינהו לא מפקי לגמרי, עד כאן. ורוצה לומר שאין יכולין להוציא ידי חובתן של אנשים וגדולים לגמרי והלבוש נראה שהבין דמפקי על הוצאת ספר תורה ולא דק:\n",
+      "en_html": "<b>[Levush] And on Yom Tov, etc.</b> Because Yom Tov has a melachah prohibition, Yom Kippur carries karet, and Shabbos carries sekilah, as the Gemara explains. Mateh Moshe gives a mnemonic from the number of letters in the opening words of the blessing, totaling twenty-five, corresponding to \"thus shall you bless.\"<br />\n<b>[Levush] And on Shabbos, etc.</b> Additionally, if an unavoidable circumstance prevented a person from attending synagogue all seven weekdays and he did not hear Barchu, on Shabbos he can listen to the seven aliyot recite Barchu and thereby make up the seven, as stated in old glosses to the Levush and in Beit Yosef. I found another reason: Shabbos is compared to the World to Come, the day of rest for the righteous, and therefore seven are called. Yom Kippur atones for deeds of this world, which is compared to the six weekdays, and therefore six are called.<br />\n<b>[Levush] But one may add, etc.</b> Tashbetz writes that nowadays, when every oleh recites blessings, one should not add aliyot because of unnecessary blessings. Knesset HaGedolah, Olat Tamid, and Magen Avraham say this is the proper practice except at a wedding or brit. Those who are lenient lose nothing, because all the other poskim imply permission, and Magen Avraham himself inclines toward leniency. His words are somewhat contradictory, and his criticism of Olat Shabbat is not compelling; perhaps there is a scribal error. My great-grandfather, the gaon, instituted here in Prague that no more than ten be called, apart from maftir, because of burden on the congregation. I added that even on the Yamim Noraim no more than ten should be called, for otherwise those days would appear holier than Shabbos.<br />\n<b>[Levush] Permission, etc.</b> This requires study. Rama writes that some prohibit and that this is the custom except on Simchat Torah. The Levush himself in siman 669 appears to agree, and likewise in siman 136 seif 4. Magen Avraham writes that even at a wedding or where many people have obligations, the practice is not to be lenient. Know that even those who permit agree that the added person does not count toward the required seven.<br />\n<b>[Levush] And so is the practice.</b> Malbushei Yom Tov notes that this is not the custom everywhere. Here in Prague the custom is to add aliyot on Yom Tov and Yom Kippur. I see support from the Mishnah at the beginning of chapter HaKorei Omed: regarding Monday and Thursday, and regarding Rosh Chodesh and Chol HaMoed, it explicitly says one may not add, but it does not say so regarding Yom Tov and Yom Kippur. Further proof is Megillah 23, where Rabbi Akiva says Yom Kippur has seven and Shabbos six, and the baraita says one may not subtract but may add. This certainly appears to apply to Shabbos as well, which is listed at the end. Consequently, according to Rabbi Yehudah, who holds Shabbos has seven, the same principle should allow additions on Yom Tov and Yom Kippur. The prohibiting view requires explanation. Tosafot there and Agudah also imply permission, and Responsa Rivash siman 84 rules so.<br />\n<b>And a minor.</b> Nowadays the practice is not to call a minor at all except for maftir. Perishah explains that only in earlier times, when the first oleh alone blessed before and the last alone blessed afterward, could a minor count, unlike nowadays when each oleh blesses before and after. He finds support in the Rosh, chapter 1 of Kiddushin. Magen Avraham writes that he found in Rivash siman 321 in Rashi's name that the Gemara's statement \"all count, etc.\" refers specifically to maftir, and that Hagahot Maimoniyot and Beit Yosef siman 135 in the name of Rokeach imply the same. This is surprising: how can \"count toward seven\" mean maftir? I examined the responsum and found the opposite: Rivash cites Rabbenu Tam that a minor counts among the seven but not for maftir when maftir constitutes the day's obligation. I later saw in siman 326 that Rivash says in Rabbenu Tam's name that the Mishnah's rule that a minor reads may refer to maftir. This makes Magen Avraham's citation even more surprising, because Rivash explicitly concludes that the Gemara about counting among seven concerns one of the seven themselves even according to Rashi. The Mishnah alone could be explained as maftir, where an adult first reads the same passage and the minor repeats it for the honor of Torah. Beit Yosef's explanation of Rokeach in siman 135 is likewise incorrect. \"A minor joins\" means only one minor may be included among the seven, as Rivash siman 35 notes from the singular wording \"even a minor, even a woman,\" not \"women.\" This also appears to be the Gemara's meaning. Bartenura on Megillah chapter 4 Mishnah 6 and Rambam there say a minor counts only from the third aliyah onward. This also rejects Beit Yosef's view in siman 135. Magen Avraham writes that women are obligated to hear Torah reading like men and it is a mitzvah to translate it for them so they understand, citing Masechet Soferim chapter 18, yet then says the women customarily go outside. His words seem contradictory, though they may perhaps be reconciled with the context.<br />\n<b>[Levush] Because it is not respectful, etc.</b> Beit Yosef cites Ran: since they are not fully obligated, they cannot fully discharge others. That means women and minors cannot entirely discharge the obligation of adult men. The Levush appears to understand \"discharge\" as referring to bringing out the sefer Torah, which is imprecise.\n",
+      "he_plain": "[א] [לבוש] וביום טוב וכו'. דאיכא איסור מלאכה, וביום הכיפור איכא עונש כרת ובשבת סקילה (ש\"ס), רמז לזה שמ\"ע ג' אותיות ישראל חמישה אותיות ה' ד' אותיות אלקינו ו' אותיות ה' אחד ז' אותיות ובכולם הם כמנין כ\"ה שנאמר כ\"ה תברכו (מטה משה): [ב] [לבוש] ובשבת וכו'. ועוד שאם יארע לאדם שום אונס שלא בא לבית הכנסת כל שבעת ימי השבוע ולא שמע ברכו יאזין בשבת מפי הקורין ז' פעמים ברכו ויוצא ידי חובתו כן הוא בהגה לבושים ישנים וכן בבית יוסף. עוד מצאתי טעם דשבת נמשל לעולם הבא שהוא יום מנוחה לצדיקים ולכן קורין שבעה, וביום הכיפור שבא לכפר על מעשה עולם הזה שנמשל לששת ימי החול קורין ו': [ג] [לבוש] אבל מוסיפין וכו'. והתשב\"ץ כתב דעכשיו דכולן מברכין אין להוסיף משום ברכה לבטלה וכן ראוי לנהוג אם לא בחתונה או מילה (כנסת הגדולה ועולת תמיד ומגן אברהם), והמקילין לא הפסידו דמכל שארי פוסקים משמע היתר גם דעת מגן אברהם נוטה כן, ודבריו קצת סותרין גם מה שהשיג על עולת שבת אינו השגה ואולי טעות סופר יש בדבריו, וזקיני הזקן הגאון זכרונו לברכה תיקן פה פראג שלא לקרות יותר מעשרה חוץ ממפטיר ומפני טורח ציבור והוספתי על דבריו שלא יוסיפו אפילו בימים נוראים יותר מעשרה דאם כן יהא קדושים יותר משבת: [ד] [לבוש] הרשות וכו'. צריך עיון דרמ\"א כתב עלה ויש אוסרין וכן נהגו חוץ מבשמחת תורה, עד כאן, וכן מלבוש גופיה סימן תרס\"ט משמע כן וכן בסימן קל\"ו סעיף ד' ואפילו בחתונה או כשיש חיובים הרבה כתב מגן אברהם דלא נהגו להקל, ודע דגם המתירין מודים דאינו עולה למנין שבעה: [ה] [לבוש] וכן נוהגים. לא בכל מקום וכו' (מלבושי יום טוב), וכן פה פראג נוהגין להוסיף ביום טוב ויום הכיפור, וכן נראה לי ראיה ממתניתין ריש פרק הקורא עומד דתניא ברישא גבי שני וחמישי וגם גבי ראש חודש וחול המועד אין מוסיפין ולא תנא לה נמי גבי יום טוב ויום הכיפור. ועוד נראה לי ראיה ממגילה דף כ\"ג דאמר ר' עקיבא ביום כיפור שבעה ובשבת ששה אין פוחתין אבל מוסיפין ומשמע ודאי דקאי נמי אשבת דתנא בסוף אם כן ממילא נלמד לר\"י דסבירא ליה דבשבת שבעה דהוא הדין ביום טוב ויום כיפור מוסיפין, ולדעת האוסרין צריך עיון לתרץ זה וכן משמע בתוס' שם ד\"ה חד וכו' ואגודה שם דמותר כן פסק בתשובת ריב\"ש סימן פ\"ד: [ו] וקטן. האידנא לא נהיגי לקרות קטן כלל אלא למפטיר, והטעם כתב הפרישה דדוקא בימיהם שהיה כהן מברך תחילה ואחרון מברך בסוף הוא דעולה ולא לדידן שכל אחד מברך תחילה וסוף, וראיה לזה בהרא\"ש פרק קמא דקידושין. ומגן אברהם כתב זה לשונו ומצאתי בריב\"ש סימן שכ\"א בשם רש\"י דמה שכתב בגמרא הכל עולין וכו' היינו דוקא למפטיר וכן משמע בהגהות מיימוני מבית יוסף סימן קל\"ה בשם הרוקח עד כאן לשונו, ותימא לפרש למנין שבעה אמפטיר, גם עיינתי שם ולא מצאתי כלום ואדרבה כתב שם בשם רבינו תם דלמנין שבעה עולה ולא למפטיר כיון שהוא חובת היום, שוב ראיתי בסימן שכ\"ו שכתב שם בשם רבינו תם דמתניתין דקטן קורא קאי אמפטיר, ומזה תימה יותר על מגן אברהם דסיים להדיא הריב\"ש דגמרא דעולין למניין שבעה מיירי בשבעה עצמן אף לפירוש רש\"י ולא אמפטיר אלא דממתניתין ליכא ראיה דיש לומר דקאי אמפטיר ומיירי שם שגם הגדול קורא קודם מה שקורא קטן וקטן המפטיר חוזר וקורא לכבוד התורה עיין שם, ומה שפירש בית יוסף סימן קל\"ה דברי רוקח נמי ליתא דהכי פירושו קטן עושה סניף דהיינו דרק קטן אחד נקרא לשבעה וכמו שכתב הריב\"ש סימן ל\"ה אפילו קטן אפילו אשה ולא קתני נשים, וכן נראה פירוש הגמרא ודו\"ק, והברטנורא משנה ו' פרק ד' דמגילה דוקא משלישי ואילך עולה וכן כתב הרמב\"ם שם ובזה נדחה נמי דברי בית יוסף בסימן קל\"ה ואין להאריך. כתב מגן אברהם הנשים חייבות לשמוע קריאת ספר כאנשים ומצוה לתרגם להם שיבינו (מסכת סופרים פרק י\"ח) וכן נהגו הנשים לצאת חוצה, עד כאן, ודבריו סותרים ואפשר לדחוק דקאי למעלה עיין שם: [ז] [לבוש] שאין כבודו וכו'. לשון בית יוסף בשם הר\"ן דכיון דלאו בני חיובא נינהו לא מפקי לגמרי, עד כאן. ורוצה לומר שאין יכולין להוציא ידי חובתן של אנשים וגדולים לגמרי והלבוש נראה שהבין דמפקי על הוצאת ספר תורה ולא דק:",
+      "en_plain": "[Levush] And on Yom Tov, etc. Because Yom Tov has a melachah prohibition, Yom Kippur carries karet, and Shabbos carries sekilah, as the Gemara explains. Mateh Moshe gives a mnemonic from the number of letters in the opening words of the blessing, totaling twenty-five, corresponding to \"thus shall you bless.\" [Levush] And on Shabbos, etc. Additionally, if an unavoidable circumstance prevented a person from attending synagogue all seven weekdays and he did not hear Barchu, on Shabbos he can listen to the seven aliyot recite Barchu and thereby make up the seven, as stated in old glosses to the Levush and in Beit Yosef. I found another reason: Shabbos is compared to the World to Come, the day of rest for the righteous, and therefore seven are called. Yom Kippur atones for deeds of this world, which is compared to the six weekdays, and therefore six are called. [Levush] But one may add, etc. Tashbetz writes that nowadays, when every oleh recites blessings, one should not add aliyot because of unnecessary blessings. Knesset HaGedolah, Olat Tamid, and Magen Avraham say this is the proper practice except at a wedding or brit. Those who are lenient lose nothing, because all the other poskim imply permission, and Magen Avraham himself inclines toward leniency. His words are somewhat contradictory, and his criticism of Olat Shabbat is not compelling; perhaps there is a scribal error. My great-grandfather, the gaon, instituted here in Prague that no more than ten be called, apart from maftir, because of burden on the congregation. I added that even on the Yamim Noraim no more than ten should be called, for otherwise those days would appear holier than Shabbos. [Levush] Permission, etc. This requires study. Rama writes that some prohibit and that this is the custom except on Simchat Torah. The Levush himself in siman 669 appears to agree, and likewise in siman 136 seif 4. Magen Avraham writes that even at a wedding or where many people have obligations, the practice is not to be lenient. Know that even those who permit agree that the added person does not count toward the required seven. [Levush] And so is the practice. Malbushei Yom Tov notes that this is not the custom everywhere. Here in Prague the custom is to add aliyot on Yom Tov and Yom Kippur. I see support from the Mishnah at the beginning of chapter HaKorei Omed: regarding Monday and Thursday, and regarding Rosh Chodesh and Chol HaMoed, it explicitly says one may not add, but it does not say so regarding Yom Tov and Yom Kippur. Further proof is Megillah 23, where Rabbi Akiva says Yom Kippur has seven and Shabbos six, and the baraita says one may not subtract but may add. This certainly appears to apply to Shabbos as well, which is listed at the end. Consequently, according to Rabbi Yehudah, who holds Shabbos has seven, the same principle should allow additions on Yom Tov and Yom Kippur. The prohibiting view requires explanation. Tosafot there and Agudah also imply permission, and Responsa Rivash siman 84 rules so. And a minor. Nowadays the practice is not to call a minor at all except for maftir. Perishah explains that only in earlier times, when the first oleh alone blessed before and the last alone blessed afterward, could a minor count, unlike nowadays when each oleh blesses before and after. He finds support in the Rosh, chapter 1 of Kiddushin. Magen Avraham writes that he found in Rivash siman 321 in Rashi's name that the Gemara's statement \"all count, etc.\" refers specifically to maftir, and that Hagahot Maimoniyot and Beit Yosef siman 135 in the name of Rokeach imply the same. This is surprising: how can \"count toward seven\" mean maftir? I examined the responsum and found the opposite: Rivash cites Rabbenu Tam that a minor counts among the seven but not for maftir when maftir constitutes the day's obligation. I later saw in siman 326 that Rivash says in Rabbenu Tam's name that the Mishnah's rule that a minor reads may refer to maftir. This makes Magen Avraham's citation even more surprising, because Rivash explicitly concludes that the Gemara about counting among seven concerns one of the seven themselves even according to Rashi. The Mishnah alone could be explained as maftir, where an adult first reads the same passage and the minor repeats it for the honor of Torah. Beit Yosef's explanation of Rokeach in siman 135 is likewise incorrect. \"A minor joins\" means only one minor may be included among the seven, as Rivash siman 35 notes from the singular wording \"even a minor, even a woman,\" not \"women.\" This also appears to be the Gemara's meaning. Bartenura on Megillah chapter 4 Mishnah 6 and Rambam there say a minor counts only from the third aliyah onward. This also rejects Beit Yosef's view in siman 135. Magen Avraham writes that women are obligated to hear Torah reading like men and it is a mitzvah to translate it for them so they understand, citing Masechet Soferim chapter 18, yet then says the women customarily go outside. His words seem contradictory, though they may perhaps be reconciled with the context. [Levush] Because it is not respectful, etc. Beit Yosef cites Ran: since they are not fully obligated, they cannot fully discharge others. That means women and minors cannot entirely discharge the obligation of adult men. The Levush appears to understand \"discharge\" as referring to bringing out the sefer Torah, which is imprecise.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman288/seif-007/shaarei-teshuvah",
+      "volume": "oc1",
+      "siman": 288,
+      "seif": 7,
+      "slug": "shaarei-teshuvah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.779,
+        "he_chars": 140,
+        "en_chars": 249,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 249
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(בש\"ע ס\"ה) <b>או </b> שיניו שנפלו וכ' במטה יהודה ואם היה לו כאב שינים לא יתענה כמ\"ש האחרונים במהרהר ועיין בחינוך בית יהודה סי' ג' ובדבר משה סי' ך\"ב:\r\n",
+      "en_html": "(In the name of the S.A.) or his teeth that were fallen and circumcised in the Judean headquarters, and if he had no pain, he would not respond as the last ISA from Hurair and see the education of the Judean House \"And in the Word of Moses,\" he said\r\n",
+      "he_plain": "(בש\"ע ס\"ה) או שיניו שנפלו וכ' במטה יהודה ואם היה לו כאב שינים לא יתענה כמ\"ש האחרונים במהרהר ועיין בחינוך בית יהודה סי' ג' ובדבר משה סי' ך\"ב:",
+      "en_plain": "(In the name of the S.A.) or his teeth that were fallen and circumcised in the Judean headquarters, and if he had no pain, he would not respond as the last ISA from Hurair and see the education of the Judean House \"And in the Word of Moses,\" he said",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman292/seif-002/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 292,
+      "seif": 2,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.759,
+        "he_chars": 503,
+        "en_chars": 885,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 885
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "[ב] <b>[לבוש] אף על פי ששתינו וכו'.</b> אני בא להתפלל ואני שואל ממך עת רצון לכפר על העולם (אבודרהם), אבל בכלבו זה לשונו קופץ אני להתפלל אליך בשעה קבוע במנחה שהיא עת רצון, עד כאן, הרי דעת רצון לאו בקשה הוא אלא דמנחה נקרא עת רצון משום דאליהו נענה בה ולפירוש אבודרהם יש עוד טעם לפי ששתוי אל יתפלל לכך שואלין שיהא תפילה זו עת רצון, ובתניא כתב טעם אחר על שאומרים ואני תפילתי במנחה דשבת לפי שצרה אחרונה שלא נהיתה כמוה תהיה תשעה חדשים והיום האחרון הוא יהיה שבת ותכבד הצרה מכל שלפניו עד עת מנחה יהיה נענין ויבוא הגואל:\n",
+      "en_html": "[2] <b>[Levush] Even though we have drunk, etc.</b> I come to pray, and I ask of You a favorable time to grant atonement to the world (Abudraham). Kol Bo, however, explains: \"I hasten to pray to You at the fixed time of Minchah, which is a favorable time.\" According to this, \"a favorable time\" is not itself a request, but Minchah is called a favorable time because Eliyahu was answered then. According to Abudraham there is an additional reason: since one who is intoxicated may not pray, we ask that this prayer be accepted as a favorable time. Tanya gives another reason for saying \"As for me, may my prayer to You be at a favorable time\" at Shabbos Minchah. The final tribulation, unlike any before it, will last nine months; its last day will be Shabbos, and the distress will intensify beyond all that preceded it until Minchah, when Israel will be answered and the redeemer will come.\n",
+      "he_plain": "[ב] [לבוש] אף על פי ששתינו וכו'. אני בא להתפלל ואני שואל ממך עת רצון לכפר על העולם (אבודרהם), אבל בכלבו זה לשונו קופץ אני להתפלל אליך בשעה קבוע במנחה שהיא עת רצון, עד כאן, הרי דעת רצון לאו בקשה הוא אלא דמנחה נקרא עת רצון משום דאליהו נענה בה ולפירוש אבודרהם יש עוד טעם לפי ששתוי אל יתפלל לכך שואלין שיהא תפילה זו עת רצון, ובתניא כתב טעם אחר על שאומרים ואני תפילתי במנחה דשבת לפי שצרה אחרונה שלא נהיתה כמוה תהיה תשעה חדשים והיום האחרון הוא יהיה שבת ותכבד הצרה מכל שלפניו עד עת מנחה יהיה נענין ויבוא הגואל:",
+      "en_plain": "[2] [Levush] Even though we have drunk, etc. I come to pray, and I ask of You a favorable time to grant atonement to the world (Abudraham). Kol Bo, however, explains: \"I hasten to pray to You at the fixed time of Minchah, which is a favorable time.\" According to this, \"a favorable time\" is not itself a request, but Minchah is called a favorable time because Eliyahu was answered then. According to Abudraham there is an additional reason: since one who is intoxicated may not pray, we ask that this prayer be accepted as a favorable time. Tanya gives another reason for saying \"As for me, may my prayer to You be at a favorable time\" at Shabbos Minchah. The final tribulation, unlike any before it, will last nine months; its last day will be Shabbos, and the distress will intensify beyond all that preceded it until Minchah, when Israel will be answered and the redeemer will come.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman296/seif-001/yad-ephraim",
+      "volume": "oc1",
+      "siman": 296,
+      "seif": 1,
+      "slug": "yad-ephraim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.561,
+        "he_chars": 285,
+        "en_chars": 445,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 445
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>במג\"א ס\"ק ד'</b> משום כו' צ\"ע דלעיל כתוב טעמא אחרינא שהוא פגם ובזוי מצוה אם ישפוך קודם ואפשר שצ\"ל וגם משום הפסק ואע\"ג דלעיל משמע דאין בשפיכה זו חשש משום הפסק אפשר דבשפיכה וכיבוי הנר הוי קצת הפסק ויותר נראה שיש כאן ט\"ס וצ\"ל כמש\"ל בשם הב\"ח ור\"ל דברי הספר חסידים דלעיל ס\"ק ב' והביאו הט\"ז ג\"כ:\r\n",
+      "en_html": "In Heaven, it is written that it is a flaw and a buffer if it is first circumcised, and it is also possible that the congregation and because of the judgment It means that there is no fear in this blanket because the stop can be plucked and extinguished by the candle, and that it seems to be here that there is a T-shirt and a radar called the Gemara and the congregation The Book of the Book of Revelations, and the High School of Revelations:\r\n",
+      "he_plain": "במג\"א ס\"ק ד' משום כו' צ\"ע דלעיל כתוב טעמא אחרינא שהוא פגם ובזוי מצוה אם ישפוך קודם ואפשר שצ\"ל וגם משום הפסק ואע\"ג דלעיל משמע דאין בשפיכה זו חשש משום הפסק אפשר דבשפיכה וכיבוי הנר הוי קצת הפסק ויותר נראה שיש כאן ט\"ס וצ\"ל כמש\"ל בשם הב\"ח ור\"ל דברי הספר חסידים דלעיל ס\"ק ב' והביאו הט\"ז ג\"כ:",
+      "en_plain": "In Heaven, it is written that it is a flaw and a buffer if it is first circumcised, and it is also possible that the congregation and because of the judgment It means that there is no fear in this blanket because the stop can be plucked and extinguished by the candle, and that it seems to be here that there is a T-shirt and a radar called the Gemara and the congregation The Book of the Book of Revelations, and the High School of Revelations:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman296/seif-008/turei-zahav",
+      "volume": "oc1",
+      "siman": 296,
+      "seif": 8,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.413,
+        "he_chars": 640,
+        "en_chars": 904,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 904
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ויש מי שחולק. </b> הוא ספר א\"ח שמביא ב\"י שכ' וז\"ל נשים אין מבדילות לעצמן  דאין הבדלה תלויה בשמירת שבת אלא רבנן אסמכוה אקרא וע\"כ סיים רמ\"א ע\"כ לא יבדילו לעצמן פי' דאף באנשים אינו אלא דרבנן ע\"כ הנשים לא יברכו ע\"ז ול\"ד ללולב ושופר דמברכות כמ\"ש רמ\"א סי' תקפ\"ט שהמנהג שהנשים מברכות על מ\"ע שהזמן גרמא כו' שאני התם דהחיוב אצל אנשים הוא דאורייתא משא\"כ כאן יש תרתי לפטור שהוא מדרבנן אפילו באנשים והוא מצות עשה שהזמן גרמא ובחנם חלק מו\"ח ז\"ל על רמ\"א כאן ופי' דברי א\"ח שאין חייבות אבל רשאים הם להבדיל ונראה דעכ\"פ אתה חוננתנו אין חשש לנשים לומר אפילו לפ\"ז דאין שם ברכה מיוחדת ולקמן סימן רצ\"ט ס\"י כתב רמ\"א דנשים יאמרו המבדיל בין קודש לחול בלא ברכה ויעשו מלאכה:\n",
+      "en_html": "And there is someone who is sick. It is a book that brings in the “Sir” and that women do not distinguish themselves from the fact that they do not depend on maintaining the Shabbat, but rather they will be trusted by the matter.” It is not until the end of the matter’s covenant with the people, nor is it that the women will not be blessed there’s people, nor will they be blessed with them C. K. K.C., the custom that women are blessed with a report that the time has been circumcised in people is a conspiracy theory here It is a great deal for people, and it is tempting to do that the time is grieving, and it is a part of the congregation here, and that it is not necessary, but they are allowed to be lost We are not afraid of women to say even to P. D.C. there is a special blessing and to write a sign of the R&D A distinction between the Holy One and the Holy One, without a blessing, is made:\r\n",
+      "he_plain": "ויש מי שחולק. הוא ספר א\"ח שמביא ב\"י שכ' וז\"ל נשים אין מבדילות לעצמן דאין הבדלה תלויה בשמירת שבת אלא רבנן אסמכוה אקרא וע\"כ סיים רמ\"א ע\"כ לא יבדילו לעצמן פי' דאף באנשים אינו אלא דרבנן ע\"כ הנשים לא יברכו ע\"ז ול\"ד ללולב ושופר דמברכות כמ\"ש רמ\"א סי' תקפ\"ט שהמנהג שהנשים מברכות על מ\"ע שהזמן גרמא כו' שאני התם דהחיוב אצל אנשים הוא דאורייתא משא\"כ כאן יש תרתי לפטור שהוא מדרבנן אפילו באנשים והוא מצות עשה שהזמן גרמא ובחנם חלק מו\"ח ז\"ל על רמ\"א כאן ופי' דברי א\"ח שאין חייבות אבל רשאים הם להבדיל ונראה דעכ\"פ אתה חוננתנו אין חשש לנשים לומר אפילו לפ\"ז דאין שם ברכה מיוחדת ולקמן סימן רצ\"ט ס\"י כתב רמ\"א דנשים יאמרו המבדיל בין קודש לחול בלא ברכה ויעשו מלאכה:",
+      "en_plain": "And there is someone who is sick. It is a book that brings in the “Sir” and that women do not distinguish themselves from the fact that they do not depend on maintaining the Shabbat, but rather they will be trusted by the matter.” It is not until the end of the matter’s covenant with the people, nor is it that the women will not be blessed there’s people, nor will they be blessed with them C. K. K.C., the custom that women are blessed with a report that the time has been circumcised in people is a conspiracy theory here It is a great deal for people, and it is tempting to do that the time is grieving, and it is a part of the congregation here, and that it is not necessary, but they are allowed to be lost We are not afraid of women to say even to P. D.C. there is a special blessing and to write a sign of the R&D A distinction between the Holy One and the Holy One, without a blessing, is made:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman3/seif-005/mechaber",
+      "volume": "oc1",
+      "siman": 3,
+      "seif": 5,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.826,
+        "he_chars": 149,
+        "en_chars": 272,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 272
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i>אם נפנה במקום <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Turei Zahav\" data-order=\"3\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>מגולה <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>שאין בו <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i><i data-commentator=\"Sha'arei Teshuvah\" data-order=\"5\"></i>מחיצות יכוין שיהיו פניו <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i>לדרום ואחוריו לצפון <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>או איפכא <i data-commentator=\"Turei Zahav\" data-order=\"4\"></i><i data-commentator=\"Ateret Zekenim\" data-label=\"♦\" data-order=\"3\"></i>אבל <i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>בין מזרח למערב אסור: <small> (ולהטיל מים בכל ענין שרי) (ב\"י בשם הרמב\"ם):</small>\n",
+      "en_html": "If one defecates in an open place in which there are no partitions, he should orient himself to face south with his back to the north, or vice versa. However, east-west is forbidden. <small>(With regards to urinating, any manner is allowed) (Beit Yosef in the name of Maimonides)</small>\n",
+      "he_plain": "אם נפנה במקום מגולה שאין בו מחיצות יכוין שיהיו פניו לדרום ואחוריו לצפון או איפכא אבל בין מזרח למערב אסור: (ולהטיל מים בכל ענין שרי) (ב\"י בשם הרמב\"ם):",
+      "en_plain": "If one defecates in an open place in which there are no partitions, he should orient himself to face south with his back to the north, or vice versa. However, east-west is forbidden. (With regards to urinating, any manner is allowed) (Beit Yosef in the name of Maimonides)",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-004/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 4,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.793,
+        "he_chars": 920,
+        "en_chars": 1650,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1650
+        },
+        "failure_patterns": [
+          "shield_of_abraham"
+        ]
+      },
+      "he_html": "[ז] <b>[לבוש] אבל לא להתעמל וכו'.</b> דהיינו רפואה כדלקמן סימן של\"ב ובעל הלכות גדולות בסימן שכ\"ח סעיף מ\"ב ודלא כט\"ז, והנה משמעות הלבוש אף שהולך ואינו רץ אם כוונתו להתעמל אסור אבל במגן אברהם כל שאינו רץ מותר, ודברי לבוש נראין מדאיתא בתוספתא פרק ז' שם בהמה שאכלה פירות הרבה מטיילין אותה וכו' משמע דאדם אסור וכן משמע מרמ\"א:<br />\n[ח] <b>ואסור לעבור וכו'.</b> אף שאי אפשר בהיקיף, ומה שכתב לידי סחיטה אין לומר הא בלאו הכי אסור דשרייתו זהו כיבוסו תירץ בתוס' שבת דף קי\"א דלא אמרינן הכי אלא היכא דאיכא טינוף בבגד, עוד יש לומר דלא אמרינן זהו כיבוסו בדבר שאינה נראים ליכלוך, אבל מצאתי בספר יראים דף ל\"ט ופסקי רקנטי סימן קי\"ג ותירצו דהכא מיירי בבגדים של עור וצריך עיון ועיין סימן ש\"ב סעיף ט':<br />\n[ט] <b>יכול לעבור וכו'.</b> אף שאפשר להקיף ועיין סימן תרי\"ג סעיף ח' ומה שכתב ובלבד שיעשה וכו', לרש\"י שהביא כי אין צורך לזה, ונראה לי דסבירא ליה כמו שאמרינן התוס' שם דבמקום מצוה לא גזרו משום סחיטה וכן כתב ספר התרומות סימן רמ\"ד וסמ\"ק ועיין ברא\"ש ריש פרק יום הכיפורים:\n",
+      "en_html": "[g] [clothing] but not exercising, etc. That is, medicine as follows in the sign of the 12th and in the Great Laws in the sign of the 18th section of the 22nd of the 26th chapter, and here is the meaning of clothing, even if one walks and does not run, if his intention is to exercise it is forbidden, but in the Shield of Abraham everything that does not run is allowed, and the words of clothing can be seen from Daita in the appendix, chapter 7, where an animal that has eaten a lot of fruit is taken for a walk, etc. The meaning of a person is forbidden, and the meaning of a man is forbidden:<br />\n<b>And it is forbidden to cross, etc.</b> Even if going around is impossible. As for what he wrote, lest he come to squeezing, one should not say that in any event it is forbidden because soaking it is its laundering. Tosafot in Shabbos 111 answered that we say this only where there is dirt on the garment. One may also say that we do not say that this is its laundering with something in which the dirt is not visible. However, I found in Sefer Yere’im, page 39, and in Piskei Rekanti, siman 113, that they answered that here it discusses leather garments. This requires study; see siman 302, seif 9.<br />\n[i] can pass, etc. Although it is possible to go around and look at the sign of the 33rd section eight and what he wrote and provided that he does, etc., to the Rashi who brought it that there is no need for it, and it seems to me to explain it as the Toss said there in the place of a mitzvah they did not decree because of extortion, and also wrote the Book of Donations, the sign of the Ramad and Samak and refer to the Rashi Rish chapter of Yom Kippur:\n",
+      "he_plain": "[ז] [לבוש] אבל לא להתעמל וכו'. דהיינו רפואה כדלקמן סימן של\"ב ובעל הלכות גדולות בסימן שכ\"ח סעיף מ\"ב ודלא כט\"ז, והנה משמעות הלבוש אף שהולך ואינו רץ אם כוונתו להתעמל אסור אבל במגן אברהם כל שאינו רץ מותר, ודברי לבוש נראין מדאיתא בתוספתא פרק ז' שם בהמה שאכלה פירות הרבה מטיילין אותה וכו' משמע דאדם אסור וכן משמע מרמ\"א: [ח] ואסור לעבור וכו'. אף שאי אפשר בהיקיף, ומה שכתב לידי סחיטה אין לומר הא בלאו הכי אסור דשרייתו זהו כיבוסו תירץ בתוס' שבת דף קי\"א דלא אמרינן הכי אלא היכא דאיכא טינוף בבגד, עוד יש לומר דלא אמרינן זהו כיבוסו בדבר שאינה נראים ליכלוך, אבל מצאתי בספר יראים דף ל\"ט ופסקי רקנטי סימן קי\"ג ותירצו דהכא מיירי בבגדים של עור וצריך עיון ועיין סימן ש\"ב סעיף ט': [ט] יכול לעבור וכו'. אף שאפשר להקיף ועיין סימן תרי\"ג סעיף ח' ומה שכתב ובלבד שיעשה וכו', לרש\"י שהביא כי אין צורך לזה, ונראה לי דסבירא ליה כמו שאמרינן התוס' שם דבמקום מצוה לא גזרו משום סחיטה וכן כתב ספר התרומות סימן רמ\"ד וסמ\"ק ועיין ברא\"ש ריש פרק יום הכיפורים:",
+      "en_plain": "[g] [clothing] but not exercising, etc. That is, medicine as follows in the sign of the 12th and in the Great Laws in the sign of the 18th section of the 22nd of the 26th chapter, and here is the meaning of clothing, even if one walks and does not run, if his intention is to exercise it is forbidden, but in the Shield of Abraham everything that does not run is allowed, and the words of clothing can be seen from Daita in the appendix, chapter 7, where an animal that has eaten a lot of fruit is taken for a walk, etc. The meaning of a person is forbidden, and the meaning of a man is forbidden: And it is forbidden to cross, etc. Even if going around is impossible. As for what he wrote, lest he come to squeezing, one should not say that in any event it is forbidden because soaking it is its laundering. Tosafot in Shabbos 111 answered that we say this only where there is dirt on the garment. One may also say that we do not say that this is its laundering with something in which the dirt is not visible. However, I found in Sefer Yere’im, page 39, and in Piskei Rekanti, siman 113, that they answered that here it discusses leather garments. This requires study; see siman 302, seif 9. [i] can pass, etc. Although it is possible to go around and look at the sign of the 33rd section eight and what he wrote and provided that he does, etc., to the Rashi who brought it that there is no need for it, and it seems to me to explain it as the Toss said there in the place of a mitzvah they did not decree because of extortion, and also wrote the Book of Donations, the sign of the Ramad and Samak and refer to the Rashi Rish chapter of Yom Kippur:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-007/beer-hagolah",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 7,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.399,
+        "he_chars": 178,
+        "en_chars": 249,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 249
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "ל' הרמב\"ם בפי\"ט מה\"ש מתוך דברי הגמ' פ\"ו דשבת<br />\nשבת ט\"ו<br />\nפי' כמו מגל של ברזל באורך אמה וחצי ובראשו כדור ארוך<br />\nשבת ס' וס\"א<br />\nשם קמא<br />\nשם ס'<br />\nשם ס\"ח וכחייא בר רב הרי\"ף והרא\"ש ורמב\"ם בפרק י\"ט\n",
+      "en_html": "L. Maimonides in PiT of the Sh.<br />\nShabbos 15.<br />\nF. like an iron sickle a cubit and a half long with a long ball at the top.<br />\n() Shabbos 60 67.<br />\nFirst ibid.<br />\nIbid., 60.<br />\nThe ibid. of Sach and Kachaya Bar Rabbi the Rabbi and the Rash and Rambam in chapter 19.\n",
+      "he_plain": "ל' הרמב\"ם בפי\"ט מה\"ש מתוך דברי הגמ' פ\"ו דשבת שבת ט\"ו פי' כמו מגל של ברזל באורך אמה וחצי ובראשו כדור ארוך שבת ס' וס\"א שם קמא שם ס' שם ס\"ח וכחייא בר רב הרי\"ף והרא\"ש ורמב\"ם בפרק י\"ט",
+      "en_plain": "L. Maimonides in PiT of the Sh. Shabbos 15. F. like an iron sickle a cubit and a half long with a long ball at the top. () Shabbos 60 67. First ibid. Ibid., 60. The ibid. of Sach and Kachaya Bar Rabbi the Rabbi and the Rash and Rambam in chapter 19.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-014/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 14,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.697,
+        "he_chars": 760,
+        "en_chars": 1290,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1290
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "[לב] <b>[לבוש] משוי הוא וכו'.</b> כן כתב בית יוסף בשם רש\"י ורבינו ירוחם, ותמה מלבושי יום טוב שלא הביא דברי תוס' דף פ\"ה שחולק על רש\"י מגמרא ערוכה דיומא דטעמא הוא דילמא דמשתמיט ואתא לאתוי ארבע אמות ברשות הרבים ואם כן אינו אסור אלא מדרבנן, עד כאן, ואני אוסיף שכן כתב הר\"ן שם ובכלבו והגהות אשירי ותשובת הרשב\"א סימן תר\"ז וכן מצאתי בסמ\"ג שכתב כיון שהוא של עץ וקש אינו יכול להדקו סביב רגליו ומיפסיק ואתי לאתוי, ומזה תמיה גדולה לי על בית יוסף שכתב דהגמרא בשם סמ\"ג כתב כרש\"י, ועוד נראה לי דגם רש\"י לא פירש כן אלא לסלקא דעתה דשם יומא ע\"ח אבל למסקנא מודה ודו\"ק, גם נראה לי דרש\"י לא פירש אלא שאינו תכשיט ונראה לפרשו נמי כדברי סמ\"ג דיש לומר שאין יכול להדקו כמו תכשיט:<br />\n[לג] <b>[לבוש] מיהו אם הקב וכו'.</b> בשולחן ערוך השמיט זה ונראה שנכלל במה שכתב בסעיף ט\"ז בפנטיש כדמשמע בתשובת רשב\"א שם:\n",
+      "en_html": "[heart] [clothing] from Shui is etc. Yes, Beit Yosef wrote in the name of Rashi and Rabbi Yeruham, and it is surprising to me that he did not bring the words of Toss, page 55, which is divided on Rashi from the Gemara Aruka Diuma Datama, it is a dilemma, Damashtamit, and it is to be written four cubits with the permission of the Rabbis, and if so, it is not forbidden except from Darbanan, so far, and I will add that the Rani wrote there and in his book and glosses Ashiri, and the Rashiba's answer, Siman 17, and I also found In the SMG that he wrote because it is made of wood and straw, he cannot fasten it around his feet and stops and I steam, and that makes me very puzzled about Beit Yosef who wrote the Gemara in the name of Samag wrote Karshi, and it also seems to me that Rashi's model did not interpret it as such but to selka daatata deshem Yoma 8, but for the conclusion Moda and Dok, it also seems to me that Darshi did not interpret except that it is not a jewel and seems to interpret Nami according to the words of Samag Dish to say that it cannot be fastened like a jewel:<br />\n<b>[Levush] However, if the stump, etc.</b> The Shulchan Aruch omitted this. It appears to be included in what he wrote in seif 16 regarding a pantish, as is implied in the responsum of the Rashba there.\n",
+      "he_plain": "[לב] [לבוש] משוי הוא וכו'. כן כתב בית יוסף בשם רש\"י ורבינו ירוחם, ותמה מלבושי יום טוב שלא הביא דברי תוס' דף פ\"ה שחולק על רש\"י מגמרא ערוכה דיומא דטעמא הוא דילמא דמשתמיט ואתא לאתוי ארבע אמות ברשות הרבים ואם כן אינו אסור אלא מדרבנן, עד כאן, ואני אוסיף שכן כתב הר\"ן שם ובכלבו והגהות אשירי ותשובת הרשב\"א סימן תר\"ז וכן מצאתי בסמ\"ג שכתב כיון שהוא של עץ וקש אינו יכול להדקו סביב רגליו ומיפסיק ואתי לאתוי, ומזה תמיה גדולה לי על בית יוסף שכתב דהגמרא בשם סמ\"ג כתב כרש\"י, ועוד נראה לי דגם רש\"י לא פירש כן אלא לסלקא דעתה דשם יומא ע\"ח אבל למסקנא מודה ודו\"ק, גם נראה לי דרש\"י לא פירש אלא שאינו תכשיט ונראה לפרשו נמי כדברי סמ\"ג דיש לומר שאין יכול להדקו כמו תכשיט: [לג] [לבוש] מיהו אם הקב וכו'. בשולחן ערוך השמיט זה ונראה שנכלל במה שכתב בסעיף ט\"ז בפנטיש כדמשמע בתשובת רשב\"א שם:",
+      "en_plain": "[heart] [clothing] from Shui is etc. Yes, Beit Yosef wrote in the name of Rashi and Rabbi Yeruham, and it is surprising to me that he did not bring the words of Toss, page 55, which is divided on Rashi from the Gemara Aruka Diuma Datama, it is a dilemma, Damashtamit, and it is to be written four cubits with the permission of the Rabbis, and if so, it is not forbidden except from Darbanan, so far, and I will add that the Rani wrote there and in his book and glosses Ashiri, and the Rashiba's answer, Siman 17, and I also found In the SMG that he wrote because it is made of wood and straw, he cannot fasten it around his feet and stops and I steam, and that makes me very puzzled about Beit Yosef who wrote the Gemara in the name of Samag wrote Karshi, and it also seems to me that Rashi's model did not interpret it as such but to selka daatata deshem Yoma 8, but for the conclusion Moda and Dok, it also seems to me that Darshi did not interpret except that it is not a jewel and seems to interpret Nami according to the words of Samag Dish to say that it cannot be fastened like a jewel: [Levush] However, if the stump, etc. The Shulchan Aruch omitted this. It appears to be included in what he wrote in seif 16 regarding a pantish, as is implied in the responsum of the Rashba there.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-043/beer-hagolah",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 43,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.341,
+        "he_chars": 41,
+        "en_chars": 96,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 96
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "הרמב\"ם סוף פי\"ט וכ\"כ ה\"ה שהוא מתוספתא פ\"ח\n",
+      "en_html": "The Maimonides end of 19th century and 15th century, which is from the Tosafotefta 28th century.\n",
+      "he_plain": "הרמב\"ם סוף פי\"ט וכ\"כ ה\"ה שהוא מתוספתא פ\"ח",
+      "en_plain": "The Maimonides end of 19th century and 15th century, which is from the Tosafotefta 28th century.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-045/beer-hagolah",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 45,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.608,
+        "he_chars": 74,
+        "en_chars": 119,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 119
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "שם קמ\"ו<br />\nשם כר\"א ור\"ש בברייתא הרי\"ף ורא\"ש הרמב\"ם פרק כ\"ב וש\"פ<br />\nהרשב\"א בתשובה\n",
+      "en_html": "Name KMO.<br />\nThere as a Rabbi and Rabbi in Bariata, the Rabbi and Rabbi Maimonides, Chapter 22 and Sh.<br />\nThe Rabbi answered.\n",
+      "he_plain": "שם קמ\"ו שם כר\"א ור\"ש בברייתא הרי\"ף ורא\"ש הרמב\"ם פרק כ\"ב וש\"פ הרשב\"א בתשובה",
+      "en_plain": "Name KMO. There as a Rabbi and Rabbi in Bariata, the Rabbi and Rabbi Maimonides, Chapter 22 and Sh. The Rabbi answered.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman301/seif-049/levushei-serad",
+      "volume": "oc1",
+      "siman": 301,
+      "seif": 49,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.635,
+        "he_chars": 263,
+        "en_chars": 430,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 430
+        },
+        "failure_patterns": [
+          "darbanan"
+        ]
+      },
+      "he_html": "<small>מ\"א ס\"ק כ\"ז</small> דליהוי כתכשיט קשה הא כת' בעצמו בס\"ק י\"ד דבידו מחייב אפי' אשה באינה נקובה אע\"ג דתכשיט דידה הוא. וא\"כ מה הוצרך המג\"א כאן לחפש איסורא דרבנן הא חיובא נמי איכא ולק\"מ דתכשיט העשוי להתקשט אינו תכשיט כלל כשנושאו בידו משא\"כ המקל שכך הוא דרך תכשיטו לישאנו בידו:\n",
+      "en_html": "Magen Avraham Sec 27 Delihoy as a hard jewel Ha Ekht himself in Sec 14 Davido obligates Efi&#x27; a woman in ina nakoba A&#x27;G religion Deda He is. And yet, what was the need for the Maga here to look for Isura Darbanan Ha Hiova Nami Ika and for KM a piece of jewelry that can be decorated is not a piece of jewelry at all when it is carried in the hand than the cane that is the way the piece of jewelry is carried in the hand.\n",
+      "he_plain": "מ\"א ס\"ק כ\"ז דליהוי כתכשיט קשה הא כת' בעצמו בס\"ק י\"ד דבידו מחייב אפי' אשה באינה נקובה אע\"ג דתכשיט דידה הוא. וא\"כ מה הוצרך המג\"א כאן לחפש איסורא דרבנן הא חיובא נמי איכא ולק\"מ דתכשיט העשוי להתקשט אינו תכשיט כלל כשנושאו בידו משא\"כ המקל שכך הוא דרך תכשיטו לישאנו בידו:",
+      "en_plain": "Magen Avraham Sec 27 Delihoy as a hard jewel Ha Ekht himself in Sec 14 Davido obligates Efi&#x27; a woman in ina nakoba A&#x27;G religion Deda He is. And yet, what was the need for the Maga here to look for Isura Darbanan Ha Hiova Nami Ika and for KM a piece of jewelry that can be decorated is not a piece of jewelry at all when it is carried in the hand than the cane that is the way the piece of jewelry is carried in the hand.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

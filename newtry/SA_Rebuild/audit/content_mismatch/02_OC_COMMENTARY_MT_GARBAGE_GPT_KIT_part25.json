@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 25,
+    "chunk_total": 47,
+    "case_offset": 139,
+    "cases_in_chunk": 9,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman36/seif-003/beer-hagolah",
+      "volume": "oc1",
+      "siman": 36,
+      "seif": 3,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.625,
+        "he_chars": 48,
+        "en_chars": 78,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 78
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "מנחות כ\"ט בשמושא רבא<br />\nרא\"ש וכן נראה מדברי הרמב\"ם.\n",
+      "en_html": "Minachot 29 in Shamosh Raba<br />\nRash and so it seems from the words of Maimonides.\n",
+      "he_plain": "מנחות כ\"ט בשמושא רבא רא\"ש וכן נראה מדברי הרמב\"ם.",
+      "en_plain": "Minachot 29 in Shamosh Raba Rash and so it seems from the words of Maimonides.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman38/seif-009/beer-hagolah",
+      "volume": "oc1",
+      "siman": 38,
+      "seif": 9,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.154,
+        "he_chars": 26,
+        "en_chars": 56,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 56
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "הרמב\"ם בפ\"ד מה\"ת<br />\nהר\"ר מנוח\n",
+      "en_html": "The Maimonides in the Pad of the OT<br />\nThe Rabbi is resting\n",
+      "he_plain": "הרמב\"ם בפ\"ד מה\"ת הר\"ר מנוח",
+      "en_plain": "The Maimonides in the Pad of the OT The Rabbi is resting",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman39/seif-002/beer-hagolah",
+      "volume": "oc1",
+      "siman": 39,
+      "seif": 2,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.778,
+        "he_chars": 9,
+        "en_chars": 16,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 16
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "הרמב\"ם שם\n",
+      "en_html": "Maimonides there\n",
+      "he_plain": "הרמב\"ם שם",
+      "en_plain": "Maimonides there",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman39/seif-003/biur-halacha",
+      "volume": "oc1",
+      "siman": 39,
+      "seif": 3,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.095,
+        "he_chars": 1092,
+        "en_chars": 1196,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1196
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> כשר לכתוב תפילין</b> -  כ\"ז איירי בגר צדק. ולענין גר תושב הסכימו הפמ\"ג ול\"ש ומחה\"ש [ועוד הרבה] דפסול מטעם דהא אינו בקשירה והשע\"ת המציא דבר חדש דאיירי הד\"מ דמכשיר בגר תושב דקיבל עליו כל המצות חוץ מאיסור נבילה וא\"כ הלא ישנו בקשירה ובאמת נלענ\"ד שגם זה אינו דהלא עכ\"פ אינו מוזהר על הקשירה ותדע דאטו אם אשה ועבד יקבלו עליהן מצות תפילין יהיו כשרים לכתיבת תפילין ואם תדחה משום דמוחין לנשים על הנחת תפילין וכדלעיל בסימן ל\"ח ז\"א דכל זה רק מחמת חומרא בעלמא שחוששין להפסיקתא אבל ש\"ס דילן סובר דאין מוחין ע\"ז וכדאיתא שם בב\"י ועוד עבדים יוכיחו דאין מוחין בהן וכמו שכתבתי לעיל במ\"ב בשם התו\"ש. וגם לפ\"ז אם האשה תקבל על עצמה מצות ציצית תהיה כשירה אף לר\"ת לעשות ציצית לאנשים וז\"א דא\"כ בזה יודה ר\"ת יהיה אזדא הוכחת הרא\"ש [ בגיטין מ\"ה ע\"ב ] מהא דקרטליתא דדביתהו דרחב\"ד דעתידא למישדי בה תכלתא לצדיקי דעלמא דאתי. ולבר כ\"ז אין גירות לחצאין עיין במס' גרים ועוד דא\"כ בגר שמל ולא טבל דכתב הרא\"ש בע\"ז דאינו גרע מגר תושב דהרי קבל עליו כל המצות וא\"כ לפ\"ז יהיה כשר לכתיבת סת\"ם ויהיה כשר לזביחה כישראל לשיטת הר\"י דתלי בבר זביחה דהרי הוא מחזיק לעצמו במצות זביחה וסתמא דגמרא ביבמות מ\"ו דאמר שם וכיון דלא טביל עו\"ג הוא לא משמע כן:\n",
+      "en_html": "<b>He is qualified to write tefillin.</b> This entire ruling concerns a full convert. Pri Megadim, Levush Serad, Machatzis HaShekel, and many others agree that a resident alien is invalid because he is not subject to binding. Shaarei Teshuvah innovates that Darkei Moshe's validation concerns a resident alien who accepted every mitzvah except the prohibition of neveilah and is therefore subject to binding. This too appears incorrect: he is not commanded in binding. If voluntary acceptance sufficed, a woman or slave accepting tefillin would qualify to write them, which is untenable. The concern that women should not don tefillin is only a stringency based on Pesikta and is not shared by the Bavli; slaves demonstrate the point, since no protest applies to them. Likewise, a woman accepting tzitzis would then qualify according to Rabbeinu Tam to make tzitzis for men, undermining the Rosh's proof from the basket of Rabbi Chanina ben Dosa's wife. Moreover, conversion cannot be partial. A person circumcised but not immersed accepted all mitzvos and is no worse than a resident alien, yet Yevamos 46 plainly still calls him a gentile; he cannot therefore write sacred texts or slaughter as a Jew.\n",
+      "he_plain": "כשר לכתוב תפילין - כ\"ז איירי בגר צדק. ולענין גר תושב הסכימו הפמ\"ג ול\"ש ומחה\"ש [ועוד הרבה] דפסול מטעם דהא אינו בקשירה והשע\"ת המציא דבר חדש דאיירי הד\"מ דמכשיר בגר תושב דקיבל עליו כל המצות חוץ מאיסור נבילה וא\"כ הלא ישנו בקשירה ובאמת נלענ\"ד שגם זה אינו דהלא עכ\"פ אינו מוזהר על הקשירה ותדע דאטו אם אשה ועבד יקבלו עליהן מצות תפילין יהיו כשרים לכתיבת תפילין ואם תדחה משום דמוחין לנשים על הנחת תפילין וכדלעיל בסימן ל\"ח ז\"א דכל זה רק מחמת חומרא בעלמא שחוששין להפסיקתא אבל ש\"ס דילן סובר דאין מוחין ע\"ז וכדאיתא שם בב\"י ועוד עבדים יוכיחו דאין מוחין בהן וכמו שכתבתי לעיל במ\"ב בשם התו\"ש. וגם לפ\"ז אם האשה תקבל על עצמה מצות ציצית תהיה כשירה אף לר\"ת לעשות ציצית לאנשים וז\"א דא\"כ בזה יודה ר\"ת יהיה אזדא הוכחת הרא\"ש [ בגיטין מ\"ה ע\"ב ] מהא דקרטליתא דדביתהו דרחב\"ד דעתידא למישדי בה תכלתא לצדיקי דעלמא דאתי. ולבר כ\"ז אין גירות לחצאין עיין במס' גרים ועוד דא\"כ בגר שמל ולא טבל דכתב הרא\"ש בע\"ז דאינו גרע מגר תושב דהרי קבל עליו כל המצות וא\"כ לפ\"ז יהיה כשר לכתיבת סת\"ם ויהיה כשר לזביחה כישראל לשיטת הר\"י דתלי בבר זביחה דהרי הוא מחזיק לעצמו במצות זביחה וסתמא דגמרא ביבמות מ\"ו דאמר שם וכיון דלא טביל עו\"ג הוא לא משמע כן:",
+      "en_plain": "He is qualified to write tefillin. This entire ruling concerns a full convert. Pri Megadim, Levush Serad, Machatzis HaShekel, and many others agree that a resident alien is invalid because he is not subject to binding. Shaarei Teshuvah innovates that Darkei Moshe's validation concerns a resident alien who accepted every mitzvah except the prohibition of neveilah and is therefore subject to binding. This too appears incorrect: he is not commanded in binding. If voluntary acceptance sufficed, a woman or slave accepting tefillin would qualify to write them, which is untenable. The concern that women should not don tefillin is only a stringency based on Pesikta and is not shared by the Bavli; slaves demonstrate the point, since no protest applies to them. Likewise, a woman accepting tzitzis would then qualify according to Rabbeinu Tam to make tzitzis for men, undermining the Rosh's proof from the basket of Rabbi Chanina ben Dosa's wife. Moreover, conversion cannot be partial. A person circumcised but not immersed accepted all mitzvos and is no worse than a resident alien, yet Yevamos 46 plainly still calls him a gentile; he cannot therefore write sacred texts or slaughter as a Jew.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman397/seif-016/biur-halacha",
+      "volume": "oc1",
+      "siman": 397,
+      "seif": 16,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.121,
+        "he_chars": 2021,
+        "en_chars": 4287,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 4287
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "<b> לצורך חבירו הרי הם כרגלי הממלא</b> -  עיין מ\"ב שכתבנו דיש חולקים ע\"ז ונבאר דבאמת שיטת המחבר הוא ע\"פ דברי ר\"ת ורא\"ש ור\"ן [גם בחי' רא\"ה לביצה מחזיק בשיטת ר\"ת אלא דנוטה שם לומר דאף כרגלי הממלא קאמר אבל גם כרגלי המתמלא צריך להיות ואינו יכול השני להוליך אלא למקום שעירבו שניהם עיי\"ש וטעמו מובן ע\"פ מה שכתב בחי' הרשב\"א להקשות על סברת ר\"ת עיין בחי' הרשב\"א ודוק] אבל באמת רוב ראשונים חולקים ע\"ז ודעתם דהרי הם כרגלי המתמלא לפי מה דקיי\"ל בכל מקום המגביה מציאה לחבירו קנה חבירו והם רש\"י ורשב\"ם מובא בתוס' וכן פסק ר' חננאל בפירושו [ומה שמביא בהג\"ה מיימוני בשם הר\"ח מגומגם ואפשר ט\"ס יש שם] וכן הוא דעת בעל המאור והראב\"ד שם בהשגותיו וכן הוא דעת הרשב\"א בחידושיו עיי\"ש שהאריך והקשה על סברת ר\"ת וכן נוטה דעת המאירי עיי\"ש וכן הוא דעת המגיד וכתב שם שכן דעת הרמב\"ם והרי\"ף שהשמיטו הלכה זו משום דסמכו על הכלל הידוע דהמגביה מציאה לחבירו קנה חבירו [וטעם זה על השמטת הרי\"ף והרמב\"ם יותר נוח מטעם הר\"ן דפסקו כר\"ש וסמכו על סתם מתני' דבור של עולי בבל כרגלי הממלא ומדלא חילקו בסתמא מיירי בין שממלא לצורכו בין שממלא לצורך חבירו דזה הוא דוחק גדול] וכן דעת הריא\"ז אלא שהוא העתיק רק בשנתנו לו ומטעם דקנה מן ההפקר והוא רק כפי המובא בסוגיא דביצה אבל לפי מה דקיי\"ל בכל מקום המגביה מציאה לחבירו קנה חבירו אין אנו צריכין לזה ואפשר שגם כוונתו כן אלא שהעתיק כפי האמור בסוגיא דביצה לרב נחמן וכן פסק בשיטת ריב\"ב באלפסי דכרגלי מי שנתמלא ובא\"ר ובנהר שלום הערו כמעט בכל הדברים אלא דהם כתבו וציירו דין זה בשכבר בא לידי מי שנתמלא ובאמת מכל הני ראשונים מוכח דאפילו עודן ביד הממלא ג\"כ אסור להוליכם כרגליו אלא כרגלי מי שנתמלא בשבילו דהרי אינם שלו אלא שייכים הם למי שנתמלא בשבילו דהמגביה מציאה וכו' קנה חבירו ומה שכתב בעבודת הקודש ונתנם לחבירו הוא לשון הש\"ס וה\"ה אפילו לא נתן ולא מצאנו חילוק זה רק בריא\"ז וכנ\"ל דנקט מטעם דזוכה מן ההפקר אבל לכל הראשונים לא צריכנא לזה אלא מטעם המגביה וכו' קנה חבירו וע\"כ מסתברא לפסוק שלא כדברי המחבר רק כרגלי שנתמלא בשבילו ובפרט אם כבר הגיעו ליד מי שנתמלא דבזה מפורש גם בריא\"ז וכן גם דעת הב\"ח בכגון זה דכרגלי מי שנתמלא הם ובאמת יש יותר סברא לומר כרגלי מי שנתמלא בשעה שהם בידו מבשעה שעדיין הם ביד הממלא עיין בחי' הרשב\"א בקושיותיו על שיטת ר\"ת ודוק:\n",
+      "en_html": "For the need of his friend, behold they are as the feet of the filler — see Mishna Berurah, which we wrote that there are disputants on this; and we shall explain that in truth the Mechaber's method is per the words of Rabbeinu Tam and the Rosh and the Ran [also in the chiddushim of the Ra'ah to Beitzah he holds the method of Rabbeinu Tam, except that he is inclined there to say that even as the feet of the filler he speaks, but also as the feet of the one for whom it was filled must be, and the second cannot carry except to a place where both of them made eruv — see there; and his reason is understood according to what he wrote in the chiddushim of the Rashba to challenge the view of Rabbeinu Tam — see in the chiddushim of the Rashba and examine]. But in truth most rishonim disagree on this, and their opinion is that behold they are as the feet of the one for whom it was filled, according to what is established everywhere: one who lifts a found object for his friend — his friend acquires it; and they are Rashi and Rashbam brought in Tosafos, and so ruled R' Chananel in his commentary [and what is brought in the hagahah of Maimonides in the name of R' Chananel is garbled and perhaps there is a textual error there], and so is the opinion of the author of the Ma'or and the Ra'avad there in his hasagot, and so is the opinion of the Rashba in his chiddushim — see there — who extended and challenged the view of Rabbeinu Tam; and so is the Meiri inclined — see there; and so is the opinion of the Maggid, who wrote there that such is the opinion of the Rambam and the Rif, who omitted this halachah because they relied on the known rule that one who lifts a found object for his friend — his friend acquires it [and this reason for the omission of the Rif and the Rambam is more comfortable than the reason of the Ran that they ruled like R' Shimon and relied on the anonymous mishnah that an ox of the Babylonian exiles is as the feet of the filler, and since they did not distinguish in the anonymous case that it deals whether one fills for his own need or for his friend's need — this is a great strain]. And so is the opinion of the Riaz, except that he copied only when we gave it to him and for the reason that he acquires from hefker, and that is only as brought in the sugya of Beitzah; but according to what is established everywhere that one who lifts a found object for his friend — his friend acquires it — we do not need this, and perhaps his intention is also thus, except that he copied as stated in the sugya of Beitzah to Rav Nachman; and so ruled in the method of Rivav in the Alfasi as the feet of the one for whom it was filled, and in Avodat HaKodesh and in Nahar Shalom they commented on almost all the matters, except that they wrote and framed this law as already having come into the hand of the one for whom it was filled; and in truth from all these rishonim it is proven that even while still in the hand of the filler it is likewise forbidden to carry them as his own feet, but as the feet of the one for whom it was filled on his behalf, for behold they are not his but are connected to the one for whom it was filled on his behalf, for one who lifts a found object, etc. — his friend acquires it; and what is written in Avodat HaKodesh that he gave them to his friend is the language of the Gemara, and the same applies even if he did not give, and we did not find this distinction except in the Riaz, and as above he cited for the reason that he acquires from hefker; but for all the rishonim we do not need this but for the reason that one who lifts, etc. — his friend acquires it; and therefore it is plausible to rule not per the words of the Mechaber but only as the feet of the one for whom it was filled on his behalf, and in particular if they have already reached the hand of the one for whom it was filled — in this it is explicit also in the Riaz; and so too is the opinion of the Bach in such a case that they are as the feet of the one for whom it was filled; and in truth there is more reason to say as the feet of the one for whom it was filled while they are in his hand than while they are still in the hand of the filler — see in the chiddushim of the Rashba in his challenges on the method of Rabbeinu Tam and examine.\r\n",
+      "he_plain": "לצורך חבירו הרי הם כרגלי הממלא - עיין מ\"ב שכתבנו דיש חולקים ע\"ז ונבאר דבאמת שיטת המחבר הוא ע\"פ דברי ר\"ת ורא\"ש ור\"ן [גם בחי' רא\"ה לביצה מחזיק בשיטת ר\"ת אלא דנוטה שם לומר דאף כרגלי הממלא קאמר אבל גם כרגלי המתמלא צריך להיות ואינו יכול השני להוליך אלא למקום שעירבו שניהם עיי\"ש וטעמו מובן ע\"פ מה שכתב בחי' הרשב\"א להקשות על סברת ר\"ת עיין בחי' הרשב\"א ודוק] אבל באמת רוב ראשונים חולקים ע\"ז ודעתם דהרי הם כרגלי המתמלא לפי מה דקיי\"ל בכל מקום המגביה מציאה לחבירו קנה חבירו והם רש\"י ורשב\"ם מובא בתוס' וכן פסק ר' חננאל בפירושו [ומה שמביא בהג\"ה מיימוני בשם הר\"ח מגומגם ואפשר ט\"ס יש שם] וכן הוא דעת בעל המאור והראב\"ד שם בהשגותיו וכן הוא דעת הרשב\"א בחידושיו עיי\"ש שהאריך והקשה על סברת ר\"ת וכן נוטה דעת המאירי עיי\"ש וכן הוא דעת המגיד וכתב שם שכן דעת הרמב\"ם והרי\"ף שהשמיטו הלכה זו משום דסמכו על הכלל הידוע דהמגביה מציאה לחבירו קנה חבירו [וטעם זה על השמטת הרי\"ף והרמב\"ם יותר נוח מטעם הר\"ן דפסקו כר\"ש וסמכו על סתם מתני' דבור של עולי בבל כרגלי הממלא ומדלא חילקו בסתמא מיירי בין שממלא לצורכו בין שממלא לצורך חבירו דזה הוא דוחק גדול] וכן דעת הריא\"ז אלא שהוא העתיק רק בשנתנו לו ומטעם דקנה מן ההפקר והוא רק כפי המובא בסוגיא דביצה אבל לפי מה דקיי\"ל בכל מקום המגביה מציאה לחבירו קנה חבירו אין אנו צריכין לזה ואפשר שגם כוונתו כן אלא שהעתיק כפי האמור בסוגיא דביצה לרב נחמן וכן פסק בשיטת ריב\"ב באלפסי דכרגלי מי שנתמלא ובא\"ר ובנהר שלום הערו כמעט בכל הדברים אלא דהם כתבו וציירו דין זה בשכבר בא לידי מי שנתמלא ובאמת מכל הני ראשונים מוכח דאפילו עודן ביד הממלא ג\"כ אסור להוליכם כרגליו אלא כרגלי מי שנתמלא בשבילו דהרי אינם שלו אלא שייכים הם למי שנתמלא בשבילו דהמגביה מציאה וכו' קנה חבירו ומה שכתב בעבודת הקודש ונתנם לחבירו הוא לשון הש\"ס וה\"ה אפילו לא נתן ולא מצאנו חילוק זה רק בריא\"ז וכנ\"ל דנקט מטעם דזוכה מן ההפקר אבל לכל הראשונים לא צריכנא לזה אלא מטעם המגביה וכו' קנה חבירו וע\"כ מסתברא לפסוק שלא כדברי המחבר רק כרגלי שנתמלא בשבילו ובפרט אם כבר הגיעו ליד מי שנתמלא דבזה מפורש גם בריא\"ז וכן גם דעת הב\"ח בכגון זה דכרגלי מי שנתמלא הם ובאמת יש יותר סברא לומר כרגלי מי שנתמלא בשעה שהם בידו מבשעה שעדיין הם ביד הממלא עיין בחי' הרשב\"א בקושיותיו על שיטת ר\"ת ודוק:",
+      "en_plain": "For the need of his friend, behold they are as the feet of the filler — see Mishna Berurah, which we wrote that there are disputants on this; and we shall explain that in truth the Mechaber's method is per the words of Rabbeinu Tam and the Rosh and the Ran [also in the chiddushim of the Ra'ah to Beitzah he holds the method of Rabbeinu Tam, except that he is inclined there to say that even as the feet of the filler he speaks, but also as the feet of the one for whom it was filled must be, and the second cannot carry except to a place where both of them made eruv — see there; and his reason is understood according to what he wrote in the chiddushim of the Rashba to challenge the view of Rabbeinu Tam — see in the chiddushim of the Rashba and examine]. But in truth most rishonim disagree on this, and their opinion is that behold they are as the feet of the one for whom it was filled, according to what is established everywhere: one who lifts a found object for his friend — his friend acquires it; and they are Rashi and Rashbam brought in Tosafos, and so ruled R' Chananel in his commentary [and what is brought in the hagahah of Maimonides in the name of R' Chananel is garbled and perhaps there is a textual error there], and so is the opinion of the author of the Ma'or and the Ra'avad there in his hasagot, and so is the opinion of the Rashba in his chiddushim — see there — who extended and challenged the view of Rabbeinu Tam; and so is the Meiri inclined — see there; and so is the opinion of the Maggid, who wrote there that such is the opinion of the Rambam and the Rif, who omitted this halachah because they relied on the known rule that one who lifts a found object for his friend — his friend acquires it [and this reason for the omission of the Rif and the Rambam is more comfortable than the reason of the Ran that they ruled like R' Shimon and relied on the anonymous mishnah that an ox of the Babylonian exiles is as the feet of the filler, and since they did not distinguish in the anonymous case that it deals whether one fills for his own need or for his friend's need — this is a great strain]. And so is the opinion of the Riaz, except that he copied only when we gave it to him and for the reason that he acquires from hefker, and that is only as brought in the sugya of Beitzah; but according to what is established everywhere that one who lifts a found object for his friend — his friend acquires it — we do not need this, and perhaps his intention is also thus, except that he copied as stated in the sugya of Beitzah to Rav Nachman; and so ruled in the method of Rivav in the Alfasi as the feet of the one for whom it was filled, and in Avodat HaKodesh and in Nahar Shalom they commented on almost all the matters, except that they wrote and framed this law as already having come into the hand of the one for whom it was filled; and in truth from all these rishonim it is proven that even while still in the hand of the filler it is likewise forbidden to carry them as his own feet, but as the feet of the one for whom it was filled on his behalf, for behold they are not his but are connected to the one for whom it was filled on his behalf, for one who lifts a found object, etc. — his friend acquires it; and what is written in Avodat HaKodesh that he gave them to his friend is the language of the Gemara, and the same applies even if he did not give, and we did not find this distinction except in the Riaz, and as above he cited for the reason that he acquires from hefker; but for all the rishonim we do not need this but for the reason that one who lifts, etc. — his friend acquires it; and therefore it is plausible to rule not per the words of the Mechaber but only as the feet of the one for whom it was filled on his behalf, and in particular if they have already reached the hand of the one for whom it was filled — in this it is explicit also in the Riaz; and so too is the opinion of the Bach in such a case that they are as the feet of the one for whom it was filled; and in truth there is more reason to say as the feet of the one for whom it was filled while they are in his hand than while they are still in the hand of the filler — see in the chiddushim of the Rashba in his challenges on the method of Rabbeinu Tam and examine.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman398/seif-001/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 398,
+      "seif": 1,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.507,
+        "he_chars": 404,
+        "en_chars": 609,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 609
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "(א) אריכא וקטינא - פי' שאין רחבה כארכה:<br />\n(ב) ולא לריבוע העולם - היינו שאין עומדת צפונה לצפון העולם ודרומה לדרום העולם אלא באלכסון:<br />\n(ג) ארבע זויות שוות - לאפוקי כשהיא רחבה מצד אחד וקצרה מצד אחר אין זה זויות שוות ואין זה ריבוע ומרבעין אותה כמבואר בס\"ד:<br />\n(ד) כמות שהיא - היינו באריכא וקטינא אין מוסיפין על רחבה להשוותה לארכה וכן כשאינה מרובעת לריבוע העולם אין מוסיפין עליה לרבע אותה בריבוע העולם כמו בסעיף ג':\n",
+      "en_html": "(א) (a) Arach and Kautana - that there is no extension:\n<br>(ב) (b) And not the square of the world - we were not standing north to the north of the world and south of the world, but in Alexon:\n<br>(ג) (c) The four identical identities – to the pupil when it is broad on one hand and short on the other, it is not equal identity and it is not squareed and quarants it as a square in the S.D.:\n<br>(ד) (d) The amount it is – we were in Arpress and Canna has no collections on a broad comparison to the length, and when she is square to the world square, there is no hinter on it In the square of the world as in section J:",
+      "he_plain": "(א) אריכא וקטינא - פי' שאין רחבה כארכה: (ב) ולא לריבוע העולם - היינו שאין עומדת צפונה לצפון העולם ודרומה לדרום העולם אלא באלכסון: (ג) ארבע זויות שוות - לאפוקי כשהיא רחבה מצד אחד וקצרה מצד אחר אין זה זויות שוות ואין זה ריבוע ומרבעין אותה כמבואר בס\"ד: (ד) כמות שהיא - היינו באריכא וקטינא אין מוסיפין על רחבה להשוותה לארכה וכן כשאינה מרובעת לריבוע העולם אין מוסיפין עליה לרבע אותה בריבוע העולם כמו בסעיף ג':",
+      "en_plain": "(א) (a) Arach and Kautana - that there is no extension: (ב) (b) And not the square of the world - we were not standing north to the north of the world and south of the world, but in Alexon: (ג) (c) The four identical identities – to the pupil when it is broad on one hand and short on the other, it is not equal identity and it is not squareed and quarants it as a square in the S.D.: (ד) (d) The amount it is – we were in Arpress and Canna has no collections on a broad comparison to the length, and when she is square to the world square, there is no hinter on it In the square of the world as in section J:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman398/seif-006/biur-halacha",
+      "volume": "oc1",
+      "siman": 398,
+      "seif": 6,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.224,
+        "he_chars": 2304,
+        "en_chars": 2820,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 2820
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b> ד' אמות על ד' אמות</b> -  עיין במגן אברהם שכתב דאם אין בה רוחב ד\"א אף ע\"פ שארוכה כמה לא מקרי בית ולא העתקתיו כי האחרונים השיגו עליו ודעתם דדבר זה תלוי בפלוגתא המובא ביורה דעה סימן רפ\"ו סי\"ג ובש\"ך שם לענין מזוזה ע\"ש:<br />\n<b> והאוצרות</b> -  וה\"ה אורוות סוסים שיש בהן בית דירה [גמרא]:<br />\n<b> תקרה ומעזיבה</b> -  הגר\"א כתב דלא גרסינן מעזיבה כי בגמרא ליתא וכן בפוסקים ע\"ש. ואני בעניי מצאתי זה הלשון בסמ\"ג ובעבוה\"ק:<br />\n<b> שיש בנין על פיה</b> -  בגמרא פריך ותיפוק ליה משום בנין ומשני לא צריכא אלא להשלים פי' הבנין והמערה מצטרפין לד\"א [רש\"י] וכתבו התוספות והוא שיהא רוב הד\"א מן הבנין א\"נ קמשמע לן שמתחילין למדוד מסוף המערה ואיירי שיש בבנין לבד ד\"א עכ\"ל התוספות והעתיקו המגן אברהם והריטב\"א הוסיף עוד דאפילו הבנין היה עומד חוץ להשבעים אמה ושיריים והמערה בתוך השיעור הזה ג\"כ מהני כאלו היה הבית ומערה דבר אחד. והנה אף דבגמרא לא נזכר ענין השלמה אלא לגבי בנין שע\"ג מערה לכאורה נראה לומר דה\"ה באינך ובפרט לפירוש התוס' וריטב\"א דהיינו לחשוב כל המערה במדידת השבעים אמה ושיריים מסתבר לומר דה\"ה באינך דמ\"ש וגם הלשון משמע קצת כן דנקט' ביהכ\"נ שיש בו בית דירה וכן באוצרות וכולהו ומשמע דכל הבהכ\"נ או האוצרות נמדדין ע\"י הבית דירה שבתוכם:<br />\n<b> ואם היו שני בתים וכו'</b> -  עיין במ\"ב מה שהגהנו והוא ממגן אברהם וביאור הגר\"א והוא כשיטת הר\"י ור\"ח המוזכר בתוספות דפגום היוצא מהעיר יש לו דין קשת וכן הוא ג\"כ דעת הראב\"ד המובא בחידושי הרשב\"א אמנם דעת הרשב\"א גופא והסכים עמו הריטב\"א דפגום קיל מקשת ואפילו החלל שבין שני שורות הבתים מחזיק יותר מארבעה אלפים ג\"כ מודדין התחום של העיר מבית האחרון וכן אם הוא יוצא מצד אחד לעולם מודדין התחום של העיר מבית האחרון [והיינו אפילו כשהולך מצד השני שאין שם בתים] והוא כס\"ד דהתוספות ועיין ברא\"ש שגם הוא לא הכריע בזה ואפשר שיש לסמוך עליהם להקל בשעת הדחק. ודע דאם הבתים שיוצאין זה אחר זה הוא כנגד אמצע העיר גם דעת הראב\"ד להקל בזה והביאו הרשב\"א בחידושיו ע\"ש ואפשר שגם הר\"י ור\"ח מודים לו. ודע דמה שכתבנו דכ\"ש אם בצד אחד יוצאים בתים וכו' אם העיר ארוכה יותר מד' אלפים וכו' הגם שבמ\"א כתב מאלפים ט\"ס הוא וכמו שהגיה בתו\"ש ומחצית השקל שצ\"ל יותר מד' אלפים וכן מוכח בהדיא בדברי הר\"ח והראב\"ד [המובא בחידושי הרשב\"א והריטב\"א] שהם בעלי שיטה זו וכ\"כ בגאון יעקב ודלא כח\"א והיד אפרים שרצו ליישב הגירסא במגן אברהם כמו שהיא לפנינו ואלו ראו ברשב\"א דברי הר\"ח והראב\"ד לא כתבו זאת [ומה שרצה היד אפרים לחדש במהדידה בין אם מודדין באלכסון או בשוה הוא נגד הרשב\"א והריטב\"א שכתבו בהדיא דהיכא שהוא פחות מד' אלפים באלכסון לענין גאם אז צריך לרבע אותה אח\"כ בשוה וכמו שהעתקתי במ\"ב ס\"ק י\"ג]:\n",
+      "en_html": "(1) 4 I will die on 4 I will die - refer to Magen Avraham, which Dam wrote, it does not have the width of DA even if it is as long as it is neither a case study nor a copy of it because the latter have obtained it and their opinion of this word depends on the phlogta cited in Yura Dea Siman Rapu 33 and in the Shach there regarding the matter of a mezuzah according to:<br>\r\n<br>\r\n(2) And the treasures - and the 5th horse stables that have an apartment in them [Gemara]:<br>\r\n<br>\r\n(ג) A ceiling and a departure, the Grail wrote, “No, no, no, no, no, no, no, no matter what is in the end of the night.” And I found it in the tongue in the saga and in the thick<br>\r\n<br>\r\n(4) If there is a building on top of it - in the Gemara, it is brittle and it is called a building, and from the second, it is not required but to complete it. And Shiriy and the cave in this class are so enjoyable as if the house and the cave were one thing. And here, even the Davgamara does not mention the matter of completion, except for a building that is a cave. An apartment in which:<br>\r\n<br>\r\n(5) And if there were two houses, etc. - refer to the MAb what we have come up with and it is from the Magan Avraham and the explanation of the Gra and it is per the method of the Rabbi and the Rah mentioned in the Tosafs a defagom that leaves the city has a bow din and also it is per the opinion of the Rabbad given in the Rashiba's innovations. Indeed the opinion of the Rashiba himself and the Ritbaa agreed with him is a defagom keel mekeshet and even the space between the two rows of houses holds more than four thousand gach The boundary of the city is measured from the last house, and also if it goes out from one side to the world, the city's boundary is measured from the last house [and we were even when he goes from the other side that there are no houses there] and he is like Sd De Tosaf and refer to the Rashidun that he also did not rule on this and it is possible that they can be trusted to ease the pressure. And I know if the houses that go out one after the other is against the middle of the city, the Rabbi's opinion is also to make it easier, and they brought the Rashba in his innovations, and it is possible that the Rabbi and the Rabbi also thank him. And I know that we wrote Dakhsh if houses go out on one side, etc. It is proven by the Radha in the words of the Rabbi and the Rabbad [which is given in the Ritbah of the Rabbis] that they have this method and so on in Gaon Yaakov and Dela 21 and Hand Ephraim who wanted to settle the version in Magan Avraham as it is before us and those who saw in the Rabbis the words of the Rabbi and the Rabbid did not write this And the Ritba that they wrote in Hadia said that it is less than 4 thousandths diagonally for the matter of Gam, so it should be quartered later In the same way as I copied in MAB § 13]:\r\n",
+      "he_plain": "ד' אמות על ד' אמות - עיין במגן אברהם שכתב דאם אין בה רוחב ד\"א אף ע\"פ שארוכה כמה לא מקרי בית ולא העתקתיו כי האחרונים השיגו עליו ודעתם דדבר זה תלוי בפלוגתא המובא ביורה דעה סימן רפ\"ו סי\"ג ובש\"ך שם לענין מזוזה ע\"ש: והאוצרות - וה\"ה אורוות סוסים שיש בהן בית דירה [גמרא]: תקרה ומעזיבה - הגר\"א כתב דלא גרסינן מעזיבה כי בגמרא ליתא וכן בפוסקים ע\"ש. ואני בעניי מצאתי זה הלשון בסמ\"ג ובעבוה\"ק: שיש בנין על פיה - בגמרא פריך ותיפוק ליה משום בנין ומשני לא צריכא אלא להשלים פי' הבנין והמערה מצטרפין לד\"א [רש\"י] וכתבו התוספות והוא שיהא רוב הד\"א מן הבנין א\"נ קמשמע לן שמתחילין למדוד מסוף המערה ואיירי שיש בבנין לבד ד\"א עכ\"ל התוספות והעתיקו המגן אברהם והריטב\"א הוסיף עוד דאפילו הבנין היה עומד חוץ להשבעים אמה ושיריים והמערה בתוך השיעור הזה ג\"כ מהני כאלו היה הבית ומערה דבר אחד. והנה אף דבגמרא לא נזכר ענין השלמה אלא לגבי בנין שע\"ג מערה לכאורה נראה לומר דה\"ה באינך ובפרט לפירוש התוס' וריטב\"א דהיינו לחשוב כל המערה במדידת השבעים אמה ושיריים מסתבר לומר דה\"ה באינך דמ\"ש וגם הלשון משמע קצת כן דנקט' ביהכ\"נ שיש בו בית דירה וכן באוצרות וכולהו ומשמע דכל הבהכ\"נ או האוצרות נמדדין ע\"י הבית דירה שבתוכם: ואם היו שני בתים וכו' - עיין במ\"ב מה שהגהנו והוא ממגן אברהם וביאור הגר\"א והוא כשיטת הר\"י ור\"ח המוזכר בתוספות דפגום היוצא מהעיר יש לו דין קשת וכן הוא ג\"כ דעת הראב\"ד המובא בחידושי הרשב\"א אמנם דעת הרשב\"א גופא והסכים עמו הריטב\"א דפגום קיל מקשת ואפילו החלל שבין שני שורות הבתים מחזיק יותר מארבעה אלפים ג\"כ מודדין התחום של העיר מבית האחרון וכן אם הוא יוצא מצד אחד לעולם מודדין התחום של העיר מבית האחרון [והיינו אפילו כשהולך מצד השני שאין שם בתים] והוא כס\"ד דהתוספות ועיין ברא\"ש שגם הוא לא הכריע בזה ואפשר שיש לסמוך עליהם להקל בשעת הדחק. ודע דאם הבתים שיוצאין זה אחר זה הוא כנגד אמצע העיר גם דעת הראב\"ד להקל בזה והביאו הרשב\"א בחידושיו ע\"ש ואפשר שגם הר\"י ור\"ח מודים לו. ודע דמה שכתבנו דכ\"ש אם בצד אחד יוצאים בתים וכו' אם העיר ארוכה יותר מד' אלפים וכו' הגם שבמ\"א כתב מאלפים ט\"ס הוא וכמו שהגיה בתו\"ש ומחצית השקל שצ\"ל יותר מד' אלפים וכן מוכח בהדיא בדברי הר\"ח והראב\"ד [המובא בחידושי הרשב\"א והריטב\"א] שהם בעלי שיטה זו וכ\"כ בגאון יעקב ודלא כח\"א והיד אפרים שרצו ליישב הגירסא במגן אברהם כמו שהיא לפנינו ואלו ראו ברשב\"א דברי הר\"ח והראב\"ד לא כתבו זאת [ומה שרצה היד אפרים לחדש במהדידה בין אם מודדין באלכסון או בשוה הוא נגד הרשב\"א והריטב\"א שכתבו בהדיא דהיכא שהוא פחות מד' אלפים באלכסון לענין גאם אז צריך לרבע אותה אח\"כ בשוה וכמו שהעתקתי במ\"ב ס\"ק י\"ג]:",
+      "en_plain": "(1) 4 I will die on 4 I will die - refer to Magen Avraham, which Dam wrote, it does not have the width of DA even if it is as long as it is neither a case study nor a copy of it because the latter have obtained it and their opinion of this word depends on the phlogta cited in Yura Dea Siman Rapu 33 and in the Shach there regarding the matter of a mezuzah according to: (2) And the treasures - and the 5th horse stables that have an apartment in them [Gemara]: (ג) A ceiling and a departure, the Grail wrote, “No, no, no, no, no, no, no, no matter what is in the end of the night.” And I found it in the tongue in the saga and in the thick (4) If there is a building on top of it - in the Gemara, it is brittle and it is called a building, and from the second, it is not required but to complete it. And Shiriy and the cave in this class are so enjoyable as if the house and the cave were one thing. And here, even the Davgamara does not mention the matter of completion, except for a building that is a cave. An apartment in which: (5) And if there were two houses, etc. - refer to the MAb what we have come up with and it is from the Magan Avraham and the explanation of the Gra and it is per the method of the Rabbi and the Rah mentioned in the Tosafs a defagom that leaves the city has a bow din and also it is per the opinion of the Rabbad given in the Rashiba's innovations. Indeed the opinion of the Rashiba himself and the Ritbaa agreed with him is a defagom keel mekeshet and even the space between the two rows of houses holds more than four thousand gach The boundary of the city is measured from the last house, and also if it goes out from one side to the world, the city's boundary is measured from the last house [and we were even when he goes from the other side that there are no houses there] and he is like Sd De Tosaf and refer to the Rashidun that he also did not rule on this and it is possible that they can be trusted to ease the pressure. And I know if the houses that go out one after the other is against the middle of the city, the Rabbi's opinion is also to make it easier, and they brought the Rashba in his innovations, and it is possible that the Rabbi and the Rabbi also thank him. And I know that we wrote Dakhsh if houses go out on one side, etc. It is proven by the Radha in the words of the Rabbi and the Rabbad [which is given in the Ritbah of the Rabbis] that they have this method and so on in Gaon Yaakov and Dela 21 and Hand Ephraim who wanted to settle the version in Magan Avraham as it is before us and those who saw in the Rabbis the words of the Rabbi and the Rabbid did not write this And the Ritba that they wrote in Hadia said that it is less than 4 thousandths diagonally for the matter of Gam, so it should be quartered later In the same way as I copied in MAB § 13]:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman4/seif-006/beer-hagolah",
+      "volume": "oc1",
+      "siman": 4,
+      "seif": 6,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2,
+        "he_chars": 14,
+        "en_chars": 28,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 28
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "א\"ח בשם הרמב\"ם\n",
+      "en_html": "AH in the name of Maimonides\n",
+      "he_plain": "א\"ח בשם הרמב\"ם",
+      "en_plain": "AH in the name of Maimonides",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman42/seif-001/beer-hagolah",
+      "volume": "oc1",
+      "siman": 42,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.852,
+        "he_chars": 61,
+        "en_chars": 113,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 113
+        },
+        "failure_patterns": [
+          "maimonides"
+        ]
+      },
+      "he_html": "מנחות לד<br />\nהרמב\"ם בפ\"ג מהלכות תפילין<br />\nשם בגמרא<br />\nשם ברש\"י<br />\nשם בגמרא\n",
+      "en_html": "Offerings to<br />\nThe Maimonides in PG from the laws of tefillin<br />\nThere in the Gemara<br />\nName in Rashi<br />\nThere in the Gemara\n",
+      "he_plain": "מנחות לד הרמב\"ם בפ\"ג מהלכות תפילין שם בגמרא שם ברש\"י שם בגמרא",
+      "en_plain": "Offerings to The Maimonides in PG from the laws of tefillin There in the Gemara Name in Rashi There in the Gemara",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

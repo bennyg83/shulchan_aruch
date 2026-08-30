@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 15,
+    "chunk_total": 47,
+    "case_offset": 96,
+    "cases_in_chunk": 5,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman304/seif-001/beur-hagra",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "beur-hagra",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.288,
+        "he_chars": 3075,
+        "en_chars": 3961,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3961
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ס\"א אדם.</b> הכלל דעבד כנעני ג' הם הא' עבד שמל וקבל עליו מצות כמו גר צדק רק שגר חייב בכל מצות הנוהגות באיש ועבד במצות הנוהגות באשה. הב' עבד תושב והוא כמו גר תושב. הג' עבד נכרי כמו נכרי דעלמא ושניהם אין מהולים כמו נכרי וגר תושב יתבאר למטה:<br />\n<b>על שביתת כו'.</b> יבמות מ\"ח ב' למען ינוח כו' הרי עבד מהול:<br />\n<b>שמל וטבל.</b> דקי\"ל כר' יוסי שם מ\"ו וכר' יוחנן דאינו גר עד שימול ויטבול וה\"ה לעבד דחד דינא להו ושם כי הא דמנימין כו':<br />\n<b>וקבל עליו.</b> כדעת רי\"ף שם דבעי קבלה מדאמרי' שם מ\"ח ב' לא רצה כו' וע\"ש ברא\"ש ס\"ס ל\"ח ועברי\"ף שם וספי\"ט דשבת:<br />\n<b>הנוהגות בעבד.</b> חגיגה פ\"א מכדי כל מצות שהעבד כו':<br />\n<b>אבל אם.</b> כריתות ט' א' תניא כו' רש\"א א' גר תושב כו' ושם הלכה כר\"ש:<br />\n<b>אלא קבל כו'.</b> ע\"ז ס\"ד ב' כחכמים וע' רשב\"א סי' נ\"ט בארוכה:<br />\n<b>ה\"ה כו' ומותר.</b> כריתות שם:<br />\n<b>אבל לא כו'.</b> כריתות שם ויבמות שם וינפש בן אמתך כו' כמ\"ש למטה:<br />\n<b>ואסור לכל ישראל.</b> מדקא' לעצמו דוקא ועוד דומיא דגר תושב שאין לו רבו וע\"כ לכל ישראל ממעט לעצמו דוקא:<br />\n<b>לומר לו.</b> דוקא אמירה ובזה הוא חלוק אחר מרבו כמ\"ש למטה:<br />\n<b>ואם לא קבל.</b> מ\"מ בשם הרשב\"א מהא דיבמות שם וינפש בן אמתך בעבד ערל ופי' הוא בכה\"ג מדלא תני כמו בכריתות עבד תושב ועוד דל\"ל קרא הא בכלל גר תושב הוא:<br />\n<b>ולפ\"ז.</b> דלענין איסור מלאכה אין חילוק לשאר נכרי דגם בשאר נכרי אסור אמירה כמ\"ש בשבת ק\"נ א' וכן לצורך רבו כמ\"ש למטה אלא שבשאר נכרי אין איסור רק מדרבנן כמש\"ש וכאן אסור מן התורה כמ\"ש ביבמות שם והנ\"מ הוא כמש\"ו:<br />\n<b>צרכי כו'.</b> שם קכ\"ט א':<br />\n<b>וכן.</b> ביצה ו' א' וע\"ש כ\"ב א':<br />\n<b>וי\"ח כו'.</b> ר\"ל בנכרי גמור שכ' ששוה לעבד תושב ומ' דאפי' לישראל אחר אסור באמירה כמ\"ש בשם מהרי\"א וע\"ז חולקים ומתירים דהתורה לא הזהירה אלא על רבו כמ\"ש ביבמות וההיא דכריתות דמדמי לגר תושב שם בעבד תושב דוקא כמש\"ש וא\"כ צרכי חולה כו' מותר לישראל אחר לומר לו כל שאינו רבו וז\"ש ויש חולקים כו' ר\"ל על מ\"ש אפי' הוא ע\"א כו' וכ\"כ בע\"ש אע\"ג שבב\"י לא הביא חולק ע\"ז:<br />\n<b>ומ\"מ כו'. ולישראל אחר כו' ובלבד כו'.</b> כל אלו החלוקים מבואר שבת קנ\"א א' אם היה עושה כו' וא\"צ להפרישו אפי' כו'. דלא עדיף מקטן שמצווה ג\"כ על שביתתו אפ\"ה כל שניכר שאין עושה לדעתו א\"צ להפרישו כמש\"ש ש\"מ קטן כו' בקטן העושה כו' אבל בלא\"ה מותר. ולישראל אחר כו' אפי' שם דכוותיה נכרי כו' נכרי אדעתא כו' וה\"ה בעבד כנ\"ל דאפי' קטן שמצווה על שביתתו אדעתא דנפשיה מותר וש\"מ דאין חילוק בין נכרי דעלמא לעבד והוא דין המתני' אבל נכרי כו' ואל תכבה אבל אמירה אסור כמש\"ש א\"א לו כבה ולרבו אפי' בלא אמירה אסור לדעתו כמש\"ש דכוותיה כו' נכרי אדעתא כו' ר\"ל כיון שאין הישראל אומר לו ומתחיל הנכרי מאליו כמ\"ש סי' רמ\"ז ס\"ד דהוי כקצץ דאדעתא דנפשיה עביד א\"ל לרבו אדעתא דרבו עביד כמש\"ש ס\"ו:<br />\n<b>ובלבד שלא יהנה. </b>כמש\"ש קכ\"ב א' ואם בשביל ישראל אסור ואע\"ג דנכרי אדעתא דנפשיה עביד ושרי בכיבוי כאן שישראל נהנה בשבת אסור וז\"ש בסי' רע\"ו ס\"א בהג\"ה ואין חילוק כו' והרי כל הששה חלוקים הנ\"ל מבוארים במתני' ומותר כו' לעצמו. נכרי שהדליק כו' משתמש כו'. אבל לא לרבו. כמו קטן אבל קטן שבא כו'. ואסור לכל ישראל. א\"א לו כבה. ולישראל אחר כו'. ואל תכבה. ובלבד שלא. ואם בשביל ישראל אסור. והדין הששי ומ\"מ אם היה עושה כו' בגמ' ש\"מ קטן כו' בקטן כו' כנ\"ל:<br />\n<b>ולפ\"ז כו'.</b> ר\"ל דלדעה זו מותר אפי' לרבו לומר לו משא\"כ ליש חולקים הנ\"ל:<br />\n<b>וכל עבד כו'.</b> שבת נ\"ח א' ושמואל אמר כבלא כו' ומי אמר כו' ורמינהו כו' לא אידי ואידי כו':<br />\n<b>ואם העבד כו'.</b> אבל הטור השמיט דס\"ל למסקנא אזדא האי סברא דר\"ל לימא הא כו' וסתר לא כו' וא\"כ קמייתא נמי מיתרצא בהכי וחזר מס' ראשונה וס\"ל דאין חילוק בין של רבו לשל עצמו:\n",
+      "en_html": "(א) Seif 1 person — rule Canaanite slave three: (1) circumcised accepted mitzvot like ger tzedek except ger obligated all man's mitzvot slave woman's mitzvot; (2) toshav slave like ger toshav; (3) gentile slave like gentile of world — both not circumcised like gentile and ger toshav explained below.<br>\r\n<br>\r\n(ב) On rest etc. — Yevamot 48b \"that rest\" — circumcised slave.<br>\r\n<br>\r\n(ג) Circumcised immersed — we hold R' Yosi there 46 and R' Yochanan not ger until circumcise immerse — same slave one law; there like Binyamin etc.<br>\r\n<br>\r\n(ד) And accepted — per Rif there requires acceptance since they say 48b didn't want etc.; see Rosh end 38 and Ivra and end Shabbat.<br>\r\n<br>\r\n(ה) Customary for slave — Chagigah ch. 1 since all mitzvot slave etc.<br>\r\n<br>\r\n(ו) But if — Keritut 9a braita etc.; Rashi ger toshav etc.; law like R' Shimon there.<br>\r\n<br>\r\n(ז) Only accepted etc. — Avodah Zarah 64b like sages; see Rashba 59 at length.<br>\r\n<br>\r\n(ח) Likewise etc. permitted — Keritut there.<br>\r\n<br>\r\n(ט) But not etc. — Keritut there and Yevamot there \"son of your maidservant\" as below.<br>\r\n<br>\r\n(י) Forbidden all Israel — from \"for himself\" specifically; also similar ger toshav no master — therefore for all Israel exclude \"for himself\" specifically.<br>\r\n<br>\r\n(כ) Tell him — specifically speech; herein differs from master as below.<br>\r\n<br>\r\n(ל) If didn't accept — nevertheless Rashba name from Yevamot \"son of your maidservant\" on uncircumcised slave — explains such case since didn't teach like Keritut \"toshav slave\"; also verse unnecessary — included in ger toshav.<br>\r\n<br>\r\n(מ) Therefore — melacha prohibition no difference other gentile — other gentile speech forbidden Shabbat 150a; likewise for master as below; other gentile prohibition rabbinic only as wrote; here d'oraisa as Yevamot there — difference as wrote.<br>\r\n<br>\r\n(נ) Needs etc. — there 129a.<br>\r\n<br>\r\n(ס) And likewise — Beitzah 6a; see there 22a.<br>\r\n<br>\r\n(ע) And some etc. — meaning complete gentile equal toshav slave and forty even other Israel speech forbidden Mahari Abuhav; Avodah Zarah dispute permit — Torah only warned master as Yevamot; Keritut compared to ger toshav only toshav slave as wrote — therefore sick needs permitted other Israel tell him all not master — \"some dispute\" on even gentile etc.; likewise Eshel Avraham though Beit Yosef didn't bring Avodah Zarah disputants.<br>\r\n<br>\r\n(פ) Nevertheless etc. other Israel provided — all divisions explained Shabbat 151a if doing etc.; need not stop even etc.; not better than minor commanded on rest nevertheless evident not on intent need not stop as wrote Shmuel minor etc.; minor doing etc.; otherwise permitted; other Israel even there gentile etc. gentile on own intent etc.; same slave even minor commanded on rest on own intent permitted; Shmuel no difference gentile of world and slave — mishnah law; gentile don't extinguish; speech forbidden as wrote; don't extinguish for master even without speech forbidden on intent as wrote there gentile on intent — meaning since Israel doesn't tell him gentile begins himself siman 247 seif 4 like cutting on own intent; for master on master's intent as seif 6.<br>\r\n<br>\r\n(צ) Provided not benefit — as 122a; if for Israel forbidden though gentile on own intent permitted extinguishing here Israel benefits Shabbat forbidden — seif 276 seif 1 gloss no difference etc.; all six divisions explained mishnah permitted for himself; gentile who lit etc. may use etc.; but not for master like minor; minor who comes etc.; forbidden all Israel; don't extinguish for him; other Israel etc.; don't extinguish; provided not; if for Israel forbidden; sixth law nevertheless if doing etc. Gemara Shmuel minor etc. as above.<br>\r\n<br>\r\n(ק) Therefore etc. — meaning this view permitted even tell master unlike \"some dispute\" above.<br>\r\n<br>\r\n(ר) Every slave etc. — Shabbat 58a Shmuel said kavul etc. who said etc. challenged etc. not one and one etc.<br>\r\n<br>\r\n(ש) If slave made etc. — Tur omitted holds conclusion follows this reasoning R' Levi said this etc. contradicts not etc. therefore first also resolved thus returned first version holds no difference master's and own.\r\n",
+      "he_plain": "ס\"א אדם. הכלל דעבד כנעני ג' הם הא' עבד שמל וקבל עליו מצות כמו גר צדק רק שגר חייב בכל מצות הנוהגות באיש ועבד במצות הנוהגות באשה. הב' עבד תושב והוא כמו גר תושב. הג' עבד נכרי כמו נכרי דעלמא ושניהם אין מהולים כמו נכרי וגר תושב יתבאר למטה: על שביתת כו'. יבמות מ\"ח ב' למען ינוח כו' הרי עבד מהול: שמל וטבל. דקי\"ל כר' יוסי שם מ\"ו וכר' יוחנן דאינו גר עד שימול ויטבול וה\"ה לעבד דחד דינא להו ושם כי הא דמנימין כו': וקבל עליו. כדעת רי\"ף שם דבעי קבלה מדאמרי' שם מ\"ח ב' לא רצה כו' וע\"ש ברא\"ש ס\"ס ל\"ח ועברי\"ף שם וספי\"ט דשבת: הנוהגות בעבד. חגיגה פ\"א מכדי כל מצות שהעבד כו': אבל אם. כריתות ט' א' תניא כו' רש\"א א' גר תושב כו' ושם הלכה כר\"ש: אלא קבל כו'. ע\"ז ס\"ד ב' כחכמים וע' רשב\"א סי' נ\"ט בארוכה: ה\"ה כו' ומותר. כריתות שם: אבל לא כו'. כריתות שם ויבמות שם וינפש בן אמתך כו' כמ\"ש למטה: ואסור לכל ישראל. מדקא' לעצמו דוקא ועוד דומיא דגר תושב שאין לו רבו וע\"כ לכל ישראל ממעט לעצמו דוקא: לומר לו. דוקא אמירה ובזה הוא חלוק אחר מרבו כמ\"ש למטה: ואם לא קבל. מ\"מ בשם הרשב\"א מהא דיבמות שם וינפש בן אמתך בעבד ערל ופי' הוא בכה\"ג מדלא תני כמו בכריתות עבד תושב ועוד דל\"ל קרא הא בכלל גר תושב הוא: ולפ\"ז. דלענין איסור מלאכה אין חילוק לשאר נכרי דגם בשאר נכרי אסור אמירה כמ\"ש בשבת ק\"נ א' וכן לצורך רבו כמ\"ש למטה אלא שבשאר נכרי אין איסור רק מדרבנן כמש\"ש וכאן אסור מן התורה כמ\"ש ביבמות שם והנ\"מ הוא כמש\"ו: צרכי כו'. שם קכ\"ט א': וכן. ביצה ו' א' וע\"ש כ\"ב א': וי\"ח כו'. ר\"ל בנכרי גמור שכ' ששוה לעבד תושב ומ' דאפי' לישראל אחר אסור באמירה כמ\"ש בשם מהרי\"א וע\"ז חולקים ומתירים דהתורה לא הזהירה אלא על רבו כמ\"ש ביבמות וההיא דכריתות דמדמי לגר תושב שם בעבד תושב דוקא כמש\"ש וא\"כ צרכי חולה כו' מותר לישראל אחר לומר לו כל שאינו רבו וז\"ש ויש חולקים כו' ר\"ל על מ\"ש אפי' הוא ע\"א כו' וכ\"כ בע\"ש אע\"ג שבב\"י לא הביא חולק ע\"ז: ומ\"מ כו'. ולישראל אחר כו' ובלבד כו'. כל אלו החלוקים מבואר שבת קנ\"א א' אם היה עושה כו' וא\"צ להפרישו אפי' כו'. דלא עדיף מקטן שמצווה ג\"כ על שביתתו אפ\"ה כל שניכר שאין עושה לדעתו א\"צ להפרישו כמש\"ש ש\"מ קטן כו' בקטן העושה כו' אבל בלא\"ה מותר. ולישראל אחר כו' אפי' שם דכוותיה נכרי כו' נכרי אדעתא כו' וה\"ה בעבד כנ\"ל דאפי' קטן שמצווה על שביתתו אדעתא דנפשיה מותר וש\"מ דאין חילוק בין נכרי דעלמא לעבד והוא דין המתני' אבל נכרי כו' ואל תכבה אבל אמירה אסור כמש\"ש א\"א לו כבה ולרבו אפי' בלא אמירה אסור לדעתו כמש\"ש דכוותיה כו' נכרי אדעתא כו' ר\"ל כיון שאין הישראל אומר לו ומתחיל הנכרי מאליו כמ\"ש סי' רמ\"ז ס\"ד דהוי כקצץ דאדעתא דנפשיה עביד א\"ל לרבו אדעתא דרבו עביד כמש\"ש ס\"ו: ובלבד שלא יהנה. כמש\"ש קכ\"ב א' ואם בשביל ישראל אסור ואע\"ג דנכרי אדעתא דנפשיה עביד ושרי בכיבוי כאן שישראל נהנה בשבת אסור וז\"ש בסי' רע\"ו ס\"א בהג\"ה ואין חילוק כו' והרי כל הששה חלוקים הנ\"ל מבוארים במתני' ומותר כו' לעצמו. נכרי שהדליק כו' משתמש כו'. אבל לא לרבו. כמו קטן אבל קטן שבא כו'. ואסור לכל ישראל. א\"א לו כבה. ולישראל אחר כו'. ואל תכבה. ובלבד שלא. ואם בשביל ישראל אסור. והדין הששי ומ\"מ אם היה עושה כו' בגמ' ש\"מ קטן כו' בקטן כו' כנ\"ל: ולפ\"ז כו'. ר\"ל דלדעה זו מותר אפי' לרבו לומר לו משא\"כ ליש חולקים הנ\"ל: וכל עבד כו'. שבת נ\"ח א' ושמואל אמר כבלא כו' ומי אמר כו' ורמינהו כו' לא אידי ואידי כו': ואם העבד כו'. אבל הטור השמיט דס\"ל למסקנא אזדא האי סברא דר\"ל לימא הא כו' וסתר לא כו' וא\"כ קמייתא נמי מיתרצא בהכי וחזר מס' ראשונה וס\"ל דאין חילוק בין של רבו לשל עצמו:",
+      "en_plain": "(א) Seif 1 person — rule Canaanite slave three: (1) circumcised accepted mitzvot like ger tzedek except ger obligated all man's mitzvot slave woman's mitzvot; (2) toshav slave like ger toshav; (3) gentile slave like gentile of world — both not circumcised like gentile and ger toshav explained below. (ב) On rest etc. — Yevamot 48b \"that rest\" — circumcised slave. (ג) Circumcised immersed — we hold R' Yosi there 46 and R' Yochanan not ger until circumcise immerse — same slave one law; there like Binyamin etc. (ד) And accepted — per Rif there requires acceptance since they say 48b didn't want etc.; see Rosh end 38 and Ivra and end Shabbat. (ה) Customary for slave — Chagigah ch. 1 since all mitzvot slave etc. (ו) But if — Keritut 9a braita etc.; Rashi ger toshav etc.; law like R' Shimon there. (ז) Only accepted etc. — Avodah Zarah 64b like sages; see Rashba 59 at length. (ח) Likewise etc. permitted — Keritut there. (ט) But not etc. — Keritut there and Yevamot there \"son of your maidservant\" as below. (י) Forbidden all Israel — from \"for himself\" specifically; also similar ger toshav no master — therefore for all Israel exclude \"for himself\" specifically. (כ) Tell him — specifically speech; herein differs from master as below. (ל) If didn't accept — nevertheless Rashba name from Yevamot \"son of your maidservant\" on uncircumcised slave — explains such case since didn't teach like Keritut \"toshav slave\"; also verse unnecessary — included in ger toshav. (מ) Therefore — melacha prohibition no difference other gentile — other gentile speech forbidden Shabbat 150a; likewise for master as below; other gentile prohibition rabbinic only as wrote; here d'oraisa as Yevamot there — difference as wrote. (נ) Needs etc. — there 129a. (ס) And likewise — Beitzah 6a; see there 22a. (ע) And some etc. — meaning complete gentile equal toshav slave and forty even other Israel speech forbidden Mahari Abuhav; Avodah Zarah dispute permit — Torah only warned master as Yevamot; Keritut compared to ger toshav only toshav slave as wrote — therefore sick needs permitted other Israel tell him all not master — \"some dispute\" on even gentile etc.; likewise Eshel Avraham though Beit Yosef didn't bring Avodah Zarah disputants. (פ) Nevertheless etc. other Israel provided — all divisions explained Shabbat 151a if doing etc.; need not stop even etc.; not better than minor commanded on rest nevertheless evident not on intent need not stop as wrote Shmuel minor etc.; minor doing etc.; otherwise permitted; other Israel even there gentile etc. gentile on own intent etc.; same slave even minor commanded on rest on own intent permitted; Shmuel no difference gentile of world and slave — mishnah law; gentile don't extinguish; speech forbidden as wrote; don't extinguish for master even without speech forbidden on intent as wrote there gentile on intent — meaning since Israel doesn't tell him gentile begins himself siman 247 seif 4 like cutting on own intent; for master on master's intent as seif 6. (צ) Provided not benefit — as 122a; if for Israel forbidden though gentile on own intent permitted extinguishing here Israel benefits Shabbat forbidden — seif 276 seif 1 gloss no difference etc.; all six divisions explained mishnah permitted for himself; gentile who lit etc. may use etc.; but not for master like minor; minor who comes etc.; forbidden all Israel; don't extinguish for him; other Israel etc.; don't extinguish; provided not; if for Israel forbidden; sixth law nevertheless if doing etc. Gemara Shmuel minor etc. as above. (ק) Therefore etc. — meaning this view permitted even tell master unlike \"some dispute\" above. (ר) Every slave etc. — Shabbat 58a Shmuel said kavul etc. who said etc. challenged etc. not one and one etc. (ש) If slave made etc. — Tur omitted holds conclusion follows this reasoning R' Levi said this etc. contradicts not etc. therefore first also resolved thus returned first version holds no difference master's and own.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman304/seif-001/biur-halacha",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.076,
+        "he_chars": 3405,
+        "en_chars": 3664,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3664
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> וכן מת ביו\"ט ראשון וכו' אסור לומר לעבד ישראל</b> -  עיין בסימן תקכ\"ו בב\"י שדעת הרמב\"ן שם לצדד להתיר בעבד שלא מל וטבל ושיטה זו דשו\"ע אתיא כדעת בה\"ג שם [תו\"ש ע\"ש שרצה להעמיס זה בכונת השו\"ע במה שסיים ויש חולקין]:<br />\n<b> ויש חולקים ומתירים בזה</b> -  עיין במ\"ב דלא אסרה התורה בלא קבל עליו השבע מצות אלא לרבו ולא לאחר ונראה דזה דוקא אם דמי המלאכה לוקח לעצמו אבל אם יתנם לרבו נחשב זה כמלאכת רבו ואסור וצ\"ע:<br />\n<b> וי\"א שכל וכו'</b> -  עיין במ\"ב דלמעשה יש להחמיר כסברא הראשונה כ\"כ בא\"ר ומ\"מ לענין ישראל אחר אפשר דיש לדון זה לס\"ס אחד דשמא הלכה כי\"א הזה שהוא דעת הרמב\"ם והרמב\"ן והרה\"מ וגם דשמא הלכה כהיש חולקין למעלה שדעתם [כפי מה שביאר העו\"ש והגר\"א והנהר שלום] דלישראל אחר בודאי מותר אך אין הס\"ס הזה מתהפך:<br />\n<b> א\"י גמור וכו'</b> -  כתב המגן אברהם אם קבל עליו מצות הנהוגות בעבד והוא שכיר נ\"ל דאין רבו מצווה על שביתתו כשעושה לעצמו [פי' דאם עושה לישראל אחר בודאי אסור מן התורה דלא גרע מגר תושב בעלמא] דלא הזהירה התורה אלא על עבד הקנוי קנין עולם אבל העבד אסור לעשות מלאכה אפילו לעצמו דהא קבל עליו מצות הנהוגות באשה עכ\"ל וצע\"ג כיון שאין קנוי לו הלא בודאי אין גירות לחצאין ומאי מהני קבלתו למצות הנהוגות בעבד הלא קי\"ל בבכורות בפרק עד כמה (בכורות דף ל') א\"י שבא לקבל עליו ד\"ת חוץ מדבר אחד אין מקבלין אותו [ודע דמה דאיתא שם ר\"י בר\"י אומר אפילו דקדוק אחד מד\"ס היינו מה שדקדקו בביאור התורה וכעין דאיתא בסנהדרין פ\"ח חמשה טוטפות להוסיף על דברי סופרים חייב וכן משמע ברמב\"ם פי\"ד מהלכות איסורי ביאה שהעתיק כר\"י בר\"י דס\"ל דלא לאפלוגי אתא אלא לבאר והשמיט בהלכותיו תיבת מד\"ס] ודוקא בעבד שגופו קנוי ויש עליו שם עבד גילתה לנו התורה דבאיש כזה די אם יקיים רק מצות הנהוגות באשה משא\"כ באדם דעלמא אין לנו בתורה רק או גר תושב או ישראל גמור וזה שלא רצה לקבל עליו כל התורה מסתברא דאין מדרגתו אלא כגר תושב בעלמא ומנא ליה להמגן אברהם שיהיה עדיף מגר תושב דהוא אסור לשבות בשבת וזה יהיה מהני קבלתו שיהיה מחויב לעצמו להזהר במצות שבת כישראל וא\"כ לפ\"ז ימצא איש שיוצא מכלל גר תושב בהרבה מצות יותר כפי קבלתו ולכלל ישראל לא בא וגם בכלל עבד אינו ומנ\"ל זה ועיין ביורה דעה סימן קכ\"ד בביאור הגר\"א סק\"ה דאין מלין אותו עד שיקבל עליו כל המצות וא\"כ באיש כזה איך מלו אותו קודם שקיבל עליו כל המצות כיון דאינו עבד רק שכיר בעלמא ובלא מילה וטבילה קי\"ל דאיננו בכלל ישראל כלל ומנ\"ל שיהיה מחויב לקיים המצות מחמת קבלתו ועיין ביבמות מ\"ז דאבותינו לא נכנסו לברית אלא במילה וטבילה וכו' ולא די במה שקבלו על עצמן מתחלה לקיים כל התורה שענו כל אשר דבר ה' נעשה ונשמע. אחר כתבי כ\"ז התבוננתי שאפשר לקיים דבריו דס\"ל להמגן אברהם ג\"כ דאינו בר ישראל כלל ובכלל גר תושב הוא והכל כאשר כתבנו אלא דס\"ל דגר תושב גופא אם רצה לקבל עליו בעת תחלת גירותו עוד מצות מלבד השבע ג\"כ חלה קבלתו שמחוייב אח\"כ לקיים אלא דמה דנקטו שבע רבותא אשמועינן דאף ששבע מצות מחוייב לקיים כל בן נח ומאי רבותייהו אפ\"ה חלה הקבלה ובכלל גר תושב הוא לענין שמצווין להחיותו וכ\"ש אם קבל עליו יתר מצות בודאי מהני ולא תקשה ע\"ז דאיך ישמור שבת והלא גר תושב ג\"כ אסור לשמור שבת כדמוכח ביבמות מ\"ח ע\"ב בתוד\"ה זה גר וכו' דזהו בסתם גר תושב שלא קבל עליו רק שבע מצות כנהוג וא\"כ הוא לענין שאר מצות כא\"י גמור משא\"כ כשקבל עליו עוד מצות בתחלת גירותו ובכללם היה ג\"כ שבת בודאי יכול לקיימם ומחוייב לקיימם ומה דאיתא בבכורות דא\"י שרצה לקבל כל התורה חוץ מד\"א אין מקבלין אותו היינו לענין לעשותו ישראל גמור אבל לא לענין גר תושב. וקצת סמך מצאתי לדברי המגן אברהם ממה דאיתא בע\"ג דף ס\"ד ע\"ב איזהו גר תושב דחכמים אומרים כל שקיבל עליו שבע מצות בני נח ואחרים אומרים כל שקיבל עליו כל המצות חוץ מאיסור נבילות אלמא דלאחרים בודאי חלה קבלתו על כל המצות [ומ\"מ איננו בכלל ישראל כיון ששייר דבר אחד וכמו שכתבנו למעלה] וה\"ה דלחכמים אם קיבל חלה הקבלה דכל דאיכא למעט בפלוגתא טפי עדיף זהו הנלע\"ד בישוב דבריו:\n",
+      "en_html": "(א) And likewise dead first day Yom Tov etc. forbidden tell Jewish slave — see siman 526 Beit Yosef Ramban's view tends permit slave not circumcised immersed — Shulchan Aruch follows Hagahot Maimoniot there (Tosafot see there wanted load this into Shulchan Aruch intent in what concluded \"some dispute\").<br>\r\n<br>\r\n(ב) And some dispute and permit — see Mishna Berurah Torah didn't forbid without seven mitzvot except for master not other; appears only if slave's wages he takes for himself; if gives master — considered master's melacha forbidden — needs study.<br>\r\n<br>\r\n(ג) And some say all etc. — see Mishna Berurah practice stringent first view likewise Avnei Nezer; nevertheless other Israel possibly rule double doubt perhaps law like this view Rambam Ramban Rav HaMaggid; perhaps law like disputants above per Otzar HaShulchan and Gra and Nehar Shalom — other Israel certainly permitted; this double doubt not reversed.<br>\r\n<br>\r\n(ד) Complete gentile etc. — Magen Avraham wrote if accepted mitzvot customary for slave and is hired — appears master not commanded on rest when for himself (explains if for other Israel certainly forbidden d'oraisa — not worse than plain ger toshav); Torah only warned permanently acquired slave; slave forbidden melacha even for himself since accepted woman's mitzvot — end; needs study: since not acquired certainly no partial conversion — what helps acceptance slave mitzvot — we hold Bekhorot \"How far\" (Bekhorot 30) gentile coming accept Torah except one matter not accepted; know what R' Yehuda son R' Yehuda says even one grammatical point of Sages — what they expounded in Torah explanation like Sanhedrin ch. 8 five totafot adding scribes' words liable; Rambam ch. 14 Forbidden Relations copied R' Yehuda son R' Yehuda not to argue but explain omitted \"of Sages\" in his laws); only slave body acquired Torah revealed name slave on such man if only keeps woman's mitzvot; not on worldly man — only ger toshav or full Israel; didn't accept full Torah — rank only ger toshav; whence Magen Avraham better than ger toshav forbidden Shabbat — acceptance obligates himself Shabbat caution like Israel — find man exiting ger toshav by many mitzvot per acceptance not full Israel not full slave; whence circumcised before full acceptance since not slave only hired — without circumcision immersion we hold not Israel at all; whence obligated mitzvot from acceptance; Yevamot 46 forefathers entered covenant only circumcision immersion etc. — not suffice initial acceptance \"all Heaven spoke we will do and hear.\" After writing all I considered possible uphold Magen Avraham — not bar Israel at all — included ger toshav as wrote; holds ger toshav if at conversion start accepts mitzvot besides seven — acceptance binds afterward; \"seven\" teaches even seven obligated every ben Noach; what is their greatness — nevertheless acceptance binds included ger toshav for sustaining life; if accepted more mitzvot certainly helps; not difficult how keep Shabbat — ger toshav also forbidden keep Shabbat Yevamot 48b s.v. this ger etc. — stam ger toshav only seven as customary — therefore other mitzvot like complete gentile; unlike accepted more at conversion start including Shabbat — certainly may and must keep; Bekhorot gentile wanted accept all Torah except one not accepted — to make full Israel not ger toshav; slight basis Magen Avraham from Avodah Zarah 64b what is ger toshav — Sages who accepted seven; others all mitzvot except nevelah — others certainly acceptance on all mitzvot (nevertheless not full Israel since left one as above); likewise Sages if accepted — binding; all can minimize dispute this better — my humble opinion resolving his words.\r\n",
+      "he_plain": "וכן מת ביו\"ט ראשון וכו' אסור לומר לעבד ישראל - עיין בסימן תקכ\"ו בב\"י שדעת הרמב\"ן שם לצדד להתיר בעבד שלא מל וטבל ושיטה זו דשו\"ע אתיא כדעת בה\"ג שם [תו\"ש ע\"ש שרצה להעמיס זה בכונת השו\"ע במה שסיים ויש חולקין]: ויש חולקים ומתירים בזה - עיין במ\"ב דלא אסרה התורה בלא קבל עליו השבע מצות אלא לרבו ולא לאחר ונראה דזה דוקא אם דמי המלאכה לוקח לעצמו אבל אם יתנם לרבו נחשב זה כמלאכת רבו ואסור וצ\"ע: וי\"א שכל וכו' - עיין במ\"ב דלמעשה יש להחמיר כסברא הראשונה כ\"כ בא\"ר ומ\"מ לענין ישראל אחר אפשר דיש לדון זה לס\"ס אחד דשמא הלכה כי\"א הזה שהוא דעת הרמב\"ם והרמב\"ן והרה\"מ וגם דשמא הלכה כהיש חולקין למעלה שדעתם [כפי מה שביאר העו\"ש והגר\"א והנהר שלום] דלישראל אחר בודאי מותר אך אין הס\"ס הזה מתהפך: א\"י גמור וכו' - כתב המגן אברהם אם קבל עליו מצות הנהוגות בעבד והוא שכיר נ\"ל דאין רבו מצווה על שביתתו כשעושה לעצמו [פי' דאם עושה לישראל אחר בודאי אסור מן התורה דלא גרע מגר תושב בעלמא] דלא הזהירה התורה אלא על עבד הקנוי קנין עולם אבל העבד אסור לעשות מלאכה אפילו לעצמו דהא קבל עליו מצות הנהוגות באשה עכ\"ל וצע\"ג כיון שאין קנוי לו הלא בודאי אין גירות לחצאין ומאי מהני קבלתו למצות הנהוגות בעבד הלא קי\"ל בבכורות בפרק עד כמה (בכורות דף ל') א\"י שבא לקבל עליו ד\"ת חוץ מדבר אחד אין מקבלין אותו [ודע דמה דאיתא שם ר\"י בר\"י אומר אפילו דקדוק אחד מד\"ס היינו מה שדקדקו בביאור התורה וכעין דאיתא בסנהדרין פ\"ח חמשה טוטפות להוסיף על דברי סופרים חייב וכן משמע ברמב\"ם פי\"ד מהלכות איסורי ביאה שהעתיק כר\"י בר\"י דס\"ל דלא לאפלוגי אתא אלא לבאר והשמיט בהלכותיו תיבת מד\"ס] ודוקא בעבד שגופו קנוי ויש עליו שם עבד גילתה לנו התורה דבאיש כזה די אם יקיים רק מצות הנהוגות באשה משא\"כ באדם דעלמא אין לנו בתורה רק או גר תושב או ישראל גמור וזה שלא רצה לקבל עליו כל התורה מסתברא דאין מדרגתו אלא כגר תושב בעלמא ומנא ליה להמגן אברהם שיהיה עדיף מגר תושב דהוא אסור לשבות בשבת וזה יהיה מהני קבלתו שיהיה מחויב לעצמו להזהר במצות שבת כישראל וא\"כ לפ\"ז ימצא איש שיוצא מכלל גר תושב בהרבה מצות יותר כפי קבלתו ולכלל ישראל לא בא וגם בכלל עבד אינו ומנ\"ל זה ועיין ביורה דעה סימן קכ\"ד בביאור הגר\"א סק\"ה דאין מלין אותו עד שיקבל עליו כל המצות וא\"כ באיש כזה איך מלו אותו קודם שקיבל עליו כל המצות כיון דאינו עבד רק שכיר בעלמא ובלא מילה וטבילה קי\"ל דאיננו בכלל ישראל כלל ומנ\"ל שיהיה מחויב לקיים המצות מחמת קבלתו ועיין ביבמות מ\"ז דאבותינו לא נכנסו לברית אלא במילה וטבילה וכו' ולא די במה שקבלו על עצמן מתחלה לקיים כל התורה שענו כל אשר דבר ה' נעשה ונשמע. אחר כתבי כ\"ז התבוננתי שאפשר לקיים דבריו דס\"ל להמגן אברהם ג\"כ דאינו בר ישראל כלל ובכלל גר תושב הוא והכל כאשר כתבנו אלא דס\"ל דגר תושב גופא אם רצה לקבל עליו בעת תחלת גירותו עוד מצות מלבד השבע ג\"כ חלה קבלתו שמחוייב אח\"כ לקיים אלא דמה דנקטו שבע רבותא אשמועינן דאף ששבע מצות מחוייב לקיים כל בן נח ומאי רבותייהו אפ\"ה חלה הקבלה ובכלל גר תושב הוא לענין שמצווין להחיותו וכ\"ש אם קבל עליו יתר מצות בודאי מהני ולא תקשה ע\"ז דאיך ישמור שבת והלא גר תושב ג\"כ אסור לשמור שבת כדמוכח ביבמות מ\"ח ע\"ב בתוד\"ה זה גר וכו' דזהו בסתם גר תושב שלא קבל עליו רק שבע מצות כנהוג וא\"כ הוא לענין שאר מצות כא\"י גמור משא\"כ כשקבל עליו עוד מצות בתחלת גירותו ובכללם היה ג\"כ שבת בודאי יכול לקיימם ומחוייב לקיימם ומה דאיתא בבכורות דא\"י שרצה לקבל כל התורה חוץ מד\"א אין מקבלין אותו היינו לענין לעשותו ישראל גמור אבל לא לענין גר תושב. וקצת סמך מצאתי לדברי המגן אברהם ממה דאיתא בע\"ג דף ס\"ד ע\"ב איזהו גר תושב דחכמים אומרים כל שקיבל עליו שבע מצות בני נח ואחרים אומרים כל שקיבל עליו כל המצות חוץ מאיסור נבילות אלמא דלאחרים בודאי חלה קבלתו על כל המצות [ומ\"מ איננו בכלל ישראל כיון ששייר דבר אחד וכמו שכתבנו למעלה] וה\"ה דלחכמים אם קיבל חלה הקבלה דכל דאיכא למעט בפלוגתא טפי עדיף זהו הנלע\"ד בישוב דבריו:",
+      "en_plain": "(א) And likewise dead first day Yom Tov etc. forbidden tell Jewish slave — see siman 526 Beit Yosef Ramban's view tends permit slave not circumcised immersed — Shulchan Aruch follows Hagahot Maimoniot there (Tosafot see there wanted load this into Shulchan Aruch intent in what concluded \"some dispute\"). (ב) And some dispute and permit — see Mishna Berurah Torah didn't forbid without seven mitzvot except for master not other; appears only if slave's wages he takes for himself; if gives master — considered master's melacha forbidden — needs study. (ג) And some say all etc. — see Mishna Berurah practice stringent first view likewise Avnei Nezer; nevertheless other Israel possibly rule double doubt perhaps law like this view Rambam Ramban Rav HaMaggid; perhaps law like disputants above per Otzar HaShulchan and Gra and Nehar Shalom — other Israel certainly permitted; this double doubt not reversed. (ד) Complete gentile etc. — Magen Avraham wrote if accepted mitzvot customary for slave and is hired — appears master not commanded on rest when for himself (explains if for other Israel certainly forbidden d'oraisa — not worse than plain ger toshav); Torah only warned permanently acquired slave; slave forbidden melacha even for himself since accepted woman's mitzvot — end; needs study: since not acquired certainly no partial conversion — what helps acceptance slave mitzvot — we hold Bekhorot \"How far\" (Bekhorot 30) gentile coming accept Torah except one matter not accepted; know what R' Yehuda son R' Yehuda says even one grammatical point of Sages — what they expounded in Torah explanation like Sanhedrin ch. 8 five totafot adding scribes' words liable; Rambam ch. 14 Forbidden Relations copied R' Yehuda son R' Yehuda not to argue but explain omitted \"of Sages\" in his laws); only slave body acquired Torah revealed name slave on such man if only keeps woman's mitzvot; not on worldly man — only ger toshav or full Israel; didn't accept full Torah — rank only ger toshav; whence Magen Avraham better than ger toshav forbidden Shabbat — acceptance obligates himself Shabbat caution like Israel — find man exiting ger toshav by many mitzvot per acceptance not full Israel not full slave; whence circumcised before full acceptance since not slave only hired — without circumcision immersion we hold not Israel at all; whence obligated mitzvot from acceptance; Yevamot 46 forefathers entered covenant only circumcision immersion etc. — not suffice initial acceptance \"all Heaven spoke we will do and hear.\" After writing all I considered possible uphold Magen Avraham — not bar Israel at all — included ger toshav as wrote; holds ger toshav if at conversion start accepts mitzvot besides seven — acceptance binds afterward; \"seven\" teaches even seven obligated every ben Noach; what is their greatness — nevertheless acceptance binds included ger toshav for sustaining life; if accepted more mitzvot certainly helps; not difficult how keep Shabbat — ger toshav also forbidden keep Shabbat Yevamot 48b s.v. this ger etc. — stam ger toshav only seven as customary — therefore other mitzvot like complete gentile; unlike accepted more at conversion start including Shabbat — certainly may and must keep; Bekhorot gentile wanted accept all Torah except one not accepted — to make full Israel not ger toshav; slight basis Magen Avraham from Avodah Zarah 64b what is ger toshav — Sages who accepted seven; others all mitzvot except nevelah — others certainly acceptance on all mitzvot (nevertheless not full Israel since left one as above); likewise Sages if accepted — binding; all can minimize dispute this better — my humble opinion resolving his words.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman304/seif-001/eshel-avraham",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "eshel-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.459,
+        "he_chars": 172,
+        "en_chars": 251,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 251
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>לא מל.</b> עבד הנוהג ד\"י אלא דעדיין לא מל וטבל בפני בי\"ד אי ראוי לקברו ביום טוב שני ואם צריך להוציאו אם כבר נקבר בקבר ישראל עי' ת' ד\"א סי' י\"ט:<br />\n<b>גמור.</b> עיין ת' בית יהודה סי' י\"ג:\n",
+      "en_html": "(א) Not circumcised — slave practicing Judaism but not yet circumcised immersed before court — if fit bury second day Yom Tov; if must exhume if already buried Jewish cemetery — see Taz four amot siman 19.<br>\r\n<br>\r\n(ב) Complete — see Taz Beit Yehudah siman 13.\r\n",
+      "he_plain": "לא מל. עבד הנוהג ד\"י אלא דעדיין לא מל וטבל בפני בי\"ד אי ראוי לקברו ביום טוב שני ואם צריך להוציאו אם כבר נקבר בקבר ישראל עי' ת' ד\"א סי' י\"ט: גמור. עיין ת' בית יהודה סי' י\"ג:",
+      "en_plain": "(א) Not circumcised — slave practicing Judaism but not yet circumcised immersed before court — if fit bury second day Yom Tov; if must exhume if already buried Jewish cemetery — see Taz four amot siman 19. (ב) Complete — see Taz Beit Yehudah siman 13.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman304/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.088,
+        "he_chars": 622,
+        "en_chars": 677,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 677
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>(ס\"ק א) ע\"ש עבדו כו'</b> תרי קראי כתיבי. חד למען ינוח עבדך ואמתך כמוך. זה קאי על עבד שמל וטבל לשם עבדות וקבל עליו כל מצות עבדים דהיינו כל מה שאשה חייבת. ואם כי גם מצות שבת בכלל. לכן אסור לעשות מלאכה בשבת אפילו לצורך עצמו וקרא שני וינפש בן אמתך והגר. ודרשו חז\"ל דקאי על עבד גוי הקנוי לישראל קנין הגוף אבל לא מל ולא טבל רק קיבל עליו ז' מצות ב\"נ דגם לזה אסור לכל ישראל לצוות לו לעשות מלאכה בשבת. אבל לעצמו מותר לעשות מלאכה בשבת כיון דשבת אינו נכלל תוך ז' מצות בני נח. ועבד הקנוי לישראל קנין הגוף ולא מל ולא טבל ולא קיבל עליו שום מצוה אפי' ז' מצות בני נח לא קיבל עליו. בזה נחלקו הפוסקים אי גם ע\"ז מצווים אנו על שביתתו וכאשר יתבאר:\n",
+      "en_html": "(s.k. 1) On his slave etc. — two verses written: one \"that your slave and maidservant rest like you\" — refers slave circumcised immersed for slavery accepted all slave mitzvot i.e. all woman obligated; Shabbat included — forbidden melacha Shabbat even for himself; second verse \"son of your maidservant and ger refresh\" — Sages expounded gentile slave acquired body ownership not circumcised immersed only accepted seven Noahide mitzvot — forbidden all Israel command melacha Shabbat; for himself permitted since Shabbat not in seven mitzvot; slave acquired body not circumcised immersed accepted no mitzvah even seven — poskim dispute if commanded on his rest as will explain.\r\n",
+      "he_plain": "(ס\"ק א) ע\"ש עבדו כו' תרי קראי כתיבי. חד למען ינוח עבדך ואמתך כמוך. זה קאי על עבד שמל וטבל לשם עבדות וקבל עליו כל מצות עבדים דהיינו כל מה שאשה חייבת. ואם כי גם מצות שבת בכלל. לכן אסור לעשות מלאכה בשבת אפילו לצורך עצמו וקרא שני וינפש בן אמתך והגר. ודרשו חז\"ל דקאי על עבד גוי הקנוי לישראל קנין הגוף אבל לא מל ולא טבל רק קיבל עליו ז' מצות ב\"נ דגם לזה אסור לכל ישראל לצוות לו לעשות מלאכה בשבת. אבל לעצמו מותר לעשות מלאכה בשבת כיון דשבת אינו נכלל תוך ז' מצות בני נח. ועבד הקנוי לישראל קנין הגוף ולא מל ולא טבל ולא קיבל עליו שום מצוה אפי' ז' מצות בני נח לא קיבל עליו. בזה נחלקו הפוסקים אי גם ע\"ז מצווים אנו על שביתתו וכאשר יתבאר:",
+      "en_plain": "(s.k. 1) On his slave etc. — two verses written: one \"that your slave and maidservant rest like you\" — refers slave circumcised immersed for slavery accepted all slave mitzvot i.e. all woman obligated; Shabbat included — forbidden melacha Shabbat even for himself; second verse \"son of your maidservant and ger refresh\" — Sages expounded gentile slave acquired body ownership not circumcised immersed only accepted seven Noahide mitzvot — forbidden all Israel command melacha Shabbat; for himself permitted since Shabbat not in seven mitzvot; slave acquired body not circumcised immersed accepted no mitzvah even seven — poskim dispute if commanded on his rest as will explain.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman304/seif-001/mechaber",
+      "volume": "oc1",
+      "siman": 304,
+      "seif": 1,
+      "slug": "mechaber",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.083,
+        "he_chars": 1198,
+        "en_chars": 2495,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": true,
+          "he_hagah_count": 1,
+          "en_rama_braces": 1,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 0
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>על איזה עבד מצווה על שביתתו. ובו ג סעיפים:</b><br><i data-commentator=\"Be'er HaGolah\" data-label=\"א\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"א\"></i>אדם מצווה <i data-commentator=\"Magen Avraham\" data-order=\"1\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ב\"></i>על <i data-commentator=\"Ba'er Hetev\" data-order=\"1\"></i>שביתת עבדו שמל וטבל לשם עבדות וקיבל עליו מצות <i data-commentator=\"Mishnah Berurah\" data-label=\"ג\"></i>הנוהגות בעבד אבל אם <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"1\"></i>לא מל וטבל אלא קבל עליו שבע מצות בני נח <i data-commentator=\"Mishnah Berurah\" data-label=\"ד\"></i>הרי הוא כגר תושב ומותר לעשות מלאכה בשבת <i data-commentator=\"Ba'er Hetev\" data-order=\"2\"></i><i data-commentator=\"Magen Avraham\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ה\"></i>לעצמו <i data-commentator=\"Mishnah Berurah\" data-label=\"ו\"></i>אבל לא <i data-commentator=\"Magen Avraham\" data-order=\"3\"></i><i data-commentator=\"Ba'er Hetev\" data-order=\"3\"></i>לרבו <i data-commentator=\"Magen Avraham\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"ז\"></i>ואסור לכל ישראל לומר לו לעשות מלאכה בשבת לצורך ישראל <i data-commentator=\"Be'er HaGolah\" data-label=\"ב\" data-order=\"2\"></i>אפילו מי שאינו רבו <i data-commentator=\"Mishnah Berurah\" data-label=\"ח\"></i>ואם לא קבל עליו שום מצוה אלא עדיין הוא עכו\"ם גמור דינו שוה לקבל עליו שבע מצות <i data-commentator=\"Be'er HaGolah\" data-label=\"ג\" data-order=\"3\"></i>ולפי זה צרכי חולה שאין בו סכנה דקיי\"ל אומר לעכו\"ם ועושה וכן מת ביום טוב ראשון דקיי\"ל יתעסקו בו עממין אסור <i data-commentator=\"Mishnah Berurah\" data-label=\"ט\"></i>לומר לעבד ישראל אפי' הוא ע\"א דכיון דמלאכת העבד אסור מן התורה לא הותרה בדבר שאין בו פיקוח נפש <i data-commentator=\"Magen Avraham\" data-order=\"5\"></i><i data-commentator=\"Be'er HaGolah\" data-label=\"ד\" data-order=\"4\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"י\"></i>ויש חולקים ומתירים בזה <i data-commentator=\"Be'er HaGolah\" data-label=\"ה\" data-order=\"5\"></i>ומ\"מ <i data-commentator=\"Mishnah Berurah\" data-label=\"יא\"></i>אם היה עושה מלאכת רבו שלא מדעתו וניכר שאינו עושה לדעתו מותר <i data-commentator=\"Magen Avraham\" data-order=\"6\"></i>ואינו צריך להפרישו <small>(אפי' קבל עליו שבע מצות)</small> <i data-commentator=\"Mishnah Berurah\" data-label=\"יב\"></i>ולישראל אחר שאינו רבו אפי' עושה לדעת ישראל <i data-commentator=\"Magen Avraham\" data-order=\"7\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יג\"></i>מותר כל שאין שם אמירת ישראל <i data-commentator=\"Mishnah Berurah\" data-label=\"יד\"></i>ובלבד <i data-commentator=\"Magen Avraham\" data-order=\"8\"></i>שלא יהנה ישראל בשבת מאותה מלאכה <i data-commentator=\"Be'er HaGolah\" data-label=\"ו\" data-order=\"6\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"טו\"></i>וי\"א שכל שלא קבל עליו שבע מצות בני נח כיון דעכו\"ם <i data-commentator=\"Eshel Avraham\" data-label=\"א\" data-order=\"2\"></i>גמור הוא אין רבו מוזהר עליו ולפי זה צרכי חולה שאין בו סכנה וכן צרכי מתים ביום טוב ראשון מותר לומר להם לעשותו: <small>הגה <i data-commentator=\"Mishnah Berurah\" data-label=\"טז\"></i>וכל עבד שמצווה על שביתתו <i data-commentator=\"Mishnah Berurah\" data-label=\"יז\"></i>אסור לצאת בחותם שעשה לו רבו להראות בו שהוא עבדו ואם הוא של טיט <i data-commentator=\"Magen Avraham\" data-order=\"9\"></i>מותר לצאת בו <i data-commentator=\"Turei Zahav\" data-order=\"1\"></i>כשתלוי בצוארו <i data-commentator=\"Mishnah Berurah\" data-label=\"יח\"></i>אבל <i data-commentator=\"Magen Avraham\" data-order=\"10\"></i>לא <i data-commentator=\"Ba'er Hetev\" data-order=\"4\"></i>בכסותו <i data-commentator=\"Turei Zahav\" data-order=\"2\"></i><i data-commentator=\"Mishnah Berurah\" data-label=\"יט\"></i>ובשל <i data-commentator=\"Ba'er Hetev\" data-order=\"5\"></i>מתכת <i data-commentator=\"Mishnah Berurah\" data-label=\"כ\"></i>בכל ענין אסור (טור) ואם העבד עשה החותם לעצמו אפי' בשל טיט <i data-commentator=\"Magen Avraham\" data-order=\"11\"></i>בכל ענין אסור (המגיד פי\"ט):</small>\n",
+      "en_html": "<b>Concerning which slave one is commanded regarding his rest. It contains three se'ifim.</b><br>A person is commanded concerning the rest of his slave who was circumcised and immersed for the sake of servitude and accepted upon himself the mitzvos that apply to a slave. But if he was not circumcised and immersed, but only accepted upon himself the seven Noahide mitzvos, he is like a ger toshav, and it is permitted for him to perform melachah on Shabbos for himself but not for his master; and it is forbidden for any Jew to tell him to perform melachah on Shabbos for the need of a Jew, even one who is not his master. And if he did not accept upon himself any mitzvah, but is still a full-fledged non-Jew, his law is equivalent to one who accepted upon himself the seven mitzvos. Accordingly, the needs of a sick person who is not in danger — regarding which we hold that one may tell a non-Jew and he does it — and likewise a corpse on the first day of Yom Tov, regarding which we hold that non-Jews may occupy themselves with it — it is forbidden to tell a Jew's slave to do, even if he is an idolater; for since the slave's melachah is forbidden by Torah law, it was not permitted for something that involves no saving of life. And some disagree and permit in this. Nevertheless, if he was performing his master's melachah without [his master's] knowledge, and it is evident that he is not doing it for [his master's] benefit, it is permitted, and he need not stop him {even if he accepted upon himself the seven mitzvos}. And for another Jew who is not his master, even if he does it for the Jew's benefit, it is permitted — as long as there is no directive from a Jew, and provided that the Jew derives no benefit on Shabbos from that melachah. And some say that whoever has not accepted upon himself the seven Noahide mitzvos, since he is a full-fledged non-Jew, his master is not admonished concerning him; and accordingly, for the needs of a sick person who is not in danger, and likewise the needs of the dead on the first day of Yom Tov, it is permitted to tell them to do it. {Rama: And every slave concerning whose rest one is commanded may not go out with a seal that his master made for him to show that he is his slave; and if it is of clay, it is permitted to go out with it when it hangs on his neck, but not on his garment; and one of metal is forbidden in any case (Tur). And if the slave made the seal for himself, even one of clay is forbidden in any case (Maggid, chapter 19).}\n",
+      "he_plain": "על איזה עבד מצווה על שביתתו. ובו ג סעיפים: אדם מצווה על שביתת עבדו שמל וטבל לשם עבדות וקיבל עליו מצות הנוהגות בעבד אבל אם לא מל וטבל אלא קבל עליו שבע מצות בני נח הרי הוא כגר תושב ומותר לעשות מלאכה בשבת לעצמו אבל לא לרבו ואסור לכל ישראל לומר לו לעשות מלאכה בשבת לצורך ישראל אפילו מי שאינו רבו ואם לא קבל עליו שום מצוה אלא עדיין הוא עכו\"ם גמור דינו שוה לקבל עליו שבע מצות ולפי זה צרכי חולה שאין בו סכנה דקיי\"ל אומר לעכו\"ם ועושה וכן מת ביום טוב ראשון דקיי\"ל יתעסקו בו עממין אסור לומר לעבד ישראל אפי' הוא ע\"א דכיון דמלאכת העבד אסור מן התורה לא הותרה בדבר שאין בו פיקוח נפש ויש חולקים ומתירים בזה ומ\"מ אם היה עושה מלאכת רבו שלא מדעתו וניכר שאינו עושה לדעתו מותר ואינו צריך להפרישו (אפי' קבל עליו שבע מצות) ולישראל אחר שאינו רבו אפי' עושה לדעת ישראל מותר כל שאין שם אמירת ישראל ובלבד שלא יהנה ישראל בשבת מאותה מלאכה וי\"א שכל שלא קבל עליו שבע מצות בני נח כיון דעכו\"ם גמור הוא אין רבו מוזהר עליו ולפי זה צרכי חולה שאין בו סכנה וכן צרכי מתים ביום טוב ראשון מותר לומר להם לעשותו: הגה וכל עבד שמצווה על שביתתו אסור לצאת בחותם שעשה לו רבו להראות בו שהוא עבדו ואם הוא של טיט מותר לצאת בו כשתלוי בצוארו אבל לא בכסותו ובשל מתכת בכל ענין אסור (טור) ואם העבד עשה החותם לעצמו אפי' בשל טיט בכל ענין אסור (המגיד פי\"ט):",
+      "en_plain": "Concerning which slave one is commanded regarding his rest. It contains three se'ifim. A person is commanded concerning the rest of his slave who was circumcised and immersed for the sake of servitude and accepted upon himself the mitzvos that apply to a slave. But if he was not circumcised and immersed, but only accepted upon himself the seven Noahide mitzvos, he is like a ger toshav, and it is permitted for him to perform melachah on Shabbos for himself but not for his master; and it is forbidden for any Jew to tell him to perform melachah on Shabbos for the need of a Jew, even one who is not his master. And if he did not accept upon himself any mitzvah, but is still a full-fledged non-Jew, his law is equivalent to one who accepted upon himself the seven mitzvos. Accordingly, the needs of a sick person who is not in danger — regarding which we hold that one may tell a non-Jew and he does it — and likewise a corpse on the first day of Yom Tov, regarding which we hold that non-Jews may occupy themselves with it — it is forbidden to tell a Jew's slave to do, even if he is an idolater; for since the slave's melachah is forbidden by Torah law, it was not permitted for something that involves no saving of life. And some disagree and permit in this. Nevertheless, if he was performing his master's melachah without [his master's] knowledge, and it is evident that he is not doing it for [his master's] benefit, it is permitted, and he need not stop him {even if he accepted upon himself the seven mitzvos}. And for another Jew who is not his master, even if he does it for the Jew's benefit, it is permitted — as long as there is no directive from a Jew, and provided that the Jew derives no benefit on Shabbos from that melachah. And some say that whoever has not accepted upon himself the seven Noahide mitzvos, since he is a full-fledged non-Jew, his master is not admonished concerning him; and accordingly, for the needs of a sick person who is not in danger, and likewise the needs of the dead on the first day of Yom Tov, it is permitted to tell them to do it. {Rama: And every slave concerning whose rest one is commanded may not go out with a seal that his master made for him to show that he is his slave; and if it is of clay, it is permitted to go out with it when it hangs on his neck, but not on his garment; and one of metal is forbidden in any case (Tur). And if the slave made the seal for himself, even one of clay is forbidden in any case (Maggid, chapter 19).}",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}

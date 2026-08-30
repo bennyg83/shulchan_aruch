@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "kind": "content_quality",
+    "tier": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "purpose": "OC commentary (+ residual) MT garbage — full scan mt_garbage set plus Netiv Chayim 244:5 manual",
+    "source": "OC_CONTENT_SCAN_2026-08-30.json mt_garbage + OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
+    "scan_mt_garbage_total": 260,
+    "excluded_overlap_with_mechaber_kit": [
+      "oc1/siman308/seif-001/mechaber",
+      "oc1/siman22/seif-001/mechaber",
+      "oc1/siman239/seif-001/mechaber",
+      "oc1/siman671/seif-002/mechaber"
+    ],
+    "manual_seed": "oc1/siman244/seif-005/netiv-chayim",
+    "output_schema": {
+      "primary": "new_en"
+    },
+    "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
+    "created": "2026-08-30T20:47:48.124Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "counts": {
+      "total": 257,
+      "by_volume": {
+        "oc1": 257
+      },
+      "by_slug": {
+        "netiv-chayim": 2,
+        "eliyah-rabbah": 18,
+        "mishnah-berurah": 24,
+        "peri-megadim": 12,
+        "mechaber": 15,
+        "machatzit-hashekel": 26,
+        "baer-heitev": 16,
+        "kaf-hachayyim": 36,
+        "turei-zahav": 9,
+        "chatam-sofer": 3,
+        "levushei-serad": 5,
+        "beur-hagra": 12,
+        "magen-avraham": 23,
+        "ateret-zekenim": 6,
+        "yad-ephraim": 6,
+        "beer-hagolah": 13,
+        "chokhmat-shlomo": 7,
+        "shaarei-teshuvah": 3,
+        "biur-halacha": 12,
+        "eshel-avraham": 2,
+        "rabbi-akiva-eiger": 2,
+        "kol-yaakov": 1,
+        "chok-yaakov": 4
+      },
+      "by_priority": {
+        "P0_manual_seed": 1,
+        "P0_netiv": 1,
+        "P1_scan_mt_garbage": 255
+      }
+    },
+    "instructions_for_reviewer": [
+      "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).",
+      "",
+      "INPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: dictionary transliteration/rendering.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).",
+      "- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.",
+      "- Part 5 — connectives: per dictionary.",
+      "",
+      "CORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.",
+      "",
+      "TASK",
+      "1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.",
+      "2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).",
+      "3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.",
+      "4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.",
+      "5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD)",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.",
+      "- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "One object per case. new_en is the full replacement English. No corpus edits."
+    ],
+    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "chunk_index": 34,
+    "chunk_total": 47,
+    "case_offset": 183,
+    "cases_in_chunk": 8,
+    "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "oc1/siman489/seif-008/eliyah-rabbah",
+      "volume": "oc1",
+      "siman": 489,
+      "seif": 8,
+      "slug": "eliyah-rabbah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.93,
+        "he_chars": 687,
+        "en_chars": 1326,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1326
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "[ח] <b>[לבוש] אין מברכין זמן וכו'.</b> באבודרהם מפני שהעולם בצער מפסח ועד שבועות על התבואה ואל אילנות ולכך צוה הקב\"ה לספור ימים אלו כדי שנזכור צער העולם ולשוב לו בלב שלם ולהתחנן לפניו לרחם על התבואה. עוד טעם על הספירה שכל אחד מישראל טרודים בימי קציר ולכך צוה לספור שידעו מתי יהיה שבועות, ועוד רמזו לאלף השביעי שכולו שבת ולכן יש ביום שביעי דפסח עצרת וחג השבועות הבא אחר שבע שבועות, ושמיני דסוכות הם רמז לעולם הבא וליובל גדול רבינו ירוחם, ובצידה לדרך מצאתי דהקדמונים היו שבעה כוכבי לכת אלהות אצלם ולכך הקריב בלעם שבע מזבחות וכל אחד יש שבע ממשלות שהם ארבעים ותשע ולכך צוה התורה לספור ונתן התורה בחמשים וצוה שלא לעבוד להם ולכך קרע הקב\"ה בשעת מתן תורה שבע רקיעים ופתח שבע ארצות לידע שאין אלהי זולתו:\n",
+      "en_html": "<b>Levush: One does not recite Shehecheyanu, etc.</b> Avudraham explains that from Pesach until Shavuos the world is in distress concerning the grain and the trees. The Holy One, blessed be He, therefore commanded us to count these days so that we remember the world’s distress, return to Him wholeheartedly, and plead before Him to have mercy upon the grain.\n\nAnother reason for the counting is that every member of Israel is occupied during the harvest season. He therefore commanded them to count so that they would know when Shavuos would arrive.\n\nThere is also an allusion to the seventh millennium, which will be entirely Shabbos. Accordingly, the seventh day of Pesach has the character of Atzeres, Shavuos follows seven weeks, and the eighth day of Sukkos alludes to the World to Come and to the great Jubilee. Rabbeinu Yerucham.\n\nI found in Tzeidah LaDerech that the ancients worshipped the seven planets as gods. Bilam therefore offered seven altars. Each of the seven possesses seven forms of dominion, totaling forty nine. The Torah therefore commanded us to count and then gave the Torah on the fiftieth day, commanding us not to worship them. At the giving of the Torah, the Holy One, blessed be He, therefore tore open the seven heavens and opened the seven earths so that all would know that there is no God besides Him.\n",
+      "he_plain": "[ח] [לבוש] אין מברכין זמן וכו'. באבודרהם מפני שהעולם בצער מפסח ועד שבועות על התבואה ואל אילנות ולכך צוה הקב\"ה לספור ימים אלו כדי שנזכור צער העולם ולשוב לו בלב שלם ולהתחנן לפניו לרחם על התבואה. עוד טעם על הספירה שכל אחד מישראל טרודים בימי קציר ולכך צוה לספור שידעו מתי יהיה שבועות, ועוד רמזו לאלף השביעי שכולו שבת ולכן יש ביום שביעי דפסח עצרת וחג השבועות הבא אחר שבע שבועות, ושמיני דסוכות הם רמז לעולם הבא וליובל גדול רבינו ירוחם, ובצידה לדרך מצאתי דהקדמונים היו שבעה כוכבי לכת אלהות אצלם ולכך הקריב בלעם שבע מזבחות וכל אחד יש שבע ממשלות שהם ארבעים ותשע ולכך צוה התורה לספור ונתן התורה בחמשים וצוה שלא לעבוד להם ולכך קרע הקב\"ה בשעת מתן תורה שבע רקיעים ופתח שבע ארצות לידע שאין אלהי זולתו:",
+      "en_plain": "Levush: One does not recite Shehecheyanu, etc. Avudraham explains that from Pesach until Shavuos the world is in distress concerning the grain and the trees. The Holy One, blessed be He, therefore commanded us to count these days so that we remember the world’s distress, return to Him wholeheartedly, and plead before Him to have mercy upon the grain. Another reason for the counting is that every member of Israel is occupied during the harvest season. He therefore commanded them to count so that they would know when Shavuos would arrive. There is also an allusion to the seventh millennium, which will be entirely Shabbos. Accordingly, the seventh day of Pesach has the character of Atzeres, Shavuos follows seven weeks, and the eighth day of Sukkos alludes to the World to Come and to the great Jubilee. Rabbeinu Yerucham. I found in Tzeidah LaDerech that the ancients worshipped the seven planets as gods. Bilam therefore offered seven altars. Each of the seven possesses seven forms of dominion, totaling forty nine. The Torah therefore commanded us to count and then gave the Torah on the fiftieth day, commanding us not to worship them. At the giving of the Torah, the Holy One, blessed be He, therefore tore open the seven heavens and opened the seven earths so that all would know that there is no God besides Him.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman493/seif-002/baer-heitev",
+      "volume": "oc1",
+      "siman": 493,
+      "seif": 2,
+      "slug": "baer-heitev",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.15,
+        "he_chars": 634,
+        "en_chars": 1363,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1363
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>שמחה. </b> וכתב בכוונות שגדול אחד היה רגיל לומר נחם בכל יום ואמרו גם בל\"ג ונענש עיין שם:<br />\n<b>תחנון. </b> גם בערב של יום ל\"ב. ובאשכנז המנהג שבשחרית א\"א תחנה משא\"כ בערב אומרים תחנה וא\"כ מ\"ש הרב ג\"כ דאין להסתפר עד ל\"ג בעצמו הוא ע\"פ המנהג אשכנזים אבל לאותן הנוהגין שלא לומר תחנה מבערב ה\"ה דמותר להסתפר דהא בהא תלי' וכ\"כ המי\"ט. ח\"י:<br />\n<b>שבת. </b> זהו דעת מהרי\"ו. ומהרי\"ל אוסר וכן דעת מקצת אחרונים ומ\"מ היכא דנהוג היתר נהוג ואין להחמיר בדינים אלו כמ\"ש בסעיף קטן ג'. ח\"י:<br />\n<b>ברית. </b> ע\"ל בב\"י סימן תקנ\"ט מבואר דבעלי ברית נקראים הסנדקים והמוהל ואבי הבן הנימול אף שאינו מל בעצמו. ומותרים להסתפר בערב קודם כניסה לבה\"כ כ\"כ במנהגים וכ\"כ הח\"י והפר\"ח דלא כשכה\"ג ע\"ש וכן נוהגין:\n",
+      "en_html": "<b>Joy.</b> And it is written in the Kavanos that a certain great person was accustomed to say Nachem every day, and they said it also on Lag BaOmer, and he was punished; see there.<br />\n<b>Tachanun.</b> Also on the eve of day 32. And in Ashkenaz the custom is that at Shacharis they do not say Tachanun, which is not so in the evening, when they do say Tachanun; and if so, what the Rav likewise wrote, that one may not get a haircut until Lag BaOmer itself, is according to the Ashkenazi custom; but for those who practice not to say Tachanun from the evening onward, the same law applies that it is permitted to get a haircut, for this depends on that; and so wrote Maginei Eretz. Chok Yaakov.<br />\n<b>Shabbos.</b> This is the view of Mahariv. And Maharil forbids, and so is the view of some later authorities; nevertheless, where the custom is to permit, that is the practice, and one should not be stringent in these laws, as is written in s.k. 3. Chok Yaakov.<br />\n<b>Bris.</b> See above in Beis Yosef, siman 559: it is explained that baalei bris are called the sandakim, the mohel, and the father of the son who is circumcised, even if he does not circumcise himself. And they are permitted to get a haircut on the eve before entering the synagogue; so it is written in the Minhagim; and so wrote Chok Yaakov and Peri Chadash, not like Shiyarei Kenesses HaGedolah; see there; and so is the practice.\n",
+      "he_plain": "שמחה. וכתב בכוונות שגדול אחד היה רגיל לומר נחם בכל יום ואמרו גם בל\"ג ונענש עיין שם: תחנון. גם בערב של יום ל\"ב. ובאשכנז המנהג שבשחרית א\"א תחנה משא\"כ בערב אומרים תחנה וא\"כ מ\"ש הרב ג\"כ דאין להסתפר עד ל\"ג בעצמו הוא ע\"פ המנהג אשכנזים אבל לאותן הנוהגין שלא לומר תחנה מבערב ה\"ה דמותר להסתפר דהא בהא תלי' וכ\"כ המי\"ט. ח\"י: שבת. זהו דעת מהרי\"ו. ומהרי\"ל אוסר וכן דעת מקצת אחרונים ומ\"מ היכא דנהוג היתר נהוג ואין להחמיר בדינים אלו כמ\"ש בסעיף קטן ג'. ח\"י: ברית. ע\"ל בב\"י סימן תקנ\"ט מבואר דבעלי ברית נקראים הסנדקים והמוהל ואבי הבן הנימול אף שאינו מל בעצמו. ומותרים להסתפר בערב קודם כניסה לבה\"כ כ\"כ במנהגים וכ\"כ הח\"י והפר\"ח דלא כשכה\"ג ע\"ש וכן נוהגין:",
+      "en_plain": "Joy. And it is written in the Kavanos that a certain great person was accustomed to say Nachem every day, and they said it also on Lag BaOmer, and he was punished; see there. Tachanun. Also on the eve of day 32. And in Ashkenaz the custom is that at Shacharis they do not say Tachanun, which is not so in the evening, when they do say Tachanun; and if so, what the Rav likewise wrote, that one may not get a haircut until Lag BaOmer itself, is according to the Ashkenazi custom; but for those who practice not to say Tachanun from the evening onward, the same law applies that it is permitted to get a haircut, for this depends on that; and so wrote Maginei Eretz. Chok Yaakov. Shabbos. This is the view of Mahariv. And Maharil forbids, and so is the view of some later authorities; nevertheless, where the custom is to permit, that is the practice, and one should not be stringent in these laws, as is written in s.k. 3. Chok Yaakov. Bris. See above in Beis Yosef, siman 559: it is explained that baalei bris are called the sandakim, the mohel, and the father of the son who is circumcised, even if he does not circumcise himself. And they are permitted to get a haircut on the eve before entering the synagogue; so it is written in the Minhagim; and so wrote Chok Yaakov and Peri Chadash, not like Shiyarei Kenesses HaGedolah; see there; and so is the practice.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman493/seif-002/chok-yaakov",
+      "volume": "oc1",
+      "siman": 493,
+      "seif": 2,
+      "slug": "chok-yaakov",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.106,
+        "he_chars": 710,
+        "en_chars": 1495,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1495
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>ומרבין בו קצת שמחה. </b> וכת' מ\"א שגדול אחד היה רגיל לומר בכל ימי הספירה נחם ואמר בל\"ג ונענש:<br />\n<b>ואין אומרין בו תחנון. </b> גם בערב של יום ל\"ב וכ\"כ במנהגים בדין התחנון שכן נוהגין במעהרין ובפיהם ובמהרי\"ל כתב המנהג באשכנז שבשחרית א\"א תחנה משא\"כ בערב אומרין תחנה וא\"כ מ\"ש הרב ג\"כ דאין להסתפר עד ל\"ג בעצמו הוא מהרי\"ל על פי מנהגו אבל לאותן הנוהגין שלא לומר תחנה מבערב ה\"ה דמותר להסתפר דהא בהא תליא וכה\"ג כתב המי\"ט:<br />\n<b>נוהגין להסתפר ביום וי\"ו. </b> ולכבוד שבת זה הוא דעת מהרי\"ו ומהרי\"ל אוסר וכן דעת מקצת אחרונים ומ\"מ היכי דנהוג היתר נהוג ואין להחמיר בדינים אלו כמ\"ש ס\"ק ב':<br />\n<b>ומי שהוא בעל ברית. </b> ע\"ל בב\"י סימן תקנ\"ט מבואר דבעלי ברית נקראים הסנדקים ומוהל ואבי הבן הנימול אף שאינו מל בעצמו ומותר להסתפר בערב קודם כניסה לבית הכנסת וכ\"כ מנהגים:\n",
+      "en_html": "<b>And they increase on it some joy.</b> And Magen Avraham wrote that a certain great person was accustomed throughout the days of Sefirah to say Nachem, and he said it on Lag BaOmer and was punished.<br />\n<b>And they do not say Tachanun on it.</b> Also on the eve of day 32; and so it is written in Minhagim regarding the law of Tachanun, that so they practice in Moravia and in Bohemia. And in Maharil it is written that the custom in Ashkenaz is that at Shacharis they do not say Tachanun, which is not so in the evening, when they do say Tachanun; and if so, what the Rav likewise wrote, that one may not get a haircut until Lag BaOmer itself, is Maharil according to his custom; but for those who practice not to say Tachanun from the evening onward, the same law applies that it is permitted to get a haircut, for this depends on that; and of this sort Maginei Eretz wrote.<br />\n<b>They practice to get a haircut on Friday.</b> And [this] for the honor of Shabbos: this is the view of Mahariv; and Maharil forbids, and so is the view of some later authorities; nevertheless, where the custom is to permit, that is the practice, and one should not be stringent in these laws, as is written in s.k. 2.<br />\n<b>And one who is a baal bris.</b> See above in Beis Yosef, siman 559: it is explained that baalei bris are called the sandakim, the mohel, and the father of the son who is circumcised, even if he does not circumcise himself; and it is permitted to get a haircut on the eve before entering the synagogue; and so wrote Minhagim.\n",
+      "he_plain": "ומרבין בו קצת שמחה. וכת' מ\"א שגדול אחד היה רגיל לומר בכל ימי הספירה נחם ואמר בל\"ג ונענש: ואין אומרין בו תחנון. גם בערב של יום ל\"ב וכ\"כ במנהגים בדין התחנון שכן נוהגין במעהרין ובפיהם ובמהרי\"ל כתב המנהג באשכנז שבשחרית א\"א תחנה משא\"כ בערב אומרין תחנה וא\"כ מ\"ש הרב ג\"כ דאין להסתפר עד ל\"ג בעצמו הוא מהרי\"ל על פי מנהגו אבל לאותן הנוהגין שלא לומר תחנה מבערב ה\"ה דמותר להסתפר דהא בהא תליא וכה\"ג כתב המי\"ט: נוהגין להסתפר ביום וי\"ו. ולכבוד שבת זה הוא דעת מהרי\"ו ומהרי\"ל אוסר וכן דעת מקצת אחרונים ומ\"מ היכי דנהוג היתר נהוג ואין להחמיר בדינים אלו כמ\"ש ס\"ק ב': ומי שהוא בעל ברית. ע\"ל בב\"י סימן תקנ\"ט מבואר דבעלי ברית נקראים הסנדקים ומוהל ואבי הבן הנימול אף שאינו מל בעצמו ומותר להסתפר בערב קודם כניסה לבית הכנסת וכ\"כ מנהגים:",
+      "en_plain": "And they increase on it some joy. And Magen Avraham wrote that a certain great person was accustomed throughout the days of Sefirah to say Nachem, and he said it on Lag BaOmer and was punished. And they do not say Tachanun on it. Also on the eve of day 32; and so it is written in Minhagim regarding the law of Tachanun, that so they practice in Moravia and in Bohemia. And in Maharil it is written that the custom in Ashkenaz is that at Shacharis they do not say Tachanun, which is not so in the evening, when they do say Tachanun; and if so, what the Rav likewise wrote, that one may not get a haircut until Lag BaOmer itself, is Maharil according to his custom; but for those who practice not to say Tachanun from the evening onward, the same law applies that it is permitted to get a haircut, for this depends on that; and of this sort Maginei Eretz wrote. They practice to get a haircut on Friday. And [this] for the honor of Shabbos: this is the view of Mahariv; and Maharil forbids, and so is the view of some later authorities; nevertheless, where the custom is to permit, that is the practice, and one should not be stringent in these laws, as is written in s.k. 2. And one who is a baal bris. See above in Beis Yosef, siman 559: it is explained that baalei bris are called the sandakim, the mohel, and the father of the son who is circumcised, even if he does not circumcise himself; and it is permitted to get a haircut on the eve before entering the synagogue; and so wrote Minhagim.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman493/seif-002/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 493,
+      "seif": 2,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.692,
+        "he_chars": 1010,
+        "en_chars": 1709,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1709
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "(ו) עד ל\"ג לעומר - עד ועד בכלל והיינו עד ל\"ג ימים שלמים כל אחד לילו ויומו משא\"כ יום ל\"ד לא החמירו בו כ\"א בלילה בלבד אבל משיאור היום לאחר נץ החמה מותר דמקצת היום ככולו:<br />\n(ז) שאומרים שאז פסקו וכו' - ואף דגם ביום ל\"ד מתו דמשום זה החמירו גם כל ליל ל\"ד עד הנץ אפשר דעיקר ההפסקה היה ביום ל\"ג וביום ל\"ד מתו רק מעט [פמ\"ג]:<br />\n(ח) ביום ל\"ג - דס\"ל דביום ל\"ג פסקו לגמרי מלמות:<br />\n(ט) וא\"א בו תחנון - גם בערב של ל\"ב:<br />\n(י) עד ל\"ג בעצמו - דהיינו לאחר שתנץ החמה והטעם לדידהו גם כן משום דמקצת היום ככולו:<br />\n(יא) ולא מבערב - ויש מאחרונים שמקילין להסתפר מבערב [מי\"ט וא\"ר] וסיים א\"ר דמ\"מ לענין נשואין לא ראיתי מקילין כ\"א ביום ל\"ג בעומר בעצמו ולא בלילה שלפניו אכן כשחל ל\"ג בעומר בע\"ש והוא לו שעת הדחק לעשות ביום אפשר שיש להקל לו לעשות בלילה שלפניו:<br />\n(יב) בעל ברית - היינו הסנדק והמוהל ואבי הבן אף שאינו מוהלו בעצמו (ומ\"ש הרמ\"א או מל בנו היינו שיש לו בן שצריך למול אותו) אבל לא המוציא והמביא [אחרונים]:<br />\n(יג) להסתפר בספירה - היינו אפילו ביום שלפני המילה סמוך לערב קודם הליכה לבהכ\"נ. ואם חל המילה בשבת מותרים להסתפר בע\"ש אפילו קודם חצות [פמ\"ג]:\n",
+      "en_html": "(ו) Until Lag BaOmer — \"until\" includes its endpoint, meaning until 33 complete days, each with its night and day; unlike day 34, on which they were stringent only at night; but from illumination of the day after sunrise it is permitted, for part of the day is like the whole day:\n<br>(ב) (c) They say that then they have stopped and so on – and no model on the day of the D died from this rainy also made it possible for each night to the D.H. to the hawk that the break was given on the day to “G” and on the day to “death only a little dead.”\n<br>(ג) (h) On the day of the Day of the Day of the Day of the Day of the Day of the Day of the Day:\n<br>(ט) And they do not say Tachanun on it — also on the evening of the 32nd:\n<br>(י) Until Lag BaOmer itself — meaning after sunrise; and the reason for them is also because of part of the day like the whole day:\n<br>(יא) And not from the evening — and some Acharonim are lenient to get a haircut from the evening [Mahari Weil and Acharonim]; Acharonim concluded that nevertheless regarding marriage they did not see leniency except on Lag BaOmer day itself and not the night before; however when Lag BaOmer falls on erev Shabbos and it is his time of pressing need to act by day, perhaps one may be lenient for him to act on the night before:\n<br>(יב) Baal brit — meaning the sandek and the mohel and the father of the son even if he is not the mohel himself (and what Rama wrote \"or circumcised his son\" means he has a son who needs circumcision); but not the one who brings in and takes out [Acharonim]:\n<br>(ח) (c) To be excavated in the sphere - we were even the day before the word near the evening before walking. And if the word on the Shabbat is made possible even before midnight",
+      "he_plain": "(ו) עד ל\"ג לעומר - עד ועד בכלל והיינו עד ל\"ג ימים שלמים כל אחד לילו ויומו משא\"כ יום ל\"ד לא החמירו בו כ\"א בלילה בלבד אבל משיאור היום לאחר נץ החמה מותר דמקצת היום ככולו: (ז) שאומרים שאז פסקו וכו' - ואף דגם ביום ל\"ד מתו דמשום זה החמירו גם כל ליל ל\"ד עד הנץ אפשר דעיקר ההפסקה היה ביום ל\"ג וביום ל\"ד מתו רק מעט [פמ\"ג]: (ח) ביום ל\"ג - דס\"ל דביום ל\"ג פסקו לגמרי מלמות: (ט) וא\"א בו תחנון - גם בערב של ל\"ב: (י) עד ל\"ג בעצמו - דהיינו לאחר שתנץ החמה והטעם לדידהו גם כן משום דמקצת היום ככולו: (יא) ולא מבערב - ויש מאחרונים שמקילין להסתפר מבערב [מי\"ט וא\"ר] וסיים א\"ר דמ\"מ לענין נשואין לא ראיתי מקילין כ\"א ביום ל\"ג בעומר בעצמו ולא בלילה שלפניו אכן כשחל ל\"ג בעומר בע\"ש והוא לו שעת הדחק לעשות ביום אפשר שיש להקל לו לעשות בלילה שלפניו: (יב) בעל ברית - היינו הסנדק והמוהל ואבי הבן אף שאינו מוהלו בעצמו (ומ\"ש הרמ\"א או מל בנו היינו שיש לו בן שצריך למול אותו) אבל לא המוציא והמביא [אחרונים]: (יג) להסתפר בספירה - היינו אפילו ביום שלפני המילה סמוך לערב קודם הליכה לבהכ\"נ. ואם חל המילה בשבת מותרים להסתפר בע\"ש אפילו קודם חצות [פמ\"ג]:",
+      "en_plain": "(ו) Until Lag BaOmer — \"until\" includes its endpoint, meaning until 33 complete days, each with its night and day; unlike day 34, on which they were stringent only at night; but from illumination of the day after sunrise it is permitted, for part of the day is like the whole day: (ב) (c) They say that then they have stopped and so on – and no model on the day of the D died from this rainy also made it possible for each night to the D.H. to the hawk that the break was given on the day to “G” and on the day to “death only a little dead.” (ג) (h) On the day of the Day of the Day of the Day of the Day of the Day of the Day of the Day: (ט) And they do not say Tachanun on it — also on the evening of the 32nd: (י) Until Lag BaOmer itself — meaning after sunrise; and the reason for them is also because of part of the day like the whole day: (יא) And not from the evening — and some Acharonim are lenient to get a haircut from the evening [Mahari Weil and Acharonim]; Acharonim concluded that nevertheless regarding marriage they did not see leniency except on Lag BaOmer day itself and not the night before; however when Lag BaOmer falls on erev Shabbos and it is his time of pressing need to act by day, perhaps one may be lenient for him to act on the night before: (יב) Baal brit — meaning the sandek and the mohel and the father of the son even if he is not the mohel himself (and what Rama wrote \"or circumcised his son\" means he has a son who needs circumcision); but not the one who brings in and takes out [Acharonim]: (ח) (c) To be excavated in the sphere - we were even the day before the word near the evening before walking. And if the word on the Shabbat is made possible even before midnight",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman494/seif-001/biur-halacha",
+      "volume": "oc1",
+      "siman": 494,
+      "seif": 1,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.729,
+        "he_chars": 1936,
+        "en_chars": 3347,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 3347
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b> מבחודש השלישי</b> -  עיין מ\"ב ואבאר קצת. דע שבעשרת הדברות יש ב' מיני נגינות הא' עושה מכל דיבור פסוק אחד אף שהוא ארוך או קצר מאד דהיינו שאנכי ולא יהיה לך ולא תעשה לך ולא תשתחוה ועושה חסד הם פסוק אחד שאנכי ולא יהיה לך בדיבור אחד נאמרו ולפיכך תיבת פני הנו\"ן נקודה פתח ולא קמץ שהרי אין שם אתנחתא ולא סוף פסוק וכן זכור וששת ימים ויום השביעי וכי ששת הם פסוק אחד ולפיכך הכ' של תיבת כל הסמוכה לתיבת ועשית היא רפויה ולא דגושה וב' תיבות לא תרצח הם פסוק אחד שלם ולפיכך הצד\"י היא נקודה קמץ כיון שיש שם סוף פסוק והתיו דגושה לפי שתיבת לא היא מוטעמת בטעם מפסיק דהיינו טפחא וכן לא תנאף הוא פסוק אחד שלם והתיו דגושה והאל\"ף נקודה קמץ וכן לא תגנב התיו דגושה. והשני עושה מאנכי פסוק אחד ומלא יהיה לך פסוק ב' ולפי זה הנו\"ן של פני הוא בקמץ שיש שם ס\"פ וכן זכור הוא פסוק אחד וששת ימים הוא פסוק ב' ולפ\"ז הכ\"ף של תיבת כל היא דגושה לא תרצח ולא תנאף ולא תגנוב ולא תענה הכל פסוק א' ולפ\"ז כל תיו מהם רפויה והצד\"י של תרצח היא בפתח והאלף של תנאף היא בקמץ לפי שיש שם אתנחתא. וטעם ב' נגינות הוא שהראשון הוא מסודר לפי הכתוב שנכתב כל דיבור ודיבור בפרשה בפ\"ע שמאנכי עד לא תשא היא פרשה אחת סתומה ודיבור אחד לכך נעשה ממנו פסוק אחד וכן מזכור עד לא תרצח אבל מלא תרצח עד לא תחמוד נכתב בד' פרשיות סתומות והם ד' דיבורים לכך נעשה מהם ד' פסוקים והשני הוא מסודר לפי הקרי שלענין הקריאה אין מלא תרצח עד לא תחמוד אלא פסוק אחד בלבד דהיינו שאסור להפסיק קריאתו לגמרי בתוך אמצע פסוק זה אפילו כשקורא ביחיד (שא\"א לומר שתיבת לא תרצח הוא פסוק בפ\"ע שאין לנו בכל התורה פסוק פחות מג' תיבות) וע\"כ כשקוראין בפעם אחד הם נקראין בנגינה המחברת אותן דהיינו בטעם התחתון וכן מאנכי עד לא תשא ומזכור עד לא תרצח הן מופסקים לכמה פסוקים לכך הם נקראים בטעם התחתון שהוא גם כן נגינה המפסקת אותם שם. זהו תוכן שתי הנגינות וע\"כ בשבועות נוהגין לקרות בצבור בהראשון דהיינו בטעם העליון לעשות מכל דיבור פסוק אחד לפי שבו ביום נתנו עשרת הדברות. ובפרשת יתרו ובפרשת ואתחנן קורין אף בצבור בטעם התחתון ויש נוהגין לקרות בצבור לעולם בטעם העליון דהיינו אף בפרשת יתרו ובפרשת ואתחנן רק היחיד הקורא לעצמו קורא בשני. זהו תמצית דברי האחרונים:\n",
+      "en_html": "From the third month - look at 22 and explain a little. Know that in the Ten Commandments there are two types of music, the Omnipresent makes of every speech one verse, whether it is long or very short, that is, I will stand and you will not have it and you will not do it to you and you will not bow down and do kindness, they are one verse that I will stand up and you will not have it in one speech, they were said and therefore the box of the face of the Nun has an opening point and not a pinch, for there is no resting place and no end verse, and also remember that there are six days and the seventh day and that there are six One verse and therefore the 20th of the box of all that is adjacent to the box and you did it is loose and not stressed and B. The boxes you shall not kill are one complete verse and therefore the side is a pinch point because there is the end of a verse there and the tiyo is stressed according to tibet no it is flavored with a stop, i.e. touch and yes you shall not commit adultery, it is one complete verse and the tiyo is stressed and the first is a pinch point and yes you shall not steal the tiyo is stressed. And the second one makes from me one verse and you will have verse 2 and according to this the Nun of my face is in the handful that is there SP and also remember it is one verse and six days is verse 2 and PZ 16 the Kf of a box of everything it is tight you shall not kill nor commit adultery nor steal nor shall you answer everything verse 1 and PZ 16 all of them are loose and the zadzi of murder is at the door and the thousand of adultery is in a handful according to what is there I will land. And the purpose of B. Neginot is that the first is arranged per the scripture that every speech and speech is written in the parasha in Pe Shamanchi until you don't carry is one obscure parasha and one speech for this is made one verse from it and also a reminder until you don't kill but full you kill until you don't covet is written in D. hidden parashiyos and they are four conversations for that we make four verses from them and the second It is arranged per the fact that in the matter of reciting there is no full \"You will kill until you do not covet\" but only one verse, that is, it is forbidden to stop reading it completely in the middle of this verse even when reading it in the singular (Sha'a to say that Tibet shall not kill is a verse in the Gemara that we do not have in the entire Torah a verse less than two verses) and thus when they are read at one time they are recited in the music that connects them, that is, with the lower taste, and also from Anchi until you do not bear and remember until you do not kill, they are stopped for several verses That is why they are called in the lower taste, which is also a melody that interrupts them there. This is the content of the two melodies, and on Sabbaths it is customary to do them in the first, that is, to make one verse of each speech according to which the ten commandments were given in the day. And in Parashat Jethro and Parashat Vatchanan Korin is also recited in Zabur in the lower sense and there are those who use it to happen in Zabur to the world in the upper sense, that is, even in Parshat Jethro and Parashat Vatchanan only the one who calls to himself calls to another. This is the summary of my last words:\r\n",
+      "he_plain": "מבחודש השלישי - עיין מ\"ב ואבאר קצת. דע שבעשרת הדברות יש ב' מיני נגינות הא' עושה מכל דיבור פסוק אחד אף שהוא ארוך או קצר מאד דהיינו שאנכי ולא יהיה לך ולא תעשה לך ולא תשתחוה ועושה חסד הם פסוק אחד שאנכי ולא יהיה לך בדיבור אחד נאמרו ולפיכך תיבת פני הנו\"ן נקודה פתח ולא קמץ שהרי אין שם אתנחתא ולא סוף פסוק וכן זכור וששת ימים ויום השביעי וכי ששת הם פסוק אחד ולפיכך הכ' של תיבת כל הסמוכה לתיבת ועשית היא רפויה ולא דגושה וב' תיבות לא תרצח הם פסוק אחד שלם ולפיכך הצד\"י היא נקודה קמץ כיון שיש שם סוף פסוק והתיו דגושה לפי שתיבת לא היא מוטעמת בטעם מפסיק דהיינו טפחא וכן לא תנאף הוא פסוק אחד שלם והתיו דגושה והאל\"ף נקודה קמץ וכן לא תגנב התיו דגושה. והשני עושה מאנכי פסוק אחד ומלא יהיה לך פסוק ב' ולפי זה הנו\"ן של פני הוא בקמץ שיש שם ס\"פ וכן זכור הוא פסוק אחד וששת ימים הוא פסוק ב' ולפ\"ז הכ\"ף של תיבת כל היא דגושה לא תרצח ולא תנאף ולא תגנוב ולא תענה הכל פסוק א' ולפ\"ז כל תיו מהם רפויה והצד\"י של תרצח היא בפתח והאלף של תנאף היא בקמץ לפי שיש שם אתנחתא. וטעם ב' נגינות הוא שהראשון הוא מסודר לפי הכתוב שנכתב כל דיבור ודיבור בפרשה בפ\"ע שמאנכי עד לא תשא היא פרשה אחת סתומה ודיבור אחד לכך נעשה ממנו פסוק אחד וכן מזכור עד לא תרצח אבל מלא תרצח עד לא תחמוד נכתב בד' פרשיות סתומות והם ד' דיבורים לכך נעשה מהם ד' פסוקים והשני הוא מסודר לפי הקרי שלענין הקריאה אין מלא תרצח עד לא תחמוד אלא פסוק אחד בלבד דהיינו שאסור להפסיק קריאתו לגמרי בתוך אמצע פסוק זה אפילו כשקורא ביחיד (שא\"א לומר שתיבת לא תרצח הוא פסוק בפ\"ע שאין לנו בכל התורה פסוק פחות מג' תיבות) וע\"כ כשקוראין בפעם אחד הם נקראין בנגינה המחברת אותן דהיינו בטעם התחתון וכן מאנכי עד לא תשא ומזכור עד לא תרצח הן מופסקים לכמה פסוקים לכך הם נקראים בטעם התחתון שהוא גם כן נגינה המפסקת אותם שם. זהו תוכן שתי הנגינות וע\"כ בשבועות נוהגין לקרות בצבור בהראשון דהיינו בטעם העליון לעשות מכל דיבור פסוק אחד לפי שבו ביום נתנו עשרת הדברות. ובפרשת יתרו ובפרשת ואתחנן קורין אף בצבור בטעם התחתון ויש נוהגין לקרות בצבור לעולם בטעם העליון דהיינו אף בפרשת יתרו ובפרשת ואתחנן רק היחיד הקורא לעצמו קורא בשני. זהו תמצית דברי האחרונים:",
+      "en_plain": "From the third month - look at 22 and explain a little. Know that in the Ten Commandments there are two types of music, the Omnipresent makes of every speech one verse, whether it is long or very short, that is, I will stand and you will not have it and you will not do it to you and you will not bow down and do kindness, they are one verse that I will stand up and you will not have it in one speech, they were said and therefore the box of the face of the Nun has an opening point and not a pinch, for there is no resting place and no end verse, and also remember that there are six days and the seventh day and that there are six One verse and therefore the 20th of the box of all that is adjacent to the box and you did it is loose and not stressed and B. The boxes you shall not kill are one complete verse and therefore the side is a pinch point because there is the end of a verse there and the tiyo is stressed according to tibet no it is flavored with a stop, i.e. touch and yes you shall not commit adultery, it is one complete verse and the tiyo is stressed and the first is a pinch point and yes you shall not steal the tiyo is stressed. And the second one makes from me one verse and you will have verse 2 and according to this the Nun of my face is in the handful that is there SP and also remember it is one verse and six days is verse 2 and PZ 16 the Kf of a box of everything it is tight you shall not kill nor commit adultery nor steal nor shall you answer everything verse 1 and PZ 16 all of them are loose and the zadzi of murder is at the door and the thousand of adultery is in a handful according to what is there I will land. And the purpose of B. Neginot is that the first is arranged per the scripture that every speech and speech is written in the parasha in Pe Shamanchi until you don't carry is one obscure parasha and one speech for this is made one verse from it and also a reminder until you don't kill but full you kill until you don't covet is written in D. hidden parashiyos and they are four conversations for that we make four verses from them and the second It is arranged per the fact that in the matter of reciting there is no full \"You will kill until you do not covet\" but only one verse, that is, it is forbidden to stop reading it completely in the middle of this verse even when reading it in the singular (Sha'a to say that Tibet shall not kill is a verse in the Gemara that we do not have in the entire Torah a verse less than two verses) and thus when they are read at one time they are recited in the music that connects them, that is, with the lower taste, and also from Anchi until you do not bear and remember until you do not kill, they are stopped for several verses That is why they are called in the lower taste, which is also a melody that interrupts them there. This is the content of the two melodies, and on Sabbaths it is customary to do them in the first, that is, to make one verse of each speech according to which the ten commandments were given in the day. And in Parashat Jethro and Parashat Vatchanan Korin is also recited in Zabur in the lower sense and there are those who use it to happen in Zabur to the world in the upper sense, that is, even in Parshat Jethro and Parashat Vatchanan only the one who calls to himself calls to another. This is the summary of my last words:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman506/seif-004/biur-halacha",
+      "volume": "oc1",
+      "siman": 506,
+      "seif": 4,
+      "slug": "biur-halacha",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.422,
+        "he_chars": 699,
+        "en_chars": 994,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 994
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b> אלא מניחה עד הערב ושורפה</b> -  במשנה איתא ומניחה עד הערב ומשמע ג\"כ דשורפה אז ועיין הגהות ר' ישעיה פיק שעמד ע\"ז מהא דקיי\"ל אין שורפין קדשים בלילה וא\"כ לכאורה ה\"ה לתרומה וחלה שנטמאו אמנם באמת גם ממשנה פ' במה מדליקין נמי משמע לכאורה ששורפין תרומה בלילה שהרי אמרה רק שאין מדליקין בשמן שריפה ביו\"ט אבל בחול מדליקין וכדמבואר גם בש\"ס שם והדלקה הוא מסתמא בלילה וא\"כ אף בחול אין להדליק ומוכח דשורפין בלילה ומצאתי שכבר עמדו בזה הראשונים והביאו ירושלמי בזה עיין רמב\"ן ורשב\"א וריטב\"א וחדושי הר\"ן שם בדף כ\"ד ע\"ב ובמהר\"ם חלאווה פסחים דף ג' ועיין גם בתוס' שבת כ\"ד ע\"ב בד\"ה עד בוקר אלא דדברי הירושלמי אינם מובנים גם תלי לה שם במ\"ד מילה שלא בזמנה נימול בלילה ואנן לא קיי\"ל כהאי מ\"ד וצ\"ע שם בירושלמי ובדברי הראשונים הנ\"ל:\n",
+      "en_html": "Rather, she lays it down until the evening and burns it - in the Mishna Ita and she lays it down until the evening and the GK says that she was burned then and refer to the glosses of R. Isaiah Pik who stood in the ZA of the A DKIL there is no burning of holy things at night and so it seems that the the Master is for a donation and a disease that they are really defiled. Medlikin and kadambuar also in the Shas there and the lighting is hidden at night and yet even in the sand it is not to be lit and it is proved that it is deshurfin at night and I found that the early ones already stood by this and brought the Jerusalemites to it see Ramban and Rashba and Ritba and Hadoshi of the Rann there on page 24 EB and in Maharam Halava Pesachim page 3 and also refer to Tos. The Yerushalmi also do not understand Teli La Shem in the Madd, a word that was not circumcised at night, and we did not keil Kahai Madd and Tsa stated in the Yerushalmi and in the words of the above mentioned Rishonim:\r\n",
+      "he_plain": "אלא מניחה עד הערב ושורפה - במשנה איתא ומניחה עד הערב ומשמע ג\"כ דשורפה אז ועיין הגהות ר' ישעיה פיק שעמד ע\"ז מהא דקיי\"ל אין שורפין קדשים בלילה וא\"כ לכאורה ה\"ה לתרומה וחלה שנטמאו אמנם באמת גם ממשנה פ' במה מדליקין נמי משמע לכאורה ששורפין תרומה בלילה שהרי אמרה רק שאין מדליקין בשמן שריפה ביו\"ט אבל בחול מדליקין וכדמבואר גם בש\"ס שם והדלקה הוא מסתמא בלילה וא\"כ אף בחול אין להדליק ומוכח דשורפין בלילה ומצאתי שכבר עמדו בזה הראשונים והביאו ירושלמי בזה עיין רמב\"ן ורשב\"א וריטב\"א וחדושי הר\"ן שם בדף כ\"ד ע\"ב ובמהר\"ם חלאווה פסחים דף ג' ועיין גם בתוס' שבת כ\"ד ע\"ב בד\"ה עד בוקר אלא דדברי הירושלמי אינם מובנים גם תלי לה שם במ\"ד מילה שלא בזמנה נימול בלילה ואנן לא קיי\"ל כהאי מ\"ד וצ\"ע שם בירושלמי ובדברי הראשונים הנ\"ל:",
+      "en_plain": "Rather, she lays it down until the evening and burns it - in the Mishna Ita and she lays it down until the evening and the GK says that she was burned then and refer to the glosses of R. Isaiah Pik who stood in the ZA of the A DKIL there is no burning of holy things at night and so it seems that the the Master is for a donation and a disease that they are really defiled. Medlikin and kadambuar also in the Shas there and the lighting is hidden at night and yet even in the sand it is not to be lit and it is proved that it is deshurfin at night and I found that the early ones already stood by this and brought the Jerusalemites to it see Ramban and Rashba and Ritba and Hadoshi of the Rann there on page 24 EB and in Maharam Halava Pesachim page 3 and also refer to Tos. The Yerushalmi also do not understand Teli La Shem in the Madd, a word that was not circumcised at night, and we did not keil Kahai Madd and Tsa stated in the Yerushalmi and in the words of the above mentioned Rishonim:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman511/seif-004/mishnah-berurah",
+      "volume": "oc1",
+      "siman": 511,
+      "seif": 4,
+      "slug": "mishnah-berurah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.548,
+        "he_chars": 1229,
+        "en_chars": 1903,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1903
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "{כא} מוגמר - דהוא דבר שאינו שוה לכל נפש אלא למעונגים ולא הותר ביום טוב ולענין שתיית טיטו\"ן ביום טוב עיין בבה\"ל:<br />\n{כב} על הגחלים - בגחלים של עץ אפילו אם הובערו לצורך אוכל נפש דיש בזה משום מכבה [הגחלים בתחלת נתינתן] ומבעיר שמבעיר הבשמים וכ\"ש אם הבעיר הגחלים בשביל זה ואף בגחלת של חרס [פי' חרס שניסק לצלות עליו בשר] משמע בש\"ס דאסור:<br />\n{כג} לגמר הבית - דוקא כשעושה זה ביום טוב אבל מותר ליקח מעיו\"ט כלי של ברזל מלא נקבים ומעשנין אותה בבשמים ופוקקין הנקבים ולמחר פותחין הנקבים ונמצא הבית מתגמר מאליו ושרי לעשות כן אפילו בשבת [גמרא]:<br />\n{כד} למתקן לאכילה - ואפילו טובים כך אלא שרוצה למתקן יותר שרי:<br />\n{כה} של עץ - אף דיש בזה משום מכבה ומבעיר כנ\"ל שרי דדבר זה שוה לכל נפש הוא דאף עניים מתאוין למתק אכילתן אלא שאינו מצוי להם ואף דבחרדל בסימן תק\"י אסור בכה\"ג התם משום דאפשר מבע\"י שכן דרכו. ודע דיש מן הפוסקים שסוברין דדוקא אם הגחלים הובערו מכבר לצורך או\"נ לקדרה וכה\"ג אבל אסור להבעיר עצים לכתחלה כדי לפזר מיני בשמים תחת הפירות ע\"ג גחלתן:<br />\n{כו} ואסור וכו' על הבגדים - ואפילו בגד שמריח כבר אין ליתן עליו כדי שיריח יותר ומ\"מ אתרוג שהיה מונח מעיו\"ט על הבגד ונטלו ממנו מותר להחזירו דאינו מריח יותר בשביל כך:<br />\n{כז} משום דמוליד וכו' - ואסור מדרבנן שהמוליד דבר חדש קרוב הוא לעושה מלאכה חדשה:<br />\n{כח} ריחא - וה\"ה דאסור ליתן ביו\"ט דבר המריח לתוך המים כדי שיריחו:\n",
+      "en_html": "(א) It is a thing that is not for every soul, but for pleasure and not permitted on a good day, and for the sake of drinking a tyrant on a good day\n<br>(ב) It is written about the rods of a tree even if it is applied for the purpose of eating a soul in it, because of the rod, it is given, and in the fire of the heavens, and in the fire of the fire, and in the fire of the fire, it is forbidden for it\n<br>(כג) To finish the house — specifically when one does this on Yom Tov; but it is permitted to take from erev Yom Tov an iron vessel full of holes and fumigate it with spices and plug the holes, and the next day open the holes and the house is found finished by itself, and it is permitted to do so even on Shabbat [Gemara].\n<br>(ד) (h) The facility for eating – and even so good, but wants to repair more of my ministers:\n<br>(כה) Of wood — although there is here concern of extinguishing and kindling, as above it is permitted, for this matter is for all souls, for even the poor desire to improve their eating but it is not available to them; and although in mustard in siman 510 it is forbidden in such a case, there it is because it is possible from erev Yom Tov as is its way. And know that there are among poskim who hold that specifically if the coals were already kindled beforehand for food for souls for the pot and the like; but it is forbidden to kindle wood l'chatchila in order to scatter kinds of spices under fruits on their coals.\n<br>(ו) And it is forbidden and so on the clothes – and even a garment that smells has no longer been given to him in order to be more exalted and circumcised in his eyes on the clothes and taken from him to return his ears more odorous for this:\n<br>(ז) For this is because of David and so on, and it is forbidden that the molecule of a new thing is close to doing a new task:\n<br>(ח) \"And thou shalt not eat anything that smells into the water so that it may be thrust down:",
+      "he_plain": "{כא} מוגמר - דהוא דבר שאינו שוה לכל נפש אלא למעונגים ולא הותר ביום טוב ולענין שתיית טיטו\"ן ביום טוב עיין בבה\"ל: {כב} על הגחלים - בגחלים של עץ אפילו אם הובערו לצורך אוכל נפש דיש בזה משום מכבה [הגחלים בתחלת נתינתן] ומבעיר שמבעיר הבשמים וכ\"ש אם הבעיר הגחלים בשביל זה ואף בגחלת של חרס [פי' חרס שניסק לצלות עליו בשר] משמע בש\"ס דאסור: {כג} לגמר הבית - דוקא כשעושה זה ביום טוב אבל מותר ליקח מעיו\"ט כלי של ברזל מלא נקבים ומעשנין אותה בבשמים ופוקקין הנקבים ולמחר פותחין הנקבים ונמצא הבית מתגמר מאליו ושרי לעשות כן אפילו בשבת [גמרא]: {כד} למתקן לאכילה - ואפילו טובים כך אלא שרוצה למתקן יותר שרי: {כה} של עץ - אף דיש בזה משום מכבה ומבעיר כנ\"ל שרי דדבר זה שוה לכל נפש הוא דאף עניים מתאוין למתק אכילתן אלא שאינו מצוי להם ואף דבחרדל בסימן תק\"י אסור בכה\"ג התם משום דאפשר מבע\"י שכן דרכו. ודע דיש מן הפוסקים שסוברין דדוקא אם הגחלים הובערו מכבר לצורך או\"נ לקדרה וכה\"ג אבל אסור להבעיר עצים לכתחלה כדי לפזר מיני בשמים תחת הפירות ע\"ג גחלתן: {כו} ואסור וכו' על הבגדים - ואפילו בגד שמריח כבר אין ליתן עליו כדי שיריח יותר ומ\"מ אתרוג שהיה מונח מעיו\"ט על הבגד ונטלו ממנו מותר להחזירו דאינו מריח יותר בשביל כך: {כז} משום דמוליד וכו' - ואסור מדרבנן שהמוליד דבר חדש קרוב הוא לעושה מלאכה חדשה: {כח} ריחא - וה\"ה דאסור ליתן ביו\"ט דבר המריח לתוך המים כדי שיריחו:",
+      "en_plain": "(א) It is a thing that is not for every soul, but for pleasure and not permitted on a good day, and for the sake of drinking a tyrant on a good day (ב) It is written about the rods of a tree even if it is applied for the purpose of eating a soul in it, because of the rod, it is given, and in the fire of the heavens, and in the fire of the fire, and in the fire of the fire, it is forbidden for it (כג) To finish the house — specifically when one does this on Yom Tov; but it is permitted to take from erev Yom Tov an iron vessel full of holes and fumigate it with spices and plug the holes, and the next day open the holes and the house is found finished by itself, and it is permitted to do so even on Shabbat [Gemara]. (ד) (h) The facility for eating – and even so good, but wants to repair more of my ministers: (כה) Of wood — although there is here concern of extinguishing and kindling, as above it is permitted, for this matter is for all souls, for even the poor desire to improve their eating but it is not available to them; and although in mustard in siman 510 it is forbidden in such a case, there it is because it is possible from erev Yom Tov as is its way. And know that there are among poskim who hold that specifically if the coals were already kindled beforehand for food for souls for the pot and the like; but it is forbidden to kindle wood l'chatchila in order to scatter kinds of spices under fruits on their coals. (ו) And it is forbidden and so on the clothes – and even a garment that smells has no longer been given to him in order to be more exalted and circumcised in his eyes on the clothes and taken from him to return his ears more odorous for this: (ז) For this is because of David and so on, and it is forbidden that the molecule of a new thing is close to doing a new task: (ח) \"And thou shalt not eat anything that smells into the water so that it may be thrust down:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman513/seif-007/turei-zahav",
+      "volume": "oc1",
+      "siman": 513,
+      "seif": 7,
+      "slug": "turei-zahav",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.915,
+        "he_chars": 164,
+        "en_chars": 314,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 314
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ואפי' בי\"ט שלאחר השבת. </b> דלדעת ר' אפרים אסור בזה דשמא הית' מתילדה היום לא קי\"ל כן דאין הכנה אלא אם נגמר' היום ע\"י הכנה של אתמול ובמעי אמה לא נגמרה עד שתצא לאור העולם:\n",
+      "en_html": "And even on Yom Tov after Shabbat. Per the view of R' Efrayim it is forbidden in this, lest it was in the process of being born today — we do not establish thus, for preparation applies only if it finished today through yesterday's preparation; in its mother's womb it did not finish until it emerges to the world.\r\n",
+      "he_plain": "ואפי' בי\"ט שלאחר השבת. דלדעת ר' אפרים אסור בזה דשמא הית' מתילדה היום לא קי\"ל כן דאין הכנה אלא אם נגמר' היום ע\"י הכנה של אתמול ובמעי אמה לא נגמרה עד שתצא לאור העולם:",
+      "en_plain": "And even on Yom Tov after Shabbat. Per the view of R' Efrayim it is forbidden in this, lest it was in the process of being born today — we do not establish thus, for preparation applies only if it finished today through yesterday's preparation; in its mother's womb it did not finish until it emerges to the world.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    }
+  ]
+}
