@@ -1,0 +1,328 @@
+{
+  "meta": {
+    "created": "2026-08-30T06:53:11.568Z",
+    "kit": "OPEN_CLASS_B_C_GPT_KIT",
+    "mode": "split_or_fresh_translate_hardened",
+    "gpt_source": "C:/Users/binya/Downloads/OPEN_CLASS_B_C_GPT_KIT_ALL_15_COMPLETED.json",
+    "gpt_result": "OPEN_CLASS_B_C_GPT_RESULT.json",
+    "kit_case_count": 15,
+    "gpt_case_count": 15,
+    "marker_fixes": 0,
+    "summary": "OPEN_CLASS_B_C_GPT_KIT: 14 APPROVE, 1 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED"
+  },
+  "results": [
+    {
+      "id": "yd1/siman128/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 7,
+      "enSegs": 6,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4"
+      ],
+      "en_length_ratio": 1.164,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman160/seif-005/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 7,
+      "enSegs": 4,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "FRESH_TRANSLATE_6"
+      ],
+      "en_length_ratio": 1.42,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman161/seif-002/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 6,
+      "enSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5"
+      ],
+      "en_length_ratio": 1.46,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman109/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 11,
+      "enSegs": 4,
+      "action": "split_en",
+      "confidence": "high",
+      "verdict": "HOLD",
+      "reason": "content_drift",
+      "repair_candidate": false,
+      "flags": [
+        "CONTENT_DRIFT"
+      ],
+      "en_length_ratio": 1,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman127/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 19,
+      "enSegs": 17,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_10",
+        "FRESH_TRANSLATE_15",
+        "FRESH_TRANSLATE_17"
+      ],
+      "en_length_ratio": 1.048,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman127/seif-003/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 20,
+      "enSegs": 13,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_7",
+        "FRESH_TRANSLATE_9",
+        "FRESH_TRANSLATE_11",
+        "FRESH_TRANSLATE_12",
+        "FRESH_TRANSLATE_13",
+        "FRESH_TRANSLATE_14",
+        "FRESH_TRANSLATE_19"
+      ],
+      "en_length_ratio": 1.11,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman157/seif-001/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 21,
+      "enSegs": 18,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_7",
+        "FRESH_TRANSLATE_15",
+        "FRESH_TRANSLATE_18",
+        "FRESH_TRANSLATE_19"
+      ],
+      "en_length_ratio": 1.134,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman165/seif-001/beer-hagolah",
+      "slug": "beer-hagolah",
+      "heSegs": 4,
+      "enSegs": 2,
+      "action": "fresh_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3"
+      ],
+      "en_length_ratio": 3.886,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman165/seif-001/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 8,
+      "enSegs": 6,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_6",
+        "FRESH_TRANSLATE_7"
+      ],
+      "en_length_ratio": 5.165,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman166/seif-001/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 5,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_4"
+      ],
+      "en_length_ratio": 3.485,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman168/seif-018/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 9,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "FRESH_TRANSLATE_8"
+      ],
+      "en_length_ratio": 6.823,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman170/seif-001/turei-zahav",
+      "slug": "turei-zahav",
+      "heSegs": 5,
+      "enSegs": 3,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4"
+      ],
+      "en_length_ratio": 1.607,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman197/seif-002/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 5,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3"
+      ],
+      "en_length_ratio": 6.247,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman199/seif-003/siftei-kohen",
+      "slug": "siftei-kohen",
+      "heSegs": 3,
+      "enSegs": 2,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_0"
+      ],
+      "en_length_ratio": 3.198,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    },
+    {
+      "id": "yd1/siman242/seif-004/beur-hagra",
+      "slug": "beur-hagra",
+      "heSegs": 8,
+      "enSegs": 4,
+      "action": "mixed_resegment_translate",
+      "confidence": "medium",
+      "verdict": "APPROVE",
+      "reason": "mixed/fresh OK",
+      "repair_candidate": false,
+      "flags": [
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5"
+      ],
+      "en_length_ratio": 6.158,
+      "exact_match": false,
+      "sig_match": false,
+      "gpt_notes": "Hardened repair: existing English preserved where valid; only garbled or missing slots freshly translated."
+    }
+  ]
+}
