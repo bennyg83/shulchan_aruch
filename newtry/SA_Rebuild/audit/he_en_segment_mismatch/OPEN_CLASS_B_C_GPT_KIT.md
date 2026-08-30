@@ -1,8 +1,8 @@
-# OPEN_CLASS_B_C_GPT_KIT — 1 remaining open B+C case
+# OPEN_CLASS_B_C_GPT_KIT — CLOSED (0 remaining)
 
-**For external AI review only. Do not apply to corpus until after human/parent check.**
+**CLOSED 2026-08-30:** last case `yd1/siman109/seif-001/beur-hagra` fixed by local verbatim mechanical split (not GPT). Do not re-upload.
 
-Mode: `split_or_fresh_translate_hardened` · Dictionary: attach **`full_dictionary.md`**
+Mode was: `split_or_fresh_translate_hardened` · Dictionary: **`full_dictionary.md`**
 
 **Class A (12 mechanical Likut splits) are NOT in this kit** — applied locally separately.
 
@@ -10,9 +10,9 @@ Mode: `split_or_fresh_translate_hardened` · Dictionary: attach **`full_dictiona
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **1** |
+| **Total cases** | **0** (was 1 HOLD; closed mechanically) |
 | Class B | 0 |
-| Class C | 1 |
+| Class C | 0 |
 
 ### By volume
 
