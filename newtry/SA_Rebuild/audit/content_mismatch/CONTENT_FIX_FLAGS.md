@@ -70,6 +70,41 @@ Also mirrored under [`../he_en_content_mismatch/MANUAL_QUEUE.json`](../he_en_con
 
 ---
 
+### 3. `oc1-netiv-chayim-244-5-mt-garbage`
+
+| Field | Value |
+|--------|--------|
+| **Ref** | OC Netiv Chayim 244:5 |
+| **Volume** | `oc1` |
+| **Path** | `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/siman244/seif-005/netiv-chayim/` *(verified)* |
+| **Kind** | content-mismatch / mt_garbage / retranslate |
+| **Severity** | high |
+| **Status** | open |
+| **Sizes** | EN 111 B · HE 152 B |
+| **In OC_CONTENT_SCAN_2026-08-30?** | **No** (not in flagged list; scan has other netiv-chayim mt_garbage e.g. 310:1, not 244:5) |
+| **Mechaber kit?** | No — commentary; tracked in `OC_COMMENTARY_MT_GARBAGE_MANUAL.json` |
+
+**Symptoms**
+
+- EN is classic MT garbage vs HE.
+- `שם` → "(name)"; `דבשלמא` → "Honeylma"; `עכו"ם` → "Czechs" / "UN"; `בקיבולת` → "capacity"; `כצ"ל` → "as a captain".
+
+**HE (current)**
+
+> <small>(שם)</small> דבשלמא כששוכר העכו"ם בקיבולת או השכיר לעכו"ם על חדש או חצי הוא נוטל כצ"ל:
+
+**EN (current — confirmed on disk)**
+
+> (name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:
+
+**Recommended action**
+
+1. Retranslate EN from HE.  
+2. Do **not** put in `OC_MECHABER_CUT_EN_KIT`.  
+3. Do **not** close as a segment-count-only fix.
+
+---
+
 ## Queue hygiene
 
 When fixing: set `status` → `fixed`, add `fixed_at` + commit SHA in JSON; strike or move section here to a “Fixed” heading.

@@ -74,5 +74,14 @@
 - `OC_MECHABER_CUT_EN_KIT.zip`
 - Prior flags merged from `CONTENT_FIX_FLAGS.json` (OC 244:1 confirmed)
 
+## Post-scan manual misses (2026-08-30)
+
+Human-verified cells **not** present in this scan's `flagged` list:
+
+| Id | Kind | Note |
+|----|------|------|
+| `oc1/siman244/seif-005/netiv-chayim` | mt_garbage | EN: "(name) Honeylma, when the Czechs are in capacity…" — confirmed on disk; tracked in `CONTENT_FIX_FLAGS` + `OC_COMMENTARY_MT_GARBAGE_MANUAL.json` (not mechaber kit). |
+
+
 ## Next
 Editorial/GPT pass on kit; do not apply until reviewed.

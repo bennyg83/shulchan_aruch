@@ -5,7 +5,7 @@
   "verified_on_commit": "69a00626c2b043cf7ede868f344b224ac506b4c7",
   "corpus_root": "newtry/OC_Mobile/oc318-mobile-reader/public/corpus",
   "status_summary": {
-    "open": 2,
+    "open": 3,
     "fixed": 0
   },
   "flags": [
@@ -81,6 +81,42 @@
       },
       "recommended_action": "Complete/retranslate EN from HE; fix {Rama: ...} once (no RAMA: duplicate); place Rama gloss in HE order (after in-techum prohibition, before outside-techum permission); restore full צאן לדיר + סי׳ תקלו סעיף י״ד cross-ref.",
       "do_not": "Do not treat as segment-alignment success — EN content is incomplete/misordered."
+    },
+    {
+      "id": "oc1-netiv-chayim-244-5-mt-garbage",
+      "volume": "oc1",
+      "ref": "OC Netiv Chayim 244:5",
+      "path": "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/siman244/seif-005/netiv-chayim/",
+      "files": {
+        "en": "en.html",
+        "he": "he.html"
+      },
+      "kind": "content-mismatch / mt_garbage / retranslate",
+      "severity": "high",
+      "status": "open",
+      "corpus_id": "oc1/siman244/seif-005/netiv-chayim",
+      "scan_ref": "newtry/SA_Rebuild/audit/content_mismatch/OC_CONTENT_SCAN_2026-08-30.json",
+      "in_oc_content_scan": false,
+      "scan_note": "NOT present in OC_CONTENT_SCAN_2026-08-30 flagged list (mt_garbage or otherwise). Human-verified 2026-08-30. Other netiv-chayim mt_garbage exists (e.g. oc1/siman310/seif-001/netiv-chayim) but not 244:5.",
+      "kit_ref": "newtry/SA_Rebuild/audit/content_mismatch/OC_COMMENTARY_MT_GARBAGE_MANUAL.json",
+      "not_in_kit": "OC_MECHABER_CUT_EN_KIT.json (commentary, not mechaber)",
+      "flagged_at": "2026-08-30",
+      "verified_on_commit": "c2b6cacdba",
+      "symptoms": [
+        "EN is classic MT garbage / nonsense vs HE",
+        "(שם) → (name); דבשלמא → Honeylma; העכו\"ם → Czechs / UN; בקיבולת → capacity; כצ\"ל → as a captain"
+      ],
+      "sample_snippets": {
+        "he": "<small>(שם)</small> דבשלמא כששוכר העכו\"ם בקיבולת או השכיר לעכו\"ם על חדש או חצי הוא נוטל כצ\"ל:",
+        "en": "(name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:"
+      },
+      "sizes": {
+        "en_bytes": 111,
+        "he_bytes": 152,
+        "en_he_byte_ratio": 0.73
+      },
+      "recommended_action": "Retranslate EN from HE only (Netiv Chayim on קיבולת hire). Do not use OC_MECHABER_CUT_EN_KIT.",
+      "do_not": "Do not treat as segment-alignment — EN meaning is wholly wrong."
     }
   ]
 }
