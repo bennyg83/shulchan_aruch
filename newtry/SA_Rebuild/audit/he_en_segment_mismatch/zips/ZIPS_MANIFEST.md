@@ -44,4 +44,4 @@ On disk, _REMAINING kit zips use numeric prefixes 1_–10_ matching this sequenc
 
 | Zip | Size (bytes) | Contents |
 |-----|-------------:|----------|
-| `01_OPEN_CLASS_B_C_GPT_KIT.zip` | 129264 | OPEN_CLASS_B_C_GPT_KIT.md, OPEN_CLASS_B_C_GPT_KIT.json, OPEN_CLASS_B_C_GPT_KIT_part01.json, OPEN_CLASS_B_C_GPT_KIT_part02.json, OPEN_CLASS_B_C_GPT_KIT_part03.json, full_dictionary.md |
+| `01_OPEN_CLASS_B_C_GPT_KIT.zip` | 38263 | OPEN_CLASS_B_C_GPT_KIT.md, OPEN_CLASS_B_C_GPT_KIT.json, OPEN_CLASS_B_C_GPT_KIT_part01.json, full_dictionary.md |

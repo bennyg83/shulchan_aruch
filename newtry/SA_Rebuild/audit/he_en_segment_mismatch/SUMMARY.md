@@ -1,13 +1,13 @@
 # HE/EN segment mismatch scan
 
-Scanned at: 2026-08-30T05:55:32.017Z
+Scanned at: 2026-08-30T06:58:03.029Z
 
 Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Volume | Pairs | Issues | Top kinds |
 |--------|------:|-------:|-----------|
 | oc1 | 89911 | 59 | he_missing(59) |
-| yd1 | 25946 | 27 | he_has_more_segments(26), en_truncated_vs_multi_he(1) |
+| yd1 | 25946 | 1 | he_has_more_segments(1) |
 | eh1 | 11939 | 0 | — |
 | cm1 | 70186 | 0 | — |
 
@@ -36,10 +36,7 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 | Slug | Issues | Kinds |
 |------|-------:|-------|
-| beur-hagra | 20 | he_has_more_segments:19, en_truncated_vs_multi_he:1 |
-| siftei-kohen | 5 | he_has_more_segments:5 |
-| beer-hagolah | 1 | he_has_more_segments:1 |
-| turei-zahav | 1 | he_has_more_segments:1 |
+| beur-hagra | 1 | he_has_more_segments:1 |
 
 ## Samples
 
@@ -88,31 +85,5 @@ Flags when `<br>`-split HE and EN segment counts diverge (reader zip holes).
 
 ### yd1
 
-- `yd1/siman84/seif-006/beur-hagra` — **he_has_more_segments** heSegs=7 enSegs=6 (1053B / 1049B)
 - `yd1/siman109/seif-001/beur-hagra` — **he_has_more_segments** heSegs=11 enSegs=4 (5445B / 5991B)
-- `yd1/siman115/seif-002/beur-hagra` — **he_has_more_segments** heSegs=5 enSegs=4 (2756B / 2846B)
-- `yd1/siman115/seif-003/beur-hagra` — **he_has_more_segments** heSegs=9 enSegs=8 (5994B / 6375B)
-- `yd1/siman127/seif-001/beur-hagra` — **he_has_more_segments** heSegs=19 enSegs=17 (7354B / 7773B)
-- `yd1/siman127/seif-003/beur-hagra` — **he_has_more_segments** heSegs=20 enSegs=13 (6137B / 6221B)
-- `yd1/siman128/seif-003/beur-hagra` — **he_has_more_segments** heSegs=7 enSegs=6 (1816B / 1860B)
-- `yd1/siman128/seif-004/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=2 (494B / 489B)
-- `yd1/siman157/seif-001/beur-hagra` — **he_has_more_segments** heSegs=21 enSegs=18 (8335B / 7871B)
-- `yd1/siman160/seif-005/beur-hagra` — **he_has_more_segments** heSegs=7 enSegs=4 (1423B / 1266B)
-- `yd1/siman160/seif-012/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=3 (791B / 752B)
-- `yd1/siman160/seif-016/beur-hagra` — **he_has_more_segments** heSegs=8 enSegs=6 (1693B / 1626B)
-- `yd1/siman160/seif-017/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=3 (1315B / 1369B)
-- `yd1/siman160/seif-020/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=3 (881B / 820B)
-- `yd1/siman160/seif-023/beur-hagra` — **he_has_more_segments** heSegs=4 enSegs=3 (1145B / 1129B)
-- `yd1/siman161/seif-002/beur-hagra` — **he_has_more_segments** heSegs=6 enSegs=2 (2823B / 2347B)
-- `yd1/siman165/seif-001/beer-hagolah` — **he_has_more_segments** heSegs=4 enSegs=2 (678B / 218B)
-- `yd1/siman165/seif-001/siftei-kohen` — **he_has_more_segments** heSegs=8 enSegs=6 (7375B / 1379B)
-- `yd1/siman166/seif-001/siftei-kohen` — **he_has_more_segments** heSegs=5 enSegs=4 (5543B / 1994B)
-- `yd1/siman168/seif-018/siftei-kohen` — **he_has_more_segments** heSegs=9 enSegs=4 (10053B / 1707B)
-- `yd1/siman170/seif-001/turei-zahav` — **he_has_more_segments** heSegs=5 enSegs=3 (19083B / 8804B)
-- `yd1/siman197/seif-002/siftei-kohen` — **he_has_more_segments** heSegs=5 enSegs=2 (7424B / 737B)
-- `yd1/siman199/seif-003/siftei-kohen` — **he_has_more_segments** heSegs=3 enSegs=2 (6601B / 742B)
-- `yd1/siman242/seif-004/beur-hagra` — **he_has_more_segments** heSegs=8 enSegs=4 (5616B / 1193B)
-- `yd1/siman246/seif-004/beur-hagra` — **he_has_more_segments** heSegs=9 enSegs=8 (2353B / 2767B)
-- `yd1/siman246/seif-026/beur-hagra` — **he_has_more_segments** heSegs=5 enSegs=4 (557B / 491B)
-- `yd1/siman286/seif-022/beur-hagra` — **en_truncated_vs_multi_he** heSegs=2 enSegs=1 (936B / 906B)
 

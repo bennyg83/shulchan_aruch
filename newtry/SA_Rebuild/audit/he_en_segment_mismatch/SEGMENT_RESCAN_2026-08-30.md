@@ -1,41 +1,23 @@
-# Segment rescan — post reupload apply (2026-08-30)
+# Segment rescan — post OPEN_CLASS_B_C apply (2026-08-30)
 
-**Scanned:** 2026-08-30T05:55:32.016Z  
-**Baseline:** ~39 actionable + 59 he_missing (after marker fixes, commit 17357dda2d)  
-**Apply:** 12 cells from reupload kits 03+04 ([REMAINING_GPT_ALL_APPLY.json](./REMAINING_GPT_ALL_APPLY.json))
+**Scanned:** 2026-08-30T06:58:03.029Z  
+**Apply:** 14 cells from OPEN_CLASS_B_C GPT (commit `30298d6f8b`)  
+**HOLD (not applied):** `yd1/siman109/seif-001/beur-hagra` — content_drift
 
 ## Totals
 
-| Metric | Prior (post-marker) | Post-reupload | Δ |
-|--------|--------------------:|--------------:|--:|
-| **All issues** | 98 | 86 | **-12** |
-| **Actionable** (excl. he_missing) | 39 | 27 | **-12** |
+| Metric | Prior (pre B+C) | Post B+C | Δ |
+|--------|----------------:|---------:|--:|
+| **All issues** | 86 | 60 | **-26** |
+| **Actionable** (excl. he_missing) | 27 | 1 | **-26** |
 | he_missing | 59 | 59 | 0 |
-| he_has_more_segments | — | 26 | |
-| en_truncated_vs_multi_he | — | 1 | |
-| en_has_more_segments | — | 0 | |
-| en_missing | — | 0 | |
+| he_has_more_segments | 26 | 1 | |
+| en_truncated_vs_multi_he | 1 | 0 | |
 
-## By volume
+## Remaining actionable (excl. he_missing)
 
-| Volume | Pairs | Issues | Top kinds |
-|--------|------:|-------:|-----------|
-| oc1 | 89911 | 59 | he_missing (59) |
-| yd1 | 25946 | 27 | he_has_more_segments (26), en_truncated_vs_multi_he (1) |
-| eh1 | 11939 | 0 | — |
-| cm1 | 70186 | 0 | — |
-
-## Eval this round
-
-| Kit | APPROVE | HOLD | Applied |
-|-----|--------:|-----:|--------:|
-| 03 EN_TRUNC_MODERATE_REMAINING | 10 | 1 | 10 |
-| 04 BEER_DEGREE_SPLIT_REMAINING | 2 | 0 | 2 |
-| 06 HE_HAS_MORE_LIKUT_REMAINING | 0 | 9 | 0 |
-| 07 HE_HAS_MORE_LIKUT_MERGED_REMAINING | 0 | 1 | 0 |
-| 10 HE_HAS_MORE_EDITORIAL_REMAINING | 0 | 16 | 0 |
-| **Total** | **12** | **27** | **12** |
-
-HOLD reasons: content_drift (18), content_drift_vs_corpus_en (1), fresh_translate_quality (8).
+| ID | Reason |
+|----|--------|
+| `yd1/siman109/seif-001/beur-hagra` | content_drift HOLD — GPT `split_en` not verbatim; do not force-apply |
 
 Machine JSON: `SEGMENT_RESCAN_2026-08-30.json`

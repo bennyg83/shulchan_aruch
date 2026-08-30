@@ -1,6 +1,6 @@
 {
-  "scannedAt": "2026-08-30T05:55:32.016Z",
-  "label": "post_reupload_apply_2026-08-30",
+  "scannedAt": "2026-08-30T06:58:03.029Z",
+  "label": "post_open_class_b_c_apply_2026-08-30",
   "corpusRoot": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
   "volumes": [
     "oc1",
@@ -10,12 +10,11 @@
   ],
   "totals": {
     "pairs": 197982,
-    "issues": 86,
-    "actionable_excluding_he_missing": 27,
+    "issues": 60,
+    "actionable_excluding_he_missing": 1,
     "byKind": {
       "he_missing": 59,
-      "he_has_more_segments": 26,
-      "en_truncated_vs_multi_he": 1
+      "he_has_more_segments": 1
     }
   },
   "byVolume": [
@@ -30,10 +29,9 @@
     {
       "volume": "yd1",
       "pairs": 25946,
-      "issues": 27,
+      "issues": 1,
       "byKind": {
-        "he_has_more_segments": 26,
-        "en_truncated_vs_multi_he": 1
+        "he_has_more_segments": 1
       }
     },
     {
@@ -50,134 +48,38 @@
     }
   ],
   "baseline": {
-    "source": "After marker fixes (commit 17357dda2d) — ~39 actionable + 59 he_missing",
+    "source": "Pre B+C apply — Class A closed; 15 B+C open (27 actionable total with prior)",
     "totals": {
-      "issues": 98,
-      "actionable_excluding_he_missing": 39,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
-        "he_missing": 59
+        "he_missing": 59,
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     }
   },
   "deltaFromBaseline": {
-    "totalIssues": -12,
-    "actionable_delta": -12
+    "totalIssues": -26,
+    "actionable_delta": -26
   },
   "apply_session": {
-    "batch": "full_reupload_all_10_2026-08-30",
-    "cells_applied": 12,
-    "kits": "03 EN_TRUNC_MODERATE (10) + 04 BEER_DEGREE (2)",
-    "eval_summary": "REMAINING_GPT_EVAL_SUMMARY.json",
-    "marker_fix": "REMAINING_MARKER_FIX_REPORT.json",
-    "apply_log": "REMAINING_GPT_ALL_APPLY.json",
-    "marker_slots_fixed": 36,
-    "still_hold": 27,
-    "still_hold_by_reason": {
-      "content_drift_vs_corpus_en": 1,
-      "content_drift": 18,
-      "fresh_translate_quality": 8
-    },
-    "eval_kits": [
-      {
-        "kit": "EN_MISSING_2_REMAINING",
-        "num": "01",
-        "APPROVE": 0,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "EN_HAS_MORE_REMAINING",
-        "num": "02",
-        "APPROVE": 0,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "EN_TRUNC_MODERATE_REMAINING",
-        "num": "03",
-        "APPROVE": 10,
-        "HOLD": 1,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 10
-      },
-      {
-        "kit": "BEER_DEGREE_SPLIT_REMAINING",
-        "num": "04",
-        "APPROVE": 2,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 2
-      },
-      {
-        "kit": "EN_TRUNC_REMAINING",
-        "num": "05",
-        "APPROVE": 0,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "HE_HAS_MORE_LIKUT_REMAINING",
-        "num": "06",
-        "APPROVE": 0,
-        "HOLD": 9,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
-        "num": "07",
-        "APPROVE": 0,
-        "HOLD": 1,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "HE_HAS_MORE_OFFSET_REMAINING",
-        "num": "08",
-        "APPROVE": 0,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "EN_TRUNC_EDITORIAL_REMAINING",
-        "num": "09",
-        "APPROVE": 0,
-        "HOLD": 0,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      },
-      {
-        "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
-        "num": "10",
-        "APPROVE": 0,
-        "HOLD": 16,
-        "REJECT": 0,
-        "REPAIR_CANDIDATE": 0,
-        "SKIP_APPLIED": 0,
-        "applied_ready": 0
-      }
+    "batch": "OPEN_CLASS_B_C_GPT",
+    "cells_applied": 14,
+    "commit": "30298d6f8b",
+    "eval": "OPEN_CLASS_B_C_GPT_KIT_GPT_RESULT_EVAL.json",
+    "apply_log": "OPEN_CLASS_B_C_APPLY.json",
+    "verdicts": "OPEN_CLASS_B_C_GPT_KIT: 14 APPROVE, 1 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED",
+    "hold_ids": [
+      "yd1/siman109/seif-001/beur-hagra"
     ]
-  }
+  },
+  "remaining_open_actionable": [
+    {
+      "id": "yd1/siman109/seif-001/beur-hagra",
+      "reason": "content_drift HOLD — split_en not verbatim vs corpus",
+      "he": 11,
+      "en": 4
+    }
+  ]
 }

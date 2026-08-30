@@ -1,4 +1,4 @@
-# OPEN_CLASS_B_C_GPT_KIT — 15 open B+C cases
+# OPEN_CLASS_B_C_GPT_KIT — 1 remaining open B+C case
 
 **For external AI review only. Do not apply to corpus until after human/parent check.**
 
@@ -10,30 +10,28 @@ Mode: `split_or_fresh_translate_hardened` · Dictionary: attach **`full_dictiona
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **15** |
-| Class B | 3 |
-| Class C | 12 |
+| **Total cases** | **1** |
+| Class B | 0 |
+| Class C | 1 |
 
 ### By volume
 
 | Volume | Count |
 |--------|------:|
-| yd1 | 15 |
+| yd1 | 1 |
 
 ## Files
 
-- Full kit: [`OPEN_CLASS_B_C_GPT_KIT.json`](./OPEN_CLASS_B_C_GPT_KIT.json) (167,224 bytes, SHA `d822ab2a483b…`)
+- Full kit: [`OPEN_CLASS_B_C_GPT_KIT.json`](./OPEN_CLASS_B_C_GPT_KIT.json) (21,681 bytes, SHA `6fd4c96874ec…`)
 - Parts: target ≤ 85,000 UTF-8 bytes when batched; single-case parts keep **full** segment text (may exceed cap)
 - Zip: [`zips/01_OPEN_CLASS_B_C_GPT_KIT.zip`](./zips/01_OPEN_CLASS_B_C_GPT_KIT.zip) includes **full parent** `OPEN_CLASS_B_C_GPT_KIT.json` plus all parts + dictionary
-- Created: 2026-08-30T06:25:23.972Z
+- Created: 2026-08-30T07:00:06.535Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `OPEN_CLASS_B_C_GPT_KIT_part01.json` | 8 | 0 | 84,068 | `ad51aa3e8fa5…` |  |
-| 2 | `OPEN_CLASS_B_C_GPT_KIT_part02.json` | 5 | 8 | 78,129 | `332c4a88034e…` |  |
-| 3 | `OPEN_CLASS_B_C_GPT_KIT_part03.json` | 2 | 13 | 25,921 | `1aaf45974108…` |  |
+| 1 | `OPEN_CLASS_B_C_GPT_KIT_part01.json` | 1 | 0 | 21,822 | `d59de1ece712…` |  |
 
 
 
@@ -92,24 +90,11 @@ segments.length === heSegs (when segments returned). No corpus edits.
 
 ## Class B IDs
 
-- `yd1/siman128/seif-003/beur-hagra` — Class B: Likut split at (Collection) is mechanical; EN[1–3] garbled — fresh_translate those slots.
-- `yd1/siman160/seif-005/beur-hagra` — Class B: multi Extract alignment — 3 consecutive ליקוט lemmas; split carefully then fresh_translate gaps.
-- `yd1/siman161/seif-002/beur-hagra` — Class B: EN[0] packs 4×(Extract) for 5 HE ליקוט chain; multi-split + fresh_translate as needed.
+
 
 ## Class C IDs
 
 - `yd1/siman109/seif-001/beur-hagra` — Class C: HE11/EN4; EN[0] covers ~7 non-Likut Gra notes with no mid markers — semantic resegment / fresh_translate.
-- `yd1/siman127/seif-001/beur-hagra` — Class C: HE19/EN17; deficit≠Likut-only; garbled EN — fresh_translate bad slots.
-- `yd1/siman127/seif-003/beur-hagra` — Class C: HE20/EN13; 6 ליקוט + heavy garbled EN; ambiguous multi-offset.
-- `yd1/siman157/seif-001/beur-hagra` — Class C: HE21/EN18; long Gra + garbled segs + non-marker deficit.
-- `yd1/siman165/seif-001/beer-hagolah` — Class C: EN garbage loop; beer-degree fresh_translate; avoid failure patterns.
-- `yd1/siman165/seif-001/siftei-kohen` — Class C: EN/HE ratio low; missing long Shach; fresh_translate.
-- `yd1/siman166/seif-001/siftei-kohen` — Class C: offset editorial; substantial missing EN; fresh_translate.
-- `yd1/siman168/seif-018/siftei-kohen` — Class C: HE9/EN4; ~70% EN missing; multi-slot fresh_translate.
-- `yd1/siman170/seif-001/turei-zahav` — Class C: long Taz; EN truncated/offset; fresh_translate.
-- `yd1/siman197/seif-002/siftei-kohen` — Class C: EN covers wrong lemmas; fresh_translate from HE.
-- `yd1/siman199/seif-003/siftei-kohen` — Class C: huge missing HE[0] chafifah sugya; fresh_translate.
-- `yd1/siman242/seif-004/beur-hagra` — Class C: HE8/EN4; long missing Gra block; offset fresh_translate.
 
 ## Notes
 
