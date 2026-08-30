@@ -2,9 +2,9 @@
 
 External AI kits for HE/EN `<br>`-segment mismatches. **Audit only — no corpus apply.**
 
-**Last rebuild:** 2026-08-28T15:39:33.542Z (rescan-driven _REMAINING kits)  
+**Last rebuild:** 2026-08-30T05:59:15.936Z (rescan-driven _REMAINING kits)  
 Corpus: `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/{oc1,yd1,eh1,cm1}/`  
-Rescan: [`SEGMENT_RESCAN_2026-08-28.json`](./SEGMENT_RESCAN_2026-08-28.json) · FP: [`SEGMENT_RESCAN_FP_ANALYSIS.json`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
+Rescan: [`SEGMENT_RESCAN_2026-08-30.json`](./SEGMENT_RESCAN_2026-08-30.json) · FP: [`SEGMENT_RESCAN_FP_ANALYSIS.json`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
 
 ## Excluded from all new kits
 
@@ -15,23 +15,23 @@ Rescan: [`SEGMENT_RESCAN_2026-08-28.json`](./SEGMENT_RESCAN_2026-08-28.json) · 
 
 | Kind | Open count |
 |------|----------:|
-| en_truncated_vs_multi_he | 135 |
-| he_has_more_segments | 128 |
-| en_has_more_segments | 9 |
-| en_missing | 2 |
+| en_truncated_vs_multi_he | 1 |
+| he_has_more_segments | 26 |
+| en_has_more_segments | 0 |
+| en_missing | 0 |
 | he_missing | 59 (EXCLUDED) |
-| **Actionable** | **274** |
+| **Actionable** | **27** |
 
 ## Run order (_REMAINING kits — use these)
 
-1. **EN_MISSING_2_REMAINING** — 2 en_missing still open.
-2. **EN_HAS_MORE_REMAINING** — 9 glued/oversplit EN cases.
+1. **EN_MISSING_2_REMAINING** — en_missing still open.
+2. **EN_HAS_MORE_REMAINING** — glued/oversplit EN cases.
 3. **EN_TRUNC_MODERATE_REMAINING** — moderate HOLD+REJECT retry.
-4. **EN_TRUNC_EDITORIAL_REMAINING** — editorial en_trunc (parts 02-06 + part01 holds).
+4. **EN_TRUNC_EDITORIAL_REMAINING** — editorial en_trunc.
 5. **BEER_DEGREE_SPLIT_REMAINING** — Beer HaGolah degree splits.
 6. **EN_TRUNC_REMAINING** — other en_truncated catch-all.
-7. **HE_HAS_MORE_LIKUT_REMAINING** — 13 Likut content_drift HOLD retry.
-8. **HE_HAS_MORE_EDITORIAL_REMAINING** — 91 editorial HOLD retry.
+7. **HE_HAS_MORE_LIKUT_REMAINING** — Likut content_drift HOLD retry.
+8. **HE_HAS_MORE_EDITORIAL_REMAINING** — editorial HOLD retry.
 9. **HE_HAS_MORE_LIKUT_MERGED_REMAINING** — true_likut_en_merged pattern.
 10. **HE_HAS_MORE_OFFSET_REMAINING** — residual offset editorial he_has_more.
 
@@ -39,21 +39,17 @@ Rescan: [`SEGMENT_RESCAN_2026-08-28.json`](./SEGMENT_RESCAN_2026-08-28.json) · 
 
 | Kit | Kind | Cases | Parts | Max part bytes | SHA-256 (prefix) | Path |
 |-----|------|------:|------:|---------------:|------------------|------|
-| `EN_TRUNC_MODERATE_REMAINING` | rescan_remaining | 11 | 1 | 16,983 | `f956afce095e…` | [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) |
-| `BEER_DEGREE_SPLIT_REMAINING` | rescan_remaining | 2 | 1 | 4,709 | `cc0204442b41…` | [`BEER_DEGREE_SPLIT_REMAINING.json`](./BEER_DEGREE_SPLIT_REMAINING.json) |
-| `HE_HAS_MORE_LIKUT_REMAINING` | rescan_remaining | 9 | 1 | 39,220 | `ccf2bfc38f7a…` | [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) |
-| `HE_HAS_MORE_EDITORIAL_REMAINING` | rescan_remaining | 16 | 3 | 79,465 | `fcca387a10a0…` | [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) |
-| `HE_HAS_MORE_LIKUT_MERGED_REMAINING` | rescan_remaining | 1 | 1 | 5,290 | `117eed565f85…` | [`HE_HAS_MORE_LIKUT_MERGED_REMAINING.json`](./HE_HAS_MORE_LIKUT_MERGED_REMAINING.json) |
+| `EN_TRUNC_MODERATE_REMAINING` | rescan_remaining | 1 | 1 | 5,582 | `8c6b12c28c17…` | [`EN_TRUNC_MODERATE_REMAINING.json`](./EN_TRUNC_MODERATE_REMAINING.json) |
+| `HE_HAS_MORE_LIKUT_REMAINING` | rescan_remaining | 10 | 1 | 41,120 | `499ae9722b8a…` | [`HE_HAS_MORE_LIKUT_REMAINING.json`](./HE_HAS_MORE_LIKUT_REMAINING.json) |
+| `HE_HAS_MORE_EDITORIAL_REMAINING` | rescan_remaining | 16 | 3 | 79,894 | `ea4ac620ee65…` | [`HE_HAS_MORE_EDITORIAL_REMAINING.json`](./HE_HAS_MORE_EDITORIAL_REMAINING.json) |
 
-**Total cases in rebuilt kits:** 39 (of 274 actionable; 0 unassigned)
+**Total cases in rebuilt kits:** 27 (of 27 actionable; 0 unassigned)
 
 ### One-line purpose
 
 - **EN_TRUNC_MODERATE_REMAINING**: Moderate kit HOLD+REJECT still en_truncated
-- **BEER_DEGREE_SPLIT_REMAINING**: beer-hagolah degree/footnote EN under-split
 - **HE_HAS_MORE_LIKUT_REMAINING**: 13 Likut kit HOLD (content_drift) still open
 - **HE_HAS_MORE_EDITORIAL_REMAINING**: 91 editorial HOLD still he_has_more
-- **HE_HAS_MORE_LIKUT_MERGED_REMAINING**: true_likut_en_merged he_has_more not in other kits
 
 ## Prior kits (superseded for open work — reference only)
 
@@ -71,7 +67,7 @@ Older kits without _REMAINING suffix reflect pre-rescan state. Use _REMAINING ki
 ## Apply log
 
 - **2026-08-28 AM:** EN_MISSING 18/20; EN_TRUNC wave1; HE_HAS_MORE wave1/wave2; Likut 40/53.
-- **2026-08-28 PM:** Post-apply rescan → _REMAINING kit rebuild (39 cases across 5 kits).
+- **2026-08-28 PM:** Post-apply rescan → _REMAINING kit rebuild (27 cases across 3 kits).
 
 ## Deduplication
 

@@ -1,15 +1,15 @@
 # EN_HAS_MORE_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:39:08.206Z  
-**Kit cases:** 9  
-**GPT cases:** 9  
+**Created:** 2026-08-30T05:51:50.404Z  
+**Kit cases:** 0  
+**GPT cases:** 0  
 **Mode:** rewrite_en_by_he_slot
 
 ## Verdict counts
 
 | Verdict | Count |
 |---------|------:|
-| APPROVE | 9 |
+| APPROVE | 0 |
 | HOLD | 0 |
 | REJECT | 0 |
 | REPAIR_CANDIDATE | 0 |
@@ -17,7 +17,7 @@
 
 ## Summary
 
-EN_HAS_MORE_REMAINING: 9 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE
+EN_HAS_MORE_REMAINING: 0 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED
 
 ## HOLD / REJECT sample (first 20)
 

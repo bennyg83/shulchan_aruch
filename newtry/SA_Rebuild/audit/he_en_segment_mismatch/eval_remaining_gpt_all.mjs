@@ -25,6 +25,7 @@ import {
   readCorpusEnPlain,
   sig,
   sigIgnoreMarkersFromSegs,
+  splitHtmlByBrSegments,
   stripHtml,
   stripLeadingEnMarker,
   writeEvalOutputs,
@@ -33,76 +34,83 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AUDIT = __dirname;
 
+const REUPLOAD_DIR = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  "FULL_REUPLOAD_2026-08-30"
+);
+
+/** Full reupload 2026-08-30 — 39 open cases across kits 03/04/06/07/10; empty kits = []. */
 export const REMAINING_KITS = [
   {
     num: "01",
     kit: "EN_MISSING_2_REMAINING",
-    src: "C:/Users/binya/Downloads/EN_MISSING_2_REMAINING_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "01_EN_MISSING_2_REMAINING_COMPLETED.json"),
     mode: "fresh_translate",
-    expected: 2,
+    expected: 0,
   },
   {
     num: "02",
     kit: "EN_HAS_MORE_REMAINING",
-    src: "C:/Users/binya/Downloads/EN_HAS_MORE_REMAINING_ALL_9_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "02_EN_HAS_MORE_REMAINING_COMPLETED.json"),
     mode: "rewrite_en_by_he_slot",
-    expected: 9,
+    expected: 0,
   },
   {
     num: "03",
     kit: "EN_TRUNC_MODERATE_REMAINING",
-    src: "C:/Users/binya/Downloads/EN_TRUNC_MODERATE_REMAINING_ALL_37_COMPLETED.json",
-    mode: "resegment",
-    expected: 37,
+    src: path.join(REUPLOAD_DIR, "03_EN_TRUNC_MODERATE_REMAINING_COMPLETED.json"),
+    // Reupload used mixed_resegment_translate / fresh_translate for trunc gaps
+    mode: "resegment_mixed",
+    expected: 11,
   },
   {
     num: "04",
     kit: "BEER_DEGREE_SPLIT_REMAINING",
-    src: "C:/Users/binya/Downloads/BEER_DEGREE_SPLIT_REMAINING_ALL_7_COMPLETED.json",
-    mode: "split_en",
-    expected: 7,
+    src: path.join(REUPLOAD_DIR, "04_BEER_DEGREE_SPLIT_REMAINING_COMPLETED.json"),
+    mode: "resegment_mixed",
+    expected: 2,
   },
   {
     num: "05",
     kit: "EN_TRUNC_REMAINING",
-    src: "C:/Users/binya/Downloads/EN_TRUNC_REMAINING_ALL_10_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "05_EN_TRUNC_REMAINING_COMPLETED.json"),
     mode: "resegment_mixed",
-    expected: 10,
+    expected: 0,
   },
   {
     num: "06",
     kit: "HE_HAS_MORE_LIKUT_REMAINING",
-    src: "C:/Users/binya/Downloads/HE_HAS_MORE_LIKUT_REMAINING_ALL_13_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "06_HE_HAS_MORE_LIKUT_REMAINING_COMPLETED.json"),
     mode: "likut_split",
-    expected: 13,
+    expected: 9,
   },
   {
     num: "07",
     kit: "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
-    src: "C:/Users/binya/Downloads/HE_HAS_MORE_LIKUT_MERGED_REMAINING_ALL_18_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "07_HE_HAS_MORE_LIKUT_MERGED_REMAINING_COMPLETED.json"),
     mode: "likut_merged",
-    expected: 18,
+    expected: 1,
   },
   {
     num: "08",
     kit: "HE_HAS_MORE_OFFSET_REMAINING",
-    src: "C:/Users/binya/Downloads/HE_HAS_MORE_OFFSET_REMAINING_REBUILT_ALL_6_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "08_HE_HAS_MORE_OFFSET_REMAINING_COMPLETED.json"),
     mode: "editorial",
-    expected: 6,
+    expected: 0,
   },
   {
     num: "09",
     kit: "EN_TRUNC_EDITORIAL_REMAINING",
-    src: "C:/Users/binya/Downloads/EN_TRUNC_EDITORIAL_REMAINING_ALL_81_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "09_EN_TRUNC_EDITORIAL_REMAINING_COMPLETED.json"),
     mode: "fresh_translate_editorial",
-    expected: 81,
+    expected: 0,
   },
   {
     num: "10",
     kit: "HE_HAS_MORE_EDITORIAL_REMAINING",
-    src: "C:/Users/binya/Downloads/HE_HAS_MORE_EDITORIAL_REMAINING_ALL_91_COMPLETED.json",
+    src: path.join(REUPLOAD_DIR, "10_HE_HAS_MORE_EDITORIAL_REMAINING_COMPLETED.json"),
     mode: "editorial",
-    expected: 91,
+    expected: 16,
   },
 ];
 
@@ -573,17 +581,45 @@ const EVAL_FN = {
 
 function evaluateKit(cfg) {
   const gptOut = path.join(AUDIT, `${cfg.kit}_GPT_RESULT.json`);
-  if (!fs.existsSync(cfg.src)) {
-    throw new Error(`Missing GPT source: ${cfg.src}`);
+  const reuploadOut = path.join(AUDIT, `${cfg.kit}_GPT_RESULT_REUPLOAD.json`);
+  const reuseLocal = process.argv.includes("--reuse-local");
+  if (!reuseLocal) {
+    if (!fs.existsSync(cfg.src)) {
+      throw new Error(`Missing GPT source: ${cfg.src}`);
+    }
+    fs.copyFileSync(cfg.src, gptOut);
+    fs.copyFileSync(cfg.src, reuploadOut);
+  } else if (!fs.existsSync(gptOut)) {
+    throw new Error(`--reuse-local but missing ${gptOut}`);
   }
-  fs.copyFileSync(cfg.src, gptOut);
   const gptCases = JSON.parse(fs.readFileSync(gptOut, "utf8").replace(/^\uFEFF/, ""));
   const kitCases = loadKitCases(AUDIT, cfg.kit);
   const gptById = new Map(gptCases.map((c) => [c.id, c]));
   const evalFn = EVAL_FN[cfg.mode];
   if (!evalFn) throw new Error(`No eval fn for mode ${cfg.mode}`);
 
-  const results = kitCases.map((kc) => evalFn(kc, gptById.get(kc.id)));
+  const results = kitCases.map((kc) => {
+    const r = evalFn(kc, gptById.get(kc.id));
+    // Corpus already he/en segment-aligned → SKIP_APPLIED (do not re-apply)
+    if (r.verdict === "APPROVE") {
+      const hePath = path.join(CORPUS_ROOT, kc.id, "he.html");
+      const enPath = path.join(CORPUS_ROOT, kc.id, "en.html");
+      if (fs.existsSync(hePath) && fs.existsSync(enPath)) {
+        const heN = splitHtmlByBrSegments(
+          fs.readFileSync(hePath, "utf8").replace(/^\uFEFF/, "")
+        ).length;
+        const enN = splitHtmlByBrSegments(
+          fs.readFileSync(enPath, "utf8").replace(/^\uFEFF/, "")
+        ).length;
+        if (heN === enN && heN === (kc.heSegs || heN)) {
+          r.verdict = "SKIP_APPLIED";
+          r.reason = "corpus_already_aligned";
+          r.flags = [...(r.flags || []), "SKIP_APPLIED"];
+        }
+      }
+    }
+    return r;
+  });
   const kitIds = kitCases.map((c) => c.id);
   const missingGpt = kitIds.filter((id) => !gptById.has(id));
   const extraGpt = gptCases.filter((g) => !kitIds.includes(g.id)).map((g) => g.id);
@@ -593,15 +629,18 @@ function evaluateKit(cfg) {
     kit: cfg.kit,
     kit_num: cfg.num,
     mode: cfg.mode,
-    gpt_source: cfg.src,
+    gpt_source: reuseLocal ? gptOut : cfg.src,
     gpt_result: path.basename(gptOut),
+    gpt_result_reupload: path.basename(reuploadOut),
+    batch: "full_reupload_all_10_2026-08-30",
+    reuse_local: reuseLocal,
     kit_case_count: kitCases.length,
     gpt_case_count: gptCases.length,
     expected: cfg.expected,
     id_order_match: gptCases.map((g) => g.id).join("|") === kitIds.join("|"),
     missing_from_gpt: missingGpt,
     extra_in_gpt: extraGpt,
-    summary: `${cfg.kit}: ${results.filter((r) => r.verdict === "APPROVE").length} APPROVE, ${results.filter((r) => r.verdict === "HOLD").length} HOLD, ${results.filter((r) => r.verdict === "REJECT").length} REJECT, ${results.filter((r) => r.verdict === "REPAIR_CANDIDATE").length} REPAIR_CANDIDATE`,
+    summary: `${cfg.kit}: ${results.filter((r) => r.verdict === "APPROVE").length} APPROVE, ${results.filter((r) => r.verdict === "HOLD").length} HOLD, ${results.filter((r) => r.verdict === "REJECT").length} REJECT, ${results.filter((r) => r.verdict === "REPAIR_CANDIDATE").length} REPAIR_CANDIDATE, ${results.filter((r) => r.verdict === "SKIP_APPLIED").length} SKIP_APPLIED`,
   };
 
   const { counts } = writeEvalOutputs(AUDIT, cfg.kit, meta, results);

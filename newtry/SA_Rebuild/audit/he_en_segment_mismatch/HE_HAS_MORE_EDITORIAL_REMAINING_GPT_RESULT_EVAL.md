@@ -1,15 +1,15 @@
 # HE_HAS_MORE_EDITORIAL_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:39:08.436Z  
-**Kit cases:** 39  
-**GPT cases:** 91  
+**Created:** 2026-08-30T05:51:50.473Z  
+**Kit cases:** 16  
+**GPT cases:** 16  
 **Mode:** editorial
 
 ## Verdict counts
 
 | Verdict | Count |
 |---------|------:|
-| APPROVE | 23 |
+| APPROVE | 0 |
 | HOLD | 16 |
 | REJECT | 0 |
 | REPAIR_CANDIDATE | 0 |
@@ -17,7 +17,7 @@
 
 ## Summary
 
-HE_HAS_MORE_EDITORIAL_REMAINING: 23 APPROVE, 16 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE
+HE_HAS_MORE_EDITORIAL_REMAINING: 0 APPROVE, 16 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED
 
 ## HOLD / REJECT sample (first 20)
 

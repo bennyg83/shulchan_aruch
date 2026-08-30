@@ -1,18 +1,21 @@
 {
   "meta": {
-    "created": "2026-08-28T15:39:08.287Z",
+    "created": "2026-08-30T05:51:50.443Z",
     "kit": "HE_HAS_MORE_LIKUT_REMAINING",
     "kit_num": "06",
     "mode": "likut_split",
-    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT.json",
+    "gpt_source": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT.json",
     "gpt_result": "HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT.json",
-    "kit_case_count": 13,
-    "gpt_case_count": 13,
-    "expected": 13,
+    "gpt_result_reupload": "HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT_REUPLOAD.json",
+    "batch": "full_reupload_all_10_2026-08-30",
+    "reuse_local": true,
+    "kit_case_count": 9,
+    "gpt_case_count": 9,
+    "expected": 9,
     "id_order_match": true,
     "missing_from_gpt": [],
     "extra_in_gpt": [],
-    "summary": "HE_HAS_MORE_LIKUT_REMAINING: 4 APPROVE, 9 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+    "summary": "HE_HAS_MORE_LIKUT_REMAINING: 0 APPROVE, 9 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED"
   },
   "results": [
     {
@@ -79,21 +82,6 @@
       "flags": [
         "CONTENT_DRIFT"
       ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
-    },
-    {
-      "id": "yd1/siman135/seif-001/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 9,
-      "enSegs": 8,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
       "exact_match": false,
       "sig_match": false,
       "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
@@ -167,21 +155,6 @@
       "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
     },
     {
-      "id": "yd1/siman240/seif-007/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 4,
-      "enSegs": 3,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
-    },
-    {
       "id": "yd1/siman246/seif-026/beur-hagra",
       "slug": "beur-hagra",
       "heSegs": 5,
@@ -194,36 +167,6 @@
       "flags": [
         "CONTENT_DRIFT"
       ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
-    },
-    {
-      "id": "yd1/siman296/seif-003/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 5,
-      "enSegs": 4,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."
-    },
-    {
-      "id": "yd1/siman296/seif-032/beur-hagra",
-      "slug": "beur-hagra",
-      "heSegs": 3,
-      "enSegs": 2,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
       "exact_match": false,
       "sig_match": false,
       "gpt_notes": "Existing English split verbatim at explicit Likkut/Collection/Extract boundaries; no Hebrew segments merged and no English wording changed."

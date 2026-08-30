@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "resegment_offset_fix",
     "purpose": "91 editorial HOLD still he_has_more",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,7 +22,7 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "counts": {
       "total": 16,
@@ -55,7 +54,7 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "ab03561eb7e1bccb9d820340737031296243505895fa7cbab663305dfe99a953",
+    "parent_sha256": "ea4ac620ee6575b37fa9b97965c300c148f2b556bb4f9132ca7e2a30e9c76fcf",
     "chunk_index": 2,
     "chunk_total": 3,
     "case_offset": 8,
@@ -96,10 +95,14 @@
         "On account of the new coin. On account of its value he gives him the new coin."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_6",
+        "FRESH_TRANSLATE_7",
+        "SHORT_FRESH_EN_7"
+      ]
     },
     {
       "id": "yd1/siman166/seif-001/siftei-kohen",
@@ -128,10 +131,13 @@
         "And in a courtyard etc. This refers to the first reasoning — which concedes that here it is dust of interest."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_4",
+        "SHORT_FRESH_EN_4"
+      ]
     },
     {
       "id": "yd1/siman168/seif-018/siftei-kohen",
@@ -164,10 +170,17 @@
         "You shall release the non-Jew etc. Specifically in such a case where he forgives the non-Jew’s debt to the non-Jew and the second Jew extracts from him what he can — this helps; but there is no other remedy to transfer a non-Jew’s credit debt; so the poskim say; meaning even kinyan agav and other acquisitions do not help; as stated in the preceding s.k. in the name of Maharam and Mahariik; and see in responsum Maharam Galanti siman 88."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "FRESH_TRANSLATE_8",
+        "SHORT_FRESH_EN_2"
+      ]
     },
     {
       "id": "yd1/siman170/seif-001/turei-zahav",
@@ -195,10 +208,14 @@
         "But need not give ribbit. From here appears one making arrangement with fellow if not pay debt by limited time pays all damages lender borrows elsewhere permissibly for profit borrower need not pay profits lender gives others — borrower liable guarantor damages yet need not give ribbit though guarantor gives permissively to gentile; even stipulated explicitly take money on profit permissibly he pays — prohibition even if paid extract; also mention many partners one takes from gentile at ribbit for partnership pays ribbit from partnership divides profit — fixed ribbit gentile only knows borrower; unlike Rama above siman this trustees of community permitted for mitzvah; even per Rama guarantor only avak ribbit here different he is main borrower second like borrower from Israel took from gentile; both must borrow from gentile sign bill; if one borrows from Israel in iska gives to partnership may pay profit from partnership; partner taking from gentile can first cover gentile ribbit remainder divide — no loan ever only profit and loss reach loan amount ribbit to gentile part of loss or reduces profit share; if one deposits money partner alone manages depositor took from gentile at ribbit for partnership cannot take from partnership pay ribbit not managing partner cannot say ribbit reduces profit share like depositing from pocket for partnership. Question: Reuven paid Shimon wage to be arev kablan for Levi lending — ribbit concern Shimon pays Levi lent Reuven Reuven becomes borrower of Shimon wage ribbit. Answer: per Rashba Beit Yosef head siman 170 Israel guarantor for gentile for Israel principal and ribbit forbidden only arev shaluf doz gentile cannot sue borrower; where gentile lender may sue whomever — here permitted lender may sue whomever no lender status on Shimon regarding Reuven both borrowers against Levi; cannot say after Shimon pays Levi falls lender status on him — same permitted gentile guarantor not shaluf doz may sue whomever; we follow loan at that time guarantor not lender of borrower guarantor receives payment afterward like borrower at that hour sum paid gentile for him was borrower must return what paid for him since initially heter; likewise wage at giving wage not his lender both borrowers of lender now becomes borrower anew borrower of guarantor new faces; cannot say here worse gentile guarantor no ribbit receipt from borrower arev receives no more than gave gentile no prohibition new loan between them unlike here gives wage first — wage for if must pay becomes his borrower concern wage counts ribbit like advance ribbit; not so forbidden accept wage even stam guarantor lest must pay lender borrower of guarantor; Rosh responsum Beit Yosef end CM 129 one promising wage to be guarantor needs kinyan — complete heter accepting wage to be guarantor; wage not tied to loan but arev makes lender give borrower arev accepts money responsibility lender more secure — never thought arev would pay if thought would not guarantee; wage not ribbit for being his lender; like end siman 173 promised hundred litrin; per this even Rashi Beit Yosef head siman 170 Israel guarantor gentile for Israel no heter unless accepts not sue guarantor first — where gentile may sue first forbidden; here accepting wage for Israel guarantee concedes permitted wage not tied to ribbit for loan afterward; but one paying arev to give note alone to lender certainly forbidden immediately borrower of him not lender; one paying fellow to give note to buyer distrusting seller asks give note to seller pays wage — remedy arev tells seller I give note I am buyer then gives buyer as purchase — plain complete heter."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "SHORT_FRESH_EN_4"
+      ]
     },
     {
       "id": "yd1/siman197/seif-002/siftei-kohen",
@@ -225,10 +242,15 @@
         "Since, etc. That is to say, on Motzaei Shabbat she cannot perform chafifah — for according to Rashi and other poskim below siman 199 s.k. 6, she must perform chafifah specifically by day; and one cannot arrange that she perform chafifah on Friday, since one does not distance the chafifah from the immersion where possible; and so Bach."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FAILURE_FRESH_3:Saturday\\b"
+      ]
     },
     {
       "id": "yd1/siman199/seif-003/siftei-kohen",
@@ -253,10 +275,13 @@
         "That she must perform chafifah by day. Specifically, and not at night — such as when it is impossible to perform chafifah at night because idolaters have a festival that night and they do not permit kindling fire in any house, or some other compulsion; and as stated in Beit Yosef. And likewise when she cannot perform chafifah by day because of some compulsion but only at night — specifically at night. But whenever possible both by day and at night — she performs chafifah by day and at night; and this is simple."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_0",
+        "FAILURE_FRESH_0:Saturday\\b"
+      ]
     }
   ]
 }

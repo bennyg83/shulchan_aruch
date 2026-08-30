@@ -1,38 +1,567 @@
 {
-  "scannedAt": "2026-08-28T15:45:00.000Z",
-  "summary": {
-    "startingHold": 102,
-    "markerSlotsFixed": 136,
-    "holdFlippedToApprove": 63,
-    "stillHold": 39,
-    "appliedEnHtmlCells": 63,
-    "openAfterRescan": 39
+  "scannedAt": "2026-08-30T05:51:50.490Z",
+  "dryRun": false,
+  "kits": [
+    {
+      "kit": "EN_MISSING_2_REMAINING",
+      "num": "01",
+      "casesTouched": 0,
+      "slotsFixed": 0,
+      "beerSlots": 0,
+      "likutSlots": 0,
+      "fixes": []
+    },
+    {
+      "kit": "EN_HAS_MORE_REMAINING",
+      "num": "02",
+      "casesTouched": 0,
+      "slotsFixed": 0,
+      "beerSlots": 0,
+      "likutSlots": 0,
+      "fixes": []
+    },
+    {
+      "kit": "EN_TRUNC_MODERATE_REMAINING",
+      "num": "03",
+      "casesTouched": 1,
+      "slotsFixed": 1,
+      "beerSlots": 0,
+      "likutSlots": 1,
+      "fixes": [
+        {
+          "id": "yd1/siman286/seif-022/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Addition)",
+          "before": "(Addition) And likewise, etc. — as in Shabbat 131b: since he can renounce them, ",
+          "after": "(Likkut) And likewise, etc. — as in Shabbat 131b: since he can renounce them, me"
+        }
+      ]
+    },
+    {
+      "kit": "BEER_DEGREE_SPLIT_REMAINING",
+      "num": "04",
+      "casesTouched": 2,
+      "slotsFixed": 2,
+      "beerSlots": 2,
+      "likutSlots": 0,
+      "fixes": [
+        {
+          "id": "yd1/siman182/seif-002/beer-hagolah",
+          "slot": 1,
+          "kind": "beer",
+          "action": "prepended",
+          "before": "Meaning, even with scissors that cut like a razor. Beit Yosef.",
+          "after": "(°) Meaning, even with scissors that cut like a razor. Beit Yosef."
+        },
+        {
+          "id": "yd1/siman253/seif-012/beer-hagolah",
+          "slot": 1,
+          "kind": "beer",
+          "action": "prepended",
+          "before": "The Rambam likewise wrote this in chapter 9.",
+          "after": "(°) The Rambam likewise wrote this in chapter 9."
+        }
+      ]
+    },
+    {
+      "kit": "EN_TRUNC_REMAINING",
+      "num": "05",
+      "casesTouched": 0,
+      "slotsFixed": 0,
+      "beerSlots": 0,
+      "likutSlots": 0,
+      "fixes": []
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "num": "06",
+      "casesTouched": 9,
+      "slotsFixed": 11,
+      "beerSlots": 0,
+      "likutSlots": 11,
+      "fixes": [
+        {
+          "id": "yd1/siman84/seif-006/beur-hagra",
+          "slot": 2,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And it stirred, etc. But in Terumat HaDeshen, part 2, he argues on ",
+          "after": "(Likkut) And it stirred, etc. But in Terumat HaDeshen, part 2, he argues on this"
+        },
+        {
+          "id": "yd1/siman115/seif-003/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) The butter, etc. — now chapter 6 folio 2 that forbids, and he elabo",
+          "after": "(Likkut) The butter, etc. — now chapter 6 folio 2 that forbids, and he elaborate"
+        },
+        {
+          "id": "yd1/siman128/seif-003/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) House, etc. ; it is the first case there 70a ; that house, etc., an",
+          "after": "(Likkut) House, etc. ; it is the first case there 70a ; that house, etc., and as"
+        },
+        {
+          "id": "yd1/siman128/seif-004/beur-hagra",
+          "slot": 2,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And some say that nowadays, etc.; however if, etc. ; Tosafot 70a s.",
+          "after": "(Likkut) And some say that nowadays, etc.; however if, etc. ; Tosafot 70a s.v. w"
+        },
+        {
+          "id": "yd1/siman128/seif-004/beur-hagra",
+          "slot": 3,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And some say, etc. ; Hagahot chapter 5 69:15 in s.v. and all; since",
+          "after": "(Likkut) And some say, etc. ; Hagahot chapter 5 69:15 in s.v. and all; since, et"
+        },
+        {
+          "id": "yd1/siman160/seif-016/beur-hagra",
+          "slot": 3,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Some say forbidden, etc. Hagahot Ashri there s.v. mihu, etc. (end).",
+          "after": "(Likkut) Some say forbidden, etc. Hagahot Ashri there s.v. mihu, etc. (end)."
+        },
+        {
+          "id": "yd1/siman160/seif-016/beur-hagra",
+          "slot": 7,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) But if agent, etc. Rashi 57b s.v. b'avnei, etc. (end).",
+          "after": "(Likkut) But if agent, etc. Rashi 57b s.v. b'avnei, etc. (end)."
+        },
+        {
+          "id": "yd1/siman160/seif-017/beur-hagra",
+          "slot": 2,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Provided, etc. From incident of Rav Mari; and Tosafot 73b s.v. destam,",
+          "after": "(Likkut) Provided, etc. From incident of Rav Mari; and Tosafot 73b s.v. destam, "
+        },
+        {
+          "id": "yd1/siman160/seif-020/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) If he transgressed and fed, etc. Implies specifically he fed; and Riva",
+          "after": "(Likkut) If he transgressed and fed, etc. Implies specifically he fed; and Rivas"
+        },
+        {
+          "id": "yd1/siman160/seif-023/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) The lender, etc. Tur learned from Rosh in name of Ramban siman 17 hala",
+          "after": "(Likkut) The lender, etc. Tur learned from Rosh in name of Ramban siman 17 halac"
+        },
+        {
+          "id": "yd1/siman246/seif-026/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Additional note)",
+          "before": "(Additional note) When he completes a tractate, etc. As stated in Bava Batra 121",
+          "after": "(Likkut) When he completes a tractate, etc. As stated in Bava Batra 121b. See th"
+        }
+      ]
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
+      "num": "07",
+      "casesTouched": 1,
+      "slotsFixed": 1,
+      "beerSlots": 0,
+      "likutSlots": 1,
+      "fixes": [
+        {
+          "id": "yd1/siman160/seif-012/beur-hagra",
+          "slot": 0,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) He shall not say, etc. So Tur explained ; it is Yerushalmi version da ",
+          "after": "(Likkut) He shall not say, etc. So Tur explained ; it is Yerushalmi version da i"
+        }
+      ]
+    },
+    {
+      "kit": "HE_HAS_MORE_OFFSET_REMAINING",
+      "num": "08",
+      "casesTouched": 0,
+      "slotsFixed": 0,
+      "beerSlots": 0,
+      "likutSlots": 0,
+      "fixes": []
+    },
+    {
+      "kit": "EN_TRUNC_EDITORIAL_REMAINING",
+      "num": "09",
+      "casesTouched": 0,
+      "slotsFixed": 0,
+      "beerSlots": 0,
+      "likutSlots": 0,
+      "fixes": []
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "num": "10",
+      "casesTouched": 8,
+      "slotsFixed": 21,
+      "beerSlots": 0,
+      "likutSlots": 21,
+      "fixes": [
+        {
+          "id": "yd1/siman109/seif-001/beur-hagra",
+          "slot": 7,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "R' Zeira said: the mishnah said so — even one in one, as we taught \"and it is ea",
+          "after": "(Likkut) R' Zeira said: the mishnah said so — even one in one, as we taught \"and"
+        },
+        {
+          "id": "yd1/siman115/seif-002/beur-hagra",
+          "slot": 3,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And if the Jew, etc., and if he saw, etc. According to Tosafot ther",
+          "after": "(Likkut) And if the Jew, etc., and if he saw, etc. According to Tosafot there d\""
+        },
+        {
+          "id": "yd1/siman127/seif-001/beur-hagra",
+          "slot": 17,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And all disqualified for testimony, etc. For we establish: one susp",
+          "after": "(Likkut) And all disqualified for testimony, etc. For we establish: one suspecte"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 2,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) One witness, etc., but, etc. Likewise Rosh in chapter 3 of Moed Kat",
+          "after": "(Likkut) One witness, etc., but, etc. Likewise Rosh in chapter 3 of Moed Katan s"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 7,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "He has no right now. A. D. S. D. S. D. S. D. D. D. A.D. and A.D., A.D., A.D., an",
+          "after": "(Likkut) He has no right now. A. D. S. D. S. D. S. D. D. D. A.D. and A.D., A.D.,"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 11,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And a woman is believed in a matter, etc. In Yerushalmi chapter 1 o",
+          "after": "(Likkut) And a woman is believed in a matter, etc. In Yerushalmi chapter 1 of Pe"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 12,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) And a woman is believed, etc. Meaning in what is in her power to fi",
+          "after": "(Likkut) And a woman is believed, etc. Meaning in what is in her power to fix, l"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 13,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "In Tosafot Pesachim cited, who wrote a matter that involves effort; but in Morde",
+          "after": "(Likkut) In Tosafot Pesachim cited, who wrote a matter that involves effort; but"
+        },
+        {
+          "id": "yd1/siman127/seif-003/beur-hagra",
+          "slot": 19,
+          "kind": "likut",
+          "action": "replaced:(Collection)",
+          "before": "(Collection) Minor, etc., and if he testifies, etc. But in Tosafot (Pesachim) ci",
+          "after": "(Likkut) Minor, etc., and if he testifies, etc. But in Tosafot (Pesachim) cited,"
+        },
+        {
+          "id": "yd1/siman157/seif-001/beur-hagra",
+          "slot": 7,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) If the gentile intends, etc. Tur and the Gemara only wrote regarding p",
+          "after": "(Likkut) If the gentile intends, etc. Tur and the Gemara only wrote regarding pu"
+        },
+        {
+          "id": "yd1/siman157/seif-001/beur-hagra",
+          "slot": 19,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "Like Rava in Sanhedrin who said exempt; and the first version in Tosafot there; ",
+          "after": "(Likkut) Like Rava in Sanhedrin who said exempt; and the first version in Tosafo"
+        },
+        {
+          "id": "yd1/siman160/seif-005/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Even if, etc. As stated in mishnah 75b and below seif 6 how, etc. ; gi",
+          "after": "(Likkut) Even if, etc. As stated in mishnah 75b and below seif 6 how, etc. ; gif"
+        },
+        {
+          "id": "yd1/siman160/seif-005/beur-hagra",
+          "slot": 3,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "Rambam there: (Extract) But if, etc. Rambam's proof from end of Bava Kamma robbe",
+          "after": "(Likkut) Rambam there: (Extract) But if, etc. Rambam's proof from end of Bava Ka"
+        },
+        {
+          "id": "yd1/siman160/seif-005/beur-hagra",
+          "slot": 4,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Even, etc. but, etc. Rashi 66b s.v. haka halvah, etc. and forgiveness ",
+          "after": "(Likkut) Even, etc. but, etc. Rashi 66b s.v. haka halvah, etc. and forgiveness d"
+        },
+        {
+          "id": "yd1/siman160/seif-005/beur-hagra",
+          "slot": 6,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale ",
+          "after": "(Likkut) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale a"
+        },
+        {
+          "id": "yd1/siman161/seif-002/beur-hagra",
+          "slot": 1,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "Yochanan. (Extract) And if he comes, etc. But Tosafot Bava Kamma 94b s.v. i, etc",
+          "after": "(Likkut) Yochanan. (Extract) And if he comes, etc. But Tosafot Bava Kamma 94b s."
+        },
+        {
+          "id": "yd1/siman161/seif-002/beur-hagra",
+          "slot": 2,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "And so Ramban in Milchamot and Rosh in his name siman 17; and Ramban wrote, etc.",
+          "after": "(Likkut) And so Ramban in Milchamot and Rosh in his name siman 17; and Ramban wr"
+        },
+        {
+          "id": "yd1/siman161/seif-002/beur-hagra",
+          "slot": 3,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Rashba disagrees and wrote in Bava Kamma 75a from what we say there \"y",
+          "after": "(Likkut) Rashba disagrees and wrote in Bava Kamma 75a from what we say there \"yo"
+        },
+        {
+          "id": "yd1/siman161/seif-002/beur-hagra",
+          "slot": 4,
+          "kind": "likut",
+          "action": "prepended",
+          "before": "For N.Y. from Tosefta is not necessary ; for thus it is taught there end ch. 5: ",
+          "after": "(Likkut) For N.Y. from Tosefta is not necessary ; for thus it is taught there en"
+        },
+        {
+          "id": "yd1/siman161/seif-002/beur-hagra",
+          "slot": 5,
+          "kind": "likut",
+          "action": "replaced:(Extract)",
+          "before": "(Extract) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75",
+          "after": "(Likkut) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75b"
+        },
+        {
+          "id": "yd1/siman246/seif-004/beur-hagra",
+          "slot": 4,
+          "kind": "likut",
+          "action": "replaced:(Additional note)",
+          "before": "(Additional note) When does this apply, etc. See the Be'er HaGolah. The Ran, how",
+          "after": "(Likkut) When does this apply, etc. See the Be'er HaGolah. The Ran, however, wri"
+        }
+      ]
+    }
+  ],
+  "flipsHoldToApprove": [
+    {
+      "kit": "BEER_DEGREE_SPLIT_REMAINING",
+      "id": "yd1/siman182/seif-002/beer-hagolah",
+      "from": "HOLD",
+      "to": "APPROVE",
+      "prevReason": "pattern_marker_miss",
+      "reason": "resegment OK"
+    },
+    {
+      "kit": "BEER_DEGREE_SPLIT_REMAINING",
+      "id": "yd1/siman253/seif-012/beer-hagolah",
+      "from": "HOLD",
+      "to": "APPROVE",
+      "prevReason": "pattern_marker_miss",
+      "reason": "resegment OK"
+    }
+  ],
+  "stillHold": [
+    {
+      "kit": "EN_TRUNC_MODERATE_REMAINING",
+      "id": "yd1/siman286/seif-022/beur-hagra",
+      "reason": "content_drift_vs_corpus_en"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman84/seif-006/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman115/seif-003/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman128/seif-003/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman128/seif-004/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman160/seif-016/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman160/seif-017/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman160/seif-020/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman160/seif-023/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_REMAINING",
+      "id": "yd1/siman246/seif-026/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
+      "id": "yd1/siman160/seif-012/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman109/seif-001/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman115/seif-002/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman127/seif-001/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman127/seif-003/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman157/seif-001/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman160/seif-005/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman161/seif-002/beur-hagra",
+      "reason": "content_drift"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman165/seif-001/beer-hagolah",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman165/seif-001/siftei-kohen",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman166/seif-001/siftei-kohen",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman168/seif-018/siftei-kohen",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman170/seif-001/turei-zahav",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman197/seif-002/siftei-kohen",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman199/seif-003/siftei-kohen",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman242/seif-004/beur-hagra",
+      "reason": "fresh_translate_quality"
+    },
+    {
+      "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "id": "yd1/siman246/seif-004/beur-hagra",
+      "reason": "content_drift"
+    }
+  ],
+  "counts": {
+    "slotsFixed": 36,
+    "casesTouched": 21,
+    "flippedToApprove": 2,
+    "stillHold": 27
   },
   "flipsByKit": {
-    "EN_TRUNC_MODERATE_REMAINING": 25,
-    "BEER_DEGREE_SPLIT_REMAINING": 3,
-    "HE_HAS_MORE_LIKUT_REMAINING": 4,
-    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 6,
-    "EN_TRUNC_EDITORIAL_REMAINING": 2,
-    "HE_HAS_MORE_EDITORIAL_REMAINING": 23
+    "EN_MISSING_2_REMAINING": 0,
+    "EN_HAS_MORE_REMAINING": 0,
+    "EN_TRUNC_MODERATE_REMAINING": 0,
+    "BEER_DEGREE_SPLIT_REMAINING": 2,
+    "EN_TRUNC_REMAINING": 0,
+    "HE_HAS_MORE_LIKUT_REMAINING": 0,
+    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 0,
+    "HE_HAS_MORE_OFFSET_REMAINING": 0,
+    "EN_TRUNC_EDITORIAL_REMAINING": 0,
+    "HE_HAS_MORE_EDITORIAL_REMAINING": 0
   },
   "stillHoldByReason": {
-    "unjustified_fresh_translate": 12,
-    "content_drift": 18,
     "content_drift_vs_corpus_en": 1,
+    "content_drift": 18,
     "fresh_translate_quality": 8
-  },
-  "stillHoldByKit": {
-    "EN_TRUNC_MODERATE_REMAINING": 11,
-    "BEER_DEGREE_SPLIT_REMAINING": 2,
-    "HE_HAS_MORE_LIKUT_REMAINING": 9,
-    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 1,
-    "HE_HAS_MORE_EDITORIAL_REMAINING": 16
-  },
-  "notes": [
-    "Beer degree: prepend/normalize EN to (°)",
-    "Likut: normalize EN to (Likkut) including Extract/Collection/Supplement variants",
-    "Eval: marker-only drift ignored via sigIgnoreMarkersFromSegs",
-    "Did not force-APPROVE real content_drift / fresh_translate_quality / unjustified_fresh_translate"
-  ]
+  }
 }

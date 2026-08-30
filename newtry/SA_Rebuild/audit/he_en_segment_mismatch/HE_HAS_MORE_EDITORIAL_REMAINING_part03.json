@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "resegment_offset_fix",
     "purpose": "91 editorial HOLD still he_has_more",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,7 +22,7 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "counts": {
       "total": 16,
@@ -55,7 +54,7 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "ab03561eb7e1bccb9d820340737031296243505895fa7cbab663305dfe99a953",
+    "parent_sha256": "ea4ac620ee6575b37fa9b97965c300c148f2b556bb4f9132ca7e2a30e9c76fcf",
     "chunk_index": 3,
     "chunk_total": 3,
     "case_offset": 14,
@@ -94,10 +93,16 @@
         "\"And some say the same applies to all, etc.\" Rambam — and likewise wrote Rashi in Eruvin there. But it is difficult from the case of Reish Lakish who ruled in the presence of Rabbi Yochanan in chapter 4 of Ketubot — and Rabbi Yochanan said: what shall I do, etc. — and a student is forbidden to disagree with his teacher. Granted, according to Tosafot (Bava Metzia 84a and elsewhere) who hold that he was initially a great man, it is understandable — but according to Rashi it is difficult. See also Maharik. And it appears that with permission it is permitted in this case too — see below se'if 32:"
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "SHORT_FRESH_EN_1"
+      ]
     },
     {
       "id": "yd1/siman246/seif-004/beur-hagra",
@@ -134,11 +139,11 @@
         "Provided that, etc. Sanhedrin 100b, as explained above regarding Acher."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_4",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_4",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ]
     }
   ]

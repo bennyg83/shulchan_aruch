@@ -1,43 +1,21 @@
 {
   "meta": {
-    "created": "2026-08-28T15:39:08.197Z",
+    "created": "2026-08-30T05:51:50.399Z",
     "kit": "EN_MISSING_2_REMAINING",
     "kit_num": "01",
     "mode": "fresh_translate",
-    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_MISSING_2_REMAINING_GPT_RESULT.json",
+    "gpt_source": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\EN_MISSING_2_REMAINING_GPT_RESULT.json",
     "gpt_result": "EN_MISSING_2_REMAINING_GPT_RESULT.json",
-    "kit_case_count": 2,
-    "gpt_case_count": 2,
-    "expected": 2,
+    "gpt_result_reupload": "EN_MISSING_2_REMAINING_GPT_RESULT_REUPLOAD.json",
+    "batch": "full_reupload_all_10_2026-08-30",
+    "reuse_local": true,
+    "kit_case_count": 0,
+    "gpt_case_count": 0,
+    "expected": 0,
     "id_order_match": true,
     "missing_from_gpt": [],
     "extra_in_gpt": [],
-    "summary": "EN_MISSING_2_REMAINING: 2 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+    "summary": "EN_MISSING_2_REMAINING: 0 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED"
   },
-  "results": [
-    {
-      "id": "yd1/siman173/seif-001/yad-avraham",
-      "slug": "yad-avraham",
-      "heSegs": 1,
-      "action": "fresh_translate",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "fresh_translate complete",
-      "repair_candidate": false,
-      "flags": [],
-      "gpt_notes": "Fresh translation from Hebrew."
-    },
-    {
-      "id": "yd1/siman210/seif-001/yad-avraham",
-      "slug": "yad-avraham",
-      "heSegs": 1,
-      "action": "fresh_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "fresh_translate complete",
-      "repair_candidate": false,
-      "flags": [],
-      "gpt_notes": "Fresh translation; one OCR-damaged token was resolved from the cited Rashba ruling."
-    }
-  ]
+  "results": []
 }

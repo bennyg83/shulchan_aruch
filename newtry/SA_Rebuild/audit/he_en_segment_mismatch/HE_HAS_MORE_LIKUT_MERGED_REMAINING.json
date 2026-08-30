@@ -53,35 +53,8 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No merge_groups on HE. No corpus edits."
     ],
-    "parent_sha256": "405cb6faec92fa68522b48428f26914a26104f59c130f0b412dead040def5ad0"
+    "parent_sha256": "daea0127b2e5092572cd1d560bbd379da1788c4a177375cf181e1b40fbf9924c",
+    "case_count": 0
   },
-  "cases": [
-    {
-      "id": "yd1/siman160/seif-012/beur-hagra",
-      "volume": "yd1",
-      "siman": 160,
-      "seif": 12,
-      "slug": "beur-hagra",
-      "kind": "he_has_more_segments",
-      "heSegs": 4,
-      "enSegs": 3,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "(ליקוט) לא יאמר כו'. כן פי' הטור והוא לגי' הירושלמי דע אם בא כו' והוא דברי המלוה והרמב\"ם פי' ג\"כ במלוה ופי' דע כו' שתכבדהו אבל לגי' שלנו וגי' הרי\"ף דע כי בא כו' וכן ברא\"ש דע שבא כו' י\"ל שהוא דברי הלוה וכמו ברישא ברבית מוקדמת ומאוחרת ואומר בשביל כו'. תי\"ט (ע\"כ):",
-        "וכן שאר כו'. מתני' וגמ' שם:",
-        "ואפי' כו'. עס\"ס זה:",
-        "(ליקוט) ואפילו טובת כו'. בירושלמי ספ\"ה רע\"א קשה הרבית שאף הטובה רבית הרי שאמר ליקח לו ירק מן השוק אע\"פ שנתן לו מעותיו ה\"ז רבית (ע\"כ):"
-      ],
-      "en_segments": [
-        "(Extract) He shall not say, etc. So Tur explained ; it is Yerushalmi version da im ba, etc. ; lender's words; and Rambam also explained as lender and explained da, etc. that you honor him; but our version and Rif's version da ki ba, etc.; and so in Rosh da sheba, etc. ; one can say borrower's words like at beginning advanced and delayed interest saying for the sake of, etc. Tosefet Yom Tov (end).",
-        "And likewise the rest, etc. Mishnah and Gemara there.",
-        "and even so. This is the case; and (Likkut) And even benefit, etc. In Yerushalmi end of chapter 5, 161a: severe is the ribbit ; for even benefit is ribbit; for example if he said \"buy me a vegetable from the market\" ; even though he gave him his money ; this is ribbit (end)."
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "true_likut_en_merged"
-    }
-  ]
+  "cases": []
 }

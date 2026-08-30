@@ -53,54 +53,8 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "71763918b8ff67fb3ccbf4cd2b0e9dbf687635aa9fc9c4c1aa86f4150640ffb9"
+    "parent_sha256": "09f20c6e8da077a704fe2a79720ca1fe41466322af7622e94736dadca3999a55",
+    "case_count": 0
   },
-  "cases": [
-    {
-      "id": "yd1/siman182/seif-002/beer-hagolah",
-      "volume": "yd1",
-      "siman": 182,
-      "seif": 2,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "טור בשם הרמב\"ם בסוף הלכות עבודת כוכבים:",
-        "(°) פי' ואפי' כעין תער. ב\"י:"
-      ],
-      "en_segments": [
-        "Tur cited Rambam at the end of the section on non-Jewish practices: (°) Peri Davar and so forth."
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "beer-hagolah degree split pattern"
-    },
-    {
-      "id": "yd1/siman253/seif-012/beer-hagolah",
-      "volume": "yd1",
-      "siman": 253,
-      "seif": 12,
-      "slug": "beer-hagolah",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "משנה דפ\"ה דפאה וכחכמים וכאשר הגהתי כן הוא ברמב\"ם וטור:",
-        "(°) וכן כתב הרמב\"ם פ\"ט:"
-      ],
-      "en_segments": [
-        "D.F.D. has been preached and wise, and when I have done so, it is in Rambam and column: (°) and also the Rambam"
-      ],
-      "fp_pattern": "true_beer_degree_split",
-      "route_reason": "beer-hagolah degree split pattern"
-    }
-  ]
+  "cases": []
 }

@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "resegment_offset_fix",
     "purpose": "91 editorial HOLD still he_has_more",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,7 +22,7 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "counts": {
       "total": 16,
@@ -55,7 +54,7 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "ab03561eb7e1bccb9d820340737031296243505895fa7cbab663305dfe99a953"
+    "parent_sha256": "ea4ac620ee6575b37fa9b97965c300c148f2b556bb4f9132ca7e2a30e9c76fcf"
   },
   "cases": [
     {
@@ -91,11 +90,11 @@
         "(Likkut) And there is no distinction, etc. Meaning: we require sixty, as written in Pesachim (98a) \"do not treat lightly the measures of the rabbis\"; and there same kind in its kind is milk and meat (and see above siman 95) — and the same here, same kind when not its kind equals there same kind in its kind, for all are one reason — a decree of same kind when not its kind in cooking because of noten ta'am (end):"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_7",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_7",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_7"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -125,11 +124,11 @@
         "Nevertheless, etc. As above seif 66; and meaning: here even if the gentile's intent was to make cheeses; and as is written: even if you say, etc.; and it implies even if the gentile's intent is to make cheeses it is also forbidden."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -186,11 +185,11 @@
         "And all disqualified for testimony, etc. But Ran wrote they are not believed ; for this is what he means: if you believe me that he is not a robber, etc., as above ; requires investigation; and likewise what he wrote \"unless he is suspected,\" etc. ; behold we say above siman 119 seif 7 \"and regarding another's,\" etc., for we establish in chapter 8 of Yoma and in Bekhorot 35b like R. Shimon ben Gamliel, who said one is believed regarding his fellow's, etc.; except to permit he is believed even the suspected; but to forbid, he is believed by force of his testimony ; all the disqualified are not believed, as above; and likewise Shach challenged ; requires investigation: (Collection) And all disqualified for testimony, etc. For we establish: one suspected of one matter is not suspected, etc. [and in Tosafot Bekhorot 36a s.v. say, etc.] as written in siman 119 seif 4 and seif 7: If not, etc. See there seif 7, that it is not as he wrote \"and regarding another's,\" etc.; but according to the Rav's words, that is primary, as he wrote (in s.k. 18) (end of quote):"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_17",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_17",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_17"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -244,16 +243,11 @@
         "But if, etc. Like in slaughter, as above: (Collection) Minor, etc., and if he testifies, etc. But in Tosafot (Pesachim) cited, he wrote: the reason they believed him there is because it is in his power to fix it; therefore they did not believe him in chapter 2 of Ketubot regarding techumim, for with minors ; but specifically regarding their adulthood; but with minors, no ; likewise in Eruvin 59a s.v. and techumim, etc.; and from there it is proven that a woman is believed in rabbinic matters even in a matter not in her hand. The principle: in a matter in their power to fix it, even a woman and minor are believed even in Torah law, like slaughter by a woman and a minor who knows to guard his body, etc.; and specifically where there is no effort, as Tosafot wrote there, or doubt and a side to be lenient ; from that in Pesachim there, that we say there specifically in rabbinic matters; and in rabbinic matters a woman is believed even if not in her hand, like techumim; and likewise a slave; but a minor, no ; as above; and not in their hand, and Torah law ; even a woman is not believed, from what is written in Eruvin because techumim are rabbinic; but if in their hand, and rabbinic matters ; even effort and doubt, whether woman or minor they are believed, as written regarding chametz, as above. And the principle in brief: in their hand and no doubt ; whether woman or minor they are believed even in Torah law (see above siman 120 s.k. 36); and if one of these two conditions is lacking, both are not believed in Torah law; and in rabbinic matters in doubt, both are believed and not in their hand ; woman is believed and not minor. And a slave is like a woman:"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_2",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_2",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_19"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -313,11 +307,11 @@
         "Specifically where he cannot escape, etc. This applies even though the matter began under coercion, as stated at the end of the fourth chapter of Kesubos 51b regarding women who were abducted, etc.: certainly, if their captors released them, etc. Rivash."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_19",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_19",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_19"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -349,11 +343,11 @@
         "(Extract) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale acquires; and in terumah, etc.; and even woman, etc. unless because of exchange (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -382,13 +376,11 @@
         "(Extract) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75b) doron, etc. (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -415,14 +407,13 @@
         "I'm going to say:"
       ],
       "fp_pattern": "true_beer_degree_split",
-      "route_reason": "editorial eval HOLD: FRESH_TRANSLATE_2",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_2",
+      "prior_eval_reason": "fresh_translate_quality",
       "prior_eval_flags": [
         "FRESH_TRANSLATE_2",
         "FRESH_TRANSLATE_3",
-        "FAILURE_FRESH_2:the craft",
-        "MIXED_INFLATED_3.209"
+        "FAILURE_FRESH_2:the craft"
       ]
     },
     {
@@ -457,10 +448,14 @@
         "On account of the new coin. On account of its value he gives him the new coin."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_6",
+        "FRESH_TRANSLATE_7",
+        "SHORT_FRESH_EN_7"
+      ]
     },
     {
       "id": "yd1/siman166/seif-001/siftei-kohen",
@@ -489,10 +484,13 @@
         "And in a courtyard etc. This refers to the first reasoning — which concedes that here it is dust of interest."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_4",
+        "SHORT_FRESH_EN_4"
+      ]
     },
     {
       "id": "yd1/siman168/seif-018/siftei-kohen",
@@ -525,10 +523,17 @@
         "You shall release the non-Jew etc. Specifically in such a case where he forgives the non-Jew’s debt to the non-Jew and the second Jew extracts from him what he can — this helps; but there is no other remedy to transfer a non-Jew’s credit debt; so the poskim say; meaning even kinyan agav and other acquisitions do not help; as stated in the preceding s.k. in the name of Maharam and Mahariik; and see in responsum Maharam Galanti siman 88."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "FRESH_TRANSLATE_8",
+        "SHORT_FRESH_EN_2"
+      ]
     },
     {
       "id": "yd1/siman170/seif-001/turei-zahav",
@@ -556,10 +561,14 @@
         "But need not give ribbit. From here appears one making arrangement with fellow if not pay debt by limited time pays all damages lender borrows elsewhere permissibly for profit borrower need not pay profits lender gives others — borrower liable guarantor damages yet need not give ribbit though guarantor gives permissively to gentile; even stipulated explicitly take money on profit permissibly he pays — prohibition even if paid extract; also mention many partners one takes from gentile at ribbit for partnership pays ribbit from partnership divides profit — fixed ribbit gentile only knows borrower; unlike Rama above siman this trustees of community permitted for mitzvah; even per Rama guarantor only avak ribbit here different he is main borrower second like borrower from Israel took from gentile; both must borrow from gentile sign bill; if one borrows from Israel in iska gives to partnership may pay profit from partnership; partner taking from gentile can first cover gentile ribbit remainder divide — no loan ever only profit and loss reach loan amount ribbit to gentile part of loss or reduces profit share; if one deposits money partner alone manages depositor took from gentile at ribbit for partnership cannot take from partnership pay ribbit not managing partner cannot say ribbit reduces profit share like depositing from pocket for partnership. Question: Reuven paid Shimon wage to be arev kablan for Levi lending — ribbit concern Shimon pays Levi lent Reuven Reuven becomes borrower of Shimon wage ribbit. Answer: per Rashba Beit Yosef head siman 170 Israel guarantor for gentile for Israel principal and ribbit forbidden only arev shaluf doz gentile cannot sue borrower; where gentile lender may sue whomever — here permitted lender may sue whomever no lender status on Shimon regarding Reuven both borrowers against Levi; cannot say after Shimon pays Levi falls lender status on him — same permitted gentile guarantor not shaluf doz may sue whomever; we follow loan at that time guarantor not lender of borrower guarantor receives payment afterward like borrower at that hour sum paid gentile for him was borrower must return what paid for him since initially heter; likewise wage at giving wage not his lender both borrowers of lender now becomes borrower anew borrower of guarantor new faces; cannot say here worse gentile guarantor no ribbit receipt from borrower arev receives no more than gave gentile no prohibition new loan between them unlike here gives wage first — wage for if must pay becomes his borrower concern wage counts ribbit like advance ribbit; not so forbidden accept wage even stam guarantor lest must pay lender borrower of guarantor; Rosh responsum Beit Yosef end CM 129 one promising wage to be guarantor needs kinyan — complete heter accepting wage to be guarantor; wage not tied to loan but arev makes lender give borrower arev accepts money responsibility lender more secure — never thought arev would pay if thought would not guarantee; wage not ribbit for being his lender; like end siman 173 promised hundred litrin; per this even Rashi Beit Yosef head siman 170 Israel guarantor gentile for Israel no heter unless accepts not sue guarantor first — where gentile may sue first forbidden; here accepting wage for Israel guarantee concedes permitted wage not tied to ribbit for loan afterward; but one paying arev to give note alone to lender certainly forbidden immediately borrower of him not lender; one paying fellow to give note to buyer distrusting seller asks give note to seller pays wage — remedy arev tells seller I give note I am buyer then gives buyer as purchase — plain complete heter."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "SHORT_FRESH_EN_4"
+      ]
     },
     {
       "id": "yd1/siman197/seif-002/siftei-kohen",
@@ -586,10 +595,15 @@
         "Since, etc. That is to say, on Motzaei Shabbat she cannot perform chafifah — for according to Rashi and other poskim below siman 199 s.k. 6, she must perform chafifah specifically by day; and one cannot arrange that she perform chafifah on Friday, since one does not distance the chafifah from the immersion where possible; and so Bach."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_0",
+        "FRESH_TRANSLATE_2",
+        "FRESH_TRANSLATE_3",
+        "FAILURE_FRESH_3:Saturday\\b"
+      ]
     },
     {
       "id": "yd1/siman199/seif-003/siftei-kohen",
@@ -614,10 +628,13 @@
         "That she must perform chafifah by day. Specifically, and not at night — such as when it is impossible to perform chafifah at night because idolaters have a festival that night and they do not permit kindling fire in any house, or some other compulsion; and as stated in Beit Yosef. And likewise when she cannot perform chafifah by day because of some compulsion but only at night — specifically at night. But whenever possible both by day and at night — she performs chafifah by day and at night; and this is simple."
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_0",
+        "FAILURE_FRESH_0:Saturday\\b"
+      ]
     },
     {
       "id": "yd1/siman242/seif-004/beur-hagra",
@@ -649,10 +666,16 @@
         "\"And some say the same applies to all, etc.\" Rambam — and likewise wrote Rashi in Eruvin there. But it is difficult from the case of Reish Lakish who ruled in the presence of Rabbi Yochanan in chapter 4 of Ketubot — and Rabbi Yochanan said: what shall I do, etc. — and a student is forbidden to disagree with his teacher. Granted, according to Tosafot (Bava Metzia 84a and elsewhere) who hold that he was initially a great man, it is understandable — but according to Rashi it is difficult. See also Maharik. And it appears that with permission it is permitted in this case too — see below se'if 32:"
       ],
       "fp_pattern": "true_offset_editorial",
-      "route_reason": "editorial eval HOLD: gpt_needs_human",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "gpt_needs_human",
-      "prior_eval_flags": []
+      "prior_eval_reason": "fresh_translate_quality",
+      "prior_eval_flags": [
+        "FRESH_TRANSLATE_1",
+        "FRESH_TRANSLATE_3",
+        "FRESH_TRANSLATE_4",
+        "FRESH_TRANSLATE_5",
+        "SHORT_FRESH_EN_1"
+      ]
     },
     {
       "id": "yd1/siman246/seif-004/beur-hagra",
@@ -689,11 +712,11 @@
         "Provided that, etc. Sanhedrin 100b, as explained above regarding Acher."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_4",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_4",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ]
     }
   ]

@@ -85,6 +85,23 @@ function applyKit(cfg, apply) {
     const enAfter = joinSegments(segs);
     const enSegsAfter = splitHtmlByBrSegments(enAfter).length;
 
+    if (enSegsBefore === heSegs && enSegsBefore > 0) {
+      console.log(`SKIP ${id}: already aligned (${heSegs} segs)`);
+      applied.push({
+        id,
+        kit: cfg.kit,
+        enPath,
+        heSegs,
+        enSegsBefore,
+        enSegsAfter: enSegsBefore,
+        created_en: false,
+        applied: false,
+        skipped: true,
+        reason: "already_aligned",
+      });
+      continue;
+    }
+
     console.log(
       `${apply ? "APPLY" : "PLAN"} ${id}: en ${enSegsBefore}->${enSegsAfter} (he=${heSegs}) — ${evalRow?.reason ?? ""}`
     );
@@ -161,16 +178,21 @@ function main() {
   }
 
   const masterPath = path.join(AUDIT, "REMAINING_GPT_ALL_APPLY.json");
+  const reallyApplied = allApplied.filter((a) => a.applied && !a.skipped);
+  const skipped = allApplied.filter((a) => a.skipped);
   fs.writeFileSync(
     masterPath,
     JSON.stringify(
       {
         scannedAt: new Date().toISOString(),
         mode: apply ? "APPLY" : "DRY-RUN",
+        batch: "full_reupload_all_10_2026-08-30",
         byKit,
-        totalApplied: allApplied.length,
+        totalApplied: reallyApplied.length,
+        totalSkippedAligned: skipped.length,
         totalFailed: allFailed.length,
-        applied: allApplied,
+        applied: reallyApplied,
+        skipped,
         failed: allFailed,
       },
       null,
@@ -180,7 +202,7 @@ function main() {
   );
 
   console.log(
-    `\n[apply] total applied=${allApplied.length} failed=${allFailed.length} → ${masterPath}`
+    `\n[apply] total applied=${reallyApplied.length} skipped_aligned=${skipped.length} failed=${allFailed.length} → ${masterPath}`
   );
   if (allFailed.length) process.exitCode = 1;
 }

@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "resegment_split_en",
     "purpose": "Moderate kit HOLD+REJECT still en_truncated",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,20 +22,18 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "EN_TRUNC_MODERATE_REMAINING",
     "counts": {
-      "total": 11,
+      "total": 1,
       "by_volume": {
-        "yd1": 2,
-        "cm1": 9
+        "yd1": 1
       },
       "by_kind": {
-        "en_truncated_vs_multi_he": 11
+        "en_truncated_vs_multi_he": 1
       },
       "by_fp_pattern": {
-        "true_en_truncated": 2,
-        "true_likut_en_merged": 9
+        "true_likut_en_merged": 1
       }
     },
     "hard_cap_utf8_bytes": 85000,
@@ -55,34 +52,9 @@
       "[{\"id\":\"...\",\"action\":\"resegment\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"|\"partial\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "c023cf085aa8e85e468c9902f068b2d9fcb52465a020228d92e0a86914310286"
+    "parent_sha256": "8c6b12c28c178f0a15442db16faef20341316e234781bd6a9b720a6e72eb815b"
   },
   "cases": [
-    {
-      "id": "yd1/siman263/seif-004/turei-zahav",
-      "volume": "yd1",
-      "siman": 263,
-      "seif": 4,
-      "slug": "turei-zahav",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "למבדקה יפה. פי' שמא יש שם ערלה כבושה דהיינו שהעור נדבק מאד בבשר:",
-        "ומ\"ש ולא בפרזלא כתוב בפרישה אבדיקה קאי שלא תהיה בברזל ולא כי\"מ שאמילה קאי שיעשה חריץ בצפורן:"
-      ],
-      "en_segments": [
-        "Beautiful testing. P. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
     {
       "id": "yd1/siman286/seif-022/beur-hagra",
       "volume": "yd1",
@@ -106,232 +78,7 @@
       "fp_pattern": "true_likut_en_merged",
       "route_reason": "moderate eval HOLD",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_1"
-    },
-    {
-      "id": "cm1/siman33/seif-009/rabbi-akiva-eiger",
-      "volume": "cm1",
-      "siman": 33,
-      "seif": 9,
-      "slug": "rabbi-akiva-eiger",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "[שו\"ע] כשהי' חתנו. נ\"ב אם חתם בשטר עד שלא נעשה חתנו ואח\"כ נעשה חתנו דנין על חתימתו ולא הוי תחילתו בכשרות וסופו בפסול דעדים החתומים על השטר נעשה כמי שנחקרה עידותן בב\"ד והוי סופן ג\"כ בכשרות:",
-        "כשהי' חתנו ומתה. נ\"ב אף אם אז היתה בתו גוססת מ\"מ כיון דעוד לא שכיבא לא מקרי תחלתן בכשרות הגהת אשר\"י פ\"ד דשבועות:"
-      ],
-      "en_segments": [
-        "And when I got married. If he had signed a bill until he was not cut and then he was cut off by Danin on his signature and did not begin with training and was annexed by the unknowns on the bill, he was made as if he had been injured in B.D. and had been provided with the talent: ‘He was cut and died.’ Even if his daughter had been dying from the High Court, he would not have brought any chance of their replacement in the G-d's training:"
-      ],
-      "fp_pattern": "true_en_truncated",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman43/seif-011/beur-hagra",
-      "volume": "cm1",
-      "siman": 43,
-      "seif": 11,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אפי' ראו. ב\"מ י\"ב ב' י\"ט א':",
-        "(ליקוט) אפי' ראו כו'. כמ\"ש אייתי ראיה אימתי מטא כו' וכנ\"ל סי' ל\"ט סי\"ג (ע\"כ):"
-      ],
-      "en_segments": [
-        "My nose saw. In the U.S. . . . As a result, I have seen before I uttered my name, and I have been called the S.C. and I have been appointed to “T"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman46/seif-004/beur-hagra",
-      "volume": "cm1",
-      "siman": 46,
-      "seif": 4,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "ואם קיימי. שם כי אתו לקמן כו' וע\"כ שכבר טען פרעתי דאל\"כ היה מעורכי הדיינים:",
-        "(ליקוט) ואם קיימו כו'. ר\"ל אפי' אחר שנשבע וכמ\"ש בפ\"ט דב\"ק (ע\"כ):"
-      ],
-      "en_segments": [
-        "What if Jamie. It is there that he is with him as a writer and as he has already claimed, I have been appointed as a lawyer, and if he had done so. He said, “I swear to you, and I swear to you.”"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman46/seif-009/beur-hagra",
-      "volume": "cm1",
-      "siman": 46,
-      "seif": 9,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "אפי'. סנה' ב' ב':",
-        "(ליקוט) ואפי' כו'. כמש\"ש כי אתו לקמן לדינא כו'. ואין מומחים בבבל (ע\"כ):"
-      ],
-      "en_segments": [
-        "epic. Sana B. B. (Lycott) and Affi. As a result, you will be able to make a mistake. There are no experts in the Babylonians"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman49/seif-008/beur-hagra",
-      "volume": "cm1",
-      "siman": 49,
-      "seif": 8,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "בד\"א. וצ\"ע שהוא נגד הגמ' דשם וע' בטור וב\"ח ודו\"פ:",
-        "(ליקוט) בד\"א כו'. מדקאמר במתני' נמצא לאחד כו' ואח\"כ כיצד יעשו כו' מ' דקאי גם התקנה ע\"ז אע\"ג דלתי' דר' ירמי' קאי כיצד יעשו ישלשו על השובר דהא בשטר משולש קמיירי אבל לתי' דאביי א\"א לומר דקאי אשובר דהא של? (ע\"כ):"
-      ],
-      "en_segments": [
-        "In DNA. And he said that he was against the G-d, and that he was against the G-d, and that he was in prison. Madammar is in one of his sons, and then how will he be done by Dr. M. D.C. also installation by Dr. Jeremiah Kai, how will he be ashamed of the voucher in the square of a quarry triangle, but to J.A.A. to say Dr. A. A. Dea. (a)"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman72/seif-029/beur-hagra",
-      "volume": "cm1",
-      "siman": 72,
-      "seif": 29,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "מלוה שטוען. דוקא בריא כמ\"ש בסי\"ד. סמ\"ע וש\"ך:",
-        "(ליקוט) בריא כו'. דוקא ברי שאז הוא כשאר התביעות ונאמן הלוה במגו שא\"ל בידי כלום שאין שבועת השומרין להוציא משא\"כ בשמא כמ\"ש בסי\"ד (ע\"כ):"
-      ],
-      "en_segments": [
-        "A friend who claims. It’s healthy as a “c” in the US. He said, “He is healthy.” So, he is the case of the claims and the trustee in the body that is not in the hands of anything that is not the oath of the guard to carry out such negotiations as the IDF"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman72/seif-037/beur-hagra",
-      "volume": "cm1",
-      "siman": 72,
-      "seif": 37,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "וכן הדין. במכ\"ש ועסי' ס\"ו ס\"ח:",
-        "(ליקוט) וכן כו'. קמ\"ל דאין חזקתו שבחיי הגר מועיל עתה (ע\"כ):"
-      ],
-      "en_segments": [
-        "And yes, the judgment. In the book, and on the other hand, it is the same. He is not so strong that the living life is now beneficial"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman155/seif-008/beur-hagra",
-      "volume": "cm1",
-      "siman": 155,
-      "seif": 8,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "ומודד מהשפה. ירושלמי שם וכרבנן:",
-        "(ליקוט) ומודד כו'. ירושלמי שם שהן ד' מן השפה. ר' יודן בן פזי אמר מן השפה החיצונה ולפנים ורבנן אמרו מן השפה הפנימית ולחוץ (ע\"כ):"
-      ],
-      "en_segments": [
-        "robbed of the language. Jerusalem is there and as a rabbi, and is robbed. Jerusalem is the name of the language. Dr. Yoden Ben Pazi said from the language of wisdom and inwards, saying from the inner and foreign language"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
-    },
-    {
-      "id": "cm1/siman304/seif-004/beur-hagra",
-      "volume": "cm1",
-      "siman": 304,
-      "seif": 4,
-      "slug": "beur-hagra",
-      "kind": "en_truncated_vs_multi_he",
-      "heSegs": 2,
-      "enSegs": 1,
-      "he_deficit": 1,
-      "en_deficit": 0,
-      "he_file_present": true,
-      "en_file_present": true,
-      "he_segments": [
-        "מכאן כו'. וכמש\"ש בדיגלא משלם כולה וכשיטתו דאפי' נשאו בב' ב\"א וה\"ה כאן:",
-        "(ליקוט) מכאן אתה כו'. הוא לגי' הרא\"ש דל\"ג בדיגלא משלם כולה וכן לא הזכיר למעלה הרמב\"ם וש\"ע לכן הצריכו ללמוד (ע\"כ):"
-      ],
-      "en_segments": [
-        "From here is . . As a whole of the fisheries, and as a result, Daphin married B.A. and “Here you are.” He is a fisherman who does not pay all the money and does not mention the above of the Rambam and that “for this reason, you have to learn.”"
-      ],
-      "fp_pattern": "true_likut_en_merged",
-      "route_reason": "moderate eval HOLD",
-      "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_0"
+      "prior_eval_reason": "content_drift_vs_corpus_en"
     }
   ]
 }

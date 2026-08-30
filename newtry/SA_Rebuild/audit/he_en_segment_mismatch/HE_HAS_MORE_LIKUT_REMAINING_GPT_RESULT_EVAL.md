@@ -1,15 +1,15 @@
 # HE_HAS_MORE_LIKUT_REMAINING — GPT evaluation
 
-**Created:** 2026-08-28T15:39:08.287Z  
-**Kit cases:** 13  
-**GPT cases:** 13  
+**Created:** 2026-08-30T05:51:50.443Z  
+**Kit cases:** 9  
+**GPT cases:** 9  
 **Mode:** likut_split
 
 ## Verdict counts
 
 | Verdict | Count |
 |---------|------:|
-| APPROVE | 4 |
+| APPROVE | 0 |
 | HOLD | 9 |
 | REJECT | 0 |
 | REPAIR_CANDIDATE | 0 |
@@ -17,7 +17,7 @@
 
 ## Summary
 
-HE_HAS_MORE_LIKUT_REMAINING: 4 APPROVE, 9 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE
+HE_HAS_MORE_LIKUT_REMAINING: 0 APPROVE, 9 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED
 
 ## HOLD / REJECT sample (first 20)
 

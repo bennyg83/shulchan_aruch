@@ -1,53 +1,30 @@
 {
-  "created": "2026-08-28T15:39:33.542Z",
+  "created": "2026-08-30T05:59:15.936Z",
   "corpus": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\OC_Mobile\\oc318-mobile-reader\\public\\corpus",
-  "rescan_source": "SEGMENT_RESCAN_2026-08-28.json",
-  "scan_open_actionable": 39,
-  "scan_total_issues": 333,
+  "rescan_source": "SEGMENT_RESCAN_2026-08-30.json",
+  "scan_open_actionable": 27,
+  "scan_total_issues": 86,
   "excluded_he_missing": 59,
   "kits": [
     {
       "kit": "EN_TRUNC_MODERATE_REMAINING",
       "mode": "resegment_split_en",
       "purpose": "Moderate kit HOLD+REJECT still en_truncated",
-      "cases": 11,
+      "cases": 1,
       "parts": 1,
-      "max_part_bytes": 16983,
-      "full_bytes": 16747,
-      "full_sha256": "f956afce095e4b7710f9fb415f46d7569ec0160a2cc7fb4cf64eaa5e7527d578",
+      "max_part_bytes": 5582,
+      "full_bytes": 5347,
+      "full_sha256": "8c6b12c28c178f0a15442db16faef20341316e234781bd6a9b720a6e72eb815b",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/EN_TRUNC_MODERATE_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "EN_TRUNC_MODERATE_REMAINING_part01.json",
-          "cases": 11,
+          "cases": 1,
           "case_offset": 0,
-          "bytes": 16983,
-          "sha256": "f3ec9233bbd368151d202efa4aceb0a7540625668d23172e44cc572edd1a9b37",
-          "exceeds_hard_cap": false
-        }
-      ]
-    },
-    {
-      "kit": "BEER_DEGREE_SPLIT_REMAINING",
-      "mode": "split_en_beer_degree",
-      "purpose": "beer-hagolah degree/footnote EN under-split",
-      "cases": 2,
-      "parts": 1,
-      "max_part_bytes": 4709,
-      "full_bytes": 4474,
-      "full_sha256": "cc0204442b4151e65738233571d60063adbd93a3af77604766e882ef5342fc4b",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/BEER_DEGREE_SPLIT_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/BEER_DEGREE_SPLIT_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "BEER_DEGREE_SPLIT_REMAINING_part01.json",
-          "cases": 2,
-          "case_offset": 0,
-          "bytes": 4709,
-          "sha256": "2248a166190498cef2ff2876d6a5f6b8a74bb537d991962d6d41370f7290120a",
+          "bytes": 5582,
+          "sha256": "cf4a98dc40290543b1363f52bfe3faa73dd796cad3dd8c840512b95ce2b40ef1",
           "exceeds_hard_cap": false
         }
       ]
@@ -56,21 +33,21 @@
       "kit": "HE_HAS_MORE_LIKUT_REMAINING",
       "mode": "split_en_not_merge_he",
       "purpose": "13 Likut kit HOLD (content_drift) still open",
-      "cases": 9,
+      "cases": 10,
       "parts": 1,
-      "max_part_bytes": 39220,
-      "full_bytes": 38985,
-      "full_sha256": "ccf2bfc38f7a48d1050a1fc16ce157eab1723e35069e0716f9e5778811b46c1d",
+      "max_part_bytes": 41120,
+      "full_bytes": 40884,
+      "full_sha256": "499ae9722b8a35d3bc1ebe59e00558b032b04d77ed683945320446cbf4cc1646",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_REMAINING.md",
       "parts_detail": [
         {
           "part": 1,
           "file": "HE_HAS_MORE_LIKUT_REMAINING_part01.json",
-          "cases": 9,
+          "cases": 10,
           "case_offset": 0,
-          "bytes": 39220,
-          "sha256": "89257fe0113db0b9fc2a23be15012e139a35537bfe525106f3ec62225cd0fde2",
+          "bytes": 41120,
+          "sha256": "5a2dd158ecfe8f19ad70bcb53d5a009176671409785d29ca9bbc8c7dffabbf69",
           "exceeds_hard_cap": false
         }
       ]
@@ -81,9 +58,9 @@
       "purpose": "91 editorial HOLD still he_has_more",
       "cases": 16,
       "parts": 3,
-      "max_part_bytes": 79465,
-      "full_bytes": 168446,
-      "full_sha256": "fcca387a10a01ba89cc8da817f60b1559ed7bd4db80de2c166cf80fd6184daa8",
+      "max_part_bytes": 79894,
+      "full_bytes": 168930,
+      "full_sha256": "ea4ac620ee6575b37fa9b97965c300c148f2b556bb4f9132ca7e2a30e9c76fcf",
       "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_REMAINING.json",
       "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_EDITORIAL_REMAINING.md",
       "parts_detail": [
@@ -92,8 +69,8 @@
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part01.json",
           "cases": 8,
           "case_offset": 0,
-          "bytes": 79465,
-          "sha256": "85dbd1a7e95edc556b6cab004dbcd3db941390415dd108837a44ed561c12a54c",
+          "bytes": 79073,
+          "sha256": "5e85fa0673b0bc13244b78cd34b36439354b1350c6ca54ad673f3bcfa4fd3684",
           "exceeds_hard_cap": false
         },
         {
@@ -101,8 +78,8 @@
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part02.json",
           "cases": 6,
           "case_offset": 8,
-          "bytes": 79185,
-          "sha256": "93939cfd5549bb824dd88c7b36af9f684966e16a07517bc47c0b57237eb189f9",
+          "bytes": 79894,
+          "sha256": "d93cab5b62d5cd4e8c6658b5502c180bdb443ee9a47c04f8647eb11b754f57c9",
           "exceeds_hard_cap": false
         },
         {
@@ -110,31 +87,8 @@
           "file": "HE_HAS_MORE_EDITORIAL_REMAINING_part03.json",
           "cases": 2,
           "case_offset": 14,
-          "bytes": 16496,
-          "sha256": "2a8c00dc1577622885ed7cdc2586d32d0ef8dc7ec19018902e8bb32e7ff14615",
-          "exceeds_hard_cap": false
-        }
-      ]
-    },
-    {
-      "kit": "HE_HAS_MORE_LIKUT_MERGED_REMAINING",
-      "mode": "split_en_likut_merged",
-      "purpose": "true_likut_en_merged he_has_more not in other kits",
-      "cases": 1,
-      "parts": 1,
-      "max_part_bytes": 5290,
-      "full_bytes": 5048,
-      "full_sha256": "117eed565f85e2056767a8ddfe957fa1235fe66f9e69048a5b0c0336d8463095",
-      "path": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.json",
-      "md": "newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_LIKUT_MERGED_REMAINING.md",
-      "parts_detail": [
-        {
-          "part": 1,
-          "file": "HE_HAS_MORE_LIKUT_MERGED_REMAINING_part01.json",
-          "cases": 1,
-          "case_offset": 0,
-          "bytes": 5290,
-          "sha256": "14f1ed9768c50d4a83e023361214aa663b9b58203e1b6ca6b9976e2dc4fda838",
+          "bytes": 16625,
+          "sha256": "43182e3c98b2e9181c9839255463c42ef4f7f01540f5672e3cd600a4d405a050",
           "exceeds_hard_cap": false
         }
       ]
@@ -143,26 +97,19 @@
   "bucket_counts": {
     "EN_MISSING_2_REMAINING": 0,
     "EN_HAS_MORE_REMAINING": 0,
-    "EN_TRUNC_MODERATE_REMAINING": 11,
+    "EN_TRUNC_MODERATE_REMAINING": 1,
     "EN_TRUNC_EDITORIAL_REMAINING": 0,
-    "BEER_DEGREE_SPLIT_REMAINING": 2,
+    "BEER_DEGREE_SPLIT_REMAINING": 0,
     "EN_TRUNC_REMAINING": 0,
-    "HE_HAS_MORE_LIKUT_REMAINING": 9,
+    "HE_HAS_MORE_LIKUT_REMAINING": 10,
     "HE_HAS_MORE_EDITORIAL_REMAINING": 16,
-    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 1,
+    "HE_HAS_MORE_LIKUT_MERGED_REMAINING": 0,
     "HE_HAS_MORE_OFFSET_REMAINING": 0
   },
-  "total_cases_in_kits": 39,
+  "total_cases_in_kits": 27,
   "unassigned_count": 0,
   "unassigned_ids": [],
   "routing_sample": [
-    {
-      "id": "yd1/siman263/seif-004/turei-zahav",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_en_truncated"
-    },
     {
       "id": "yd1/siman286/seif-022/beur-hagra",
       "bucket": "EN_TRUNC_MODERATE_REMAINING",
@@ -171,130 +118,137 @@
       "fp_pattern": "true_likut_en_merged"
     },
     {
-      "id": "cm1/siman33/seif-009/rabbi-akiva-eiger",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_en_truncated"
-    },
-    {
-      "id": "cm1/siman43/seif-011/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman46/seif-004/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman46/seif-009/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman49/seif-008/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman72/seif-029/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman72/seif-037/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman155/seif-008/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
-      "id": "cm1/siman304/seif-004/beur-hagra",
-      "bucket": "EN_TRUNC_MODERATE_REMAINING",
-      "reason": "moderate eval HOLD",
-      "kind": "en_truncated_vs_multi_he",
-      "fp_pattern": "true_likut_en_merged"
-    },
-    {
       "id": "yd1/siman84/seif-006/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman115/seif-003/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman128/seif-003/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman128/seif-004/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman160/seif-016/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman160/seif-017/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman160/seif-020/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman160/seif-023/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
     },
     {
       "id": "yd1/siman246/seif-026/beur-hagra",
       "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
-      "reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "reason": "likut eval HOLD: content_drift",
       "kind": "he_has_more_segments",
       "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman160/seif-012/beur-hagra",
+      "bucket": "HE_HAS_MORE_LIKUT_REMAINING",
+      "reason": "likut eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman109/seif-001/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman115/seif-002/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman127/seif-001/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman127/seif-003/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman157/seif-001/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman160/seif-005/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman161/seif-002/beur-hagra",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: content_drift",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_likut_en_merged"
+    },
+    {
+      "id": "yd1/siman165/seif-001/beer-hagolah",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: fresh_translate_quality",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_beer_degree_split"
+    },
+    {
+      "id": "yd1/siman165/seif-001/siftei-kohen",
+      "bucket": "HE_HAS_MORE_EDITORIAL_REMAINING",
+      "reason": "editorial eval HOLD: fresh_translate_quality",
+      "kind": "he_has_more_segments",
+      "fp_pattern": "true_offset_editorial"
     }
   ],
   "dedup_note": "Each open cell assigned to exactly one kit via priority routing; same id never appears in multiple kits."

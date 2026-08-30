@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "split_en_not_merge_he",
     "purpose": "13 Likut kit HOLD (content_drift) still open",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,18 +22,18 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "HE_HAS_MORE_LIKUT_REMAINING",
     "counts": {
-      "total": 9,
+      "total": 10,
       "by_volume": {
-        "yd1": 9
+        "yd1": 10
       },
       "by_kind": {
-        "he_has_more_segments": 9
+        "he_has_more_segments": 10
       },
       "by_fp_pattern": {
-        "true_likut_en_merged": 9
+        "true_likut_en_merged": 10
       }
     },
     "hard_cap_utf8_bytes": 85000,
@@ -53,7 +52,7 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"needs_human\",\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "segments.length === heSegs. No merge_groups on HE. No corpus edits."
     ],
-    "parent_sha256": "90abe6f8cefcbf00d9ab10c190d4a185bda3b4970b8dec8d4ddc3aa08c5c8717"
+    "parent_sha256": "499ae9722b8a35d3bc1ebe59e00558b032b04d77ed683945320446cbf4cc1646"
   },
   "cases": [
     {
@@ -87,9 +86,9 @@
         "That it begins, etc. — like an egg in which blood is found in the yolk, which is forbidden; and like a mouse whose flesh is partly mixed with impure flesh — all the more so, for the purpose of the prohibition, as stated in chapter 1 of Yom Tov (7a): it proliferates, etc. Ibid."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman115/seif-003/beur-hagra",
@@ -126,9 +125,9 @@
         "And some say that the same applies, etc. On account of permitted things that others practiced as forbidden, as is written there (another version)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman128/seif-003/beur-hagra",
@@ -161,9 +160,9 @@
         "And even if it was, etc. Rashba's view is to permit in such a case, as he wrote 61a ; in that courtyard it is permitted, etc.; but in the name of the Raavad he wrote that he forbids; and he wrote: according to his view it must be that there it deals when he never locked; or one may say it is different there since he has no connection to the house itself, etc.:"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman128/seif-004/beur-hagra",
@@ -189,9 +188,38 @@
         "And some say, etc. Hagahot there 69 in s.v. and where that, etc.: (Collection) And some say that nowadays, etc.; however if, etc. ; Tosafot 70a s.v. what is the reason; and Rashbam explained in the name of Rashi, etc.; however it appears, etc. (end of quote): (Collection) And some say, etc. ; Hagahot chapter 5 69:15 in s.v. and all; since, etc. (end of quote):"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
+    },
+    {
+      "id": "yd1/siman160/seif-012/beur-hagra",
+      "volume": "yd1",
+      "siman": 160,
+      "seif": 12,
+      "slug": "beur-hagra",
+      "kind": "he_has_more_segments",
+      "heSegs": 4,
+      "enSegs": 3,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "(ליקוט) לא יאמר כו'. כן פי' הטור והוא לגי' הירושלמי דע אם בא כו' והוא דברי המלוה והרמב\"ם פי' ג\"כ במלוה ופי' דע כו' שתכבדהו אבל לגי' שלנו וגי' הרי\"ף דע כי בא כו' וכן ברא\"ש דע שבא כו' י\"ל שהוא דברי הלוה וכמו ברישא ברבית מוקדמת ומאוחרת ואומר בשביל כו'. תי\"ט (ע\"כ):",
+        "וכן שאר כו'. מתני' וגמ' שם:",
+        "ואפי' כו'. עס\"ס זה:",
+        "(ליקוט) ואפילו טובת כו'. בירושלמי ספ\"ה רע\"א קשה הרבית שאף הטובה רבית הרי שאמר ליקח לו ירק מן השוק אע\"פ שנתן לו מעותיו ה\"ז רבית (ע\"כ):"
+      ],
+      "en_segments": [
+        "(Extract) He shall not say, etc. So Tur explained ; it is Yerushalmi version da im ba, etc. ; lender's words; and Rambam also explained as lender and explained da, etc. that you honor him; but our version and Rif's version da ki ba, etc.; and so in Rosh da sheba, etc. ; one can say borrower's words like at beginning advanced and delayed interest saying for the sake of, etc. Tosefet Yom Tov (end).",
+        "And likewise the rest, etc. Mishnah and Gemara there.",
+        "and even so. This is the case; and (Likkut) And even benefit, etc. In Yerushalmi end of chapter 5, 161a: severe is the ribbit ; for even benefit is ribbit; for example if he said \"buy me a vegetable from the market\" ; even though he gave him his money ; this is ribbit (end)."
+      ],
+      "fp_pattern": "true_likut_en_merged",
+      "route_reason": "likut eval HOLD: content_drift",
+      "prior_eval_verdict": "HOLD",
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman160/seif-016/beur-hagra",
@@ -225,9 +253,9 @@
         "But if, etc. the document, etc. As stated 62a regarding writing document alone they are liable. There: (Extract) But if agent, etc. Rashi 57b s.v. b'avnei, etc. (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman160/seif-017/beur-hagra",
@@ -254,9 +282,9 @@
         "And nevertheless, etc. SeMaG and Hagahot Maimoniyot there."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman160/seif-020/beur-hagra",
@@ -283,9 +311,9 @@
         "However, etc. See Shach."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman160/seif-023/beur-hagra",
@@ -312,9 +340,9 @@
         "And likewise all, etc. Tosafot and Rosh there; and as stated seif 7; and this is what he wrote but, etc."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     },
     {
       "id": "yd1/siman246/seif-026/beur-hagra",
@@ -343,9 +371,9 @@
         "Nevertheless, etc. See Rashi to Kiddushin 33a, s.v. 'due to his compulsion,' etc."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "likut eval HOLD: content_drift_vs_corpus_en",
+      "route_reason": "likut eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "content_drift_vs_corpus_en"
+      "prior_eval_reason": "content_drift"
     }
   ]
 }

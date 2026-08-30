@@ -572,17 +572,39 @@ const created = new Date().toISOString();
 const openIssues = scanOpenIssues();
 const openById = Object.fromEntries(openIssues.map((o) => [o.id, o]));
 
-const moderateHoldReject = evalIds("EN_TRUNC_MODERATE_GPT_RESULT_ALL_EVAL.json", [
-  "HOLD",
-  "REJECT",
+const moderateHoldReject = new Set([
+  ...evalIds("EN_TRUNC_MODERATE_GPT_RESULT_ALL_EVAL.json", ["HOLD", "REJECT"]),
+  ...evalIds("EN_TRUNC_MODERATE_REMAINING_GPT_RESULT_EVAL.json", [
+    "HOLD",
+    "REJECT",
+  ]),
 ]);
 const editorialKitIds = kitIds("EN_TRUNC_EDITORIAL_RETRANSLATE_KIT.json");
 const editorialPart01Eval = evalMap("EN_TRUNC_EDITORIAL_GPT_RESULT_part01_EVAL.json");
-const heEditorialHold = evalIds("HE_HAS_MORE_EDITORIAL_GPT_RESULT_ALL_EVAL.json", ["HOLD"]);
-const heLikutHold = evalIds("HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL_EVAL.json", ["HOLD"]);
-const heEditorialEval = evalMap("HE_HAS_MORE_EDITORIAL_GPT_RESULT_ALL_EVAL.json");
-const heLikutEval = evalMap("HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL_EVAL.json");
-const moderateEval = evalMap("EN_TRUNC_MODERATE_GPT_RESULT_ALL_EVAL.json");
+const heEditorialHold = new Set([
+  ...evalIds("HE_HAS_MORE_EDITORIAL_GPT_RESULT_ALL_EVAL.json", ["HOLD"]),
+  ...evalIds("HE_HAS_MORE_EDITORIAL_REMAINING_GPT_RESULT_EVAL.json", ["HOLD"]),
+]);
+const heLikutHold = new Set([
+  ...evalIds("HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL_EVAL.json", ["HOLD"]),
+  ...evalIds("HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT_EVAL.json", ["HOLD"]),
+  ...evalIds("HE_HAS_MORE_LIKUT_MERGED_REMAINING_GPT_RESULT_EVAL.json", [
+    "HOLD",
+  ]),
+]);
+const heEditorialEval = {
+  ...evalMap("HE_HAS_MORE_EDITORIAL_GPT_RESULT_ALL_EVAL.json"),
+  ...evalMap("HE_HAS_MORE_EDITORIAL_REMAINING_GPT_RESULT_EVAL.json"),
+};
+const heLikutEval = {
+  ...evalMap("HE_HAS_MORE_LIKUT_SPLIT_GPT_RESULT_ALL_EVAL.json"),
+  ...evalMap("HE_HAS_MORE_LIKUT_REMAINING_GPT_RESULT_EVAL.json"),
+  ...evalMap("HE_HAS_MORE_LIKUT_MERGED_REMAINING_GPT_RESULT_EVAL.json"),
+};
+const moderateEval = {
+  ...evalMap("EN_TRUNC_MODERATE_GPT_RESULT_ALL_EVAL.json"),
+  ...evalMap("EN_TRUNC_MODERATE_REMAINING_GPT_RESULT_EVAL.json"),
+};
 
 const gluedKit = readJson(path.join(AUDIT, "GLUED_STILL_OPEN_9_KIT.json"));
 const gluedIds = new Set((gluedKit?.cases ?? []).map((c) => c.id));
@@ -829,8 +851,8 @@ for (const def of kitDefs) {
       tier: "rescan_remaining",
       mode: def.mode,
       purpose: def.purpose,
-      source: "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
-      rescan_totals: readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-28.json"))?.totals,
+      source: "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
+      rescan_totals: readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals,
       exclusions: ["he_missing (59) — held per user"],
       output_schema: {
         primary: "segments[] with he+en per slot",
@@ -850,9 +872,9 @@ const unassigned = openIssues.filter((c) => !assigned.has(c.id));
 const master = {
   created,
   corpus: CORPUS,
-  rescan_source: "SEGMENT_RESCAN_2026-08-28.json",
+  rescan_source: "SEGMENT_RESCAN_2026-08-30.json",
   scan_open_actionable: openIssues.length,
-  scan_total_issues: 333,
+  scan_total_issues: readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals?.issues ?? openIssues.length + 59,
   excluded_he_missing: 59,
   kits: kitSummaries,
   bucket_counts: Object.fromEntries(
@@ -886,7 +908,7 @@ External AI kits for HE/EN \`<br>\`-segment mismatches. **Audit only — no corp
 
 **Last rebuild:** ${created} (rescan-driven _REMAINING kits)  
 Corpus: \`newtry/OC_Mobile/oc318-mobile-reader/public/corpus/{oc1,yd1,eh1,cm1}/\`  
-Rescan: [\`SEGMENT_RESCAN_2026-08-28.json\`](./SEGMENT_RESCAN_2026-08-28.json) · FP: [\`SEGMENT_RESCAN_FP_ANALYSIS.json\`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
+Rescan: [\`SEGMENT_RESCAN_2026-08-30.json\`](./SEGMENT_RESCAN_2026-08-30.json) · FP: [\`SEGMENT_RESCAN_FP_ANALYSIS.json\`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
 
 ## Excluded from all new kits
 
@@ -897,23 +919,23 @@ Rescan: [\`SEGMENT_RESCAN_2026-08-28.json\`](./SEGMENT_RESCAN_2026-08-28.json) �
 
 | Kind | Open count |
 |------|----------:|
-| en_truncated_vs_multi_he | 135 |
-| he_has_more_segments | 128 |
-| en_has_more_segments | 9 |
-| en_missing | 2 |
+| en_truncated_vs_multi_he | ${readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals?.byKind?.en_truncated_vs_multi_he ?? "—"} |
+| he_has_more_segments | ${readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals?.byKind?.he_has_more_segments ?? "—"} |
+| en_has_more_segments | ${readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals?.byKind?.en_has_more_segments ?? 0} |
+| en_missing | ${readJson(path.join(AUDIT, "SEGMENT_RESCAN_2026-08-30.json"))?.totals?.byKind?.en_missing ?? 0} |
 | he_missing | 59 (EXCLUDED) |
-| **Actionable** | **274** |
+| **Actionable** | **${openIssues.length}** |
 
 ## Run order (_REMAINING kits — use these)
 
-1. **EN_MISSING_2_REMAINING** — 2 en_missing still open.
-2. **EN_HAS_MORE_REMAINING** — 9 glued/oversplit EN cases.
+1. **EN_MISSING_2_REMAINING** — en_missing still open.
+2. **EN_HAS_MORE_REMAINING** — glued/oversplit EN cases.
 3. **EN_TRUNC_MODERATE_REMAINING** — moderate HOLD+REJECT retry.
-4. **EN_TRUNC_EDITORIAL_REMAINING** — editorial en_trunc (parts 02-06 + part01 holds).
+4. **EN_TRUNC_EDITORIAL_REMAINING** — editorial en_trunc.
 5. **BEER_DEGREE_SPLIT_REMAINING** — Beer HaGolah degree splits.
 6. **EN_TRUNC_REMAINING** — other en_truncated catch-all.
-7. **HE_HAS_MORE_LIKUT_REMAINING** — 13 Likut content_drift HOLD retry.
-8. **HE_HAS_MORE_EDITORIAL_REMAINING** — 91 editorial HOLD retry.
+7. **HE_HAS_MORE_LIKUT_REMAINING** — Likut content_drift HOLD retry.
+8. **HE_HAS_MORE_EDITORIAL_REMAINING** — editorial HOLD retry.
 9. **HE_HAS_MORE_LIKUT_MERGED_REMAINING** — true_likut_en_merged pattern.
 10. **HE_HAS_MORE_OFFSET_REMAINING** — residual offset editorial he_has_more.
 
@@ -923,7 +945,7 @@ Rescan: [\`SEGMENT_RESCAN_2026-08-28.json\`](./SEGMENT_RESCAN_2026-08-28.json) �
 |-----|------|------:|------:|---------------:|------------------|------|
 ${kitRows}
 
-**Total cases in rebuilt kits:** ${totalInKits} (of 274 actionable; ${unassigned.length} unassigned)
+**Total cases in rebuilt kits:** ${totalInKits} (of ${openIssues.length} actionable; ${unassigned.length} unassigned)
 
 ### One-line purpose
 

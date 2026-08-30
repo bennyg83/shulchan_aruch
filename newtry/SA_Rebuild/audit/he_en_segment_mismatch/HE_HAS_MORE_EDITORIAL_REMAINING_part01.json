@@ -4,16 +4,15 @@
     "tier": "rescan_remaining",
     "mode": "resegment_offset_fix",
     "purpose": "91 editorial HOLD still he_has_more",
-    "source": "SEGMENT_RESCAN_2026-08-28.json live corpus scan",
+    "source": "SEGMENT_RESCAN_2026-08-30.json live corpus scan",
     "rescan_totals": {
       "pairs": 197982,
-      "issues": 333,
+      "issues": 86,
+      "actionable_excluding_he_missing": 27,
       "byKind": {
         "he_missing": 59,
-        "he_has_more_segments": 128,
-        "en_truncated_vs_multi_he": 135,
-        "en_has_more_segments": 9,
-        "en_missing": 2
+        "he_has_more_segments": 26,
+        "en_truncated_vs_multi_he": 1
       }
     },
     "exclusions": [
@@ -23,7 +22,7 @@
       "primary": "segments[] with he+en per slot",
       "legacy_mirror": "en_segments[]"
     },
-    "created": "2026-08-28T15:39:33.542Z",
+    "created": "2026-08-30T05:59:15.936Z",
     "kit": "HE_HAS_MORE_EDITORIAL_REMAINING",
     "counts": {
       "total": 16,
@@ -55,7 +54,7 @@
       "[{\"id\":\"...\",\"action\":\"split_en\"|\"merge_groups\"|\"mixed_resegment_translate\"|\"needs_human\",\"merge_groups\":null|[[0,1]],\"segments\":null|[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"...\"}],\"en_segments\":null|[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "When segments[] returned, length === heSegs. No corpus edits."
     ],
-    "parent_sha256": "ab03561eb7e1bccb9d820340737031296243505895fa7cbab663305dfe99a953",
+    "parent_sha256": "ea4ac620ee6575b37fa9b97965c300c148f2b556bb4f9132ca7e2a30e9c76fcf",
     "chunk_index": 1,
     "chunk_total": 3,
     "case_offset": 0,
@@ -97,11 +96,11 @@
         "(Likkut) And there is no distinction, etc. Meaning: we require sixty, as written in Pesachim (98a) \"do not treat lightly the measures of the rabbis\"; and there same kind in its kind is milk and meat (and see above siman 95) — and the same here, same kind when not its kind equals there same kind in its kind, for all are one reason — a decree of same kind when not its kind in cooking because of noten ta'am (end):"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_7",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_7",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_7"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -131,11 +130,11 @@
         "Nevertheless, etc. As above seif 66; and meaning: here even if the gentile's intent was to make cheeses; and as is written: even if you say, etc.; and it implies even if the gentile's intent is to make cheeses it is also forbidden."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -192,11 +191,11 @@
         "And all disqualified for testimony, etc. But Ran wrote they are not believed ; for this is what he means: if you believe me that he is not a robber, etc., as above ; requires investigation; and likewise what he wrote \"unless he is suspected,\" etc. ; behold we say above siman 119 seif 7 \"and regarding another's,\" etc., for we establish in chapter 8 of Yoma and in Bekhorot 35b like R. Shimon ben Gamliel, who said one is believed regarding his fellow's, etc.; except to permit he is believed even the suspected; but to forbid, he is believed by force of his testimony ; all the disqualified are not believed, as above; and likewise Shach challenged ; requires investigation: (Collection) And all disqualified for testimony, etc. For we establish: one suspected of one matter is not suspected, etc. [and in Tosafot Bekhorot 36a s.v. say, etc.] as written in siman 119 seif 4 and seif 7: If not, etc. See there seif 7, that it is not as he wrote \"and regarding another's,\" etc.; but according to the Rav's words, that is primary, as he wrote (in s.k. 18) (end of quote):"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_17",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_17",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_17"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -250,16 +249,11 @@
         "But if, etc. Like in slaughter, as above: (Collection) Minor, etc., and if he testifies, etc. But in Tosafot (Pesachim) cited, he wrote: the reason they believed him there is because it is in his power to fix it; therefore they did not believe him in chapter 2 of Ketubot regarding techumim, for with minors ; but specifically regarding their adulthood; but with minors, no ; likewise in Eruvin 59a s.v. and techumim, etc.; and from there it is proven that a woman is believed in rabbinic matters even in a matter not in her hand. The principle: in a matter in their power to fix it, even a woman and minor are believed even in Torah law, like slaughter by a woman and a minor who knows to guard his body, etc.; and specifically where there is no effort, as Tosafot wrote there, or doubt and a side to be lenient ; from that in Pesachim there, that we say there specifically in rabbinic matters; and in rabbinic matters a woman is believed even if not in her hand, like techumim; and likewise a slave; but a minor, no ; as above; and not in their hand, and Torah law ; even a woman is not believed, from what is written in Eruvin because techumim are rabbinic; but if in their hand, and rabbinic matters ; even effort and doubt, whether woman or minor they are believed, as written regarding chametz, as above. And the principle in brief: in their hand and no doubt ; whether woman or minor they are believed even in Torah law (see above siman 120 s.k. 36); and if one of these two conditions is lacking, both are not believed in Torah law; and in rabbinic matters in doubt, both are believed and not in their hand ; woman is believed and not minor. And a slave is like a woman:"
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_2",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_2",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_7",
-        "LIKUT_MARKER_MISS_11",
-        "LIKUT_MARKER_MISS_12",
-        "LIKUT_MARKER_MISS_13",
-        "LIKUT_MARKER_MISS_19"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -319,11 +313,11 @@
         "Specifically where he cannot escape, etc. This applies even though the matter began under coercion, as stated at the end of the fourth chapter of Kesubos 51b regarding women who were abducted, etc.: certainly, if their captors released them, etc. Rivash."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_19",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_19",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_19"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -355,11 +349,11 @@
         "(Extract) Gift, etc. It is money as stated first chapter Kiddushin (6b) in sale acquires; and in terumah, etc.; and even woman, etc. unless because of exchange (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_3",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_3",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_3"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -388,13 +382,11 @@
         "(Extract) Besides ribbit, etc. For in a gift he gave it as stated in mishnah (75b) doron, etc. (end)."
       ],
       "fp_pattern": "true_likut_en_merged",
-      "route_reason": "editorial eval HOLD: LIKUT_MARKER_MISS_1",
+      "route_reason": "editorial eval HOLD: content_drift",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "LIKUT_MARKER_MISS_1",
+      "prior_eval_reason": "content_drift",
       "prior_eval_flags": [
-        "LIKUT_MARKER_MISS_1",
-        "LIKUT_MARKER_MISS_2",
-        "LIKUT_MARKER_MISS_4"
+        "CONTENT_DRIFT"
       ]
     },
     {
@@ -421,14 +413,13 @@
         "I'm going to say:"
       ],
       "fp_pattern": "true_beer_degree_split",
-      "route_reason": "editorial eval HOLD: FRESH_TRANSLATE_2",
+      "route_reason": "editorial eval HOLD: fresh_translate_quality",
       "prior_eval_verdict": "HOLD",
-      "prior_eval_reason": "FRESH_TRANSLATE_2",
+      "prior_eval_reason": "fresh_translate_quality",
       "prior_eval_flags": [
         "FRESH_TRANSLATE_2",
         "FRESH_TRANSLATE_3",
-        "FAILURE_FRESH_2:the craft",
-        "MIXED_INFLATED_3.209"
+        "FAILURE_FRESH_2:the craft"
       ]
     }
   ]

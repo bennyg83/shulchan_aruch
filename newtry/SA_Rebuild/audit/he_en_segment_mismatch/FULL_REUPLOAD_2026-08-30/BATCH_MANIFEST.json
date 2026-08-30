@@ -1,0 +1,86 @@
+{
+  "batch": "full_reupload_all_10_2026-08-30",
+  "total_authoritative_cases": 39,
+  "total_aligned_segments_nonempty_kits": 227,
+  "kits": [
+    {
+      "kit": 1,
+      "authoritative_parent": "EN_MISSING_2_REMAINING.json",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output_file": "01_EN_MISSING_2_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 2,
+      "authoritative_parent": "EN_HAS_MORE_REMAINING.json",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output_file": "02_EN_HAS_MORE_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 3,
+      "authoritative_parent": "EN_TRUNC_MODERATE_REMAINING.json",
+      "authoritative_cases": 11,
+      "completed_cases": 11,
+      "output_file": "03_EN_TRUNC_MODERATE_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 4,
+      "authoritative_parent": "BEER_DEGREE_SPLIT_REMAINING.json",
+      "authoritative_cases": 2,
+      "completed_cases": 2,
+      "output_file": "04_BEER_DEGREE_SPLIT_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 5,
+      "authoritative_parent": "EN_TRUNC_REMAINING.json",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output_file": "05_EN_TRUNC_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 6,
+      "authoritative_parent": "HE_HAS_MORE_LIKUT_REMAINING.json",
+      "authoritative_cases": 9,
+      "completed_cases": 9,
+      "output_file": "06_HE_HAS_MORE_LIKUT_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 7,
+      "authoritative_parent": "HE_HAS_MORE_LIKUT_MERGED_REMAINING.json",
+      "authoritative_cases": 1,
+      "completed_cases": 1,
+      "output_file": "07_HE_HAS_MORE_LIKUT_MERGED_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 8,
+      "authoritative_parent": "HE_HAS_MORE_OFFSET_REMAINING.json",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output_file": "08_HE_HAS_MORE_OFFSET_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 9,
+      "authoritative_parent": "EN_TRUNC_EDITORIAL_REMAINING.json",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output_file": "09_EN_TRUNC_EDITORIAL_REMAINING_COMPLETED.json"
+    },
+    {
+      "kit": 10,
+      "authoritative_parent": "HE_HAS_MORE_EDITORIAL_REMAINING.json",
+      "authoritative_cases": 16,
+      "completed_cases": 16,
+      "output_file": "10_HE_HAS_MORE_EDITORIAL_REMAINING_COMPLETED.json"
+    }
+  ],
+  "validation": {
+    "all_new_parent_jsons_read": true,
+    "exact_hebrew_identity_checked_for_every_nonempty_case": true,
+    "new_parent_source_order_preserved": true,
+    "exact_heSegs_parity_checked": true,
+    "fresh_translation_hebrew_leak_checked": true,
+    "placeholder_check_passed": true,
+    "empty_authoritative_kits_written_as_empty_json_arrays": true
+  }
+}

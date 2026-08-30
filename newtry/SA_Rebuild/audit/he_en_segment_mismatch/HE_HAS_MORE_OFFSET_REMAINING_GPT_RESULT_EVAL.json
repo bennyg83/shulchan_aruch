@@ -1,115 +1,21 @@
 {
   "meta": {
-    "created": "2026-08-28T15:39:08.388Z",
+    "created": "2026-08-30T05:51:50.446Z",
     "kit": "HE_HAS_MORE_OFFSET_REMAINING",
     "kit_num": "08",
     "mode": "editorial",
-    "gpt_source": "C:/Users/binya/Documents/shulchan-aruch-clean/newtry/SA_Rebuild/audit/he_en_segment_mismatch/HE_HAS_MORE_OFFSET_REMAINING_GPT_RESULT.json",
+    "gpt_source": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\he_en_segment_mismatch\\HE_HAS_MORE_OFFSET_REMAINING_GPT_RESULT.json",
     "gpt_result": "HE_HAS_MORE_OFFSET_REMAINING_GPT_RESULT.json",
-    "kit_case_count": 6,
-    "gpt_case_count": 6,
-    "expected": 6,
+    "gpt_result_reupload": "HE_HAS_MORE_OFFSET_REMAINING_GPT_RESULT_REUPLOAD.json",
+    "batch": "full_reupload_all_10_2026-08-30",
+    "reuse_local": true,
+    "kit_case_count": 0,
+    "gpt_case_count": 0,
+    "expected": 0,
     "id_order_match": true,
     "missing_from_gpt": [],
     "extra_in_gpt": [],
-    "summary": "HE_HAS_MORE_OFFSET_REMAINING: 6 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE"
+    "summary": "HE_HAS_MORE_OFFSET_REMAINING: 0 APPROVE, 0 HOLD, 0 REJECT, 0 REPAIR_CANDIDATE, 0 SKIP_APPLIED"
   },
-  "results": [
-    {
-      "id": "cm1/siman25/seif-003/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 22,
-      "enSegs": 10,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_20"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "Long offset blobs split at translated lemma transitions; only the corrupted legacy slot at index 20 was freshly translated."
-    },
-    {
-      "id": "cm1/siman39/seif-001/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 4,
-      "enSegs": 3,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The middle English blob contained the two consecutive Hebrew discussions and was split verbatim at the Maharshal transition."
-    },
-    {
-      "id": "cm1/siman82/seif-013/siftei-kohen",
-      "slug": "siftei-kohen",
-      "heSegs": 5,
-      "enSegs": 3,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_1"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The corrupted second legacy English slot was freshly translated; the final long blob was split at the migo-law and item-31 boundaries."
-    },
-    {
-      "id": "cm1/siman86/seif-005/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 6,
-      "enSegs": 2,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The first legacy English blob covered Hebrew slots 0-4 consecutively and was split verbatim at the four argument transitions."
-    },
-    {
-      "id": "cm1/siman88/seif-012/urim-vetumim-tumim",
-      "slug": "urim-vetumim-tumim",
-      "heSegs": 9,
-      "enSegs": 8,
-      "action": "split_en",
-      "confidence": "high",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [],
-      "exact_match": false,
-      "sig_match": true,
-      "gpt_notes": "The opening English blob contained the first two Hebrew discussions and was split verbatim at the explicit Rashi difficulty transition."
-    },
-    {
-      "id": "cm1/siman200/seif-001/netivot-hamishpat-beurim",
-      "slug": "netivot-hamishpat-beurim",
-      "heSegs": 23,
-      "enSegs": 6,
-      "action": "mixed_resegment_translate",
-      "confidence": "medium",
-      "verdict": "APPROVE",
-      "reason": "editorial resegment OK",
-      "repair_candidate": false,
-      "flags": [
-        "FRESH_TRANSLATE_21"
-      ],
-      "exact_match": false,
-      "sig_match": false,
-      "gpt_notes": "The introduction and practical-rule blobs were split at their explicit translated transitions; only the corrupted legacy slot at index 21 was freshly translated."
-    }
-  ]
+  "results": []
 }

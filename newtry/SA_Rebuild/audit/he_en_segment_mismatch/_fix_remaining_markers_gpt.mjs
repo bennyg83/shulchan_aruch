@@ -32,8 +32,10 @@ const MEANING_PREFIX_RE = /^Meaning[:,]?\s*/i;
 function loadGptPaths(kit) {
   const repaired = path.join(AUDIT, `${kit}_GPT_RESULT_REPAIRED.json`);
   const gpt = path.join(AUDIT, `${kit}_GPT_RESULT.json`);
+  // Prefer GPT_RESULT when present (fresh reupload / post-marker). Only fall
+  // back to REPAIRED if GPT_RESULT is missing.
   return {
-    primary: fs.existsSync(repaired) ? repaired : gpt,
+    primary: fs.existsSync(gpt) ? gpt : repaired,
     gpt,
     repaired: fs.existsSync(repaired) ? repaired : null,
   };
@@ -196,31 +198,13 @@ function fixKit(cfg, dryRun) {
 }
 
 function runLocalEval(kitArg) {
-  const evalModPath = path.join(AUDIT, "eval_remaining_gpt_all.mjs");
-  let evalText = fs.readFileSync(evalModPath, "utf8");
-  for (const cfg of REMAINING_KITS) {
-    const local = path
-      .join(AUDIT, `${cfg.kit}_GPT_RESULT.json`)
-      .replace(/\\/g, "/");
-    const re = new RegExp(`(kit: "${cfg.kit}"[\\s\\S]*?src: ")[^"]+(")`, "m");
-    if (!re.test(evalText)) {
-      throw new Error(`Failed to patch src for ${cfg.kit}`);
-    }
-    evalText = evalText.replace(re, `$1${local}$2`);
-  }
-  const tempEval = path.join(AUDIT, "_tmp_eval_local.mjs");
-  fs.writeFileSync(tempEval, evalText, "utf8");
-  try {
-    const args = [tempEval];
-    if (kitArg) args.push("--kit", kitArg);
-    const r = spawnSync(process.execPath, args, {
-      cwd: AUDIT,
-      stdio: "inherit",
-    });
-    if (r.status) process.exit(r.status);
-  } finally {
-    if (fs.existsSync(tempEval)) fs.unlinkSync(tempEval);
-  }
+  const args = [path.join(AUDIT, "eval_remaining_gpt_all.mjs"), "--reuse-local"];
+  if (kitArg) args.push("--kit", kitArg);
+  const r = spawnSync(process.execPath, args, {
+    cwd: AUDIT,
+    stdio: "inherit",
+  });
+  if (r.status) process.exit(r.status);
 }
 
 function main() {
