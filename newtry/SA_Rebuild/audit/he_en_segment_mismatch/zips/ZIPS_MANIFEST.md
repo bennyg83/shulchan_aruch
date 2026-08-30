@@ -39,3 +39,9 @@ On disk, _REMAINING kit zips use numeric prefixes 1_–10_ matching this sequenc
 | `10_HE_HAS_MORE_EDITORIAL_REMAINING.zip` | 120349 | HE_HAS_MORE_EDITORIAL_REMAINING.md, HE_HAS_MORE_EDITORIAL_REMAINING.json, HE_HAS_MORE_EDITORIAL_REMAINING_part01.json, HE_HAS_MORE_EDITORIAL_REMAINING_part02.json, HE_HAS_MORE_EDITORIAL_REMAINING_part03.json, full_dictionary.md |
 | `07_HE_HAS_MORE_LIKUT_MERGED_REMAINING.zip` | 18926 | HE_HAS_MORE_LIKUT_MERGED_REMAINING.md, HE_HAS_MORE_LIKUT_MERGED_REMAINING.json, full_dictionary.md |
 | `08_HE_HAS_MORE_OFFSET_REMAINING.zip` | 21259 | HE_HAS_MORE_OFFSET_REMAINING.md, HE_HAS_MORE_OFFSET_REMAINING.json, full_dictionary.md |
+
+## Open Class B+C (post-classification)
+
+| Zip | Size (bytes) | Contents |
+|-----|-------------:|----------|
+| `01_OPEN_CLASS_B_C_GPT_KIT.zip` | 129264 | OPEN_CLASS_B_C_GPT_KIT.md, OPEN_CLASS_B_C_GPT_KIT.json, OPEN_CLASS_B_C_GPT_KIT_part01.json, OPEN_CLASS_B_C_GPT_KIT_part02.json, OPEN_CLASS_B_C_GPT_KIT_part03.json, full_dictionary.md |

@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "kind": "mixed",
+    "tier": "open_class_b_c",
+    "mode": "split_or_fresh_translate_hardened",
+    "purpose": "15 open B+C cases for GPT — Class A (12 mechanical) applied separately; do not include A IDs",
+    "source": "manual Class B+C list from SEGMENT classification 2026-08-30",
+    "exclusions": [
+      "Class A 12 mechanical Likut mid-marker splits (local apply)",
+      "he_missing held"
+    ],
+    "class_B_ids": [
+      "yd1/siman128/seif-003/beur-hagra",
+      "yd1/siman160/seif-005/beur-hagra",
+      "yd1/siman161/seif-002/beur-hagra"
+    ],
+    "class_C_ids": [
+      "yd1/siman109/seif-001/beur-hagra",
+      "yd1/siman127/seif-001/beur-hagra",
+      "yd1/siman127/seif-003/beur-hagra",
+      "yd1/siman157/seif-001/beur-hagra",
+      "yd1/siman165/seif-001/beer-hagolah",
+      "yd1/siman165/seif-001/siftei-kohen",
+      "yd1/siman166/seif-001/siftei-kohen",
+      "yd1/siman168/seif-018/siftei-kohen",
+      "yd1/siman170/seif-001/turei-zahav",
+      "yd1/siman197/seif-002/siftei-kohen",
+      "yd1/siman199/seif-003/siftei-kohen",
+      "yd1/siman242/seif-004/beur-hagra"
+    ],
+    "output_schema": {
+      "primary": "en_segments[]",
+      "optional": "segments[] with he+en per slot"
+    },
+    "created": "2026-08-30T06:25:23.972Z",
+    "kit": "OPEN_CLASS_B_C_GPT_KIT",
+    "counts": {
+      "total": 15,
+      "by_class": {
+        "B": 3,
+        "C": 12
+      },
+      "by_volume": {
+        "yd1": 15
+      },
+      "by_kind": {
+        "he_has_more_segments": 15
+      },
+      "by_fp_pattern": {
+        "true_likut_en_merged": 7,
+        "true_beer_degree_split": 1,
+        "true_offset_editorial": 7
+      }
+    },
+    "hard_cap_utf8_bytes": 85000,
+    "dictionary_file": "full_dictionary.md",
+    "prompt": "SA_Rebuild OPEN CLASS B+C — SPLIT / FRESH TRANSLATE (hardened).\n\nINPUTS: OPEN_CLASS_B_C_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Beit Yosef/etc.).\n- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).\n- Part 5 — connectives: render logical connectives per dictionary.\n\nCORPUS TEXT: he_segments[] and en_segments[] are COMPLETE from live corpus (NO truncation). Use them as the source of truth for existing EN wording.\n\nSTRATEGY\n1) If EN already contains the full material for HE slots (often mid markers (Collection)/(Extract)/(Addition)/(Additional note)/(Likkut)): action=split_en or mixed_resegment_translate with source=split_existing_en — VERBATIM cut only.\n2) If EN is missing, garbled, offset, or wrong lemma: source=fresh_translate for those slots only (mixed_resegment_translate when some slots are preserved).\n3) HE slots starting with (ליקוט): EN segment MUST start with \"(Likkut) \" (normalize Collection/Extract/Addition/Additional note → (Likkut) on ליקוט heads only).\n4) Never merge HE ליקוט blocks. Prefer split EN. merge_groups only for true HE continuation of the SAME note (not distinct lemmas).\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)\n\nUNIVERSAL — any EN segment text:\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n\nJSON OUTPUT (mandatory):\n- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.\n- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).\n- Prefer returning en_segments[] without embedding he in strings when possible.\n- en_segments.length MUST equal heSegs for every case.\n\nSPLIT_EXISTING_EN / RESEGMENT:\n- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.\n- Do NOT normalize citations, synonym-swap, paraphrase, summarize, compress, or \"improve\" prose on preserved splits.\n- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.\n- Eval HOLDs content_drift / unjustified fresh_translate; REJECTs truncated/broken JSON.\n\nFRESH_TRANSLATE (gap / garbled / offset slots only):\n- Complete translation of every Hebrew clause; no omissions; no additions beyond source.\n- Use full_dictionary.md; expand abbreviations; Arabic numerals; {Rama: ...} for Rama glosses.\n- Apply fresh_translate ONLY where EN blob lacks material or is garbled — never on slots fully covered by good existing EN.\n- Prefer plain scholarly English; keep (Likkut) markers on ליקוט HE slots.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"fresh_translate\"|\"needs_human\",\"merge_groups\":null,\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nsegments.length === heSegs (when segments returned). No corpus edits.",
+    "instructions_for_reviewer": [
+      "SA_Rebuild OPEN CLASS B+C — SPLIT / FRESH TRANSLATE (hardened).",
+      "",
+      "INPUTS: OPEN_CLASS_B_C_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md",
+      "",
+      "DICTIONARY (mandatory — full_dictionary.md)",
+      "- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.",
+      "- Part 2 — halachic terms: use dictionary transliteration/rendering for every listed term.",
+      "- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Beit Yosef/etc.).",
+      "- Part 4 — numbers: convert Hebrew letter-numbers to Arabic numerals (siman/seif/daf).",
+      "- Part 5 — connectives: render logical connectives per dictionary.",
+      "",
+      "CORPUS TEXT: he_segments[] and en_segments[] are COMPLETE from live corpus (NO truncation). Use them as the source of truth for existing EN wording.",
+      "",
+      "STRATEGY",
+      "1) If EN already contains the full material for HE slots (often mid markers (Collection)/(Extract)/(Addition)/(Additional note)/(Likkut)): action=split_en or mixed_resegment_translate with source=split_existing_en — VERBATIM cut only.",
+      "2) If EN is missing, garbled, offset, or wrong lemma: source=fresh_translate for those slots only (mixed_resegment_translate when some slots are preserved).",
+      "3) HE slots starting with (ליקוט): EN segment MUST start with \"(Likkut) \" (normalize Collection/Extract/Addition/Additional note → (Likkut) on ליקוט heads only).",
+      "4) Never merge HE ליקוט blocks. Prefer split EN. merge_groups only for true HE continuation of the SAME note (not distinct lemmas).",
+      "",
+      "FAILURE RULES — DO NOT (causes REJECT/HOLD in eval pipeline)",
+      "",
+      "UNIVERSAL — any EN segment text:",
+      "- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), or other known MT failure patterns.",
+      "- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN output.",
+      "- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholder text in EN (\"TBD\", \"translation pending\", etc.).",
+      "- Do NOT wrap the response in markdown fences or add prose outside valid JSON.",
+      "",
+      "JSON OUTPUT (mandatory):",
+      "- Return en_segments[] as the primary deliverable; segments[] with he+en is optional for audit alignment.",
+      "- Valid JSON only — escape every \" as \\\" inside strings; use straight ASCII quotes only (no smart quotes).",
+      "- Prefer returning en_segments[] without embedding he in strings when possible.",
+      "- en_segments.length MUST equal heSegs for every case.",
+      "",
+      "SPLIT_EXISTING_EN / RESEGMENT:",
+      "- When source is split_existing_en: preserve existing EN wording VERBATIM — cut/join ONLY at boundaries.",
+      "- Do NOT normalize citations, synonym-swap, paraphrase, summarize, compress, or \"improve\" prose on preserved splits.",
+      "- Do NOT re-translate from Hebrew when the EN blob already contains the text for that slot.",
+      "- Eval HOLDs content_drift / unjustified fresh_translate; REJECTs truncated/broken JSON.",
+      "",
+      "FRESH_TRANSLATE (gap / garbled / offset slots only):",
+      "- Complete translation of every Hebrew clause; no omissions; no additions beyond source.",
+      "- Use full_dictionary.md; expand abbreviations; Arabic numerals; {Rama: ...} for Rama glosses.",
+      "- Apply fresh_translate ONLY where EN blob lacks material or is garbled — never on slots fully covered by good existing EN.",
+      "- Prefer plain scholarly English; keep (Likkut) markers on ליקוט HE slots.",
+      "",
+      "OUTPUT — JSON array only:",
+      "[{\"id\":\"...\",\"action\":\"split_en\"|\"mixed_resegment_translate\"|\"fresh_translate\"|\"needs_human\",\"merge_groups\":null,\"segments\":[{\"index\":0,\"he\":\"...\",\"en\":\"...\",\"source\":\"split_existing_en\"|\"fresh_translate\"}],\"en_segments\":[\"...\"],\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
+      "segments.length === heSegs (when segments returned). No corpus edits."
+    ],
+    "parent_sha256": "d822ab2a483b68c5b638bf38a3e40a2132f07ce46f864db35bb2c12f7797bb52",
+    "chunk_index": 3,
+    "chunk_total": 3,
+    "case_offset": 13,
+    "cases_in_chunk": 2,
+    "parent_pack": "OPEN_CLASS_B_C_GPT_KIT.json"
+  },
+  "cases": [
+    {
+      "id": "yd1/siman199/seif-003/siftei-kohen",
+      "volume": "yd1",
+      "siman": 199,
+      "seif": 3,
+      "slug": "siftei-kohen",
+      "class": "C",
+      "kind": "he_has_more_segments",
+      "heSegs": 3,
+      "enSegs": 2,
+      "he_deficit": 1,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "חפיפה כו'. ול\"נ מכולה סוגיא דש\"ס (נדה דף ס\"ז וס\"ח) כדעת רש\"י וסייעתו דיותר טוב שהחפיפה תהיה ביום היכא דאפשר וכמ\"ש בספרי עיין שם והלכך אם חל ליל טבילתה במ\"ש או אפילו במוצאי יום טוב שחל להיות אחר שבת חופפת בע\"ש וטובלת במ\"ש או מוצאי יו\"ט כיון שאפשר שהחפיפה תהיה ביום בחול אבל היכא דחל ליל טבילתה בליל ג' שאחר יום טוב כגון שחלו להיות שני יו\"ט אחר השבת או שחלו להיות שני י\"ט של ר\"ה או של גליות ביום ה' ו' וחל ליל טבילתה במ\"ש דנמצא יש שלשה ימים בין חפיפה לטבילה ובכה\"ג לא אפשר שהחפיפה תהיה רחוקה כל כך וכדסבירא להו לרב חסדא ורב יימר דבכה\"ג חופפת בליל טבילתה כיון דרחוקה יותר מדאי והיינו דאמרינן בש\"ס והלכתא אשה חופפת ביום והלכתא אשה לא תחוף אלא בלילה קשיא הלכתא אהלכתא לא קשיא הא דאפשר הא דלא אפשר ע\"כ וסמך ש\"ס אשקלא וטריא דרב חסדא ודרב יימר דלעיל ונ\"ל דגם דעת רש\"י כן שפי' וז\"ל הא דאפשר לחוף ביום חופפת ביום הא דלא אפשר לחוף כגון מוצאי יו\"ט לא תחוף אלא בלילה עכ\"ל (וכ\"פ בס' יראים ס\"ס קצ\"ב) ומ\"ש כגון מוצאי יו\"ט ר\"ל של ר\"ה וסמך אלעיל דבכה\"ג לא אפשר הא לאו הכי אפשר לחוף בעי\"ט ובהכי ניחא שפיר דקיימא כולה סוגיא דלעיל משא\"כ להתוס' והפוסקים דצריכים לדחוק דאזלה לה סוגיא דלעיל ותו קשה לדבריהם דהא משמע התם להדיא מדברי רב הונא ורב חסדא ורב יימר ומרימר שכך היו נוהגות בנות ישראל בזמניהם לחוף ביום בע\"ש או עיו\"ט ולטבול במ\"ש שהרי מביאין ראיה ממנהגם שמותר לחוף באחד בשבת ולטבול בד' או בה' בשבת אלא דרב חסדא ודעמיה פליגי בחול דאין דנין אפשר משאי אפשר והכי קא פסיק התם מרימר הלכתא אם כן היאך נאמר דסוגיא דלקמן דפסיק הלכתא פליגא אסוגיא והלכתא ומנהג דלעיל אלא ודאי כדפרישית זהו נ\"ל בש\"ס ורש\"י אלא שהפוסקים לא פירשו כן ולא כתבו כן בשם רש\"י ולא ידעתי מנין להם זה ולענין דינא נראה דבכל ענין יש לה להשתטף בחמין ביום בע\"ש וערב יו\"ט וגם לחוף אז ולחזור ולהשתטף ולחוף בליל טבילתה אם הוא חול וכ\"כ הפוסקים וכן בחול מנהג כשר שהחפיפה תתחיל מבע\"י ותעסוק בחפיפתה עד שתחשך וכמ\"ש הפוסקי' והט\"ו ואע\"ג דהיכא דחל ליל טבילתה שלשה ימים רחוק כגון שבת ושני יו\"ט בכה\"ג מסקינן בש\"ס דחופפת בליל טבילתה שהוא חול י\"ל דה\"ק לא די לה בחפיפת ע\"ש ועי\"ט כיון דרחוק כ\"כ אלא צריכה לחוף ג\"כ בליל טבילתה וגם בע\"ש ועיו\"ט כיון דחפיפת יום עדיף והכי ניחא למיעבד טפי כיון דנשי דידי חופפות בע\"ש ועיו\"ט וגם בליל טבילתן א\"כ אין להקל להן לחלק בין רחוק שני ימים או שלשה ימים שלא יבואו לידי טעות וכ\"כ בש\"ד סי' י' דאף בכה\"ג תחוף ג' ימים מקודם ג\"כ ואפשר דהיינו מדאמרי' בש\"ס דריש מרימר הלכתא כרב חסדא כדמתרץ רב יימר וחומרי חומרי נקט חומרא דרב חסדא בשני י\"ט שאחר השבת שחופפת בע\"ש דיותר טוב לחוף ביום וחומרא דרב יימר שחופפת בליל טבילתה כיון דרחוק כ\"כ והיינו שכתוב במרדכי בשבועות בפ\"ב דנדה פסקינן כרב חסדא דאשה חופפת בע\"ש וטובלת אפילו בליל ד' כשאירעו שני יו\"ט אחר השבת וכ\"כ הרא\"מ בספרו כרש\"י דיותר טוב לחוף ביום מבלילה עכ\"ל דלכאורה קשיא דהא פסקינן בש\"ס כדמתרץ רב יימר אלא ודאי ס\"ל כדרב חסדא וכדמתרץ רב יימר היינו כדפי' ולא כפירש\"י שם ולישנא כדמתרץ רב יימר אתי שפיר לפי' זה אבל לפי' רש\"י הל\"ל וכרב יימר דהא פליג ודוק ומטעם זה נראה שלא חילקו הפוסקים בין שני יו\"ט שחלו להיות אחר השבת שחופפת במוצאי יו\"ט ובין יו\"ט א' שחל להיות אחר השבת כדמחלקינן בש\"ס בהכי דכיון דכתבו אף בשאר יו\"ט דנכון להחמיר לחוף מעיו\"ט וגם במוצאי יו\"ט א\"כ אין חילוק ודוק כי כל זה ברור לדעתי שוב מצאתי בתשובת מהרש\"ל סי' ו' שהכריע כהחולקים על רש\"י בלא טענה מוכרחת והנלפע\"ד כתבתי עוד כתב מהרש\"ל שם על מה שנהגו מקדם להתחיל לחוף ביום ועתה תקנו לחוף בלילה ותעסוק בחפיפה דוקא שעה אחת שלא תהא מהומה לביתה שרי אפי' לרש\"י מאחר דאיכא חשש איסור שלא ירגישו בטבילותיהן וגם לפעמים הצנועות באות לידי ביטול טבילת מצוה וכ\"כ הרב בתשובה סימן כ\"א ע\"ש שהאריכו בזה:",
+        "תשא עמה מסרק כו'. ובמדינות אלו נוהגות להשתטף ולחוף ולרחוץ ולסרוק הכל בבית המרחץ סמוך מיד לטבילה ונכון הוא:",
+        "שצריכה לחוף ביום. דוקא ולא בלילה כגון שאי אפשר שתחוף בלילה מחמת שהעובדי כוכבים יש להם חג באותו הלילה שאינם מניחים להדליק אש בשום בית או איזה אונס אחר וכדאיתא בב\"י וכן כשא\"א לה לחוף ביום מחמת איזה אונס אלא בלילה דוקא אבל כל שאפשר ביום ובלילה תחוף ביום ובלילה ופשוט הוא:"
+      ],
+      "en_segments": [
+        "She should bring a comb with her, etc. And in these countries they practice rinsing and performing chafifah and bathing and combing everything in the bathhouse immediately near the immersion — and this is proper.",
+        "That she must perform chafifah by day. Specifically, and not at night — such as when it is impossible to perform chafifah at night because idolaters have a festival that night and they do not permit kindling fire in any house, or some other compulsion; and as stated in Beit Yosef. And likewise when she cannot perform chafifah by day because of some compulsion but only at night — specifically at night. But whenever possible both by day and at night — she performs chafifah by day and at night; and this is simple."
+      ],
+      "fp_pattern": "true_offset_editorial",
+      "class_note": "Class C: huge missing HE[0] chafifah sugya; fresh_translate.",
+      "route_reason": "class_C_gpt_quality"
+    },
+    {
+      "id": "yd1/siman242/seif-004/beur-hagra",
+      "volume": "yd1",
+      "siman": 242,
+      "seif": 4,
+      "slug": "beur-hagra",
+      "class": "C",
+      "kind": "he_has_more_segments",
+      "heSegs": 8,
+      "enSegs": 4,
+      "he_deficit": 4,
+      "en_deficit": 0,
+      "he_file_present": true,
+      "en_file_present": true,
+      "he_segments": [
+        "לעולם. ר\"ל אפי' באקראי וכמש\"ו:",
+        "ואם כו'. דבסנהדרין ה' ב' אמרינן ותניא תלמיד אל יורה כו' ושם א' רב ורבב\"ח לא היו יכולין להורות בלתי רשות ומפרש הרמב\"ם דשם בקביעות כעובדא דרב ורבב\"ח וע\"ז אמרו באותה שעה גזרו כו' ועובדא דתנחום באקראי היתה כמש\"ש איקלע כו' לכן הקשו לו ותניא כו'. ואמר עד שימות כמ\"ש בעירובין שם לא אורי בשני כו' ותוס' בסנהדרין שם ד\"ה אלא הקשו ג\"כ קושית הרמב\"ם מרפ\"ו דעירובין דרב המנונא לא אורי בחרתא דארגיז בשני דרב הונא משום דרבו מובהק הוי ור\"ה הוי רחוק משם יותר מג' פרסאות וכן מרבינא דסר סכינא בבבל וא\"ל ת\"ח אנא הלא\"ה אסור ובבל רחוק הרבה מר\"א וכן דפריך שם מתלמיד דר' אליעזר שנתחייב מיתה חוץ לג' פרסאות משמע הא מאיסור ל\"ק מידי ותירצו בסנהדרין שם דתוך ג' פרסאות אפי' רשות לא מהני [וז\"ש בהג\"ה ואפי' נטילת כו']. ובכתובות ס' ב' ד\"ה כי כתבו דמהני אלא דלא מסתייעא מילתיה ואפשר משום דרב יוסף לאו רבו מובהק היה דרבה רבו מובהק היה. אבל בעירובין שם תירצו בד\"ה רב חסדא כו' דכל ג' פרסאות חשוב בפניו וע\"ז אמרו בפניו אסור וחייב מיתה ולכך לא הקשו מתלמיד דר\"א רק מחמת שהיה רחוק ג' פרסאות ומ\"ש שלא בפניו אסור ואין חייב מיתה היינו חוץ לג\"פ ותלמיד חבר תוך ג\"פ אסור וזהו דאמרינן בסנהדרין ותניא תלמיד אל יורה אא\"כ רחוק כו' וחוץ לג\"פ מותר כנ\"ל וכמ\"ש בעירובין שם ומ\"מ אף תוך ג\"פ בת\"ח פטור דמיתה גמרינן ממשה שרבו מובהק ועברא\"ש שם וז\"ש בש\"ע וי\"א דתלמיד גמור כו' ת\"ח כו'. אבל הרשב\"א סי' קי\"א סתר דבריהם דהא בסנהדרין שם ותניא תלמיד כו' משמע סתם תלמיד ואפי' תלמיד גמור וכן הקשו תוס' שם בעצמן דהא ממשה גמרינן כנ\"ל אלא דחוץ לג' פרסאות מותר מדינא ומ\"ש בעירובין שם בפניו בפניו ממש שלא בפניו תוך ג\"פ וקושית תוס' אינה מוכרחת דלרבותא קאמר רחוק ג\"פ ומ\"מ משום גזירה אסור אף חוץ לג\"פ כמש\"ש ברב ורבב\"ח וז\"ש שם וכיון דגמיר ל\"ל רשותא משמע דמדינא היה מותר אע\"ג דתלמידים גמורים היו ונ\"מ דתוך ג\"פ דאסור מדינא אע\"ג דנטל רשות מרבו אחר לא מהני אבל חוץ לג\"פ דרק משום גזירה מהני מרב אחד וכ\"כ הראב\"ד וכ\"כ הריב\"ש בשמם בסי' רע\"א וכ' דת\"ח אפי' בתוך ג\"פ מותר לגמרי ומוכרח הוא לשיטתו דהא בעירובין מדינא קאמר וקאמר דר\"ה לא אורי בחרתא כו' וע\"כ תוך ג\"פ הוה ואפ\"ה אודי בשני דר\"ח וכ' שם וז\"ש רש\"י בסנהדרין כ\"ג א' ד\"ה בי דינא כו' דר\"ח ת\"ח הוה כמ\"ש בעירובין שם ור\"ח אורי כו' ותוס' בסנהדרין שם ד\"ה כגון חלקו על רש\"י כשיטתם וז\"ש בהג\"ה וכ\"ז ברבו כו' שגם לשיטת הרמב\"ם כן הוא דמפרש בפניו בפניו ממש כמ\"ש וכל המורה כו':",
+        "וי\"א דמ\"מ כו'. בעירובין שם רבינא הוה יתיב כו' ורבינא ת\"ח הוה וכתב וי\"א דב\"י כתב דמדברי הרמב\"ם שכתב בד\"א כו' דת\"ח אף בפניו מותר וליתא כנ\"ל ואף שריב\"ש שם רצה לתרץ דאפשר דשמתא שאני שהוא שררות יתירתא ועוד כו' דבריו דחוקים:",
+        "וי\"א דוקא ברגיל כו'. כן תי' שם קושית תוס' הנ\"ל מהא דעירובין דשם מיירי ברגיל. אבל מ\"מ ההיא דסנהדרין דרב ורב\"ח לא מיתרצא:",
+        "אע\"פ כו'. דמסתמא ר\"ח ורב המנונא ורבינא ה\"ל רשות כו' ע\"ש:",
+        "דהיינו שנתגדל כו'. ערשב\"ם קנ\"ח ב' ד\"ה תלמיד חבר כו' וכן פי' המפרשים שנתחכם אח\"כ כמותו ואינו ר\"ל כמותו ממש דהא רבינא ה\"ל ת\"ח לרב אשי ואמרינן (גטין נ\"ט א' ובסנהדרין) מימות ר' ועד ר\"א כו' ור' ירמיה ב\"א ת\"ח דרב (ברכות כ\"ז ב') ורב היה גדול אף מר' יוחנן כמ\"ש בפ\"ז (צ\"ה ב') ופי\"א (קל\"ז ב') דחולין. ריב\"ש שם:",
+        "מיהו י\"ח כו'. רשב\"א וריב\"ש וכנ\"ל:",
+        "וי\"א דכל כו'. רמב\"ם וכ\"כ רש\"י בעירובין שם. אבל קשה מר\"ל דאורי בפני ר' יוחנן בספ\"ד דכתובות וא\"ר יוחנן מה אעשה כו' ותלמיד אסור לחלוק על רבו בשלמא לפי' תוס' (ב\"מ פ\"ד א' וש\"מ) שמתחלה היה גברא רבא ניחא אבל לרש\"י קשה ועמהרי\"ק ונראה דע\"י נטילת רשות אף זה שרי וע\"ל סל\"ב:"
+      ],
+      "en_segments": [
+        "Always. Meaning even incidentally, and as stated further.",
+        "And some say nevertheless etc. In Eruvin there — Ravina was sitting etc., and Ravina was a Torah scholar — and he wrote: some say Beit Yosef wrote that from Rambam's words, who wrote in the case etc., that a Torah scholar is permitted even in his presence — this is not so as explained; and even though Ribash there wanted to answer that perhaps Shmata is different because it is excessive lordship, and more etc. — his words are forced.",
+        "However, some say etc. Rashba and Rivash, and so too above:",
+        "\"And some say the same applies to all, etc.\" Rambam — and likewise wrote Rashi in Eruvin there. But it is difficult from the case of Reish Lakish who ruled in the presence of Rabbi Yochanan in chapter 4 of Ketubot — and Rabbi Yochanan said: what shall I do, etc. — and a student is forbidden to disagree with his teacher. Granted, according to Tosafot (Bava Metzia 84a and elsewhere) who hold that he was initially a great man, it is understandable — but according to Rashi it is difficult. See also Maharik. And it appears that with permission it is permitted in this case too — see below se'if 32:"
+      ],
+      "fp_pattern": "true_offset_editorial",
+      "class_note": "Class C: HE8/EN4; long missing Gra block; offset fresh_translate.",
+      "route_reason": "class_C_gpt_quality"
+    }
+  ]
+}

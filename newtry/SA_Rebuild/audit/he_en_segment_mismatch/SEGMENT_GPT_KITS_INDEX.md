@@ -6,6 +6,21 @@ External AI kits for HE/EN `<br>`-segment mismatches. **Audit only — no corpus
 Corpus: `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/{oc1,yd1,eh1,cm1}/`  
 Rescan: [`SEGMENT_RESCAN_2026-08-30.json`](./SEGMENT_RESCAN_2026-08-30.json) · FP: [`SEGMENT_RESCAN_FP_ANALYSIS.json`](./SEGMENT_RESCAN_FP_ANALYSIS.json)
 
+## OPEN CLASS B+C kit (2026-08-30 — GPT first; Class A applied separately)
+
+**Do not include Class A (12 mechanical Likut splits) in GPT sessions.** Those are applied locally.
+
+| Kit | Class | Cases | Parts | Max part bytes | SHA-256 (prefix) | Zip |
+|-----|-------|------:|------:|---------------:|------------------|-----|
+| `OPEN_CLASS_B_C_GPT_KIT` | B+C | 15 | 3 | 84,068 | `d822ab2a483b…` | [`zips/01_OPEN_CLASS_B_C_GPT_KIT.zip`](./zips/01_OPEN_CLASS_B_C_GPT_KIT.zip) |
+
+- Built: 2026-08-30T06:25:24.132Z
+- Mode: `split_or_fresh_translate_hardened`
+- Full HE/EN from live corpus (no truncation)
+- Class B (3): multi-Extract / garbled-slot editorial
+- Class C (12): long Gra / offset / missing EN / quality fresh_translate
+- Prompt: hardened FAILURE RULES (verbatim split where EN complete; fresh_translate gaps; ban "the craft"/"Saturday"; `(Likkut)` on ליקוט heads)
+
 ## Excluded from all new kits
 
 - **he_missing (59)** — held per user; do not include in ChatGPT kits until reassigned.
