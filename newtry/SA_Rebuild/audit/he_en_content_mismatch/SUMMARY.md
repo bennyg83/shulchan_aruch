@@ -313,3 +313,16 @@ duplicate EN across seifs, length imbalance, lemma conflict, EN Hebrew leak.
 - `cm1/siman37/seif-006/haggahot-imrei-barukh` **score=3** seif_katan_mismatch, lemma_head_conflict (671B / 691B) EN«Sema, seif katan 24»
 - `cm1/siman39/seif-002/haggahot-imrei-barukh` **score=3** seif_katan_mismatch, lemma_head_conflict (329B / 385B) EN«Shach, seif katan 6»
 
+
+---
+
+## Manual content-fix flags (2026-08-30)
+
+Human-flagged on main `69a00626c2`. **Open — not fixed.** Detail: [`../content_mismatch/CONTENT_FIX_FLAGS.md`](../content_mismatch/CONTENT_FIX_FLAGS.md) · [`MANUAL_QUEUE.json`](./MANUAL_QUEUE.json).
+
+| ID | Path | Issue |
+|----|------|--------|
+| `cm1-shach-1-1-mt-garbage-he-json-leak` | `cm1/siman1/seif-001/siftei-kohen` | MT garbage EN (Danny's dinliness…) + HE JSON-array bracket leak |
+| `oc1-mechaber-244-1-cut-en-rama-display` | `oc1/siman244/seif-001/mechaber` | Cut/incomplete EN (1268 vs HE 3231 B); `{Rama: RAMA:}` duplicate; Rama order wrong |
+
+**Reminder:** segment-alignment queues under `he_en_segment_mismatch` do **not** cover these content-quality failures.

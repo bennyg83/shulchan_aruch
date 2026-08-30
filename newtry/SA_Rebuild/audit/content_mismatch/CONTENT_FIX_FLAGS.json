@@ -1,0 +1,76 @@
+{
+  "title": "Content fix flags (manual queue)",
+  "note": "Flagged only — translations NOT fixed. Segment-alignment work ≠ content quality.",
+  "flagged_at": "2026-08-30",
+  "verified_on_commit": "69a00626c2b043cf7ede868f344b224ac506b4c7",
+  "corpus_root": "newtry/OC_Mobile/oc318-mobile-reader/public/corpus",
+  "status_summary": {
+    "open": 2,
+    "fixed": 0
+  },
+  "flags": [
+    {
+      "id": "cm1-shach-1-1-mt-garbage-he-json-leak",
+      "volume": "cm1",
+      "ref": "CM Shach 1:1",
+      "path": "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/cm1/siman1/seif-001/siftei-kohen/",
+      "files": {
+        "en": "en.html",
+        "he": "he.html"
+      },
+      "kind": "content-mismatch / retranslate",
+      "severity": "high",
+      "status": "open",
+      "flagged_at": "2026-08-30",
+      "verified_on_commit": "69a00626c2",
+      "symptoms": [
+        "EN first segment is MT garbage / nonsense",
+        "HE wrapped in JSON-array / bracket leak (stringified array segments)",
+        "Head lemma בזמן הזה דני' הדייני' כו' corrupted in EN as Danny's dinliness / circumcised"
+      ],
+      "sample_snippets": {
+        "en_first_segment": "\"In this time, Danny's dinliness is circumcised and circumcised.\"",
+        "he_first_segment": "[\"<b> בזמן הזה דני' הדייני' כו' </b> ע' בסמ\\\"ע ס\\\"ק א' ובב\\\"ח:\"]"
+      },
+      "sizes": {
+        "en_bytes": 1192,
+        "he_bytes": 1082
+      },
+      "recommended_action": "Rewrite EN from HE for all segments; strip JSON-array / bracket leak from HE so plain HTML remains; keep commentator head lemmas intact.",
+      "do_not": "Do not treat as segment-count fix only — content quality is wrong."
+    },
+    {
+      "id": "oc1-mechaber-244-1-cut-en-rama-display",
+      "volume": "oc1",
+      "ref": "OC Mechaber 244:1",
+      "path": "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/siman244/seif-001/mechaber/",
+      "files": {
+        "en": "en.html",
+        "he": "he.html"
+      },
+      "kind": "content-mismatch / retranslate or complete from HE",
+      "severity": "high",
+      "status": "open",
+      "flagged_at": "2026-08-30",
+      "verified_on_commit": "69a00626c2",
+      "symptoms": [
+        "EN much shorter than HE (en 1268 bytes vs he 3231 bytes; ratio ~0.39)",
+        "EN appears truncated / incomplete vs full Mechaber seif",
+        "Duplicate Rama prefix: {Rama: RAMA: ...}",
+        "Rama placement may be wrong vs HE order (HE: Rama gloss mid-seif after אסור...פסק; then continues with ואם היתה המלאכה חוץ לתחום...; EN puts Rama after sheep-to-pen clause)",
+        "Sheep-to-pen / siman 537 cross-ref clause mangled or incomplete in EN"
+      ],
+      "sample_snippets": {
+        "he_has": "Full title + פוסק עם העכו״ם seif; mid-text <small>הגה ...</small> Rama; continues חוץ לתחום; ends ועכו\"ם שהכניס צאן של ישראל לדיר שדהו (ע\"ל סי' תקל\"ז סעיף י\"ד)",
+        "en_ends": "...and the non-Jews that enter sheep belonging to Jews to pen of his field. {Rama: RAMA: And even if the Jew lives among non-Jews, there is still what to be concerned regarding guests or members of his own household who will suspect him.[Beit Yosef in the name of the Teshuvot Ashkenazim]}"
+      },
+      "sizes": {
+        "en_bytes": 1268,
+        "he_bytes": 3231,
+        "en_he_byte_ratio": 0.392
+      },
+      "recommended_action": "Complete/retranslate EN from HE; fix {Rama: ...} once (no RAMA: duplicate); place Rama gloss in HE order (after in-techum prohibition, before outside-techum permission); restore full צאן לדיר + סי׳ תקלו סעיף י״ד cross-ref.",
+      "do_not": "Do not treat as segment-alignment success — EN content is incomplete/misordered."
+    }
+  ]
+}

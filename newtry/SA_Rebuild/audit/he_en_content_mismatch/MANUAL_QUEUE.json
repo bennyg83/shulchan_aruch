@@ -1,0 +1,28 @@
+{
+  "title": "Manual content-mismatch queue (human-flagged)",
+  "note": "Appended 2026-08-30. Canonical detail lives in ../content_mismatch/CONTENT_FIX_FLAGS.json. Flagged only — not fixed. Segment work ≠ content quality.",
+  "source": "../content_mismatch/CONTENT_FIX_FLAGS.json",
+  "flagged_at": "2026-08-30",
+  "verified_on_commit": "69a00626c2",
+  "entries": [
+    {
+      "id": "cm1-shach-1-1-mt-garbage-he-json-leak",
+      "volume": "cm1",
+      "path": "cm1/siman1/seif-001/siftei-kohen",
+      "kind": "mt_garbage_he_json_leak",
+      "severity": "high",
+      "status": "open",
+      "track": "content-mismatch / retranslate"
+    },
+    {
+      "id": "oc1-mechaber-244-1-cut-en-rama-display",
+      "volume": "oc1",
+      "path": "oc1/siman244/seif-001/mechaber",
+      "kind": "en_truncated_rama_display",
+      "severity": "high",
+      "status": "open",
+      "track": "content-mismatch / retranslate or complete from HE",
+      "en_he_byte_ratio": 0.392
+    }
+  ]
+}
