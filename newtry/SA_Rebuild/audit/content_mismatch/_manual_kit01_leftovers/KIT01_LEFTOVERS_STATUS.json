@@ -1,0 +1,35 @@
+{
+  "scannedAt": "2026-08-31T12:45:00Z",
+  "kit": "01_OC_MECHABER_CUT_EN_GPT_KIT_leftovers",
+  "mode": "APPLY",
+  "eval": { "APPROVE": 16, "HOLD": 0, "REJECT": 0 },
+  "cells": [
+    { "id": "oc1/siman273/seif-001/mechaber", "status": "applied", "fix": "post-Rama Mechaber restored; Rama mid-order" },
+    { "id": "oc1/siman286/seif-004/mechaber", "status": "applied", "fix": "congregation clause after 2nd Rama" },
+    { "id": "oc1/siman325/seif-008/mechaber", "status": "applied", "fix": "post-Rama Mechaber; siman 401 parenthetical not Rama" },
+    { "id": "oc1/siman357/seif-001/mechaber", "status": "applied", "fix": "full HE rewrite; dual Rama + karmelit post" },
+    { "id": "oc1/siman17/seif-002/mechaber", "status": "applied", "fix": "dual Rama; dverei atzmo after final Rama" },
+    { "id": "oc1/siman162/seif-001/mechaber", "status": "applied", "fix": "single true Rama; 3-pour parenthetical outside" },
+    { "id": "oc1/siman188/seif-007/mechaber", "status": "applied", "fix": "Rama mid-seif; Shabbos/Rosh Chodesh post restored" },
+    { "id": "oc1/siman248/seif-001/mechaber", "status": "applied", "fix": "Rama mid-seif; short-journey post restored" },
+    { "id": "oc1/siman249/seif-002/mechaber", "status": "applied", "fix": "Rama mid-seif; eating-without-kevi'ah post restored" },
+    { "id": "oc1/siman391/seif-001/mechaber", "status": "applied", "fix": "official/wartime Mechaber moved out of Rama" },
+    { "id": "oc1/siman503/seif-001/mechaber", "status": "applied", "fix": "before/after eating Mechaber moved out of Rama" },
+    { "id": "oc1/siman666/seif-001/mechaber", "status": "applied", "fix": "Rama mid-seif; Diaspora clauses post restored" },
+    { "id": "oc1/siman684/seif-001/mechaber", "status": "applied", "fix": "one true Rama; eighth-day + menorah after" },
+    { "id": "oc1/siman252/seif-002/mechaber", "status": "applied", "fix": "2 {Rama} matching 2 hagah" },
+    { "id": "oc1/siman245/seif-004/mechaber", "status": "applied", "fix": "fresh 245:4 (not wrong 245:2)" },
+    { "id": "oc1/siman253/seif-001/mechaber", "status": "applied", "fix": "yad soledes bo; no hand_recoils; 6 Ramas" }
+  ],
+  "artifacts": {
+    "incoming": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit01_leftovers/part99_completed.json",
+    "apply": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit01_leftovers/KIT01_LEFTOVERS_APPLY.json",
+    "eval": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit01_leftovers/KIT01_LEFTOVERS_GPT_RESULT_EVAL.json",
+    "completed_copy": "C:\\Users\\binya\\Documents\\full clean local\\Kits\\completed\\KIT01_LEFTOVERS_APPLY.json"
+  },
+  "spot_checks": {
+    "273:1": "post-Rama EN present (329 chars); 1 Rama; no RAMA:RAMA",
+    "252:2": "2 Ramas",
+    "253:1": "6 Ramas; yad soledes bo; no hand_recoils"
+  }
+}

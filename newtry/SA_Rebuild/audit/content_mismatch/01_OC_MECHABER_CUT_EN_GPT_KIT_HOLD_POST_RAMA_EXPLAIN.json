@@ -1,0 +1,168 @@
+{
+  "rule": "POST_RAMA_EN_MISSING_OR_SHORT: if Hebrew after the last <small>הגה…</small> has ≥40 non-space chars, English after the last closed {Rama:…} must have ≥20 non-space chars.",
+  "thresholds": {
+    "POST_RAMA_HE_MIN": 40,
+    "POST_RAMA_EN_MIN": 20
+  },
+  "pattern_summary": {
+    "GPT ended at end of Rama — omitted post-Rama Mechaber continuation": 13
+  },
+  "cases": [
+    {
+      "id": "oc1/siman273/seif-001/mechaber",
+      "he_post_chars": 177,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "ויש אומרים שכל שרואה מקומו אפי' מבית לחצר אינו צריך לחזור ולקדש וי\"א שאם קידש במקום א' על דעת לאכול במקום אחר שפיר דמי (ועיין לעיל ריש סי' קע\"ח) והוא שיהיו שני המקומות בבית אחד כגו…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: From the house to the sukkah is considered a change of place. See also above, at the beginning of siman 178. The latter view is the primary one.}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "floor. {Rama: From the house to the sukkah is considered a change of place. See also above, at the beginning of siman 178. The latter view is the primary one.}"
+    },
+    {
+      "id": "oc1/siman286/seif-004/mechaber",
+      "he_post_chars": 60,
+      "en_post_chars": 0,
+      "rama_count": 2,
+      "ends_inside_rama": false,
+      "he_post_preview": "ויש מי שהורה שאין עושין כן בצבור להקדים תפלת מנחה לתפלת מוסף כדי שלא יטעו:",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: When the time of Minchah Ketanah has arrived, however, Minchah may be prayed at that time. [Rosh in the name of the Yerushalmi]}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "eople err in the future. {Rama: When the time of Minchah Ketanah has arrived, however, Minchah may be prayed at that time. [Rosh in the name of the Yerushalmi]}"
+    },
+    {
+      "id": "oc1/siman325/seif-008/mechaber",
+      "he_post_chars": 224,
+      "en_post_chars": 0,
+      "rama_count": 2,
+      "ends_inside_rama": false,
+      "he_post_preview": "ולאחרים מותר בו ביום וי\"א דלמי שהובא בשבילו מותר לערב מיד והא דשרי לישראל לטלטל אפי' כשהביאו העכו\"ם לעצמו דוק' בתוך ד' אמות או בתוך העיר אם היא מוקפת חומה והוא שתהא מוקפת לדירה דהי…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: See further in siman 401.}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "enclosed afterward. Ordinarily, a city is presumed to have been enclosed for residential purposes, whereas a fortress is not. {Rama: See further in siman 401.}"
+    },
+    {
+      "id": "oc1/siman357/seif-001/mechaber",
+      "he_post_chars": 105,
+      "en_post_chars": 0,
+      "rama_count": 2,
+      "ends_inside_rama": false,
+      "he_post_preview": "במה דברים אמורים בחצר הסמוכה לר\"ה אבל אם היא סמוכה לכרמלית אפילו היא קטנה הרבה אינה צריכה גומא אפילו בימות החמה (וע\"ל סי' שע\"ז):",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: The local construction and the manner in which the water ordinarily flows determine whether the arrangement is permitted.}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "re reaching the public domain. {Rama: The local construction and the manner in which the water ordinarily flows determine whether the arrangement is permitted.}"
+    },
+    {
+      "id": "oc1/siman17/seif-002/mechaber",
+      "he_post_chars": 161,
+      "en_post_chars": 0,
+      "rama_count": 2,
+      "ends_inside_rama": false,
+      "he_post_preview": "טומטום ואנדרוגינוס חייבין מספק ויתעטפו בלא ברכה: [פי' טומטום לא נודע אם הוא זכר או נקיבה ואנדרוגינוס יש לו זכרות ונקבות] [הגה ולפי מה שנהגו נשים לברך במצות עשה שהזמן גרמא גם הם יבר…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: According to the custom that women recite blessings over time-bound positive mitzvot, they too should recite the blessing. [Rama's own ruling]}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "eristics. {Rama: According to the custom that women recite blessings over time-bound positive mitzvot, they too should recite the blessing. [Rama's own ruling]}"
+    },
+    {
+      "id": "oc1/siman162/seif-001/mechaber",
+      "he_post_chars": 249,
+      "en_post_chars": 0,
+      "rama_count": 2,
+      "ends_inside_rama": false,
+      "he_post_preview": "והיינו כשאינו נוטל כל היד עד מקום חבור היד עם הזרוע אבל אם נוטל עד שם א\"צ להגביה ידיו (ויש חולקים בזה) וכן אם שפך על שתי ידיו רביעית בפעם אחת כיון דאין שם מים טמאים כלל א\"צ להגביה …",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: Some say that if one pours 3 times, he need not be careful about all of this, and the custom is to be lenient. [Agur in the name of Or Zarua and Hagahot Ashiri]}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "ome say that if one pours 3 times, he need not be careful about all of this, and the custom is to be lenient. [Agur in the name of Or Zarua and Hagahot Ashiri]}"
+    },
+    {
+      "id": "oc1/siman188/seif-007/mechaber",
+      "he_post_chars": 339,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "אם חל ראש חדש בשבת והזכיר של שבת ולא הזכיר של ראש חדש ולא נזכר עד שהתחיל הטוב והמטיב אינו חוזר ואם שכח (גם) של שבת ונזכר קודם שהתחיל הטוב והמטיב כולל ראש חודש עם שבת ואומר שנתן שבת…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: It is possible that he should nevertheless mention Rosh Chodesh among the other HaRachaman passages, as explained above at the end of siman 187 regarding Al HaNissim. Perhaps, however, there is a distinction, beca…",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "ever, there is a distinction, because Ya'aleh VeYavo contains Divine Names and one should not recite them in vain. So it appears to me, and this is the custom.}"
+    },
+    {
+      "id": "oc1/siman248/seif-001/mechaber",
+      "he_post_chars": 140,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "ואם הוא דרך מועט כמו מצור לצידון שאין ביניהם כי אם מהלך יום אחד מות' להפליג בע\"ש בבקר מפני שאפשר שיגיע שם קודם השבת ומקום שנהגו שלא להפליג בע\"ש כלל אפי' דרך מועט אין מפליגין:",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: More than 3 days before Shabbos it is permitted even on boats that are drawn by animals, and even where the water is less than 10 tefachim deep. [Maharik] This is so even if the Jew will afterward need to perform …",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "r is less than 10 tefachim deep. [Maharik] This is so even if the Jew will afterward need to perform a melacha on Shabbos in order to direct the ship. [Rivash]}"
+    },
+    {
+      "id": "oc1/siman249/seif-002/mechaber",
+      "he_post_chars": 117,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "ולאכול ולשתות בלי קביעות סעודה אפילו סעודה שרגיל בה בחול כל היום מותר להתחיל מן הדין אבל מצוה להמנע מלקבוע סעודה שנהוג בה בחול מט' שעות ולמעלה:",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: A mitzvah meal that occurs on Friday, such as a circumcision or pidyon haben, is permitted, as explained above, and this is the prevalent custom.}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "nward. {Rama: A mitzvah meal that occurs on Friday, such as a circumcision or pidyon haben, is permitted, as explained above, and this is the prevalent custom.}"
+    },
+    {
+      "id": "oc1/siman391/seif-001/mechaber",
+      "he_post_chars": 222,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "במה דברי' אמורי' בשר שאין הבתי' שלו וגם אין לו רשות להשתמש בבתי בני העיר כלל אפי' בשעת מלחמה אבל במקו' שכל צרכי העיר אינם נעשי' אלא על פי השר או הממונה שלו ודאי ששכירו' מהשר ההוא א…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: Some say this distinction applies specifically to bringing objects into and out of the non-Jew's domain. For carrying in the alleyway, however, one may rent from the city official, since the roadway of the alleywa…",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "that official or from his agent is sufficient, because he has the right in wartime to place his men and weapons in the residents' houses without their consent.}"
+    },
+    {
+      "id": "oc1/siman503/seif-001/mechaber",
+      "he_post_chars": 97,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "ודוקא קודם אכילה אבל אחר אכילה אינה יכולה לבשל ולומר אוכל ממנה כזית דהוי הערמה מיהו אם עברה ובשלה [או שחטה] מותר לאכלו:",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: All the more so, one may slaughter even though he needs only a kezayit. [Semak] Likewise, she may cook many pots and eat a little from each. [Beit Yosef, Rabbeinu Yeruham, and a responsum of Rashba] This applies s…",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "k and say that she will eat a kezayit from it, because that is a ruse. Nevertheless, if she transgressed and cooked, or slaughtered, it is permitted to eat it.}"
+    },
+    {
+      "id": "oc1/siman666/seif-001/mechaber",
+      "he_post_chars": 325,
+      "en_post_chars": 0,
+      "rama_count": 1,
+      "ends_inside_rama": false,
+      "he_post_preview": "ואם הוצרך לסעוד בשאר היום צריך לאכול בסוכה שמצותה כל שבעה ובחוצה לארץ שצריך לישב בה בשמיני גמר מלאכול ביום השמיני מוריד כליו ומפנה אותם ממנה ואם אין לו מקום להוריד את כליו ורוצה לא…",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: If he wishes to sit in the sukkah after Yom Tov, he need not reduce it, because the appearance of adding to the mitzvah applies only on Shemini Atzeret. [Minhagim]}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "e wishes to sit in the sukkah after Yom Tov, he need not reduce it, because the appearance of adding to the mitzvah applies only on Shemini Atzeret. [Minhagim]}"
+    },
+    {
+      "id": "oc1/siman684/seif-001/mechaber",
+      "he_post_chars": 100,
+      "en_post_chars": 0,
+      "rama_count": 4,
+      "ends_inside_rama": false,
+      "he_post_preview": "ביום שמיני מתחילין ביום השמיני וגומרין כל הסדר וקורין פרשה ראשונה של בהעלותך [ונוהגין לסיים כן עשה את המנורה] [מנהגים] :",
+      "en_post_preview": "(empty — nothing after Rama)",
+      "last_rama_preview": "{Rama: Our custom is to conclude with 'So he made the menorah.' [Minhagim]}",
+      "pattern": "GPT ended at end of Rama — omitted post-Rama Mechaber continuation",
+      "new_en_tail": "he eighth day,' complete the entire section, and read the beginning of Beha'alotcha. {Rama: Our custom is to conclude with 'So he made the menorah.' [Minhagim]}"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+  "completed_parts": [
+    16,
+    24,
+    27
+  ],
+  "case_counts": {
+    "part16": 8,
+    "part24": 1,
+    "part27": 3,
+    "total": 12
+  },
+  "gap_closure": {
+    "part16": true,
+    "part24": true
+  },
+  "validation": {
+    "expected_case_counts_match": true,
+    "unique_ids": true,
+    "nonempty_new_en": true,
+    "no_hebrew_script_in_new_en": true,
+    "no_html_tags_in_new_en": true,
+    "no_placeholders": true,
+    "known_mt_failure_phrases_absent": true
+  }
+}

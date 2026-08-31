@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,14 +91,119 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 45,
     "chunk_total": 47,
-    "case_offset": 237,
-    "cases_in_chunk": 5,
+    "case_offset": 243,
+    "cases_in_chunk": 7,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },
   "cases": [
+    {
+      "id": "oc1/siman63/seif-007/kaf-hachayyim",
+      "volume": "oc1",
+      "siman": 63,
+      "seif": 7,
+      "slug": "kaf-hachayyim",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.849,
+        "he_chars": 352,
+        "en_chars": 651,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 651
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ז) שם  </b>ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק:\n",
+      "en_html": "<b>7) There: And recite it standing, etc.</b> Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully.\n",
+      "he_plain": "ז) שם ולקרותה מעומד וכו'. מ\"ש בספר הקנה והביאו בס' צפנת פענח חדש דבא\"י צ\"ל הק\"ש מעומד ובחו\"ל מיושב כיעו\"ש נראה דאינו מוסכם דבר זה מהפוסקים ומבעלי הקבלה ובין בארץ ובין בחו\"ל כולן שוין צדיקים יושבים. כף החיים להרח\"פ ז\"ל סי' י\"ד אות ל\"ב. וכ\"מ ממ\"ש באות הקודם בשם שער הכוונות ופע\"ח דק\"ש היא בבחי' עולם הבריאה ולכך צ\"ל מיושב וזה אין חילוק לארץ ולחו\"ל ודו\"ק:",
+      "en_plain": "7) There: And recite it standing, etc. Sefer HaKanah, cited in the new Tzafnas Pane'ach, says that Krias Shema must be recited standing in Eretz Yisrael and seated outside Eretz Yisrael. This distinction appears not to be accepted by the poskim or kabbalists. Whether in Eretz Yisrael or outside it, all are equal: \"the righteous sit.\" Kaf HaChaim by Rabbi Chaim Palagi, siman 14, paragraph 32. The same follows from Shaar HaKavanos and Pri Etz Chaim cited in the preceding paragraph: Krias Shema corresponds to the world of Beriah and must therefore be recited seated, with no distinction between Eretz Yisrael and elsewhere. Consider this carefully.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman630/seif-006/levushei-serad",
+      "volume": "oc1",
+      "siman": 630,
+      "seif": 6,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.289,
+        "he_chars": 38,
+        "en_chars": 87,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 87
+        },
+        "failure_patterns": [
+          "czechs"
+        ]
+      },
+      "he_html": "<small>שם</small> וצריכה נמי צ\"ה וכו'. היינו הך דס\"כ:\n",
+      "en_html": "It is there, and it is necessary for the Czechs and so on. We were the the Omnipresent:\r\n",
+      "he_plain": "שם וצריכה נמי צ\"ה וכו'. היינו הך דס\"כ:",
+      "en_plain": "It is there, and it is necessary for the Czechs and so on. We were the the Omnipresent:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman631/seif-001/beer-hagolah",
+      "volume": "oc1",
+      "siman": 631,
+      "seif": 1,
+      "slug": "beer-hagolah",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.75,
+        "he_chars": 36,
+        "en_chars": 63,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 63
+        },
+        "failure_patterns": [
+          "dinliness"
+        ]
+      },
+      "he_html": "הכי דייקינן בגמ' דסוכה כ\"ב מהמשנה שם\n",
+      "en_html": "The most dinliness in the Omnipresent is called “What’s there?”\r\n",
+      "he_plain": "הכי דייקינן בגמ' דסוכה כ\"ב מהמשנה שם",
+      "en_plain": "The most dinliness in the Omnipresent is called “What’s there?”",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
     {
       "id": "oc1/siman631/seif-008/machatzit-hashekel",
       "volume": "oc1",
@@ -237,41 +342,6 @@
       "en_html": "(S.C.) When we combine their faces, they will be circumcised as the majority of them when they understand their face, we will surely be blessed with their conscience as a result of the 'A.' If it is hoped to be on the contrary, we have combined a kosher illness until it is overheaded:\r\n",
       "he_plain": "(ס\"ק ו) כשילבינו פניהם אחר שיתפרכו כו' אף דע\"פ הרוב כשילבין פניו ודאי נפרך בצפורן כמ\"ש מ\"א בס\"ק שלפני זה. מ\"מ אם יזדמן שיהיה להיפך שילבינו תחלה כשר עד שיפרוך בצפורן:",
       "en_plain": "(S.C.) When we combine their faces, they will be circumcised as the majority of them when they understand their face, we will surely be blessed with their conscience as a result of the 'A.' If it is hoped to be on the contrary, we have combined a kosher illness until it is overheaded:",
-      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
-    },
-    {
-      "id": "oc1/siman649/seif-006/mishnah-berurah",
-      "volume": "oc1",
-      "siman": 649,
-      "seif": 6,
-      "slug": "mishnah-berurah",
-      "priority": "P1_scan_mt_garbage",
-      "kinds": [
-        "mt_garbage"
-      ],
-      "severity": 9,
-      "scores": {
-        "en_he_ratio": 1.529,
-        "he_chars": 2315,
-        "en_chars": 3539,
-        "cut_deficit": 0
-      },
-      "details": {
-        "rama": {
-          "he_hagah": false,
-          "he_hagah_count": 0,
-          "en_rama_braces": 0,
-          "post_rama_he_chars": 0,
-          "post_rama_en_chars": 3539
-        },
-        "failure_patterns": [
-          "circumcised_wrong"
-        ]
-      },
-      "he_html": "(נב) בשעת הדחק וכו' - ולא מקרי שעת הדחק אא\"כ אין בכל העיר ד' מינים כשרים אבל אם יש לחבירו אף שהוא לא יכול למצוא לא מקרי זה שעת הדחק אלא צריך לטרוח ולברך על של חבירו אם יתן לו ויעשה הנענועים בשלו אם א\"א בשל חבירו [אחרונים]:<br />\n(נג) כל הפסולים וכו' - היינו הפסולים מחמת מום אבל הפסולין מחמת שאינן מינן כגון הדס שוטה וצפצפה או מורכב פסול אפילו בשעת הדחק דאתי למטעי לצאת בהן תמיד וה\"ה גזול פסול אפילו בשעת הדחק. אם אין בכל העיר ד' מינין כשרים יטול מה שנמצא ב' או ג' מינין ויעשה כל הנענועים וכן הש\"ץ ובלבד שלא יברך אבל אסור ליקח מין אחר דיבואו לטעות בשאר שנים משא\"כ בג' מינין לא יבואו לטעות דהכל יודעין שצריך ד' מינין:<br />\n(נד) נוטלין ואין מברכין - נוטלין אפילו ביום א' כדי שלא תשתכח תורת לולב מישראל ואין מברכין כיון דהוא לזכר בעלמא:<br />\n(נה) לולב יבש - דעת הרמב\"ם דאפילו בשעת הדחק אין להקל רק בלולב ולא בשאר מינים כשהם יבשים וכדלקמיה וגם דאין להקל רק ביבשות ולא בשאר פסולין אפילו בשעת הדחק:<br />\n(נו) אפילו בדאיכא אחרים לחין - הטעם משום דאיירי בארצות שאין נמצאים לולבים לחים גמורים וגם היבשים אינן יבשים גמורים דהיינו להיות הלולב נפרך בצפורן (וה\"ה בהדסים שלא הגיעו לשיעור שילבינו פניהם) [וא\"כ הלחים והיבשים כמעט דומין זה לזה ולכך המנהג לברך על שלו]:<br />\n(נז) אפילו בהדס יבש - דג\"כ אינו מצוי לחין משא\"כ בערבות דמצויות לחין ובאתרוג לא רצו להקל לדעה זו משום דכתיב בהדיא בתורה פרי עץ הדר:<br />\n(נח) ויש לסמוך עלייהו בשעת הדחק - והאחרונים הסכימו לדינא דבשעת הדחק נוכל לסמוך על הפוסקים הסוברין דבכל ד' מינים כשהם יבשים נוכל לברך עליהן. ויש בזה ד' חלוקים. אם לא נמצאו בעיר לחים רק יבשים אזי כל הארבעה מינים נוטלין ומברכין. ואם יש לו יבשים גמורים ויש לאחרים לחים גמורים מברכין על הלחים דוקא ואפילו בדיעבד לא יצא כשבירך על היבשים. ובארצות שאין נמצאין לולבים והדסים לחים גמורין וגם היבשין אינן יבשים גמורים וכנ\"ל מברכין על היבשים שיש לו אפילו לכתחלה וכמ\"ש למעלה. ובמקום שנמצאו אצל אחרים לחים גמורים לכתחלה י\"ל שלא לברך על היבשים שלו אפילו אינן יבשים גמורים ובדיעבד כשבירך יטול עוד הפעם הלחים שאצל אחרים בלא ברכה:<br />\n(נט) יכול ליטול וכו' - עיין במ\"א שנתקשה מה הוסיף רמ\"א על דברי המחבר לעיל בס\"ו ועיין בבכורי יעקב שכתב דמה שהוסיף הרמ\"א הוא דהב\"י כתב בשעת הדחק שאין נמצא כשר יטול בלא ברכה אבל אכתי לא שמענו אם ימצא אח\"כ כשר רק שעתה אין בידו כגון שאחר מברך הלל בלולבו הכשר והבטיחו שאחר הלל יתן לו אם יכול לברך לע\"ע הלל בלולבו הפסול שלא נאמר שיכנס עי\"ז לספק ברכה אם יטול הכשר קמ\"ל הרמ\"א דבלא ברכה יכול ליטול לכתחלה כיון שזה ודאי פסול הוא יכול לברך אח\"כ על הכשר:\n",
-      "en_html": "(1) (Nav) At the time of stress, etc. - and not by chance at the time of stress, but there are no kosher species in the entire city of D. But if one's friend has some, even though he cannot find it, it is not by chance at the time of stress, but one should take pains and bless his friend's if he gives it to him and do the things on his own if aa on his friend's behalf [last]:\n<br>(ב) (h) All the stripes, etc. - We were the stripes from nothing, but the insulin protestes that are not sort of such as the fools and a shofar or consists of a soundtrack even when I pressed the wrongs to always go out and the “Golse is wrong even during the pressure. If not in the entire city, Dr. Minien will take what is in B or Jean and do all the subjects as well as the High Court, provided that you do not bless but should not take any other kind of sex to be wrong in the rest of the years, they won’t come to be wrong with all the knowers required by Dr. Minien:\n<br>(3) (Ned) Notlin and there are no blessers - Notlin even on Sunday so that the Law of Israel will not be forgotten and there are no blessers because it is in memory of Alma:\n<br>(ד) (a) dry pancreas - Rambam's opinion is even at the time of the pressure, not only to be relieved in the pancreas and not in the other species when they are dry and inflammatory, nor should it be eased only in the dryness or even in the rest of the peso:\n<br>(ה) (b) Even in other oppressive people, the taste of Dariri in countries that do not have complete pancreas and dryness is not complete, i.e., being the pancreas is plucked in the diaspora (and the hummings that have not come to our classes) [and so the dry and dry are nearly domining each other and so that the custom is blessed for its custom)\n<br>(ו) Even in dry Hadassah, the fish are not found to be circumcised in the evenings of the wood and the arrows did not want to be relieved of this opinion because of the idea of the der tree:\n<br>(7) (Nah) He must be trusted in times of distress - and the latter agreed to the ruling that in times of distress we can trust the sovereign arbitrators of all four species when they are dry we can bless them. And there are four pieces in it. If there are no damps found in the city, only dry ones, then all four species will take note and bless. And if he has completely dry ones and others have completely wet ones, he blesses the wet ones, and even in retrospect, he did not come out when he blessed the dry ones. And in the countries where you can't find lulavs and myrtles that are completely moist and the dry ones are not completely dry either and as above I bless the dry ones that he has even for the beginning and a kilometer above. And in places where others have found wet ones to begin with, 11 not to bless his dry ones, they are not even completely dry, and later, when you bless, he will once again take the wet ones that others have without a blessing:\n<br>(8) (net) can take, etc. - refer to the MA that is difficult, what the Rama added to the words of the author above in SO and refer to Bukhari Yaakov who wrote a dummy that the Rama added is the Dhabi who wrote during the time of stress that a priest would not be found kosher to take without a blessing, but we did not hear if he would later find a kosher only now that he does not have it in his hand such as after he blesses Hallel in his kosher lullaby and they promised that after Hallel he would give him if he can bless Hallelujah in the invalid Lulvo that it was not said that the Iz would come in to provide a blessing if he took kosher.",
-      "he_plain": "(נב) בשעת הדחק וכו' - ולא מקרי שעת הדחק אא\"כ אין בכל העיר ד' מינים כשרים אבל אם יש לחבירו אף שהוא לא יכול למצוא לא מקרי זה שעת הדחק אלא צריך לטרוח ולברך על של חבירו אם יתן לו ויעשה הנענועים בשלו אם א\"א בשל חבירו [אחרונים]: (נג) כל הפסולים וכו' - היינו הפסולים מחמת מום אבל הפסולין מחמת שאינן מינן כגון הדס שוטה וצפצפה או מורכב פסול אפילו בשעת הדחק דאתי למטעי לצאת בהן תמיד וה\"ה גזול פסול אפילו בשעת הדחק. אם אין בכל העיר ד' מינין כשרים יטול מה שנמצא ב' או ג' מינין ויעשה כל הנענועים וכן הש\"ץ ובלבד שלא יברך אבל אסור ליקח מין אחר דיבואו לטעות בשאר שנים משא\"כ בג' מינין לא יבואו לטעות דהכל יודעין שצריך ד' מינין: (נד) נוטלין ואין מברכין - נוטלין אפילו ביום א' כדי שלא תשתכח תורת לולב מישראל ואין מברכין כיון דהוא לזכר בעלמא: (נה) לולב יבש - דעת הרמב\"ם דאפילו בשעת הדחק אין להקל רק בלולב ולא בשאר מינים כשהם יבשים וכדלקמיה וגם דאין להקל רק ביבשות ולא בשאר פסולין אפילו בשעת הדחק: (נו) אפילו בדאיכא אחרים לחין - הטעם משום דאיירי בארצות שאין נמצאים לולבים לחים גמורים וגם היבשים אינן יבשים גמורים דהיינו להיות הלולב נפרך בצפורן (וה\"ה בהדסים שלא הגיעו לשיעור שילבינו פניהם) [וא\"כ הלחים והיבשים כמעט דומין זה לזה ולכך המנהג לברך על שלו]: (נז) אפילו בהדס יבש - דג\"כ אינו מצוי לחין משא\"כ בערבות דמצויות לחין ובאתרוג לא רצו להקל לדעה זו משום דכתיב בהדיא בתורה פרי עץ הדר: (נח) ויש לסמוך עלייהו בשעת הדחק - והאחרונים הסכימו לדינא דבשעת הדחק נוכל לסמוך על הפוסקים הסוברין דבכל ד' מינים כשהם יבשים נוכל לברך עליהן. ויש בזה ד' חלוקים. אם לא נמצאו בעיר לחים רק יבשים אזי כל הארבעה מינים נוטלין ומברכין. ואם יש לו יבשים גמורים ויש לאחרים לחים גמורים מברכין על הלחים דוקא ואפילו בדיעבד לא יצא כשבירך על היבשים. ובארצות שאין נמצאין לולבים והדסים לחים גמורין וגם היבשין אינן יבשים גמורים וכנ\"ל מברכין על היבשים שיש לו אפילו לכתחלה וכמ\"ש למעלה. ובמקום שנמצאו אצל אחרים לחים גמורים לכתחלה י\"ל שלא לברך על היבשים שלו אפילו אינן יבשים גמורים ובדיעבד כשבירך יטול עוד הפעם הלחים שאצל אחרים בלא ברכה: (נט) יכול ליטול וכו' - עיין במ\"א שנתקשה מה הוסיף רמ\"א על דברי המחבר לעיל בס\"ו ועיין בבכורי יעקב שכתב דמה שהוסיף הרמ\"א הוא דהב\"י כתב בשעת הדחק שאין נמצא כשר יטול בלא ברכה אבל אכתי לא שמענו אם ימצא אח\"כ כשר רק שעתה אין בידו כגון שאחר מברך הלל בלולבו הכשר והבטיחו שאחר הלל יתן לו אם יכול לברך לע\"ע הלל בלולבו הפסול שלא נאמר שיכנס עי\"ז לספק ברכה אם יטול הכשר קמ\"ל הרמ\"א דבלא ברכה יכול ליטול לכתחלה כיון שזה ודאי פסול הוא יכול לברך אח\"כ על הכשר:",
-      "en_plain": "(1) (Nav) At the time of stress, etc. - and not by chance at the time of stress, but there are no kosher species in the entire city of D. But if one's friend has some, even though he cannot find it, it is not by chance at the time of stress, but one should take pains and bless his friend's if he gives it to him and do the things on his own if aa on his friend's behalf [last]: (ב) (h) All the stripes, etc. - We were the stripes from nothing, but the insulin protestes that are not sort of such as the fools and a shofar or consists of a soundtrack even when I pressed the wrongs to always go out and the “Golse is wrong even during the pressure. If not in the entire city, Dr. Minien will take what is in B or Jean and do all the subjects as well as the High Court, provided that you do not bless but should not take any other kind of sex to be wrong in the rest of the years, they won’t come to be wrong with all the knowers required by Dr. Minien: (3) (Ned) Notlin and there are no blessers - Notlin even on Sunday so that the Law of Israel will not be forgotten and there are no blessers because it is in memory of Alma: (ד) (a) dry pancreas - Rambam's opinion is even at the time of the pressure, not only to be relieved in the pancreas and not in the other species when they are dry and inflammatory, nor should it be eased only in the dryness or even in the rest of the peso: (ה) (b) Even in other oppressive people, the taste of Dariri in countries that do not have complete pancreas and dryness is not complete, i.e., being the pancreas is plucked in the diaspora (and the hummings that have not come to our classes) [and so the dry and dry are nearly domining each other and so that the custom is blessed for its custom) (ו) Even in dry Hadassah, the fish are not found to be circumcised in the evenings of the wood and the arrows did not want to be relieved of this opinion because of the idea of the der tree: (7) (Nah) He must be trusted in times of distress - and the latter agreed to the ruling that in times of distress we can trust the sovereign arbitrators of all four species when they are dry we can bless them. And there are four pieces in it. If there are no damps found in the city, only dry ones, then all four species will take note and bless. And if he has completely dry ones and others have completely wet ones, he blesses the wet ones, and even in retrospect, he did not come out when he blessed the dry ones. And in the countries where you can't find lulavs and myrtles that are completely moist and the dry ones are not completely dry either and as above I bless the dry ones that he has even for the beginning and a kilometer above. And in places where others have found wet ones to begin with, 11 not to bless his dry ones, they are not even completely dry, and later, when you bless, he will once again take the wet ones that others have without a blessing: (8) (net) can take, etc. - refer to the MA that is difficult, what the Rama added to the words of the author above in SO and refer to Bukhari Yaakov who wrote a dummy that the Rama added is the Dhabi who wrote during the time of stress that a priest would not be found kosher to take without a blessing, but we did not hear if he would later find a kosher only now that he does not have it in his hand such as after he blesses Hallel in his kosher lullaby and they promised that after Hallel he would give him if he can bless Hallelujah in the invalid Lulvo that it was not said that the Iz would come in to provide a blessing if he took kosher.",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     }
   ]

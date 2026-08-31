@@ -31,7 +31,16 @@ const DICT_CANDIDATES = [
   path.join(LIVE, "newtry/SA_Rebuild/gpt-kit/full_dictionary.md"),
 ];
 
-const SCAN_PATH = path.join(AUDIT, "OC_CONTENT_SCAN_2026-08-30.json");
+function latestContentScanPath() {
+  const files = fs
+    .readdirSync(AUDIT)
+    .filter((f) => /^OC_CONTENT_SCAN_\d{4}-\d{2}-\d{2}\.json$/.test(f))
+    .sort();
+  if (!files.length) throw new Error("No OC_CONTENT_SCAN_*.json in audit dir");
+  return path.join(AUDIT, files[files.length - 1]);
+}
+
+const SCAN_PATH = latestContentScanPath();
 const MECHABER_SRC = path.join(AUDIT, "OC_MECHABER_CUT_EN_KIT.json");
 const MANUAL_MT = path.join(AUDIT, "OC_COMMENTARY_MT_GARBAGE_MANUAL.json");
 

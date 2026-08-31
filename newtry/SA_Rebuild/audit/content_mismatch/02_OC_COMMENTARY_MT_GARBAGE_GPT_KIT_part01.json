@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,11 +91,11 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 1,
     "chunk_total": 47,
     "case_offset": 0,
-    "cases_in_chunk": 13,
+    "cases_in_chunk": 16,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },
   "cases": [
@@ -124,6 +124,41 @@
       "en_html": "(name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:\r\n",
       "he_plain": "(שם) דבשלמא כששוכר העכו\"ם בקיבולת או השכיר לעכו\"ם על חדש או חצי הוא נוטל כצ\"ל:",
       "en_plain": "(name) Honeylma, when the Czechs are in capacity or rented to the UN on a new or half, he takes as a captain:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman266/seif-003/netiv-chayim",
+      "volume": "oc1",
+      "siman": 266,
+      "seif": 3,
+      "slug": "netiv-chayim",
+      "priority": "P0_netiv",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.693,
+        "he_chars": 137,
+        "en_chars": 232,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 232
+        },
+        "failure_patterns": [
+          "name_lemma_artifact"
+        ]
+      },
+      "he_html": "<small>(שם)</small> ואפי' ביטול כלי מהיכנו והכל שרי במקום ה\"מ כצ\"ל. נ\"ב ועיין בספרי דף י\"ח ע\"א שהעליתי שרבו האוסרין על המתירין ולא קיילי\"ן כהך דינא ע\"ש:\n",
+      "en_html": "(name) and Afi cancels the instruments of our neighbor and all the ministers in the place of the congregation. I went to see the books of the Gemara that I had raised a rabbi who had not been banning the methrin and not Kyle Heaven:\r\n",
+      "he_plain": "(שם) ואפי' ביטול כלי מהיכנו והכל שרי במקום ה\"מ כצ\"ל. נ\"ב ועיין בספרי דף י\"ח ע\"א שהעליתי שרבו האוסרין על המתירין ולא קיילי\"ן כהך דינא ע\"ש:",
+      "en_plain": "(name) and Afi cancels the instruments of our neighbor and all the ministers in the place of the congregation. I went to see the books of the Gemara that I had raised a rabbi who had not been banning the methrin and not Kyle Heaven:",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     },
     {
@@ -159,6 +194,76 @@
       "en_html": "(In Magen Avraham s.k. 5.) And what he wrote in Hagahot Maimonides there — this is a different view that all agree to this if he designated it, for it is a utensil, as above. And it appears to me: meaning per the Rif, in any case it is not permitted except for its body and its place; but according to R' Chananel, who compares it to the wicks of a lamp and a spindle, even for its place it is forbidden.\r\n",
       "he_plain": "(במ\"א ס\"ק ה'.) ומ\"ש בהג\"א שם היינו דעת אחרת דכ\"ע מודו בזה אם יחדה דה\"ל כלי כנ\"ל. ונ\"ב ר\"ל לדעת הרי\"ף עכ\"פ אינו מותר כ\"א נצורך גופו ומקומו. אבל לדעת ר\"ח דדמי' לסיכי זירי ומזורי אפילו לצורך מקומו אסור:",
       "en_plain": "(In Magen Avraham s.k. 5.) And what he wrote in Hagahot Maimonides there — this is a different view that all agree to this if he designated it, for it is a utensil, as above. And it appears to me: meaning per the Rif, in any case it is not permitted except for its body and its place; but according to R' Chananel, who compares it to the wicks of a lamp and a spindle, even for its place it is forbidden.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman457/seif-002/netiv-chayim",
+      "volume": "oc1",
+      "siman": 457,
+      "seif": 2,
+      "slug": "netiv-chayim",
+      "priority": "P0_netiv",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.148,
+        "he_chars": 61,
+        "en_chars": 70,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 70
+        },
+        "failure_patterns": [
+          "name_lemma_artifact"
+        ]
+      },
+      "he_html": "<small>(שם)</small> דהא חולק עד מן המוקף. נ\"ב ועבב\"ח שזה שייך מוקדם לזה ע\"ש:\n",
+      "en_html": "(name) Dea shares up to the surrounded. This is the first thing to do:\r\n",
+      "he_plain": "(שם) דהא חולק עד מן המוקף. נ\"ב ועבב\"ח שזה שייך מוקדם לזה ע\"ש:",
+      "en_plain": "(name) Dea shares up to the surrounded. This is the first thing to do:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman9/seif-002/netiv-chayim",
+      "volume": "oc1",
+      "siman": 9,
+      "seif": 2,
+      "slug": "netiv-chayim",
+      "priority": "P0_netiv",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 2.194,
+        "he_chars": 36,
+        "en_chars": 79,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 79
+        },
+        "failure_patterns": [
+          "name_lemma_artifact"
+        ]
+      },
+      "he_html": "<small>(שם)</small> וע' בהרא\"ש בשם בעל העיטור כצ\"ל:\n",
+      "en_html": "<small>(name)</small> and A. in the Rash in the name of the owner of the decoration as a tsal:\n",
+      "he_plain": "(שם) וע' בהרא\"ש בשם בעל העיטור כצ\"ל:",
+      "en_plain": "(name) and A. in the Rash in the name of the owner of the decoration as a tsal:",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     },
     {

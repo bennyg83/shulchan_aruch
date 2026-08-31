@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,14 +91,49 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 10,
     "chunk_total": 47,
-    "case_offset": 68,
-    "cases_in_chunk": 5,
+    "case_offset": 72,
+    "cases_in_chunk": 7,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },
   "cases": [
+    {
+      "id": "oc1/siman229/seif-001/machatzit-hashekel",
+      "volume": "oc1",
+      "siman": 229,
+      "seif": 1,
+      "slug": "machatzit-hashekel",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.838,
+        "he_chars": 402,
+        "en_chars": 739,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 739
+        },
+        "failure_patterns": [
+          "to_the_world"
+        ]
+      },
+      "he_html": "<b>ס\"ק א נאמן.</b> והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':\n",
+      "en_html": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.\r\n",
+      "he_plain": "ס\"ק א נאמן. והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':",
+      "en_plain": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
     {
       "id": "oc1/siman235/seif-002/turei-zahav",
       "volume": "oc1",
@@ -272,6 +307,41 @@
       "en_html": "Together. Meaning to the world:\r\n",
       "he_plain": "יחדן. פירוש לעולם:",
       "en_plain": "Together. Meaning to the world:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
+      "id": "oc1/siman264/seif-001/magen-avraham",
+      "volume": "oc1",
+      "siman": 264,
+      "seif": 1,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.149,
+        "he_chars": 415,
+        "en_chars": 477,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 477
+        },
+        "failure_patterns": [
+          "name_lemma_artifact"
+        ]
+      },
+      "he_html": "<b>אסור להשתמש</b>. אפי' תשמיש שאין צריך עיון שמא יטה ועסי' ער\"ה:<br />\n<b>מותר להשתמ'</b>. אפי' הנרו' עומדי' בחדר אחר דכיון שיש במקום אחר נר כשר יזכור ולא יטה גם במקומות אחרים (שם):<br />\n<b>בלא נר</b>. כגון למשוך יין מן המרתף (שם):<br />\n<b>בדיעבד</b>. ונ\"ל דאם יש נר א' כשר ועומד אצלו נר פסול מותר להשתמש דלא יהא אלא נר אחד בלחוד וכמ\"ש סי' רע\"ו ואף על גב שהב\"ח מחמיר בזה לטעמיה אזיל שכתב בסי' תרע\"ג דאין היתר בשמש אצל נרות חנוכה ע\"ש אבל לדידן פשיטא דשרי:\n",
+      "en_html": "(א) It is forbidden to use. It is not necessary that there is no mention of Heaven’s Word and His Word:<br>\r\n<br>\r\n(ב) You can get drunk. \"Ei\" is standing in a different room, and there is another kosher candle to remember, and not to enter other places<br>\r\n<br>\r\n(ג) Without a candle. Such as attracting wine from the basement (name):<br>\r\n<br>\r\n(4) In retrospect. And above, there is a kosher A. candle and there is an invalid candle standing next to it. It is permissible to use only one candle separately.\r\n",
+      "he_plain": "אסור להשתמש . אפי' תשמיש שאין צריך עיון שמא יטה ועסי' ער\"ה: מותר להשתמ' . אפי' הנרו' עומדי' בחדר אחר דכיון שיש במקום אחר נר כשר יזכור ולא יטה גם במקומות אחרים (שם): בלא נר . כגון למשוך יין מן המרתף (שם): בדיעבד . ונ\"ל דאם יש נר א' כשר ועומד אצלו נר פסול מותר להשתמש דלא יהא אלא נר אחד בלחוד וכמ\"ש סי' רע\"ו ואף על גב שהב\"ח מחמיר בזה לטעמיה אזיל שכתב בסי' תרע\"ג דאין היתר בשמש אצל נרות חנוכה ע\"ש אבל לדידן פשיטא דשרי:",
+      "en_plain": "(א) It is forbidden to use. It is not necessary that there is no mention of Heaven’s Word and His Word: (ב) You can get drunk. \"Ei\" is standing in a different room, and there is another kosher candle to remember, and not to enter other places (ג) Without a candle. Such as attracting wine from the basement (name): (4) In retrospect. And above, there is a kosher A. candle and there is an invalid candle standing next to it. It is permissible to use only one candle separately.",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     }
   ]

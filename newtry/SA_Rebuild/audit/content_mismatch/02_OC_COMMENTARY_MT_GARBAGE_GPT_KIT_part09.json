@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,14 +91,49 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 9,
     "chunk_total": 47,
-    "case_offset": 58,
-    "cases_in_chunk": 10,
+    "case_offset": 61,
+    "cases_in_chunk": 11,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },
   "cases": [
+    {
+      "id": "oc1/siman187/seif-003/magen-avraham",
+      "volume": "oc1",
+      "siman": 187,
+      "seif": 3,
+      "slug": "magen-avraham",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.444,
+        "he_chars": 1378,
+        "en_chars": 1990,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 1990
+        },
+        "failure_patterns": [
+          "circumcised_wrong"
+        ]
+      },
+      "he_html": "<b>אם לא הזכיר</b>. ואם לא אמר בה הודאה תחלה וסוף מחזירין אותו [כ\"מ בטור], י\"ל בכל עת ובכל שעה כי עתים הם קור וחום והמשנה טועה [ד\"מ וכ\"כ במט\"מ] ואין עונין פה אמן כי איננה סוף הברכה רק שרגילין להפסיק בעל הנסים עסי' רפ\"ד מ\"ש:<br />\n<b>ונשים כו'</b>. צ\"ע דפתח בתרתי וסיים בחדא, ובתו' ר\"פ מ\"ש אית' בהדיא דלא יאמרו ברית ותור' וכן כתבו התו' ורש\"י בערכין וכ\"ה בברכות דף מ\"ח וז\"ל ברית לפי שאינה בנשים תור' ומלכו' אינה לא בנשים ולא בעבדים עכ\"ל וצ\"ע דלא כע\"ת ולבוש וצ\"ע על מה סמכו עכשיו הנשים לאומר' והל\"ח נדחק לתת טעם לדבר ובבד\"ה כתב דנשים הוי כגברים שאין נקרא אדם אלא כשיש לו אשה ואם כן ה\"ל שניהם גוף א' עכ\"ל נדחקו כדי ליישב המנהג ולע\"ד קשה דהא אמרי' ססי' מ\"ז דנשים מברכו' ברכת התורה משום דחייבות ללמוד מצו' שלהם וכ\"פ בי\"ד סי' רמ\"ו ס\"ו ואמרינן כה תאמר לבית יעקב אלו הנשים א\"כ למה לא יאמרו על תורתך שלמדתנו ועוד אמרי בע\"א ד' כ\"ח ע\"א למ\"ד המול ימול איתתא כמאן דמהילי דמי ולמ\"ד ואתה את בריתי נשים לאו בני ברית נינהו וא\"כ אפשר דעל בריתך שחתמת בבשרינו יכולין לומר דכמאן דמהילי דמי והא דקאמר בגמ' דרב חסדא [לא הי' אומר ברית ותורה משום דר\"ח] [גי' נה\"ח] הי' מזמן ומוצי' אף הנשים ולכן לא אמר ברית ותורה שאינ' שוה לנשים כאנשים דעכ\"פ האנשים נימולים ממש ולומדי' כל התורה דלכן ס\"ל אם לא אמרו יצא ידי חובתו ע\"ש, יש לומר לא חיסר לנו בחיר\"ק תחת החי\"ת ואל יחסר לנו שב\"א תחת היו\"ד ופתח תחת החי\"ת וצירי תחת הסמ\"ך שאתה זן קמץ תחת השי\"ן בפי כל חי לפי שהוא סמוך ועמ\"ש סימן נ\"א, של\"ה כתב לומר חסר יחסר שהנקודות עולים כמנין לחם:\n",
+      "en_html": "If he did not mention. And if he did not say therein thanks at beginning and end—they return him [so Tur]; it can be said bekhol et uvekhol sha'ah—for etim are cold and heat; and one who changes is mistaken [Darkei Moshe; so Matat Moshe]; one does not answer amen peh for it is not end of blessing—only accustomed to pause baal hanissim siman 284 what is written.<br>\r\n<br>\r\nAnd women, etc.—requires study—for he opened with two and concluded in one; in Tosafot beginning what is written it is explicit they do not say covenant and Torah; so Tosafot and Rashi in Erchin; so Berakhot 48b: covenant because not in women; Torah and kingdom not in women nor slaves—end; requires study—not like Early Authorities and Levush; requires study on what they relied that now women say; Levushei Serad strained to give reason; in s.v. wrote women are like men not called adam except when has wife—if so both one body—end—strained to settle custom; in my view difficult—for we say siman 47 women bless blessing of Torah because obligated to learn their mitzvot; so Yoreh Deah siman 246 s.6; we say koh tomar leveit Yaakov—these are the women; if so why not say al Toratecha she'limadtanu; also in Avodah Zarah 27a per those who say hamol yimol—woman is like one who bleeds; per those who say ve'atah et briti—women are not members of covenant; if so possible on britcha shechatamta bevasareinu they can say as one who bleeds; that Rav Chisda [did not say covenant and Torah because R' Chiya] [girsa Nehar Shalom] was zimmun and discharged women—therefore did not say covenant and Torah for not equal to women as men—for at least men are circumcised actually and learn entire Torah—therefore hold if they did not say fulfilled—see there; can say do not lack us with chirik under chet and do not cause us to lack with shva under yod and patach under chet and tzere under samekh; she'atah zan kamatz under shin; befikh kol chai for adjacent; see siman 51; Shelah wrote say chasar yechsar—for vowels ascend like bread.\r\n",
+      "he_plain": "אם לא הזכיר . ואם לא אמר בה הודאה תחלה וסוף מחזירין אותו [כ\"מ בטור], י\"ל בכל עת ובכל שעה כי עתים הם קור וחום והמשנה טועה [ד\"מ וכ\"כ במט\"מ] ואין עונין פה אמן כי איננה סוף הברכה רק שרגילין להפסיק בעל הנסים עסי' רפ\"ד מ\"ש: ונשים כו' . צ\"ע דפתח בתרתי וסיים בחדא, ובתו' ר\"פ מ\"ש אית' בהדיא דלא יאמרו ברית ותור' וכן כתבו התו' ורש\"י בערכין וכ\"ה בברכות דף מ\"ח וז\"ל ברית לפי שאינה בנשים תור' ומלכו' אינה לא בנשים ולא בעבדים עכ\"ל וצ\"ע דלא כע\"ת ולבוש וצ\"ע על מה סמכו עכשיו הנשים לאומר' והל\"ח נדחק לתת טעם לדבר ובבד\"ה כתב דנשים הוי כגברים שאין נקרא אדם אלא כשיש לו אשה ואם כן ה\"ל שניהם גוף א' עכ\"ל נדחקו כדי ליישב המנהג ולע\"ד קשה דהא אמרי' ססי' מ\"ז דנשים מברכו' ברכת התורה משום דחייבות ללמוד מצו' שלהם וכ\"פ בי\"ד סי' רמ\"ו ס\"ו ואמרינן כה תאמר לבית יעקב אלו הנשים א\"כ למה לא יאמרו על תורתך שלמדתנו ועוד אמרי בע\"א ד' כ\"ח ע\"א למ\"ד המול ימול איתתא כמאן דמהילי דמי ולמ\"ד ואתה את בריתי נשים לאו בני ברית נינהו וא\"כ אפשר דעל בריתך שחתמת בבשרינו יכולין לומר דכמאן דמהילי דמי והא דקאמר בגמ' דרב חסדא [לא הי' אומר ברית ותורה משום דר\"ח] [גי' נה\"ח] הי' מזמן ומוצי' אף הנשים ולכן לא אמר ברית ותורה שאינ' שוה לנשים כאנשים דעכ\"פ האנשים נימולים ממש ולומדי' כל התורה דלכן ס\"ל אם לא אמרו יצא ידי חובתו ע\"ש, יש לומר לא חיסר לנו בחיר\"ק תחת החי\"ת ואל יחסר לנו שב\"א תחת היו\"ד ופתח תחת החי\"ת וצירי תחת הסמ\"ך שאתה זן קמץ תחת השי\"ן בפי כל חי לפי שהוא סמוך ועמ\"ש סימן נ\"א, של\"ה כתב לומר חסר יחסר שהנקודות עולים כמנין לחם:",
+      "en_plain": "If he did not mention. And if he did not say therein thanks at beginning and end—they return him [so Tur]; it can be said bekhol et uvekhol sha'ah—for etim are cold and heat; and one who changes is mistaken [Darkei Moshe; so Matat Moshe]; one does not answer amen peh for it is not end of blessing—only accustomed to pause baal hanissim siman 284 what is written. And women, etc.—requires study—for he opened with two and concluded in one; in Tosafot beginning what is written it is explicit they do not say covenant and Torah; so Tosafot and Rashi in Erchin; so Berakhot 48b: covenant because not in women; Torah and kingdom not in women nor slaves—end; requires study—not like Early Authorities and Levush; requires study on what they relied that now women say; Levushei Serad strained to give reason; in s.v. wrote women are like men not called adam except when has wife—if so both one body—end—strained to settle custom; in my view difficult—for we say siman 47 women bless blessing of Torah because obligated to learn their mitzvot; so Yoreh Deah siman 246 s.6; we say koh tomar leveit Yaakov—these are the women; if so why not say al Toratecha she'limadtanu; also in Avodah Zarah 27a per those who say hamol yimol—woman is like one who bleeds; per those who say ve'atah et briti—women are not members of covenant; if so possible on britcha shechatamta bevasareinu they can say as one who bleeds; that Rav Chisda [did not say covenant and Torah because R' Chiya] [girsa Nehar Shalom] was zimmun and discharged women—therefore did not say covenant and Torah for not equal to women as men—for at least men are circumcised actually and learn entire Torah—therefore hold if they did not say fulfilled—see there; can say do not lack us with chirik under chet and do not cause us to lack with shva under yod and patach under chet and tzere under samekh; she'atah zan kamatz under shin; befikh kol chai for adjacent; see siman 51; Shelah wrote say chasar yechsar—for vowels ascend like bread.",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
     {
       "id": "oc1/siman189/seif-001/machatzit-hashekel",
       "volume": "oc1",
@@ -415,20 +450,20 @@
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     },
     {
-      "id": "oc1/siman229/seif-001/machatzit-hashekel",
+      "id": "oc1/siman223/seif-006/magen-avraham",
       "volume": "oc1",
-      "siman": 229,
-      "seif": 1,
-      "slug": "machatzit-hashekel",
+      "siman": 223,
+      "seif": 6,
+      "slug": "magen-avraham",
       "priority": "P1_scan_mt_garbage",
       "kinds": [
         "mt_garbage"
       ],
       "severity": 9,
       "scores": {
-        "en_he_ratio": 1.838,
-        "he_chars": 402,
-        "en_chars": 739,
+        "en_he_ratio": 1.454,
+        "he_chars": 355,
+        "en_chars": 516,
         "cut_deficit": 0
       },
       "details": {
@@ -437,16 +472,16 @@
           "he_hagah_count": 0,
           "en_rama_braces": 0,
           "post_rama_he_chars": 0,
-          "post_rama_en_chars": 739
+          "post_rama_en_chars": 516
         },
         "failure_patterns": [
-          "to_the_world"
+          "name_lemma_artifact"
         ]
       },
-      "he_html": "<b>ס\"ק א נאמן.</b> והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':\n",
-      "en_html": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.\r\n",
-      "he_plain": "ס\"ק א נאמן. והאומרים נאמן כו' קודם ר\"ל שאומרים נאמן בבריתו וקיים במאמרו בא\"י זוכר הברית טועה דמבואר בגמ דאין חותמין בברכ' זו. וכאן צ\"ל של\"ה כי של\"ה כ' כן. ומה שנדפס תיבת של\"ה סס\"ק ב' הוא טעות דהא גמ' ערוכה בחגיגה דף ט\"ז ע\"א דתנן כל שלא חס על כבוד קונו ראוי לו שלא בא לעולם. ואמרי' מאי היא ר' אבא אמר זה המסתכל בקשת ואמרי' עוד שם דרש ר\"י בר נחמני מתורגמניה דר\"ל כל המסתכל בג' דברים עיניו כהות. בקשת כו':",
-      "en_plain": "Note 1 — faithful. And those who say faithful etc. first — meaning they say faithful to His covenant and steadfast in His word, Blessed are You Who remembers the covenant — err, for it is clear in the Gemara that one does not close this blessing. And here must be Shelah — for Shelah wrote thus. And what is printed 'Shelah' in note 2 is an error — for the Gemara is arranged in Chagigah page 16a: we learned whoever is not concerned for his Creator's honor — it is fitting he should not have come to the world; and they said what is it — R' Abba said: this is one who gazes at the rainbow; and they said further there R' Yehuda bar Nachmani, interpreter of Resh Lakish: all who gaze at three things — their eyes grow dim: the rainbow etc.",
+      "he_html": "<b>וי\"א דאפי' עני</b>. דדוקא בגד צמר וכדומה דמי לדבר הבא מזמן לזמן דסתם בני אדם מתחדשים להם לפרקים מועטים מה שא\"כ אלו שרגילים להתחדש לסתם בני אדם (שם):<br />\n<b>וכן נוהגין</b>. ורדב\"ז כ' שהתוס' איירי בעשיר אבל בעני מברך ועשיר גדול שקנה כלים חשובים שאין שמח בהם ואין נחשבים לו לא יברך:<br />\n<b>מעורות של בהמה</b>. אפי' טמאה כגון פי\"א בל\"א ואפי' הוא ממין אחר רק שתפור תחתיו מעורות בהמה:\n",
+      "en_html": "(א) A poor Duffy. Doddddah cheated on the top of the like, long ago, people were reinstated to them for a few episodes of what I would like Renew only people (name):<br>\r\n<br>\r\n(ב) as well as driving. And there’s Prayer, which is inscribed in the rich, but in my interest, is a blessing and a great rich man who has bought important tools that are not happy with them and is not considered to be:<br>\r\n<br>\r\n(ג) A pile of stage. An epith century such as P. B. B.A. and Affi is another species that will only break under it from the stage:\r\n",
+      "he_plain": "וי\"א דאפי' עני . דדוקא בגד צמר וכדומה דמי לדבר הבא מזמן לזמן דסתם בני אדם מתחדשים להם לפרקים מועטים מה שא\"כ אלו שרגילים להתחדש לסתם בני אדם (שם): וכן נוהגין . ורדב\"ז כ' שהתוס' איירי בעשיר אבל בעני מברך ועשיר גדול שקנה כלים חשובים שאין שמח בהם ואין נחשבים לו לא יברך: מעורות של בהמה . אפי' טמאה כגון פי\"א בל\"א ואפי' הוא ממין אחר רק שתפור תחתיו מעורות בהמה:",
+      "en_plain": "(א) A poor Duffy. Doddddah cheated on the top of the like, long ago, people were reinstated to them for a few episodes of what I would like Renew only people (name): (ב) as well as driving. And there’s Prayer, which is inscribed in the rich, but in my interest, is a blessing and a great rich man who has bought important tools that are not happy with them and is not considered to be: (ג) A pile of stage. An epith century such as P. B. B.A. and Affi is another species that will only break under it from the stage:",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     }
   ]

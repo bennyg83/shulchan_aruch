@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,10 +91,10 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 32,
     "chunk_total": 47,
-    "case_offset": 175,
+    "case_offset": 182,
     "cases_in_chunk": 7,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },

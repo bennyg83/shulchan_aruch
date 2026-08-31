@@ -2,7 +2,7 @@
 
 External AI kits for **OC content-quality** fixes (cut EN / MT garbage). **Audit only — no corpus apply.**
 
-**Built:** 2026-08-30T20:47:49.253Z  
+**Built:** 2026-08-31T07:41:43.967Z  
 Corpus: `newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/`  
 Scan: [`OC_CONTENT_SCAN_2026-08-30.json`](./OC_CONTENT_SCAN_2026-08-30.json)  
 Flags: [`CONTENT_FIX_FLAGS.json`](./CONTENT_FIX_FLAGS.json)
@@ -11,8 +11,8 @@ Flags: [`CONTENT_FIX_FLAGS.json`](./CONTENT_FIX_FLAGS.json)
 
 | Kit | Cases | Parts | Max part bytes | SHA-256 (prefix) | Zip |
 |-----|------:|------:|---------------:|------------------|-----|
-| `01_OC_MECHABER_CUT_EN_GPT_KIT` | 120 | 11 | 84,371 | `60ec5249a345…` | [`zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip`](./zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip) |
-| `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT` | 257 | 47 | 158,281 | `1aa40ab8974a…` | [`zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip`](./zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip) |
+| `01_OC_MECHABER_CUT_EN_GPT_KIT` | 120 | 11 | 84,371 | `6677f2e7e406…` | [`zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip`](./zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip) |
+| `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT` | 266 | 47 | 158,281 | `8f84a43d7ec2…` | [`zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip`](./zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip) |
 
 ### 01 — Mechaber cut-EN
 - Source: [`OC_MECHABER_CUT_EN_KIT.json`](./OC_MECHABER_CUT_EN_KIT.json) (120 cases, full HE+EN)

@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "created": "2026-08-31T16:11:41.925Z",
+    "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
+    "mode": "fresh_translate_discard_mt_garbage",
+    "parts": "99-99",
+    "incoming": "C:\\Users\\binya\\Documents\\shulchan-aruch-clean\\newtry\\SA_Rebuild\\audit\\content_mismatch\\_manual_kit02_leftovers",
+    "kit_case_count": 2,
+    "gpt_case_count": 2,
+    "merged_path": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_GPT_RESULT.json",
+    "partMeta": [
+      {
+        "part": 99,
+        "file": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part99.json",
+        "cases": 2
+      }
+    ],
+    "loadedParts": [
+      {
+        "part": 99,
+        "file": "part99_completed.json",
+        "cases": 2
+      }
+    ],
+    "extra_ids": [],
+    "seed_netiv_244_5": null,
+    "summary": "parts 99-99: APPROVE=2 HOLD=0 REJECT=0; seed=absent"
+  },
+  "counts": {
+    "APPROVE": 2,
+    "HOLD": 0,
+    "REJECT": 0
+  },
+  "results": [
+    {
+      "id": "oc1/siman331/seif-010/machatzit-hashekel",
+      "part": 99,
+      "verdict": "APPROVE",
+      "reason": "ok",
+      "flags": [],
+      "confidence": "high",
+      "scores": {
+        "he_chars": 238,
+        "en_chars": 631,
+        "en_he_ratio": 2.651
+      },
+      "new_en_preview": "Seif katan 10, \"who has never performed milah,\" etc. And one reason for them is that he is still not expert in the skill of milah; and one c…",
+      "source_file": "part99_completed.json"
+    },
+    {
+      "id": "oc1/siman467/seif-013/mishnah-berurah",
+      "part": 99,
+      "verdict": "APPROVE",
+      "reason": "ok",
+      "flags": [],
+      "confidence": "high",
+      "scores": {
+        "he_chars": 1047,
+        "en_chars": 1929,
+        "en_he_ratio": 1.842
+      },
+      "new_en_preview": "(65) \"Used that day.\" This refers to a case where they performed hagalah before the time of its prohibition; for otherwise one may not perfo…",
+      "source_file": "part99_completed.json"
+    }
+  ]
+}

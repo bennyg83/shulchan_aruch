@@ -8,7 +8,7 @@
     "hard_cap_utf8_bytes": 85000,
     "dictionary_file": "full_dictionary.md",
     "prompt": "SA_Rebuild OC COMMENTARY MT-GARBAGE — FRESH TRANSLATE FROM HE (hardened).\n\nINPUTS: 02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json (full parent pack — attach even when reviewing one part) + full_dictionary.md\n\nDICTIONARY (mandatory — full_dictionary.md)\n- Part 1 — abbreviations: expand every Hebrew abbreviation; no raw Hebrew abbreviations in EN.\n- Part 2 — halachic terms: dictionary transliteration/rendering.\n- Part 3 — commentator names: exact dictionary forms (never anglicize Shach/Taz/Magen Avraham/etc.).\n- Part 4 — numbers: Hebrew letter-numbers → Arabic numerals.\n- Part 5 — connectives: per dictionary.\n\nCORPUS TEXT: he_html / en_html / he_plain / en_plain are COMPLETE (NO truncation). Current EN is MT garbage — do NOT salvage nonsense phrasing.\n\nTASK\n1) Fresh-translate EN completely from HE. Completeness; no additions; plain EN only.\n2) Discard garbled MT entirely (Czechs/Honeylma/Danny/craft/Saturday/etc.).\n3) {Rama: ...} for Rama glosses when HE has הגה; never {Rama: RAMA:}.\n4) Preserve commentator lemma/head style when HE has a bold head — translate accurately, do not invent.\n5) If HE has JSON-array / bracket leak wrappers in the source HTML, translate the inner Hebrew content; do not echo [\"...\"] into EN.\n\nFAILURE RULES — DO NOT (causes REJECT/HOLD)\n- Do NOT output: \"the craft\", \"Saturday\", \"Lord's Prayer\", \"her age\", \"hand recoils\", \"first dish\", \"to the world\" (for l'olam), \"Hashem's Word\", \"Holy One\" junk loops, \"massacre\", allocated (for muktzeh), Danny's dinliness, \"circumcised\" nonsense, Honeylma/Czechs/captain-style gibberish, or other known MT failure patterns.\n- Do NOT add editorial notes, \"Note:\", \"Meaning:\", explanations, or confidence commentary inside EN.\n- Do NOT leave Hebrew characters, raw Hebrew abbreviations, or placeholders (\"TBD\", \"translation pending\") in EN.\n- Do NOT wrap the response in markdown fences or add prose outside valid JSON.\n- Do NOT write {Rama: RAMA: ...} — single wrapper only: {Rama: ...}.\n- Valid JSON only — escape every \" as \\\"; straight ASCII quotes only.\n\nOUTPUT — JSON array only:\n[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]\nOne object per case. new_en is the full replacement English. No corpus edits.",
-    "scan_mt_garbage_total": 260,
+    "scan_mt_garbage_total": 270,
     "excluded_overlap_with_mechaber_kit": [
       "oc1/siman308/seif-001/mechaber",
       "oc1/siman22/seif-001/mechaber",
@@ -20,27 +20,27 @@
       "primary": "new_en"
     },
     "coverage_note": "All scan mt_garbage included except IDs already in 01_OC_MECHABER_CUT_EN_GPT_KIT; plus manual Netiv 244:5",
-    "created": "2026-08-30T20:47:48.124Z",
+    "created": "2026-08-31T07:41:42.847Z",
     "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT",
     "counts": {
-      "total": 257,
+      "total": 266,
       "by_volume": {
-        "oc1": 257
+        "oc1": 266
       },
       "by_slug": {
-        "netiv-chayim": 2,
+        "netiv-chayim": 5,
         "eliyah-rabbah": 18,
         "mishnah-berurah": 24,
         "peri-megadim": 12,
         "mechaber": 15,
         "machatzit-hashekel": 26,
         "baer-heitev": 16,
-        "kaf-hachayyim": 36,
+        "kaf-hachayyim": 37,
         "turei-zahav": 9,
         "chatam-sofer": 3,
-        "levushei-serad": 5,
+        "levushei-serad": 8,
         "beur-hagra": 12,
-        "magen-avraham": 23,
+        "magen-avraham": 25,
         "ateret-zekenim": 6,
         "yad-ephraim": 6,
         "beer-hagolah": 13,
@@ -54,8 +54,8 @@
       },
       "by_priority": {
         "P0_manual_seed": 1,
-        "P0_netiv": 1,
-        "P1_scan_mt_garbage": 255
+        "P0_netiv": 4,
+        "P1_scan_mt_garbage": 261
       }
     },
     "instructions_for_reviewer": [
@@ -91,10 +91,10 @@
       "[{\"id\":\"...\",\"new_en\":\"...\",\"notes\":\"short\",\"confidence\":\"high\"|\"medium\"|\"low\"}]",
       "One object per case. new_en is the full replacement English. No corpus edits."
     ],
-    "parent_sha256": "1aa40ab8974a9767d41dcbbad01914a2651cabd76cfd3f327a8acf7913659f29",
+    "parent_sha256": "8f84a43d7ec2a8217d0a7c14afcc5e19557470c4f22adcb9b4dee814347797cf",
     "chunk_index": 7,
     "chunk_total": 47,
-    "case_offset": 41,
+    "case_offset": 44,
     "cases_in_chunk": 8,
     "parent_pack": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json"
   },
@@ -275,6 +275,41 @@
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     },
     {
+      "id": "oc1/siman159/seif-015/levushei-serad",
+      "volume": "oc1",
+      "siman": 159,
+      "seif": 15,
+      "slug": "levushei-serad",
+      "priority": "P1_scan_mt_garbage",
+      "kinds": [
+        "mt_garbage"
+      ],
+      "severity": 9,
+      "scores": {
+        "en_he_ratio": 1.455,
+        "he_chars": 345,
+        "en_chars": 502,
+        "cut_deficit": 0
+      },
+      "details": {
+        "rama": {
+          "he_hagah": false,
+          "he_hagah_count": 0,
+          "en_rama_braces": 0,
+          "post_rama_he_chars": 0,
+          "post_rama_en_chars": 502
+        },
+        "failure_patterns": [
+          "honeylma"
+        ]
+      },
+      "he_html": "<small>שם</small> ראוי להעמיד ר\"ל דבשלמא לענין טומאה דטעמא דגיסטרא מקבל טומאה הוא משום שראוי להעמיד תחת הנוטפין מש\"ה שיעורו במוציא משקה משום דאין מעמידין גיסטרא לגיסטרא משא\"כ בנט\"י דטעמא דהכשר גיסטרא לנט\"י אינו משום שראוי להעמיד תחת הנוטפין רק משום דחז\"ל לא הוצרכו בנט\"י דוקא כלי שלם שלא הקפידו רק על קיבול רביעית אפי' בשבר א\"כ כלי שלם ושברן שוי ושיעורן בכונס:\n",
+      "en_html": "There is a worthy name to put R. Honeylma on the subject of Tomma Dassteria gets unclean because it is worth putting under the Nutpin from “his stature in a drink.” Because Danin is not putting a Gistra to Gistra from Bennett’s High Court of Justice de Khistra Laanti is not because it is worth putting under the Nutpin just because of the Dacht Bennett was not consumed by an entire tool not only to be sure of the fourth ejaculation in the break of a whole vessel in which he and his class were made:\r\n",
+      "he_plain": "שם ראוי להעמיד ר\"ל דבשלמא לענין טומאה דטעמא דגיסטרא מקבל טומאה הוא משום שראוי להעמיד תחת הנוטפין מש\"ה שיעורו במוציא משקה משום דאין מעמידין גיסטרא לגיסטרא משא\"כ בנט\"י דטעמא דהכשר גיסטרא לנט\"י אינו משום שראוי להעמיד תחת הנוטפין רק משום דחז\"ל לא הוצרכו בנט\"י דוקא כלי שלם שלא הקפידו רק על קיבול רביעית אפי' בשבר א\"כ כלי שלם ושברן שוי ושיעורן בכונס:",
+      "en_plain": "There is a worthy name to put R. Honeylma on the subject of Tomma Dassteria gets unclean because it is worth putting under the Nutpin from “his stature in a drink.” Because Danin is not putting a Gistra to Gistra from Bennett’s High Court of Justice de Khistra Laanti is not because it is worth putting under the Nutpin just because of the Dacht Bennett was not consumed by an entire tool not only to be sure of the fourth ejaculation in the break of a whole vessel in which he and his class were made:",
+      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
+    },
+    {
       "id": "oc1/siman162/seif-002/mechaber",
       "volume": "oc1",
       "siman": 162,
@@ -342,41 +377,6 @@
       "en_html": "(א) About them. See the taste and taste:<br>\r\n<br>\r\n(ב) All this. And if you touch them, see Heaven. A vessel swayed by his side and carried him in a cave and shook him up and out of the water by Sri Aaa He was in his hands to give him a son. to the . the Gemara and M.M. should feel that after the first burden is returned, and the baroza in his hand is infected with unclean water A ram in the sukkah and black and laughs in the other hand are plucked out of the water, so take a fourth as one. If the vessel is taken in his hand, the vessel will be removed from the water and if it is predicted He is in his first hand, and must be taken away from him, and he must be called the S.D. Therefore, take a fourth as one and here from my breath if it is circumcised in the palm of the head The sea and the two see:\r\n",
       "he_plain": "עליהם. עיין ט\"ז ומ\"א הטעם: לכל זה. ואם נגע בהם אחר טמאות עיין מ\"א. כלי שנקב בשוליו ותחוב בו ברזא ודוחק אותו למעלה ויוצאים המים ע\"י שרי אעפ\"י שהברזא לחה ונוגע בו בידיו לית לן בה. ל\"ח. וכתב המ\"א ומ\"מ יש לחוש שלאחר שנטל הראשונה וחוזר ודוחק הברזא בידו הלחה נדבקו מים טמאים בברזא וכשחור ודוחק בידו השניה נטמאה מהמים הלחים לכן יטול רביעית כאחד. אם נטל הכלי בידו הלחה נטמא אזן הכלי מהמים ואם חזר ואוחז בידו הראשונה נטמא ידו ממנה וצריך לנגבה כמ\"ש ס\"ד. לכן יטול רביעית כאחד וכאן מהני נמי אם ישפוך ע\"ג היד בפ\"ע הראשונים ושניים עיין מ\"א:",
       "en_plain": "(א) About them. See the taste and taste: (ב) All this. And if you touch them, see Heaven. A vessel swayed by his side and carried him in a cave and shook him up and out of the water by Sri Aaa He was in his hands to give him a son. to the . the Gemara and M.M. should feel that after the first burden is returned, and the baroza in his hand is infected with unclean water A ram in the sukkah and black and laughs in the other hand are plucked out of the water, so take a fourth as one. If the vessel is taken in his hand, the vessel will be removed from the water and if it is predicted He is in his first hand, and must be taken away from him, and he must be called the S.D. Therefore, take a fourth as one and here from my breath if it is circumcised in the palm of the head The sea and the two see:",
-      "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
-    },
-    {
-      "id": "oc1/siman162/seif-004/mishnah-berurah",
-      "volume": "oc1",
-      "siman": 162,
-      "seif": 4,
-      "slug": "mishnah-berurah",
-      "priority": "P1_scan_mt_garbage",
-      "kinds": [
-        "mt_garbage"
-      ],
-      "severity": 9,
-      "scores": {
-        "en_he_ratio": 1.409,
-        "he_chars": 3072,
-        "en_chars": 4329,
-        "cut_deficit": 0
-      },
-      "details": {
-        "rama": {
-          "he_hagah": false,
-          "he_hagah_count": 0,
-          "en_rama_braces": 0,
-          "post_rama_he_chars": 0,
-          "post_rama_en_chars": 4329
-        },
-        "failure_patterns": [
-          "circumcised_wrong"
-        ]
-      },
-      "he_html": "(לב) שפך מים וכו' - מיירי כששפך רק מים ראשונים מקצת מהרביעית על יד אחת ושפשפה בשניה שאינה נטולה משום שחישב שיעלה נטילה גם להשניה בשפשוף זה וה\"ה אם השפשוף היה להסיר הזעה והלכלוך ממנה או סתם נגיעה בעלמא:<br />\n(לג) לא עלתה וכו' - ליד שניה וגם יד זו נטמאת בנגיעתה בחברתה וכדלקמיה:<br />\n(לד) נטמאו - דמים הראשונים חשובים טמאים דנטמאו בעת הנטילה בנגיעתם בידו כנ\"ל בס\"ב:<br />\n(לה) וכששפשפה נטמאת וכו' - וגרע ע\"י טומאה זו שקבלה עתה יותר מאם לא היו ידיו נטולות כלל דמים הטמאים שבאו על ידו אף אם ישפוך עליהם כמה קבים לא יטהרו עד שינגבם מקודם כדמפרש [הרא\"ש]:<br />\n(לו) חברתה - וממילא גם היא עצמה נטמאת וצריך לנגבה ג\"כ כיון שקבלו מימיה טומאה ע\"י נגיעתם ביד השניה הטמאה ומים השניים אינן מטהרין אלא טומאת היד עצמה אבל לא מהטומאה שבאה עליהן ממקום אחר וממילא ה\"ה כששפך מים ראשונים לשתי ידיו כל אחת בפ\"ע ושפשפם זה בזה נטמאו זה מזה ולא מהני מים שניים לטהרם כדלקמיה בס\"ו:<br />\n(לז) הלכך השופך וכו' - ר\"ל הואיל דנטמאת חברתה וממילא גם היא נטמאת וכנ\"ל ע\"כ צריך לנגב את שתי ידיו מתחלה ולחזור וליטלם כדין ובלא ניגוב לא מהני אף אם ישפוך עליהם כמה פעמים וכנ\"ל:<br />\n(לח) לפיכך הנוטל וכו' - ר\"ל הואיל שבארנו שצריך ליזהר שלא ליגע יד אחת בחברתה קודם גמר הנטילה ומצוי להכשל בזה וע\"כ טוב יותר שיעשה אחד מהג' דברים דהיינו או שישפוך אחר רביעית בב\"א על ידיו או שיעשה דבר זה ע\"י עצמו כדלקמיה או שישפוך על כל אחת רביעית בב\"א דאז נטהרו עי\"ז ידיו לגמרי ושוב אין נגיעתן זו בזו מקלקלין ואדרבה מצוה לכתחלה לשפשפם זו בזו אח\"כ:<br />\n(לט) עליהם - היינו על שתי ידיו כאחד דאז חשובין שניהם כיד אחת ואינם נטמאים ע\"י מה שנוגעין זה בזה בעת הנטילה וכדלקמיה בס\"ה:<br />\n(מ) ואם אין לו אחר וכו' - דכשיש אחר טוב יותר ממה שיטול בעצמו ע\"י אחיזה בראשי אצבעותיו דקשה ליזהר בזה שיבואו המים על ידיו ועל ראשי אצבעותיו גופא באופן זה:<br />\n(מא) על שתי ידיו כאחד - ר\"ל ועי\"ז די ברביעית אחת ושוב א\"צ מים שניים לטהרם:<br />\n(מב) או ישפוך על כל אחת רביעית - ר\"ל שיאחוז הכלי כדרכו וישפוך על כל יד ויד בפ\"ע רביעית בב\"א דאם ישפוך רביעית רק על יד אחת תקבל טומאה ע\"י נגיעתה בחברתה:<br />\n(מג) ואח\"כ ישפשפם - על כל הנ\"ל קאי ור\"ל דבאופנים אלו תו אין חשש קלקול ע\"י השפשוף:<br />\n(מד) שהשופך וכו' - ר\"ל ועי\"ז נגמרה כל טהרת הידים ושוב אין חשש כלל ע\"י נגיעתם אלו באלו:<br />\n(מה) אם נגע בהם - ואף שכבר נטל ידיו גם במים שניים או ברביעית בב\"א שכבר נטהרו ידיו לגמרי כיון שנגע בהם אחר שלא נטל ידיו צריך לנגב ולחזור וליטול כראוי:<br />\n(מו) ע\"י המים - ר\"ל שהמים נטמאו מנגיעתו ומטמאין הידים:<br />\n(מז) שהם שניים - שהראשונים באים רק להסיר הלכלוך כנ\"ל בס\"ב:<br />\n(מח) שלא יגע יד בחברתה - שחברתה כשאין עליה רק מים ראשונים הלא טמאים הם ומטמאין את ידו הראשונה ובדיעבד אם נגע י\"א שא\"צ לנגבה רק נותן אח\"כ מים עליה פעם אחת דכיון שכבר היו טהורים לגמרי אע\"פ שנטמאו מיד האחרת מהני מים השניים לטהרם וי\"א דגם בזה צריך לנגבה כמו בנגע בהם אחר:<br />\n(מט) א\"צ לכל זה - ר\"ל כמו שכתב מקודם דא\"צ מים שניים ומותר תיכף לשפשפם זה בזה אבל מ\"מ יש ליזהר שלא ליגע בהם אחר שלא נטל ידיו וכנ\"ל בסקמ\"ה וכתב הח\"א דמ\"מ אם כבר בירך ענט\"י ונזכר יחזור ויטול ידיו ולא יברך. כתבו האחרונים אם נטל הכלי בידו הלחה [היינו ביד הימין ששפך עליה מתחלה פעם אחת בידו השמאלית] נטמא אזן הכלי מהמים שיש על ידו דמים הראשונים טמאים הם ואם חזר ואחזו בידו השמאלית ליטול פעם שניה על הימין נטמא ידו עי\"ז וצריך לנגבה והעצה לזה שיטיל רביעית בב\"א על כל יד ויד או שישפוך מים ראשונים ושניים על כל יד ויד בפ\"ע:\n",
-      "en_html": "(א) (heart) pours water, etc. - Myiri when he sheds only the first water a little by one hand and rubs in a second that is not lacking because he thinks he will raise a void “If the rubbing was to remove the sweat and dirt from it or just touch it:\n<br>(ב) (g) did not rise and so on - next to a second and this hand is also engulfed in the company and as anemia:\n<br>(ג) (d) Natamao - The first blood is important at the time of abandonment in his hand as the U.S.:\n<br>(ד) (a) And when he was kidnapped, and so on, and he was poisoned by this unclean hand, which he had come to his hands, even if he were not “And they shall not be destroyed until they have been destroyed.”\n<br>(ה) She is also entangled and needs to be stolen from her life to a hundred by touching the other hand, the unclean and the two are not Dr. Delin, but not from the uncleanness that came from another place, and in any case, “when the first water was poured into his hands, each in the Gemara and rubbed them This is one of these things, and not two water water water to purify them as anemia in the UN:\n<br>(ו) And so on, that is the same as Heaven’s people, and so on, that it is the same as Heaven’s people, and that He is the same as Heaven’s people, and that He will be blessed with His hands No, no matter how many times will come to me, no matter how many times it is\n<br>(ז) Therefore, the mantle, and so on, that we should be careful not to touch one hand in the company before the end of the plant and that it is difficult to fail Let’s do one of the G-ds that is, or that he will follow the fourth in the Gemara by himself or do this by himself as anemia or that he will apply to any of the Rabbis At the time of the day, his hands were completely and again, and this is not the case of a cliche and adorned him from his mouth:\n<br>(ח) On them, we were by both hands as one of the then important ones both of them as one skeleton and are not entrenched by what is concerned with each other when it is hysteria and as anemia in the USSR :\n<br>(ט) (b) And if he has no other and so on, then he is better than he has taken by his fingers, it is hard to be careful that the water will come by his hands And his fingertips are in this way:\n<br>(י) (a) By his two hands as one, R.L. and X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X\n<br>(כ) (b) or shall be circumcised on each of the Wednesdays, and shall be circumcised in every hand and hand in the fourth verse in the Gemara, only by the hand of a brother You’ll get a hundred by touching her company:\n<br>(ל) (c) And then they shall be persecuted, for all those who are called Kai and Rachel, and this will not be feared by the bishop:\n<br>(מ) And so on, and so on, Heaven’s Word is over and over again there is no fear at all\n<br>(נ) (What) if he touched them, and even though he had already taken his hands in two or fourth water in the Gemara, which had already been completely broken by his hands as a man who touched them other than his hands Go back to the Negev and get back properly:\n<br>(ס) By the water, the water is clear:\n<br>(ע) They are two, the heads come only to remove the dirt in the U.S.:\n<br>(פ) She did not touch her friend’s hand, whose friend when she did not have the first unclean water, they emptied his first hand and worked if he touched him Her back only then gives water to her once, though they were completely pure, the other way away from the water of the two to purify them and a model for it Keep in touch like another:\n<br>(צ) (t) A. For all of this, as he wrote before, two water ridges are allowed to be rubbed at each other, but VAT must be careful not to touch them otherwise Heaven’s Word and His Word will be given to Heaven’s Word, and He will not be saved. The last verse is if the vessel is taken in his hand We were in the right hand that was shed on it once in his left hand, and the vessel was removed from the water with which his first blood was unclean, and if he returned and held In his left hand, he must take a second time on the right hand, and he must be swayed, and he has commanded him to take a fourth shiver in the Gemara by hand and hand, or to pour water First and second on each hand and hand in the Gemara:",
-      "he_plain": "(לב) שפך מים וכו' - מיירי כששפך רק מים ראשונים מקצת מהרביעית על יד אחת ושפשפה בשניה שאינה נטולה משום שחישב שיעלה נטילה גם להשניה בשפשוף זה וה\"ה אם השפשוף היה להסיר הזעה והלכלוך ממנה או סתם נגיעה בעלמא: (לג) לא עלתה וכו' - ליד שניה וגם יד זו נטמאת בנגיעתה בחברתה וכדלקמיה: (לד) נטמאו - דמים הראשונים חשובים טמאים דנטמאו בעת הנטילה בנגיעתם בידו כנ\"ל בס\"ב: (לה) וכששפשפה נטמאת וכו' - וגרע ע\"י טומאה זו שקבלה עתה יותר מאם לא היו ידיו נטולות כלל דמים הטמאים שבאו על ידו אף אם ישפוך עליהם כמה קבים לא יטהרו עד שינגבם מקודם כדמפרש [הרא\"ש]: (לו) חברתה - וממילא גם היא עצמה נטמאת וצריך לנגבה ג\"כ כיון שקבלו מימיה טומאה ע\"י נגיעתם ביד השניה הטמאה ומים השניים אינן מטהרין אלא טומאת היד עצמה אבל לא מהטומאה שבאה עליהן ממקום אחר וממילא ה\"ה כששפך מים ראשונים לשתי ידיו כל אחת בפ\"ע ושפשפם זה בזה נטמאו זה מזה ולא מהני מים שניים לטהרם כדלקמיה בס\"ו: (לז) הלכך השופך וכו' - ר\"ל הואיל דנטמאת חברתה וממילא גם היא נטמאת וכנ\"ל ע\"כ צריך לנגב את שתי ידיו מתחלה ולחזור וליטלם כדין ובלא ניגוב לא מהני אף אם ישפוך עליהם כמה פעמים וכנ\"ל: (לח) לפיכך הנוטל וכו' - ר\"ל הואיל שבארנו שצריך ליזהר שלא ליגע יד אחת בחברתה קודם גמר הנטילה ומצוי להכשל בזה וע\"כ טוב יותר שיעשה אחד מהג' דברים דהיינו או שישפוך אחר רביעית בב\"א על ידיו או שיעשה דבר זה ע\"י עצמו כדלקמיה או שישפוך על כל אחת רביעית בב\"א דאז נטהרו עי\"ז ידיו לגמרי ושוב אין נגיעתן זו בזו מקלקלין ואדרבה מצוה לכתחלה לשפשפם זו בזו אח\"כ: (לט) עליהם - היינו על שתי ידיו כאחד דאז חשובין שניהם כיד אחת ואינם נטמאים ע\"י מה שנוגעין זה בזה בעת הנטילה וכדלקמיה בס\"ה: (מ) ואם אין לו אחר וכו' - דכשיש אחר טוב יותר ממה שיטול בעצמו ע\"י אחיזה בראשי אצבעותיו דקשה ליזהר בזה שיבואו המים על ידיו ועל ראשי אצבעותיו גופא באופן זה: (מא) על שתי ידיו כאחד - ר\"ל ועי\"ז די ברביעית אחת ושוב א\"צ מים שניים לטהרם: (מב) או ישפוך על כל אחת רביעית - ר\"ל שיאחוז הכלי כדרכו וישפוך על כל יד ויד בפ\"ע רביעית בב\"א דאם ישפוך רביעית רק על יד אחת תקבל טומאה ע\"י נגיעתה בחברתה: (מג) ואח\"כ ישפשפם - על כל הנ\"ל קאי ור\"ל דבאופנים אלו תו אין חשש קלקול ע\"י השפשוף: (מד) שהשופך וכו' - ר\"ל ועי\"ז נגמרה כל טהרת הידים ושוב אין חשש כלל ע\"י נגיעתם אלו באלו: (מה) אם נגע בהם - ואף שכבר נטל ידיו גם במים שניים או ברביעית בב\"א שכבר נטהרו ידיו לגמרי כיון שנגע בהם אחר שלא נטל ידיו צריך לנגב ולחזור וליטול כראוי: (מו) ע\"י המים - ר\"ל שהמים נטמאו מנגיעתו ומטמאין הידים: (מז) שהם שניים - שהראשונים באים רק להסיר הלכלוך כנ\"ל בס\"ב: (מח) שלא יגע יד בחברתה - שחברתה כשאין עליה רק מים ראשונים הלא טמאים הם ומטמאין את ידו הראשונה ובדיעבד אם נגע י\"א שא\"צ לנגבה רק נותן אח\"כ מים עליה פעם אחת דכיון שכבר היו טהורים לגמרי אע\"פ שנטמאו מיד האחרת מהני מים השניים לטהרם וי\"א דגם בזה צריך לנגבה כמו בנגע בהם אחר: (מט) א\"צ לכל זה - ר\"ל כמו שכתב מקודם דא\"צ מים שניים ומותר תיכף לשפשפם זה בזה אבל מ\"מ יש ליזהר שלא ליגע בהם אחר שלא נטל ידיו וכנ\"ל בסקמ\"ה וכתב הח\"א דמ\"מ אם כבר בירך ענט\"י ונזכר יחזור ויטול ידיו ולא יברך. כתבו האחרונים אם נטל הכלי בידו הלחה [היינו ביד הימין ששפך עליה מתחלה פעם אחת בידו השמאלית] נטמא אזן הכלי מהמים שיש על ידו דמים הראשונים טמאים הם ואם חזר ואחזו בידו השמאלית ליטול פעם שניה על הימין נטמא ידו עי\"ז וצריך לנגבה והעצה לזה שיטיל רביעית בב\"א על כל יד ויד או שישפוך מים ראשונים ושניים על כל יד ויד בפ\"ע:",
-      "en_plain": "(א) (heart) pours water, etc. - Myiri when he sheds only the first water a little by one hand and rubs in a second that is not lacking because he thinks he will raise a void “If the rubbing was to remove the sweat and dirt from it or just touch it: (ב) (g) did not rise and so on - next to a second and this hand is also engulfed in the company and as anemia: (ג) (d) Natamao - The first blood is important at the time of abandonment in his hand as the U.S.: (ד) (a) And when he was kidnapped, and so on, and he was poisoned by this unclean hand, which he had come to his hands, even if he were not “And they shall not be destroyed until they have been destroyed.” (ה) She is also entangled and needs to be stolen from her life to a hundred by touching the other hand, the unclean and the two are not Dr. Delin, but not from the uncleanness that came from another place, and in any case, “when the first water was poured into his hands, each in the Gemara and rubbed them This is one of these things, and not two water water water to purify them as anemia in the UN: (ו) And so on, that is the same as Heaven’s people, and so on, that it is the same as Heaven’s people, and that He is the same as Heaven’s people, and that He will be blessed with His hands No, no matter how many times will come to me, no matter how many times it is (ז) Therefore, the mantle, and so on, that we should be careful not to touch one hand in the company before the end of the plant and that it is difficult to fail Let’s do one of the G-ds that is, or that he will follow the fourth in the Gemara by himself or do this by himself as anemia or that he will apply to any of the Rabbis At the time of the day, his hands were completely and again, and this is not the case of a cliche and adorned him from his mouth: (ח) On them, we were by both hands as one of the then important ones both of them as one skeleton and are not entrenched by what is concerned with each other when it is hysteria and as anemia in the USSR : (ט) (b) And if he has no other and so on, then he is better than he has taken by his fingers, it is hard to be careful that the water will come by his hands And his fingertips are in this way: (י) (a) By his two hands as one, R.L. and X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X (כ) (b) or shall be circumcised on each of the Wednesdays, and shall be circumcised in every hand and hand in the fourth verse in the Gemara, only by the hand of a brother You’ll get a hundred by touching her company: (ל) (c) And then they shall be persecuted, for all those who are called Kai and Rachel, and this will not be feared by the bishop: (מ) And so on, and so on, Heaven’s Word is over and over again there is no fear at all (נ) (What) if he touched them, and even though he had already taken his hands in two or fourth water in the Gemara, which had already been completely broken by his hands as a man who touched them other than his hands Go back to the Negev and get back properly: (ס) By the water, the water is clear: (ע) They are two, the heads come only to remove the dirt in the U.S.: (פ) She did not touch her friend’s hand, whose friend when she did not have the first unclean water, they emptied his first hand and worked if he touched him Her back only then gives water to her once, though they were completely pure, the other way away from the water of the two to purify them and a model for it Keep in touch like another: (צ) (t) A. For all of this, as he wrote before, two water ridges are allowed to be rubbed at each other, but VAT must be careful not to touch them otherwise Heaven’s Word and His Word will be given to Heaven’s Word, and He will not be saved. The last verse is if the vessel is taken in his hand We were in the right hand that was shed on it once in his left hand, and the vessel was removed from the water with which his first blood was unclean, and if he returned and held In his left hand, he must take a second time on the right hand, and he must be swayed, and he has commanded him to take a fourth shiver in the Gemara by hand and hand, or to pour water First and second on each hand and hand in the Gemara:",
       "instruction": "Fresh-translate EN from HE. Discard MT garbage entirely. Dictionary terms; no additions."
     }
   ]

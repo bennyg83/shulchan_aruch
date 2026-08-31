@@ -1,0 +1,23 @@
+{
+  "kits": [
+    {
+      "kit": "01_OPEN_CLASS_B_C_GPT_KIT",
+      "authoritative_cases": 1,
+      "completed_cases": 1,
+      "output": "01_OPEN_CLASS_B_C_GPT_KIT_COMPLETED.json"
+    },
+    {
+      "kit": "01_EN_MISSING_2_REMAINING",
+      "authoritative_cases": 0,
+      "completed_cases": 0,
+      "output": "01_EN_MISSING_2_REMAINING_COMPLETED.json"
+    }
+  ],
+  "validation": {
+    "exact_heSegs_parity": true,
+    "hardened_banned_phrase_check": true,
+    "lukkut_head_check": true,
+    "hebrew_leak_check": true,
+    "empty_rescan_kit_returned_as_empty_array": true
+  }
+}

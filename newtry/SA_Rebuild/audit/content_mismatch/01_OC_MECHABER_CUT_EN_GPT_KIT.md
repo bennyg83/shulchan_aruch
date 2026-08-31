@@ -15,26 +15,26 @@ Mode: `fresh_translate_complete_from_he` · Dictionary: attach **`full_dictionar
 
 ## Files
 
-- Full kit: [`01_OC_MECHABER_CUT_EN_GPT_KIT.json`](./01_OC_MECHABER_CUT_EN_GPT_KIT.json) (SHA `60ec5249a345…`)
+- Full kit: [`01_OC_MECHABER_CUT_EN_GPT_KIT.json`](./01_OC_MECHABER_CUT_EN_GPT_KIT.json) (SHA `6677f2e7e406…`)
 - Parts: target ≤ 85,000 UTF-8 bytes; single-case parts keep **full** HE/EN (may exceed cap)
 - Zip: [`zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip`](./zips/01_OC_MECHABER_CUT_EN_GPT_KIT.zip) includes **full parent** `01_OC_MECHABER_CUT_EN_GPT_KIT.json` + all parts + dictionary
-- Created: 2026-08-30T20:47:47.495Z
+- Created: 2026-08-31T07:41:42.160Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part01.json` | 16 | 0 | 83,839 | `916fda5c46e3…` |  |
-| 2 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part02.json` | 10 | 16 | 83,782 | `6460075aff1f…` |  |
-| 3 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part03.json` | 11 | 26 | 78,931 | `8bec2ffe1a01…` |  |
-| 4 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part04.json` | 10 | 37 | 81,077 | `68239db1c3b4…` |  |
-| 5 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part05.json` | 11 | 47 | 83,039 | `7b2243685816…` |  |
-| 6 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part06.json` | 13 | 58 | 84,176 | `d7b86f7b6f86…` |  |
-| 7 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part07.json` | 13 | 71 | 75,224 | `273e3afe12c1…` |  |
-| 8 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part08.json` | 11 | 84 | 84,371 | `bde4343b9187…` |  |
-| 9 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part09.json` | 13 | 95 | 84,145 | `62c7fe30a590…` |  |
-| 10 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part10.json` | 11 | 108 | 63,134 | `230034251efb…` |  |
-| 11 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part11.json` | 1 | 119 | 33,510 | `c424d66fe5d1…` |  |
+| 1 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part01.json` | 16 | 0 | 83,839 | `260db8ece5a1…` |  |
+| 2 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part02.json` | 10 | 16 | 83,782 | `7204a458918a…` |  |
+| 3 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part03.json` | 11 | 26 | 78,931 | `fa32d5b0606a…` |  |
+| 4 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part04.json` | 10 | 37 | 81,077 | `56dccbef071a…` |  |
+| 5 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part05.json` | 11 | 47 | 83,039 | `8f8dfe2f3547…` |  |
+| 6 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part06.json` | 13 | 58 | 84,176 | `8a2c6c7dc6a9…` |  |
+| 7 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part07.json` | 13 | 71 | 75,224 | `be9c7ae4896d…` |  |
+| 8 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part08.json` | 11 | 84 | 84,371 | `34488f15589d…` |  |
+| 9 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part09.json` | 13 | 95 | 84,145 | `5b9b2ce9e466…` |  |
+| 10 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part10.json` | 11 | 108 | 63,134 | `fa89c3c46cc4…` |  |
+| 11 | `01_OC_MECHABER_CUT_EN_GPT_KIT_part11.json` | 1 | 119 | 33,510 | `ead0802da076…` |  |
 
 
 

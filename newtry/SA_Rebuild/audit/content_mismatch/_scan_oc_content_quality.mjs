@@ -28,7 +28,7 @@ const CORPUS_OC1 = path.join(
   "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1"
 );
 const OUT_DIR = __dirname;
-const SCAN_DATE = "2026-08-30";
+const SCAN_DATE = new Date().toISOString().slice(0, 10);
 
 const SEED_ID = "oc1/siman244/seif-001/mechaber";
 
@@ -87,6 +87,11 @@ const FAILURE_PATTERNS = [
   { id: "the_bible", re: /\bthe\s+Bible\b/i },
   { id: "new_testament", re: /New\s+Testament/i },
   { id: "abu_dhabi", re: /Abu\s+Dhabi/i },
+  { id: "honeylma", re: /\bHoneylma\b/i },
+  { id: "czechs", re: /\bCzechs\b/i },
+  { id: "captain_hire", re: /takes as a captain/i },
+  { id: "name_lemma_artifact", re: /\(\s*name\s*\)/i },
+  { id: "un_hire_garbage", re: /rented to the UN/i },
 ];
 
 const MID_CLAUSE_END =
@@ -369,6 +374,7 @@ function severityFor(kinds, scores) {
     else if (k === "rama_bare_rema_not_braced") s += 1; // style debt, low
     else if (k === "mt_garbage") s += 9;
     else if (k === "html_json_leak") s += 8;
+    else if (k === "he_json_bracket_leak") s += 9;
     else if (k === "hebrew_in_en") s += 5;
     else if (k === "seed_confirmed") s += 10;
     else s += 2;
@@ -525,6 +531,9 @@ function analyzeCell(cell, opts) {
     kinds.push("html_json_leak");
     details.leaks = leaks;
     if (leaks.includes("hebrew_in_en")) kinds.push("hebrew_in_en");
+  }
+  if (/\[\s*"/.test(heRaw) || /\["/.test(heRaw)) {
+    kinds.push("he_json_bracket_leak");
   }
 
   if (cell.id === SEED_ID) kinds.push("seed_confirmed");

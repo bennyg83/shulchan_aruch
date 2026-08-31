@@ -1,0 +1,43 @@
+{
+  "scannedAt": "2026-08-31T16:15:00.000Z",
+  "kit": "02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_leftovers",
+  "mode": "APPLY",
+  "kit_status": "266/266",
+  "eval": { "APPROVE": 2, "HOLD": 0, "REJECT": 0 },
+  "cells": [
+    {
+      "id": "oc1/siman331/seif-010/machatzit-hashekel",
+      "status": "applied",
+      "prior": "REJECT missing_from_gpt (GPT repeatedly returned mishnah-berurah instead)",
+      "fix": "Manual EN: removed circumcised / milah craft; aligned with baer-heitev style for same seif"
+    },
+    {
+      "id": "oc1/siman467/seif-013/mishnah-berurah",
+      "status": "applied",
+      "prior": "REJECT the_cauldron (part32 GPT)",
+      "fix": "Manual EN: יורה rendered as pot (not cauldron); otherwise fresh from HE"
+    }
+  ],
+  "artifacts": {
+    "incoming": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit02_leftovers/part99_completed.json",
+    "kit_part": "newtry/SA_Rebuild/audit/content_mismatch/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part99.json",
+    "apply": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit02_leftovers/KIT02_LEFTOVERS_APPLY.json",
+    "eval": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit02_leftovers/KIT02_LEFTOVERS_GPT_RESULT_EVAL.json",
+    "result": "newtry/SA_Rebuild/audit/content_mismatch/_manual_kit02_leftovers/KIT02_LEFTOVERS_GPT_RESULT.json"
+  },
+  "live_paths": [
+    "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/siman331/seif-010/machatzit-hashekel/en.html",
+    "newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/siman467/seif-013/mishnah-berurah/en.html"
+  ],
+  "he_unchanged": true,
+  "mirror_sync": "skipped — LIVE is source of truth",
+  "spot_checks": {
+    "331:10 machatzit-hashekel": "no circumcised / milah craft / the craft; HE/EN lemma + 3-times proficiency + father psik-reisha aligned",
+    "467:13 mishnah-berurah": "no cauldron; pot used for יורה; (65)-(67) cover ben-yomo / descent / mixing"
+  },
+  "residual_uncertainty": [
+    "אומנות המילה rendered as 'skill of milah' (avoided banned 'the craft')",
+    "יורה rendered as 'pot' (corpus hagalah idiom; not vat/boiler)",
+    "בור kept as 'cistern' and באר as 'well' to preserve HE distinction"
+  ]
+}

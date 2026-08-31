@@ -1,13 +1,13 @@
 {
   "meta": {
-    "date": "2026-08-30",
+    "date": "2026-08-31",
     "purpose": "Highest-priority cut/incomplete Mechaber EN (+ related Rama) for GPT/editorial retranslate",
     "seed": "oc1/siman244/seif-001/mechaber",
     "seed_confirmed": true,
     "case_count": 120,
     "note": "he_html/en_html/he_plain/en_plain are COMPLETE — no truncation"
   },
-  "prompt": "OC MECHABER CUT-EN FIX KIT (2026-08-30)\n\nFor each case: replace EN entirely from HE.\nRules: completeness; no additions; {Rama: ...} for הגה (never {Rama: RAMA:}; never omit post-Rama Mechaber clauses); expand abbreviations; dictionary halachic terms; plain EN only.\n\nReturn JSON array: [{ \"id\": \"...\", \"new_en\": \"...\" }, ...]\n",
+  "prompt": "OC MECHABER CUT-EN FIX KIT (2026-08-31)\n\nFor each case: replace EN entirely from HE.\nRules: completeness; no additions; {Rama: ...} for הגה (never {Rama: RAMA:}; never omit post-Rama Mechaber clauses); expand abbreviations; dictionary halachic terms; plain EN only.\n\nReturn JSON array: [{ \"id\": \"...\", \"new_en\": \"...\" }, ...]\n",
   "cases": [
     {
       "id": "oc1/siman244/seif-001/mechaber",

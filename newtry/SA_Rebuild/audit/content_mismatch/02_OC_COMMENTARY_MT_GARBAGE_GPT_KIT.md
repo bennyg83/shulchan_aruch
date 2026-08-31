@@ -8,69 +8,69 @@ Mode: `fresh_translate_discard_mt_garbage` · Dictionary: attach **`full_diction
 
 | Metric | Count |
 |--------|------:|
-| **Total cases** | **257** |
+| **Total cases** | **266** |
 | Parts | 47 |
-| Parent JSON bytes | 3,109,288 |
+| Parent JSON bytes | 3,132,722 |
 | Max part bytes | 158,281 |
 
 ## Files
 
-- Full kit: [`02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json`](./02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json) (SHA `1aa40ab8974a…`)
+- Full kit: [`02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json`](./02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json) (SHA `8f84a43d7ec2…`)
 - Parts: target ≤ 85,000 UTF-8 bytes; single-case parts keep **full** HE/EN (may exceed cap)
 - Zip: [`zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip`](./zips/02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.zip) includes **full parent** `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT.json` + all parts + dictionary
-- Created: 2026-08-30T20:47:48.124Z
+- Created: 2026-08-31T07:41:42.847Z
 
 ## Parts
 
 | Part | File | Cases | Offset | Bytes | SHA (prefix) | Note |
 |------|------|------:|-------:|------:|--------------|------|
-| 1 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part01.json` | 13 | 0 | 79,521 | `37d9e09e3940…` |  |
-| 2 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part02.json` | 7 | 13 | 80,694 | `77785b6d8eff…` |  |
-| 3 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part03.json` | 7 | 20 | 75,725 | `98090ffb7c06…` |  |
-| 4 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part04.json` | 8 | 27 | 79,332 | `3192b610c12d…` |  |
-| 5 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part05.json` | 5 | 35 | 49,132 | `a402dfd04342…` |  |
-| 6 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part06.json` | 1 | 40 | 97,091 | `3d84ee4c33b2…` | over cap* |
-| 7 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part07.json` | 8 | 41 | 84,079 | `2be5d80e0062…` |  |
-| 8 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part08.json` | 9 | 49 | 67,627 | `89b15d33d0d9…` |  |
-| 9 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part09.json` | 10 | 58 | 72,375 | `a98cca251191…` |  |
-| 10 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part10.json` | 5 | 68 | 55,973 | `57471d79b8fd…` |  |
-| 11 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part11.json` | 3 | 73 | 62,510 | `843516d79f97…` |  |
-| 12 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part12.json` | 1 | 76 | 59,890 | `d2e2ca9e6a2c…` |  |
-| 13 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part13.json` | 5 | 77 | 78,705 | `9731e5f5a03b…` |  |
-| 14 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part14.json` | 14 | 82 | 79,623 | `7a8e01d6fa3d…` |  |
-| 15 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part15.json` | 5 | 96 | 67,883 | `f47ea32ae0ae…` |  |
-| 16 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part16.json` | 8 | 101 | 77,813 | `74650af0b54f…` |  |
-| 17 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part17.json` | 4 | 109 | 84,236 | `c1f48a95e155…` |  |
-| 18 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part18.json` | 1 | 113 | 50,952 | `64e66574a7a8…` |  |
-| 19 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part19.json` | 2 | 114 | 58,070 | `9d0e185e07ec…` |  |
-| 20 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part20.json` | 3 | 116 | 84,219 | `e20bc99be2f0…` |  |
-| 21 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part21.json` | 7 | 119 | 62,844 | `3d8d900599ef…` |  |
-| 22 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part22.json` | 8 | 126 | 82,475 | `eeec78994e30…` |  |
-| 23 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part23.json` | 4 | 134 | 50,715 | `a1db73e723c7…` |  |
-| 24 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part24.json` | 1 | 138 | 158,281 | `0cc9d5b72bd5…` | over cap* |
-| 25 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part25.json` | 9 | 139 | 55,297 | `249687f3f7f6…` |  |
-| 26 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part26.json` | 4 | 148 | 71,535 | `21554d3e0d13…` |  |
-| 27 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part27.json` | 3 | 152 | 79,564 | `bc628227add8…` |  |
-| 28 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part28.json` | 4 | 155 | 81,141 | `dd045d8de6e1…` |  |
-| 29 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part29.json` | 4 | 159 | 68,647 | `facb1348afb8…` |  |
-| 30 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part30.json` | 8 | 163 | 78,666 | `835fb4f69541…` |  |
-| 31 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part31.json` | 4 | 171 | 57,827 | `e09f9ed0d8fb…` |  |
-| 32 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part32.json` | 7 | 175 | 82,576 | `430f341f541a…` |  |
-| 33 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part33.json` | 1 | 182 | 125,095 | `5295c5c818c5…` | over cap* |
-| 34 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part34.json` | 8 | 183 | 64,890 | `a2dd8110b4fe…` |  |
-| 35 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part35.json` | 4 | 191 | 63,684 | `7e5e7d971094…` |  |
-| 36 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part36.json` | 1 | 195 | 51,606 | `db8890b36d53…` |  |
-| 37 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part37.json` | 6 | 196 | 84,754 | `1f1990e0c48b…` |  |
-| 38 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part38.json` | 1 | 202 | 19,667 | `0f1cd3f6777d…` |  |
-| 39 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part39.json` | 1 | 203 | 96,544 | `1774f4bfd7d7…` | over cap* |
-| 40 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part40.json` | 14 | 204 | 80,481 | `3e50fa65f25d…` |  |
-| 41 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part41.json` | 4 | 218 | 62,197 | `92f3d48e15c9…` |  |
-| 42 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part42.json` | 1 | 222 | 48,395 | `cb9a5cef2117…` |  |
-| 43 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part43.json` | 6 | 223 | 72,438 | `f0f1c16c2415…` |  |
-| 44 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part44.json` | 8 | 229 | 81,331 | `733ddea49f20…` |  |
-| 45 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part45.json` | 5 | 237 | 83,244 | `0b413f162334…` |  |
-| 46 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part46.json` | 8 | 242 | 74,305 | `42bd62df637d…` |  |
-| 47 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part47.json` | 7 | 250 | 54,722 | `b4f8b7d072e3…` |  |
+| 1 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part01.json` | 16 | 0 | 83,789 | `c52f3211fd84…` |  |
+| 2 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part02.json` | 7 | 16 | 80,694 | `c0dc0a2bdfd0…` |  |
+| 3 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part03.json` | 7 | 23 | 75,725 | `3bf1b209bcf3…` |  |
+| 4 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part04.json` | 8 | 30 | 79,332 | `08c8bfcaf788…` |  |
+| 5 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part05.json` | 5 | 38 | 49,132 | `64a8dff03c77…` |  |
+| 6 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part06.json` | 1 | 43 | 97,091 | `0dac5db75aca…` | over cap* |
+| 7 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part07.json` | 8 | 44 | 66,511 | `875910a9266d…` |  |
+| 8 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part08.json` | 9 | 52 | 78,501 | `e819d4613d58…` |  |
+| 9 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part09.json` | 11 | 61 | 81,662 | `c17315ee778b…` |  |
+| 10 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part10.json` | 7 | 72 | 63,189 | `d5be855345b9…` |  |
+| 11 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part11.json` | 3 | 79 | 62,510 | `5a8fe4f9b742…` |  |
+| 12 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part12.json` | 1 | 82 | 59,890 | `ea7fff921e37…` |  |
+| 13 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part13.json` | 6 | 83 | 79,791 | `b63fcda9db45…` |  |
+| 14 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part14.json` | 14 | 89 | 79,623 | `75c6e40bf9c5…` |  |
+| 15 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part15.json` | 5 | 103 | 67,884 | `4eb9d9940c81…` |  |
+| 16 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part16.json` | 8 | 108 | 77,813 | `1be8193e8d35…` |  |
+| 17 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part17.json` | 4 | 116 | 84,236 | `8c20b9fb0e84…` |  |
+| 18 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part18.json` | 1 | 120 | 50,952 | `0385d2b966b0…` |  |
+| 19 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part19.json` | 2 | 121 | 58,070 | `b8942e5a7006…` |  |
+| 20 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part20.json` | 3 | 123 | 84,219 | `a838219b2247…` |  |
+| 21 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part21.json` | 7 | 126 | 62,844 | `c641453b8a83…` |  |
+| 22 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part22.json` | 8 | 133 | 82,475 | `d12bd4b16185…` |  |
+| 23 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part23.json` | 4 | 141 | 50,715 | `53bb704742ad…` |  |
+| 24 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part24.json` | 1 | 145 | 158,281 | `c5e6fd488ac7…` | over cap* |
+| 25 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part25.json` | 9 | 146 | 55,297 | `473297e314f4…` |  |
+| 26 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part26.json` | 4 | 155 | 71,535 | `6c56323f3c54…` |  |
+| 27 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part27.json` | 3 | 159 | 79,564 | `8f7e20869d34…` |  |
+| 28 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part28.json` | 4 | 162 | 81,141 | `6ee11a5c4110…` |  |
+| 29 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part29.json` | 4 | 166 | 68,647 | `09bde2f2d704…` |  |
+| 30 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part30.json` | 8 | 170 | 78,666 | `68b24429fafc…` |  |
+| 31 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part31.json` | 4 | 178 | 57,827 | `77ef1a13feec…` |  |
+| 32 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part32.json` | 7 | 182 | 82,576 | `29814d7e282a…` |  |
+| 33 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part33.json` | 1 | 189 | 125,095 | `8170b3c74fd2…` | over cap* |
+| 34 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part34.json` | 8 | 190 | 64,890 | `f5b5910027aa…` |  |
+| 35 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part35.json` | 4 | 198 | 63,684 | `502e359b1b73…` |  |
+| 36 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part36.json` | 1 | 202 | 51,606 | `284a5033b316…` |  |
+| 37 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part37.json` | 6 | 203 | 84,754 | `7511d59a4892…` |  |
+| 38 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part38.json` | 1 | 209 | 19,667 | `05f222ec7dbb…` |  |
+| 39 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part39.json` | 1 | 210 | 96,544 | `4c2ec1dcb0ad…` | over cap* |
+| 40 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part40.json` | 14 | 211 | 80,481 | `c344eda2513e…` |  |
+| 41 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part41.json` | 4 | 225 | 62,197 | `d0a0972b6f03…` |  |
+| 42 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part42.json` | 1 | 229 | 48,395 | `bc73ff1cd821…` |  |
+| 43 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part43.json` | 6 | 230 | 72,438 | `f1a2ddcb9828…` |  |
+| 44 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part44.json` | 7 | 236 | 83,803 | `5e25e0893606…` |  |
+| 45 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part45.json` | 7 | 243 | 72,718 | `6abbf13f79f3…` |  |
+| 46 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part46.json` | 7 | 250 | 83,220 | `4d2009b86610…` |  |
+| 47 | `02_OC_COMMENTARY_MT_GARBAGE_GPT_KIT_part47.json` | 9 | 257 | 62,132 | `2de7c1a83cb4…` |  |
 
 \* 4 part(s) exceed 85k target — full text preserved (no truncation).
 
