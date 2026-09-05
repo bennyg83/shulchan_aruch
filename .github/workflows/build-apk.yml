@@ -1,0 +1,290 @@
+name: Build Android APK (TWA)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'newtry/OC_Mobile/apk/**'
+      - '.github/workflows/build-apk.yml'
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Install required Android SDK components
+        run: |
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+
+      - name: Generate signing keystore
+        run: |
+          keytool -genkey -v \
+            -keystore android.keystore \
+            -alias android \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass android123 \
+            -keypass android123 \
+            -dname "CN=Shulchan Aruch, OU=App, O=bennyg83, L=Unknown, ST=Unknown, C=US"
+
+      - name: Generate app icon (512x512 dark background)
+        run: |
+          # Create a 512x512 solid #141820 PNG using Node.js
+          node -e "
+            const zlib = require('zlib');
+            const fs = require('fs');
+            const crcTable = new Uint32Array(256);
+            for (let i = 0; i < 256; i++) {
+              let c = i;
+              for (let j = 0; j < 8; j++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+              crcTable[i] = c;
+            }
+            function crc32(buf) {
+              let crc = 0xffffffff;
+              for (let i = 0; i < buf.length; i++) crc = (crc >>> 8) ^ crcTable[(crc ^ buf[i]) & 0xff];
+              return (crc ^ 0xffffffff) >>> 0;
+            }
+            function chunk(type, data) {
+              const len = Buffer.alloc(4); len.writeUInt32BE(data.length);
+              const tb = Buffer.from(type,'ascii');
+              const content = Buffer.concat([tb, data]);
+              const c = Buffer.alloc(4); c.writeUInt32BE(crc32(content) >>> 0);
+              return Buffer.concat([len, content, c]);
+            }
+            function makePng(size, r, g, b) {
+              const raw = Buffer.alloc(size * (1 + size * 4));
+              for (let y = 0; y < size; y++) {
+                raw[y * (1 + size * 4)] = 0;
+                for (let x = 0; x < size; x++) {
+                  const o = y * (1 + size * 4) + 1 + x * 4;
+                  raw[o] = r; raw[o+1] = g; raw[o+2] = b; raw[o+3] = 255;
+                }
+              }
+              const comp = zlib.deflateSync(raw);
+              const sig = Buffer.from([137,80,78,71,13,10,26,10]);
+              const ihdr = Buffer.alloc(13);
+              ihdr.writeUInt32BE(size,0); ihdr.writeUInt32BE(size,4);
+              ihdr[8]=8; ihdr[9]=6;
+              return Buffer.concat([sig,chunk('IHDR',ihdr),chunk('IDAT',comp),chunk('IEND',Buffer.alloc(0))]);
+            }
+            for (const s of [48,72,96,144,192,512]) {
+              fs.writeFileSync('icon_' + s + '.png', makePng(s, 20, 24, 32));
+              console.log('Created icon_' + s + '.png');
+            }
+          "
+
+      - name: Create Android TWA project structure
+        run: |
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          mkdir -p android/app/src/main/res/values
+          mkdir -p android/app/src/main/res/drawable
+
+          cp icon_48.png   android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          cp icon_72.png   android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          cp icon_96.png   android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          cp icon_144.png  android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          cp icon_192.png  android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          cp icon_512.png  android/app/src/main/res/drawable/ic_splash.png
+
+      - name: Write root build.gradle
+        run: |
+          cat > android/build.gradle << 'GRADLE_EOF'
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath 'com.android.tools.build:gradle:8.1.4'
+              }
+          }
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          GRADLE_EOF
+
+      - name: Write settings.gradle
+        run: |
+          cat > android/settings.gradle << 'GRADLE_EOF'
+          rootProject.name = "ShulchanAruch"
+          include ':app'
+          GRADLE_EOF
+
+      - name: Write gradle.properties
+        run: |
+          cat > android/gradle.properties << 'GRADLE_EOF'
+          android.useAndroidX=true
+          GRADLE_EOF
+
+      - name: Write app/build.gradle
+        run: |
+          cat > android/app/build.gradle << 'GRADLE_EOF'
+          apply plugin: 'com.android.application'
+
+          android {
+              compileSdk 34
+              namespace 'com.bennyg83.shulchanaruch'
+              defaultConfig {
+                  applicationId 'com.bennyg83.shulchanaruch'
+                  minSdk 19
+                  targetSdk 34
+                  versionCode 1
+                  versionName '1.0'
+              }
+              signingConfigs {
+                  release {
+                      storeFile file('../../android.keystore')
+                      storePassword 'android123'
+                      keyAlias 'android'
+                      keyPassword 'android123'
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                      minifyEnabled false
+                      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+                  }
+              }
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_1_8
+                  targetCompatibility JavaVersion.VERSION_1_8
+              }
+          }
+
+          dependencies {
+              implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.5.0'
+          }
+          GRADLE_EOF
+
+      - name: Write AndroidManifest.xml
+        run: |
+          cat > android/app/src/main/AndroidManifest.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET"/>
+              <application
+                  android:label="Shulchan Aruch"
+                  android:icon="@mipmap/ic_launcher"
+                  android:supportsRtl="true"
+                  android:theme="@android:style/Theme.NoTitleBar">
+                  <activity
+                      android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
+                      android:exported="true">
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.DEFAULT_URL"
+                          android:value="https://bennyg83.github.io/shulchan_aruch/?utm_source=twa"/>
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
+                          android:resource="@color/colorPrimary"/>
+                      <meta-data
+                          android:name="android.support.customtabs.trusted.FALLBACK_STRATEGY"
+                          android:value="customtabs"/>
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                      <intent-filter android:autoVerify="true">
+                          <action android:name="android.intent.action.VIEW"/>
+                          <category android:name="android.intent.category.DEFAULT"/>
+                          <category android:name="android.intent.category.BROWSABLE"/>
+                          <data android:scheme="https"
+                                android:host="bennyg83.github.io"
+                                android:pathPrefix="/shulchan_aruch/"/>
+                      </intent-filter>
+                  </activity>
+                  <service
+                      android:name="com.google.androidbrowserhelper.trusted.DelegationService"
+                      android:exported="true">
+                      <intent-filter>
+                          <action android:name="android.support.customtabs.trusted.TRUSTED_WEB_ACTIVITY_SERVICE"/>
+                          <category android:name="android.intent.category.DEFAULT"/>
+                      </intent-filter>
+                  </service>
+              </application>
+          </manifest>
+          XML_EOF
+
+      - name: Write colors.xml
+        run: |
+          mkdir -p android/app/src/main/res/values
+          cat > android/app/src/main/res/values/colors.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <color name="colorPrimary">#141820</color>
+          </resources>
+          XML_EOF
+
+      - name: Set up Gradle 8.4
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.4'
+
+      - name: Build release APK
+        working-directory: android
+        run: gradle assembleRelease --no-daemon
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+
+      - name: Find and rename APK
+        run: |
+          APK=$(find android -name "*.apk" | head -1)
+          echo "Found: $APK"
+          ls -lh "$APK"
+          cp "$APK" ShulchanAruch.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShulchanAruch-release-signed
+          path: ShulchanAruch.apk
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish GitHub Release with APK
+        run: |
+          # Delete old release/tag if it exists, then recreate
+          gh release delete android-apk --yes 2>/dev/null || true
+          git push --delete origin android-apk 2>/dev/null || true
+          gh release create android-apk \
+            --title "Android APK (Latest)" \
+            --notes "## Shulchan Aruch — Orach Chayim Android App
+
+          Download and install the APK to get the full offline experience on Android.
+
+          **Installation:**
+          1. Download \`ShulchanAruch.apk\` below
+          2. On your Android device: Settings → Security → allow \"Install from unknown sources\"
+          3. Open the downloaded APK and install
+          4. Open the app — all 697 simanim will be available offline
+
+          Built from commit \`${{ github.sha }}\` on \`${{ github.ref_name }}\`." \
+            --latest \
+            ShulchanAruch.apk
+        env:
+          GH_TOKEN: ${{ github.token }}

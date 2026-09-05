@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+**/dist/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.cursor/
+
+# Root docx with quoted Hebrew names break Linux CI checkout
+/*.docx
+
+# Env / secrets
+.env
+.env.*
+libretranslate.env
+
+# Optional: keep local-only caches (do not ignore public/corpus — required for Pages build)
+newtry/OC_001/pipeline/work/
+newtry/OC_001/checklist-output/
+
+# Large binary / model files — never commit to git
+*.gguf
+*.dll
+*.exe
+*.zip
+*.tar.gz
+*.whl
+
+# Local tool runtimes and model caches
+newtry/YD_001/tools/quality-viewer/ipex/
+newtry/YD_001/tools/quality-viewer/node_modules/
+newtry/YD_001/tools/translation-viewer/node_modules/
+newtry/YD_001/node_modules/

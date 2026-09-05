@@ -1,0 +1,83 @@
+# Deploy OC + YD web reader → https://bennyg83.github.io/shulchan_aruch/
+name: Deploy web reader to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout (partial clone + sparse)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            newtry/OC_Mobile/oc-web-reader
+            newtry/OC_Mobile/oc318-mobile-reader/public
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: newtry/OC_Mobile/oc-web-reader/package-lock.json
+
+      - name: Verify corpus is present
+        run: |
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/catalog.json
+          OC_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/ | wc -l)
+          echo "OC bundles: $OC_COUNT"
+          test "$OC_COUNT" -gt 600
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1/catalog.json
+          YD_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/yd1/bundles/ | wc -l)
+          echo "YD bundles: $YD_COUNT"
+          test "$YD_COUNT" -gt 350
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/eh1/catalog.json
+          EH_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/eh1/bundles/ | wc -l)
+          echo "EH bundles: $EH_COUNT"
+          test "$EH_COUNT" -gt 150
+          test -f newtry/OC_Mobile/oc318-mobile-reader/public/corpus/cm1/catalog.json
+          CM_COUNT=$(ls newtry/OC_Mobile/oc318-mobile-reader/public/corpus/cm1/bundles/ | wc -l)
+          echo "CM bundles: $CM_COUNT"
+          test "$CM_COUNT" -gt 400
+
+      - name: Install dependencies
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        run: npm ci
+
+      - name: Build (GitHub Pages base path)
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        env:
+          GITHUB_ACTIONS: true
+          VITE_BASE: /shulchan_aruch/
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: newtry/OC_Mobile/oc-web-reader/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

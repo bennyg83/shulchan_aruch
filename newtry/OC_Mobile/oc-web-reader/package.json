@@ -1,0 +1,39 @@
+{
+  "name": "oc-orach-chayim-web-reader",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174 --strictPort",
+    "dev:yd": "vite --port 5174 --strictPort --open /?vol=yd1",
+    "dev:eh": "vite --port 5174 --strictPort --open \"/?vol=eh1&siman=1\"",
+    "corpus:publish:yd": "node ../oc318-mobile-reader/scripts/publish-yd001-siman.mjs",
+    "corpus:bundle:yd": "node ../oc318-mobile-reader/scripts/bundle-corpus-yd1.mjs",
+    "corpus:yd:local": "node ../oc318-mobile-reader/scripts/publish-yd001-siman.mjs --from 1 --to 402 --write-catalog && node ../oc318-mobile-reader/scripts/bundle-corpus-yd1.mjs",
+    "corpus:publish:eh": "node ../oc318-mobile-reader/scripts/publish-eh001-siman.mjs",
+    "corpus:bundle:eh": "node ../oc318-mobile-reader/scripts/bundle-corpus-eh1.mjs",
+    "corpus:eh:local": "node ../oc318-mobile-reader/scripts/publish-eh001-siman.mjs --from 1 --to 178 --write-catalog && node ../oc318-mobile-reader/scripts/bundle-corpus-eh1.mjs",
+    "dev:preview": "vite preview --port 4174 --strictPort",
+    "build": "vite build",
+    "build:pages": "vite build",
+    "build:standalone": "VITE_STANDALONE=true vite build",
+    "build:ios": "npm run build:standalone && npx cap sync ios",
+    "preview": "vite preview --host",
+    "preview:pages": "vite preview --host --strictPort",
+    "cap:sync": "npx cap sync ios"
+  },
+  "dependencies": {
+    "@capacitor/cli": "6.2.1",
+    "@capacitor/core": "6.2.1",
+    "@capacitor/ios": "6.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sirv": "^3.0.2",
+    "vite": "^5.4.11",
+    "vite-plugin-pwa": "^0.21.1",
+    "workbox-window": "^7.3.0"
+  }
+}

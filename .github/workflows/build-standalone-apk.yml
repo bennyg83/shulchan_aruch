@@ -1,0 +1,360 @@
+name: Build Standalone Android APK (fully offline)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - 'newtry/OC_Mobile/oc-web-reader/**'
+      - 'newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/**'
+      - 'newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/catalog.json'
+      - '.github/workflows/build-standalone-apk.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout (sparse — only web reader + corpus bundles)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            newtry/OC_Mobile/oc-web-reader
+            newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: newtry/OC_Mobile/oc-web-reader/package-lock.json
+
+      - name: Install web reader dependencies
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        run: npm ci
+
+      - name: Build web reader (WebViewAssetLoader base path, no PWA service worker)
+        working-directory: newtry/OC_Mobile/oc-web-reader
+        env:
+          VITE_BASE: "https://appassets.androidplatform.net/assets/"
+          VITE_STANDALONE: "true"
+        run: npm run build
+
+      - name: Assemble corpus into dist (catalog + bundles only — no individual seif files)
+        run: |
+          mkdir -p newtry/OC_Mobile/oc-web-reader/dist/corpus/oc1/bundles
+          cp newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/catalog.json \
+             newtry/OC_Mobile/oc-web-reader/dist/corpus/oc1/catalog.json
+          cp newtry/OC_Mobile/oc318-mobile-reader/public/corpus/oc1/bundles/*.json \
+             newtry/OC_Mobile/oc-web-reader/dist/corpus/oc1/bundles/
+          COUNT=$(ls newtry/OC_Mobile/oc-web-reader/dist/corpus/oc1/bundles/ | wc -l)
+          echo "Bundles assembled: $COUNT"
+          test "$COUNT" -gt 600
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Install required Android SDK components
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+
+      - name: Generate signing keystore
+        run: |
+          keytool -genkey -v \
+            -keystore android.keystore \
+            -alias android \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass android123 \
+            -keypass android123 \
+            -dname "CN=Shulchan Aruch, OU=App, O=bennyg83, L=Unknown, ST=Unknown, C=US"
+
+      - name: Generate app icons
+        run: |
+          node -e "
+            const zlib = require('zlib');
+            const fs = require('fs');
+            const crcTable = new Uint32Array(256);
+            for (let i = 0; i < 256; i++) {
+              let c = i;
+              for (let j = 0; j < 8; j++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+              crcTable[i] = c;
+            }
+            function crc32(buf) {
+              let crc = 0xffffffff;
+              for (let i = 0; i < buf.length; i++) crc = (crc >>> 8) ^ crcTable[(crc ^ buf[i]) & 0xff];
+              return (crc ^ 0xffffffff) >>> 0;
+            }
+            function chunk(type, data) {
+              const len = Buffer.alloc(4); len.writeUInt32BE(data.length);
+              const tb = Buffer.from(type,'ascii');
+              const content = Buffer.concat([tb, data]);
+              const c = Buffer.alloc(4); c.writeUInt32BE(crc32(content) >>> 0);
+              return Buffer.concat([len, content, c]);
+            }
+            function makePng(size, r, g, b) {
+              const raw = Buffer.alloc(size * (1 + size * 4));
+              for (let y = 0; y < size; y++) {
+                raw[y * (1 + size * 4)] = 0;
+                for (let x = 0; x < size; x++) {
+                  const o = y * (1 + size * 4) + 1 + x * 4;
+                  raw[o] = r; raw[o+1] = g; raw[o+2] = b; raw[o+3] = 255;
+                }
+              }
+              const comp = zlib.deflateSync(raw);
+              const sig = Buffer.from([137,80,78,71,13,10,26,10]);
+              const ihdr = Buffer.alloc(13);
+              ihdr.writeUInt32BE(size,0); ihdr.writeUInt32BE(size,4);
+              ihdr[8]=8; ihdr[9]=6;
+              return Buffer.concat([sig,chunk('IHDR',ihdr),chunk('IDAT',comp),chunk('IEND',Buffer.alloc(0))]);
+            }
+            for (const s of [48,72,96,144,192]) {
+              fs.writeFileSync('icon_' + s + '.png', makePng(s, 20, 24, 32));
+            }
+            console.log('Icons generated');
+          "
+
+      - name: Create Android project structure
+        run: |
+          mkdir -p android/app/src/main/assets
+          mkdir -p android/app/src/main/java/com/bennyg83/shulchanaruch
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          mkdir -p android/app/src/main/res/values
+
+          cp icon_48.png   android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          cp icon_72.png   android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          cp icon_96.png   android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          cp icon_144.png  android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          cp icon_192.png  android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+
+          # Copy the entire built web app (app shell + corpus) into Android assets
+          cp -r newtry/OC_Mobile/oc-web-reader/dist/. android/app/src/main/assets/
+
+          echo "Assets size:"
+          du -sh android/app/src/main/assets/
+
+      - name: Write MainActivity.java
+        run: |
+          cat > android/app/src/main/java/com/bennyg83/shulchanaruch/MainActivity.java << 'JAVA_EOF'
+          package com.bennyg83.shulchanaruch;
+
+          import android.app.Activity;
+          import android.os.Bundle;
+          import android.webkit.WebSettings;
+          import android.webkit.WebView;
+          import android.webkit.WebViewClient;
+          import android.webkit.WebResourceRequest;
+          import android.webkit.WebResourceResponse;
+          import androidx.webkit.WebViewAssetLoader;
+
+          public class MainActivity extends Activity {
+              private WebView webView;
+
+              @Override
+              protected void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+                  webView = new WebView(this);
+                  setContentView(webView);
+
+                  final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
+                      .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
+                      .build();
+
+                  WebSettings settings = webView.getSettings();
+                  settings.setJavaScriptEnabled(true);
+                  settings.setDomStorageEnabled(true);
+                  settings.setAllowFileAccess(false);
+                  settings.setAllowContentAccess(false);
+
+                  webView.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public WebResourceResponse shouldInterceptRequest(
+                              WebView view, WebResourceRequest request) {
+                          return assetLoader.shouldInterceptRequest(request.getUrl());
+                      }
+                  });
+
+                  webView.loadUrl("https://appassets.androidplatform.net/assets/index.html");
+              }
+
+              @Override
+              public void onBackPressed() {
+                  if (webView.canGoBack()) {
+                      webView.goBack();
+                  } else {
+                      super.onBackPressed();
+                  }
+              }
+          }
+          JAVA_EOF
+
+      - name: Write root build.gradle
+        run: |
+          cat > android/build.gradle << 'GRADLE_EOF'
+          buildscript {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+              dependencies {
+                  classpath 'com.android.tools.build:gradle:8.1.4'
+              }
+          }
+          allprojects {
+              repositories {
+                  google()
+                  mavenCentral()
+              }
+          }
+          GRADLE_EOF
+
+      - name: Write settings.gradle
+        run: |
+          cat > android/settings.gradle << 'GRADLE_EOF'
+          rootProject.name = "ShulchanAruch"
+          include ':app'
+          GRADLE_EOF
+
+      - name: Write gradle.properties
+        run: |
+          cat > android/gradle.properties << 'GRADLE_EOF'
+          android.useAndroidX=true
+          GRADLE_EOF
+
+      - name: Write app/build.gradle
+        run: |
+          cat > android/app/build.gradle << 'GRADLE_EOF'
+          apply plugin: 'com.android.application'
+
+          android {
+              compileSdk 34
+              namespace 'com.bennyg83.shulchanaruch'
+              defaultConfig {
+                  applicationId 'com.bennyg83.shulchanaruch'
+                  minSdk 21
+                  targetSdk 34
+                  versionCode 2
+                  versionName '2.0'
+              }
+              signingConfigs {
+                  release {
+                      storeFile file('../../android.keystore')
+                      storePassword 'android123'
+                      keyAlias 'android'
+                      keyPassword 'android123'
+                  }
+              }
+              buildTypes {
+                  release {
+                      signingConfig signingConfigs.release
+                      minifyEnabled false
+                      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+                  }
+              }
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_1_8
+                  targetCompatibility JavaVersion.VERSION_1_8
+              }
+          }
+
+          dependencies {
+              implementation 'androidx.webkit:webkit:1.8.0'
+          }
+          GRADLE_EOF
+
+      - name: Write AndroidManifest.xml
+        run: |
+          cat > android/app/src/main/AndroidManifest.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <application
+                  android:label="Shulchan Aruch"
+                  android:icon="@mipmap/ic_launcher"
+                  android:supportsRtl="true"
+                  android:theme="@android:style/Theme.NoTitleBar">
+                  <activity
+                      android:name=".MainActivity"
+                      android:exported="true"
+                      android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+                      <intent-filter>
+                          <action android:name="android.intent.action.MAIN"/>
+                          <category android:name="android.intent.category.LAUNCHER"/>
+                      </intent-filter>
+                  </activity>
+              </application>
+          </manifest>
+          XML_EOF
+
+      - name: Write colors.xml
+        run: |
+          cat > android/app/src/main/res/values/colors.xml << 'XML_EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <color name="colorPrimary">#141820</color>
+          </resources>
+          XML_EOF
+
+      - name: Set up Gradle 8.4
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.4'
+
+      - name: Build release APK
+        working-directory: android
+        run: gradle assembleRelease --no-daemon
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+
+      - name: Find and rename APK
+        run: |
+          APK=$(find android -name "*.apk" | head -1)
+          echo "Found: $APK"
+          ls -lh "$APK"
+          cp "$APK" ShulchanAruch-Standalone.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShulchanAruch-Standalone
+          path: ShulchanAruch-Standalone.apk
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        run: |
+          gh release delete android-standalone --yes 2>/dev/null || true
+          git push --delete origin android-standalone 2>/dev/null || true
+          gh release create android-standalone \
+            --title "Android APK — Fully Offline (Standalone)" \
+            --notes "## Shulchan Aruch — Fully Offline Android App
+
+          All 697 simanim are bundled inside the APK — **no internet required, ever**.
+
+          **Installation:**
+          1. Download \`ShulchanAruch-Standalone.apk\` below
+          2. On your Android device: Settings → Security → allow \"Install from unknown sources\"
+          3. Open the downloaded APK and install
+          4. Open the app — all content is immediately available, even in airplane mode
+
+          Built from commit \`${{ github.sha }}\` on \`${{ github.ref_name }}\`." \
+            ShulchanAruch-Standalone.apk
+        env:
+          GH_TOKEN: ${{ github.token }}
