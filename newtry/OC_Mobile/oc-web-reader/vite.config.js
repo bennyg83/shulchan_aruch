@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -165,12 +166,13 @@ export default defineConfig(({ command }) => {
           cleanupOutdatedCaches: true,
           runtimeCaching: [
             {
-              // Cache corpus bundles at runtime too: CacheFirst so offline works
-              // even for bundles the precache hasn't downloaded yet.
+              // NetworkFirst so corpus publishes reach visitors without a hard refresh.
+              // Offline still falls back to cache; cache name bump drops stale CacheFirst entries.
               urlPattern: /\/corpus\/(oc1|yd1|eh1|cm1)\/bundles\/siman\d+\.json$/,
-              handler: "CacheFirst",
+              handler: "NetworkFirst",
               options: {
-                cacheName: "corpus-bundles",
+                cacheName: "corpus-bundles-v3",
+                networkTimeoutSeconds: 5,
                 cacheableResponse: { statuses: [0, 200] },
                 expiration: { maxEntries: 1200, maxAgeSeconds: 60 * 60 * 24 * 365 },
               },
@@ -180,7 +182,7 @@ export default defineConfig(({ command }) => {
               urlPattern: /\/corpus\/(oc1|yd1|eh1|cm1)\/catalog\.json$/,
               handler: "StaleWhileRevalidate",
               options: {
-                cacheName: "corpus-catalog",
+                cacheName: "corpus-catalog-v3",
                 cacheableResponse: { statuses: [0, 200] },
               },
             },
