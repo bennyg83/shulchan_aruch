@@ -832,8 +832,15 @@ body {
   font-size: 0.68rem;
   font-weight: 700;
   color: var(--text-muted);
+  min-width: 3.6rem;
   max-width: 3.6rem;
   line-height: 1.15;
+  text-align: center;
+}
+
+.tts-playback-bar .tts-playback-btn--play {
+  width: 36px;
+  height: 36px;
 }
 
 .tts-playback-btn {
@@ -875,9 +882,10 @@ body {
 
 @media (min-width: 961px) {
   .tts-playback-bar {
-    width: 23.6rem;
+    width: max-content;
     max-width: calc(100% - 2rem);
     align-self: center;
+    justify-content: center;
     gap: 0.85rem;
     margin: 0.35rem auto 0.85rem;
     padding: 0.45rem 0.7rem;
@@ -887,8 +895,8 @@ body {
   }
 
   .tts-playback-bar__nav {
-    flex: 1;
-    min-width: 0;
+    flex: 0 1 auto;
+    min-width: 16rem;
   }
 }
 

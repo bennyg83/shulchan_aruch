@@ -695,43 +695,45 @@ export default function WebReaderLayout({
           )}
         </div>
         <div className="tts-playback-bar">
-        <div className="tts-playback-bar__nav">
-          <PlaybackStepRow
-            kind="Siman"
-            value={activeEntry?.siman}
-            gem={simanGem}
-            onPrev={prevSimanEntry ? () => onSelectSiman(prevSimanEntry) : null}
-            onNext={nextSimanEntry ? () => onSelectSiman(nextSimanEntry) : null}
-            onOpen={() => setSimanPickerOpen(true)}
-          />
-          <PlaybackStepRow
-            kind="Seif"
-            value={currentSeif}
-            gem={seifGem}
-            onPrev={onPrevSeif}
-            onNext={onNextSeif}
-            onOpen={() => setSeifPickerOpen(true)}
-          />
-        </div>
-        <div className="tts-playback-bar__audio">
-          {speaking ? (
-            <>
-              <span className="tts-playback-bar__status">{paused ? "Paused" : "Playing"}</span>
-              <button type="button" className="tts-playback-btn" onClick={togglePause} title={paused ? "Resume" : "Pause"}>
-                {paused ? <PlayIcon size={16} /> : <PauseIcon size={16} />}
-              </button>
-              <button type="button" className="tts-playback-btn" onClick={stop} title="Stop">
-                <StopIcon size={16} />
-              </button>
-            </>
-          ) : (
+          <div className="tts-playback-bar__nav">
+            <PlaybackStepRow
+              kind="Siman"
+              value={activeEntry?.siman}
+              gem={simanGem}
+              onPrev={prevSimanEntry ? () => onSelectSiman(prevSimanEntry) : null}
+              onNext={nextSimanEntry ? () => onSelectSiman(nextSimanEntry) : null}
+              onOpen={() => setSimanPickerOpen(true)}
+            />
+            <PlaybackStepRow
+              kind="Seif"
+              value={currentSeif}
+              gem={seifGem}
+              onPrev={onPrevSeif}
+              onNext={onNextSeif}
+              onOpen={() => setSeifPickerOpen(true)}
+            />
+          </div>
+          <div className="tts-playback-bar__audio">
+            <span className="tts-playback-bar__status" aria-live="polite">
+              {speaking ? (paused ? "Paused" : "Playing") : "\u00a0"}
+            </span>
             <button
               type="button"
-              className="tts-playback-btn tts-playback-btn--play"
-              disabled={!seifData}
-              title="Play all — Mechaber, Rama, and all visible commentaries"
-              aria-label="Play all"
+              className={`tts-playback-btn${speaking ? "" : " tts-playback-btn--play"}`}
+              disabled={!speaking && !seifData}
+              title={
+                speaking
+                  ? paused
+                    ? "Resume"
+                    : "Pause"
+                  : "Play all — Mechaber, Rama, and all visible commentaries"
+              }
+              aria-label={speaking ? (paused ? "Resume" : "Pause") : "Play all"}
               onClick={() => {
+                if (speaking) {
+                  togglePause();
+                  return;
+                }
                 if (!seifData || currentSeif == null) return;
                 const items = queueInterwoven(
                   currentSeif,
@@ -744,10 +746,19 @@ export default function WebReaderLayout({
                 if (items.length) play(items);
               }}
             >
-                <PlayIcon size={16} />
+              {speaking && !paused ? <PauseIcon size={16} /> : <PlayIcon size={16} />}
             </button>
-          )}
-        </div>
+            <button
+              type="button"
+              className="tts-playback-btn"
+              disabled={!speaking}
+              onClick={stop}
+              title="Stop"
+              aria-label="Stop"
+            >
+              <StopIcon size={16} />
+            </button>
+          </div>
         </div>
       </main>
     </div>
