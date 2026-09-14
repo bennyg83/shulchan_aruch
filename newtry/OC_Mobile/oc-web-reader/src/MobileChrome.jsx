@@ -114,7 +114,7 @@ export default function MobileChrome({
 
   const title = activeEntry?.title || `Siman ${activeEntry?.siman}`;
   const volumeLabel = volume?.short || "SA";
-  const locationLine = `${volumeLabel} · Siman ${activeEntry?.siman}${simanGem ? ` ${simanGem}` : ""} · Seif ${currentSeif}${seifGem ? ` ${seifGem}` : ""}`;
+  const locationLine = `${volumeLabel} · Siman ${activeEntry?.siman}${simanGem ? `\u200E\u00A0${simanGem}` : ""} · Seif ${currentSeif}${seifGem ? `\u200E\u00A0${seifGem}` : ""}`;
 
   return (
     <header className={`mobile-chrome ${expanded ? "mobile-chrome--expanded" : ""}`}>
@@ -214,11 +214,10 @@ export default function MobileChrome({
             </button>
             <button type="button" className="nav-picker-btn nav-picker-btn--siman" onClick={onOpenSimanPicker}>
               <span className="nav-picker-btn__label">Siman</span>
-              <span className="nav-picker-btn__value">
-                {activeEntry.siman}
+              <span className="nav-picker-btn__value he-num-pair">
+                <span>{activeEntry.siman}</span>
                 {simanGem ? (
-                  <span dir="rtl" lang="he">
-                    {" "}
+                  <span className="he-num-pair__he" dir="rtl" lang="he">
                     {simanGem}
                   </span>
                 ) : null}
@@ -229,11 +228,10 @@ export default function MobileChrome({
             </button>
             <button type="button" className="nav-picker-btn nav-picker-btn--seif" onClick={onOpenSeifPicker}>
               <span className="nav-picker-btn__label">Seif</span>
-              <span className="nav-picker-btn__value">
-                {currentSeif}
+              <span className="nav-picker-btn__value he-num-pair">
+                <span>{currentSeif}</span>
                 {seifGem ? (
-                  <span dir="rtl" lang="he">
-                    {" "}
+                  <span className="he-num-pair__he" dir="rtl" lang="he">
                     {seifGem}
                   </span>
                 ) : null}

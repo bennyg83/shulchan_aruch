@@ -95,11 +95,10 @@ function PlaybackStepRow({ kind, value, gem, onPrev, onNext, onOpen }) {
       </button>
       <button type="button" className="tts-playback-bar__place" onClick={onOpen}>
         <span className="tts-playback-bar__kind">{kind}</span>
-        <span className="tts-playback-bar__value">
-          {value}
+        <span className="tts-playback-bar__value he-num-pair">
+          <span>{value}</span>
           {gem ? (
-            <span dir="rtl" lang="he">
-              {" "}
+            <span className="he-num-pair__he" dir="rtl" lang="he">
               {gem}
             </span>
           ) : null}
@@ -475,13 +474,15 @@ export default function WebReaderLayout({
                 ← Prev siman
               </button>
               <span className="reader-toolbar__step-label">
-                Siman {activeEntry.siman}
-                {simanGem ? (
-                  <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
-                    {" "}
-                    ({simanGem})
-                  </span>
-                ) : null}
+                Siman{" "}
+                <span className="he-num-pair">
+                  <span>{activeEntry.siman}</span>
+                  {simanGem ? (
+                    <span className="he-num-pair__he reader-toolbar__seif-gematria" dir="rtl" lang="he">
+                      ({simanGem})
+                    </span>
+                  ) : null}
+                </span>
               </span>
               <button
                 type="button"
@@ -497,13 +498,15 @@ export default function WebReaderLayout({
                 ← Prev seif
               </button>
               <span className="reader-toolbar__step-label">
-                Seif {currentSeif}
-                {seifGem ? (
-                  <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
-                    {" "}
-                    ({seifGem})
-                  </span>
-                ) : null}
+                Seif{" "}
+                <span className="he-num-pair">
+                  <span>{currentSeif}</span>
+                  {seifGem ? (
+                    <span className="he-num-pair__he reader-toolbar__seif-gematria" dir="rtl" lang="he">
+                      ({seifGem})
+                    </span>
+                  ) : null}
+                </span>
               </span>
               <button type="button" className="btn btn--ghost" disabled={!onNextSeif} onClick={onNextSeif}>
                 Next seif →

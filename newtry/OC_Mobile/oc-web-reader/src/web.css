@@ -322,6 +322,18 @@ body {
   font-weight: 600;
 }
 
+.he-num-pair {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+  white-space: nowrap;
+}
+
+.he-num-pair__he {
+  unicode-bidi: isolate;
+  font-family: var(--hebrew-font);
+}
+
 .seif-list__item:hover {
   background: var(--accent-soft);
 }
