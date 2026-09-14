@@ -6,7 +6,15 @@ import { catalogEntryMatchesQuery } from "./lib/catalogSearch.js";
  * Full-screen siman picker for mobile / narrow viewports.
  * Searchable list of all simanim — replaces the cramped sidebar list.
  */
-export default function SimanPicker({ open, onClose, catalog, activeEntry, onSelectSiman }) {
+export default function SimanPicker({
+  open,
+  onClose,
+  catalog,
+  activeEntry,
+  onSelectSiman,
+  onPrevSiman,
+  onNextSiman,
+}) {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -55,6 +63,14 @@ export default function SimanPicker({ open, onClose, catalog, activeEntry, onSel
             ×
           </button>
         </header>
+        <div className="picker-sheet__step-nav">
+          <button type="button" className="btn btn--ghost" disabled={!onPrevSiman} onClick={onPrevSiman}>
+            ← Prev
+          </button>
+          <button type="button" className="btn btn--ghost" disabled={!onNextSiman} onClick={onNextSiman}>
+            Next →
+          </button>
+        </div>
         <input
           type="search"
           className="picker-sheet__search"

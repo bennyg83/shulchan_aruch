@@ -135,7 +135,7 @@ export default function App() {
   const [commentaryVisibleKeys, setCommentaryVisibleKeys] = useState(initialCommentarySelection);
   const [simanBundle, setSimanBundle] = useState(null);
 
-const syncUrlAndStorage = useCallback(
+  const syncUrlAndStorage = useCallback(
     ({ siman, seif, corpusPath, keys, vol }) => {
       const v = vol ?? volumeId;
       replaceReaderUrl({
@@ -165,6 +165,9 @@ const syncUrlAndStorage = useCallback(
     setActiveEntry(null);
     setSeifim([]);
     setCurrentSeif(null);
+    setSimanBundle(null);
+    setSeifData(null);
+    setCommentators([]);
     (async () => {
       try {
         const cr = await fetchWithTimeout(catalogUrl, ac.signal, 90000);
@@ -357,6 +360,12 @@ const syncUrlAndStorage = useCallback(
     (nextId) => {
       const next = getVolume(nextId);
       if (!next?.enabled || nextId === volumeId) return;
+      setSimanBundle(null);
+      setSeifData(null);
+      setCommentators([]);
+      setActiveEntry(null);
+      setSeifim([]);
+      setCurrentSeif(null);
       setVolumeId(nextId);
       const prefs = loadReaderPrefs();
       saveReaderPrefs({
@@ -368,8 +377,8 @@ const syncUrlAndStorage = useCallback(
       });
       replaceReaderUrl({
         volumeId: nextId,
-        siman: parseReaderUrl().siman || 1,
-        seif: parseReaderUrl().seif || 1,
+        siman: 1,
+        seif: 1,
         commentaryKeys: commentaryKeysToArray(commentaryVisibleKeys),
       });
     },

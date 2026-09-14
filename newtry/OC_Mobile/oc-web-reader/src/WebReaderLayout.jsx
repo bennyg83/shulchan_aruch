@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { OfflineInstallPanel } from "./InstallPrompt.jsx";
 import SimanPicker from "./SimanPicker.jsx";
 import SeifPicker from "./SeifPicker.jsx";
+import VolumePicker from "./VolumePicker.jsx";
 import MobileChrome from "./MobileChrome.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
@@ -44,7 +45,7 @@ function BilingualRow({ note, showHebrew, showEnglish }) {
   if (!noteVisibleForLanguages(showHebrew, showEnglish, note)) return null;
   const both = showHebrew && showEnglish;
   return (
-    <div className={`bilingual-row ${both ? "bilingual-row--split" : ""}`}>
+    <div className={`bilingual-row ${both ? "bilingual-row--stack" : ""}`}>
       {note.label ? <div className="segment-label">{note.label}</div> : null}
       {showHebrew && <HtmlCol html={note.hebrew} dir="rtl" className="col-hebrew" />}
       {showEnglish && <HtmlCol html={note.english} dir="ltr" className="col-english" />}
@@ -77,6 +78,43 @@ function CommentaryPanel({ c, notes, showHebrew, showEnglish, open, onToggle, on
         </div>
       )}
     </article>
+  );
+}
+
+function PlaybackStepRow({ kind, value, gem, onPrev, onNext, onOpen }) {
+  return (
+    <div className="tts-playback-bar__step">
+      <button
+        type="button"
+        className="tts-playback-bar__arrow"
+        disabled={!onPrev}
+        onClick={onPrev}
+        aria-label={`Previous ${kind}`}
+      >
+        ←
+      </button>
+      <button type="button" className="tts-playback-bar__place" onClick={onOpen}>
+        <span className="tts-playback-bar__kind">{kind}</span>
+        <span className="tts-playback-bar__value">
+          {value}
+          {gem ? (
+            <span dir="rtl" lang="he">
+              {" "}
+              {gem}
+            </span>
+          ) : null}
+        </span>
+      </button>
+      <button
+        type="button"
+        className="tts-playback-bar__arrow"
+        disabled={!onNext}
+        onClick={onNext}
+        aria-label={`Next ${kind}`}
+      >
+        →
+      </button>
+    </div>
   );
 }
 
@@ -124,6 +162,7 @@ export default function WebReaderLayout({
   const [simanQuery, setSimanQuery] = useState("");
   const [simanPickerOpen, setSimanPickerOpen] = useState(false);
   const [seifPickerOpen, setSeifPickerOpen] = useState(false);
+  const [volumePickerOpen, setVolumePickerOpen] = useState(false);
   const [chromeExpanded, setChromeExpanded] = useState(false);
   const prefsInit = useMemo(() => loadReaderPrefs(), []);
   const [showHebrew, setShowHebrew] = useState(prefsInit?.showHebrew !== false);
@@ -260,14 +299,28 @@ export default function WebReaderLayout({
     setSeifPickerOpen(false);
   };
 
+  const handleSelectVolume = (id) => {
+    onSelectVolume(id);
+    setVolumePickerOpen(false);
+  };
+
   return (
     <div className={`web-reader theme-${theme}`} data-theme={theme}>
+      <VolumePicker
+        open={volumePickerOpen}
+        onClose={() => setVolumePickerOpen(false)}
+        volumes={volumes}
+        volume={volume}
+        onSelectVolume={handleSelectVolume}
+      />
       <SimanPicker
         open={simanPickerOpen}
         onClose={() => setSimanPickerOpen(false)}
         catalog={catalog}
         activeEntry={activeEntry}
         onSelectSiman={handleSelectSiman}
+        onPrevSiman={prevSimanEntry ? () => onSelectSiman(prevSimanEntry) : null}
+        onNextSiman={nextSimanEntry ? () => onSelectSiman(nextSimanEntry) : null}
       />
       <SeifPicker
         open={seifPickerOpen}
@@ -380,10 +433,12 @@ export default function WebReaderLayout({
         <MobileChrome
           expanded={chromeExpanded}
           onExpandedChange={setChromeExpanded}
+          volume={volume}
           activeEntry={activeEntry}
           simanGem={simanGem}
           seifGem={seifGem}
           currentSeif={currentSeif}
+          onOpenVolumePicker={() => setVolumePickerOpen(true)}
           onOpenSimanPicker={() => setSimanPickerOpen(true)}
           onOpenSeifPicker={() => setSeifPickerOpen(true)}
           onOpenSettings={() => setSettingsOpen(true)}
@@ -409,22 +464,51 @@ export default function WebReaderLayout({
             <h2>{activeEntry.title || `Siman ${activeEntry.siman}`}</h2>
             {activeEntry.subtitle ? <p>{activeEntry.subtitle}</p> : null}
           </div>
-          <div className="reader-toolbar__seif-nav">
-            <button type="button" className="btn btn--ghost" disabled={!onPrevSeif} onClick={onPrevSeif}>
-              ← Prev seif
-            </button>
-            <span className="reader-toolbar__seif-label">
-              Seif {currentSeif}
-              {seifGem ? (
-                <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
-                  {" "}
-                  ({seifGem})
-                </span>
-              ) : null}
-            </span>
-            <button type="button" className="btn btn--ghost" disabled={!onNextSeif} onClick={onNextSeif}>
-              Next seif →
-            </button>
+          <div className="reader-toolbar__nav">
+            <div className="reader-toolbar__step-nav">
+              <button
+                type="button"
+                className="btn btn--ghost"
+                disabled={!prevSimanEntry}
+                onClick={() => prevSimanEntry && onSelectSiman(prevSimanEntry)}
+              >
+                ← Prev siman
+              </button>
+              <span className="reader-toolbar__step-label">
+                Siman {activeEntry.siman}
+                {simanGem ? (
+                  <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
+                    {" "}
+                    ({simanGem})
+                  </span>
+                ) : null}
+              </span>
+              <button
+                type="button"
+                className="btn btn--ghost"
+                disabled={!nextSimanEntry}
+                onClick={() => nextSimanEntry && onSelectSiman(nextSimanEntry)}
+              >
+                Next siman →
+              </button>
+            </div>
+            <div className="reader-toolbar__step-nav">
+              <button type="button" className="btn btn--ghost" disabled={!onPrevSeif} onClick={onPrevSeif}>
+                ← Prev seif
+              </button>
+              <span className="reader-toolbar__step-label">
+                Seif {currentSeif}
+                {seifGem ? (
+                  <span className="reader-toolbar__seif-gematria" dir="rtl" lang="he">
+                    {" "}
+                    ({seifGem})
+                  </span>
+                ) : null}
+              </span>
+              <button type="button" className="btn btn--ghost" disabled={!onNextSeif} onClick={onNextSeif}>
+                Next seif →
+              </button>
+            </div>
           </div>
           <div className="reader-toolbar__controls">
             <Toggle on={showHebrew} onClick={() => setShowHebrew((v) => !v)}>
@@ -515,10 +599,18 @@ export default function WebReaderLayout({
                   className="tts-speak-btn"
                   title="Read Mechaber & Rama aloud"
                   onClick={() => {
-                    const items = [
-                      ...(showHebrew && mr.hebrew ? [{ id: "mr-he", text: stripForSpeech(mr.hebrew), lang: "he-IL" }] : []),
-                      ...(showEnglish && mr.english ? [{ id: "mr-en", text: stripForSpeech(mr.english), lang: "en-US" }] : []),
-                    ];
+                    const segs = mr.segments?.length
+                      ? mr.segments
+                      : [{ hebrew: mr.hebrew, english: mr.english }];
+                    const items = [];
+                    segs.forEach((note, i) => {
+                      if (showHebrew && note.hebrew) {
+                        items.push({ id: `mr-he-${i}`, text: stripForSpeech(note.hebrew), lang: "he-IL" });
+                      }
+                      if (showEnglish && note.english) {
+                        items.push({ id: `mr-en-${i}`, text: stripForSpeech(note.english), lang: "en-US" });
+                      }
+                    });
                     if (items.length) play(items);
                   }}
                 >
@@ -544,9 +636,18 @@ export default function WebReaderLayout({
                   <PlayIcon size={13} /> Play all
                 </button>
               </h3>
-              <div className={`mechaber-grid ${showHebrew && showEnglish ? "mechaber-grid--split" : ""}`}>
-                {showHebrew && <HtmlCol html={mr.hebrew} dir="rtl" className="col-hebrew mechaber-he" />}
-                {showEnglish && <HtmlCol html={mr.english} dir="ltr" className="col-english mechaber-en" />}
+              <div className={`mechaber-grid ${showHebrew && showEnglish ? "mechaber-grid--stack" : ""}`}>
+                {(mr.segments?.length
+                  ? mr.segments
+                  : [{ label: "", hebrew: mr.hebrew, english: mr.english }]
+                ).map((note, i) => (
+                  <BilingualRow
+                    key={i}
+                    note={note}
+                    showHebrew={showHebrew}
+                    showEnglish={showEnglish}
+                  />
+                ))}
               </div>
             </section>
           )}
@@ -596,30 +697,42 @@ export default function WebReaderLayout({
       </main>
 
       <div className="tts-playback-bar">
-        {speaking ? (
-          <>
-            <span className="tts-playback-bar__label">
-              {paused ? "⏸ Paused" : "▶ Playing…"}
-            </span>
-            <button type="button" className="tts-playback-btn" onClick={togglePause} title={paused ? "Resume" : "Pause"}>
-              {paused ? <PlayIcon size={16} /> : <PauseIcon size={16} />}
-            </button>
-            <button type="button" className="tts-playback-btn" onClick={stop} title="Stop">
-              <StopIcon size={16} />
-            </button>
-          </>
-        ) : (
-          <>
-            <span className="tts-playback-bar__label">
-              {seifData
-                ? `Seif ${currentSeif} — ${activeEntry?.title || `Siman ${activeEntry?.siman}`}`
-                : "Audio"}
-            </span>
+        <div className="tts-playback-bar__nav">
+          <PlaybackStepRow
+            kind="Siman"
+            value={activeEntry?.siman}
+            gem={simanGem}
+            onPrev={prevSimanEntry ? () => onSelectSiman(prevSimanEntry) : null}
+            onNext={nextSimanEntry ? () => onSelectSiman(nextSimanEntry) : null}
+            onOpen={() => setSimanPickerOpen(true)}
+          />
+          <PlaybackStepRow
+            kind="Seif"
+            value={currentSeif}
+            gem={seifGem}
+            onPrev={onPrevSeif}
+            onNext={onNextSeif}
+            onOpen={() => setSeifPickerOpen(true)}
+          />
+        </div>
+        <div className="tts-playback-bar__audio">
+          {speaking ? (
+            <>
+              <span className="tts-playback-bar__status">{paused ? "Paused" : "Playing"}</span>
+              <button type="button" className="tts-playback-btn" onClick={togglePause} title={paused ? "Resume" : "Pause"}>
+                {paused ? <PlayIcon size={16} /> : <PauseIcon size={16} />}
+              </button>
+              <button type="button" className="tts-playback-btn" onClick={stop} title="Stop">
+                <StopIcon size={16} />
+              </button>
+            </>
+          ) : (
             <button
               type="button"
               className="tts-playback-btn tts-playback-btn--play"
               disabled={!seifData}
               title="Play all — Mechaber, Rama, and all visible commentaries"
+              aria-label="Play all"
               onClick={() => {
                 if (!seifData || currentSeif == null) return;
                 const items = queueInterwoven(
@@ -635,8 +748,8 @@ export default function WebReaderLayout({
             >
               <PlayIcon size={16} />
             </button>
-          </>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

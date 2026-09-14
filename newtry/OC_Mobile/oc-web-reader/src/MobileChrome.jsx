@@ -75,10 +75,12 @@ function CommentaryFilter({
 export default function MobileChrome({
   expanded,
   onExpandedChange,
+  volume,
   activeEntry,
   simanGem,
   seifGem,
   currentSeif,
+  onOpenVolumePicker,
   onOpenSimanPicker,
   onOpenSeifPicker,
   onOpenSettings,
@@ -111,7 +113,8 @@ export default function MobileChrome({
   }, [menuOpen]);
 
   const title = activeEntry?.title || `Siman ${activeEntry?.siman}`;
-  const locationLine = `Siman ${activeEntry?.siman}${simanGem ? ` ${simanGem}` : ""} · Seif ${currentSeif}${seifGem ? ` ${seifGem}` : ""}`;
+  const volumeLabel = volume?.short || "SA";
+  const locationLine = `${volumeLabel} · Siman ${activeEntry?.siman}${simanGem ? ` ${simanGem}` : ""} · Seif ${currentSeif}${seifGem ? ` ${seifGem}` : ""}`;
 
   return (
     <header className={`mobile-chrome ${expanded ? "mobile-chrome--expanded" : ""}`}>
@@ -159,6 +162,17 @@ export default function MobileChrome({
               >
                 ⚙ Settings (TTS voices)
               </button>
+              <button
+                type="button"
+                className="mobile-chrome__menu-item"
+                onClick={() => {
+                  setMenuOpen(false);
+                  onExpandedChange(true);
+                  onOpenVolumePicker();
+                }}
+              >
+                Change sefer
+              </button>
               {!expanded && (
                 <button
                   type="button"
@@ -189,7 +203,16 @@ export default function MobileChrome({
       {expanded && (
         <div className="mobile-chrome__expanded">
           <div className="mobile-chrome__pickers">
-            <button type="button" className="nav-picker-btn" onClick={onOpenSimanPicker}>
+            <button type="button" className="nav-picker-btn nav-picker-btn--sefer" onClick={onOpenVolumePicker}>
+              <span className="nav-picker-btn__label">Sefer</span>
+              <span className="nav-picker-btn__value">
+                {volume?.short} — {volume?.label}
+              </span>
+              <span className="nav-picker-btn__chevron" aria-hidden="true">
+                ▼
+              </span>
+            </button>
+            <button type="button" className="nav-picker-btn nav-picker-btn--siman" onClick={onOpenSimanPicker}>
               <span className="nav-picker-btn__label">Siman</span>
               <span className="nav-picker-btn__value">
                 {activeEntry.siman}
@@ -204,7 +227,7 @@ export default function MobileChrome({
                 ▼
               </span>
             </button>
-            <button type="button" className="nav-picker-btn" onClick={onOpenSeifPicker}>
+            <button type="button" className="nav-picker-btn nav-picker-btn--seif" onClick={onOpenSeifPicker}>
               <span className="nav-picker-btn__label">Seif</span>
               <span className="nav-picker-btn__value">
                 {currentSeif}

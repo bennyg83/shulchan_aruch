@@ -120,13 +120,20 @@ export function queueInterwoven(
 
   items.push({ id: `${p}mr`, text: `Seif ${seifNum}.`, lang: "en-US" });
 
-  if (showHebrew) {
-    const heText = stripForSpeech(mr?.hebrew || "");
-    if (heText) items.push({ id: `${p}mr-he`, text: heText, lang: "he-IL" });
-  }
-  if (showEnglish) {
-    const enText = stripForSpeech(mr?.english || "");
-    if (enText) items.push({ id: `${p}mr-en`, text: enText, lang: "en-US" });
+  if (showHebrew || showEnglish) {
+    const segs = mr?.segments?.length
+      ? mr.segments
+      : [{ hebrew: mr?.hebrew || "", english: mr?.english || "" }];
+    segs.forEach((note, i) => {
+      if (showHebrew) {
+        const heText = stripForSpeech(note.hebrew || "");
+        if (heText) items.push({ id: `${p}mr-he-${i}`, text: heText, lang: "he-IL" });
+      }
+      if (showEnglish) {
+        const enText = stripForSpeech(note.english || "");
+        if (enText) items.push({ id: `${p}mr-en-${i}`, text: enText, lang: "en-US" });
+      }
+    });
   }
 
   for (const c of commentators) {
@@ -146,6 +153,15 @@ export function queueInterwoven(
   }
 
   return items;
+}
+
+function speechPauseResumeUnreliable() {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  const iOS =
+    /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const android = /Android/i.test(ua);
+  return iOS || android;
 }
 
 function normalizeLang(lang) {
@@ -348,6 +364,9 @@ export function useTTS(ttsPrefs = {}) {
   const cursorRef = useRef(0);
   const pendingPlayRef = useRef(false);
   const voiceWaitRef = useRef(0);
+  const pausedRef = useRef(false);
+  const uttGenRef = useRef(0);
+  const resumeTimerRef = useRef(0);
   const synthRef = useRef(typeof window !== "undefined" ? window.speechSynthesis : null);
   const voicesRef = useRef(
     typeof window !== "undefined" && window.speechSynthesis ? window.speechSynthesis.getVoices() : []
@@ -363,21 +382,33 @@ export function useTTS(ttsPrefs = {}) {
     return voicesRef.current;
   }, []);
 
+  const bumpUtterances = useCallback(() => {
+    uttGenRef.current += 1;
+    if (resumeTimerRef.current) {
+      window.clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = 0;
+    }
+  }, []);
+
   const stop = useCallback(() => {
     pendingPlayRef.current = false;
+    pausedRef.current = false;
+    bumpUtterances();
     if (synthRef.current) synthRef.current.cancel();
     queueRef.current = [];
     cursorRef.current = 0;
     setSpeaking(false);
     setPaused(false);
     setActiveId(null);
-  }, []);
+  }, [bumpUtterances]);
 
   const speakNext = useCallback(() => {
     const synth = synthRef.current;
     if (!synth) return;
+    if (pausedRef.current) return;
     if (cursorRef.current >= queueRef.current.length) {
       pendingPlayRef.current = false;
+      pausedRef.current = false;
       setSpeaking(false);
       setPaused(false);
       setActiveId(null);
@@ -396,7 +427,9 @@ export function useTTS(ttsPrefs = {}) {
     voiceWaitRef.current = 0;
     pendingPlayRef.current = false;
 
-    const { id, text, lang } = queueRef.current[cursorRef.current];
+    const item = queueRef.current[cursorRef.current];
+    if (!item) return;
+    const { id, text, lang } = item;
     setActiveId(id);
     const utt = new SpeechSynthesisUtterance(text);
     utt.rate = 0.92;
@@ -417,11 +450,14 @@ export function useTTS(ttsPrefs = {}) {
       utt.lang = lang;
     }
 
+    const gen = uttGenRef.current;
     utt.onend = () => {
+      if (gen !== uttGenRef.current || pausedRef.current) return;
       cursorRef.current += 1;
       speakNext();
     };
     utt.onerror = () => {
+      if (gen !== uttGenRef.current || pausedRef.current) return;
       cursorRef.current += 1;
       speakNext();
     };
@@ -432,6 +468,8 @@ export function useTTS(ttsPrefs = {}) {
     (items) => {
       const synth = synthRef.current;
       if (!synth) return;
+      pausedRef.current = false;
+      bumpUtterances();
       synth.cancel();
       refreshVoices();
       queueRef.current = items;
@@ -442,27 +480,84 @@ export function useTTS(ttsPrefs = {}) {
       setPaused(false);
       speakNext();
     },
-    [refreshVoices, speakNext]
+    [bumpUtterances, refreshVoices, speakNext]
   );
 
   const togglePause = useCallback(() => {
     const synth = synthRef.current;
-    if (!synth) return;
-    if (synth.paused) {
-      synth.resume();
+    if (!synth || !queueRef.current.length) return;
+    const unreliable = speechPauseResumeUnreliable();
+
+    if (pausedRef.current) {
+      pausedRef.current = false;
       setPaused(false);
-    } else {
-      synth.pause();
-      setPaused(true);
+      setSpeaking(true);
+      // iOS/Android: resume() is a no-op and speak() must stay in this tap.
+      if (unreliable) {
+        bumpUtterances();
+        try {
+          synth.cancel();
+        } catch {
+          /* ignore */
+        }
+        speakNext();
+        return;
+      }
+      try {
+        synth.resume();
+      } catch {
+        /* some engines throw if nothing is paused */
+      }
+      resumeTimerRef.current = window.setTimeout(() => {
+        resumeTimerRef.current = 0;
+        if (pausedRef.current) return;
+        if (synth.speaking) return;
+        bumpUtterances();
+        try {
+          synth.cancel();
+        } catch {
+          /* ignore */
+        }
+        speakNext();
+      }, 80);
+      return;
     }
-  }, []);
+
+    pausedRef.current = true;
+    setPaused(true);
+    if (unreliable) {
+      bumpUtterances();
+      try {
+        synth.cancel();
+      } catch {
+        /* ignore */
+      }
+      return;
+    }
+    try {
+      synth.pause();
+    } catch {
+      /* ignore */
+    }
+    resumeTimerRef.current = window.setTimeout(() => {
+      resumeTimerRef.current = 0;
+      if (!pausedRef.current) return;
+      if (!synth.speaking || synth.paused) return;
+      bumpUtterances();
+      try {
+        synth.cancel();
+      } catch {
+        /* ignore */
+      }
+    }, 80);
+  }, [bumpUtterances, speakNext]);
 
   useEffect(() => {
     const synth = synthRef.current;
     if (!synth) return undefined;
     const onVoicesChanged = () => {
       refreshVoices();
-      if (pendingPlayRef.current && queueRef.current.length) speakNext();
+      if (pendingPlayRef.current && queueRef.current.length && !pausedRef.current) speakNext();
     };
     refreshVoices();
     synth.addEventListener("voiceschanged", onVoicesChanged);
@@ -472,6 +567,7 @@ export function useTTS(ttsPrefs = {}) {
       synth.removeEventListener("voiceschanged", onVoicesChanged);
       window.clearTimeout(t);
       window.clearTimeout(t2);
+      if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
       synth.cancel();
     };
   }, [refreshVoices, speakNext]);

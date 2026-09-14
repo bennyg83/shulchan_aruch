@@ -6,6 +6,7 @@ export const VOLUMES = [
   {
     id: "oc1",
     label: "Orach Chayim",
+    hebrew: "אורח חיים",
     short: "OC",
     catalogPath: "/corpus/oc1/catalog.json",
     simanCount: 697,
@@ -14,6 +15,7 @@ export const VOLUMES = [
   {
     id: "yd1",
     label: "Yoreh De'ah",
+    hebrew: "יורה דעה",
     short: "YD",
     catalogPath: "/corpus/yd1/catalog.json",
     simanCount: 403,
@@ -22,6 +24,7 @@ export const VOLUMES = [
   {
     id: "eh1",
     label: "Even HaEzer",
+    hebrew: "אבן העזר",
     short: "EH",
     catalogPath: "/corpus/eh1/catalog.json",
     simanCount: 178,
@@ -30,6 +33,7 @@ export const VOLUMES = [
   {
     id: "cm1",
     label: "Choshen Mishpat",
+    hebrew: "חושן משפט",
     short: "CM",
     catalogPath: "/corpus/cm1/catalog.json",
     simanCount: 427,

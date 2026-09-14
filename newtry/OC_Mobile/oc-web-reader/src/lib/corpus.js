@@ -88,7 +88,7 @@ function extractSegmentLabel(html) {
   return "";
 }
 
-function zipHeEnSegments(heRaw, enRaw) {
+export function zipHeEnSegments(heRaw, enRaw) {
   const heParts = splitHtmlByBrSegments(heRaw);
   const enParts = splitHtmlByBrSegments(enRaw);
   if (heParts.length <= 1 && enParts.length <= 1) {
@@ -137,11 +137,14 @@ export async function loadSeifCorpus(baseUrl, manifestDoc, fetchSignal) {
   const mechaber = entries.find((e) => e.slug === "mechaber");
   const commentary = entries.filter((e) => e.slug !== "mechaber");
 
+  const mrHe = mechaber?.he ?? "";
+  const mrEn = mechaber?.en ?? "";
   const seifData = {
     seif: seifNum,
     mechaber_rama: {
-      hebrew: mechaber?.he ?? "",
-      english: mechaber?.en ?? "",
+      hebrew: mrHe,
+      english: mrEn,
+      segments: zipHeEnSegments(mrHe, mrEn),
     },
   };
 
@@ -175,11 +178,14 @@ export function loadSeifCorpusFromBundle(bundle, seifNum) {
   const PALETTE = ["#5b7fa6", "#7a5ba6", "#a65b5b", "#5ba676", "#a6935b", "#6b8cae", "#8b6b9e"];
 
   const mechaberData = seifEntry.mechaber ?? {};
+  const mrHe = mechaberData.he ?? "";
+  const mrEn = mechaberData.en ?? "";
   const seifData = {
     seif: seifNum,
     mechaber_rama: {
-      hebrew: mechaberData.he ?? "",
-      english: mechaberData.en ?? "",
+      hebrew: mrHe,
+      english: mrEn,
+      segments: zipHeEnSegments(mrHe, mrEn),
     },
   };
 
