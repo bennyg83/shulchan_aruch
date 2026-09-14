@@ -531,7 +531,7 @@ body {
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1.25rem 1.5rem calc(7.25rem + env(safe-area-inset-bottom, 0px));
+  padding: 1.25rem 1.5rem;
 }
 
 .reader-error {
@@ -727,14 +727,11 @@ body {
 }
 
 .tts-playback-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 8000;
+  z-index: 50;
   display: flex;
   align-items: stretch;
   gap: 0.45rem;
+  flex-shrink: 0;
   padding: 0.4rem 0.65rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
   background: var(--bg-elevated);
   border-top: 1px solid var(--border);
@@ -873,6 +870,28 @@ body {
 .tts-playback-btn--play:hover:not(:disabled) {
   opacity: 0.85;
   color: #fff;
+}
+
+@media (min-width: 961px) {
+  .tts-playback-bar {
+    width: max-content;
+    max-width: calc(100% - 2rem);
+    align-self: center;
+    gap: 0.85rem;
+    margin: 0.35rem auto 0.85rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .tts-playback-bar__nav {
+    flex: 0 0 auto;
+  }
+
+  .tts-playback-bar__place {
+    flex: 0 1 auto;
+  }
 }
 
 /* ── PWA offline install ── */
@@ -1573,7 +1592,7 @@ body {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    padding-bottom: calc(7.25rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 1.25rem;
   }
 
   .mobile-chrome {

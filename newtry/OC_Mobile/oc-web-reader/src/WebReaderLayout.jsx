@@ -694,9 +694,7 @@ export default function WebReaderLayout({
             </p>
           )}
         </div>
-      </main>
-
-      <div className="tts-playback-bar">
+        <div className="tts-playback-bar">
         <div className="tts-playback-bar__nav">
           <PlaybackStepRow
             kind="Siman"
@@ -746,11 +744,12 @@ export default function WebReaderLayout({
                 if (items.length) play(items);
               }}
             >
-              <PlayIcon size={16} />
+                <PlayIcon size={16} />
             </button>
           )}
         </div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 }
