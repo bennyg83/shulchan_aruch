@@ -747,7 +747,8 @@ body {
 }
 
 .tts-playback-bar__step {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2.15rem minmax(0, 1fr) 2.15rem;
   align-items: center;
   gap: 0.2rem;
   min-width: 0;
@@ -874,7 +875,7 @@ body {
 
 @media (min-width: 961px) {
   .tts-playback-bar {
-    width: max-content;
+    width: 23.6rem;
     max-width: calc(100% - 2rem);
     align-self: center;
     gap: 0.85rem;
@@ -886,11 +887,8 @@ body {
   }
 
   .tts-playback-bar__nav {
-    flex: 0 0 auto;
-  }
-
-  .tts-playback-bar__place {
-    flex: 0 1 auto;
+    flex: 1;
+    min-width: 0;
   }
 }
 
