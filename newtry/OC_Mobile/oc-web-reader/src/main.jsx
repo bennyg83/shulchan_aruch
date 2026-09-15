@@ -31,6 +31,8 @@ async function clearLegacyCorpusCaches() {
 // Standalone native builds (Capacitor / WebView APK) bundle corpus in assets — no SW.
 if (typeof window !== "undefined" && !import.meta.env.VITE_STANDALONE) {
   let refreshing = false;
+  let updateSWFn = null;
+  let registrationRef = null;
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (refreshing) return;
@@ -38,6 +40,30 @@ if (typeof window !== "undefined" && !import.meta.env.VITE_STANDALONE) {
       window.location.reload();
     });
   }
+
+  window.__appUpdate = {
+    async checkPwa() {
+      const reg =
+        registrationRef ||
+        ("serviceWorker" in navigator ? await navigator.serviceWorker.getRegistration() : null);
+      if (!reg) return { kind: "no-sw" };
+      await reg.update();
+      await new Promise((r) => setTimeout(r, 900));
+      if (reg.waiting || updateSWFn) {
+        return {
+          kind: reg.waiting ? "pwa-ready" : "pwa-current",
+          apply() {
+            updateSWFn?.(true);
+            if (reg.waiting) {
+              reg.waiting.postMessage({ type: "SKIP_WAITING" });
+            }
+            setTimeout(() => window.location.reload(), 500);
+          },
+        };
+      }
+      return { kind: "pwa-current" };
+    },
+  };
 
   import("virtual:pwa-register")
     .then(async ({ registerSW }) => {
@@ -59,6 +85,7 @@ if (typeof window !== "undefined" && !import.meta.env.VITE_STANDALONE) {
         },
         onRegisteredSW(_swUrl, registration) {
           if (!registration) return;
+          registrationRef = registration;
           const check = () => registration.update().catch(() => {});
           // Pick up corpus/app deploys without requiring a hard refresh.
           document.addEventListener("visibilitychange", () => {
@@ -79,6 +106,7 @@ if (typeof window !== "undefined" && !import.meta.env.VITE_STANDALONE) {
           console.warn("PWA service worker registration failed:", error);
         },
       });
+      updateSWFn = updateSW;
     })
     .catch(() => {
       // virtual:pwa-register only exists in a Vite PWA build — ignore in dev/test.

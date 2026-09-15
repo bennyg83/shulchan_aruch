@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { requestAppUpdateCheck } from "./lib/appUpdate.js";
 
 function Toggle({ on, onClick, children }) {
   return (
@@ -151,6 +152,16 @@ export default function MobileChrome({
               </Toggle>
               <button type="button" className="mobile-chrome__menu-item" onClick={onToggleTheme}>
                 {theme === "light" ? "Dark mode" : "Light mode"}
+              </button>
+              <button
+                type="button"
+                className="mobile-chrome__menu-item"
+                onClick={() => {
+                  setMenuOpen(false);
+                  requestAppUpdateCheck();
+                }}
+              >
+                Check for updates
               </button>
               <button
                 type="button"

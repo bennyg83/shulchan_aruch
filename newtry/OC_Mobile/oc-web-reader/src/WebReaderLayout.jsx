@@ -8,6 +8,7 @@ import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs, loadTtsPrefs, saveTtsPrefs } from "./readerStorage.js";
 import TtsSettings from "./TtsSettings.jsx";
+import { requestAppUpdateCheck } from "./lib/appUpdate.js";
 import { useTTS, queueInterwoven, stripForSpeech } from "./lib/tts.js";
 
 const PlayIcon = ({ size = 15 }) => (
@@ -531,6 +532,9 @@ export default function WebReaderLayout({
               aria-label="Reader settings"
             >
               ⚙ Settings
+            </button>
+            <button type="button" className="btn btn--ghost" onClick={requestAppUpdateCheck}>
+              Check for updates
             </button>
           </div>
         </header>

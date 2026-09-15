@@ -1358,6 +1358,21 @@ body {
   cursor: pointer;
 }
 
+.settings-panel__done--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.update-prompt__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.update-prompt__actions .settings-panel__done {
+  flex: 1;
+}
+
 /* —— Mobile chrome (hidden on desktop) —— */
 .mobile-chrome {
   display: none;

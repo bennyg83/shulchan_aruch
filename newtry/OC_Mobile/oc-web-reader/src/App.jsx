@@ -5,6 +5,7 @@ import {
   InstallBanner,
   InstallGuide,
 } from "./InstallPrompt.jsx";
+import AppUpdatePrompt from "./AppUpdatePrompt.jsx";
 
 /** Count cached siman bundles and total precache entries. */
 async function countCached() {
@@ -432,6 +433,7 @@ export default function App() {
       deferredPrompt={install.deferredPrompt}
       triggerInstall={install.triggerInstall}
     />
+    <AppUpdatePrompt />
     <WebReaderLayout
       volumes={VOLUMES}
       volume={volume}

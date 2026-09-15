@@ -43,6 +43,7 @@ jobs:
         env:
           VITE_BASE: "https://appassets.androidplatform.net/assets/"
           VITE_STANDALONE: "true"
+          VITE_APP_BUILD: ${{ github.sha }}
         run: npm run build
 
       - name: Assemble corpus into dist (catalog + bundles only — no individual seif files)
@@ -157,6 +158,8 @@ jobs:
           package com.bennyg83.shulchanaruch;
 
           import android.app.Activity;
+          import android.content.Intent;
+          import android.net.Uri;
           import android.os.Bundle;
           import android.webkit.WebSettings;
           import android.webkit.WebView;
@@ -185,6 +188,23 @@ jobs:
                   settings.setAllowContentAccess(false);
 
                   webView.setWebViewClient(new WebViewClient() {
+                      @Override
+                      public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                          Uri uri = request.getUrl();
+                          if (uri == null) return false;
+                          String host = uri.getHost() == null ? "" : uri.getHost();
+                          String path = uri.getPath() == null ? "" : uri.getPath();
+                          boolean apkDownload = path.endsWith(".apk")
+                              || (host.equals("github.com") && path.contains("/releases/download/"));
+                          if (apkDownload) {
+                              Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                              startActivity(intent);
+                              return true;
+                          }
+                          return false;
+                      }
+
                       @Override
                       public WebResourceResponse shouldInterceptRequest(
                               WebView view, WebResourceRequest request) {
@@ -251,8 +271,8 @@ jobs:
                   applicationId 'com.bennyg83.shulchanaruch'
                   minSdk 21
                   targetSdk 34
-                  versionCode 2
-                  versionName '2.0'
+                  versionCode ${{ github.run_number }}
+                  versionName '${{ github.sha }}'
               }
               signingConfigs {
                   release {
@@ -285,10 +305,14 @@ jobs:
           cat > android/app/src/main/AndroidManifest.xml << 'XML_EOF'
           <?xml version="1.0" encoding="utf-8"?>
           <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+              <uses-permission android:name="android.permission.INTERNET" />
+              <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+              <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
               <application
                   android:label="Shulchan Aruch"
                   android:icon="@mipmap/ic_launcher"
                   android:supportsRtl="true"
+                  android:usesCleartextTraffic="false"
                   android:theme="@android:style/Theme.NoTitleBar">
                   <activity
                       android:name=".MainActivity"
