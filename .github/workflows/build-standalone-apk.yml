@@ -65,6 +65,9 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
+        with:
+          packages: ''
+          log-accepted-android-sdk-licenses: false
 
       - name: Accept Android licenses
         run: yes | sdkmanager --licenses || true
