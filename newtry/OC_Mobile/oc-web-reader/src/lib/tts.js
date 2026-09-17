@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { noteVisibleForLanguages } from "./corpus.js";
+import { ENGLISH_TTS_PREVIEW_SAMPLE, prepareEnglishForSpeech } from "./englishSpeechLexicon.js";
 
 export const DEFAULT_ENGLISH_ACCENT = "en-us";
 export const DEFAULT_HEBREW_VOICE = "he-il";
@@ -12,19 +13,19 @@ export const ENGLISH_ACCENT_OPTIONS = [
     id: "en-us",
     label: "American (male)",
     lang: "en-US",
-    sample: "This is the American English reading voice.",
+    sample: ENGLISH_TTS_PREVIEW_SAMPLE,
   },
   {
     id: "en-gb",
     label: "British (male)",
     lang: "en-GB",
-    sample: "This is the British English reading voice.",
+    sample: ENGLISH_TTS_PREVIEW_SAMPLE,
   },
   {
     id: "en-au",
     label: "Australian (male)",
     lang: "en-AU",
-    sample: "This is the Australian English reading voice.",
+    sample: ENGLISH_TTS_PREVIEW_SAMPLE,
   },
 ];
 
@@ -314,7 +315,9 @@ export function previewPresetVoice(voices, presetId, sampleText) {
   if (!synth) return;
   synth.cancel();
   const preset = getPresetOption(presetId);
-  const utt = new SpeechSynthesisUtterance(sampleText || preset?.sample || "Preview.");
+  const raw = sampleText || preset?.sample || "Preview.";
+  const spoken = presetId?.startsWith("he") ? raw : prepareEnglishForSpeech(raw);
+  const utt = new SpeechSynthesisUtterance(spoken);
   utt.rate = 0.92;
   const voice = resolvePresetVoice(voices, presetId);
   if (voice) {
@@ -431,12 +434,13 @@ export function useTTS(ttsPrefs = {}) {
     if (!item) return;
     const { id, text, lang } = item;
     setActiveId(id);
-    const utt = new SpeechSynthesisUtterance(text);
+    const isHebrew = normalizeLang(lang).startsWith("he");
+    const spoken = isHebrew ? text : prepareEnglishForSpeech(text);
+    const utt = new SpeechSynthesisUtterance(spoken);
     utt.rate = 0.92;
     utt.pitch = 1;
 
     const { englishAccent = DEFAULT_ENGLISH_ACCENT, hebrewVoice = DEFAULT_HEBREW_VOICE } = prefsRef.current;
-    const isHebrew = normalizeLang(lang).startsWith("he");
     const presetId = isHebrew ? hebrewVoice : englishAccent;
     const preset = getPresetOption(presetId);
     const voice = resolvePresetVoice(voices, presetId);
