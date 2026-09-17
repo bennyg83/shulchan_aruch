@@ -5,7 +5,8 @@ import SeifPicker from "./SeifPicker.jsx";
 import VolumePicker from "./VolumePicker.jsx";
 import MobileChrome from "./MobileChrome.jsx";
 import { noteVisibleForLanguages } from "./lib/corpus.js";
-import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
+import { formatGematria } from "./lib/gematria.js";
+import { catalogEntryMatchesQuery, simanIndexLines, SIMAN_SEARCH_PLACEHOLDER } from "./lib/catalogSearch.js";
 import { loadReaderPrefs, saveReaderPrefs, loadTtsPrefs, saveTtsPrefs } from "./readerStorage.js";
 import TtsSettings from "./TtsSettings.jsx";
 import { useAppUpdate } from "./lib/appUpdate.js";
@@ -34,6 +35,22 @@ function Toggle({ on, onClick, children }) {
     <button type="button" className={`toggle ${on ? "toggle--on" : ""}`} onClick={onClick} aria-pressed={on}>
       {children}
     </button>
+  );
+}
+
+function SidebarSimanMeta({ entry }) {
+  const lines = simanIndexLines(entry);
+  return (
+    <span className="siman-list__meta">
+      <span
+        className={`siman-list__title${lines.he ? " siman-list__title--he" : ""}`}
+        dir={lines.he ? "rtl" : undefined}
+        lang={lines.he ? "he" : undefined}
+      >
+        {lines.primary}
+      </span>
+      {lines.secondary ? <span className="siman-list__subtitle">{lines.secondary}</span> : null}
+    </span>
   );
 }
 
@@ -200,23 +217,8 @@ export default function WebReaderLayout({
   }, [seifNavKey, commentators]);
 
   const filteredCatalog = useMemo(() => {
-    const q = simanQuery.trim().toLowerCase();
-    if (!q) return catalog;
-    const qBare = q.replace(/\u05F4/g, "").replace(/"/g, "");
-    return catalog.filter((e) => {
-      const n = String(e.siman);
-      const title = (e.title || "").toLowerCase();
-      const sub = (e.subtitle || "").toLowerCase();
-      const gem = formatGematria(e.siman);
-      const gemBare = numberToGematriaLetters(e.siman);
-      return (
-        n.includes(q) ||
-        title.includes(q) ||
-        sub.includes(q) ||
-        gem.includes(q) ||
-        gemBare.includes(qBare)
-      );
-    });
+    if (!simanQuery.trim()) return catalog;
+    return catalog.filter((e) => catalogEntryMatchesQuery(e, simanQuery));
   }, [catalog, simanQuery]);
 
   useEffect(() => {
@@ -284,6 +286,7 @@ export default function WebReaderLayout({
   const mr = seifData?.mechaber_rama;
   const simanGem = formatGematria(activeEntry.siman);
   const seifGem = formatGematria(currentSeif);
+  const toolbarIndex = simanIndexLines(activeEntry);
   const selectionIsSubset = commentaryVisibleKeys !== null;
   const commentarySummary = commentarySelectionSummary(commentaryVisibleKeys, commentators);
   const catalogIdx = catalog.findIndex((e) => e.siman === activeEntry.siman);
@@ -372,7 +375,7 @@ export default function WebReaderLayout({
         <input
           type="search"
           className="sidebar__search"
-          placeholder="Search siman or גימטריה…"
+          placeholder={SIMAN_SEARCH_PLACEHOLDER}
           value={simanQuery}
           onChange={(e) => setSimanQuery(e.target.value)}
           aria-label="Search simanim"
@@ -391,10 +394,7 @@ export default function WebReaderLayout({
                   {formatGematria(e.siman)}
                 </span>
               </span>
-              <span className="siman-list__meta">
-                <span className="siman-list__title">{e.title || `Siman ${e.siman}`}</span>
-                {e.subtitle ? <span className="siman-list__subtitle">{e.subtitle}</span> : null}
-              </span>
+              <SidebarSimanMeta entry={e} />
             </button>
           ))}
         </nav>
@@ -464,8 +464,14 @@ export default function WebReaderLayout({
 
         <header className="reader-toolbar reader-toolbar--desktop">
           <div className="reader-toolbar__title">
-            <h2>{activeEntry.title || `Siman ${activeEntry.siman}`}</h2>
-            {activeEntry.subtitle ? <p>{activeEntry.subtitle}</p> : null}
+            <h2
+              dir={toolbarIndex.he ? "rtl" : undefined}
+              lang={toolbarIndex.he ? "he" : undefined}
+              className={toolbarIndex.he ? "reader-toolbar__title-he" : undefined}
+            >
+              {toolbarIndex.primary}
+            </h2>
+            {toolbarIndex.secondary ? <p>{toolbarIndex.secondary}</p> : null}
           </div>
           <div className="reader-toolbar__nav">
             <div className="reader-toolbar__step-nav">

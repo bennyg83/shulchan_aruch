@@ -1,6 +1,27 @@
 import { useEffect, useMemo, useState } from "react";
-import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
-import { catalogEntryMatchesQuery } from "./lib/catalogSearch.js";
+import { formatGematria } from "./lib/gematria.js";
+import {
+  catalogEntryMatchesQuery,
+  simanIndexLines,
+  SIMAN_SEARCH_PLACEHOLDER,
+} from "./lib/catalogSearch.js";
+
+function SimanPickerRowMeta({ entry }) {
+  const lines = simanIndexLines(entry);
+  return (
+    <span className="picker-sheet__meta">
+      <span
+        className={`picker-sheet__item-title${lines.he ? " picker-sheet__item-title--he" : ""}`}
+        dir={lines.he ? "rtl" : undefined}
+        lang={lines.he ? "he" : undefined}
+      >
+        {lines.primary}
+      </span>
+      {lines.secondary ? <span className="picker-sheet__item-sub">{lines.secondary}</span> : null}
+      {entry.comment ? <span className="picker-sheet__item-sub">{entry.comment}</span> : null}
+    </span>
+  );
+}
 
 /**
  * Full-screen siman picker for mobile / narrow viewports.
@@ -28,15 +49,8 @@ export default function SimanPicker({
   }, [open, onClose]);
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return catalog;
-    const qBare = q.replace(/\u05F4/g, "").replace(/"/g, "");
-    return catalog.filter((e) => {
-      if (catalogEntryMatchesQuery(e, q)) return true;
-      const gem = formatGematria(e.siman);
-      const gemBare = numberToGematriaLetters(e.siman);
-      return gem.includes(q) || gemBare.includes(qBare);
-    });
+    if (!query.trim()) return catalog;
+    return catalog.filter((e) => catalogEntryMatchesQuery(e, query));
   }, [catalog, query]);
 
   if (!open) return null;
@@ -74,7 +88,7 @@ export default function SimanPicker({
         <input
           type="search"
           className="picker-sheet__search"
-          placeholder="Search siman or גימטריה…"
+          placeholder={SIMAN_SEARCH_PLACEHOLDER}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           autoFocus
@@ -94,11 +108,7 @@ export default function SimanPicker({
                   {formatGematria(e.siman)}
                 </span>
               </span>
-              <span className="picker-sheet__meta">
-                <span className="picker-sheet__item-title">{e.title || `Siman ${e.siman}`}</span>
-                {e.subtitle ? <span className="picker-sheet__item-sub">{e.subtitle}</span> : null}
-                {e.comment ? <span className="picker-sheet__item-sub">{e.comment}</span> : null}
-              </span>
+              <SimanPickerRowMeta entry={e} />
             </button>
           ))}
           {!filtered.length ? <p className="picker-sheet__empty">No simanim match your search.</p> : null}

@@ -276,17 +276,26 @@ body {
 
 .siman-list__title {
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.siman-list__title--he {
+  font-family: var(--hebrew-font);
+  font-weight: 700;
 }
 
 .siman-list__subtitle {
   font-size: 0.78rem;
   color: var(--text-muted);
-  white-space: nowrap;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .seif-list__item {
@@ -365,6 +374,10 @@ body {
   margin: 0;
   font-size: 1.35rem;
   font-weight: 600;
+}
+
+.reader-toolbar__title-he {
+  font-family: var(--hebrew-font);
 }
 
 .reader-toolbar__title p {
@@ -1523,18 +1536,28 @@ body {
 }
 
 .picker-sheet__item-title {
-  display: block;
   font-weight: 600;
   font-size: 0.9rem;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.picker-sheet__item-title--he {
+  font-family: var(--hebrew-font);
+  font-weight: 700;
 }
 
 .picker-sheet__item-sub {
-  display: block;
   font-size: 0.78rem;
   color: var(--text-muted);
-  white-space: nowrap;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .picker-sheet__empty {
@@ -1677,6 +1700,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    font-family: var(--hebrew-font);
   }
 
   .mobile-chrome__mini-actions {

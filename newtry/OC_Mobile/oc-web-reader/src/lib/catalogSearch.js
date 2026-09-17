@@ -1,8 +1,49 @@
 /**
  * YD catalog search index — merged simanim (e.g. 169 → 168).
+ * Also matches intelligent topic names (subtitle / subtitleHe / searchTerms).
  */
 
-/** @typedef {{ siman: number, title?: string, subtitle?: string, corpusPath: string, comment?: string, searchAliases?: number[] }} CatalogEntry */
+import { formatGematria, numberToGematriaLetters } from "./gematria.js";
+
+/** @typedef {{ siman: number, title?: string, subtitle?: string, subtitleHe?: string, corpusPath: string, comment?: string, searchAliases?: number[], searchTerms?: string[] }} CatalogEntry */
+
+const VOLUME_PLACEHOLDERS = new Set([
+  "orach chayim",
+  "yoreh de'ah",
+  "even haezer",
+  "choshen mishpat",
+]);
+
+export const SIMAN_SEARCH_PLACEHOLDER = "Search siman, topic, or גימטריה…";
+
+export function isPlaceholderSubtitle(s) {
+  const t = String(s || "").trim().toLowerCase();
+  return !t || VOLUME_PLACEHOLDERS.has(t);
+}
+
+/** Hebrew index name for display (empty if not yet named). */
+export function catalogIndexHe(entry) {
+  return String(entry?.subtitleHe || "").trim();
+}
+
+/** English index name; volume-name placeholders do not count. */
+export function catalogIndexEn(entry) {
+  const s = String(entry?.subtitle || "").trim();
+  if (isPlaceholderSubtitle(s)) return "";
+  return s;
+}
+
+/** Primary/secondary lines for the siman selector row. */
+export function simanIndexLines(entry) {
+  const he = catalogIndexHe(entry);
+  const en = catalogIndexEn(entry);
+  return {
+    he,
+    en,
+    primary: he || en || entry?.title || `Siman ${entry?.siman ?? ""}`,
+    secondary: he && en ? en : "",
+  };
+}
 
 /**
  * @param {number | null | undefined} siman
@@ -37,16 +78,24 @@ export function catalogEntryMatchesQuery(entry, query) {
   const qBare = q.replace(/\u05F4/g, "").replace(/"/g, "");
   const n = String(entry.siman);
   const title = (entry.title || "").toLowerCase();
-  const sub = (entry.subtitle || "").toLowerCase();
+  const sub = catalogIndexEn(entry).toLowerCase();
+  const subHe = catalogIndexHe(entry).toLowerCase();
   const comment = (entry.comment || "").toLowerCase();
   const aliases = (entry.searchAliases || []).map(String);
+  const terms = (entry.searchTerms || []).map((t) => String(t).toLowerCase());
+  const gem = formatGematria(entry.siman);
+  const gemBare = numberToGematriaLetters(entry.siman);
   return (
     n.includes(q) ||
     title.includes(q) ||
     sub.includes(q) ||
+    subHe.includes(q) ||
     comment.includes(q) ||
+    terms.some((t) => t.includes(q)) ||
     aliases.some((a) => a.includes(q)) ||
-    aliases.some((a) => a.replace(/\u05F4/g, "").includes(qBare))
+    aliases.some((a) => a.replace(/\u05F4/g, "").includes(qBare)) ||
+    gem.includes(q) ||
+    gemBare.includes(qBare)
   );
 }
 

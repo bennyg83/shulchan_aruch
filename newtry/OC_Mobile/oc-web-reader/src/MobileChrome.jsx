@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { simanIndexLines } from "./lib/catalogSearch.js";
 
 function Toggle({ on, onClick, children }) {
   return (
@@ -113,7 +114,9 @@ export default function MobileChrome({
     return () => document.removeEventListener("pointerdown", onPointer);
   }, [menuOpen]);
 
-  const title = activeEntry?.title || `Siman ${activeEntry?.siman}`;
+  const fallbackTitle = activeEntry?.title || `Siman ${activeEntry?.siman}`;
+  const indexLines = simanIndexLines(activeEntry);
+  const topicLine = indexLines.primary || fallbackTitle;
   const volumeLabel = volume?.short || "SA";
   const locationLine = `${volumeLabel} · Siman ${activeEntry?.siman}${simanGem ? `\u200E\u00A0${simanGem}` : ""} · Seif ${currentSeif}${seifGem ? `\u200E\u00A0${seifGem}` : ""}`;
 
@@ -124,11 +127,15 @@ export default function MobileChrome({
           type="button"
           className="mobile-chrome__location"
           onClick={() => onExpandedChange(true)}
-          title={title}
+          title={indexLines.en || topicLine}
         >
           <span className="mobile-chrome__location-text">{locationLine}</span>
-          <span className="mobile-chrome__location-sub" dir="auto">
-            {title}
+          <span
+            className="mobile-chrome__location-sub"
+            dir={indexLines.he ? "rtl" : "auto"}
+            lang={indexLines.he ? "he" : undefined}
+          >
+            {topicLine}
           </span>
         </button>
 

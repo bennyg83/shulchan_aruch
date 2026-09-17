@@ -31,13 +31,22 @@ const HUNDREDS = [
   [100, "ק"],
 ];
 
-function decompose(n, table) {
-  for (const [value, letter] of table) {
-    if (n >= value) {
-      return { value, letter, rest: n - value };
+function consume(n, table) {
+  let rest = n;
+  let out = "";
+  while (rest > 0) {
+    let hit = false;
+    for (const [value, letter] of table) {
+      if (rest >= value) {
+        out += letter;
+        rest -= value;
+        hit = true;
+        break;
+      }
     }
+    if (!hit) break;
   }
-  return { value: 0, letter: "", rest: n };
+  return { out, rest };
 }
 
 /** Build letter string without gershayim; applies טו/טז for 15/16. */
@@ -49,18 +58,14 @@ export function numberToGematriaLetters(n) {
   let rest = num;
   let out = "";
 
-  const h = decompose(rest, HUNDREDS);
-  if (h.letter) {
-    out += h.letter;
-    rest = h.rest;
-  }
-  const t = decompose(rest, TENS);
-  if (t.letter) {
-    out += t.letter;
-    rest = t.rest;
-  }
-  const o = decompose(rest, ONES);
-  if (o.letter) out += o.letter;
+  const h = consume(rest, HUNDREDS);
+  out += h.out;
+  rest = h.rest;
+  const t = consume(rest, TENS);
+  out += t.out;
+  rest = t.rest;
+  const o = consume(rest, ONES);
+  out += o.out;
 
   if (out.endsWith("יה")) out = out.slice(0, -2) + "טו";
   if (out.endsWith("יו")) out = out.slice(0, -2) + "טז";
