@@ -8,7 +8,7 @@ import { noteVisibleForLanguages } from "./lib/corpus.js";
 import { formatGematria, numberToGematriaLetters } from "./lib/gematria.js";
 import { loadReaderPrefs, saveReaderPrefs, loadTtsPrefs, saveTtsPrefs } from "./readerStorage.js";
 import TtsSettings from "./TtsSettings.jsx";
-import { requestAppUpdateCheck } from "./lib/appUpdate.js";
+import { useAppUpdate } from "./lib/appUpdate.js";
 import { useTTS, queueInterwoven, stripForSpeech } from "./lib/tts.js";
 
 const PlayIcon = ({ size = 15 }) => (
@@ -181,6 +181,7 @@ export default function WebReaderLayout({
     return !window.matchMedia("(max-width: 960px)").matches;
   });
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const appUpdate = useAppUpdate();
   const [ttsPrefs, setTtsPrefs] = useState(() => loadTtsPrefs());
   const { speaking, paused, activeId, play, stop, togglePause } = useTTS(ttsPrefs);
 
@@ -338,6 +339,7 @@ export default function WebReaderLayout({
         onClose={() => setSettingsOpen(false)}
         prefs={ttsPrefs}
         onChange={updateTtsPrefs}
+        appUpdate={appUpdate}
       />
       <aside className="sidebar sidebar--simanim">
         <div className="sidebar__brand">
@@ -442,6 +444,7 @@ export default function WebReaderLayout({
           onOpenSimanPicker={() => setSimanPickerOpen(true)}
           onOpenSeifPicker={() => setSeifPickerOpen(true)}
           onOpenSettings={() => setSettingsOpen(true)}
+          updateAvailable={appUpdate.updateAvailable}
           showHebrew={showHebrew}
           showEnglish={showEnglish}
           onToggleHebrew={() => setShowHebrew((v) => !v)}
@@ -532,9 +535,6 @@ export default function WebReaderLayout({
               aria-label="Reader settings"
             >
               ⚙ Settings
-            </button>
-            <button type="button" className="btn btn--ghost" onClick={requestAppUpdateCheck}>
-              Check for updates
             </button>
           </div>
         </header>

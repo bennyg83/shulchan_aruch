@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { requestAppUpdateCheck } from "./lib/appUpdate.js";
 
 function Toggle({ on, onClick, children }) {
   return (
@@ -85,6 +84,7 @@ export default function MobileChrome({
   onOpenSimanPicker,
   onOpenSeifPicker,
   onOpenSettings,
+  updateAvailable,
   showHebrew,
   showEnglish,
   onToggleHebrew,
@@ -138,9 +138,10 @@ export default function MobileChrome({
             className="mobile-chrome__icon-btn"
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
-            aria-label="More options"
+            aria-label={updateAvailable ? "More options, update available" : "More options"}
           >
             ⋮
+            {updateAvailable ? <span className="menu-badge" aria-hidden="true" /> : null}
           </button>
           {menuOpen && (
             <div className="mobile-chrome__menu">
@@ -158,20 +159,11 @@ export default function MobileChrome({
                 className="mobile-chrome__menu-item"
                 onClick={() => {
                   setMenuOpen(false);
-                  requestAppUpdateCheck();
-                }}
-              >
-                Check for updates
-              </button>
-              <button
-                type="button"
-                className="mobile-chrome__menu-item"
-                onClick={() => {
-                  setMenuOpen(false);
                   onOpenSettings();
                 }}
               >
                 ⚙ Settings (TTS voices)
+                {updateAvailable ? <span className="menu-badge menu-badge--inline" aria-hidden="true" /> : null}
               </button>
               <button
                 type="button"

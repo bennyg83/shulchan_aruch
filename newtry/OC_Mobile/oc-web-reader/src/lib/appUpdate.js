@@ -1,9 +1,9 @@
+import { useCallback, useEffect, useState } from "react";
+
 export const APK_DOWNLOAD_URL =
   "https://github.com/bennyg83/shulchan_aruch/releases/download/android-standalone/ShulchanAruch-Standalone.apk";
 const RELEASE_API =
   "https://api.github.com/repos/bennyg83/shulchan_aruch/releases/tags/android-standalone";
-
-export const UPDATE_EVENT = "oc-check-updates";
 
 export function isNativeStandalone() {
   return import.meta.env.VITE_STANDALONE === "true";
@@ -27,10 +27,6 @@ export function isOnline() {
   } catch {
     return true;
   }
-}
-
-export function requestAppUpdateCheck() {
-  window.dispatchEvent(new CustomEvent(UPDATE_EVENT));
 }
 
 function shasMatch(local, remote) {
@@ -60,6 +56,51 @@ export async function checkStandaloneApk() {
 
 export function startApkDownload(url = APK_DOWNLOAD_URL) {
   window.location.assign(url);
+}
+
+/**
+ * Silent GitHub APK check for the installed standalone app only.
+ * Desktop / Pages never badge; they already load the current build.
+ */
+export function useAppUpdate() {
+  const enabled = isNativeStandalone();
+  const [status, setStatus] = useState({ kind: "idle" });
+
+  const checkNow = useCallback(async ({ silent = false } = {}) => {
+    if (!isNativeStandalone()) return;
+    if (!silent) setStatus({ kind: "checking" });
+    try {
+      if (!isOnline()) {
+        if (!silent) {
+          setStatus({ kind: "error", message: "You are offline. Connect to the internet to check for updates." });
+        }
+        return;
+      }
+      const result = await checkStandaloneApk();
+      if (result.upToDate) {
+        setStatus({ kind: "current" });
+        return;
+      }
+      setStatus({ kind: "available", downloadUrl: result.downloadUrl });
+    } catch (err) {
+      if (!silent) {
+        setStatus({ kind: "error", message: err?.message || "Could not check for updates." });
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+    if (!isOnline()) return;
+    checkNow({ silent: true });
+  }, [enabled, checkNow]);
+
+  const updateAvailable = status.kind === "available";
+  const download = useCallback(() => {
+    startApkDownload(status.downloadUrl || APK_DOWNLOAD_URL);
+  }, [status.downloadUrl]);
+
+  return { enabled, status, updateAvailable, checkNow, download };
 }
 
 export async function checkPwaUpdate() {

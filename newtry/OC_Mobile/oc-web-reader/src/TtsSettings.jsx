@@ -12,7 +12,7 @@ import {
 /**
  * Curated male TTS voices — American, British, Australian English; Israeli Hebrew.
  */
-export default function TtsSettings({ open, onClose, prefs, onChange }) {
+export default function TtsSettings({ open, onClose, prefs, onChange, appUpdate }) {
   const voices = useSpeechVoices();
   const englishAccent = prefs.englishAccent ?? DEFAULT_ENGLISH_ACCENT;
   const hebrewVoice = prefs.hebrewVoice ?? DEFAULT_HEBREW_VOICE;
@@ -117,6 +117,38 @@ export default function TtsSettings({ open, onClose, prefs, onChange }) {
             </p>
           ) : null}
         </section>
+
+        {appUpdate?.enabled ? (
+          <section className="settings-section">
+            <h3 className="settings-section__heading">Updates</h3>
+            <p className="settings-section__hint">
+              {appUpdate.status.kind === "checking"
+                ? "Looking for a newer build…"
+                : appUpdate.status.kind === "available"
+                  ? "A newer app is on GitHub. Download it now? Android will install over this one; keep your reader data."
+                  : appUpdate.status.kind === "current"
+                    ? "This app already has the latest version."
+                    : appUpdate.status.kind === "error"
+                      ? appUpdate.status.message || "Could not check for updates."
+                      : "Check GitHub for a newer version of this app."}
+            </p>
+            <div className="settings-field__row">
+              {appUpdate.status.kind === "available" ? (
+                <button type="button" className="settings-field__preview" onClick={appUpdate.download}>
+                  Download update
+                </button>
+              ) : null}
+              <button
+                type="button"
+                className="settings-field__preview"
+                onClick={() => appUpdate.checkNow()}
+                disabled={appUpdate.status.kind === "checking"}
+              >
+                {appUpdate.status.kind === "checking" ? "Checking…" : "Check now"}
+              </button>
+            </div>
+          </section>
+        ) : null}
 
         <footer className="settings-panel__footer">
           <button type="button" className="settings-panel__done" onClick={onClose}>
