@@ -8,7 +8,7 @@
 
 /** Settings / accent preview sentence with mapped terms. */
 export const ENGLISH_TTS_PREVIEW_SAMPLE =
-  "This is the English reading voice. On Shabbos one wears tefillin and tzitzis.";
+  "This is the English reading voice. On Shabbos the Rama speaks of Hashem, tefillin, and tzitzis.";
 
 /**
  * [display phrase, spoken respelling]
@@ -86,7 +86,15 @@ export const ENGLISH_SPEECH_ENTRIES = [
   ["b'shogeg", "b'shoh-gegg"],
   ["b’shogeg", "b'shoh-gegg"],
   ["bishul akum", "bee-shool ah-koom"],
+  ["Hakadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo"],
+  ["HaKadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo"],
+  ["Hashem Yisborach", "hah-shem yis-boh-rakh"],
+  ["Hashem Yisbarach", "hah-shem yis-boh-rakh"],
+  ["Baruch Hashem", "bah-rukh hah-shem"],
   ["hahu hadin", "hah-hoo hah-deen"],
+  ["Ha-Shem", "hah-shem"],
+  ["HaShem", "hah-shem"],
+  ["Hashem", "hah-shem"],
   ["Shehecheyanu", "sheh-heh-kheh-yah-noo"],
   ["Shemoneh", "sh'moh-neh"],
   ["tefillin", "teh-fill-in"],
@@ -151,8 +159,8 @@ export const ENGLISH_SPEECH_ENTRIES = [
   ["Rashba", "rahsh-bah"],
   ["Ritva", "rit-vah"],
   ["Rashi", "rah-shee"],
-  ["Rema", "reh-muh"],
-  ["Rama", "reh-muh"],
+  ["Rema", "rah-mah"],
+  ["Rama", "rah-mah"],
   ["Shach", "shakh"],
   ["Chullin", "khool-lin"],
   ["Chumash", "khoo-mash"],
