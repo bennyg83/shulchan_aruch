@@ -8,7 +8,7 @@
 
 /** Settings / accent preview sentence with mapped terms. */
 export const ENGLISH_TTS_PREVIEW_SAMPLE =
-  "This is the English reading voice. On Shabbos the Rama speaks of Hashem, tefillin, and tzitzis.";
+  "The Rema discusses halachos of amos in several seifim, and Chiya.";
 
 /**
  * [display phrase, spoken respelling]
@@ -123,10 +123,10 @@ export const ENGLISH_SPEECH_ENTRIES = [
   ["melakha", "muh-lah-kha"],
   ["muktzeh", "mook-tseh"],
   ["muktze", "mook-tseh"],
-  ["halachos", "huh-lah-khos"],
-  ["halachah", "huh-lah-kha"],
-  ["halacha", "huh-lah-kha"],
-  ["halocho", "huh-lah-kha"],
+  ["halachos", "huh-lach-os"],
+  ["halachah", "huh-lach-uh"],
+  ["halacha", "huh-lach-uh"],
+  ["halocho", "huh-lach-uh"],
   ["mitzvos", "mitz-vohs"],
   ["mitzvot", "mitz-vohs"],
   ["mitzvah", "mitz-vuh"],
@@ -159,8 +159,13 @@ export const ENGLISH_SPEECH_ENTRIES = [
   ["Rashba", "rahsh-bah"],
   ["Ritva", "rit-vah"],
   ["Rashi", "rah-shee"],
-  ["Rema", "rah-mah"],
-  ["Rama", "rah-mah"],
+  ["Rema", "raah-maah"],
+  ["Rama", "raah-maah"],
+  ["Rabbi Chiya", "raah-bee hhee-yah"],
+  ["Rebbi Chiya", "reh-bee hhee-yah"],
+  ["Chiyya", "hhee-yah"],
+  ["Chiya", "hhee-yah"],
+  ["Hiyya", "hhee-yah"],
   ["Shach", "shakh"],
   ["Chullin", "khool-lin"],
   ["Chumash", "khoo-mash"],
@@ -181,11 +186,13 @@ export const ENGLISH_SPEECH_ENTRIES = [
   ["eruvin", "ay-roo-vin"],
   ["eiruv", "ay-roov"],
   ["eruv", "ay-roov"],
-  ["se'ifim", "say-fee-im"],
-  ["seifim", "say-fee-im"],
+  ["se'ifim", "sif-im"],
+  ["seifim", "sif-im"],
   ["simanim", "see-mah-nim"],
   ["siman", "see-mahn"],
-  ["seif", "sayf"],
+  ["seif", "sif"],
+  ["amos", "ah-mos"],
+  ["amah", "ah-mah"],
   ["Taz", "tahz"],
   ["Tur", "toor"],
   ["Gra", "grah"],
