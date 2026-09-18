@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { noteVisibleForLanguages } from "./corpus.js";
-import { ENGLISH_TTS_PREVIEW_SAMPLE, prepareEnglishForSpeech } from "./englishSpeechLexicon.js";
+import { ENGLISH_TTS_PREVIEW_SAMPLE, prepareEnglishForSpeech, splitEnglishForMixedSpeech } from "./englishSpeechLexicon.js";
 
 export const DEFAULT_ENGLISH_ACCENT = "en-us";
 export const DEFAULT_HEBREW_VOICE = "he-il";
@@ -105,6 +105,36 @@ export function stripForSpeech(html) {
 
 export function queueForSection(sectionId, text, lang) {
   return [{ id: sectionId, text, lang }];
+}
+
+/**
+ * English items: speak mapped Hebrew terms on the Hebrew voice when one exists.
+ * @param {{ id: string, text: string, lang?: string }[]} items
+ * @param {boolean} useHebrewTerms
+ */
+export function expandSpeechQueue(items, useHebrewTerms) {
+  const out = [];
+  for (const item of items || []) {
+    if (!item?.text) continue;
+    const isHebrew = normalizeLang(item.lang).startsWith("he");
+    if (isHebrew) {
+      out.push(item);
+      continue;
+    }
+    if (!useHebrewTerms) {
+      out.push({ ...item, text: prepareEnglishForSpeech(item.text) });
+      continue;
+    }
+    const parts = splitEnglishForMixedSpeech(item.text);
+    parts.forEach((part, i) => {
+      out.push({
+        id: `${item.id}#${i}`,
+        text: part.text,
+        lang: part.lang === "he" ? "he-IL" : item.lang || "en-US",
+      });
+    });
+  }
+  return out;
 }
 
 export function queueInterwoven(
@@ -295,6 +325,20 @@ export function resolvePresetVoice(voices, presetId) {
   return pickBestMale(familyMales, presetId);
 }
 
+/** Hebrew snippet voice: prefer the male preset, else any he-IL voice (e.g. Carmit). */
+export function resolveHebrewSnippetVoice(voices, presetId = DEFAULT_HEBREW_VOICE) {
+  const preferred = resolvePresetVoice(voices, presetId);
+  if (preferred) return preferred;
+  for (const voice of voices || []) {
+    if (matchesVoicePreset(voice, "he-il")) return voice;
+  }
+  return null;
+}
+
+export function deviceHasHebrewVoice(voices) {
+  return Boolean(resolveHebrewSnippetVoice(voices));
+}
+
 export function getPresetOption(presetId) {
   return (
     ENGLISH_ACCENT_OPTIONS.find((o) => o.id === presetId) ||
@@ -310,23 +354,48 @@ export function describePresetMatch(voices, presetId) {
   return voice.name;
 }
 
-export function previewPresetVoice(voices, presetId, sampleText) {
+export function previewPresetVoice(voices, presetId, sampleText, companionHebrewPresetId) {
   const synth = window.speechSynthesis;
   if (!synth) return;
   synth.cancel();
   const preset = getPresetOption(presetId);
   const raw = sampleText || preset?.sample || "Preview.";
-  const spoken = presetId?.startsWith("he") ? raw : prepareEnglishForSpeech(raw);
-  const utt = new SpeechSynthesisUtterance(spoken);
-  utt.rate = 0.92;
-  const voice = resolvePresetVoice(voices, presetId);
-  if (voice) {
-    utt.voice = voice;
-    utt.lang = voice.lang || preset?.lang;
-  } else if (preset?.lang) {
-    utt.lang = preset.lang;
+  const isHebrewPreview = Boolean(presetId?.startsWith("he"));
+  const hePresetId = companionHebrewPresetId || DEFAULT_HEBREW_VOICE;
+  const heVoice = resolveHebrewSnippetVoice(voices, hePresetId);
+  const enVoice = isHebrewPreview ? null : resolvePresetVoice(voices, presetId);
+
+  const speakOne = (text, voice, lang) => {
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.rate = 0.92;
+    if (voice) {
+      utt.voice = voice;
+      utt.lang = voice.lang || lang;
+    } else if (lang) {
+      utt.lang = lang;
+    }
+    synth.speak(utt);
+  };
+
+  if (isHebrewPreview) {
+    speakOne(raw, resolvePresetVoice(voices, presetId), preset?.lang || "he-IL");
+    return;
   }
-  synth.speak(utt);
+
+  if (!heVoice) {
+    speakOne(prepareEnglishForSpeech(raw), enVoice, preset?.lang || "en-US");
+    return;
+  }
+
+  const parts = splitEnglishForMixedSpeech(raw);
+  if (!parts.length) {
+    speakOne(raw, enVoice, preset?.lang || "en-US");
+    return;
+  }
+  for (const part of parts) {
+    if (part.lang === "he") speakOne(part.text, heVoice, "he-IL");
+    else speakOne(part.text, enVoice, preset?.lang || "en-US");
+  }
 }
 
 /** Load browser TTS voices (may populate asynchronously on mobile). */
@@ -366,6 +435,7 @@ export function useTTS(ttsPrefs = {}) {
   const queueRef = useRef([]);
   const cursorRef = useRef(0);
   const pendingPlayRef = useRef(false);
+  const needsExpandRef = useRef(false);
   const voiceWaitRef = useRef(0);
   const pausedRef = useRef(false);
   const uttGenRef = useRef(0);
@@ -400,6 +470,7 @@ export function useTTS(ttsPrefs = {}) {
     if (synthRef.current) synthRef.current.cancel();
     queueRef.current = [];
     cursorRef.current = 0;
+    needsExpandRef.current = false;
     setSpeaking(false);
     setPaused(false);
     setActiveId(null);
@@ -430,6 +501,19 @@ export function useTTS(ttsPrefs = {}) {
     voiceWaitRef.current = 0;
     pendingPlayRef.current = false;
 
+    if (needsExpandRef.current) {
+      const useHebrewTerms = deviceHasHebrewVoice(voices);
+      queueRef.current = expandSpeechQueue(queueRef.current, useHebrewTerms);
+      needsExpandRef.current = false;
+      cursorRef.current = 0;
+      if (!queueRef.current.length) {
+        pendingPlayRef.current = false;
+        setSpeaking(false);
+        setActiveId(null);
+        return;
+      }
+    }
+
     const item = queueRef.current[cursorRef.current];
     if (!item) return;
     const { id, text, lang } = item;
@@ -443,7 +527,9 @@ export function useTTS(ttsPrefs = {}) {
     const { englishAccent = DEFAULT_ENGLISH_ACCENT, hebrewVoice = DEFAULT_HEBREW_VOICE } = prefsRef.current;
     const presetId = isHebrew ? hebrewVoice : englishAccent;
     const preset = getPresetOption(presetId);
-    const voice = resolvePresetVoice(voices, presetId);
+    const voice = isHebrew
+      ? resolveHebrewSnippetVoice(voices, hebrewVoice)
+      : resolvePresetVoice(voices, presetId);
 
     if (voice) {
       utt.voice = voice;
@@ -478,6 +564,7 @@ export function useTTS(ttsPrefs = {}) {
       refreshVoices();
       queueRef.current = items;
       cursorRef.current = 0;
+      needsExpandRef.current = true;
       voiceWaitRef.current = 0;
       pendingPlayRef.current = true;
       setSpeaking(true);

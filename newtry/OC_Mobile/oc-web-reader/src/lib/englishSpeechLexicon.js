@@ -1,201 +1,201 @@
 /**
- * Speech-only Ashkenazi respellings for English TTS.
- * On-screen English / corpus HTML are never modified.
+ * Speech-only lexicon. On-screen English / corpus HTML are never modified.
  *
- * Keys are display forms; values are hyphenated syllables for Web Speech engines
- * (no IPA, no ALL-CAPS stress — Apple often ignores caps).
+ * Each row is [display phrase, English respelling fallback, Hebrew to speak].
+ * When a Hebrew voice exists, mapped terms are spoken as Hebrew (real chet)
+ * on the Hebrew voice; the rest of the sentence stays on the English voice.
  */
 
-/** Settings / accent preview sentence with mapped terms. */
+/** Settings preview: mapped terms should switch into Hebrew TTS. */
 export const ENGLISH_TTS_PREVIEW_SAMPLE =
   "The Rema discusses halachos of amos in several seifim, and Chiya.";
 
 /**
- * [display phrase, spoken respelling]
  * Longer phrases must win over shorter keys (Motzei Shabbos before Shabbos).
+ * @type {Array<[string, string, string]>}
  */
 export const ENGLISH_SPEECH_ENTRIES = [
-  ["yad soledet bo", "yahd soh-leh-det boh"],
-  ["mitzamek v'yafeh lo", "mit-zah-mek v'yah-feh loh"],
-  ["mitzamek v'ra lo", "mit-zah-mek v'rah loh"],
-  ["Kitzur Shulchan Aruch", "kit-zoor shool-khan ah-rukh"],
-  ["Shulchan Aruch HaRav", "shool-khan ah-rukh ha-rahv"],
-  ["Aruch HaShulchan", "ah-rukh ha-shool-khan"],
-  ["Mishnah Berurah", "mish-nuh b'roo-rah"],
-  ["Mishna Berurah", "mish-nuh b'roo-rah"],
-  ["Magen Avraham", "mah-gen av-roh-hom"],
-  ["Turei Zahav", "too-ray zah-hahv"],
-  ["Sifsei Kohen", "sif-say koh-hen"],
-  ["Siftei Kohen", "sif-say koh-hen"],
-  ["Be'er Heitev", "be-air hay-tev"],
-  ["Beer Heitev", "be-air hay-tev"],
-  ["Baer Heteiv", "be-air hay-tev"],
-  ["Pri Megadim", "pree meh-gah-deem"],
-  ["Levushei Serad", "l'voo-shay s'rahd"],
-  ["Biur HaGra", "bee-oor ha-grah"],
-  ["Beur HaGra", "bee-oor ha-grah"],
-  ["Beur Hagra", "bee-oor ha-grah"],
-  ["Kaf HaChaim", "kahf ha-khahyim"],
-  ["Motzei Shabbos", "mot-zay shah-biss"],
-  ["Motzaei Shabbos", "mot-zay shah-biss"],
-  ["Motzei Shabbat", "mot-zay shah-biss"],
-  ["Motzaei Shabbat", "mot-zay shah-biss"],
-  ["Keriat Shema", "kree-yas shih-mah"],
-  ["Kriat Shema", "kree-yas shih-mah"],
-  ["Kriyas Shema", "kree-yas shih-mah"],
-  ["Krias Shema", "kree-yas shih-mah"],
-  ["Shemoneh Esrei", "sh'moh-neh ess-ray"],
-  ["Shmoneh Esrei", "sh'moh-neh ess-ray"],
-  ["Shemona Esrei", "sh'moh-neh ess-ray"],
-  ["Orach Chayim", "oh-rakh khahyim"],
-  ["Orach Chaim", "oh-rakh khahyim"],
-  ["Yoreh De'ah", "yoh-reh day-ah"],
-  ["Yoreh Deah", "yoh-reh day-ah"],
-  ["Even HaEzer", "eh-ven hah-eh-zer"],
-  ["Even Haezer", "eh-ven hah-eh-zer"],
-  ["Choshen Mishpat", "khoh-shen mish-pot"],
-  ["Shulchan Aruch", "shool-khan ah-rukh"],
-  ["bichdei sheyeasu", "bikh-day sheh-ya-a-soo"],
-  ["maachal ben Drusai", "mah-a-khal ben droo-sye"],
-  ["ben Drusai", "ben droo-sye"],
-  ["kli shelishi", "klee sh'lee-shee"],
-  ["kli rishon", "klee ree-shohn"],
-  ["kli sheni", "klee shay-nee"],
-  ["chol hamoed", "khol ha-moh-ed"],
-  ["Chol HaMoed", "khol ha-moh-ed"],
-  ["Tisha B'Av", "tish-ah b'ahv"],
-  ["Tisha BAv", "tish-ah b'ahv"],
-  ["Rosh Hashanah", "rohsh ha-shah-nuh"],
-  ["Rosh HaShanah", "rohsh ha-shah-nuh"],
-  ["Yom Kippur", "yohm kip-per"],
-  ["Beit Yosef", "bais yoh-seif"],
-  ["Bais Yosef", "bais yoh-seif"],
-  ["Beis Yosef", "bais yoh-seif"],
-  ["Yom Tov", "yohm tohv"],
-  ["Yomtov", "yohm tohv"],
-  ["d'oraisa", "d'oh-rye-sah"],
-  ["d’oraisa", "d'oh-rye-sah"],
-  ["deoraisa", "d'oh-rye-sah"],
-  ["d'oraita", "d'oh-rye-sah"],
-  ["de'oraita", "d'oh-rye-sah"],
-  ["d'rabbanan", "d'rah-boh-nun"],
-  ["d’rabbanan", "d'rah-boh-nun"],
-  ["derabbanan", "d'rah-boh-nun"],
-  ["b'meizid", "b'may-zid"],
-  ["b’meizid", "b'may-zid"],
-  ["b'shogeg", "b'shoh-gegg"],
-  ["b’shogeg", "b'shoh-gegg"],
-  ["bishul akum", "bee-shool ah-koom"],
-  ["Hakadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo"],
-  ["HaKadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo"],
-  ["Hashem Yisborach", "hah-shem yis-boh-rakh"],
-  ["Hashem Yisbarach", "hah-shem yis-boh-rakh"],
-  ["Baruch Hashem", "bah-rukh hah-shem"],
-  ["hahu hadin", "hah-hoo hah-deen"],
-  ["Ha-Shem", "hah-shem"],
-  ["HaShem", "hah-shem"],
-  ["Hashem", "hah-shem"],
-  ["Shehecheyanu", "sheh-heh-kheh-yah-noo"],
-  ["Shemoneh", "sh'moh-neh"],
-  ["tefillin", "teh-fill-in"],
-  ["tefilin", "teh-fill-in"],
-  ["tzitzis", "tzit-siss"],
-  ["tzitzit", "tzit-siss"],
-  ["talleisim", "tah-lay-sim"],
-  ["tallisos", "tah-lay-sos"],
-  ["tallis", "tah-liss"],
-  ["tallit", "tah-liss"],
-  ["berachos", "b'rah-khos"],
-  ["berachot", "b'rah-khos"],
-  ["berachah", "b'rah-khuh"],
-  ["berakhah", "b'rah-khuh"],
-  ["beracha", "b'rah-khuh"],
-  ["brachos", "b'rah-khos"],
-  ["bracha", "b'rah-khuh"],
-  ["Shabbos", "shah-biss"],
-  ["Shabbat", "shah-biss"],
-  ["havdalah", "hav-doh-loh"],
-  ["havdoloh", "hav-doh-loh"],
-  ["kiddush", "kid-dush"],
-  ["Shema", "shih-mah"],
-  ["melachos", "muh-lah-khos"],
-  ["melacha", "muh-lah-kha"],
-  ["melakha", "muh-lah-kha"],
-  ["muktzeh", "mook-tseh"],
-  ["muktze", "mook-tseh"],
-  ["halachos", "huh-lach-os"],
-  ["halachah", "huh-lach-uh"],
-  ["halacha", "huh-lach-uh"],
-  ["halocho", "huh-lach-uh"],
-  ["mitzvos", "mitz-vohs"],
-  ["mitzvot", "mitz-vohs"],
-  ["mitzvah", "mitz-vuh"],
-  ["parshiyos", "par-shee-yohs"],
-  ["parshah", "par-shuh"],
-  ["parasha", "par-shuh"],
-  ["parsha", "par-shuh"],
-  ["tefillah", "t'fee-luh"],
-  ["tefilla", "t'fee-luh"],
-  ["mezuzos", "meh-zoo-zohs"],
-  ["mezuzah", "meh-zoo-zuh"],
-  ["shechitah", "sh'khee-tah"],
-  ["shechita", "sh'khee-tah"],
-  ["shochet", "shoh-khet"],
-  ["kashrus", "kash-rus"],
-  ["kashrut", "kash-rus"],
-  ["niddah", "nid-duh"],
-  ["treifah", "tray-fuh"],
-  ["treifos", "tray-fos"],
-  ["issur", "ee-soor"],
-  ["heter", "hay-ter"],
-  ["gezeirah", "g'zay-ruh"],
-  ["minhag", "min-huhg"],
-  ["davka", "dav-kuh"],
-  ["Mechaber", "meh-kha-behr"],
-  ["Tosafos", "toh-sah-fos"],
-  ["Tosafot", "toh-sah-fos"],
-  ["Rambam", "rahm-bahm"],
-  ["Ramban", "rahm-bahn"],
-  ["Rashba", "rahsh-bah"],
-  ["Ritva", "rit-vah"],
-  ["Rashi", "rah-shee"],
-  ["Rema", "raah-maah"],
-  ["Rama", "raah-maah"],
-  ["Rabbi Chiya", "raah-bee hhee-yah"],
-  ["Rebbi Chiya", "reh-bee hhee-yah"],
-  ["Chiyya", "hhee-yah"],
-  ["Chiya", "hhee-yah"],
-  ["Hiyya", "hhee-yah"],
-  ["Shach", "shakh"],
-  ["Chullin", "khool-lin"],
-  ["Chumash", "khoo-mash"],
-  ["Mishnah", "mish-nuh"],
-  ["Mishna", "mish-nuh"],
-  ["Gemara", "g'mah-rah"],
-  ["Talmud", "tahl-mood"],
-  ["Pesach", "pay-sakh"],
-  ["Shavuos", "shuh-voo-ohs"],
-  ["Shavuot", "shuh-voo-ohs"],
-  ["Chanukah", "khah-nuh-kuh"],
-  ["Hanukkah", "khah-nuh-kuh"],
-  ["Purim", "poo-rim"],
-  ["sukkah", "soo-kuh"],
-  ["lulav", "loo-luhv"],
-  ["esrog", "ess-rog"],
-  ["etrog", "ess-rog"],
-  ["eruvin", "ay-roo-vin"],
-  ["eiruv", "ay-roov"],
-  ["eruv", "ay-roov"],
-  ["se'ifim", "sif-im"],
-  ["seifim", "sif-im"],
-  ["simanim", "see-mah-nim"],
-  ["siman", "see-mahn"],
-  ["seif", "sif"],
-  ["amos", "ah-mos"],
-  ["amah", "ah-mah"],
-  ["Taz", "tahz"],
-  ["Tur", "toor"],
-  ["Gra", "grah"],
+  ["yad soledet bo", "yahd soh-leh-det boh", "יד סולדת בו"],
+  ["mitzamek v'yafeh lo", "mit-zah-mek v'yah-feh loh", "מצטמק ויפה לו"],
+  ["mitzamek v'ra lo", "mit-zah-mek v'rah loh", "מצטמק ורע לו"],
+  ["Kitzur Shulchan Aruch", "kit-zoor shool-khan ah-rukh", "קיצור שולחן ערוך"],
+  ["Shulchan Aruch HaRav", "shool-khan ah-rukh ha-rahv", "שולחן ערוך הרב"],
+  ["Aruch HaShulchan", "ah-rukh ha-shool-khan", "ערוך השולחן"],
+  ["Mishnah Berurah", "mish-nuh b'roo-rah", "משנה ברורה"],
+  ["Mishna Berurah", "mish-nuh b'roo-rah", "משנה ברורה"],
+  ["Magen Avraham", "mah-gen av-roh-hom", "מגן אברהם"],
+  ["Turei Zahav", "too-ray zah-hahv", "טורי זהב"],
+  ["Sifsei Kohen", "sif-say koh-hen", "שפתי כהן"],
+  ["Siftei Kohen", "sif-say koh-hen", "שפתי כהן"],
+  ["Be'er Heitev", "be-air hay-tev", "באר היטב"],
+  ["Beer Heitev", "be-air hay-tev", "באר היטב"],
+  ["Baer Heteiv", "be-air hay-tev", "באר היטב"],
+  ["Pri Megadim", "pree meh-gah-deem", "פרי מגדים"],
+  ["Levushei Serad", "l'voo-shay s'rahd", "לבושי שרד"],
+  ["Biur HaGra", "bee-oor ha-grah", "ביאור הגר״א"],
+  ["Beur HaGra", "bee-oor ha-grah", "ביאור הגר״א"],
+  ["Beur Hagra", "bee-oor ha-grah", "ביאור הגר״א"],
+  ["Kaf HaChaim", "kahf ha-khahyim", "כף החיים"],
+  ["Motzei Shabbos", "mot-zay shah-biss", "מוצאי שבת"],
+  ["Motzaei Shabbos", "mot-zay shah-biss", "מוצאי שבת"],
+  ["Motzei Shabbat", "mot-zay shah-biss", "מוצאי שבת"],
+  ["Motzaei Shabbat", "mot-zay shah-biss", "מוצאי שבת"],
+  ["Keriat Shema", "kree-yas shih-mah", "קריאת שמע"],
+  ["Kriat Shema", "kree-yas shih-mah", "קריאת שמע"],
+  ["Kriyas Shema", "kree-yas shih-mah", "קריאת שמע"],
+  ["Krias Shema", "kree-yas shih-mah", "קריאת שמע"],
+  ["Shemoneh Esrei", "sh'moh-neh ess-ray", "שמונה עשרה"],
+  ["Shmoneh Esrei", "sh'moh-neh ess-ray", "שמונה עשרה"],
+  ["Shemona Esrei", "sh'moh-neh ess-ray", "שמונה עשרה"],
+  ["Orach Chayim", "oh-rakh khahyim", "אורח חיים"],
+  ["Orach Chaim", "oh-rakh khahyim", "אורח חיים"],
+  ["Yoreh De'ah", "yoh-reh day-ah", "יורה דעה"],
+  ["Yoreh Deah", "yoh-reh day-ah", "יורה דעה"],
+  ["Even HaEzer", "eh-ven hah-eh-zer", "אבן העזר"],
+  ["Even Haezer", "eh-ven hah-eh-zer", "אבן העזר"],
+  ["Choshen Mishpat", "khoh-shen mish-pot", "חושן משפט"],
+  ["Shulchan Aruch", "shool-khan ah-rukh", "שולחן ערוך"],
+  ["bichdei sheyeasu", "bikh-day sheh-ya-a-soo", "בכדי שיעשו"],
+  ["maachal ben Drusai", "mah-a-khal ben droo-sye", "מאכל בן דרוסאי"],
+  ["ben Drusai", "ben droo-sye", "בן דרוסאי"],
+  ["kli shelishi", "klee sh'lee-shee", "כלי שלישי"],
+  ["kli rishon", "klee ree-shohn", "כלי ראשון"],
+  ["kli sheni", "klee shay-nee", "כלי שני"],
+  ["chol hamoed", "khol ha-moh-ed", "חול המועד"],
+  ["Chol HaMoed", "khol ha-moh-ed", "חול המועד"],
+  ["Tisha B'Av", "tish-ah b'ahv", "תשעה באב"],
+  ["Tisha BAv", "tish-ah b'ahv", "תשעה באב"],
+  ["Rosh Hashanah", "rohsh ha-shah-nuh", "ראש השנה"],
+  ["Rosh HaShanah", "rohsh ha-shah-nuh", "ראש השנה"],
+  ["Yom Kippur", "yohm kip-per", "יום כיפור"],
+  ["Beit Yosef", "bais yoh-seif", "בית יוסף"],
+  ["Bais Yosef", "bais yoh-seif", "בית יוסף"],
+  ["Beis Yosef", "bais yoh-seif", "בית יוסף"],
+  ["Yom Tov", "yohm tohv", "יום טוב"],
+  ["Yomtov", "yohm tohv", "יום טוב"],
+  ["d'oraisa", "d'oh-rye-sah", "דאורייתא"],
+  ["d’oraisa", "d'oh-rye-sah", "דאורייתא"],
+  ["deoraisa", "d'oh-rye-sah", "דאורייתא"],
+  ["d'oraita", "d'oh-rye-sah", "דאורייתא"],
+  ["de'oraita", "d'oh-rye-sah", "דאורייתא"],
+  ["d'rabbanan", "d'rah-boh-nun", "דרבנן"],
+  ["d’rabbanan", "d'rah-boh-nun", "דרבנן"],
+  ["derabbanan", "d'rah-boh-nun", "דרבנן"],
+  ["b'meizid", "b'may-zid", "במזיד"],
+  ["b’meizid", "b'may-zid", "במזיד"],
+  ["b'shogeg", "b'shoh-gegg", "בשוגג"],
+  ["b’shogeg", "b'shoh-gegg", "בשוגג"],
+  ["bishul akum", "bee-shool ah-koom", "בישול עכו״ם"],
+  ["Hakadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo", "הקדוש ברוך הוא"],
+  ["HaKadosh Baruch Hu", "hah-kah-dosh bah-rukh hoo", "הקדוש ברוך הוא"],
+  ["Hashem Yisborach", "hah-shem yis-boh-rakh", "השם יתברך"],
+  ["Hashem Yisbarach", "hah-shem yis-boh-rakh", "השם יתברך"],
+  ["Baruch Hashem", "bah-rukh hah-shem", "ברוך השם"],
+  ["hahu hadin", "hah-hoo hah-deen", "הוא הדין"],
+  ["Ha-Shem", "hah-shem", "השם"],
+  ["HaShem", "hah-shem", "השם"],
+  ["Hashem", "hah-shem", "השם"],
+  ["Shehecheyanu", "sheh-heh-kheh-yah-noo", "שהחיינו"],
+  ["Shemoneh", "sh'moh-neh", "שמונה"],
+  ["tefillin", "teh-fill-in", "תפילין"],
+  ["tefilin", "teh-fill-in", "תפילין"],
+  ["tzitzis", "tzit-siss", "ציצית"],
+  ["tzitzit", "tzit-siss", "ציצית"],
+  ["talleisim", "tah-lay-sim", "טליות"],
+  ["tallisos", "tah-lay-sos", "טליות"],
+  ["tallis", "tah-liss", "טלית"],
+  ["tallit", "tah-liss", "טלית"],
+  ["berachos", "b'rah-khos", "ברכות"],
+  ["berachot", "b'rah-khos", "ברכות"],
+  ["berachah", "b'rah-khuh", "ברכה"],
+  ["berakhah", "b'rah-khuh", "ברכה"],
+  ["beracha", "b'rah-khuh", "ברכה"],
+  ["brachos", "b'rah-khos", "ברכות"],
+  ["bracha", "b'rah-khuh", "ברכה"],
+  ["Shabbos", "shah-biss", "שבת"],
+  ["Shabbat", "shah-biss", "שבת"],
+  ["havdalah", "hav-doh-loh", "הבדלה"],
+  ["havdoloh", "hav-doh-loh", "הבדלה"],
+  ["kiddush", "kid-dush", "קידוש"],
+  ["Shema", "shih-mah", "שמע"],
+  ["melachos", "muh-lah-khos", "מלאכות"],
+  ["melacha", "muh-lah-kha", "מלאכה"],
+  ["melakha", "muh-lah-kha", "מלאכה"],
+  ["muktzeh", "mook-tseh", "מוקצה"],
+  ["muktze", "mook-tseh", "מוקצה"],
+  ["halachos", "huh-lach-os", "הלכות"],
+  ["halachah", "huh-lach-uh", "הלכה"],
+  ["halacha", "huh-lach-uh", "הלכה"],
+  ["halocho", "huh-lach-uh", "הלכה"],
+  ["mitzvos", "mitz-vohs", "מצוות"],
+  ["mitzvot", "mitz-vohs", "מצוות"],
+  ["mitzvah", "mitz-vuh", "מצוה"],
+  ["parshiyos", "par-shee-yohs", "פרשיות"],
+  ["parshah", "par-shuh", "פרשה"],
+  ["parasha", "par-shuh", "פרשה"],
+  ["parsha", "par-shuh", "פרשה"],
+  ["tefillah", "t'fee-luh", "תפילה"],
+  ["tefilla", "t'fee-luh", "תפילה"],
+  ["mezuzos", "meh-zoo-zohs", "מזוזות"],
+  ["mezuzah", "meh-zoo-zuh", "מזוזה"],
+  ["shechitah", "sh'khee-tah", "שחיטה"],
+  ["shechita", "sh'khee-tah", "שחיטה"],
+  ["shochet", "shoh-khet", "שוחט"],
+  ["kashrus", "kash-rus", "כשרות"],
+  ["kashrut", "kash-rus", "כשרות"],
+  ["niddah", "nid-duh", "נידה"],
+  ["treifah", "tray-fuh", "טריפה"],
+  ["treifos", "tray-fos", "טריפות"],
+  ["issur", "ee-soor", "איסור"],
+  ["heter", "hay-ter", "היתר"],
+  ["gezeirah", "g'zay-ruh", "גזירה"],
+  ["minhag", "min-huhg", "מנהג"],
+  ["davka", "dav-kuh", "דווקא"],
+  ["Mechaber", "meh-kha-behr", "מחבר"],
+  ["Tosafos", "toh-sah-fos", "תוספות"],
+  ["Tosafot", "toh-sah-fos", "תוספות"],
+  ["Rambam", "rahm-bahm", "רמב״ם"],
+  ["Ramban", "rahm-bahn", "רמב״ן"],
+  ["Rashba", "rahsh-bah", "רשב״א"],
+  ["Ritva", "rit-vah", "ריטב״א"],
+  ["Rashi", "rah-shee", "רש״י"],
+  ["Rema", "raah-maah", "רמ״א"],
+  ["Rama", "raah-maah", "רמ״א"],
+  ["Rabbi Chiya", "raah-bee hhee-yah", "רבי חייא"],
+  ["Rebbi Chiya", "reh-bee hhee-yah", "רבי חייא"],
+  ["Chiyya", "hhee-yah", "חייא"],
+  ["Chiya", "hhee-yah", "חייא"],
+  ["Hiyya", "hhee-yah", "חייא"],
+  ["Shach", "shakh", "ש״ך"],
+  ["Chullin", "khool-lin", "חולין"],
+  ["Chumash", "khoo-mash", "חומש"],
+  ["Mishnah", "mish-nuh", "משנה"],
+  ["Mishna", "mish-nuh", "משנה"],
+  ["Gemara", "g'mah-rah", "גמרא"],
+  ["Talmud", "tahl-mood", "תלמוד"],
+  ["Pesach", "pay-sakh", "פסח"],
+  ["Shavuos", "shuh-voo-ohs", "שבועות"],
+  ["Shavuot", "shuh-voo-ohs", "שבועות"],
+  ["Chanukah", "khah-nuh-kuh", "חנוכה"],
+  ["Hanukkah", "khah-nuh-kuh", "חנוכה"],
+  ["Purim", "poo-rim", "פורים"],
+  ["sukkah", "soo-kuh", "סוכה"],
+  ["lulav", "loo-luhv", "לולב"],
+  ["esrog", "ess-rog", "אתרוג"],
+  ["etrog", "ess-rog", "אתרוג"],
+  ["eruvin", "ay-roo-vin", "עירובין"],
+  ["eiruv", "ay-roov", "עירוב"],
+  ["eruv", "ay-roov", "עירוב"],
+  ["se'ifim", "sif-im", "סעיפים"],
+  ["seifim", "sif-im", "סעיפים"],
+  ["simanim", "see-mah-nim", "סימנים"],
+  ["siman", "see-mahn", "סימן"],
+  ["seif", "sif", "סעיף"],
+  ["amos", "ah-mos", "אמות"],
+  ["amah", "ah-mah", "אמה"],
+  ["Taz", "tahz", "ט״ז"],
+  ["Tur", "toor", "טור"],
+  ["Gra", "grah", "גר״א"],
 ];
 
 function escapeRe(s) {
@@ -213,11 +213,15 @@ function phraseToInnerPattern(phrase) {
     .join("");
 }
 
+function isWordChar(ch) {
+  return ch != null && /[A-Za-z0-9]/.test(ch);
+}
+
 function compileEntries(entries) {
   const seen = new Set();
   const compiled = [];
   const sorted = [...entries].sort((a, b) => b[0].length - a[0].length);
-  for (const [from, to] of sorted) {
+  for (const [from, enSpoken, heSpoken] of sorted) {
     const key = String(from).replace(/['’]/g, "'").toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
@@ -225,8 +229,10 @@ function compileEntries(entries) {
     const inner = phraseToInnerPattern(from);
     compiled.push({
       from,
-      spoken: to,
+      spoken: enSpoken,
+      he: String(heSpoken || "").trim(),
       re: new RegExp(`(^|[^A-Za-z0-9])(${inner}(?:['’]s)?)(?=$|[^A-Za-z0-9])`, "gi"),
+      startRe: new RegExp(`^(${inner}(?:['’]s)?)(?=$|[^A-Za-z0-9])`, "i"),
     });
   }
   return compiled;
@@ -234,8 +240,67 @@ function compileEntries(entries) {
 
 const COMPILED = compileEntries(ENGLISH_SPEECH_ENTRIES);
 
+function mergeSpeechParts(raw) {
+  /** @type {{ lang: "en" | "he", text: string }[]} */
+  const parts = [];
+  for (const part of raw) {
+    if (!part?.text) continue;
+    if (/^[\s.,;:!?]+$/.test(part.text) && parts.length) {
+      parts[parts.length - 1].text += part.text;
+      continue;
+    }
+    const prev = parts[parts.length - 1];
+    if (prev && prev.lang === part.lang) {
+      prev.text += part.text;
+      continue;
+    }
+    parts.push({ lang: part.lang, text: part.text });
+  }
+  return parts.filter((p) => p.text.trim());
+}
+
 /**
- * Rewrite English for TTS only. Returns a new string; does not mutate HTML.
+ * Split English into English runs and Hebrew terms for mixed-voice TTS.
+ * Display text is not modified.
+ * @param {string} text
+ * @returns {{ lang: "en" | "he", text: string }[]}
+ */
+export function splitEnglishForMixedSpeech(text) {
+  if (!text) return [];
+  const s = String(text);
+  /** @type {{ lang: "en" | "he", text: string }[]} */
+  const raw = [];
+  let i = 0;
+  let last = 0;
+  while (i < s.length) {
+    if (i > 0 && isWordChar(s[i - 1])) {
+      i += 1;
+      continue;
+    }
+    let hit = null;
+    for (const e of COMPILED) {
+      if (!e.he) continue;
+      const m = s.slice(i).match(e.startRe);
+      if (m) {
+        hit = { len: m[0].length, he: e.he };
+        break;
+      }
+    }
+    if (hit) {
+      if (i > last) raw.push({ lang: "en", text: s.slice(last, i) });
+      raw.push({ lang: "he", text: hit.he });
+      i += hit.len;
+      last = i;
+      continue;
+    }
+    i += 1;
+  }
+  if (last < s.length) raw.push({ lang: "en", text: s.slice(last) });
+  return mergeSpeechParts(raw);
+}
+
+/**
+ * English-only rewrite (used when no Hebrew voice is available).
  * @param {string} text
  * @returns {string}
  */

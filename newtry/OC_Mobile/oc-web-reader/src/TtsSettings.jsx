@@ -53,7 +53,7 @@ export default function TtsSettings({ open, onClose, prefs, onChange, appUpdate 
           <h3 className="settings-section__heading">Text-to-speech voices</h3>
           <p className="settings-section__hint">
             Male voices only. The app picks the best matching male voice on your device for each accent.
-            English preview uses Ashkenazi pronunciations for common Hebrew terms; on-screen text is unchanged.
+            Mapped Hebrew terms (Hashem, Rema, halachos, and the like) play on the Hebrew voice; the rest stays on the English voice. On-screen text is unchanged.
           </p>
 
           <label className="settings-field">
@@ -75,7 +75,7 @@ export default function TtsSettings({ open, onClose, prefs, onChange, appUpdate 
                 className="settings-field__preview"
                 onClick={() => {
                   const opt = ENGLISH_ACCENT_OPTIONS.find((o) => o.id === englishAccent);
-                  previewPresetVoice(voices, englishAccent, opt?.sample);
+                  previewPresetVoice(voices, englishAccent, opt?.sample, hebrewVoice);
                 }}
               >
                 Preview
